@@ -6,10 +6,20 @@
     <description>Recent content in Posts on Then Blog&#39;s</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 27 Jul 2020 20:41:22 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 28 Jul 2020 13:09:01 +0800</lastBuildDate>
     
 	<atom:link href="https://6923403.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Linux install Boost c&#43;&#43;</title>
+      <link>https://6923403.github.io/post/linux_install_boost/</link>
+      <pubDate>Tue, 28 Jul 2020 13:09:01 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/linux_install_boost/</guid>
+      <description>Boost C++ is Cpp programming language that provides support for tasks and structures
+ Download Source https://dl.bintray.com/boostorg/release/1.73.0/source/boost_1_73_0.tar.gz tar zxvf boost(解压)  Set use GCC cd boost ./bootstrap.sh --with-libraries=all --with-toolset=gcc  Compile &amp;amp; Install boost ./b2 toolset=gcc ./b2 install --prefix=/usr  Test programming #include &amp;lt;boost/thread/thread.hpp&amp;gt; //boost thread #include &amp;lt;iostream&amp;gt; #include &amp;lt;cstdlib&amp;gt; using namespace std; volatile bool isRuning = true; void func1() { static int cnt1 = 0; while(isRuning) { cout &amp;lt;&amp;lt; &amp;quot;func1:&amp;quot; &amp;lt;&amp;lt; cnt1++ &amp;lt;&amp;lt; endl; sleep(1); } } void func2() { static int cnt2 = 0; while(isRuning) { cout &amp;lt;&amp;lt; &amp;quot;\tfunc2:&amp;quot; &amp;lt;&amp;lt; cnt2++ &amp;lt;&amp;lt; endl; sleep(2); } } int main() { boost::thread thread1(&amp;amp;func1); boost::thread thread2(&amp;amp;func2); system(&amp;quot;read&amp;quot;); isRuning = false; thread2.</description>
+    </item>
     
     <item>
       <title>Mark</title>
