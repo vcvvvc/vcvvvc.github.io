@@ -6,13 +6,25 @@
     <description>Recent content in Posts on Then Blog&#39;s</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 28 Jul 2020 14:44:30 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 29 Jul 2020 17:29:52 +0800</lastBuildDate>
     
 	<atom:link href="https://6923403.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Variable function(fun(char *, ...)) and vsprintf()</title>
+      <title>Ubuntu20 Install Nvidia drivers</title>
+      <link>https://6923403.github.io/post/install_nvidia/</link>
+      <pubDate>Wed, 29 Jul 2020 17:29:52 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/install_nvidia/</guid>
+      <description>0.Ready work Disable BIOS secure boot，choose disable .
+ 1. Uninstall old Nvidia drivers sudo apt-get remove --purge nvidia*  2. Add rules vim /etc/modprobe.d/blacklist.conf
+1. blacklist nouveau 2. options nouveau modeset=0  3. Verification After reboot, use the following command no return is successful
+sudo update-initramfs -u lsmod | grep nouveau  4. Choose Navidia drivers version  1.Use command: ubuntu-drivers devices 2.Nvidia Official website  Choose stable version and install</description>
+    </item>
+    
+    <item>
+      <title>Variable function(fun(char *, ...)) and vsnprintf()</title>
       <link>https://6923403.github.io/post/variable_function/</link>
       <pubDate>Tue, 28 Jul 2020 14:44:30 +0800</pubDate>
       
