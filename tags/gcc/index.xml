@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GCC on Then Blog&#39;s</title>
+    <link>https://6923403.github.io/tags/gcc/</link>
+    <description>Recent content in GCC on Then Blog&#39;s</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 28 Jul 2020 14:44:30 +0800</lastBuildDate>
+    
+	<atom:link href="https://6923403.github.io/tags/gcc/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Variable function(fun(char *, ...)) and vsnprintf()</title>
+      <link>https://6923403.github.io/post/variable_function/</link>
+      <pubDate>Tue, 28 Jul 2020 14:44:30 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/variable_function/</guid>
+      <description>void fun(char * fmt, &amp;hellip;); int vsprintf(char *str, const char *format, va_list arg);
+  Test programming #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;stdarg.h&amp;gt; /* * Re: https://github.com/antirez/kilo/kilo.c * Re: https://www.runoob.com/cprogramming/c-function-vsprintf.html */ char buffer[80]; int editorSetstatus(const char * fmt, ...) { va_list ap; va_start(ap, fmt); int ret; ret = vsnprintf(buffer, sizeof(buffer - 1), fmt, ap); va_end(ap); return (ret); } int main(int argc, char **argv) { int len = 20; editorSetstatus(&amp;quot;%d&amp;quot;, len); printf(&amp;quot;%s \n&amp;quot;, buffer); return 0; }  gcc -Wall -g fun.</description>
+    </item>
+    
+  </channel>
+</rss>

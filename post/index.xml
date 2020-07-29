@@ -6,10 +6,20 @@
     <description>Recent content in Posts on Then Blog&#39;s</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 29 Jul 2020 17:29:52 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 29 Jul 2020 18:27:35 +0800</lastBuildDate>
     
 	<atom:link href="https://6923403.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Hugo &amp; Markdown</title>
+      <link>https://6923403.github.io/post/hugomarkdown/</link>
+      <pubDate>Wed, 29 Jul 2020 18:27:35 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/hugomarkdown/</guid>
+      <description>0. Hugo &amp;amp; Markdown Hugo &amp;amp;&amp;amp; MarkDown
+ 1. MarkDown template --- title: &amp;quot;{{ replace .Name &amp;quot;-&amp;quot; &amp;quot; &amp;quot; | title }}&amp;quot; date: {{ .Date }} lastmod: {{ .Date }} draft: false tags: [ ] categories: [ ] comment: true ---  2. Hugo command hugo #build html havn&#39;t draft=true hugo -D #build html and dragt=true hugo server #Start hugo server  3. Other Reference</description>
+    </item>
     
     <item>
       <title>Ubuntu20 Install Nvidia drivers</title>

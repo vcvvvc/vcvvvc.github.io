@@ -1,25 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Then Blog&#39;s</title>
-    <link>https://6923403.github.io/</link>
-    <description>Recent content on Then Blog&#39;s</description>
+    <title>linux on Then Blog&#39;s</title>
+    <link>https://6923403.github.io/tags/linux/</link>
+    <description>Recent content in linux on Then Blog&#39;s</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 29 Jul 2020 18:27:35 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 29 Jul 2020 17:29:52 +0800</lastBuildDate>
     
-	<atom:link href="https://6923403.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://6923403.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Hugo &amp; Markdown</title>
-      <link>https://6923403.github.io/post/hugomarkdown/</link>
-      <pubDate>Wed, 29 Jul 2020 18:27:35 +0800</pubDate>
-      
-      <guid>https://6923403.github.io/post/hugomarkdown/</guid>
-      <description>0. Hugo &amp;amp; Markdown Hugo &amp;amp;&amp;amp; MarkDown
- 1. MarkDown template --- title: &amp;quot;{{ replace .Name &amp;quot;-&amp;quot; &amp;quot; &amp;quot; | title }}&amp;quot; date: {{ .Date }} lastmod: {{ .Date }} draft: false tags: [ ] categories: [ ] comment: true ---  2. Hugo command hugo #build html havn&#39;t draft=true hugo -D #build html and dragt=true hugo server #Start hugo server  3. Other Reference</description>
-    </item>
     
     <item>
       <title>Ubuntu20 Install Nvidia drivers</title>
@@ -31,16 +21,6 @@
  1. Uninstall old Nvidia drivers sudo apt-get remove --purge nvidia*  2. Add rules vim /etc/modprobe.d/blacklist.conf
 1. blacklist nouveau 2. options nouveau modeset=0  3. Verification After reboot, use the following command no return is successful
 sudo update-initramfs -u lsmod | grep nouveau  4. Choose Navidia drivers version  1.Use command: ubuntu-drivers devices 2.Nvidia Official website  Choose stable version and install</description>
-    </item>
-    
-    <item>
-      <title>Variable function(fun(char *, ...)) and vsnprintf()</title>
-      <link>https://6923403.github.io/post/variable_function/</link>
-      <pubDate>Tue, 28 Jul 2020 14:44:30 +0800</pubDate>
-      
-      <guid>https://6923403.github.io/post/variable_function/</guid>
-      <description>void fun(char * fmt, &amp;hellip;); int vsprintf(char *str, const char *format, va_list arg);
-  Test programming #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;stdarg.h&amp;gt; /* * Re: https://github.com/antirez/kilo/kilo.c * Re: https://www.runoob.com/cprogramming/c-function-vsprintf.html */ char buffer[80]; int editorSetstatus(const char * fmt, ...) { va_list ap; va_start(ap, fmt); int ret; ret = vsnprintf(buffer, sizeof(buffer - 1), fmt, ap); va_end(ap); return (ret); } int main(int argc, char **argv) { int len = 20; editorSetstatus(&amp;quot;%d&amp;quot;, len); printf(&amp;quot;%s \n&amp;quot;, buffer); return 0; }  gcc -Wall -g fun.</description>
     </item>
     
     <item>

@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en-us">
   <head>
-    <title>Variable function(fun(char *, ...)) and vsnprintf() // Then Blog&#39;s</title>
+    <title>Hugo &amp; Markdown // Then Blog&#39;s</title>
     <meta charset="utf-8" />
     <meta name="generator" content="Hugo 0.68.3" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -12,17 +12,17 @@
 
     
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Variable function(fun(char *, ...)) and vsnprintf()"/>
-<meta name="twitter:description" content="void fun(char * fmt, &hellip;); int vsprintf(char *str, const char *format, va_list arg);
-  Test programming #include &lt;stdio.h&gt; #include &lt;stdarg.h&gt; /* * Re: https://github.com/antirez/kilo/kilo.c * Re: https://www.runoob.com/cprogramming/c-function-vsprintf.html */ char buffer[80]; int editorSetstatus(const char * fmt, ...) { va_list ap; va_start(ap, fmt); int ret; ret = vsnprintf(buffer, sizeof(buffer - 1), fmt, ap); va_end(ap); return (ret); } int main(int argc, char **argv) { int len = 20; editorSetstatus(&quot;%d&quot;, len); printf(&quot;%s \n&quot;, buffer); return 0; }  gcc -Wall -g fun."/>
+<meta name="twitter:title" content="Hugo &amp; Markdown"/>
+<meta name="twitter:description" content="0. Hugo &amp; Markdown Hugo &amp;&amp; MarkDown
+ 1. MarkDown template --- title: &quot;{{ replace .Name &quot;-&quot; &quot; &quot; | title }}&quot; date: {{ .Date }} lastmod: {{ .Date }} draft: false tags: [ ] categories: [ ] comment: true ---  2. Hugo command hugo #build html havn&#39;t draft=true hugo -D #build html and dragt=true hugo server #Start hugo server  3. Other Reference"/>
 
-    <meta property="og:title" content="Variable function(fun(char *, ...)) and vsnprintf()" />
-<meta property="og:description" content="void fun(char * fmt, &hellip;); int vsprintf(char *str, const char *format, va_list arg);
-  Test programming #include &lt;stdio.h&gt; #include &lt;stdarg.h&gt; /* * Re: https://github.com/antirez/kilo/kilo.c * Re: https://www.runoob.com/cprogramming/c-function-vsprintf.html */ char buffer[80]; int editorSetstatus(const char * fmt, ...) { va_list ap; va_start(ap, fmt); int ret; ret = vsnprintf(buffer, sizeof(buffer - 1), fmt, ap); va_end(ap); return (ret); } int main(int argc, char **argv) { int len = 20; editorSetstatus(&quot;%d&quot;, len); printf(&quot;%s \n&quot;, buffer); return 0; }  gcc -Wall -g fun." />
+    <meta property="og:title" content="Hugo &amp; Markdown" />
+<meta property="og:description" content="0. Hugo &amp; Markdown Hugo &amp;&amp; MarkDown
+ 1. MarkDown template --- title: &quot;{{ replace .Name &quot;-&quot; &quot; &quot; | title }}&quot; date: {{ .Date }} lastmod: {{ .Date }} draft: false tags: [ ] categories: [ ] comment: true ---  2. Hugo command hugo #build html havn&#39;t draft=true hugo -D #build html and dragt=true hugo server #Start hugo server  3. Other Reference" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://6923403.github.io/post/variable_function/" />
-<meta property="article:published_time" content="2020-07-28T14:44:30+08:00" />
-<meta property="article:modified_time" content="2020-07-28T14:44:30+08:00" />
+<meta property="og:url" content="https://6923403.github.io/post/hugomarkdown/" />
+<meta property="article:published_time" content="2020-07-29T18:27:35+08:00" />
+<meta property="article:modified_time" content="2020-07-29T18:27:35+08:00" />
 
 
   </head>
@@ -55,14 +55,14 @@
       
   <article class="post">
     <header class="post-header">
-      <h1 class ="post-title">Variable function(fun(char *, ...)) and vsnprintf()</h1>
+      <h1 class ="post-title">Hugo &amp; Markdown</h1>
       <div class="post-meta">
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
   <title>calendar</title>
   <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
 </svg>
-          Jul 28, 2020
+          Jul 29, 2020
         </div>
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
@@ -75,50 +75,30 @@
   <title>tag</title>
   <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line>
 </svg>
-          <a class="tag" href="https://6923403.github.io/tags/cpp/">CPP</a><a class="tag" href="https://6923403.github.io/tags/gcc/">GCC</a></div></div>
+          <a class="tag" href="https://6923403.github.io/tags/hugo/">hugo</a><a class="tag" href="https://6923403.github.io/tags/markdown/">markdown</a></div></div>
     </header>
     <div class="post-content">
-      <blockquote>
-<p>void fun(char * fmt, &hellip;); <br>
-int vsprintf(char *str, const char *format, va_list arg);</p>
-</blockquote>
+      <h1 id="0-hugo--markdown">0. Hugo &amp; Markdown</h1>
+<p><a href="https://gohugo.io">Hugo</a> &amp;&amp; MarkDown</p>
 <hr>
-<h1 id="test-programming">Test programming</h1>
-<pre><code>#include &lt;stdio.h&gt;
-#include &lt;stdarg.h&gt;
-
-/*
- * Re: https://github.com/antirez/kilo/kilo.c
- * Re: https://www.runoob.com/cprogramming/c-function-vsprintf.html
- */
-
-char buffer[80];
-
-int editorSetstatus(const char * fmt, ...)
-{
-    va_list ap;
-    va_start(ap, fmt);
-    int ret;
-    ret = vsnprintf(buffer, sizeof(buffer - 1), fmt, ap);
-
-    va_end(ap);
-
-    return (ret);
-}
-
-int main(int argc, char **argv)
-{
-    int len = 20;
-    editorSetstatus(&quot;%d&quot;, len);
-
-    printf(&quot;%s \n&quot;, buffer);
-
-    return 0;
-}
+<h1 id="1-markdown-template">1. MarkDown template</h1>
+<pre><code>---
+title: &quot;{{ replace .Name &quot;-&quot; &quot; &quot; | title }}&quot;
+date: {{ .Date }}
+lastmod: {{ .Date }}
+draft: false
+tags: [  ]
+categories: [  ]
+comment: true
+---
 </code></pre><hr>
-<p><strong>gcc -Wall -g fun.c -o fun</strong></p>
-<p><strong>./fun</strong></p>
-<p><em>len = 20</em></p>
+<h1 id="2-hugo-command">2. Hugo command</h1>
+<pre><code>hugo #build html havn't draft=true
+hugo -D #build html and dragt=true
+hugo server #Start hugo server
+</code></pre><hr>
+<h1 id="3-other">3. Other</h1>
+<p><a href="https://zsmhub.github.io/post/%E5%8D%9A%E5%AE%A2/hugo%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B">Reference</a></p>
 
     </div>
     <div class="post-footer">

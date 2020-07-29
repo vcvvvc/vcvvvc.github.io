@@ -6,9 +6,100 @@
     <description>Recent content in Tags on Then Blog&#39;s</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Wed, 29 Jul 2020 18:27:35 +0800</lastBuildDate>
     
 	<atom:link href="https://6923403.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>hugo</title>
+      <link>https://6923403.github.io/tags/hugo/</link>
+      <pubDate>Wed, 29 Jul 2020 18:27:35 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>markdown</title>
+      <link>https://6923403.github.io/tags/markdown/</link>
+      <pubDate>Wed, 29 Jul 2020 18:27:35 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/tags/markdown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>drivers</title>
+      <link>https://6923403.github.io/tags/drivers/</link>
+      <pubDate>Wed, 29 Jul 2020 17:29:52 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/tags/drivers/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>https://6923403.github.io/tags/linux/</link>
+      <pubDate>Wed, 29 Jul 2020 17:29:52 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nvidia</title>
+      <link>https://6923403.github.io/tags/nvidia/</link>
+      <pubDate>Wed, 29 Jul 2020 17:29:52 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/tags/nvidia/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ubuntu</title>
+      <link>https://6923403.github.io/tags/ubuntu/</link>
+      <pubDate>Wed, 29 Jul 2020 17:29:52 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/tags/ubuntu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CPP</title>
+      <link>https://6923403.github.io/tags/cpp/</link>
+      <pubDate>Tue, 28 Jul 2020 14:44:30 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/tags/cpp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GCC</title>
+      <link>https://6923403.github.io/tags/gcc/</link>
+      <pubDate>Tue, 28 Jul 2020 14:44:30 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/tags/gcc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Boost</title>
+      <link>https://6923403.github.io/tags/boost/</link>
+      <pubDate>Tue, 28 Jul 2020 13:09:01 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/tags/boost/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>FFmpeg</title>
+      <link>https://6923403.github.io/tags/ffmpeg/</link>
+      <pubDate>Mon, 27 Jul 2020 17:41:31 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/tags/ffmpeg/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>
