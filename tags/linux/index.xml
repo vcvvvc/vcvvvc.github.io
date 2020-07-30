@@ -1,15 +1,37 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>linux on Then Blog&#39;s</title>
+    <title>Linux on Then Blog&#39;s</title>
     <link>https://6923403.github.io/tags/linux/</link>
-    <description>Recent content in linux on Then Blog&#39;s</description>
+    <description>Recent content in Linux on Then Blog&#39;s</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 29 Jul 2020 17:29:52 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 30 Jul 2020 18:04:47 +0800</lastBuildDate>
     
 	<atom:link href="https://6923403.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Arch Beautify</title>
+      <link>https://6923403.github.io/post/arch_desktop/</link>
+      <pubDate>Thu, 30 Jul 2020 18:04:47 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/arch_desktop/</guid>
+      <description>Updating&amp;hellip;..
+wait me .</description>
+    </item>
+    
+    <item>
+      <title>Vmware install Archlinux </title>
+      <link>https://6923403.github.io/post/arch_install/</link>
+      <pubDate>Thu, 30 Jul 2020 16:43:47 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/arch_install/</guid>
+      <description>0. Ready work Test environment: Vmware15.5.6pro arch-2020-07.iso You should installed Vmware and download Archlinux iso .
+Change your firmwaretype to UEFI (The way many tutorials did not say)  1. Start ls /sys/firmware/efi/efivars The command detect UEFI files and if your dir not include files your firmwaretype is BIOS .
+Then, ping google.com, detect interent connection
+ Archwiki: Note: The installation image has systemd-networkd.service, systemd-resolved.service and iwd.service enabled by default. That will not be the case for the installed system.</description>
+    </item>
     
     <item>
       <title>Ubuntu20 Install Nvidia drivers</title>

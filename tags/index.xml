@@ -6,10 +6,37 @@
     <description>Recent content in Tags on Then Blog&#39;s</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 29 Jul 2020 18:27:35 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 30 Jul 2020 18:04:47 +0800</lastBuildDate>
     
 	<atom:link href="https://6923403.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Arch</title>
+      <link>https://6923403.github.io/tags/arch/</link>
+      <pubDate>Thu, 30 Jul 2020 18:04:47 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/tags/arch/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Beautify</title>
+      <link>https://6923403.github.io/tags/beautify/</link>
+      <pubDate>Thu, 30 Jul 2020 18:04:47 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/tags/beautify/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>https://6923403.github.io/tags/linux/</link>
+      <pubDate>Thu, 30 Jul 2020 18:04:47 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>hugo</title>
@@ -35,15 +62,6 @@
       <pubDate>Wed, 29 Jul 2020 17:29:52 +0800</pubDate>
       
       <guid>https://6923403.github.io/tags/drivers/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>linux</title>
-      <link>https://6923403.github.io/tags/linux/</link>
-      <pubDate>Wed, 29 Jul 2020 17:29:52 +0800</pubDate>
-      
-      <guid>https://6923403.github.io/tags/linux/</guid>
       <description></description>
     </item>
     
