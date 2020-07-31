@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Then Blog&#39;s</title>
+    <title>Posts on VcVc Blog</title>
     <link>https://6923403.github.io/post/</link>
-    <description>Recent content in Posts on Then Blog&#39;s</description>
+    <description>Recent content in Posts on VcVc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 30 Jul 2020 18:04:47 +0800</lastBuildDate>
@@ -12,13 +12,13 @@
     
     
     <item>
-      <title>Arch Beautify</title>
+      <title>Arch Beautify desktop</title>
       <link>https://6923403.github.io/post/arch_desktop/</link>
       <pubDate>Thu, 30 Jul 2020 18:04:47 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/arch_desktop/</guid>
-      <description>Updating&amp;hellip;..
-wait me .</description>
+      <description>upating&amp;hellip;..
+1. install xorg pacman -S xorg-server xorg-xinit 2. install zsh, feh, i3gapsr, compton, oh-my-zsh pacman -S zsh xfce4-terminal feh compton i3-gaps nautilus i3lock sh -c &amp;quot;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&amp;quot; vi /etc/pacman.conf  add user useradd -m -g users -s /bin/zsh xxxx #添加xxxx用户，用户名你自定义 passwd xxxx #为xxxx用户设置密码 vim /etc/sudoers #编辑配置文件 在root ALL = (ALL) ALL下添加xxxx ALL = (ALL) ALL;输入:wq!强制保存退出vim  1231 exit login new user touch .zshrc cp /etc/X11/xinit/xinitrc ~/.xinitrc  安装 Yaourt vim /etc/pacman.</description>
     </item>
     
     <item>

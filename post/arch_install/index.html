@@ -1,13 +1,13 @@
 <!doctype html>
 <html lang="en-us">
   <head>
-    <title>Vmware install Archlinux  // Then Blog&#39;s</title>
+    <title>Vmware install Archlinux  // VcVc Blog</title>
     <meta charset="utf-8" />
     <meta name="generator" content="Hugo 0.68.3" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="author" content="Then" />
+    <meta name="author" content="VcVc" />
     <meta name="description" content="" />
-    <meta name = "keywords" content = "Then, Then Blog, 6923403, CPP, Open Source, Rust, Python" />
+    <meta name="keywords" content="VcVc,VcVc Blog,6923403,CPP,Cplusplus,C++,Open Source,Rust,Python,Linux" />
     <link rel="stylesheet" href="https://6923403.github.io/css/main.min.97b9435bd24f2320fd8066e25d821721f54063ef36afa430160134863128d46e.css" />
 
     
@@ -32,8 +32,8 @@ Then, ping google.com, detect interent connection
   </head>
   <body>
     <header class="app-header">
-      <a href="https://6923403.github.io"><img class="app-header-avatar" src="/avatar.jpg" alt="Then" /></a>
-      <h1>Then Blog&#39;s</h1>
+      <a href="https://6923403.github.io"><img class="app-header-avatar" src="/avatar.jpg" alt="VcVc" /></a>
+      <h1>VcVc Blog</h1>
       <p>Code and tea and natural .</p>
       <div class="app-header-social">
         
@@ -52,8 +52,8 @@ Then, ping google.com, detect interent connection
   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline>
 </svg></a>
         
-      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=260 height=86 src="//music.163.com/outchain/player?type=2&id=2587456&auto=0&height=66"></iframe>
       </div>
+      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=260 height=86 src="//music.163.com/outchain/player?type=2&id=2587456&auto=0&height=66"></iframe>
     </header>
     <main class="app-container">
       
@@ -97,35 +97,12 @@ arch-2020-07.iso
 <blockquote>
 <p>Archwiki: Note: The installation image has systemd-networkd.service, systemd-resolved.service and iwd.service enabled by default. That will not be the case for the installed system.</p>
 </blockquote>
-<hr>
+<p><strong>Update systime</strong></p>
+<pre><code>timedatectl set-ntp true
+</code></pre><hr>
 <h1 id="2-partition-the-disks">2. Partition the disks</h1>
 <pre><code>cfdisk /dev/sda #choose gpt
-</code></pre><table>
-<thead>
-<tr>
-<th align="center">Device</th>
-<th align="center">Size</th>
-<th align="center">Type</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">sda1</td>
-<td align="center">512M</td>
-<td align="center">UEFI</td>
-</tr>
-<tr>
-<td align="center">sda2</td>
-<td align="center">1G</td>
-<td align="center">swap</td>
-</tr>
-<tr>
-<td align="center">sda3</td>
-<td align="center">all</td>
-<td align="center">Linux_file</td>
-</tr>
-</tbody>
-</table>
+</code></pre><p><img src="/img/arch_install/disk.png" alt="disk"></p>
 <p><strong>Move to Write , enter, yes, last Quit .</strong>
 <img src="/img/arch_install/wyqchoose.png" alt="move"></p>
 <hr>
@@ -133,7 +110,7 @@ arch-2020-07.iso
 <p><strong>3.1 Format:</strong></p>
 <pre><code>mkfs.fat -F32 /dev/sda1
 
-mkfswap /dev/sda2
+mkswap /dev/sda2
 swapon /dev/sda2
 
 mkfs.ext4 /dev/sda3
@@ -148,23 +125,24 @@ lsblk #check mount
 <p><strong>4.1 According to your country choose your mirror source</strong></p>
 <pre><code>vim /etc/pacman.d/mirrorlist
 </code></pre><p><strong>4.2 install</strong></p>
-<pre><code>pacstrap -i /mnt base base-devel linux linux-firmware vi net-tools 
+<pre><code>pacstrap -i /mnt base base-devel linux-lts linux-firmware vi net-tools
+
 </code></pre><hr>
 <h1 id="5-configure-the-system">5. Configure the system</h1>
 <p><strong>5.1 Fstab</strong></p>
 <pre><code>genfstab -U /mnt &gt;&gt; /mnt/etc/fstab
 </code></pre><p><strong>5.2 Check your fstab files, like the img</strong></p>
-<pre><code>vi /mnt/etc/fstab
+<pre><code>vim /mnt/etc/fstab
 </code></pre><p><img src="/img/arch_install/samethis.png" alt="this"></p>
 <hr>
 <h1 id="6-system-configuration">6. System configuration</h1>
 <p><strong>6.1 Chroot</strong></p>
-<pre><code>arcg-chroot /mnt
+<pre><code>arch-chroot /mnt
 </code></pre><p><strong>6.2 Time</strong></p>
 <pre><code>ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
 hwclock --systohc --utc
 </code></pre><p><strong>6.3 Localization</strong></p>
-<pre><code>vi /etc/locale.gen #according to your country, choose, del #
+<pre><code>vi /etc/locale.gen #according to your country, choose, del 
 :wq
 locale-gen
 locale -a
@@ -175,16 +153,23 @@ locale
 <li>del #: en_US.UTF-8 UTF-8</li>
 </ul>
 <p><strong>6.4 hostname</strong></p>
-<pre><code>echo yourhostname &gt; /etc/hostname
+<pre><code>echo hostname &gt; /etc/hostname
 </code></pre><p><strong>6.5 hosts</strong></p>
 <pre><code>vi /etc/hosts
 127.0.0.1	localhost
 ::1		localhost
+127.0.0.1 hostname.localdomain hostname
 </code></pre><p><strong>6.6 root password</strong></p>
 <pre><code>passwd
 </code></pre><hr>
-<h1 id="7-end">7. End</h1>
-<pre><code>exit
+<h1 id="7-install-uefi">7. install UEFI</h1>
+<pre><code>pacman -S grub efibootmgr
+grub-install --recheck /dev/sda
+grub-mkconfig -o /boot/grub/grub.cfg
+</code></pre><hr>
+<h1 id="8-end">8. End</h1>
+<pre><code>pacman -S dhcpcd
+exit
 umount -R /mnt
 reboot
 </code></pre><hr>
@@ -194,7 +179,7 @@ reboot
 <hr>
 <p><strong>Reference:</strong></p>
 <p><a href="https://wiki.archlinux.org/index.php/Installation_guide#Verify_signature">Arch wiki</a>
-and <a href="https://www.stblog.com.cn/10564/">S.T.BLOG</a></p>
+and <a href="https://www.stblog.com.cn/10564/">S.T.BLOG</a> and <a href="https://www.v2ex.com/t/310942">V2EX</a></p>
 
     </div>
     <div class="post-footer">
