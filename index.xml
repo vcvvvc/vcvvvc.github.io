@@ -6,10 +6,19 @@
     <description>Recent content on VcVc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 30 Jul 2020 18:04:47 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 01 Aug 2020 21:31:50 +0800</lastBuildDate>
     
 	<atom:link href="https://6923403.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Shell_command($!, $@...)</title>
+      <link>https://6923403.github.io/post/shell_commans/</link>
+      <pubDate>Sat, 01 Aug 2020 21:31:50 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/shell_commans/</guid>
+      <description>./start.sh 1 2 3 4 num: $# = 4 PID: $$ = 24133 sname: $0 = start.sh first: $1 = 1 secont: $2 = 2 $@ = 1234 #value list $* = 1234 #value   $* 1 2 3 4  </description>
+    </item>
     
     <item>
       <title>Arch Beautify desktop</title>
@@ -17,8 +26,8 @@
       <pubDate>Thu, 30 Jul 2020 18:04:47 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/arch_desktop/</guid>
-      <description>upating&amp;hellip;..
-1. install xorg pacman -S xorg-server xorg-xinit 2. install zsh, feh, i3gapsr, compton, oh-my-zsh pacman -S zsh xfce4-terminal feh compton i3-gaps nautilus i3lock sh -c &amp;quot;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&amp;quot; vi /etc/pacman.conf  add user useradd -m -g users -s /bin/zsh xxxx #添加xxxx用户，用户名你自定义 passwd xxxx #为xxxx用户设置密码 vim /etc/sudoers #编辑配置文件 在root ALL = (ALL) ALL下添加xxxx ALL = (ALL) ALL;输入:wq!强制保存退出vim  1231 exit login new user touch .zshrc cp /etc/X11/xinit/xinitrc ~/.xinitrc  安装 Yaourt vim /etc/pacman.</description>
+      <description>updat&amp;hellip;
+1. install xorg pacman -S xorg-server xorg-xinit 2. install zsh, feh, i3gapsr, compton, oh-my-zsh pacman -S zsh xfce4-terminal feh compton i3-gaps nautilus i3lock sh -c &amp;quot;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&amp;quot; vi /etc/pacman.conf  install ttf pacman -S ttf-liberation pacman -S adobe-source-han-sans-cn-fonts pacman -S adobe-source-han-sans-tw-fonts pacman -S adobe-source-han-sans-jp-fonts  add user useradd -m -g users -s /bin/zsh xxxx #添加xxxx用户，用户名你自定义 passwd xxxx #为xxxx用户设置密码 vim /etc/sudoers #编辑配置文件 在root ALL = (ALL) ALL下添加xxxx ALL = (ALL) ALL;输入:wq!</description>
     </item>
     
     <item>

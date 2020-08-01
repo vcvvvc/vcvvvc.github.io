@@ -6,10 +6,28 @@
     <description>Recent content in Tags on VcVc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 30 Jul 2020 18:04:47 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 01 Aug 2020 21:31:50 +0800</lastBuildDate>
     
 	<atom:link href="https://6923403.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Linux</title>
+      <link>https://6923403.github.io/tags/linux/</link>
+      <pubDate>Sat, 01 Aug 2020 21:31:50 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>shell</title>
+      <link>https://6923403.github.io/tags/shell/</link>
+      <pubDate>Sat, 01 Aug 2020 21:31:50 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/tags/shell/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Arch</title>
@@ -26,15 +44,6 @@
       <pubDate>Thu, 30 Jul 2020 18:04:47 +0800</pubDate>
       
       <guid>https://6923403.github.io/tags/i3wm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Linux</title>
-      <link>https://6923403.github.io/tags/linux/</link>
-      <pubDate>Thu, 30 Jul 2020 18:04:47 +0800</pubDate>
-      
-      <guid>https://6923403.github.io/tags/linux/</guid>
       <description></description>
     </item>
     
