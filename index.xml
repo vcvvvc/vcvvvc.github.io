@@ -6,10 +6,22 @@
     <description>Recent content on VcVc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 01 Aug 2020 21:31:50 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 07 Aug 2020 16:45:20 +0800</lastBuildDate>
     
 	<atom:link href="https://6923403.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>GDB tutorial</title>
+      <link>https://6923403.github.io/post/use_gdb/</link>
+      <pubDate>Fri, 07 Aug 2020 16:45:20 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/use_gdb/</guid>
+      <description>Start gdb or gdb -q # exit ctrl + d or quit  Use g++ -g main.cpp -o main gdb main -q or gdb -q file main Debug runing program
+ps ux | grep showpng gdb showpng 28334 -q  CoreDump ** Check if off **
+ulimit -c 0 # is off # tmp use ulimit -c unlimited ulimit -c unlimited # turn open permanent use
+vim /etc/security/limits.conf # add line * soft core unlimited # and echo &amp;quot;core.</description>
+    </item>
     
     <item>
       <title>Shell_command($!, $@...)</title>
@@ -27,7 +39,7 @@
       
       <guid>https://6923403.github.io/post/arch_desktop/</guid>
       <description>updat&amp;hellip;
-1. install xorg pacman -S xorg-server xorg-xinit 2. install zsh, feh, i3gapsr, compton, oh-my-zsh pacman -S zsh xfce4-terminal feh compton i3-gaps nautilus i3lock sh -c &amp;quot;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&amp;quot; vi /etc/pacman.conf  install ttf pacman -S ttf-liberation pacman -S adobe-source-han-sans-cn-fonts pacman -S adobe-source-han-sans-tw-fonts pacman -S adobe-source-han-sans-jp-fonts  add user useradd -m -g users -s /bin/zsh xxxx #添加xxxx用户，用户名你自定义 passwd xxxx #为xxxx用户设置密码 vim /etc/sudoers #编辑配置文件 在root ALL = (ALL) ALL下添加xxxx ALL = (ALL) ALL;输入:wq!</description>
+1. install xorg pacman -S xorg-server xorg-xinit 2. install zsh, feh, i3gapsr, compton, oh-my-zsh pacman -S zsh xfce4-terminal feh compton i3-gaps nautilus i3lock sh -c &amp;quot;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&amp;quot;  install ttf pacman -S ttf-liberation pacman -S adobe-source-han-sans-cn-fonts pacman -S adobe-source-han-sans-tw-fonts pacman -S adobe-source-han-sans-jp-fonts  add user useradd -m -g users -s /bin/zsh xxxx #添加xxxx用户，用户名你自定义 passwd xxxx #为xxxx用户设置密码 vim /etc/sudoers #编辑配置文件 在root ALL = (ALL) ALL下添加xxxx ALL = (ALL) ALL;输入:wq!强制保存退出vim  startx exit login new user touch .</description>
     </item>
     
     <item>
