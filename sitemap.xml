@@ -3,8 +3,38 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://6923403.github.io/tags/const/</loc>
+    <lastmod>2020-08-14T16:16:33+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://6923403.github.io/post/constexpr/</loc>
+    <lastmod>2020-08-14T16:16:33+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://6923403.github.io/tags/cpp/</loc>
-    <lastmod>2020-08-07T16:45:20+08:00</lastmod>
+    <lastmod>2020-08-14T16:16:33+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://6923403.github.io/tags/function/</loc>
+    <lastmod>2020-08-14T16:16:33+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://6923403.github.io/post/</loc>
+    <lastmod>2020-08-14T16:16:33+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://6923403.github.io/tags/</loc>
+    <lastmod>2020-08-14T16:16:33+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://6923403.github.io/</loc>
+    <lastmod>2020-08-14T16:16:33+08:00</lastmod>
   </url>
   
   <url>
@@ -19,21 +49,6 @@
   
   <url>
     <loc>https://6923403.github.io/tags/linux/</loc>
-    <lastmod>2020-08-07T16:45:20+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://6923403.github.io/post/</loc>
-    <lastmod>2020-08-07T16:45:20+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://6923403.github.io/tags/</loc>
-    <lastmod>2020-08-07T16:45:20+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://6923403.github.io/</loc>
     <lastmod>2020-08-07T16:45:20+08:00</lastmod>
   </url>
   

@@ -6,10 +6,19 @@
     <description>Recent content on VcVc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 07 Aug 2020 16:45:20 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 14 Aug 2020 16:16:33 +0800</lastBuildDate>
     
 	<atom:link href="https://6923403.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Constexpr</title>
+      <link>https://6923403.github.io/post/constexpr/</link>
+      <pubDate>Fri, 14 Aug 2020 16:16:33 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/constexpr/</guid>
+      <description>0.Array int url[10]; //true int url[6 + 4] //true int len = 10; int url[len] //flase  1.Constexpr #include &amp;lt;iostream&amp;gt; using namespace std; int main() { /* * If have not constexpr, CPP throw error */ constexpr int num = 1 + 2 + 3; int url[num] = {1,2,3,4,5,6}; couts&amp;lt;&amp;lt; url[1] &amp;lt;&amp;lt; endl; return 0; }  2.Only have one &amp;lsquo;return&amp;rsquo; # Error constexpr int display(int x) { int ret = 1 + 2 + x; return ret; } # True constexpr int display(int x) { return 1 + 2 + x; }  3.</description>
+    </item>
     
     <item>
       <title>GDB tutorial</title>
