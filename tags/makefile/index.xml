@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Makefile on VcVc Blog</title>
+    <link>https://6923403.github.io/tags/makefile/</link>
+    <description>Recent content in Makefile on VcVc Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 19 Aug 2020 10:21:09 +0800</lastBuildDate>
+    
+	<atom:link href="https://6923403.github.io/tags/makefile/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Makefile template</title>
+      <link>https://6923403.github.io/post/makefile_template/</link>
+      <pubDate>Wed, 19 Aug 2020 10:21:09 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/makefile_template/</guid>
+      <description>V1  ############ 交叉编译 CROSS_COMPILE=aarch64-himix100-linux- CC=$(CROSS_COMPILE)g++ # 当前路径 PWD := $(shell pwd) #库 LIB += -lpthread -lsqlite3 #参数 CFLAG= -D_GNU_SOURCE -D__USE_XOPEN -g #.cpp源文件 SRCS=$(wildcard ./src/*.cpp) #头文件 INC=-I$(PWD)/include #中间文件 OBJS=$(SRCS:.cpp=.o) #二进制文件 BIN=maincpp #start，表示开始执行 start:$(OBJS) $(CC) -o $(BIN) $(OBJS) $(CFLAG) $(LIB) .cpp.o: $(CC) $(INC) -o $@ -c $&amp;lt; $(CFLAB) $(LIB) .PHONY : clean clean: rm -f ${BIN} ./src/*.o  V2 # Makefile cc=gcc LDFLAGS=-lncurses SRCS := $(wildcard *.c) TARGET := $(SRCS:%.c=%) $(TARGET):$(SRCS) $(cc) $(LDFLAGS) $(SRCS) -o $(TARGET) clean: rm $(TARGET)  Reference: Makefile 文件 -只有include和src文件夹</description>
+    </item>
+    
+  </channel>
+</rss>
