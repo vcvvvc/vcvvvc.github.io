@@ -6,7 +6,7 @@
     <description>Recent content in Tags on VcVc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 19 Aug 2020 10:21:09 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 26 Aug 2020 22:47:24 +0800</lastBuildDate>
     
 	<atom:link href="https://6923403.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>CPP</title>
       <link>https://6923403.github.io/tags/cpp/</link>
-      <pubDate>Wed, 19 Aug 2020 10:21:09 +0800</pubDate>
+      <pubDate>Wed, 26 Aug 2020 22:47:24 +0800</pubDate>
       
       <guid>https://6923403.github.io/tags/cpp/</guid>
       <description></description>
@@ -23,9 +23,27 @@
     <item>
       <title>Linux</title>
       <link>https://6923403.github.io/tags/linux/</link>
-      <pubDate>Wed, 19 Aug 2020 10:21:09 +0800</pubDate>
+      <pubDate>Wed, 26 Aug 2020 22:47:24 +0800</pubDate>
       
       <guid>https://6923403.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Socket</title>
+      <link>https://6923403.github.io/tags/socket/</link>
+      <pubDate>Wed, 26 Aug 2020 22:47:24 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/tags/socket/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Docker</title>
+      <link>https://6923403.github.io/tags/docker/</link>
+      <pubDate>Sat, 22 Aug 2020 16:42:04 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/tags/docker/</guid>
       <description></description>
     </item>
     
