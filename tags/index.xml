@@ -6,7 +6,7 @@
     <description>Recent content in Tags on VcVc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 27 Aug 2020 12:09:01 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 29 Aug 2020 11:44:31 +0800</lastBuildDate>
     
 	<atom:link href="https://6923403.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,9 +14,18 @@
     <item>
       <title>CPP</title>
       <link>https://6923403.github.io/tags/cpp/</link>
-      <pubDate>Thu, 27 Aug 2020 12:09:01 +0800</pubDate>
+      <pubDate>Sat, 29 Aug 2020 11:44:31 +0800</pubDate>
       
       <guid>https://6923403.github.io/tags/cpp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>thread</title>
+      <link>https://6923403.github.io/tags/thread/</link>
+      <pubDate>Sat, 29 Aug 2020 11:44:31 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/tags/thread/</guid>
       <description></description>
     </item>
     
