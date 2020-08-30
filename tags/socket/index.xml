@@ -38,9 +38,9 @@ event 是要监听什么样的事件
  setsockopt
 获取或者设置与某个套接字关联的选 项。选项可能存在于多层协议中，它们总会出现在最上面的套接字层。当操作套接字选项时， 选项位于的层和选项的名称必须给出。为了操作套接字层的选项，应该 将层的值指定为SOL_SOCKET。为了操作其它层的选项，控制选 项的合适协议号必须给出。例如，为了表示一个选项由TCP协议解析，层应该设定为协议 号TCP。 Re: https://www.cnblogs.com/eeexu123/p/5275783.html
  epoll_ctl(_iEpollfd, op, fd, &amp;amp;ev); //Error:_iEpollfd: -1. Success: _iEpollfd = fd
- inet_ntoa()是编程语言，功能是将网络地址转换成“.”点隔的字符串格式。
  int fcntl(int fd, int cmd); int fcntl(int fd, int cmd, long arg); int fcntl(int fd, int cmd, struct flock *lock); fcntl函数有5种功能：
- 1.复制一个现有的描述符（cmd=F_DUPFD）. 2.获得／设置文件描述符标记(cmd=F_GETFD或F_SETFD). 3.获得／设置文件状态标记(cmd=F_GETFL或F_SETFL). 4.获得／设置异步I/O所有权(cmd=F_GETOWN或F_SETOWN). 5.获得／设置记录锁(cmd=F_GETLK,F_SETLK或F_SETLKW).  Re: https://www.</description>
+ 1.复制一个现有的描述符（cmd=F_DUPFD）. 2.获得／设置文件描述符标记(cmd=F_GETFD或F_SETFD). 3.获得／设置文件状态标记(cmd=F_GETFL或F_SETFL). 4.获得／设置异步I/O所有权(cmd=F_GETOWN或F_SETOWN). 5.获得／设置记录锁(cmd=F_GETLK,F_SETLK或F_SETLKW).  Re: https://www.cnblogs.com/xuyh/p/3273082.html
+ 非阻塞I/O使我们的操作要么成功，要么立即返回错误，不被阻塞。</description>
     </item>
     
   </channel>

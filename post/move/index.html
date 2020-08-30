@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>Cpp11 move // VcVc Blog</title>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.68.3" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="VcVc" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="VcVc,VcVc Blog,6923403,CPP,Cplusplus,C++,Open Source,Rust,Python,Linux" />
+    <link rel="stylesheet" href="https://6923403.github.io/css/main.min.97b9435bd24f2320fd8066e25d821721f54063ef36afa430160134863128d46e.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Cpp11 move"/>
+<meta name="twitter:description" content="#include &lt;iostream&gt; #include &lt;utility&gt; #include &lt;vector&gt; #include &lt;string&gt; int main() { std::string str = &quot;Hello&quot;; std::vector&lt;std::string&gt; v; //调用常规的拷贝构造函数，新建字符数组，拷贝数据 v.push_back(str); std::cout &lt;&lt; &quot;After copy, str is \&quot;&quot; &lt;&lt; str &lt;&lt; &quot;\&quot;\n&quot;; //调用移动构造函数，掏空str，掏空后，最好不要使用str v.push_back(std::move(str)); std::cout &lt;&lt; &quot;After move, str is \&quot;&quot; &lt;&lt; str &lt;&lt; &quot;\&quot;\n&quot;; std::cout &lt;&lt; &quot;The contents of the vector are \&quot;&quot; &lt;&lt; v[0] &lt;&lt; &quot;\&quot;, \&quot;&quot; &lt;&lt; v[1] &lt;&lt; &quot;\&quot;\n&quot;; } Cout:
+After copy, str is &quot;Hello&quot; After move, str is &quot;&quot; The contents of the vector are &quot;Hello&quot;, &quot;Hello&quot;  函数原型 template &lt;typename T&gt; typename remove_reference&lt;T&gt;::type&amp;&amp; move(T&amp;&amp; t) { return static_cast&lt;typename remove_reference&lt;T&gt;::type&amp;&amp;&gt;(t); }  原型定义中的原理实现: 公式一）X&amp; &amp;、X&amp;&amp; &amp;、X&amp; &amp;&amp;都折叠成X&amp;，用于处理左值"/>
+
+    <meta property="og:title" content="Cpp11 move" />
+<meta property="og:description" content="#include &lt;iostream&gt; #include &lt;utility&gt; #include &lt;vector&gt; #include &lt;string&gt; int main() { std::string str = &quot;Hello&quot;; std::vector&lt;std::string&gt; v; //调用常规的拷贝构造函数，新建字符数组，拷贝数据 v.push_back(str); std::cout &lt;&lt; &quot;After copy, str is \&quot;&quot; &lt;&lt; str &lt;&lt; &quot;\&quot;\n&quot;; //调用移动构造函数，掏空str，掏空后，最好不要使用str v.push_back(std::move(str)); std::cout &lt;&lt; &quot;After move, str is \&quot;&quot; &lt;&lt; str &lt;&lt; &quot;\&quot;\n&quot;; std::cout &lt;&lt; &quot;The contents of the vector are \&quot;&quot; &lt;&lt; v[0] &lt;&lt; &quot;\&quot;, \&quot;&quot; &lt;&lt; v[1] &lt;&lt; &quot;\&quot;\n&quot;; } Cout:
+After copy, str is &quot;Hello&quot; After move, str is &quot;&quot; The contents of the vector are &quot;Hello&quot;, &quot;Hello&quot;  函数原型 template &lt;typename T&gt; typename remove_reference&lt;T&gt;::type&amp;&amp; move(T&amp;&amp; t) { return static_cast&lt;typename remove_reference&lt;T&gt;::type&amp;&amp;&gt;(t); }  原型定义中的原理实现: 公式一）X&amp; &amp;、X&amp;&amp; &amp;、X&amp; &amp;&amp;都折叠成X&amp;，用于处理左值" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://6923403.github.io/post/move/" />
+<meta property="article:published_time" content="2020-08-30T19:57:05+08:00" />
+<meta property="article:modified_time" content="2020-08-30T19:57:05+08:00" />
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://6923403.github.io"><img class="app-header-avatar" src="/avatar.jpg" alt="VcVc" /></a>
+      <h1>VcVc Blog</h1>
+      <p>Code and tea and natural .</p>
+      <div class="app-header-social">
+        
+          <a target="_blank" href="https://github.com/6923403" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg></a>
+        
+          <a target="_blank" href="https://twitter.com/vcvckw" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-twitter">
+  <title>twitter</title>
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+</svg></a>
+        
+          <a target="_blank" href="mailto:vcvckw@gmail.com" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-mail">
+  <title>mail</title>
+  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline>
+</svg></a>
+        
+      </div>  
+          
+    </header>    
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Cpp11 move</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Aug 30, 2020
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          Takes 2 min read
+        </div><div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line>
+</svg>
+          <a class="tag" href="https://6923403.github.io/tags/cpp/">CPP</a><a class="tag" href="https://6923403.github.io/tags/liux/">Liux</a><a class="tag" href="https://6923403.github.io/tags/move/">move</a></div></div>
+    </header>
+    <div class="post-content">
+      <pre><code>#include &lt;iostream&gt;
+#include &lt;utility&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+int main()
+{
+    std::string str = &quot;Hello&quot;;
+    std::vector&lt;std::string&gt; v;
+    //调用常规的拷贝构造函数，新建字符数组，拷贝数据
+    v.push_back(str);
+    std::cout &lt;&lt; &quot;After copy, str is \&quot;&quot; &lt;&lt; str &lt;&lt; &quot;\&quot;\n&quot;;
+    //调用移动构造函数，掏空str，掏空后，最好不要使用str
+    v.push_back(std::move(str));
+    std::cout &lt;&lt; &quot;After move, str is \&quot;&quot; &lt;&lt; str &lt;&lt; &quot;\&quot;\n&quot;;
+    std::cout &lt;&lt; &quot;The contents of the vector are \&quot;&quot; &lt;&lt; v[0]
+                                         &lt;&lt; &quot;\&quot;, \&quot;&quot; &lt;&lt; v[1] &lt;&lt; &quot;\&quot;\n&quot;;
+}
+</code></pre><p>Cout:</p>
+<pre><code>After copy, str is &quot;Hello&quot;
+After move, str is &quot;&quot;
+The contents of the vector are &quot;Hello&quot;, &quot;Hello&quot;
+</code></pre><hr>
+<h1 id="函数原型">函数原型</h1>
+<pre><code>template &lt;typename T&gt;
+typename remove_reference&lt;T&gt;::type&amp;&amp; move(T&amp;&amp; t)
+{
+	return static_cast&lt;typename remove_reference&lt;T&gt;::type&amp;&amp;&gt;(t);
+}
+</code></pre><hr>
+<h1 id="原型定义中的原理实现">原型定义中的原理实现:</h1>
+<p><strong>公式一）X&amp; &amp;、X&amp;&amp; &amp;、X&amp; &amp;&amp;都折叠成X&amp;，用于处理左值</strong></p>
+<pre><code>string s(&quot;hello&quot;);
+std::move(s) =&gt; std::move(string&amp; &amp;&amp;) =&gt; 折叠后 std::move(string&amp; )
+此时：T的类型为string&amp;
+typename remove_reference&lt;T&gt;::type为string 
+整个std::move被实例化如下
+string&amp;&amp; move(string&amp; t) //t为左值，移动后不能在使用t
+{
+    //通过static_cast将string&amp;强制转换为string&amp;&amp;
+    return static_cast&lt;string&amp;&amp;&gt;(t); 
+}
+</code></pre><p><strong>公式二）X&amp;&amp; &amp;&amp;折叠成X&amp;&amp;，用于处理右值</strong></p>
+<pre><code>std::move(string(&quot;hello&quot;)) =&gt; std::move(string&amp;&amp;)
+//此时：T的类型为string 
+//     remove_reference&lt;T&gt;::type为string 
+//整个std::move被实例如下
+string&amp;&amp; move(string&amp;&amp; t) //t为右值
+{
+    return static_cast&lt;string&amp;&amp;&gt;(t);  //返回一个右值引用
+}
+</code></pre><p><strong>右值经过T&amp;&amp;传递类型保持不变还是右值，而左值经过T&amp;&amp;变为普通的左值引用.</strong></p>
+<p><strong>②.对于static_cast&lt;&gt;的使用注意：任何具有明确定义的类型转换，只要不包含底层const,都可以使用static_cast。</strong></p>
+<pre><code>double d = 1;
+void* p = &amp;d;
+double *dp = static_cast&lt;double*&gt; p; //正确
+ 
+const char *cp = &quot;hello&quot;;
+char *q = static_cast&lt;char*&gt;(cp); //错误：static不能去掉const性质
+static_cast&lt;string&gt;(cp); //正确 
+</code></pre><p><strong>③对于remove_reference是通过类模板的部分特例化进行实现的</strong></p>
+<pre><code>//原始的，最通用的版本
+template &lt;typename T&gt; struct remove_reference{
+    typedef T type;  //定义T的类型别名为type
+};
+ 
+//部分版本特例化，将用于左值引用和右值引用
+template &lt;class T&gt; struct remove_reference&lt;T&amp;&gt; //左值引用
+{ typedef T type; }
+ 
+template &lt;class T&gt; struct remove_reference&lt;T&amp;&amp;&gt; //右值引用
+{ typedef T type; }   
+  
+//举例如下,下列定义的a、b、c三个变量都是int类型
+int i;
+remove_refrence&lt;decltype(42)&gt;::type a;             //使用原版本，
+remove_refrence&lt;decltype(i)&gt;::type  b;             //左值引用特例版本
+remove_refrence&lt;decltype(std::move(i))&gt;::type  b;  //右值引用特例版本 
+</code></pre><hr>
+<h1 id="总结">总结：</h1>
+<p>std::move实现，首先，通过右值引用传递模板实现，利用引用折叠原理将右值经过T&amp;&amp;传递类型保持不变还是右值，而左值经过T&amp;&amp;变为普通的左值引用，以保证模板可以传递任意实参，且保持类型不变。</p>
+<p>然后我们通过static_cast&lt;&gt;进行强制类型转换返回T&amp;&amp;右值引用，而static_cast<!-- raw HTML omitted -->之所以能使用类型转换，是通过remove_refrence<!-- raw HTML omitted -->::type模板移除T&amp;&amp;，T&amp;的引用，获取具体类型T。</p>
+<hr>
+<h1 id="re">Re</h1>
+<p><a href="https://blog.csdn.net/p942005405/article/details/84644069">https://blog.csdn.net/p942005405/article/details/84644069</a></p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>
+

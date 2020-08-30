@@ -6,10 +6,20 @@
     <description>Recent content in Posts on VcVc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 29 Aug 2020 11:44:31 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 30 Aug 2020 19:57:05 +0800</lastBuildDate>
     
 	<atom:link href="https://6923403.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Cpp11 move</title>
+      <link>https://6923403.github.io/post/move/</link>
+      <pubDate>Sun, 30 Aug 2020 19:57:05 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/move/</guid>
+      <description>#include &amp;lt;iostream&amp;gt; #include &amp;lt;utility&amp;gt; #include &amp;lt;vector&amp;gt; #include &amp;lt;string&amp;gt; int main() { std::string str = &amp;quot;Hello&amp;quot;; std::vector&amp;lt;std::string&amp;gt; v; //调用常规的拷贝构造函数，新建字符数组，拷贝数据 v.push_back(str); std::cout &amp;lt;&amp;lt; &amp;quot;After copy, str is \&amp;quot;&amp;quot; &amp;lt;&amp;lt; str &amp;lt;&amp;lt; &amp;quot;\&amp;quot;\n&amp;quot;; //调用移动构造函数，掏空str，掏空后，最好不要使用str v.push_back(std::move(str)); std::cout &amp;lt;&amp;lt; &amp;quot;After move, str is \&amp;quot;&amp;quot; &amp;lt;&amp;lt; str &amp;lt;&amp;lt; &amp;quot;\&amp;quot;\n&amp;quot;; std::cout &amp;lt;&amp;lt; &amp;quot;The contents of the vector are \&amp;quot;&amp;quot; &amp;lt;&amp;lt; v[0] &amp;lt;&amp;lt; &amp;quot;\&amp;quot;, \&amp;quot;&amp;quot; &amp;lt;&amp;lt; v[1] &amp;lt;&amp;lt; &amp;quot;\&amp;quot;\n&amp;quot;; } Cout:
+After copy, str is &amp;quot;Hello&amp;quot; After move, str is &amp;quot;&amp;quot; The contents of the vector are &amp;quot;Hello&amp;quot;, &amp;quot;Hello&amp;quot;  函数原型 template &amp;lt;typename T&amp;gt; typename remove_reference&amp;lt;T&amp;gt;::type&amp;amp;&amp;amp; move(T&amp;amp;&amp;amp; t) { return static_cast&amp;lt;typename remove_reference&amp;lt;T&amp;gt;::type&amp;amp;&amp;amp;&amp;gt;(t); }  原型定义中的原理实现: 公式一）X&amp;amp; &amp;amp;、X&amp;amp;&amp;amp; &amp;amp;、X&amp;amp; &amp;amp;&amp;amp;都折叠成X&amp;amp;，用于处理左值</description>
+    </item>
     
     <item>
       <title>Cpp11 create_thread</title>
@@ -76,9 +86,9 @@ event 是要监听什么样的事件
  setsockopt
 获取或者设置与某个套接字关联的选 项。选项可能存在于多层协议中，它们总会出现在最上面的套接字层。当操作套接字选项时， 选项位于的层和选项的名称必须给出。为了操作套接字层的选项，应该 将层的值指定为SOL_SOCKET。为了操作其它层的选项，控制选 项的合适协议号必须给出。例如，为了表示一个选项由TCP协议解析，层应该设定为协议 号TCP。 Re: https://www.cnblogs.com/eeexu123/p/5275783.html
  epoll_ctl(_iEpollfd, op, fd, &amp;amp;ev); //Error:_iEpollfd: -1. Success: _iEpollfd = fd
- inet_ntoa()是编程语言，功能是将网络地址转换成“.”点隔的字符串格式。
  int fcntl(int fd, int cmd); int fcntl(int fd, int cmd, long arg); int fcntl(int fd, int cmd, struct flock *lock); fcntl函数有5种功能：
- 1.复制一个现有的描述符（cmd=F_DUPFD）. 2.获得／设置文件描述符标记(cmd=F_GETFD或F_SETFD). 3.获得／设置文件状态标记(cmd=F_GETFL或F_SETFL). 4.获得／设置异步I/O所有权(cmd=F_GETOWN或F_SETOWN). 5.获得／设置记录锁(cmd=F_GETLK,F_SETLK或F_SETLKW).  Re: https://www.</description>
+ 1.复制一个现有的描述符（cmd=F_DUPFD）. 2.获得／设置文件描述符标记(cmd=F_GETFD或F_SETFD). 3.获得／设置文件状态标记(cmd=F_GETFL或F_SETFL). 4.获得／设置异步I/O所有权(cmd=F_GETOWN或F_SETOWN). 5.获得／设置记录锁(cmd=F_GETLK,F_SETLK或F_SETLKW).  Re: https://www.cnblogs.com/xuyh/p/3273082.html
+ 非阻塞I/O使我们的操作要么成功，要么立即返回错误，不被阻塞。</description>
     </item>
     
     <item>
