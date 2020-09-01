@@ -247,10 +247,46 @@ char *ptr = inet_ntop(AF_INET,&amp;foo.sin_addr, str, sizeof(str));      // 代�
 <pre><code>int pthread_mutex_destroy(pthread_mutex_t *mutex)
 </code></pre><p><strong>销毁一个互斥锁即意味着释放它所占用的资源，且要求锁当前处于开放状态。由于在Linux中，互斥锁并不占用任何资源，因此LinuxThreads中的 <code>pthread_mutex_destroy()</code>除了检查锁状态以外（锁定状态则返回EBUSY）没有其他动作。</strong></p>
 <p><strong>2.属性 3. 锁操作</strong></p>
-<p>Re:</p>
-<p><a href="https://www.cnblogs.com/lidabo/p/4566693.html">https://www.cnblogs.com/lidabo/p/4566693.html</a></p>
-<p><a href="https://blog.csdn.net/happylzs2008/article/details/89067028">https://blog.csdn.net/happylzs2008/article/details/89067028</a></p>
-<p><a href="https://blog.csdn.net/jasmineal/article/details/8807744">https://blog.csdn.net/jasmineal/article/details/8807744</a></p>
+<p>Re:
+<a href="https://www.cnblogs.com/lidabo/p/4566693.html">https://www.cnblogs.com/lidabo/p/4566693.html</a></p>
+<hr>
+<p><strong>互斥锁的类型：有以下几个取值空间:</strong></p>
+<ul>
+<li>
+<p>PTHREAD_MUTEX_TIMED_NP，这是缺省值，也就是普通锁。当一个线程加锁以后，其余请求锁的线程将形成一个等待队列，并在解锁后按优先级获得锁。这种锁策略保证了资源分配的公平性。</p>
+</li>
+<li>
+<p>PTHREAD_MUTEX_RECURSIVE_NP，嵌套锁，允许同一个线程对同一个锁成功获得多次，并通过多次unlock解锁。如果是不同线程请求，则在加锁线程解锁时重新竞争。</p>
+</li>
+<li>
+<p>PTHREAD_MUTEX_ERRORCHECK_NP，检错锁，如果同一个线程请求同一个锁，则返回EDEADLK，否则与PTHREAD_MUTEX_TIMED_NP类型动作相同。这样就保证当不允许多次加锁时不会出现最简单情况下的死锁。</p>
+</li>
+<li>
+<p>PTHREAD_MUTEX_ADAPTIVE_NP，适应锁，动作最简单的锁类型，仅等待解锁后重新竞争。
+*<em>pthread_mutexattr_settype(pthread_mutexattr_t <em>attr , int type)</em></em>
+**pthread_mutexattr_gettype(pthread_mutexattr_t <em>attr , int <em>type)</em></em></p>
+</li>
+</ul>
+<p>Re:
+<a href="https://blog.csdn.net/happylzs2008/article/details/89067028">https://blog.csdn.net/happylzs2008/article/details/89067028</a></p>
+<hr>
+<p><strong>销毁互斥锁属性对象</strong></p>
+<ul>
+<li><code>pthread_mutexattr_destroy(3C)</code> 可用来取消分配用于维护 <code>pthread_mutexattr_init()</code> 所创建的属性对象的存储空间。</li>
+</ul>
+<p><strong>对于互斥锁属性对象，必须首先通过调用<code>pthread_mutexattr_destroy(3C)</code>将其销毁，才能重新初始化该对象。pthread_mutexattr_init() 调用会导致分配类型为 opaque 的对象。如果未销毁该对象，则会导致内存泄漏</strong></p>
+<p>Re:
+<a href="https://blog.csdn.net/jasmineal/article/details/8807744">https://blog.csdn.net/jasmineal/article/details/8807744</a></p>
+<hr>
+<p><strong>对锁的操作主要包括加锁 pthread_mutex_lock()、解锁pthread_mutex_unlock()和测试加锁 pthread_mutex_trylock()三个。</strong></p>
+<ul>
+<li>int pthread_mutex_lock(pthread_mutex_t *mutex)</li>
+<li>int pthread_mutex_unlock(pthread_mutex_t *mutex)</li>
+<li>int pthread_mutex_trylock(pthread_mutex_t *mutex)</li>
+</ul>
+<p><strong>pthread_mutex_trylock()语义与pthread_mutex_lock()类似，不同的是在锁已经被占据时返回EBUSY而不是挂起等待</strong></p>
+<p>Re:
+<a href="https://blog.csdn.net/jasmineal/article/details/8807744">https://blog.csdn.net/jasmineal/article/details/8807744</a></p>
 <hr>
 
     </div>
