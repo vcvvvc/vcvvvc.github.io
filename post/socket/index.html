@@ -81,7 +81,7 @@
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          Takes 1 min read
+          Takes 2 min read
         </div><div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
   <title>tag</title>
@@ -186,6 +186,71 @@ const char * inet_ntop(int family, const void *addrptr, char *strptr, size_t len
 char str[INET_ADDRSTRLEN];
 char *ptr = inet_ntop(AF_INET,&amp;foo.sin_addr, str, sizeof(str));      // 代替 ptr = inet_ntoa(foo.sin_addr)
 </code></pre><p>Re: <a href="https://blog.csdn.net/zyy617532750/article/details/58595700">https://blog.csdn.net/zyy617532750/article/details/58595700</a></p>
+<hr>
+<p><code>int send( SOCKET s,char *buf,int len,int flags )</code></p>
+<p><strong>功能：不论是客户还是服务器应用程序都用send函数来向TCP连接的另一端发送数据。客户程序一般用send函数向服务器发送请求，而服务器则通常用send函数来向客户程序发送应答。</strong></p>
+<ul>
+<li>
+<p>参数一：指定发送端套接字描述符；</p>
+</li>
+<li>
+<p>参数二：存放应用程序要发送数据的缓冲区；</p>
+</li>
+<li>
+<p>参数三：实际要发送的数据的字节数；</p>
+</li>
+<li>
+<p>参数四：一般置为0。</p>
+</li>
+</ul>
+<p><code>int recv( SOCKET s, char *buf, int  len, int flags)</code></p>
+<p><strong>功能：不论是客户还是服务器应用程序都用recv函数从TCP连接的另一端接收数据。</strong></p>
+<ul>
+<li>
+<p>参数一：指定接收端套接字描述符；</p>
+</li>
+<li>
+<p>参数二：指明一个缓冲区，该缓冲区用来存放recv函数接收到的数据；</p>
+</li>
+<li>
+<p>参数三：指明buf的长度；</p>
+</li>
+<li>
+<p>参数四 ：一般置为0。</p>
+</li>
+</ul>
+<p>Re: <a href="https://blog.csdn.net/lanzhihui_10086/article/details/40681617">https://blog.csdn.net/lanzhihui_10086/article/details/40681617</a></p>
+<hr>
+<p><code>read(sock, buf, sizeof(buf) -1)</code></p>
+<p><strong>read从套接字文件中读取数据, fd为要读取的文件的描述符，buf为要接收数据的缓冲区地址，nbytes为要读取的数据的字节数。</strong></p>
+<hr>
+<pre><code>    /*
+     * 本函数向服务ip发起请求 服务器ip port 保存在sockaddr_in中
+     * int connect(int sock, struct sockaddr *serv_addr, socklen_t addrlen);  //Linux
+     * int connect(SOCKET sock, const struct sockaddr *serv_addr, int addrlen);  //Windows
+     * sock 为 socket 文件描述符，addr 为 sockaddr 结构体变量的指针，addrlen 为 addr 变量的大小，可由 sizeof() 计算得出。
+     */
+    connect(sock, (struct sockaddr*) &amp;serv_addr, sizeof(serv_addr));
+</code></pre><hr>
+<p><strong>linux mutex block</strong></p>
+<p><code>pthread_mutexattr_t mattr</code></p>
+<p><code>int pthread_mutexattr_init(pthread_mutexattr_t *mattr)</code></p>
+<p><strong>pthread_mutex_init() 函数是以动态方式创建互斥锁的，参数attr指定了新建互斥锁的属性。如果参数attr为空，则使用默认的互斥锁属性，默认属性为快速互斥锁 。互斥锁的属性在创建锁的时候指定，在LinuxThreads实现中仅有一个锁类型属性，不同的锁类型在试图对一个已经被锁定的互斥锁加锁时表现不同。</strong></p>
+<ul>
+<li>Success: return 0</li>
+</ul>
+<p><strong>POSIX定义了一个宏PTHREAD_MUTEX_INITIALIZER来静态初始化互斥锁</strong></p>
+<pre><code>pthread_mutex_t mutex=PTHREAD_MUTEX_INITIALIZER;
+</code></pre><p><strong>动态方式是采用pthread_mutex_init()函数来初始化互斥锁</strong></p>
+<pre><code>int pthread_mutex_init(pthread_mutex_t *mutex, const pthread_mutexattr_t *mutexattr)
+</code></pre><p><strong>其中mutexattr用于指定互斥锁属性（见下），如果为NULL则使用缺省属性, <code>pthread_mutex_destroy()</code>用于注销一个互斥锁</strong></p>
+<pre><code>int pthread_mutex_destroy(pthread_mutex_t *mutex)
+</code></pre><p><strong>销毁一个互斥锁即意味着释放它所占用的资源，且要求锁当前处于开放状态。由于在Linux中，互斥锁并不占用任何资源，因此LinuxThreads中的 <code>pthread_mutex_destroy()</code>除了检查锁状态以外（锁定状态则返回EBUSY）没有其他动作。</strong></p>
+<p><strong>2.属性 3. 锁操作</strong></p>
+<p>Re:</p>
+<p><a href="https://www.cnblogs.com/lidabo/p/4566693.html">https://www.cnblogs.com/lidabo/p/4566693.html</a></p>
+<p><a href="https://blog.csdn.net/happylzs2008/article/details/89067028">https://blog.csdn.net/happylzs2008/article/details/89067028</a></p>
+<p><a href="https://blog.csdn.net/jasmineal/article/details/8807744">https://blog.csdn.net/jasmineal/article/details/8807744</a></p>
 <hr>
 
     </div>
