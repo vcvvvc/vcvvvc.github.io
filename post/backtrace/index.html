@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>Linux cpp put Backtrace // VcVc Blog</title>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.68.3" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="VcVc" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="VcVc,VcVc Blog,6923403,CPP,Cplusplus,C++,Open Source,Rust,Python,Linux" />
+    <link rel="stylesheet" href="https://6923403.github.io/css/main.min.97b9435bd24f2320fd8066e25d821721f54063ef36afa430160134863128d46e.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Linux cpp put Backtrace"/>
+<meta name="twitter:description" content="获取Backtrace #include &lt;execinfo.h&gt; /* Store up to SIZE return address of the current program state in ARRAY and return the exact number of values stored. */ int backtrace(void **array, int size); /* Return names of functions from the backtrace list in ARRAY in a newly malloc()ed memory block. */ char **backtrace_symbols(void *const *array, int size); /* This function is similar to backtrace_symbols() but it writes the result immediately to a file."/>
+
+    <meta property="og:title" content="Linux cpp put Backtrace" />
+<meta property="og:description" content="获取Backtrace #include &lt;execinfo.h&gt; /* Store up to SIZE return address of the current program state in ARRAY and return the exact number of values stored. */ int backtrace(void **array, int size); /* Return names of functions from the backtrace list in ARRAY in a newly malloc()ed memory block. */ char **backtrace_symbols(void *const *array, int size); /* This function is similar to backtrace_symbols() but it writes the result immediately to a file." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://6923403.github.io/post/backtrace/" />
+<meta property="article:published_time" content="2020-09-02T14:10:18+08:00" />
+<meta property="article:modified_time" content="2020-09-02T14:10:18+08:00" />
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://6923403.github.io"><img class="app-header-avatar" src="/avatar.jpg" alt="VcVc" /></a>
+      <h1>VcVc Blog</h1>
+      <p>Code and tea and natural .</p>
+      <div class="app-header-social">
+        
+          <a target="_blank" href="https://github.com/6923403" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg></a>
+        
+          <a target="_blank" href="https://twitter.com/vcvckw" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-twitter">
+  <title>twitter</title>
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+</svg></a>
+        
+          <a target="_blank" href="mailto:vcvckw@gmail.com" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-mail">
+  <title>mail</title>
+  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline>
+</svg></a>
+        
+      </div>  
+          
+    </header>    
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Linux cpp put Backtrace</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Sep 2, 2020
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          Takes 1 min read
+        </div><div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line>
+</svg>
+          <a class="tag" href="https://6923403.github.io/tags/linux/">Linux</a><a class="tag" href="https://6923403.github.io/tags/cpp/">CPP</a><a class="tag" href="https://6923403.github.io/tags/backtrace/">Backtrace</a></div></div>
+    </header>
+    <div class="post-content">
+      <h1 id="获取backtrace">获取Backtrace</h1>
+<pre><code>#include &lt;execinfo.h&gt;
+
+/* Store up to SIZE return address of the current program state in
+   ARRAY and return the exact number of values stored.  */
+int backtrace(void **array, int size);
+
+/* Return names of functions from the backtrace list in ARRAY in a newly
+   malloc()ed memory block.  */
+char **backtrace_symbols(void *const *array, int size);
+
+/* This function is similar to backtrace_symbols() but it writes the result
+   immediately to a file.  */
+void backtrace_symbols_fd(void *const *array, int size, int fd);
+</code></pre><p><code>int backtrace(void **buffer,int size)</code></p>
+<p><strong>该函数用与获取当前线程的调用堆栈,获取的信息将会被存放在buffer中,它是一个指针数组。参数 size 用来指定buffer中可以保存多少个void* 元素。函数返回值是实际获取的指针个数,最大不超过size大小在buffer中的指针实际是从堆栈中获取的返回地址,每一个堆栈框架有一个返回地址。</strong></p>
+<p><strong>注意某些编译器的优化选项对获取正确的调用堆栈有干扰,另外内联函数没有堆栈框架;删除框架指针也会使无法正确解析堆栈内容</strong></p>
+<hr>
+<p><code>char ** backtrace_symbols (void *const *buffer, int size)</code></p>
+<p><strong>backtrace_symbols将从backtrace函数获取的信息转化为一个字符串数组. 参数buffer应该是从backtrace函数获取的数组指针,size是该数组中的元素个数(backtrace的返回值)，函数返回值是一个指向字符串数组的指针,它的大小同buffer相同.每个字符串包含了一个相对于buffer中对应元素的可打印信息.它包括函数名，函数的偏移地址,和实际的返回地址</strong></p>
+<hr>
+<p><code>void backtrace_symbols_fd (void *const *buffer, int size, int fd)</code></p>
+<p><strong>backtrace_symbols_fd与backtrace_symbols 函数具有相同的功能,不同的是它不会给调用者返回字符串数组,而是将结果写入文件描述符为fd的文件中,每个函数对应一行.它不需要调用malloc函数,因此适用于有可能调用该函数会失败的情况。</strong></p>
+<hr>
+<blockquote>
+<p><strong>使用它们的时候有一下几点需要我们注意的地方：</strong></p>
+</blockquote>
+<ul>
+<li>
+<p>backtrace的实现依赖于栈指针（fp寄存器），在gcc编译过程中任何非零的优化等级（-On参数）或加入了栈指针优化参数-fomit-frame-pointer后多将不能正确得到程序栈信息；</p>
+</li>
+<li>
+<p>backtrace_symbols的实现需要符号名称的支持，在gcc编译过程中需要加入-rdynamic参数；</p>
+</li>
+<li>
+<p>内联函数没有栈帧，它在编译过程中被展开在调用的位置；</p>
+</li>
+<li>
+<p>尾调用优化（Tail-call Optimization）将复用当前函数栈，而不再生成新的函数栈，这将导致栈信息不能正确被获取。</p>
+</li>
+</ul>
+<p>Re:</p>
+<p><a href="https://blog.csdn.net/jxgz_leo/article/details/53458366">https://blog.csdn.net/jxgz_leo/article/details/53458366</a></p>
+<p><a href="https://www.cnblogs.com/mickole/p/3246702.html">https://www.cnblogs.com/mickole/p/3246702.html</a></p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>
+

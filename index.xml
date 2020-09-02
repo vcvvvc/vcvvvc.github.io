@@ -6,10 +6,19 @@
     <description>Recent content on VcVc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 30 Aug 2020 19:57:05 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 02 Sep 2020 14:10:18 +0800</lastBuildDate>
     
 	<atom:link href="https://6923403.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Linux cpp put Backtrace</title>
+      <link>https://6923403.github.io/post/backtrace/</link>
+      <pubDate>Wed, 02 Sep 2020 14:10:18 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/backtrace/</guid>
+      <description>获取Backtrace #include &amp;lt;execinfo.h&amp;gt; /* Store up to SIZE return address of the current program state in ARRAY and return the exact number of values stored. */ int backtrace(void **array, int size); /* Return names of functions from the backtrace list in ARRAY in a newly malloc()ed memory block. */ char **backtrace_symbols(void *const *array, int size); /* This function is similar to backtrace_symbols() but it writes the result immediately to a file.</description>
+    </item>
     
     <item>
       <title>Cpp11 move</title>
