@@ -261,9 +261,68 @@ std::future_status wait_for( const std::chrono::duration&lt;Rep,Period&gt;&amp; 
 <ul>
 <li><strong>鼓励实现在调用前检测 valid == false 的情况并抛出以 future_errc::no_state 为 error_condition 的 future_error .</strong></li>
 </ul>
-<hr>
 <p>Re:</p>
 <p><a href="https://www.cnblogs.com/DOMLX/p/10945309.html">https://www.cnblogs.com/DOMLX/p/10945309.html</a></p>
+<hr>
+<pre><code>#include &lt;pthread.h&gt;
+int pthread_condattr_init(pthread_condattr_t* attr);
+int pthread_condattr_destroy(pthread_condattr_t* attr);
+
+//返回值：成功返回0；失败返回错误编码
+</code></pre><p><code>pthread_condattr_init</code></p>
+<ul>
+<li>功能：对条件变量属性结构体初始化</li>
+<li>调用此函数之后，条件变量属性结构体的属性都是系统默认值，如果想要设置其他属性，还需要调用不同的函数进行设置</li>
+</ul>
+<p><code>pthread_condattr_destroy</code></p>
+<ul>
+<li>功能：对条件变量属性结构体反初始化（销毁）</li>
+<li>只反初始化，不释放内存</li>
+</ul>
+<p>Re:</p>
+<p><a href="https://blog.csdn.net/qq_41453285/article/details/90904870">https://blog.csdn.net/qq_41453285/article/details/90904870</a></p>
+<hr>
+<pre><code>#include &lt;pthread.h&gt;
+int pthread_condattr_setshared(pthread_condattr_t* attr,int pshared);
+int pthread_condattr_getshared(const pthread_condattr_t* restrict attr,int* restrict pshared);
+
+//返回值：成功返回0；失败返回错误编码
+</code></pre><p><code>pthread_condattr_setshared</code></p>
+<ul>
+<li>功能：设置条件变量的进程共享属性</li>
+</ul>
+<p><code>pthread_condattr_getshared</code></p>
+<ul>
+<li>功能：获取条件变量的进程共享属性</li>
+</ul>
+<p>Re:</p>
+<p><a href="https://blog.csdn.net/qq_41453285/article/details/90904870">https://blog.csdn.net/qq_41453285/article/details/90904870</a></p>
+<hr>
+<pre><code>#include &lt;pthread.h&gt;
+int pthread_condattr_setclock(pthread_condattr_t* attr,clockid_t clock_id);
+int pthread_condattr_getclock(const pthread_condattr_t* restrict attr,clockid_t *restrict clock_id);
+
+//返回值：成功返回0；失败返回错误编码
+</code></pre><p><code>pthread_condattr_setclock</code></p>
+<ul>
+<li>功能：此函数用于设置pthread_cond_timewait函数使用的时钟ID</li>
+</ul>
+<p><code>pthread_condattr_getclock</code></p>
+<ul>
+<li>功能：此函数获取可被用于pthread_cond_timedwait函数的时钟ID。pthread_cond_timedwait函数使用前需要用pthread_condattr_t对条件变量进行初始化</li>
+</ul>
+<p>Re:</p>
+<p><a href="https://blog.csdn.net/qq_41453285/article/details/90904870">https://blog.csdn.net/qq_41453285/article/details/90904870</a></p>
+<hr>
+<p><code>int pthread_cond_init(pthread_cond_t *cond, pthread_condattr_t *cond_attr)</code></p>
+<p><strong>其中cond是一个指向结构pthread_cond_t的指针，cond_attr是一个指向结构pthread_condattr_t的指针。结构 pthread_condattr_t是条件变量的属性结构，和互斥锁一样我们可以用它来设置条件变量是进程内可用还是进程间可用，</strong>
+<strong>默认值是</strong><code>PTHREAD_ PROCESS_PRIVATE</code>，<strong>即此条件变量被同一进程内的各个线程使用。</strong></p>
+<p><strong>注意初始化条件变量只有未被使用时才能重新初始化或被释放。释放一个条件变量的函数为pthread_cond_destroy（pthread_cond_t cond）。</strong></p>
+<p><strong>也可以静态的初始化条件变量</strong></p>
+<pre><code>pthread_cond_t my_condition = PTHREAD_COND_INITIALIZER;
+</code></pre><p>Re:</p>
+<p><a href="https://blog.csdn.net/jandunlab/article/details/9928417">https://blog.csdn.net/jandunlab/article/details/9928417</a></p>
+<p><a href="https://blog.csdn.net/ffilman/article/details/4871920">https://blog.csdn.net/ffilman/article/details/4871920</a></p>
 
     </div>
     <div class="post-footer">

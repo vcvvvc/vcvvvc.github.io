@@ -285,14 +285,27 @@ char *ptr = inet_ntop(AF_INET,&amp;foo.sin_addr, str, sizeof(str));      // 代�
 <li>int pthread_mutex_trylock(pthread_mutex_t *mutex)</li>
 </ul>
 <p><strong>pthread_mutex_trylock()语义与pthread_mutex_lock()类似，不同的是在锁已经被占据时返回EBUSY而不是挂起等待</strong></p>
+<p><strong><code>pthread_mutex_lock</code> 用于解决由于竞争产生的优先级反转问题。没锁更新所有权,锁住</strong></p>
 <p>Re:
 <a href="https://blog.csdn.net/jasmineal/article/details/8807744">https://blog.csdn.net/jasmineal/article/details/8807744</a></p>
+<p><a href="https://blog.csdn.net/oqqYuJi12345678/article/details/100585669">https://blog.csdn.net/oqqYuJi12345678/article/details/100585669</a></p>
 <hr>
 <pre><code>backtrace
 backtrace_symbols
 backtrace_symbols_fd
 </code></pre><p>To: <a href="https://6923403.github.io/post/backtrace/">https://6923403.github.io/post/backtrace/</a></p>
 <hr>
+<p><strong><code>pthread_cond_broadcast(&amp;cond1)</code>的作用是唤醒所有正在<code>pthread_cond_wait(&amp;cond1,&amp;mutex1)</code>的线程。</strong></p>
+<pre><code>while(lock_status_[lid] == LOCKED) 
+{
+    pthread_cond_wait(&amp;c_, &amp;m_);
+}
+    pthread_cond_broadcast(&amp;c_);
+</code></pre><p><strong>一旦某个锁被释放，所有的阻塞线程都会被唤醒，但唯有阻塞在这个锁的线程才能真正被唤醒。</strong></p>
+<p><strong><code>pthread_cond_signal(&amp;cond1)</code>的的作用是唤醒所有正在 <code>pthread_cond_wait(&amp;cond1,&amp;mutex1)</code>的至少一个线程。（虽然我还没碰到过多于一个线程的情况，但是man帮组手册上说的是至少一个）</strong></p>
+<p>Re:</p>
+<p><a href="https://www.cnblogs.com/XiaoXiaoShuai-/p/11855408.html">https://www.cnblogs.com/XiaoXiaoShuai-/p/11855408.html</a></p>
+<p><a href="https://www.cnblogs.com/zhouzhuo/p/3781511.html">https://www.cnblogs.com/zhouzhuo/p/3781511.html</a></p>
 
     </div>
     <div class="post-footer">
