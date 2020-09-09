@@ -13,14 +13,20 @@
     
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="C&#43;&#43; auto ponit"/>
-<meta name="twitter:description" content="shared_ptr unique_ptr weak_ptr auto_ptr //drop in c&#43;&#43;11  Class shared_ptr 实现共享式拥有（shared ownership）概念。多个智能指针指向相同对象，该对象和其相关资源会在 “最后一个 reference 被销毁” 时被释放。为了在结构较复杂的情景中执行上述工作，标准库提供 weak_ptr、bad_weak_ptr 和 enable_shared_from_this 等辅助类。 Class unique_ptr 实现独占式拥有（exclusive ownership）或严格拥有（strict ownership）概念，保证同一时间内只有一个智能指针可以指向该对象。你可以移交拥有权。它对于避免内存泄漏（resource leak）——如 new 后忘记 delete ——特别有用。   1.shared_ptr 多个智能指针可以共享同一个对象，对象的最末一个拥有着有责任销毁对象，并清理与该对象相关的所有资源。
- 支持定制型删除器（custom deleter），可防范 Cross-DLL 问题（对象在动态链接库（DLL）中被 new 创建，却在另一个 DLL 内被 delete 销毁）、自动解除互斥锁   2.weak_ptr weak_ptr 允许你共享但不拥有某对象，一旦最末一个拥有该对象的智能指针失去了所有权，任何 weak_ptr 都会自动成空（empty）。因此，在 default 和 copy 构造函数之外，weak_ptr 只提供 “接受一个 shared_ptr” 的构造函数。
- 可打破环状引用（cycles of references，两个其实已经没有被使用的对象彼此互指，使之看似还在 “被使用” 的状态）的问题   3.unique_ptr unique_ptr 是 C&#43;&#43;11 才开始提供的类型，是一种在异常时可以帮助避免资源泄漏的智能指针。采用独占式拥有，意味着可以确保一个对象和其相应的资源同一时间只被一个 pointer 拥有。一旦拥有着被销毁或编程 empty，或开始拥有另一个对象，先前拥有的那个对象就会被销毁，其任何相应资源亦会被释放。"/>
+<meta name="twitter:description" content="Class shared_ptr 实现共享式拥有（shared ownership）概念。多个智能指针指向相同对象，该对象和其相关资源会在 “最后一个 reference 被销毁” 时被释放。为了在结构较复杂的情景中执行上述工作，标准库提供 weak_ptr、bad_weak_ptr 和 enable_shared_from_this 等辅助类。 Class unique_ptr 实现独占式拥有（exclusive ownership）或严格拥有（strict ownership）概念，保证同一时间内只有一个智能指针可以指向该对象。你可以移交拥有权。它对于避免内存泄漏（resource leak）——如 new 后忘记 delete ——特别有用。   1.shared_ptr shared_ptr&lt;T&gt; sp
+多个智能指针可以共享同一个对象，对象的最末一个拥有着有责任销毁对象，并清理与该对象相关的所有资源。
+ 支持定制型删除器（custom deleter），可防范 Cross-DLL 问题（对象在动态链接库（DLL）中被 new 创建，却在另一个 DLL 内被 delete 销毁）、自动解除互斥锁   3. make_shared make_shared&lt;T&gt;(args)
+shared_ptr&lt;int&gt; p = make_shared&lt;int&gt;(42); 返回一个shared_ptr, 指向一个动态分配的类型为T的对象。使用args初始化此对象
+ 3.weak_ptr weak_ptr 允许你共享但不拥有某对象，一旦最末一个拥有该对象的智能指针失去了所有权，任何 weak_ptr 都会自动成空（empty）。因此，在 default 和 copy 构造函数之外，weak_ptr 只提供 “接受一个 shared_ptr” 的构造函数。
+ 可打破环状引用（cycles of references，两个其实已经没有被使用的对象彼此互指，使之看似还在 “被使用” 的状态）的问题   4."/>
 
     <meta property="og:title" content="C&#43;&#43; auto ponit" />
-<meta property="og:description" content="shared_ptr unique_ptr weak_ptr auto_ptr //drop in c&#43;&#43;11  Class shared_ptr 实现共享式拥有（shared ownership）概念。多个智能指针指向相同对象，该对象和其相关资源会在 “最后一个 reference 被销毁” 时被释放。为了在结构较复杂的情景中执行上述工作，标准库提供 weak_ptr、bad_weak_ptr 和 enable_shared_from_this 等辅助类。 Class unique_ptr 实现独占式拥有（exclusive ownership）或严格拥有（strict ownership）概念，保证同一时间内只有一个智能指针可以指向该对象。你可以移交拥有权。它对于避免内存泄漏（resource leak）——如 new 后忘记 delete ——特别有用。   1.shared_ptr 多个智能指针可以共享同一个对象，对象的最末一个拥有着有责任销毁对象，并清理与该对象相关的所有资源。
- 支持定制型删除器（custom deleter），可防范 Cross-DLL 问题（对象在动态链接库（DLL）中被 new 创建，却在另一个 DLL 内被 delete 销毁）、自动解除互斥锁   2.weak_ptr weak_ptr 允许你共享但不拥有某对象，一旦最末一个拥有该对象的智能指针失去了所有权，任何 weak_ptr 都会自动成空（empty）。因此，在 default 和 copy 构造函数之外，weak_ptr 只提供 “接受一个 shared_ptr” 的构造函数。
- 可打破环状引用（cycles of references，两个其实已经没有被使用的对象彼此互指，使之看似还在 “被使用” 的状态）的问题   3.unique_ptr unique_ptr 是 C&#43;&#43;11 才开始提供的类型，是一种在异常时可以帮助避免资源泄漏的智能指针。采用独占式拥有，意味着可以确保一个对象和其相应的资源同一时间只被一个 pointer 拥有。一旦拥有着被销毁或编程 empty，或开始拥有另一个对象，先前拥有的那个对象就会被销毁，其任何相应资源亦会被释放。" />
+<meta property="og:description" content="Class shared_ptr 实现共享式拥有（shared ownership）概念。多个智能指针指向相同对象，该对象和其相关资源会在 “最后一个 reference 被销毁” 时被释放。为了在结构较复杂的情景中执行上述工作，标准库提供 weak_ptr、bad_weak_ptr 和 enable_shared_from_this 等辅助类。 Class unique_ptr 实现独占式拥有（exclusive ownership）或严格拥有（strict ownership）概念，保证同一时间内只有一个智能指针可以指向该对象。你可以移交拥有权。它对于避免内存泄漏（resource leak）——如 new 后忘记 delete ——特别有用。   1.shared_ptr shared_ptr&lt;T&gt; sp
+多个智能指针可以共享同一个对象，对象的最末一个拥有着有责任销毁对象，并清理与该对象相关的所有资源。
+ 支持定制型删除器（custom deleter），可防范 Cross-DLL 问题（对象在动态链接库（DLL）中被 new 创建，却在另一个 DLL 内被 delete 销毁）、自动解除互斥锁   3. make_shared make_shared&lt;T&gt;(args)
+shared_ptr&lt;int&gt; p = make_shared&lt;int&gt;(42); 返回一个shared_ptr, 指向一个动态分配的类型为T的对象。使用args初始化此对象
+ 3.weak_ptr weak_ptr 允许你共享但不拥有某对象，一旦最末一个拥有该对象的智能指针失去了所有权，任何 weak_ptr 都会自动成空（empty）。因此，在 default 和 copy 构造函数之外，weak_ptr 只提供 “接受一个 shared_ptr” 的构造函数。
+ 可打破环状引用（cycles of references，两个其实已经没有被使用的对象彼此互指，使之看似还在 “被使用” 的状态）的问题   4." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://6923403.github.io/post/cpp_auto_ponit/" />
 <meta property="article:published_time" content="2020-08-17T15:10:13+08:00" />
@@ -80,38 +86,48 @@
           <a class="tag" href="https://6923403.github.io/tags/cpp/">CPP</a><a class="tag" href="https://6923403.github.io/tags/point/">point</a></div></div>
     </header>
     <div class="post-content">
-      <pre><code>shared_ptr
-unique_ptr
-weak_ptr
-auto_ptr //drop in c++11
-</code></pre><ul>
+      <ul>
 <li>Class shared_ptr 实现共享式拥有（shared ownership）概念。多个智能指针指向相同对象，该对象和其相关资源会在 “最后一个 reference 被销毁” 时被释放。为了在结构较复杂的情景中执行上述工作，标准库提供 weak_ptr、bad_weak_ptr 和 enable_shared_from_this 等辅助类。</li>
 <li>Class unique_ptr 实现独占式拥有（exclusive ownership）或严格拥有（strict ownership）概念，保证同一时间内只有一个智能指针可以指向该对象。你可以移交拥有权。它对于避免内存泄漏（resource leak）——如 new 后忘记 delete ——特别有用。</li>
 </ul>
 <hr>
 <h1 id="1shared_ptr">1.shared_ptr</h1>
+<p><code>shared_ptr&lt;T&gt; sp</code></p>
 <p><strong>多个智能指针可以共享同一个对象，对象的最末一个拥有着有责任销毁对象，并清理与该对象相关的所有资源。</strong></p>
 <ul>
 <li>支持定制型删除器（custom deleter），可防范 Cross-DLL 问题（对象在动态链接库（DLL）中被 new 创建，却在另一个 DLL 内被 delete 销毁）、自动解除互斥锁</li>
 </ul>
 <hr>
-<h1 id="2weak_ptr">2.weak_ptr</h1>
+<h1 id="3-make_shared">3. make_shared</h1>
+<p><code>make_shared&lt;T&gt;(args)</code></p>
+<pre><code>shared_ptr&lt;int&gt; p = make_shared&lt;int&gt;(42);
+</code></pre><p><strong>返回一个shared_ptr, 指向一个动态分配的类型为T的对象。使用args初始化此对象</strong></p>
+<hr>
+<h1 id="3weak_ptr">3.weak_ptr</h1>
 <p><strong>weak_ptr 允许你共享但不拥有某对象，一旦最末一个拥有该对象的智能指针失去了所有权，任何 weak_ptr 都会自动成空（empty）。因此，在 default 和 copy 构造函数之外，weak_ptr 只提供 “接受一个 shared_ptr” 的构造函数。</strong></p>
 <ul>
 <li>可打破环状引用（cycles of references，两个其实已经没有被使用的对象彼此互指，使之看似还在 “被使用” 的状态）的问题</li>
 </ul>
 <hr>
-<h1 id="3unique_ptr">3.unique_ptr</h1>
+<h1 id="4unique_ptr">4.unique_ptr</h1>
+<p><code>unique_ptr&lt;T&gt; up</code></p>
 <p><strong>unique_ptr 是 C++11 才开始提供的类型，是一种在异常时可以帮助避免资源泄漏的智能指针。采用独占式拥有，意味着可以确保一个对象和其相应的资源同一时间只被一个 pointer 拥有。一旦拥有着被销毁或编程 empty，或开始拥有另一个对象，先前拥有的那个对象就会被销毁，其任何相应资源亦会被释放。</strong></p>
 <ul>
 <li>unique_ptr 用于取代 auto_ptr</li>
 </ul>
 <hr>
-<h1 id="4auto_ptr">4.auto_ptr</h1>
+<h1 id="5auto_ptr">5.auto_ptr</h1>
 <p><strong>被 c++11 弃用，原因是缺乏语言特性如 “针对构造和赋值” 的 std::move 语义，以及其他瑕疵。</strong></p>
+<p>Reference(1-5):
+<a href="https://github.com/6923403/interview#%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88">github/Interview</a></p>
 <hr>
-<h1 id="reference">Reference:</h1>
-<h3 id="githubinterviewhttpsgithubcom6923403interviewe699bae883bde68c87e99288"><a href="https://github.com/6923403/interview#%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88">github/Interview</a></h3>
+<h1 id="6other">6.Other</h1>
+<pre><code>p.get() 
+</code></pre><p><strong>返回p中保存的指针。 若智能指针释放了其对象，返回的指针所指向的对象也就消失了。</strong></p>
+<pre><code>p.use_count()
+</code></pre><p><strong>返回与p共享对象的智能指针数量 用于调试</strong></p>
+<pre><code>p.unqiue()
+</code></pre><p><strong>若p.use_count = 1, return true; 反之 return false</strong></p>
 
     </div>
     <div class="post-footer">
