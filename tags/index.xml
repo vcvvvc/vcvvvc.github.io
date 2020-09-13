@@ -6,10 +6,37 @@
     <description>Recent content in Tags on VcVc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 02 Sep 2020 14:10:18 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 13 Sep 2020 15:13:08 +0800</lastBuildDate>
     
 	<atom:link href="https://6923403.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>CPP</title>
+      <link>https://6923403.github.io/tags/cpp/</link>
+      <pubDate>Sun, 13 Sep 2020 15:13:08 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/tags/cpp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>exception</title>
+      <link>https://6923403.github.io/tags/exception/</link>
+      <pubDate>Sun, 13 Sep 2020 15:13:08 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/tags/exception/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>https://6923403.github.io/tags/linux/</link>
+      <pubDate>Sun, 13 Sep 2020 15:13:08 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Backtrace</title>
@@ -17,24 +44,6 @@
       <pubDate>Wed, 02 Sep 2020 14:10:18 +0800</pubDate>
       
       <guid>https://6923403.github.io/tags/backtrace/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>CPP</title>
-      <link>https://6923403.github.io/tags/cpp/</link>
-      <pubDate>Wed, 02 Sep 2020 14:10:18 +0800</pubDate>
-      
-      <guid>https://6923403.github.io/tags/cpp/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Linux</title>
-      <link>https://6923403.github.io/tags/linux/</link>
-      <pubDate>Wed, 02 Sep 2020 14:10:18 +0800</pubDate>
-      
-      <guid>https://6923403.github.io/tags/linux/</guid>
       <description></description>
     </item>
     
