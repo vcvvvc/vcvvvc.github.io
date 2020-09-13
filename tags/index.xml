@@ -6,7 +6,7 @@
     <description>Recent content in Tags on VcVc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 13 Sep 2020 15:13:08 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 13 Sep 2020 17:03:43 +0800</lastBuildDate>
     
 	<atom:link href="https://6923403.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,9 +14,36 @@
     <item>
       <title>CPP</title>
       <link>https://6923403.github.io/tags/cpp/</link>
-      <pubDate>Sun, 13 Sep 2020 15:13:08 +0800</pubDate>
+      <pubDate>Sun, 13 Sep 2020 17:03:43 +0800</pubDate>
       
       <guid>https://6923403.github.io/tags/cpp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>https://6923403.github.io/tags/linux/</link>
+      <pubDate>Sun, 13 Sep 2020 17:03:43 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sokcet</title>
+      <link>https://6923403.github.io/tags/sokcet/</link>
+      <pubDate>Sun, 13 Sep 2020 17:03:43 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/tags/sokcet/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Socket</title>
+      <link>https://6923403.github.io/tags/socket/</link>
+      <pubDate>Sun, 13 Sep 2020 16:43:04 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/tags/socket/</guid>
       <description></description>
     </item>
     
@@ -26,15 +53,6 @@
       <pubDate>Sun, 13 Sep 2020 15:13:08 +0800</pubDate>
       
       <guid>https://6923403.github.io/tags/exception/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Linux</title>
-      <link>https://6923403.github.io/tags/linux/</link>
-      <pubDate>Sun, 13 Sep 2020 15:13:08 +0800</pubDate>
-      
-      <guid>https://6923403.github.io/tags/linux/</guid>
       <description></description>
     </item>
     
@@ -71,15 +89,6 @@
       <pubDate>Sat, 29 Aug 2020 11:44:31 +0800</pubDate>
       
       <guid>https://6923403.github.io/tags/thread/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Socket</title>
-      <link>https://6923403.github.io/tags/socket/</link>
-      <pubDate>Thu, 27 Aug 2020 12:09:01 +0800</pubDate>
-      
-      <guid>https://6923403.github.io/tags/socket/</guid>
       <description></description>
     </item>
     
