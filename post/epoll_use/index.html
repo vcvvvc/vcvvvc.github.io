@@ -13,24 +13,28 @@
     
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="epoll use"/>
-<meta name="twitter:description" content="#include &lt;sys/epoll.h&gt; epoll与select Epoll 没有最大并发连接的限制，上限是最大可以打开文件的数目 效率提升，epoll对于句柄事件的选择不是遍历的，是事件响应的，就是句柄上事件来就马上选择出来，不需要遍历整个句柄链表，因此效率非常高，内核将句柄用红黑树保存的，IO效率不随FD数目增加而线性下降。 内存拷贝， select让内核把 FD 消息通知给用户空间的时候使用了内存拷贝的方式，开销较大，但是Epoll 在这点上使用了共享内存的方式，这个内存拷贝也省略了。 相比于select，epoll最大的好处在于它不会随着监听fd数目的增长而降低效率。因为在内核中的select实现中，它是采用轮询来处理的，轮询的fd数目越多，自然耗时越多。 并且，在linux/posix_types.h头文件有这样的声明： #define __FD_SETSIZE 1024 表示select最多同时监听1024个fd，当然，可以通过修改头文件再重编译内核来扩大这个数目，但这似乎并不治本。
+<meta name="twitter:description" content="epoll是Linux内核为处理大批量文件描述符而作了改进的poll，是Linux下多路复用IO接口select/poll的增强版本，它能显著提高程序在大量并发连接中只有少量活跃的情况下的系统CPU利用率。原因就是获取事件的时候，它无须遍历整个被侦听的描述符集，只要遍历那些被内核IO事件异步唤醒而加入Ready队列的描述符集合就行了。
+epoll除了提供select/poll那种IO事件的水平触发（Level Triggered）外，还提供了边缘触发（Edge Triggered），这就使得用户空间程序有可能缓存IO状态，减少epoll_wait/epoll_pwait的调用，提高应用程序效率。
+  水平触发（LT）：默认工作模式，即当epoll_wait检测到某描述符事件就绪并通知应用程序时，应用程序可以不立即处理该事件；下次调用epoll_wait时，会再次通知此事件
+  边缘触发（ET）： 当epoll_wait检测到某描述符事件就绪并通知应用程序时，应用程序必须立即处理该事件。如果不处理，下次调用epoll_wait时，不会再次通知此事件。（直到你做了某些操作导致该描述符变成未就绪状态了，也就是说边缘触发只在状态由未就绪变为就绪时只通知一次）。
+   #include &lt;sys/epoll.h&gt; epoll与select Epoll 没有最大并发连接的限制，上限是最大可以打开文件的数目 效率提升，epoll对于句柄事件的选择不是遍历的，是事件响应的，就是句柄上事件来就马上选择出来，不需要遍历整个句柄链表，因此效率非常高，内核将句柄用红黑树保存的，IO效率不随FD数目增加而线性下降。 内存拷贝， select让内核把 FD 消息通知给用户空间的时候使用了内存拷贝的方式，开销较大，但是Epoll 在这点上使用了共享内存的方式，这个内存拷贝也省略了。 相比于select，epoll最大的好处在于它不会随着监听fd数目的增长而降低效率。因为在内核中的select实现中，它是采用轮询来处理的，轮询的fd数目越多，自然耗时越多。 并且，在linux/posix_types.h头文件有这样的声明： #define __FD_SETSIZE 1024 表示select最多同时监听1024个fd，当然，可以通过修改头文件再重编译内核来扩大这个数目，但这似乎并不治本。
  epoll_create int epoll_create(int size); 创建一个epoll的句柄，
 size用来告诉内核这个监听的数目一共有多大。 这个参数不同于select()中的第一个参数，给出最大监听的fd&#43;1的值。需要注意的是，当创建好epoll句柄后，它就是会占用一个fd值，在linux下如果查看/proc/进程id/fd/，是能够看到这个fd的，所以在使用完epoll后，必须调用close()关闭，否则可能导致fd被耗尽。
  epoll_ctl int epoll_ctl(int epfd, int op, int fd, struct epoll_event *event); epoll_ctl(_iEpollfd, op, fd, &amp;ev); //Error:_iEpollfd: -1. Success: _iEpollfd = fd epoll的事件注册函数，它不同与select()是在监听事件时告诉内核要监听什么类型的事件，而是在这里先注册要监听的事件类型
 EPOLL_CTL_ADD 注册新的fd到epfd中； EPOLL_CTL_MOD 修改已经注册的fd的监听事件； EPOLL_CTL_DEL 从epfd中删除一个fd；
-fd 是要监听的fd
-event 是要监听什么样的事件
- typedef union epoll_data { void *ptr; int fd; uint32_t u32; uint64_t u64; } epoll_data_t; struct epoll_event { uint32_t events; /* Epoll events */ epoll_data_t data; /* User data variable */ }; events可以是以下几个宏的集合:"/>
+fd 是要监听的fd"/>
 
     <meta property="og:title" content="epoll use" />
-<meta property="og:description" content="#include &lt;sys/epoll.h&gt; epoll与select Epoll 没有最大并发连接的限制，上限是最大可以打开文件的数目 效率提升，epoll对于句柄事件的选择不是遍历的，是事件响应的，就是句柄上事件来就马上选择出来，不需要遍历整个句柄链表，因此效率非常高，内核将句柄用红黑树保存的，IO效率不随FD数目增加而线性下降。 内存拷贝， select让内核把 FD 消息通知给用户空间的时候使用了内存拷贝的方式，开销较大，但是Epoll 在这点上使用了共享内存的方式，这个内存拷贝也省略了。 相比于select，epoll最大的好处在于它不会随着监听fd数目的增长而降低效率。因为在内核中的select实现中，它是采用轮询来处理的，轮询的fd数目越多，自然耗时越多。 并且，在linux/posix_types.h头文件有这样的声明： #define __FD_SETSIZE 1024 表示select最多同时监听1024个fd，当然，可以通过修改头文件再重编译内核来扩大这个数目，但这似乎并不治本。
+<meta property="og:description" content="epoll是Linux内核为处理大批量文件描述符而作了改进的poll，是Linux下多路复用IO接口select/poll的增强版本，它能显著提高程序在大量并发连接中只有少量活跃的情况下的系统CPU利用率。原因就是获取事件的时候，它无须遍历整个被侦听的描述符集，只要遍历那些被内核IO事件异步唤醒而加入Ready队列的描述符集合就行了。
+epoll除了提供select/poll那种IO事件的水平触发（Level Triggered）外，还提供了边缘触发（Edge Triggered），这就使得用户空间程序有可能缓存IO状态，减少epoll_wait/epoll_pwait的调用，提高应用程序效率。
+  水平触发（LT）：默认工作模式，即当epoll_wait检测到某描述符事件就绪并通知应用程序时，应用程序可以不立即处理该事件；下次调用epoll_wait时，会再次通知此事件
+  边缘触发（ET）： 当epoll_wait检测到某描述符事件就绪并通知应用程序时，应用程序必须立即处理该事件。如果不处理，下次调用epoll_wait时，不会再次通知此事件。（直到你做了某些操作导致该描述符变成未就绪状态了，也就是说边缘触发只在状态由未就绪变为就绪时只通知一次）。
+   #include &lt;sys/epoll.h&gt; epoll与select Epoll 没有最大并发连接的限制，上限是最大可以打开文件的数目 效率提升，epoll对于句柄事件的选择不是遍历的，是事件响应的，就是句柄上事件来就马上选择出来，不需要遍历整个句柄链表，因此效率非常高，内核将句柄用红黑树保存的，IO效率不随FD数目增加而线性下降。 内存拷贝， select让内核把 FD 消息通知给用户空间的时候使用了内存拷贝的方式，开销较大，但是Epoll 在这点上使用了共享内存的方式，这个内存拷贝也省略了。 相比于select，epoll最大的好处在于它不会随着监听fd数目的增长而降低效率。因为在内核中的select实现中，它是采用轮询来处理的，轮询的fd数目越多，自然耗时越多。 并且，在linux/posix_types.h头文件有这样的声明： #define __FD_SETSIZE 1024 表示select最多同时监听1024个fd，当然，可以通过修改头文件再重编译内核来扩大这个数目，但这似乎并不治本。
  epoll_create int epoll_create(int size); 创建一个epoll的句柄，
 size用来告诉内核这个监听的数目一共有多大。 这个参数不同于select()中的第一个参数，给出最大监听的fd&#43;1的值。需要注意的是，当创建好epoll句柄后，它就是会占用一个fd值，在linux下如果查看/proc/进程id/fd/，是能够看到这个fd的，所以在使用完epoll后，必须调用close()关闭，否则可能导致fd被耗尽。
  epoll_ctl int epoll_ctl(int epfd, int op, int fd, struct epoll_event *event); epoll_ctl(_iEpollfd, op, fd, &amp;ev); //Error:_iEpollfd: -1. Success: _iEpollfd = fd epoll的事件注册函数，它不同与select()是在监听事件时告诉内核要监听什么类型的事件，而是在这里先注册要监听的事件类型
 EPOLL_CTL_ADD 注册新的fd到epfd中； EPOLL_CTL_MOD 修改已经注册的fd的监听事件； EPOLL_CTL_DEL 从epfd中删除一个fd；
-fd 是要监听的fd
-event 是要监听什么样的事件
- typedef union epoll_data { void *ptr; int fd; uint32_t u32; uint64_t u64; } epoll_data_t; struct epoll_event { uint32_t events; /* Epoll events */ epoll_data_t data; /* User data variable */ }; events可以是以下几个宏的集合:" />
+fd 是要监听的fd" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://6923403.github.io/post/epoll_use/" />
 <meta property="article:published_time" content="2020-08-27T12:09:01+08:00" />
@@ -90,7 +94,18 @@ event 是要监听什么样的事件
           <a class="tag" href="https://6923403.github.io/tags/linux/">Linux</a><a class="tag" href="https://6923403.github.io/tags/socket/">Socket</a><a class="tag" href="https://6923403.github.io/tags/cpp/">CPP</a></div></div>
     </header>
     <div class="post-content">
-      <h1 id="include-sysepollh"><strong>#include &lt;sys/epoll.h&gt;</strong></h1>
+      <p><strong>epoll是Linux内核为处理大批量文件描述符而作了改进的poll，是Linux下多路复用IO接口select/poll的增强版本，它能显著提高程序在大量并发连接中只有少量活跃的情况下的系统CPU利用率。原因就是获取事件的时候，它无须遍历整个被侦听的描述符集，只要遍历那些被内核IO事件异步唤醒而加入Ready队列的描述符集合就行了。</strong></p>
+<p><strong>epoll除了提供select/poll那种IO事件的水平触发（Level Triggered）外，还提供了边缘触发（Edge Triggered），这就使得用户空间程序有可能缓存IO状态，减少epoll_wait/epoll_pwait的调用，提高应用程序效率。</strong></p>
+<ul>
+<li>
+<p>水平触发（LT）：默认工作模式，即当epoll_wait检测到某描述符事件就绪并通知应用程序时，应用程序可以不立即处理该事件；下次调用epoll_wait时，会再次通知此事件</p>
+</li>
+<li>
+<p>边缘触发（ET）： 当epoll_wait检测到某描述符事件就绪并通知应用程序时，应用程序必须立即处理该事件。如果不处理，下次调用epoll_wait时，不会再次通知此事件。（直到你做了某些操作导致该描述符变成未就绪状态了，也就是说边缘触发只在状态由未就绪变为就绪时只通知一次）。</p>
+</li>
+</ul>
+<hr>
+<h1 id="include-sysepollh"><strong>#include &lt;sys/epoll.h&gt;</strong></h1>
 <p>epoll与select
 Epoll 没有最大并发连接的限制，上限是最大可以打开文件的数目
 效率提升，epoll对于句柄事件的选择不是遍历的，是事件响应的，就是句柄上事件来就马上选择出来，不需要遍历整个句柄链表，因此效率非常高，内核将句柄用红黑树保存的，IO效率不随FD数目增加而线性下降。
@@ -287,6 +302,7 @@ eventpoll *ep;
 <p>Re:</p>
 <p><a href="https://www.jianshu.com/p/718c24af400f">https://www.jianshu.com/p/718c24af400f</a></p>
 <p><a href="https://www.bbsmax.com/A/l1dymR3Gde/">https://www.bbsmax.com/A/l1dymR3Gde/</a></p>
+<p><a href="https://www.jianshu.com/p/397449cadc9a">https://www.jianshu.com/p/397449cadc9a</a></p>
 
     </div>
     <div class="post-footer">
