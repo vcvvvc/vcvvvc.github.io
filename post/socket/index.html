@@ -306,6 +306,25 @@ backtrace_symbols_fd
 <p>Re:</p>
 <p><a href="https://www.cnblogs.com/XiaoXiaoShuai-/p/11855408.html">https://www.cnblogs.com/XiaoXiaoShuai-/p/11855408.html</a></p>
 <p><a href="https://www.cnblogs.com/zhouzhuo/p/3781511.html">https://www.cnblogs.com/zhouzhuo/p/3781511.html</a></p>
+<hr>
+<pre><code>struct hostent{
+    char *h_name;  //official name
+    char **h_aliases;  //alias list
+    int  h_addrtype;  //host address type
+    int  h_length;  //address lenght
+    char **h_addr_list;  //address list
+}
+</code></pre><ul>
+<li>h_name：官方域名（Official domain name）。官方域名代表某一主页，但实际上一些著名公司的域名并未用官方域名注册。</li>
+<li>h_aliases：别名，可以通过多个域名访问同一主机。同一 IP 地址可以绑定多个域名，因此除了当前域名还可以指定其他域名。</li>
+<li>h_addrtype：gethostbyname() 不仅支持 IPv4，还支持 IPv6，可以通过此成员获取IP地址的地址族（地址类型）信息，IPv4 对应 AF_INET，IPv6 对应 AF_INET6。</li>
+<li>h_length：保存IP地址长度。IPv4 的长度为 4 个字节，IPv6 的长度为 16 个字节。</li>
+<li>h_addr_list：这是最重要的成员。通过该成员以整数形式保存域名对应的 IP 地址。对于用户较多的服务器，可能会分配多个 IP 地址给同一域名，利用多个服务器进行均衡负载。</li>
+</ul>
+<p><strong>gethostbyname</strong></p>
+<p><code>struct hostent *gethostbyname(const char *hostname);</code></p>
+<p>Re:</p>
+<p><a href="http://c.biancheng.net/view/2357.html">http://c.biancheng.net/view/2357.html</a></p>
 
     </div>
     <div class="post-footer">

@@ -6,7 +6,7 @@
     <description>Recent content in Tags on VcVc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 14 Sep 2020 22:36:39 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 17 Sep 2020 18:00:39 +0800</lastBuildDate>
     
 	<atom:link href="https://6923403.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>CPP</title>
       <link>https://6923403.github.io/tags/cpp/</link>
-      <pubDate>Mon, 14 Sep 2020 22:36:39 +0800</pubDate>
+      <pubDate>Thu, 17 Sep 2020 18:00:39 +0800</pubDate>
       
       <guid>https://6923403.github.io/tags/cpp/</guid>
       <description></description>
@@ -23,7 +23,7 @@
     <item>
       <title>Linux</title>
       <link>https://6923403.github.io/tags/linux/</link>
-      <pubDate>Mon, 14 Sep 2020 22:36:39 +0800</pubDate>
+      <pubDate>Thu, 17 Sep 2020 18:00:39 +0800</pubDate>
       
       <guid>https://6923403.github.io/tags/linux/</guid>
       <description></description>
@@ -32,9 +32,18 @@
     <item>
       <title>Socket</title>
       <link>https://6923403.github.io/tags/socket/</link>
-      <pubDate>Mon, 14 Sep 2020 22:36:39 +0800</pubDate>
+      <pubDate>Thu, 17 Sep 2020 18:00:39 +0800</pubDate>
       
       <guid>https://6923403.github.io/tags/socket/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Volatile</title>
+      <link>https://6923403.github.io/tags/volatile/</link>
+      <pubDate>Sun, 13 Sep 2020 18:12:48 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/tags/volatile/</guid>
       <description></description>
     </item>
     
