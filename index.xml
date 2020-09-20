@@ -6,10 +6,29 @@
     <description>Recent content on VcVc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 20 Sep 2020 15:00:39 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 20 Sep 2020 22:36:44 +0800</lastBuildDate>
     
 	<atom:link href="https://6923403.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Centos7 Install mysql</title>
+      <link>https://6923403.github.io/post/install_mysql/</link>
+      <pubDate>Sun, 20 Sep 2020 22:36:44 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/install_mysql/</guid>
+      <description>1.添加Mysql5.7仓库 sudo rpm -ivh https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm
+2.确认Mysql仓库成功添加 sudo yum repolist all | grep mysql | grep enabled
+3.安装Mysql5.7 sudo yum -y install mysql-community-server
+4.启动Mysql sudo systemctl start mysqld
+5.设置系统启动时自动启动 sudo systemctl enable mysqld
+6.查看启动状态 sudo systemctl status mysqld
+7.root 密码 cat /var/log/mysqld.log | grep -i &#39;temporary password&#39;
+8.执行下面命令进行安全设置 这个命令会进行设置root密码设置，移除匿名用户，禁止root用户远程连接等
+mysql_secure_installation
+9.设置数据库编码为utf8 sudo vim /etc/my.cnf
+[client] default-character-set=utf8 [mysql] default-character-set=utf8 [mysqld] collation-server = utf8_unicode_ci init-connect=&#39;SET NAMES utf8&#39; character-set-server = utf8 reboot sudo systemctl restart mysqld</description>
+    </item>
     
     <item>
       <title>Socket sum</title>
