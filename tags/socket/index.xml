@@ -6,7 +6,7 @@
     <description>Recent content in Socket on VcVc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 17 Sep 2020 18:00:39 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 20 Sep 2020 15:00:39 +0800</lastBuildDate>
     
 	<atom:link href="https://6923403.github.io/tags/socket/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Socket sum</title>
       <link>https://6923403.github.io/post/socketsum/</link>
-      <pubDate>Thu, 17 Sep 2020 18:00:39 +0800</pubDate>
+      <pubDate>Sun, 20 Sep 2020 15:00:39 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/socketsum/</guid>
       <description>socket struct整理

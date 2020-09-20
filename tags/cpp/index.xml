@@ -6,7 +6,7 @@
     <description>Recent content in CPP on VcVc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 17 Sep 2020 18:00:39 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 20 Sep 2020 15:00:39 +0800</lastBuildDate>
     
 	<atom:link href="https://6923403.github.io/tags/cpp/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Socket sum</title>
       <link>https://6923403.github.io/post/socketsum/</link>
-      <pubDate>Thu, 17 Sep 2020 18:00:39 +0800</pubDate>
+      <pubDate>Sun, 20 Sep 2020 15:00:39 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/socketsum/</guid>
       <description>socket struct整理
@@ -29,6 +29,15 @@ https://6923403.github.io/post/cppthread/
 https://6923403.github.io/post/epoll_use/
  socket function, socket函数
 https://6923403.github.io/post/socket/</description>
+    </item>
+    
+    <item>
+      <title>getopt_long</title>
+      <link>https://6923403.github.io/post/getopt_long/</link>
+      <pubDate>Sun, 20 Sep 2020 14:26:33 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/getopt_long/</guid>
+      <description>#include &amp;lt;unistd.h&amp;gt; int getopt(int argc, char * const argv[], const char *optstring); extern char *optarg; extern int optind, opterr, optopt; #include &amp;lt;getopt.h&amp;gt; int getopt_long(int argc, char * const argv[], const char *optstring, const struct option *longopts, int *longindex); int getopt_long_only(int argc, char * const argv[], const char *optstring, const struct option *longopts, int *longindex);  static struct option Vcopts[] = { {&amp;quot;device&amp;quot;, required_argument, NULL, &#39;d&#39;}, {&amp;quot;savefile&amp;quot;, optional_argument, NULL, &#39;f&#39;}, {&amp;quot;help&amp;quot;, no_argument, NULL, &#39;h&#39;}, {&amp;quot;version&amp;quot;, no_argument, NULL, &#39;v&#39;}, {&amp;quot;Device list&amp;quot;, no_argument, NULL, &#39;l&#39;}, {&amp;quot;http-proxy&amp;quot;, required_argument, &amp;amp;lopt, 1}, {0, 0, 0, 0} };  no_argument: -h --h, -v --v required_argument: -d/ -d ens33/ -d = ens33 optional_argument: -f filename/ -f = filename &amp;amp;lopt: &amp;ndash;http-proxy=127.</description>
     </item>
     
     <item>
