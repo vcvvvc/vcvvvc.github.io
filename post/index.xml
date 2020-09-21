@@ -6,10 +6,32 @@
     <description>Recent content in Posts on VcVc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 20 Sep 2020 22:36:44 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 21 Sep 2020 13:44:35 +0800</lastBuildDate>
     
 	<atom:link href="https://6923403.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Centos7 Install mongodb</title>
+      <link>https://6923403.github.io/post/install_mongodb/</link>
+      <pubDate>Mon, 21 Sep 2020 13:44:35 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/install_mongodb/</guid>
+      <description>Configure the package management system (yum) vim /etc/yum.repos.d/mongodb-org-4.4.repo
+[mongodb-org-4.4] name=MongoDB Repository baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.4/x86_64/ gpgcheck=1 enabled=1 gpgkey=https://www.mongodb.org/static/pgp/server-4.4.asc  Install Mongodb sudo yum install -y mongodb-org  Directory Paths sudo mkdir -p /var/lib/mongo sudo mkdir -p /var/log/mongodb sudo chown -R mongod:mongod /var/lib/mongo sudo chown -R mongod:mongod /var/log/mongodb Start mongodb sudo systemctl start mongod sudo systemctl status mongod sudo systemctl enable mongod mongo //use  Re:
+https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/</description>
+    </item>
+    
+    <item>
+      <title>Centos7 Install_redis</title>
+      <link>https://6923403.github.io/post/install_redis/</link>
+      <pubDate>Mon, 21 Sep 2020 13:32:22 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/install_redis/</guid>
+      <description>升级GCC yum -y install centos-release-scl yum -y install devtoolset-9-gcc devtoolset-9-gcc-c++ devtoolset-9-binutils scl enable devtoolset-9 bash echo &amp;quot;source /opt/rh/devtoolset-9/enable&amp;quot; &amp;gt;&amp;gt; /etc/profile gcc -v  安装redis wget http://download.redis.io/releases/redis-6.0.8.tar.gz tar -xvf redis-6.0.8/tar/gz cd redis make -j4 make install PREFIX=/usr/local/redis  配置redis cd redis cp redis.conf /usr/local/redis/bin/ vim /usr/local/redis/bin/redis.conf
+daemonize no 改为 daemonize yes  开机自启 vim /etc/systemd/system/redis.service
+[Unit] Description=redis-server After=network.target [Service] Type=forking ExecStart=/usr/local/redis/bin/redis-server /usr/local/redis/bin/redis.conf PrivateTmp=true [Install] WantedBy=multi-user.target systemctl daemon-reload ln -s /usr/local/redis/bin/redis-cli /usr/bin/redis systemctl start redis.</description>
+    </item>
     
     <item>
       <title>Centos7 Install mysql</title>
