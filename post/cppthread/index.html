@@ -321,22 +321,23 @@ int pthread_condattr_getclock(const pthread_condattr_t* restrict attr,clockid_t 
 <p><strong>也可以静态的初始化条件变量</strong></p>
 <pre><code>pthread_cond_t my_condition = PTHREAD_COND_INITIALIZER;
 </code></pre><hr>
-<pre><code>int pthread_mutex_lock(pthread_mutex_t *mutex);
-int pthread_mutex_trylock(pthread_mutex_t *mutex);
-int pthread_mutex_unlock(pthread_mutex_t *mutex);
-</code></pre><p><strong>条件变量</strong></p>
-<p><strong>条件变量是利用线程间共享的全局变量进行同步的一种机制，主要包括两个动作：</strong></p>
-<ul>
-<li>1）一个线程等待&quot;条件变量的条件成立&quot;而挂起；</li>
-<li>2）另一个线程使&quot;条件成立&rdquo;（给出条件成立信号）。</li>
-</ul>
-<p><strong>为了防止竞争，条件变量的使用总是和一个互斥锁结合在一起。</strong></p>
-<p><strong>主要涉及到下面的函数:</strong></p>
-<pre><code>int pthread_cond_init(pthread_cond_t *cond, pthread_condattr_t *cond_attr) ---动态创建条件变量
+<pre><code>pthread_mutex_init(pthread_mutex_t * mutex, const pthread_mutexattr_t *attr);
+// 初始化锁变量mutex。
+// attr为锁属性，NULL值为默认属性。
 
-pthread_mutex_lock ---互斥锁上锁
+pthread_mutex_lock(pthread_mutex_t *mutex);
+// 加锁（阻塞操作）
 
-pthread_mutex_unlock ----互斥锁解锁
+pthread_mutex_trylock(pthread_mutex_t *mutex);
+// 试图加锁（不阻塞操作）
+// 当互斥锁空闲时将占有该锁；否则立即返回
+// 但是与2不一样的是当锁已经在使用的时候，返回为EBUSY，而不是挂起等待。
+
+pthread_mutex_unlock(pthread_mutex_t *mutex);
+释放锁
+
+pthread_mutex_destroy(pthread_mutex_t *mutex);
+使用完后删除
 
 pthread_cond_wait() / pthread_cond_timedwait -----等待条件变量，挂起线程，区别是后者，会有timeout时间，
 如果到了timeout,线程自动解除阻塞，这个时间和 time()系统调用相同意义的。以1970年时间算起。
@@ -344,7 +345,15 @@ pthread_cond_wait() / pthread_cond_timedwait -----等待条件变量，挂起线
 pthread_cond_signal ----激活等待列表中的线程，
 
 pthread_cond_broadcast() -------激活所有等待线程列表中最先入队的线程
-</code></pre><p>注意：</p>
+
+</code></pre><p><strong>条件变量</strong></p>
+<p><strong>条件变量是利用线程间共享的全局变量进行同步的一种机制，主要包括两个动作：</strong></p>
+<ul>
+<li>1）一个线程等待&quot;条件变量的条件成立&quot;而挂起；</li>
+<li>2）另一个线程使&quot;条件成立&rdquo;（给出条件成立信号）。</li>
+</ul>
+<p><strong>为了防止竞争，条件变量的使用总是和一个互斥锁结合在一起。</strong></p>
+<p>注意：</p>
 <ul>
 <li>
 <p>1）上面这几个函数都是原子操作，可以为理解为一条指令，不会被其他程序打断</p>
@@ -361,6 +370,7 @@ pthread_cond_broadcast() -------激活所有等待线程列表中最先入队的
 <p>pthread_mutex_trylock() 在成功获得了一个mutex的锁后返回0，否则返回一个错误提示码错误</p>
 <p>pthread_mutex_lock() 和 pthread_mutex_unlock()失败的时候 [EINVAL] mutex在生成的时候，它的protocol属性的值是 PTHREAD_PRIO_PROTECT，同时调用线程的优先级(priority)比该mutex的当前prority上限高</p>
 <p><a href="https://blog.csdn.net/u012109245/article/details/38662371">https://blog.csdn.net/u012109245/article/details/38662371</a></p>
+<p><a href="https://www.jianshu.com/p/af0ec2eded33">https://www.jianshu.com/p/af0ec2eded33</a></p>
 <hr>
 <p><code>int pthread_create(pthread_t *thread, const pthread_attr_t *attr, void *(*start_routine) (void *), void *arg);</code></p>
 <ul>
