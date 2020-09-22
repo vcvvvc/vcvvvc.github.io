@@ -86,7 +86,7 @@ thread库提供了future用来访问异步操作的结果，因为一个异步�
     <header class="app-header">
       <a href="https://6923403.github.io"><img class="app-header-avatar" src="/avatar.jpg" alt="VcVc" /></a>
       <h1>VcVc Blog</h1>
-      <p>Code and tea and natural .</p>
+      <p>Relax mentality, keep good heart. </p>
       <div class="app-header-social">
         
           <a target="_blank" href="https://github.com/6923403" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
@@ -125,7 +125,7 @@ thread库提供了future用来访问异步操作的结果，因为一个异步�
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          Takes 1 min read
+          Takes 2 min read
         </div><div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
   <title>tag</title>
@@ -320,7 +320,68 @@ int pthread_condattr_getclock(const pthread_condattr_t* restrict attr,clockid_t 
 <p><strong>注意初始化条件变量只有未被使用时才能重新初始化或被释放。释放一个条件变量的函数为pthread_cond_destroy（pthread_cond_t cond）。</strong></p>
 <p><strong>也可以静态的初始化条件变量</strong></p>
 <pre><code>pthread_cond_t my_condition = PTHREAD_COND_INITIALIZER;
-</code></pre><p>Re:</p>
+</code></pre><hr>
+<pre><code>int pthread_mutex_lock(pthread_mutex_t *mutex);
+int pthread_mutex_trylock(pthread_mutex_t *mutex);
+int pthread_mutex_unlock(pthread_mutex_t *mutex);
+</code></pre><p><strong>条件变量</strong></p>
+<p><strong>条件变量是利用线程间共享的全局变量进行同步的一种机制，主要包括两个动作：</strong></p>
+<ul>
+<li>1）一个线程等待&quot;条件变量的条件成立&quot;而挂起；</li>
+<li>2）另一个线程使&quot;条件成立&rdquo;（给出条件成立信号）。</li>
+</ul>
+<p><strong>为了防止竞争，条件变量的使用总是和一个互斥锁结合在一起。</strong></p>
+<p><strong>主要涉及到下面的函数:</strong></p>
+<pre><code>int pthread_cond_init(pthread_cond_t *cond, pthread_condattr_t *cond_attr) ---动态创建条件变量
+
+pthread_mutex_lock ---互斥锁上锁
+
+pthread_mutex_unlock ----互斥锁解锁
+
+pthread_cond_wait() / pthread_cond_timedwait -----等待条件变量，挂起线程，区别是后者，会有timeout时间，
+如果到了timeout,线程自动解除阻塞，这个时间和 time()系统调用相同意义的。以1970年时间算起。
+
+pthread_cond_signal ----激活等待列表中的线程，
+
+pthread_cond_broadcast() -------激活所有等待线程列表中最先入队的线程
+</code></pre><p>注意：</p>
+<ul>
+<li>
+<p>1）上面这几个函数都是原子操作，可以为理解为一条指令，不会被其他程序打断</p>
+</li>
+<li>
+<p>2）上面这个几个函数，必须配合使用。</p>
+</li>
+<li>
+<p>3）pthread_cond_wait，先会解除当前线程的互斥锁，然后挂线线程，等待条件变量满足条件。一旦条件变量满足条件，则会给线程上锁，继续执行pthread_cond_wait</p>
+</li>
+</ul>
+<p>返回值:</p>
+<p>pthread_mutex_lock() 和 pthread_mutex_unlock() 返回0，否则返回一个错误的提示码</p>
+<p>pthread_mutex_trylock() 在成功获得了一个mutex的锁后返回0，否则返回一个错误提示码错误</p>
+<p>pthread_mutex_lock() 和 pthread_mutex_unlock()失败的时候 [EINVAL] mutex在生成的时候，它的protocol属性的值是 PTHREAD_PRIO_PROTECT，同时调用线程的优先级(priority)比该mutex的当前prority上限高</p>
+<p><a href="https://blog.csdn.net/u012109245/article/details/38662371">https://blog.csdn.net/u012109245/article/details/38662371</a></p>
+<hr>
+<p><code>int pthread_create(pthread_t *thread, const pthread_attr_t *attr, void *(*start_routine) (void *), void *arg);</code></p>
+<ul>
+<li>第一个参数为指向线程标识符的指针。</li>
+<li>第二个参数用来设置线程属性。</li>
+<li>第三个参数是线程运行函数的起始地址。</li>
+<li>最后一个参数是运行函数的参数。</li>
+</ul>
+<p><code>int pthread_join(pthread_t thread, void **retval);</code></p>
+<ul>
+<li>
+<p>thread: 需要等待的线程,指定的线程必须位于当前的进程中，而且不得是分离线程</p>
+</li>
+<li>
+<p>retval: 线程tid所执行的函数返回值（返回值地址需要保证有效），其中status可以为NULL</p>
+</li>
+</ul>
+<p><a href="https://blog.csdn.net/liangxanhai/article/details/7767430">https://blog.csdn.net/liangxanhai/article/details/7767430</a></p>
+<p><a href="https://blog.csdn.net/wushuomin/article/details/80051295">https://blog.csdn.net/wushuomin/article/details/80051295</a></p>
+<hr>
+<p>Re:</p>
 <p><a href="https://blog.csdn.net/jandunlab/article/details/9928417">https://blog.csdn.net/jandunlab/article/details/9928417</a></p>
 <p><a href="https://blog.csdn.net/ffilman/article/details/4871920">https://blog.csdn.net/ffilman/article/details/4871920</a></p>
 
