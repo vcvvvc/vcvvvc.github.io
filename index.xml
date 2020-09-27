@@ -6,10 +6,49 @@
     <description>Recent content on VcVc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 25 Sep 2020 16:40:02 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 27 Sep 2020 18:00:39 +0800</lastBuildDate>
     
 	<atom:link href="https://6923403.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Socket sum</title>
+      <link>https://6923403.github.io/post/socketsum/</link>
+      <pubDate>Sun, 27 Sep 2020 18:00:39 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/socketsum/</guid>
+      <description>socket struct整理
+https://6923403.github.io/post/socket_struct/
+ socket编程需要的头文件整理
+https://6923403.github.io/post/socket_file/
+ exception_class 异常类
+https://6923403.github.io/post/cpp_exception/
+ Linux Pthread 线程创建与使用
+https://6923403.github.io/post/linuxpthread/
+ epoll tutorial, epoll处理教程
+https://6923403.github.io/post/epoll_use/
+ socket function, socket函数
+https://6923403.github.io/post/socket/</description>
+    </item>
+    
+    <item>
+      <title>Linux Pthread</title>
+      <link>https://6923403.github.io/post/linuxpthread/</link>
+      <pubDate>Sun, 27 Sep 2020 17:53:48 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/linuxpthread/</guid>
+      <description>#include &amp;lt;pthread.h&amp;gt; int pthread_condattr_init(pthread_condattr_t* attr); int pthread_condattr_destroy(pthread_condattr_t* attr); //返回值：成功返回0；失败返回错误编码 pthread_condattr_init
+ 功能：对条件变量属性结构体初始化 调用此函数之后，条件变量属性结构体的属性都是系统默认值，如果想要设置其他属性，还需要调用不同的函数进行设置  pthread_condattr_destroy
+ 功能：对条件变量属性结构体反初始化（销毁） 只反初始化，不释放内存  Re:
+https://blog.csdn.net/qq_41453285/article/details/90904870
+ #include &amp;lt;pthread.h&amp;gt; int pthread_condattr_setshared(pthread_condattr_t* attr,int pshared); int pthread_condattr_getshared(const pthread_condattr_t* restrict attr,int* restrict pshared); //返回值：成功返回0；失败返回错误编码 pthread_condattr_setshared
+ 功能：设置条件变量的进程共享属性  pthread_condattr_getshared
+ 功能：获取条件变量的进程共享属性  Re:
+https://blog.csdn.net/qq_41453285/article/details/90904870
+ #include &amp;lt;pthread.h&amp;gt; int pthread_condattr_setclock(pthread_condattr_t* attr,clockid_t clock_id); int pthread_condattr_getclock(const pthread_condattr_t* restrict attr,clockid_t *restrict clock_id); //返回值：成功返回0；失败返回错误编码 pthread_condattr_setclock
+ 功能：此函数用于设置pthread_cond_timewait函数使用的时钟ID  pthread_condattr_getclock
+ 功能：此函数获取可被用于pthread_cond_timedwait函数的时钟ID。pthread_cond_timedwait函数使用前需要用pthread_condattr_t对条件变量进行初始化  Re:</description>
+    </item>
     
     <item>
       <title>Mysql_use</title>
@@ -60,26 +99,6 @@ daemonize no 改为 daemonize yes  开机自启 vim /etc/systemd/system/redis.se
 mysql_secure_installation
 9.设置数据库编码为utf8 sudo vim /etc/my.cnf
 [client] default-character-set=utf8 [mysql] default-character-set=utf8 [mysqld] collation-server = utf8_unicode_ci init-connect=&#39;SET NAMES utf8&#39; character-set-server = utf8 reboot sudo systemctl restart mysqld</description>
-    </item>
-    
-    <item>
-      <title>Socket sum</title>
-      <link>https://6923403.github.io/post/socketsum/</link>
-      <pubDate>Sun, 20 Sep 2020 15:00:39 +0800</pubDate>
-      
-      <guid>https://6923403.github.io/post/socketsum/</guid>
-      <description>socket struct整理
-https://6923403.github.io/post/socket_struct/
- socket编程需要的头文件整理
-https://6923403.github.io/post/socket_file/
- exception_class 异常类
-https://6923403.github.io/post/cpp_exception/
- create thread 线程创建与使用
-https://6923403.github.io/post/cppthread/
- epoll tutorial, epoll处理教程
-https://6923403.github.io/post/epoll_use/
- socket function, socket函数
-https://6923403.github.io/post/socket/</description>
     </item>
     
     <item>
@@ -175,7 +194,7 @@ After copy, str is &amp;quot;Hello&amp;quot; After move, str is &amp;quot;&amp;q
     </item>
     
     <item>
-      <title>Cpp11 create_thread</title>
+      <title>CPP11_thread</title>
       <link>https://6923403.github.io/post/cppthread/</link>
       <pubDate>Sat, 29 Aug 2020 11:44:31 +0800</pubDate>
       

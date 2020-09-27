@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en-us">
   <head>
-    <title>Cpp11 create_thread // VcVc Blog</title>
+    <title>CPP11_thread // VcVc Blog</title>
     <meta charset="utf-8" />
     <meta name="generator" content="Hugo 0.68.3" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -12,7 +12,7 @@
 
     
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Cpp11 create_thread"/>
+<meta name="twitter:title" content="CPP11_thread"/>
 <meta name="twitter:description" content="create_thread Ex   1.导入#include&mdash;用于创建线程
   2.导入#include&ndash;用于时间延时 获取时间之类的
   定义一个线程对象t1，这就自动创建了一个线程，参数就是你要线程去执行的函数，t1是变量名字 随便取
@@ -44,7 +44,7 @@ thread库提供了future用来访问异步操作的结果，因为一个异步�
  future和promise的作用是在不同线程之间传递数据。
  假设线程1需要线程2的数据，那么组合使用方式如下:"/>
 
-    <meta property="og:title" content="Cpp11 create_thread" />
+    <meta property="og:title" content="CPP11_thread" />
 <meta property="og:description" content="create_thread Ex   1.导入#include&mdash;用于创建线程
   2.导入#include&ndash;用于时间延时 获取时间之类的
   定义一个线程对象t1，这就自动创建了一个线程，参数就是你要线程去执行的函数，t1是变量名字 随便取
@@ -111,7 +111,7 @@ thread库提供了future用来访问异步操作的结果，因为一个异步�
       
   <article class="post">
     <header class="post-header">
-      <h1 class ="post-title">Cpp11 create_thread</h1>
+      <h1 class ="post-title">CPP11_thread</h1>
       <div class="post-meta">
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
@@ -125,7 +125,7 @@ thread库提供了future用来访问异步操作的结果，因为一个异步�
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          Takes 2 min read
+          Takes 1 min read
         </div><div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
   <title>tag</title>
@@ -261,139 +261,9 @@ std::future_status wait_for( const std::chrono::duration&lt;Rep,Period&gt;&amp; 
 <ul>
 <li><strong>鼓励实现在调用前检测 valid == false 的情况并抛出以 future_errc::no_state 为 error_condition 的 future_error .</strong></li>
 </ul>
+<hr>
 <p>Re:</p>
 <p><a href="https://www.cnblogs.com/DOMLX/p/10945309.html">https://www.cnblogs.com/DOMLX/p/10945309.html</a></p>
-<hr>
-<pre><code>#include &lt;pthread.h&gt;
-int pthread_condattr_init(pthread_condattr_t* attr);
-int pthread_condattr_destroy(pthread_condattr_t* attr);
-
-//返回值：成功返回0；失败返回错误编码
-</code></pre><p><code>pthread_condattr_init</code></p>
-<ul>
-<li>功能：对条件变量属性结构体初始化</li>
-<li>调用此函数之后，条件变量属性结构体的属性都是系统默认值，如果想要设置其他属性，还需要调用不同的函数进行设置</li>
-</ul>
-<p><code>pthread_condattr_destroy</code></p>
-<ul>
-<li>功能：对条件变量属性结构体反初始化（销毁）</li>
-<li>只反初始化，不释放内存</li>
-</ul>
-<p>Re:</p>
-<p><a href="https://blog.csdn.net/qq_41453285/article/details/90904870">https://blog.csdn.net/qq_41453285/article/details/90904870</a></p>
-<hr>
-<pre><code>#include &lt;pthread.h&gt;
-int pthread_condattr_setshared(pthread_condattr_t* attr,int pshared);
-int pthread_condattr_getshared(const pthread_condattr_t* restrict attr,int* restrict pshared);
-
-//返回值：成功返回0；失败返回错误编码
-</code></pre><p><code>pthread_condattr_setshared</code></p>
-<ul>
-<li>功能：设置条件变量的进程共享属性</li>
-</ul>
-<p><code>pthread_condattr_getshared</code></p>
-<ul>
-<li>功能：获取条件变量的进程共享属性</li>
-</ul>
-<p>Re:</p>
-<p><a href="https://blog.csdn.net/qq_41453285/article/details/90904870">https://blog.csdn.net/qq_41453285/article/details/90904870</a></p>
-<hr>
-<pre><code>#include &lt;pthread.h&gt;
-int pthread_condattr_setclock(pthread_condattr_t* attr,clockid_t clock_id);
-int pthread_condattr_getclock(const pthread_condattr_t* restrict attr,clockid_t *restrict clock_id);
-
-//返回值：成功返回0；失败返回错误编码
-</code></pre><p><code>pthread_condattr_setclock</code></p>
-<ul>
-<li>功能：此函数用于设置pthread_cond_timewait函数使用的时钟ID</li>
-</ul>
-<p><code>pthread_condattr_getclock</code></p>
-<ul>
-<li>功能：此函数获取可被用于pthread_cond_timedwait函数的时钟ID。pthread_cond_timedwait函数使用前需要用pthread_condattr_t对条件变量进行初始化</li>
-</ul>
-<p>Re:</p>
-<p><a href="https://blog.csdn.net/qq_41453285/article/details/90904870">https://blog.csdn.net/qq_41453285/article/details/90904870</a></p>
-<hr>
-<p><code>int pthread_cond_init(pthread_cond_t *cond, pthread_condattr_t *cond_attr)</code></p>
-<p><strong>其中cond是一个指向结构pthread_cond_t的指针，cond_attr是一个指向结构pthread_condattr_t的指针。结构 pthread_condattr_t是条件变量的属性结构，和互斥锁一样我们可以用它来设置条件变量是进程内可用还是进程间可用，</strong>
-<strong>默认值是</strong><code>PTHREAD_ PROCESS_PRIVATE</code>，<strong>即此条件变量被同一进程内的各个线程使用。</strong></p>
-<p><strong>注意初始化条件变量只有未被使用时才能重新初始化或被释放。释放一个条件变量的函数为pthread_cond_destroy（pthread_cond_t cond）。</strong></p>
-<p><strong>也可以静态的初始化条件变量</strong></p>
-<pre><code>pthread_cond_t my_condition = PTHREAD_COND_INITIALIZER;
-</code></pre><hr>
-<pre><code>pthread_mutex_init(pthread_mutex_t * mutex, const pthread_mutexattr_t *attr);
-// 初始化锁变量mutex。
-// attr为锁属性，NULL值为默认属性。
-
-pthread_mutex_lock(pthread_mutex_t *mutex);
-// 加锁（阻塞操作）
-
-pthread_mutex_trylock(pthread_mutex_t *mutex);
-// 试图加锁（不阻塞操作）
-// 当互斥锁空闲时将占有该锁；否则立即返回
-// 但是与2不一样的是当锁已经在使用的时候，返回为EBUSY，而不是挂起等待。
-
-pthread_mutex_unlock(pthread_mutex_t *mutex);
-释放锁
-
-pthread_mutex_destroy(pthread_mutex_t *mutex);
-使用完后删除
-
-pthread_cond_wait() / pthread_cond_timedwait -----等待条件变量，挂起线程，区别是后者，会有timeout时间，
-如果到了timeout,线程自动解除阻塞，这个时间和 time()系统调用相同意义的。以1970年时间算起。
-
-pthread_cond_signal ----激活等待列表中的线程，
-
-pthread_cond_broadcast() -------激活所有等待线程列表中最先入队的线程
-
-</code></pre><p><strong>条件变量</strong></p>
-<p><strong>条件变量是利用线程间共享的全局变量进行同步的一种机制，主要包括两个动作：</strong></p>
-<ul>
-<li>1）一个线程等待&quot;条件变量的条件成立&quot;而挂起；</li>
-<li>2）另一个线程使&quot;条件成立&rdquo;（给出条件成立信号）。</li>
-</ul>
-<p><strong>为了防止竞争，条件变量的使用总是和一个互斥锁结合在一起。</strong></p>
-<p>注意：</p>
-<ul>
-<li>
-<p>1）上面这几个函数都是原子操作，可以为理解为一条指令，不会被其他程序打断</p>
-</li>
-<li>
-<p>2）上面这个几个函数，必须配合使用。</p>
-</li>
-<li>
-<p>3）pthread_cond_wait，先会解除当前线程的互斥锁，然后挂线线程，等待条件变量满足条件。一旦条件变量满足条件，则会给线程上锁，继续执行pthread_cond_wait</p>
-</li>
-</ul>
-<p>返回值:</p>
-<p>pthread_mutex_lock() 和 pthread_mutex_unlock() 返回0，否则返回一个错误的提示码</p>
-<p>pthread_mutex_trylock() 在成功获得了一个mutex的锁后返回0，否则返回一个错误提示码错误</p>
-<p>pthread_mutex_lock() 和 pthread_mutex_unlock()失败的时候 [EINVAL] mutex在生成的时候，它的protocol属性的值是 PTHREAD_PRIO_PROTECT，同时调用线程的优先级(priority)比该mutex的当前prority上限高</p>
-<p><a href="https://blog.csdn.net/u012109245/article/details/38662371">https://blog.csdn.net/u012109245/article/details/38662371</a></p>
-<p><a href="https://www.jianshu.com/p/af0ec2eded33">https://www.jianshu.com/p/af0ec2eded33</a></p>
-<hr>
-<p><code>int pthread_create(pthread_t *thread, const pthread_attr_t *attr, void *(*start_routine) (void *), void *arg);</code></p>
-<ul>
-<li>第一个参数为指向线程标识符的指针。</li>
-<li>第二个参数用来设置线程属性。</li>
-<li>第三个参数是线程运行函数的起始地址。</li>
-<li>最后一个参数是运行函数的参数。</li>
-</ul>
-<p><code>int pthread_join(pthread_t thread, void **retval);</code></p>
-<ul>
-<li>
-<p>thread: 需要等待的线程,指定的线程必须位于当前的进程中，而且不得是分离线程</p>
-</li>
-<li>
-<p>retval: 线程tid所执行的函数返回值（返回值地址需要保证有效），其中status可以为NULL</p>
-</li>
-</ul>
-<p><a href="https://blog.csdn.net/liangxanhai/article/details/7767430">https://blog.csdn.net/liangxanhai/article/details/7767430</a></p>
-<p><a href="https://blog.csdn.net/wushuomin/article/details/80051295">https://blog.csdn.net/wushuomin/article/details/80051295</a></p>
-<hr>
-<p>Re:</p>
-<p><a href="https://blog.csdn.net/jandunlab/article/details/9928417">https://blog.csdn.net/jandunlab/article/details/9928417</a></p>
-<p><a href="https://blog.csdn.net/ffilman/article/details/4871920">https://blog.csdn.net/ffilman/article/details/4871920</a></p>
 
     </div>
     <div class="post-footer">

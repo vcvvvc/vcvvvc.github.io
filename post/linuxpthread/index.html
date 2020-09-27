@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>Linux Pthread // VcVc Blog</title>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.68.3" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="VcVc" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="VcVc,VcVc Blog,6923403,CPP,Cplusplus,C++,Open Source,Rust,Python,Linux" />
+    <link rel="stylesheet" href="https://6923403.github.io/css/main.min.97b9435bd24f2320fd8066e25d821721f54063ef36afa430160134863128d46e.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Linux Pthread"/>
+<meta name="twitter:description" content="#include &lt;pthread.h&gt; int pthread_condattr_init(pthread_condattr_t* attr); int pthread_condattr_destroy(pthread_condattr_t* attr); //返回值：成功返回0；失败返回错误编码 pthread_condattr_init
+ 功能：对条件变量属性结构体初始化 调用此函数之后，条件变量属性结构体的属性都是系统默认值，如果想要设置其他属性，还需要调用不同的函数进行设置  pthread_condattr_destroy
+ 功能：对条件变量属性结构体反初始化（销毁） 只反初始化，不释放内存  Re:
+https://blog.csdn.net/qq_41453285/article/details/90904870
+ #include &lt;pthread.h&gt; int pthread_condattr_setshared(pthread_condattr_t* attr,int pshared); int pthread_condattr_getshared(const pthread_condattr_t* restrict attr,int* restrict pshared); //返回值：成功返回0；失败返回错误编码 pthread_condattr_setshared
+ 功能：设置条件变量的进程共享属性  pthread_condattr_getshared
+ 功能：获取条件变量的进程共享属性  Re:
+https://blog.csdn.net/qq_41453285/article/details/90904870
+ #include &lt;pthread.h&gt; int pthread_condattr_setclock(pthread_condattr_t* attr,clockid_t clock_id); int pthread_condattr_getclock(const pthread_condattr_t* restrict attr,clockid_t *restrict clock_id); //返回值：成功返回0；失败返回错误编码 pthread_condattr_setclock
+ 功能：此函数用于设置pthread_cond_timewait函数使用的时钟ID  pthread_condattr_getclock
+ 功能：此函数获取可被用于pthread_cond_timedwait函数的时钟ID。pthread_cond_timedwait函数使用前需要用pthread_condattr_t对条件变量进行初始化  Re:"/>
+
+    <meta property="og:title" content="Linux Pthread" />
+<meta property="og:description" content="#include &lt;pthread.h&gt; int pthread_condattr_init(pthread_condattr_t* attr); int pthread_condattr_destroy(pthread_condattr_t* attr); //返回值：成功返回0；失败返回错误编码 pthread_condattr_init
+ 功能：对条件变量属性结构体初始化 调用此函数之后，条件变量属性结构体的属性都是系统默认值，如果想要设置其他属性，还需要调用不同的函数进行设置  pthread_condattr_destroy
+ 功能：对条件变量属性结构体反初始化（销毁） 只反初始化，不释放内存  Re:
+https://blog.csdn.net/qq_41453285/article/details/90904870
+ #include &lt;pthread.h&gt; int pthread_condattr_setshared(pthread_condattr_t* attr,int pshared); int pthread_condattr_getshared(const pthread_condattr_t* restrict attr,int* restrict pshared); //返回值：成功返回0；失败返回错误编码 pthread_condattr_setshared
+ 功能：设置条件变量的进程共享属性  pthread_condattr_getshared
+ 功能：获取条件变量的进程共享属性  Re:
+https://blog.csdn.net/qq_41453285/article/details/90904870
+ #include &lt;pthread.h&gt; int pthread_condattr_setclock(pthread_condattr_t* attr,clockid_t clock_id); int pthread_condattr_getclock(const pthread_condattr_t* restrict attr,clockid_t *restrict clock_id); //返回值：成功返回0；失败返回错误编码 pthread_condattr_setclock
+ 功能：此函数用于设置pthread_cond_timewait函数使用的时钟ID  pthread_condattr_getclock
+ 功能：此函数获取可被用于pthread_cond_timedwait函数的时钟ID。pthread_cond_timedwait函数使用前需要用pthread_condattr_t对条件变量进行初始化  Re:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://6923403.github.io/post/linuxpthread/" />
+<meta property="article:published_time" content="2020-09-27T17:53:48+08:00" />
+<meta property="article:modified_time" content="2020-09-27T17:53:48+08:00" />
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://6923403.github.io"><img class="app-header-avatar" src="/avatar.jpg" alt="VcVc" /></a>
+      <h1>VcVc Blog</h1>
+      <p>Relax mentality, keep good heart. </p>
+      <div class="app-header-social">
+        
+          <a target="_blank" href="https://github.com/6923403" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg></a>
+        
+          <a target="_blank" href="https://twitter.com/vcvckw" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-twitter">
+  <title>twitter</title>
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+</svg></a>
+        
+          <a target="_blank" href="mailto:vcvckw@gmail.com" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-mail">
+  <title>mail</title>
+  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline>
+</svg></a>
+        
+      </div>  
+          
+    </header>    
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Linux Pthread</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Sep 27, 2020
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          Takes 1 min read
+        </div><div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line>
+</svg>
+          <a class="tag" href="https://6923403.github.io/tags/linux/">Linux</a><a class="tag" href="https://6923403.github.io/tags/pthread/">Pthread</a><a class="tag" href="https://6923403.github.io/tags/cpp/">CPP</a></div></div>
+    </header>
+    <div class="post-content">
+      <pre><code>#include &lt;pthread.h&gt;
+int pthread_condattr_init(pthread_condattr_t* attr);
+int pthread_condattr_destroy(pthread_condattr_t* attr);
+
+//返回值：成功返回0；失败返回错误编码
+</code></pre><p><code>pthread_condattr_init</code></p>
+<ul>
+<li>功能：对条件变量属性结构体初始化</li>
+<li>调用此函数之后，条件变量属性结构体的属性都是系统默认值，如果想要设置其他属性，还需要调用不同的函数进行设置</li>
+</ul>
+<p><code>pthread_condattr_destroy</code></p>
+<ul>
+<li>功能：对条件变量属性结构体反初始化（销毁）</li>
+<li>只反初始化，不释放内存</li>
+</ul>
+<p>Re:</p>
+<p><a href="https://blog.csdn.net/qq_41453285/article/details/90904870">https://blog.csdn.net/qq_41453285/article/details/90904870</a></p>
+<hr>
+<pre><code>#include &lt;pthread.h&gt;
+int pthread_condattr_setshared(pthread_condattr_t* attr,int pshared);
+int pthread_condattr_getshared(const pthread_condattr_t* restrict attr,int* restrict pshared);
+
+//返回值：成功返回0；失败返回错误编码
+</code></pre><p><code>pthread_condattr_setshared</code></p>
+<ul>
+<li>功能：设置条件变量的进程共享属性</li>
+</ul>
+<p><code>pthread_condattr_getshared</code></p>
+<ul>
+<li>功能：获取条件变量的进程共享属性</li>
+</ul>
+<p>Re:</p>
+<p><a href="https://blog.csdn.net/qq_41453285/article/details/90904870">https://blog.csdn.net/qq_41453285/article/details/90904870</a></p>
+<hr>
+<pre><code>#include &lt;pthread.h&gt;
+int pthread_condattr_setclock(pthread_condattr_t* attr,clockid_t clock_id);
+int pthread_condattr_getclock(const pthread_condattr_t* restrict attr,clockid_t *restrict clock_id);
+
+//返回值：成功返回0；失败返回错误编码
+</code></pre><p><code>pthread_condattr_setclock</code></p>
+<ul>
+<li>功能：此函数用于设置pthread_cond_timewait函数使用的时钟ID</li>
+</ul>
+<p><code>pthread_condattr_getclock</code></p>
+<ul>
+<li>功能：此函数获取可被用于pthread_cond_timedwait函数的时钟ID。pthread_cond_timedwait函数使用前需要用pthread_condattr_t对条件变量进行初始化</li>
+</ul>
+<p>Re:</p>
+<p><a href="https://blog.csdn.net/qq_41453285/article/details/90904870">https://blog.csdn.net/qq_41453285/article/details/90904870</a></p>
+<hr>
+<p><code>int pthread_cond_init(pthread_cond_t *cond, pthread_condattr_t *cond_attr)</code></p>
+<p><strong>其中cond是一个指向结构pthread_cond_t的指针，cond_attr是一个指向结构pthread_condattr_t的指针。结构 pthread_condattr_t是条件变量的属性结构，和互斥锁一样我们可以用它来设置条件变量是进程内可用还是进程间可用，</strong>
+<strong>默认值是</strong><code>PTHREAD_ PROCESS_PRIVATE</code>，<strong>即此条件变量被同一进程内的各个线程使用。</strong></p>
+<p><strong>注意初始化条件变量只有未被使用时才能重新初始化或被释放。释放一个条件变量的函数为pthread_cond_destroy（pthread_cond_t cond）。</strong></p>
+<p><strong>也可以静态的初始化条件变量</strong></p>
+<pre><code>pthread_cond_t my_condition = PTHREAD_COND_INITIALIZER;
+</code></pre><hr>
+<pre><code>pthread_mutex_init(pthread_mutex_t * mutex, const pthread_mutexattr_t *attr);
+// 初始化锁变量mutex。
+// attr为锁属性，NULL值为默认属性。
+
+pthread_mutex_lock(pthread_mutex_t *mutex);
+// 加锁（阻塞操作）
+
+pthread_mutex_trylock(pthread_mutex_t *mutex);
+// 试图加锁（不阻塞操作）
+// 当互斥锁空闲时将占有该锁；否则立即返回
+// 但是与2不一样的是当锁已经在使用的时候，返回为EBUSY，而不是挂起等待。
+
+pthread_mutex_unlock(pthread_mutex_t *mutex);
+释放锁
+
+pthread_mutex_destroy(pthread_mutex_t *mutex);
+销毁一个不再需要的互斥量，释放系统资源。
+
+pthread_cond_wait() / pthread_cond_timedwait -----等待条件变量，挂起线程，区别是后者，会有timeout时间，
+如果到了timeout,线程自动解除阻塞，这个时间和 time()系统调用相同意义的。以1970年时间算起。
+
+pthread_cond_signal ----激活等待列表中的线程，
+
+pthread_cond_broadcast() -------激活所有等待线程列表中最先入队的线程
+
+</code></pre><p><strong>条件变量</strong></p>
+<p><strong>条件变量是利用线程间共享的全局变量进行同步的一种机制，主要包括两个动作：</strong></p>
+<ul>
+<li>1）一个线程等待&quot;条件变量的条件成立&quot;而挂起；</li>
+<li>2）另一个线程使&quot;条件成立&rdquo;（给出条件成立信号）。</li>
+</ul>
+<p><strong>为了防止竞争，条件变量的使用总是和一个互斥锁结合在一起。</strong></p>
+<p>注意：</p>
+<ul>
+<li>
+<p>1）上面这几个函数都是原子操作，可以为理解为一条指令，不会被其他程序打断</p>
+</li>
+<li>
+<p>2）上面这个几个函数，必须配合使用。</p>
+</li>
+<li>
+<p>3）pthread_cond_wait，先会解除当前线程的互斥锁，然后挂线线程，等待条件变量满足条件。一旦条件变量满足条件，则会给线程上锁，继续执行pthread_cond_wait</p>
+</li>
+</ul>
+<p>返回值:</p>
+<p>pthread_mutex_lock() 和 pthread_mutex_unlock() 返回0，否则返回一个错误的提示码</p>
+<p>pthread_mutex_trylock() 在成功获得了一个mutex的锁后返回0，否则返回一个错误提示码错误</p>
+<p>pthread_mutex_lock() 和 pthread_mutex_unlock()失败的时候 [EINVAL] mutex在生成的时候，它的protocol属性的值是 PTHREAD_PRIO_PROTECT，同时调用线程的优先级(priority)比该mutex的当前prority上限高</p>
+<p><a href="https://blog.csdn.net/u012109245/article/details/38662371">https://blog.csdn.net/u012109245/article/details/38662371</a></p>
+<p><a href="https://www.jianshu.com/p/af0ec2eded33">https://www.jianshu.com/p/af0ec2eded33</a></p>
+<hr>
+<p><code>int pthread_create(pthread_t *thread, const pthread_attr_t *attr, void *(*start_routine) (void *), void *arg);</code></p>
+<ul>
+<li>第一个参数为指向线程标识符的指针。</li>
+<li>第二个参数用来设置线程属性。</li>
+<li>第三个参数是线程运行函数的起始地址。</li>
+<li>最后一个参数是运行函数的参数。</li>
+</ul>
+<p><code>int pthread_join(pthread_t thread, void **retval);</code></p>
+<ul>
+<li>
+<p>thread: 需要等待的线程,指定的线程必须位于当前的进程中，而且不得是分离线程</p>
+</li>
+<li>
+<p>retval: 线程tid所执行的函数返回值（返回值地址需要保证有效），其中status可以为NULL</p>
+</li>
+</ul>
+<p><a href="https://blog.csdn.net/liangxanhai/article/details/7767430">https://blog.csdn.net/liangxanhai/article/details/7767430</a></p>
+<p><a href="https://blog.csdn.net/wushuomin/article/details/80051295">https://blog.csdn.net/wushuomin/article/details/80051295</a></p>
+<hr>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>
+

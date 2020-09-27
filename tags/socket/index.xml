@@ -6,7 +6,7 @@
     <description>Recent content in Socket on VcVc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 20 Sep 2020 15:00:39 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 27 Sep 2020 18:00:39 +0800</lastBuildDate>
     
 	<atom:link href="https://6923403.github.io/tags/socket/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Socket sum</title>
       <link>https://6923403.github.io/post/socketsum/</link>
-      <pubDate>Sun, 20 Sep 2020 15:00:39 +0800</pubDate>
+      <pubDate>Sun, 27 Sep 2020 18:00:39 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/socketsum/</guid>
       <description>socket struct整理
@@ -23,8 +23,8 @@ https://6923403.github.io/post/socket_struct/
 https://6923403.github.io/post/socket_file/
  exception_class 异常类
 https://6923403.github.io/post/cpp_exception/
- create thread 线程创建与使用
-https://6923403.github.io/post/cppthread/
+ Linux Pthread 线程创建与使用
+https://6923403.github.io/post/linuxpthread/
  epoll tutorial, epoll处理教程
 https://6923403.github.io/post/epoll_use/
  socket function, socket函数
