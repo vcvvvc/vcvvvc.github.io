@@ -6,10 +6,20 @@
     <description>Recent content in Algorithm on VcVc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 18 Aug 2020 14:40:25 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 04 Oct 2020 16:09:26 +0800</lastBuildDate>
     
 	<atom:link href="https://6923403.github.io/tags/algorithm/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Algorithm x^n</title>
+      <link>https://6923403.github.io/post/recursion/</link>
+      <pubDate>Sun, 04 Oct 2020 16:09:26 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/recursion/</guid>
+      <description>O(1)常数阶 &amp;lt; O(logn)对数阶 &amp;lt; O(n)线性阶 &amp;lt; O(n^2)平方阶 &amp;lt; O(n^3)(立方阶) &amp;lt; O(2^n) (指数阶)
+For O(n) int function1(int x, int n) { int result = 1; // 注意 任何数的0次方等于1 for (int i = 0; i &amp;lt; n; i++) { result = result * x; } return result; }  Recursion O(n) int function2(int x, int n) { if (n == 0) { return 1; // return 1 同样是因为0次方是等于1的 } return function2(x, n - 1) * x; }  Recursion2 O(n) int function3(int x, int n) { if (n == 0) { return 1; } if (n % 2 == 1) { return function3(x, n/2) * function3(x, n/2)*x; } return function3(x, n/2) * function3(x, n/2); }  Recursion3 O(logn) int function4(int x, int n) { if (n == 0) { return 1; } int t = function4(x, n/2);// 这里相对于function3，是把这个递归操作抽取出来 if (n % 2 == 1) { return t*t*x; } return t*t; } </description>
+    </item>
     
     <item>
       <title>Binary Tree</title>
