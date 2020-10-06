@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>CPP_Const // VcVc Blog</title>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.68.3" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="VcVc" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="VcVc,VcVc Blog,6923403,CPP,Cplusplus,C++,Open Source,Rust,Python,Linux" />
+    <link rel="stylesheet" href="https://6923403.github.io/css/main.min.97b9435bd24f2320fd8066e25d821721f54063ef36afa430160134863128d46e.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="CPP_Const"/>
+<meta name="twitter:description" content="const 作用
+ 修饰变量，变量不可以被改变； 修饰指针，分为指向常量的指针（pointer to const）和自身是常量的指针（常量指针，const pointer）； 修饰引用，指向常量的引用（reference to const），用于形参类型，即避免了拷贝，又避免了函数对值的修改； 修饰成员函数，说明该成员函数内不能修改成员变量。   // 类 class A { private: const int a; // 常对象成员，只能在初始化列表赋值 public: // 构造函数 A() : a(0) { }; A(int x) : a(x) { }; // 初始化列表 // const可用于对重载函数的区分 int getValue(); // 普通成员函数 int getValue() const; // 常成员函数，不得修改类中的任何数据成员的值 }; void function() { // 对象 A b; // 普通对象，可以调用全部成员函数、更新常成员变量 const A a; // 常对象，只能调用常成员函数 const A *p = &amp;a; // 指针变量，指向常对象 const A &amp;q = a; // 指向常对象的引用 // 指针 char greeting[] = &quot;Hello&quot;; char* p1 = greeting; // 指针变量，指向字符数组变量 const char* p2 = greeting; // 指针变量，指向字符数组常量（const 后面是 char，说明指向的字符（char）不可改变） char* const p3 = greeting; // 自身是常量的指针，指向字符数组变量（const 后面是 p3，说明 p3 指针自身不可改变） const char* const p4 = greeting; // 自身是常量的指针，指向字符数组常量 } // 函数 void function1(const int Var); // 传递过来的参数在函数内不可变 void function2(const char* Var); // 参数指针所指内容为常量 void function3(char* const Var); // 参数指针为常量 void function4(const int&amp; Var); // 引用参数在函数内为常量 // 函数返回值 const int function5(); // 返回一个常数 const int* function6(); // 返回一个指向常量的指针变量，使用：const int *p = function6(); int* const function7(); // 返回一个指向变量的常指针，使用：int* const p = function7();  const 的指针与引用  指针  指向常量的指针（pointer to const） 自身是常量的指针（常量指针，const pointer）   引用  指向常量的引用（reference to const） 没有 const reference，因为引用本身就是 const pointer     用法小结 指针"/>
+
+    <meta property="og:title" content="CPP_Const" />
+<meta property="og:description" content="const 作用
+ 修饰变量，变量不可以被改变； 修饰指针，分为指向常量的指针（pointer to const）和自身是常量的指针（常量指针，const pointer）； 修饰引用，指向常量的引用（reference to const），用于形参类型，即避免了拷贝，又避免了函数对值的修改； 修饰成员函数，说明该成员函数内不能修改成员变量。   // 类 class A { private: const int a; // 常对象成员，只能在初始化列表赋值 public: // 构造函数 A() : a(0) { }; A(int x) : a(x) { }; // 初始化列表 // const可用于对重载函数的区分 int getValue(); // 普通成员函数 int getValue() const; // 常成员函数，不得修改类中的任何数据成员的值 }; void function() { // 对象 A b; // 普通对象，可以调用全部成员函数、更新常成员变量 const A a; // 常对象，只能调用常成员函数 const A *p = &amp;a; // 指针变量，指向常对象 const A &amp;q = a; // 指向常对象的引用 // 指针 char greeting[] = &quot;Hello&quot;; char* p1 = greeting; // 指针变量，指向字符数组变量 const char* p2 = greeting; // 指针变量，指向字符数组常量（const 后面是 char，说明指向的字符（char）不可改变） char* const p3 = greeting; // 自身是常量的指针，指向字符数组变量（const 后面是 p3，说明 p3 指针自身不可改变） const char* const p4 = greeting; // 自身是常量的指针，指向字符数组常量 } // 函数 void function1(const int Var); // 传递过来的参数在函数内不可变 void function2(const char* Var); // 参数指针所指内容为常量 void function3(char* const Var); // 参数指针为常量 void function4(const int&amp; Var); // 引用参数在函数内为常量 // 函数返回值 const int function5(); // 返回一个常数 const int* function6(); // 返回一个指向常量的指针变量，使用：const int *p = function6(); int* const function7(); // 返回一个指向变量的常指针，使用：int* const p = function7();  const 的指针与引用  指针  指向常量的指针（pointer to const） 自身是常量的指针（常量指针，const pointer）   引用  指向常量的引用（reference to const） 没有 const reference，因为引用本身就是 const pointer     用法小结 指针" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://6923403.github.io/post/cppconst/" />
+<meta property="article:published_time" content="2020-10-06T15:03:40+08:00" />
+<meta property="article:modified_time" content="2020-10-06T15:03:40+08:00" />
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://6923403.github.io"><img class="app-header-avatar" src="/avatar.jpg" alt="VcVc" /></a>
+      <h1>VcVc Blog</h1>
+      <p>Relax mentality, keep good heart. </p>
+      <div class="app-header-social">
+        
+          <a target="_blank" href="https://github.com/6923403" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg></a>
+        
+          <a target="_blank" href="https://twitter.com/vcvckw" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-twitter">
+  <title>twitter</title>
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+</svg></a>
+        
+          <a target="_blank" href="mailto:vcvckw@gmail.com" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-mail">
+  <title>mail</title>
+  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline>
+</svg></a>
+        
+      </div>  
+          
+    </header>    
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">CPP_Const</h1>
+      <div class="post-meta">         
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Oct 6, 2020
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          Takes 2 min read
+        </div><div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line>
+</svg>
+          <a class="tag" href="https://6923403.github.io/tags/cpp/">CPP</a><a class="tag" href="https://6923403.github.io/tags/const/">const</a><a class="tag" href="https://6923403.github.io/tags/pointer/">Pointer</a></div></div>
+    </header>
+    <div class="post-content">
+      <h1 id="const">const</h1>
+<p><strong>作用</strong></p>
+<ol>
+<li>修饰变量，变量不可以被改变；</li>
+<li>修饰指针，分为指向常量的指针（pointer to const）和自身是常量的指针（常量指针，const pointer）；</li>
+<li>修饰引用，指向常量的引用（reference to const），用于形参类型，即避免了拷贝，又避免了函数对值的修改；</li>
+<li>修饰成员函数，说明该成员函数内不能修改成员变量。</li>
+</ol>
+<hr>
+<pre><code>// 类
+class A
+{
+private:
+    const int a;                // 常对象成员，只能在初始化列表赋值
+
+public:
+    // 构造函数
+    A() : a(0) { };
+    A(int x) : a(x) { };        // 初始化列表
+
+    // const可用于对重载函数的区分
+    int getValue();             // 普通成员函数
+    int getValue() const;       // 常成员函数，不得修改类中的任何数据成员的值
+};
+
+void function()
+{
+    // 对象
+    A b;                        // 普通对象，可以调用全部成员函数、更新常成员变量
+    const A a;                  // 常对象，只能调用常成员函数
+    const A *p = &amp;a;            // 指针变量，指向常对象
+    const A &amp;q = a;             // 指向常对象的引用
+
+    // 指针
+    char greeting[] = &quot;Hello&quot;;
+    char* p1 = greeting;                // 指针变量，指向字符数组变量
+    const char* p2 = greeting;          // 指针变量，指向字符数组常量（const 后面是 char，说明指向的字符（char）不可改变）
+    char* const p3 = greeting;          // 自身是常量的指针，指向字符数组变量（const 后面是 p3，说明 p3 指针自身不可改变）
+    const char* const p4 = greeting;    // 自身是常量的指针，指向字符数组常量
+}
+
+// 函数
+void function1(const int Var);           // 传递过来的参数在函数内不可变
+void function2(const char* Var);         // 参数指针所指内容为常量
+void function3(char* const Var);         // 参数指针为常量
+void function4(const int&amp; Var);          // 引用参数在函数内为常量
+
+// 函数返回值
+const int function5();      // 返回一个常数
+const int* function6();     // 返回一个指向常量的指针变量，使用：const int *p = function6();
+int* const function7();     // 返回一个指向变量的常指针，使用：int* const p = function7();
+</code></pre><hr>
+<h1 id="const-的指针与引用">const 的指针与引用</h1>
+<ul>
+<li>指针
+<ul>
+<li>指向常量的指针（pointer to const）</li>
+<li>自身是常量的指针（常量指针，const pointer）</li>
+</ul>
+</li>
+<li>引用
+<ul>
+<li>指向常量的引用（reference to const）</li>
+<li>没有 const reference，因为引用本身就是 const pointer</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="用法小结">用法小结</h1>
+<p><strong>指针</strong></p>
+<pre><code>const int * pOne;    //指向整形常量的指针，它指向的值不能修改(指针变量，指向字符数组常量)
+int * const pTwo;    //指向整形的常量指针 ，它不能在指向别的变量，但指向（变量）的值可以修改(自身是常量的指针，指向字符数组变量)
+const int *const pThree;  //指向整形常量的常量指针 。它既不能再指向别的常量，指向的值也不能修改(自身是常量的指针，指向字符数组常量)
+</code></pre><p><strong>类定义、类成员</strong></p>
+<pre><code>// 对象
+A b;               // 普通对象，可以调用全部成员函数、更新常成员变量
+const A a;         // 常对象，只能调用常成员函数
+const A *p = &amp;a;   // 指针变量，指向常对象
+const A &amp;q = a;    // 指向常对象的引用
+</code></pre><p><strong>类成员函数</strong></p>
+<pre><code>int getValue() const; //该函数为只读函数，不允许修改其中的数据成员的值。
+const int getValue(); //修饰的是返回值，表示返回的是指针所指向值是常量。
+</code></pre><p><strong>引用</strong></p>
+<pre><code>
+</code></pre>
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>  
+<br />
+<hr width = "400" color="#d9ecf2" align="left">
+  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+
+    </main>
+  </body>
+</html>
+

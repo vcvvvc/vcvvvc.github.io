@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>Cpp_inherit // VcVc Blog</title>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.68.3" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="VcVc" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="VcVc,VcVc Blog,6923403,CPP,Cplusplus,C++,Open Source,Rust,Python,Linux" />
+    <link rel="stylesheet" href="https://6923403.github.io/css/main.min.97b9435bd24f2320fd8066e25d821721f54063ef36afa430160134863128d46e.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Cpp_inherit"/>
+<meta name="twitter:description" content="class derived-class: access-specifier base-class
+class Shape { public: void setWidth(int w) { width = w; } void setHeight(int h) { height = h; } protected: int width; int height; }; // 派生类 class Rectangle: public Shape { public: int getArea() { return (width * height); } }; Rectangle rect; rect.setWidth(3); rect.setHeight(5); #rect result = 15 cout &lt;&lt; rect.getArea() &lt;&lt; endl;  访问控制和继承
+   访问 public protected private     同一个类 yes yes yes   派生类 yes yes no   外部的类 yes no no     公有继承（public）：当一个类派生自公有基类时，基类的公有成员也是派生类的公有成员，基类的保护成员也是派生类的保护成员，基类的私有成员不能直接被派生类访问，但是可以通过调用基类的公有和保护成员来访问。 保护继承（protected）： 当一个类派生自保护基类时，基类的公有和保护成员将成为派生类的保护成员。 私有继承（private）：当一个类派生自私有基类时，基类的公有和保护成员将成为派生类的私有成员。  "/>
+
+    <meta property="og:title" content="Cpp_inherit" />
+<meta property="og:description" content="class derived-class: access-specifier base-class
+class Shape { public: void setWidth(int w) { width = w; } void setHeight(int h) { height = h; } protected: int width; int height; }; // 派生类 class Rectangle: public Shape { public: int getArea() { return (width * height); } }; Rectangle rect; rect.setWidth(3); rect.setHeight(5); #rect result = 15 cout &lt;&lt; rect.getArea() &lt;&lt; endl;  访问控制和继承
+   访问 public protected private     同一个类 yes yes yes   派生类 yes yes no   外部的类 yes no no     公有继承（public）：当一个类派生自公有基类时，基类的公有成员也是派生类的公有成员，基类的保护成员也是派生类的保护成员，基类的私有成员不能直接被派生类访问，但是可以通过调用基类的公有和保护成员来访问。 保护继承（protected）： 当一个类派生自保护基类时，基类的公有和保护成员将成为派生类的保护成员。 私有继承（private）：当一个类派生自私有基类时，基类的公有和保护成员将成为派生类的私有成员。  " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://6923403.github.io/post/cpp_inherit/" />
+<meta property="article:published_time" content="2020-09-25T17:44:01+08:00" />
+<meta property="article:modified_time" content="2020-09-25T17:44:01+08:00" />
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://6923403.github.io"><img class="app-header-avatar" src="/avatar.jpg" alt="VcVc" /></a>
+      <h1>VcVc Blog</h1>
+      <p>Relax mentality, keep good heart. </p>
+      <div class="app-header-social">
+        
+          <a target="_blank" href="https://github.com/6923403" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg></a>
+        
+          <a target="_blank" href="https://twitter.com/vcvckw" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-twitter">
+  <title>twitter</title>
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+</svg></a>
+        
+          <a target="_blank" href="mailto:vcvckw@gmail.com" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-mail">
+  <title>mail</title>
+  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline>
+</svg></a>
+        
+      </div>  
+          
+    </header>    
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Cpp_inherit</h1>
+      <div class="post-meta">         
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Sep 25, 2020
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          Takes 1 min read
+        </div><div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line>
+</svg>
+          <a class="tag" href="https://6923403.github.io/tags/cpp/">CPP</a></div></div>
+    </header>
+    <div class="post-content">
+      <p><code>class derived-class: access-specifier base-class</code></p>
+<pre><code>class Shape
+{
+   public:
+      void setWidth(int w)
+      {
+         width = w;
+      }
+      void setHeight(int h)
+      {
+         height = h;
+      }
+   protected:
+      int width;
+      int height;
+};
+// 派生类
+class Rectangle: public Shape
+{
+   public:
+      int getArea()
+      {
+         return (width * height);
+      }
+};
+</code></pre><pre><code>Rectangle rect;
+rect.setWidth(3);
+rect.setHeight(5);
+
+#rect result = 15
+cout &lt;&lt; rect.getArea() &lt;&lt; endl;
+</code></pre><hr>
+<p><strong>访问控制和继承</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">访问</th>
+<th align="center">public</th>
+<th align="center">protected</th>
+<th align="center">private</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">同一个类</td>
+<td align="center">yes</td>
+<td align="center">yes</td>
+<td align="center">yes</td>
+</tr>
+<tr>
+<td align="left">派生类</td>
+<td align="center">yes</td>
+<td align="center">yes</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="left">外部的类</td>
+<td align="center">yes</td>
+<td align="center">no</td>
+<td align="center">no</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>公有继承（public）：当一个类派生自公有基类时，基类的公有成员也是派生类的公有成员，基类的保护成员也是派生类的保护成员，基类的私有成员不能直接被派生类访问，但是可以通过调用基类的公有和保护成员来访问。</li>
+<li>保护继承（protected）： 当一个类派生自保护基类时，基类的公有和保护成员将成为派生类的保护成员。</li>
+<li>私有继承（private）：当一个类派生自私有基类时，基类的公有和保护成员将成为派生类的私有成员。</li>
+</ul>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>  
+<br />
+<hr width = "400" color="#d9ecf2" align="left">
+  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+
+    </main>
+  </body>
+</html>
+
