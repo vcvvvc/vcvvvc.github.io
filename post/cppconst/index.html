@@ -161,7 +161,11 @@ const A &amp;q = a;    // 指向常对象的引用
 <pre><code>int getValue() const; //该函数为只读函数，不允许修改其中的数据成员的值。
 const int getValue(); //修饰的是返回值，表示返回的是指针所指向值是常量。
 </code></pre><p><strong>引用</strong></p>
-<pre><code>
+<pre><code>int &amp;a = 20; //错误 字面常量是右值
+const int &amp;c = b; # 常量左值引用绑定到非常量左值，编译通过
+const int &amp;e = c; # 常量左值引用绑定到常量左值，编译通过
+const int &amp;b =2;  # 常量左值引用绑定到右值，编程通过
+void s1(const &amp;ra) //ra不可改变
 </code></pre>
     </div>
     <div class="post-footer">

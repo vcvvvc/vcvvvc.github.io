@@ -101,6 +101,20 @@ class Shape { public: void setWidth(int w) { width = w; } void setHeight(int h) 
     </item>
     
     <item>
+      <title>Left_Right</title>
+      <link>https://6923403.github.io/post/leftright/</link>
+      <pubDate>Thu, 17 Sep 2020 21:49:43 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/leftright/</guid>
+      <description>形参（形式参数）
+在函数定义中出现的参数可以看做是一个占位符，它没有数据，只能等到函数被调用时接收传递进来的数据，所以称为形式参数，简称形参。
+实参（实际参数）
+函数被调用时给出的参数包含了实实在在的数据，会被函数内部的代码使用，所以称为实际参数，简称实参。
+形参和实参的功能是传递数据，发生函数调用时，实参的值会传递给形参。
+ Re: http://c.biancheng.net/view/1853.html   左值和右值 http://c.biancheng.net/view/1510.html</description>
+    </item>
+    
+    <item>
       <title>About function: Volatile</title>
       <link>https://6923403.github.io/post/volatile/</link>
       <pubDate>Sun, 13 Sep 2020 18:12:48 +0800</pubDate>
