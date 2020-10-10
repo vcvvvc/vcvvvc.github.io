@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>Mysql_use // VcVc Blog</title>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.68.3" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="VcVc" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="VcVc,VcVc Blog,6923403,CPP,Cplusplus,C++,Open Source,Rust,Python,Linux" />
+    <link rel="stylesheet" href="https://6923403.github.io/css/main.min.e363a654febc5798565b4d076b3590c04f18a0cc82bb8631bf442c1929dadf97.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Mysql_use"/>
+<meta name="twitter:description" content="创建数据库 CREATE DATABASE IF NOT EXISTS vctest DEFAULT CHARSET utf8 COLLATE utf8_general_ci; 2. CREATE DATABASE IF NOT EXISTS mytestdb;
+删除数据库 drop database test1; 2. DROP DATABASE IF EXISTS mytestdb;
+查看All DB show databases;
+导入sql source test.sql
+ select
+use vctest select city, phone, country from `offices`; SELECT语句由以下列表中所述的几个子句组成：
+语句中的SELECT和FROM语句是必须的，其他部分是可选的。
+ SELECT之后是逗号分隔列或星号(*)的列表，表示要返回所有列。 FROM指定要查询数据的表或视图。 JOIN根据某些连接条件从其他表中获取数据。 WHERE过滤结果集中的行。 GROUP BY将一组行组合成小分组，并对每个小分组应用聚合函数。 HAVING过滤器基于GROUP BY子句定义的小分组。 ORDER BY指定用于排序的列的列表。 LIMIT限制返回行的数量。  即使WHERE子句出现在语句的末尾，但MySQL会首先使用WHERE子句中的表达式来选择匹配的行。
+SELECT lastname, firstname, jobtitle FROM employees WHERE jobtitle = &#39;Sales Rep&#39;;  INSERT 创建表"/>
+
+    <meta property="og:title" content="Mysql_use" />
+<meta property="og:description" content="创建数据库 CREATE DATABASE IF NOT EXISTS vctest DEFAULT CHARSET utf8 COLLATE utf8_general_ci; 2. CREATE DATABASE IF NOT EXISTS mytestdb;
+删除数据库 drop database test1; 2. DROP DATABASE IF EXISTS mytestdb;
+查看All DB show databases;
+导入sql source test.sql
+ select
+use vctest select city, phone, country from `offices`; SELECT语句由以下列表中所述的几个子句组成：
+语句中的SELECT和FROM语句是必须的，其他部分是可选的。
+ SELECT之后是逗号分隔列或星号(*)的列表，表示要返回所有列。 FROM指定要查询数据的表或视图。 JOIN根据某些连接条件从其他表中获取数据。 WHERE过滤结果集中的行。 GROUP BY将一组行组合成小分组，并对每个小分组应用聚合函数。 HAVING过滤器基于GROUP BY子句定义的小分组。 ORDER BY指定用于排序的列的列表。 LIMIT限制返回行的数量。  即使WHERE子句出现在语句的末尾，但MySQL会首先使用WHERE子句中的表达式来选择匹配的行。
+SELECT lastname, firstname, jobtitle FROM employees WHERE jobtitle = &#39;Sales Rep&#39;;  INSERT 创建表" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://6923403.github.io/post/mysqluse/" />
+<meta property="article:published_time" content="2020-10-10T12:08:34+08:00" />
+<meta property="article:modified_time" content="2020-10-10T12:08:34+08:00" />
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://6923403.github.io"><img class="app-header-avatar" src="/avatar.jpg" alt="VcVc" /></a>
+      <h1>VcVc Blog</h1>
+      <p>Relax mentality, keep good heart. </p>
+      <div class="app-header-social">
+        
+          <a target="_blank" href="https://github.com/6923403" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg></a>
+        
+          <a target="_blank" href="https://twitter.com/vcvckw" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-twitter">
+  <title>twitter</title>
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+</svg></a>
+        
+          <a target="_blank" href="mailto:vcvckw@gmail.com" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-mail">
+  <title>mail</title>
+  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline>
+</svg></a>
+        
+      </div>  
+          
+    </header>    
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Mysql_use</h1>
+      <div class="post-meta">         
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Oct 10, 2020
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          Takes 2 min read
+        </div><div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line>
+</svg>
+          <a class="tag" href="https://6923403.github.io/tags/mysql/">Mysql</a><a class="tag" href="https://6923403.github.io/tags/linux/">Linux</a></div></div>
+    </header>
+    <div class="post-content">
+      <p><strong>创建数据库</strong>
+<code>CREATE DATABASE IF NOT EXISTS vctest DEFAULT CHARSET utf8 COLLATE utf8_general_ci;</code>
+<code>2. CREATE DATABASE IF NOT EXISTS mytestdb;</code></p>
+<p><strong>删除数据库</strong>
+<code>drop database test1;</code>
+<code>2. DROP DATABASE IF EXISTS mytestdb;</code></p>
+<p><strong>查看All DB</strong>
+<code>show databases;</code></p>
+<p><strong>导入sql</strong>
+<code>source test.sql</code></p>
+<hr>
+<p><strong>select</strong></p>
+<pre><code>use vctest
+select city, phone, country from `offices`;
+</code></pre><p><strong>SELECT语句由以下列表中所述的几个子句组成：</strong></p>
+<p><strong>语句中的SELECT和FROM语句是必须的，其他部分是可选的。</strong></p>
+<ul>
+<li>SELECT之后是逗号分隔列或星号(*)的列表，表示要返回所有列。</li>
+<li>FROM指定要查询数据的表或视图。</li>
+<li>JOIN根据某些连接条件从其他表中获取数据。</li>
+<li>WHERE过滤结果集中的行。</li>
+<li>GROUP BY将一组行组合成小分组，并对每个小分组应用聚合函数。</li>
+<li>HAVING过滤器基于GROUP BY子句定义的小分组。</li>
+<li>ORDER BY指定用于排序的列的列表。</li>
+<li>LIMIT限制返回行的数量。</li>
+</ul>
+<p><strong>即使WHERE子句出现在语句的末尾，但MySQL会首先使用WHERE子句中的表达式来选择匹配的行。</strong></p>
+<pre><code>SELECT
+    lastname, firstname, jobtitle
+FROM
+    employees
+WHERE
+    jobtitle = 'Sales Rep';
+</code></pre><hr>
+<p><strong>INSERT 创建表</strong></p>
+<pre><code>USE testdb;
+
+CREATE TABLE IF NOT EXISTS tasks (
+    task_id INT(11) AUTO_INCREMENT,
+    subject VARCHAR(45) DEFAULT NULL,
+    start_date DATE DEFAULT NULL,
+    end_date DATE DEFAULT NULL,
+    description VARCHAR(200) DEFAULT NULL,
+    PRIMARY KEY (task_id)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+</code></pre><p><strong>插入数据</strong></p>
+<pre><code>INSERT INTO tasks(subject,start_date,end_date,description)
+VALUES('Learn MySQL INSERT','2017-07-21','2017-07-22','Start learning..');
+</code></pre><p><strong>插入多行</strong></p>
+<pre><code>INSERT INTO table(column1,column2...)
+VALUES (value1,value2,...),
+       (value1,value2,...),
+       (value1, value2,...);
+</code></pre><hr>
+<p><strong>复制表结构</strong></p>
+<pre><code>CREATE TABLE tasks_bak LIKE tasks;
+
+INSERT INTO tasks_bak
+SELECT * FROM tasks;
+</code></pre><hr>
+<p><strong>MySQL INSERT与ON DUPLICATE KEY UPDATE</strong></p>
+<pre><code>INSERT INTO tasks(task_id,subject,start_date,end_date,description)
+VALUES (4,'Test ON DUPLICATE KEY UPDATE','2017-01-01','2017-01-02','Next Priority')
+ON DUPLICATE KEY UPDATE
+   task_id = task_id + 1,
+   subject = 'Test ON DUPLICATE KEY UPDATE';
+</code></pre><p><strong>等同于UPDATE语句</strong></p>
+<pre><code>UPDATE tasks
+SET
+    task_id = task_id + 1,
+    subject = 'Test ON DUPLICATE KEY UPDATE'
+WHERE
+    task_id = 4;
+</code></pre><hr>
+<p><strong>UPDATE</strong></p>
+<pre><code>UPDATE employees
+SET
+    lastname = 'NKS',
+    email = 'mary.new@yiibai.com'
+WHERE
+    employeeNumber = 1056;
+</code></pre><p><strong>随机选择一个职位是Sales Rep的员工</strong></p>
+<pre><code>SELECT
+    employeeNumber
+FROM
+    employees
+WHERE
+    jobtitle = 'Sales Rep'
+ORDER BY RAND()
+LIMIT 1;
+</code></pre><p><strong>需要更新customers表中的销售代表员工编号(employeeNumber)列</strong></p>
+<pre><code>UPDATE customers
+SET
+    salesRepEmployeeNumber = (SELECT
+            employeeNumber
+        FROM
+            employees
+        WHERE
+            jobtitle = 'Sales Rep'
+        LIMIT 1)
+WHERE
+    salesRepEmployeeNumber IS NULL;
+</code></pre><hr>
+<p><strong>备份数据库</strong></p>
+<p><a href="https://www.yiibai.com/mysql/how-to-backup-database-using-mysqldump.html">https://www.yiibai.com/mysql/how-to-backup-database-using-mysqldump.html</a></p>
+<hr>
+<p><strong>DELETE</strong></p>
+<pre><code>DELETE FROM employees
+WHERE
+    officeCode = 4;
+</code></pre><p><strong>删除表中所有行</strong>
+<code>delete from employees;</code></p>
+<p><strong>删除指定行数</strong></p>
+<pre><code>DELETE FROM customers
+ORDER BY customerName
+LIMIT 10; //10行
+</code></pre><p><strong>删除五个法国客户</strong></p>
+<pre><code>DELETE FROM customers
+WHERE country = 'France'
+ORDER BY creditLimit
+LIMIT 5;
+</code></pre>
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>  
+<br />
+<hr width = "450" color="#eeeeee" align="left">
+  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+
+    </main>
+  </body>
+</html>
+

@@ -1,22 +1,22 @@
 <!doctype html>
 <html lang="en-us">
   <head>
-    <title>Mysql_use // VcVc Blog</title>
+    <title>CPP_Mysql_use // VcVc Blog</title>
     <meta charset="utf-8" />
     <meta name="generator" content="Hugo 0.68.3" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="VcVc" />
     <meta name="description" content="" />
     <meta name="keywords" content="VcVc,VcVc Blog,6923403,CPP,Cplusplus,C++,Open Source,Rust,Python,Linux" />
-    <link rel="stylesheet" href="https://6923403.github.io/css/main.min.97b9435bd24f2320fd8066e25d821721f54063ef36afa430160134863128d46e.css" />
+    <link rel="stylesheet" href="https://6923403.github.io/css/main.min.e363a654febc5798565b4d076b3590c04f18a0cc82bb8631bf442c1929dadf97.css" />
 
     
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Mysql_use"/>
+<meta name="twitter:title" content="CPP_Mysql_use"/>
 <meta name="twitter:description" content="Mysql ex     mysql_init() 获取或初始化MYSQL结构   mysql_real_connect() 连接到MySQL服务器。   mysql_query() 执行指定为“以Null终结的字符串”的SQL查询   mysql_use_result() 初始化逐行的结果集检索   mysql_field_count() 返回上次执行语句的结果集的列数   mysql_fetch_row() 从结果集中获取下一行   mysql_num_fields() 返回结果集中的字段数     class MyDB { public: MyDB(); ~MyDB(); bool initDB(string host, string user, string pwd, string db_name); bool exeSQL(string sql); private: MYSQL *connection; MYSQL_RES *result; MYSQL_ROW row; };  基本步骤
 使用mysql_init()初始化连接 使用mysql_real_connect()建立一个到mysql数据库的连接 使用mysql_query()执行查询语句 result = mysql_use_result(conn)获取结果集 mysql_field_count(conn)获取查询的列数，mysql_num_fields(result)获取结果集的字段数 通过mysql_fetch_row(result)不断获取下一行，然后循环输出 释放结果集所占内存mysql_free_result(result) mysql_close(conn)关闭连接  Re:"/>
 
-    <meta property="og:title" content="Mysql_use" />
+    <meta property="og:title" content="CPP_Mysql_use" />
 <meta property="og:description" content="Mysql ex     mysql_init() 获取或初始化MYSQL结构   mysql_real_connect() 连接到MySQL服务器。   mysql_query() 执行指定为“以Null终结的字符串”的SQL查询   mysql_use_result() 初始化逐行的结果集检索   mysql_field_count() 返回上次执行语句的结果集的列数   mysql_fetch_row() 从结果集中获取下一行   mysql_num_fields() 返回结果集中的字段数     class MyDB { public: MyDB(); ~MyDB(); bool initDB(string host, string user, string pwd, string db_name); bool exeSQL(string sql); private: MYSQL *connection; MYSQL_RES *result; MYSQL_ROW row; };  基本步骤
 使用mysql_init()初始化连接 使用mysql_real_connect()建立一个到mysql数据库的连接 使用mysql_query()执行查询语句 result = mysql_use_result(conn)获取结果集 mysql_field_count(conn)获取查询的列数，mysql_num_fields(result)获取结果集的字段数 通过mysql_fetch_row(result)不断获取下一行，然后循环输出 释放结果集所占内存mysql_free_result(result) mysql_close(conn)关闭连接  Re:" />
 <meta property="og:type" content="article" />
@@ -55,7 +55,7 @@
       
   <article class="post">
     <header class="post-header">
-      <h1 class ="post-title">Mysql_use</h1>
+      <h1 class ="post-title">CPP_Mysql_use</h1>
       <div class="post-meta">         
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
@@ -149,7 +149,7 @@ mysql_close(conn)关闭连接
     </div>
   </article>  
 <br />
-<hr width = "400" color="#d9ecf2" align="left">
+<hr width = "450" color="#eeeeee" align="left">
   <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
 
     </main>

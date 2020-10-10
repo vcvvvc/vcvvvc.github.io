@@ -3,6 +3,36 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://6923403.github.io/tags/linux/</loc>
+    <lastmod>2020-10-10T12:08:34+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://6923403.github.io/tags/mysql/</loc>
+    <lastmod>2020-10-10T12:08:34+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://6923403.github.io/post/mysqluse/</loc>
+    <lastmod>2020-10-10T12:08:34+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://6923403.github.io/post/</loc>
+    <lastmod>2020-10-10T12:08:34+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://6923403.github.io/tags/</loc>
+    <lastmod>2020-10-10T12:08:34+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://6923403.github.io/</loc>
+    <lastmod>2020-10-10T12:08:34+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://6923403.github.io/tags/const/</loc>
     <lastmod>2020-10-06T15:03:40+08:00</lastmod>
   </url>
@@ -28,27 +58,7 @@
   </url>
   
   <url>
-    <loc>https://6923403.github.io/post/</loc>
-    <lastmod>2020-10-06T15:03:40+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://6923403.github.io/tags/</loc>
-    <lastmod>2020-10-06T15:03:40+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://6923403.github.io/</loc>
-    <lastmod>2020-10-06T15:03:40+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://6923403.github.io/post/cs_bs/</loc>
-    <lastmod>2020-10-05T16:14:49+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://6923403.github.io/tags/linux/</loc>
     <lastmod>2020-10-05T16:14:49+08:00</lastmod>
   </url>
   
@@ -95,11 +105,6 @@
   <url>
     <loc>https://6923403.github.io/post/cpp_inherit/</loc>
     <lastmod>2020-09-25T17:44:01+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://6923403.github.io/tags/mysql/</loc>
-    <lastmod>2020-09-25T16:40:02+08:00</lastmod>
   </url>
   
   <url>

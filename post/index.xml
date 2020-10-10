@@ -6,10 +6,27 @@
     <description>Recent content in Posts on VcVc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 06 Oct 2020 15:03:40 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 10 Oct 2020 12:08:34 +0800</lastBuildDate>
     
 	<atom:link href="https://6923403.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Mysql_use</title>
+      <link>https://6923403.github.io/post/mysqluse/</link>
+      <pubDate>Sat, 10 Oct 2020 12:08:34 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/mysqluse/</guid>
+      <description>创建数据库 CREATE DATABASE IF NOT EXISTS vctest DEFAULT CHARSET utf8 COLLATE utf8_general_ci; 2. CREATE DATABASE IF NOT EXISTS mytestdb;
+删除数据库 drop database test1; 2. DROP DATABASE IF EXISTS mytestdb;
+查看All DB show databases;
+导入sql source test.sql
+ select
+use vctest select city, phone, country from `offices`; SELECT语句由以下列表中所述的几个子句组成：
+语句中的SELECT和FROM语句是必须的，其他部分是可选的。
+ SELECT之后是逗号分隔列或星号(*)的列表，表示要返回所有列。 FROM指定要查询数据的表或视图。 JOIN根据某些连接条件从其他表中获取数据。 WHERE过滤结果集中的行。 GROUP BY将一组行组合成小分组，并对每个小分组应用聚合函数。 HAVING过滤器基于GROUP BY子句定义的小分组。 ORDER BY指定用于排序的列的列表。 LIMIT限制返回行的数量。  即使WHERE子句出现在语句的末尾，但MySQL会首先使用WHERE子句中的表达式来选择匹配的行。
+SELECT lastname, firstname, jobtitle FROM employees WHERE jobtitle = &#39;Sales Rep&#39;;  INSERT 创建表</description>
+    </item>
     
     <item>
       <title>CPP_Const</title>
@@ -115,7 +132,7 @@ class Shape { public: void setWidth(int w) { width = w; } void setHeight(int h) 
     </item>
     
     <item>
-      <title>Mysql_use</title>
+      <title>CPP_Mysql_use</title>
       <link>https://6923403.github.io/post/mysql_use/</link>
       <pubDate>Fri, 25 Sep 2020 16:40:02 +0800</pubDate>
       
@@ -185,7 +202,12 @@ mysql_secure_installation
 实参（实际参数）
 函数被调用时给出的参数包含了实实在在的数据，会被函数内部的代码使用，所以称为实际参数，简称实参。
 形参和实参的功能是传递数据，发生函数调用时，实参的值会传递给形参。
- Re: http://c.biancheng.net/view/1853.html   左值和右值 http://c.biancheng.net/view/1510.html</description>
+ Re: http://c.biancheng.net/view/1853.html   左值和右值
+http://c.biancheng.net/view/1510.html
+ 常量和变量
+https://www.runoob.com/cprogramming/c-variables.html
+https://www.runoob.com/cprogramming/c-constants.html
+http://c.biancheng.net/cpp/html/19.html</description>
     </item>
     
     <item>
@@ -333,14 +355,15 @@ fd 是要监听的fd</description>
       <pubDate>Wed, 26 Aug 2020 22:47:24 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/socket/</guid>
-      <description>gethostbyname_r(sAddr.c_str(), &amp;amp;stHostent, buf, sizeof(buf), &amp;amp;pstHostent, &amp;amp;iError); //gethostbyname_r()调用成功时返回0, *result指向解析成功的数据结构, *result如果为NULL则表示解析出错
- int iRet = inet_pton(AF_INET, sAddr.c_str(), &amp;amp;stSinAddr); //地址类型转换
- setsockopt
+      <description>setsockopt
 获取或者设置与某个套接字关联的选 项。选项可能存在于多层协议中，它们总会出现在最上面的套接字层。当操作套接字选项时， 选项位于的层和选项的名称必须给出。为了操作套接字层的选项，应该 将层的值指定为SOL_SOCKET。为了操作其它层的选项，控制选 项的合适协议号必须给出。例如，为了表示一个选项由TCP协议解析，层应该设定为协议 号TCP。 Re: https://segmentfault.com/a/1190000019360464
 https://www.cnblogs.com/eeexu123/p/5275783.html
  epoll_ctl(_iEpollfd, op, fd, &amp;amp;ev); //Error:_iEpollfd: -1. Success: _iEpollfd = fd
  int fcntl(int fd, int cmd); int fcntl(int fd, int cmd, long arg); int fcntl(int fd, int cmd, struct flock *lock); fcntl函数有5种功能：
- 1.复制一个现有的描述符（cmd=F_DUPFD）. 2.获得／设置文件描述符标记(cmd=F_GETFD或F_SETFD). 3.获得／设置文件状态标记(cmd=F_GETFL或F_SETFL). 4.获得／设置异步I/O所有权(cmd=F_GETOWN或F_SETOWN). 5.获得／设置记录锁(cmd=F_GETLK,F_SETLK或F_SETLKW).  Re: https://www.cnblogs.com/xuyh/p/3273082.html</description>
+ 1.复制一个现有的描述符（cmd=F_DUPFD）. 2.获得／设置文件描述符标记(cmd=F_GETFD或F_SETFD). 3.获得／设置文件状态标记(cmd=F_GETFL或F_SETFL). 4.获得／设置异步I/O所有权(cmd=F_GETOWN或F_SETOWN). 5.获得／设置记录锁(cmd=F_GETLK,F_SETLK或F_SETLKW).  Re: https://www.cnblogs.com/xuyh/p/3273082.html
+ 非阻塞I/O使我们的操作要么成功，要么立即返回错误，不被阻塞。
+对于一个给定的描述符两种方法对其指定非阻塞I/O:
+ 1.调用open获得描述符，并指定O_NONBLOCK标志 2.对已经打开的文件描述符，调用fcntl，打开O_NONBLOCK文件状态标志。  flags = fcntl( s, F_GETFL, 0 ) ) fcntl( s, F_SETFL, flags | O_NONBLOCK ) Re: https://blog.</description>
     </item>
     
     <item>
