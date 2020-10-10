@@ -127,6 +127,24 @@ WHERE
     jobtitle = 'Sales Rep';
 </code></pre><hr>
 <p><strong>INSERT 创建表</strong></p>
+<pre><code>CREATE TABLE [IF NOT EXISTS] table_name(
+        column_list
+) engine=table_type;
+</code></pre><ul>
+<li>首先，指定要在CREATE TABLE子句之后创建的表的名称。表名在数据库中必须是唯一的。 IF NOT EXISTS是语句的可选部分，允许您检查正在创建的表是否已存在于数据库中。 如果是这种情况，MySQL将忽略整个语句，不会创建任何新的表。 强烈建议在每个CREATE TABLE语句中使用IF NOT EXISTS来防止创建已存在的新表而产生错误。</li>
+<li>其次，在column_list部分指定表的列表。字段的列用逗号(，)分隔。我们将在下一节中向您展示如何更详细地列(字段)定义。</li>
+<li>第三，需要为engine子句中的表指定存储引擎。可以使用任何存储引擎，如：InnoDB，MyISAM，HEAP，EXAMPLE，CSV，ARCHIVE，MERGE， FEDERATED或NDBCLUSTER。如果不明确声明存储引擎，MySQL将默认使用InnoDB。</li>
+</ul>
+<pre><code>//为表定义列
+column_name data_type[size] [NOT NULL|NULL] [DEFAULT value]
+[AUTO_INCREMENT]
+</code></pre><ul>
+<li>column_name指定列的名称。每列具有特定数据类型和大小，例如：VARCHAR(255)。</li>
+<li>NOT NULL或NULL表示该列是否接受NULL值。</li>
+<li>DEFAULT值用于指定列的默认值。</li>
+<li>AUTO_INCREMENT指示每当将新行插入到表中时，列的值会自动增加。每个表都有一个且只有一个AUTO_INCREMENT列。</li>
+<li>PRIMARY KEY (col1,col2,&hellip;) 设为主键</li>
+</ul>
 <pre><code>USE testdb;
 
 CREATE TABLE IF NOT EXISTS tasks (
@@ -137,8 +155,24 @@ CREATE TABLE IF NOT EXISTS tasks (
     description VARCHAR(200) DEFAULT NULL,
     PRIMARY KEY (task_id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
-</code></pre><p><strong>插入数据</strong></p>
-<pre><code>INSERT INTO tasks(subject,start_date,end_date,description)
+</code></pre><p><strong>ALTER TABLE语句来设置列的自动递增属性</strong></p>
+<pre><code>ALTER TABLE tasks
+CHANGE COLUMN task_id task_id INT(11) NOT NULL AUTO_INCREMENT;
+</code></pre><p><strong>添加新列</strong></p>
+<pre><code>ALTER TABLE tasks
+ADD COLUMN complete DECIMAL(2,1) NULL
+AFTER description;
+</code></pre><p><strong>删除列</strong></p>
+<pre><code>ALTER TABLE tasks
+DROP COLUMN description;
+</code></pre><p><strong>重命名表</strong></p>
+<pre><code>ALTER TABLE tasks
+RENAME TO work_items;
+
+2. RENAME TABLE old_table_name TO new_table_name;
+</code></pre><hr>
+<p><strong>插入数据</strong></p>
+<pre><code>INSERT INTO tasks(subject,start_date,end_date,description) //插入到tasks表中
 VALUES('Learn MySQL INSERT','2017-07-21','2017-07-22','Start learning..');
 </code></pre><p><strong>插入多行</strong></p>
 <pre><code>INSERT INTO table(column1,column2...)
@@ -199,6 +233,9 @@ WHERE
 <p><a href="https://www.yiibai.com/mysql/how-to-backup-database-using-mysqldump.html">https://www.yiibai.com/mysql/how-to-backup-database-using-mysqldump.html</a></p>
 <hr>
 <p><strong>DELETE</strong></p>
+<p><strong>删除表</strong>
+<code>DROP TABLE IF EXISTS tasks;</code></p>
+<p><strong>删除指定条件</strong></p>
 <pre><code>DELETE FROM employees
 WHERE
     officeCode = 4;
@@ -213,7 +250,35 @@ LIMIT 10; //10行
 WHERE country = 'France'
 ORDER BY creditLimit
 LIMIT 5;
-</code></pre>
+</code></pre><hr>
+<p><strong>创建函数</strong></p>
+<pre><code>DELIMITER //
+
+CREATE PROCEDURE get_employee(IN p_id INT)
+
+begin
+ SELECT first_name
+ ,last_name
+ ,dept_name
+ FROM employees
+ INNER JOIN departments using (department_id)
+ WHERE id = p_id;
+END;
+//
+
+DELIMITER;
+</code></pre><p><strong>运行</strong>
+<code>CALL get_employee(1);</code></p>
+<hr>
+<p><strong>Mysql技巧</strong>
+<a href="https://www.yiibai.com/mysql/mysqltips.html">https://www.yiibai.com/mysql/mysqltips.html</a></p>
+<p><strong>MySQL存储过程</strong>
+<a href="https://www.yiibai.com/mysql/stored-procedure.html">https://www.yiibai.com/mysql/stored-procedure.html</a></p>
+<p>Re:</p>
+<p><a href="https://www.yiibai.com/mysql">https://www.yiibai.com/mysql</a></p>
+<p><a href="https://stackoverflow.com/questions/3401982/error-with-mysql-procedures-error-1304-error-1305">https://stackoverflow.com/questions/3401982/error-with-mysql-procedures-error-1304-error-1305</a></p>
+<p><a href="https://blog.csdn.net/yuxin6866/article/details/52722913">https://blog.csdn.net/yuxin6866/article/details/52722913</a></p>
+
     </div>
     <div class="post-footer">
       
