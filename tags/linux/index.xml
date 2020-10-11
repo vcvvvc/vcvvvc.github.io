@@ -6,26 +6,29 @@
     <description>Recent content in Linux on VcVc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 10 Oct 2020 12:08:34 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 11 Oct 2020 18:00:39 +0800</lastBuildDate>
     
 	<atom:link href="https://6923403.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Mysql_use</title>
-      <link>https://6923403.github.io/post/mysqluse/</link>
-      <pubDate>Sat, 10 Oct 2020 12:08:34 +0800</pubDate>
+      <title>Socket sum</title>
+      <link>https://6923403.github.io/post/socketsum/</link>
+      <pubDate>Sun, 11 Oct 2020 18:00:39 +0800</pubDate>
       
-      <guid>https://6923403.github.io/post/mysqluse/</guid>
-      <description>创建数据库 CREATE DATABASE IF NOT EXISTS vctest DEFAULT CHARSET utf8 COLLATE utf8_general_ci; 2. CREATE DATABASE IF NOT EXISTS mytestdb;
-删除数据库 drop database test1; 2. DROP DATABASE IF EXISTS mytestdb;
-查看All DB show databases;
-导入sql source test.sql
- select
-use vctest select city, phone, country from `offices`; SELECT语句由以下列表中所述的几个子句组成：
-语句中的SELECT和FROM语句是必须的，其他部分是可选的。
- SELECT之后是逗号分隔列或星号(*)的列表，表示要返回所有列。 FROM指定要查询数据的表或视图。 JOIN根据某些连接条件从其他表中获取数据。 WHERE过滤结果集中的行。 GROUP BY将一组行组合成小分组，并对每个小分组应用聚合函数。 HAVING过滤器基于GROUP BY子句定义的小分组。 ORDER BY指定用于排序的列的列表。 LIMIT限制返回行的数量。  即使WHERE子句出现在语句的末尾，但MySQL会首先使用WHERE子句中的表达式来选择匹配的行。
-SELECT lastname, firstname, jobtitle FROM employees WHERE jobtitle = &#39;Sales Rep&#39;;  INSERT 创建表</description>
+      <guid>https://6923403.github.io/post/socketsum/</guid>
+      <description>socket struct整理
+https://6923403.github.io/post/socket_struct/
+ socket编程需要的头文件整理
+https://6923403.github.io/post/socket_file/
+ exception_class 异常类
+https://6923403.github.io/post/cpp_exception/
+ Linux Pthread 线程创建与使用
+https://6923403.github.io/post/linuxpthread/
+ epoll tutorial, epoll处理教程
+https://6923403.github.io/post/epoll_use/
+ socket function, socket函数
+https://6923403.github.io/post/socket/</description>
     </item>
     
     <item>
@@ -59,26 +62,6 @@ B/S架构的缺点  a&amp;gt; 服务器承担着重要的责任，数据负荷�
 b&amp;gt; 页面需要不断地动态刷新，当用户增多时，网速会变慢。
   第一层是浏览器（即客户端）只有简单的输入输出功能，处理极少部分的事务逻辑。由于客户不需要安装客户端，只要有浏览器就能上网浏览，所以它面向的是大范围的用户，所以界面设计得比较简单，通用。 第二层是WEB服务器，扮演着信息传送的角色。当用户想要访问数据库时，就会首先向WEB服务器发送请求，WEB服务器统一请求后会向数据库服务器发送访问数据库的请求，这个请求是以SQL语句实现的。 第三层是数据库服务器，它存放着大量的数据。当数据库服务器收到了WEB服务器的请求后，会对SQL语句进行处理，并将返回的结果发送给WEB服务器，接下来，WEB服务器将收到的数据结果转换为HTML文本形式发送给浏览器。   https://blog.csdn.net/qq_42828949/article/details/82822901
 https://blog.csdn.net/zhengqijun_/article/details/53056624</description>
-    </item>
-    
-    <item>
-      <title>Socket sum</title>
-      <link>https://6923403.github.io/post/socketsum/</link>
-      <pubDate>Sun, 27 Sep 2020 18:00:39 +0800</pubDate>
-      
-      <guid>https://6923403.github.io/post/socketsum/</guid>
-      <description>socket struct整理
-https://6923403.github.io/post/socket_struct/
- socket编程需要的头文件整理
-https://6923403.github.io/post/socket_file/
- exception_class 异常类
-https://6923403.github.io/post/cpp_exception/
- Linux Pthread 线程创建与使用
-https://6923403.github.io/post/linuxpthread/
- epoll tutorial, epoll处理教程
-https://6923403.github.io/post/epoll_use/
- socket function, socket函数
-https://6923403.github.io/post/socket/</description>
     </item>
     
     <item>
@@ -158,6 +141,23 @@ mysql_secure_installation
       
       <guid>https://6923403.github.io/post/getopt_long/</guid>
       <description>#include &amp;lt;unistd.h&amp;gt; int getopt(int argc, char * const argv[], const char *optstring); extern char *optarg; extern int optind, opterr, optopt; #include &amp;lt;getopt.h&amp;gt; int getopt_long(int argc, char * const argv[], const char *optstring, const struct option *longopts, int *longindex); int getopt_long_only(int argc, char * const argv[], const char *optstring, const struct option *longopts, int *longindex);  static struct option Vcopts[] = { {&amp;quot;device&amp;quot;, required_argument, NULL, &#39;d&#39;}, {&amp;quot;savefile&amp;quot;, optional_argument, NULL, &#39;f&#39;}, {&amp;quot;help&amp;quot;, no_argument, NULL, &#39;h&#39;}, {&amp;quot;version&amp;quot;, no_argument, NULL, &#39;v&#39;}, {&amp;quot;Device list&amp;quot;, no_argument, NULL, &#39;l&#39;}, {&amp;quot;http-proxy&amp;quot;, required_argument, &amp;amp;lopt, 1}, {0, 0, 0, 0} };  no_argument: -h --h, -v --v required_argument: -d/ -d ens33/ -d = ens33 optional_argument: -f filename/ -f = filename &amp;amp;lopt: &amp;ndash;http-proxy=127.</description>
+    </item>
+    
+    <item>
+      <title>Mysql_use</title>
+      <link>https://6923403.github.io/post/mysqluse/</link>
+      <pubDate>Sat, 19 Sep 2020 12:08:34 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/mysqluse/</guid>
+      <description>创建数据库 CREATE DATABASE IF NOT EXISTS vctest DEFAULT CHARSET utf8 COLLATE utf8_general_ci; 2. CREATE DATABASE IF NOT EXISTS mytestdb;
+删除数据库 drop database test1; 2. DROP DATABASE IF EXISTS mytestdb;
+查看All DB show databases;
+导入sql source test.sql
+ select
+use vctest select city, phone, country from `offices`; SELECT语句由以下列表中所述的几个子句组成：
+语句中的SELECT和FROM语句是必须的，其他部分是可选的。
+ SELECT之后是逗号分隔列或星号(*)的列表，表示要返回所有列。 FROM指定要查询数据的表或视图。 JOIN根据某些连接条件从其他表中获取数据。 WHERE过滤结果集中的行。 GROUP BY将一组行组合成小分组，并对每个小分组应用聚合函数。 HAVING过滤器基于GROUP BY子句定义的小分组。 ORDER BY指定用于排序的列的列表。 LIMIT限制返回行的数量。  即使WHERE子句出现在语句的末尾，但MySQL会首先使用WHERE子句中的表达式来选择匹配的行。
+SELECT lastname, firstname, jobtitle FROM employees WHERE jobtitle = &#39;Sales Rep&#39;;  INSERT 创建表</description>
     </item>
     
     <item>
@@ -248,7 +248,8 @@ fd 是要监听的fd</description>
       
       <guid>https://6923403.github.io/post/socket/</guid>
       <description>setsockopt
-获取或者设置与某个套接字关联的选 项。选项可能存在于多层协议中，它们总会出现在最上面的套接字层。当操作套接字选项时， 选项位于的层和选项的名称必须给出。为了操作套接字层的选项，应该 将层的值指定为SOL_SOCKET。为了操作其它层的选项，控制选 项的合适协议号必须给出。例如，为了表示一个选项由TCP协议解析，层应该设定为协议 号TCP。 Re: https://segmentfault.com/a/1190000019360464
+获取或者设置与某个套接字关联的选 项。选项可能存在于多层协议中，它们总会出现在最上面的套接字层。当操作套接字选项时， 选项位于的层和选项的名称必须给出。为了操作套接字层的选项，应该 将层的值指定为SOL_SOCKET。为了操作其它层的选项，控制选 项的合适协议号必须给出。例如，为了表示一个选项由TCP协议解析，层应该设定为协议 号TCP。 SO_LINGER选项
+struct linger { int l_onoff; int l_linger; }; Re: https://segmentfault.com/a/1190000019360464
 https://www.cnblogs.com/eeexu123/p/5275783.html
  epoll_ctl(_iEpollfd, op, fd, &amp;amp;ev); //Error:_iEpollfd: -1. Success: _iEpollfd = fd
  int fcntl(int fd, int cmd); int fcntl(int fd, int cmd, long arg); int fcntl(int fd, int cmd, struct flock *lock); fcntl函数有5种功能：

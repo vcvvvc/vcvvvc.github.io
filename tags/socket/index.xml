@@ -6,7 +6,7 @@
     <description>Recent content in Socket on VcVc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 27 Sep 2020 18:00:39 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 11 Oct 2020 18:00:39 +0800</lastBuildDate>
     
 	<atom:link href="https://6923403.github.io/tags/socket/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Socket sum</title>
       <link>https://6923403.github.io/post/socketsum/</link>
-      <pubDate>Sun, 27 Sep 2020 18:00:39 +0800</pubDate>
+      <pubDate>Sun, 11 Oct 2020 18:00:39 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/socketsum/</guid>
       <description>socket struct整理
@@ -85,7 +85,8 @@ fd 是要监听的fd</description>
       
       <guid>https://6923403.github.io/post/socket/</guid>
       <description>setsockopt
-获取或者设置与某个套接字关联的选 项。选项可能存在于多层协议中，它们总会出现在最上面的套接字层。当操作套接字选项时， 选项位于的层和选项的名称必须给出。为了操作套接字层的选项，应该 将层的值指定为SOL_SOCKET。为了操作其它层的选项，控制选 项的合适协议号必须给出。例如，为了表示一个选项由TCP协议解析，层应该设定为协议 号TCP。 Re: https://segmentfault.com/a/1190000019360464
+获取或者设置与某个套接字关联的选 项。选项可能存在于多层协议中，它们总会出现在最上面的套接字层。当操作套接字选项时， 选项位于的层和选项的名称必须给出。为了操作套接字层的选项，应该 将层的值指定为SOL_SOCKET。为了操作其它层的选项，控制选 项的合适协议号必须给出。例如，为了表示一个选项由TCP协议解析，层应该设定为协议 号TCP。 SO_LINGER选项
+struct linger { int l_onoff; int l_linger; }; Re: https://segmentfault.com/a/1190000019360464
 https://www.cnblogs.com/eeexu123/p/5275783.html
  epoll_ctl(_iEpollfd, op, fd, &amp;amp;ev); //Error:_iEpollfd: -1. Success: _iEpollfd = fd
  int fcntl(int fd, int cmd); int fcntl(int fd, int cmd, long arg); int fcntl(int fd, int cmd, struct flock *lock); fcntl函数有5种功能：

@@ -14,7 +14,8 @@
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Socket function"/>
 <meta name="twitter:description" content="setsockopt
-获取或者设置与某个套接字关联的选 项。选项可能存在于多层协议中，它们总会出现在最上面的套接字层。当操作套接字选项时， 选项位于的层和选项的名称必须给出。为了操作套接字层的选项，应该 将层的值指定为SOL_SOCKET。为了操作其它层的选项，控制选 项的合适协议号必须给出。例如，为了表示一个选项由TCP协议解析，层应该设定为协议 号TCP。 Re: https://segmentfault.com/a/1190000019360464
+获取或者设置与某个套接字关联的选 项。选项可能存在于多层协议中，它们总会出现在最上面的套接字层。当操作套接字选项时， 选项位于的层和选项的名称必须给出。为了操作套接字层的选项，应该 将层的值指定为SOL_SOCKET。为了操作其它层的选项，控制选 项的合适协议号必须给出。例如，为了表示一个选项由TCP协议解析，层应该设定为协议 号TCP。 SO_LINGER选项
+struct linger { int l_onoff; int l_linger; }; Re: https://segmentfault.com/a/1190000019360464
 https://www.cnblogs.com/eeexu123/p/5275783.html
  epoll_ctl(_iEpollfd, op, fd, &amp;ev); //Error:_iEpollfd: -1. Success: _iEpollfd = fd
  int fcntl(int fd, int cmd); int fcntl(int fd, int cmd, long arg); int fcntl(int fd, int cmd, struct flock *lock); fcntl函数有5种功能：
@@ -25,7 +26,8 @@ https://www.cnblogs.com/eeexu123/p/5275783.html
 
     <meta property="og:title" content="Socket function" />
 <meta property="og:description" content="setsockopt
-获取或者设置与某个套接字关联的选 项。选项可能存在于多层协议中，它们总会出现在最上面的套接字层。当操作套接字选项时， 选项位于的层和选项的名称必须给出。为了操作套接字层的选项，应该 将层的值指定为SOL_SOCKET。为了操作其它层的选项，控制选 项的合适协议号必须给出。例如，为了表示一个选项由TCP协议解析，层应该设定为协议 号TCP。 Re: https://segmentfault.com/a/1190000019360464
+获取或者设置与某个套接字关联的选 项。选项可能存在于多层协议中，它们总会出现在最上面的套接字层。当操作套接字选项时， 选项位于的层和选项的名称必须给出。为了操作套接字层的选项，应该 将层的值指定为SOL_SOCKET。为了操作其它层的选项，控制选 项的合适协议号必须给出。例如，为了表示一个选项由TCP协议解析，层应该设定为协议 号TCP。 SO_LINGER选项
+struct linger { int l_onoff; int l_linger; }; Re: https://segmentfault.com/a/1190000019360464
 https://www.cnblogs.com/eeexu123/p/5275783.html
  epoll_ctl(_iEpollfd, op, fd, &amp;ev); //Error:_iEpollfd: -1. Success: _iEpollfd = fd
  int fcntl(int fd, int cmd); int fcntl(int fd, int cmd, long arg); int fcntl(int fd, int cmd, struct flock *lock); fcntl函数有5种功能：
@@ -99,7 +101,13 @@ https://www.cnblogs.com/eeexu123/p/5275783.html
 
 项的合适协议号必须给出。例如，为了表示一个选项由TCP协议解析，层应该设定为协议 号TCP。
 </code></pre><p><img src="/img/socket/1.png" alt="option"></p>
-<p>Re:
+<p><strong>SO_LINGER选项</strong></p>
+<pre><code>struct linger
+{
+    int l_onoff;
+    int l_linger;
+};
+</code></pre><p>Re:
 <a href="https://segmentfault.com/a/1190000019360464">https://segmentfault.com/a/1190000019360464</a></p>
 <p><a href="https://www.cnblogs.com/eeexu123/p/5275783.html">https://www.cnblogs.com/eeexu123/p/5275783.html</a></p>
 <hr>
@@ -332,6 +340,17 @@ backtrace_symbols_fd
 <p><code>struct servent *getservbyname(const char *name, const char *proto)</code></p>
 <p><strong>getservbyport 根据端口号获取某个服务的完整信息</strong></p>
 <p><code>struct servent *getservbyport(int port, const char *proto)</code></p>
+<p><strong>getaddrinfo 通过主机名获得IP地址也能通过服务名获得端口号</strong></p>
+<p><code>int getaddrinfo(const char *node, const char *service, const struct addrinfo *hints, struct addrinfo **res);</code></p>
+<p><strong>之后用freeaddrinfo 释放getaddrinfo所分配的内存</strong></p>
+<p><code>void freeaddrinfo(struct addrinfo *res);</code></p>
+<p><strong>getnameinfo 通过socket地址同时获得字符串表示的主机名和服务名</strong></p>
+<p><code>int getnameinfo(const struct sockaddr *addr, socklen_t addrlen, char *host, socklen_t hostlen, char *serv, socklen_t servlen, int flags);</code></p>
+<hr>
+<p><strong>readv 将数据从文件描述符读到分散的内存块中</strong></p>
+<p><code>ssize_t readv(int fd, const struct iovec *iov, int iovcnt);</code></p>
+<p><strong>writev 将多块分散的数据一并写入文件描述符中</strong></p>
+<p><code>ssize_t writev(int fd, const struct iovec *iov, int iovcnt);</code></p>
 
     </div>
     <div class="post-footer">

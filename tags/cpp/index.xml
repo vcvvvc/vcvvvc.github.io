@@ -6,10 +6,30 @@
     <description>Recent content in CPP on VcVc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 06 Oct 2020 15:03:40 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 11 Oct 2020 18:00:39 +0800</lastBuildDate>
     
 	<atom:link href="https://6923403.github.io/tags/cpp/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Socket sum</title>
+      <link>https://6923403.github.io/post/socketsum/</link>
+      <pubDate>Sun, 11 Oct 2020 18:00:39 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/socketsum/</guid>
+      <description>socket struct整理
+https://6923403.github.io/post/socket_struct/
+ socket编程需要的头文件整理
+https://6923403.github.io/post/socket_file/
+ exception_class 异常类
+https://6923403.github.io/post/cpp_exception/
+ Linux Pthread 线程创建与使用
+https://6923403.github.io/post/linuxpthread/
+ epoll tutorial, epoll处理教程
+https://6923403.github.io/post/epoll_use/
+ socket function, socket函数
+https://6923403.github.io/post/socket/</description>
+    </item>
     
     <item>
       <title>CPP_Const</title>
@@ -29,26 +49,6 @@
       <guid>https://6923403.github.io/post/recursion/</guid>
       <description>O(1)常数阶 &amp;lt; O(logn)对数阶 &amp;lt; O(n)线性阶 &amp;lt; O(n^2)平方阶 &amp;lt; O(n^3)(立方阶) &amp;lt; O(2^n) (指数阶)
 For O(n) int function1(int x, int n) { int result = 1; // 注意 任何数的0次方等于1 for (int i = 0; i &amp;lt; n; i++) { result = result * x; } return result; }  Recursion O(n) int function2(int x, int n) { if (n == 0) { return 1; // return 1 同样是因为0次方是等于1的 } return function2(x, n - 1) * x; }  Recursion2 O(n) int function3(int x, int n) { if (n == 0) { return 1; } if (n % 2 == 1) { return function3(x, n/2) * function3(x, n/2)*x; } return function3(x, n/2) * function3(x, n/2); }  Recursion3 O(logn) int function4(int x, int n) { if (n == 0) { return 1; } int t = function4(x, n/2);// 这里相对于function3，是把这个递归操作抽取出来 if (n % 2 == 1) { return t*t*x; } return t*t; } </description>
-    </item>
-    
-    <item>
-      <title>Socket sum</title>
-      <link>https://6923403.github.io/post/socketsum/</link>
-      <pubDate>Sun, 27 Sep 2020 18:00:39 +0800</pubDate>
-      
-      <guid>https://6923403.github.io/post/socketsum/</guid>
-      <description>socket struct整理
-https://6923403.github.io/post/socket_struct/
- socket编程需要的头文件整理
-https://6923403.github.io/post/socket_file/
- exception_class 异常类
-https://6923403.github.io/post/cpp_exception/
- Linux Pthread 线程创建与使用
-https://6923403.github.io/post/linuxpthread/
- epoll tutorial, epoll处理教程
-https://6923403.github.io/post/epoll_use/
- socket function, socket函数
-https://6923403.github.io/post/socket/</description>
     </item>
     
     <item>
@@ -265,7 +265,8 @@ fd 是要监听的fd</description>
       
       <guid>https://6923403.github.io/post/socket/</guid>
       <description>setsockopt
-获取或者设置与某个套接字关联的选 项。选项可能存在于多层协议中，它们总会出现在最上面的套接字层。当操作套接字选项时， 选项位于的层和选项的名称必须给出。为了操作套接字层的选项，应该 将层的值指定为SOL_SOCKET。为了操作其它层的选项，控制选 项的合适协议号必须给出。例如，为了表示一个选项由TCP协议解析，层应该设定为协议 号TCP。 Re: https://segmentfault.com/a/1190000019360464
+获取或者设置与某个套接字关联的选 项。选项可能存在于多层协议中，它们总会出现在最上面的套接字层。当操作套接字选项时， 选项位于的层和选项的名称必须给出。为了操作套接字层的选项，应该 将层的值指定为SOL_SOCKET。为了操作其它层的选项，控制选 项的合适协议号必须给出。例如，为了表示一个选项由TCP协议解析，层应该设定为协议 号TCP。 SO_LINGER选项
+struct linger { int l_onoff; int l_linger; }; Re: https://segmentfault.com/a/1190000019360464
 https://www.cnblogs.com/eeexu123/p/5275783.html
  epoll_ctl(_iEpollfd, op, fd, &amp;amp;ev); //Error:_iEpollfd: -1. Success: _iEpollfd = fd
  int fcntl(int fd, int cmd); int fcntl(int fd, int cmd, long arg); int fcntl(int fd, int cmd, struct flock *lock); fcntl函数有5种功能：

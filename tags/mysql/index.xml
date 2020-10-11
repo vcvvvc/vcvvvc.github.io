@@ -6,27 +6,10 @@
     <description>Recent content in Mysql on VcVc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 10 Oct 2020 12:08:34 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 25 Sep 2020 16:40:02 +0800</lastBuildDate>
     
 	<atom:link href="https://6923403.github.io/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Mysql_use</title>
-      <link>https://6923403.github.io/post/mysqluse/</link>
-      <pubDate>Sat, 10 Oct 2020 12:08:34 +0800</pubDate>
-      
-      <guid>https://6923403.github.io/post/mysqluse/</guid>
-      <description>创建数据库 CREATE DATABASE IF NOT EXISTS vctest DEFAULT CHARSET utf8 COLLATE utf8_general_ci; 2. CREATE DATABASE IF NOT EXISTS mytestdb;
-删除数据库 drop database test1; 2. DROP DATABASE IF EXISTS mytestdb;
-查看All DB show databases;
-导入sql source test.sql
- select
-use vctest select city, phone, country from `offices`; SELECT语句由以下列表中所述的几个子句组成：
-语句中的SELECT和FROM语句是必须的，其他部分是可选的。
- SELECT之后是逗号分隔列或星号(*)的列表，表示要返回所有列。 FROM指定要查询数据的表或视图。 JOIN根据某些连接条件从其他表中获取数据。 WHERE过滤结果集中的行。 GROUP BY将一组行组合成小分组，并对每个小分组应用聚合函数。 HAVING过滤器基于GROUP BY子句定义的小分组。 ORDER BY指定用于排序的列的列表。 LIMIT限制返回行的数量。  即使WHERE子句出现在语句的末尾，但MySQL会首先使用WHERE子句中的表达式来选择匹配的行。
-SELECT lastname, firstname, jobtitle FROM employees WHERE jobtitle = &#39;Sales Rep&#39;;  INSERT 创建表</description>
-    </item>
     
     <item>
       <title>CPP_Mysql_use</title>
@@ -55,6 +38,23 @@ SELECT lastname, firstname, jobtitle FROM employees WHERE jobtitle = &#39;Sales 
 mysql_secure_installation
 9.设置数据库编码为utf8 sudo vim /etc/my.cnf
 [client] default-character-set=utf8 [mysql] default-character-set=utf8 [mysqld] collation-server = utf8_unicode_ci init-connect=&#39;SET NAMES utf8&#39; character-set-server = utf8 reboot sudo systemctl restart mysqld</description>
+    </item>
+    
+    <item>
+      <title>Mysql_use</title>
+      <link>https://6923403.github.io/post/mysqluse/</link>
+      <pubDate>Sat, 19 Sep 2020 12:08:34 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/mysqluse/</guid>
+      <description>创建数据库 CREATE DATABASE IF NOT EXISTS vctest DEFAULT CHARSET utf8 COLLATE utf8_general_ci; 2. CREATE DATABASE IF NOT EXISTS mytestdb;
+删除数据库 drop database test1; 2. DROP DATABASE IF EXISTS mytestdb;
+查看All DB show databases;
+导入sql source test.sql
+ select
+use vctest select city, phone, country from `offices`; SELECT语句由以下列表中所述的几个子句组成：
+语句中的SELECT和FROM语句是必须的，其他部分是可选的。
+ SELECT之后是逗号分隔列或星号(*)的列表，表示要返回所有列。 FROM指定要查询数据的表或视图。 JOIN根据某些连接条件从其他表中获取数据。 WHERE过滤结果集中的行。 GROUP BY将一组行组合成小分组，并对每个小分组应用聚合函数。 HAVING过滤器基于GROUP BY子句定义的小分组。 ORDER BY指定用于排序的列的列表。 LIMIT限制返回行的数量。  即使WHERE子句出现在语句的末尾，但MySQL会首先使用WHERE子句中的表达式来选择匹配的行。
+SELECT lastname, firstname, jobtitle FROM employees WHERE jobtitle = &#39;Sales Rep&#39;;  INSERT 创建表</description>
     </item>
     
   </channel>
