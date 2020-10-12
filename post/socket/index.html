@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="VcVc" />
     <meta name="description" content="" />
-    <meta name="keywords" content="VcVc,VcVc Blog,6923403,CPP,Cplusplus,C++,Open Source,Rust,Python,Linux" />
+    <meta name="keywords" content="VcVc,VcVc Blog,Cplusplus, CPP,Open Source,Rust,Python,Linux" />
     <link rel="stylesheet" href="https://6923403.github.io/css/main.min.e363a654febc5798565b4d076b3590c04f18a0cc82bb8631bf442c1929dadf97.css" />
 
     
@@ -85,7 +85,7 @@ https://www.cnblogs.com/eeexu123/p/5275783.html
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          Takes 3 min read
+          Take 3 min read
         </div><div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
   <title>tag</title>
@@ -193,7 +193,28 @@ const char * inet_ntop(int family, const void *addrptr, char *strptr, size_t len
 
 char str[INET_ADDRSTRLEN];
 char *ptr = inet_ntop(AF_INET,&amp;foo.sin_addr, str, sizeof(str));      // 代替 ptr = inet_ntoa(foo.sin_addr)
+</code></pre><p><strong>示例代码</strong></p>
+<pre><code>int main()
+{
+    char IPdotdec[20]; // 存放点分十进制IP地址
+    struct in_addr s;  // IPv4地址结构体
+    // 输入IP地址
+    printf(&quot;Please input IP address: &quot;);
+    scanf(&quot;%s&quot;, &amp;IPdotdec);
+    // 转换
+    inet_pton(AF_INET, IPdotdec, (void *)&amp;s);
+    printf(&quot;inet_pton: 0x%x\n&quot;, s.s_addr); // 注意得到的字节序
+    // 反转换
+    inet_ntop(AF_INET, (void *)&amp;s, IPdotdec, 16);
+    printf(&quot;inet_ntop: %s\n&quot;, IPdotdec);
+}
+
+Run:
+Please input IP address: 127.0.0.1
+inet_pton: 0x100007f
+inet_ntop: 127.0.0.1
 </code></pre><p>Re: <a href="https://blog.csdn.net/zyy617532750/article/details/58595700">https://blog.csdn.net/zyy617532750/article/details/58595700</a></p>
+<p><a href="https://www.cnblogs.com/wuyuxuan/p/10772779.html">https://www.cnblogs.com/wuyuxuan/p/10772779.html</a></p>
 <hr>
 <p><code>int send( SOCKET s,char *buf,int len,int flags )</code></p>
 <p><strong>功能：不论是客户还是服务器应用程序都用send函数来向TCP连接的另一端发送数据。客户程序一般用send函数向服务器发送请求，而服务器则通常用send函数来向客户程序发送应答。</strong></p>
@@ -351,6 +372,19 @@ backtrace_symbols_fd
 <p><code>ssize_t readv(int fd, const struct iovec *iov, int iovcnt);</code></p>
 <p><strong>writev 将多块分散的数据一并写入文件描述符中</strong></p>
 <p><code>ssize_t writev(int fd, const struct iovec *iov, int iovcnt);</code></p>
+<p><strong>sendfile 在两个文件描述符之间传递数据 避免内核缓冲区和用户之间的数据拷贝-零拷贝</strong></p>
+<p><code>ssize_t sendfile(int out_fd, int in_fd, off_t *offset, size_t count);</code></p>
+<hr>
+<p><strong>mmap 申请一段内存空间 将这段内存作为进程间通信的共享内存,可以将文件直接映射到其中</strong></p>
+<p><code>void *mmap(void *addr, size_t length, int prot, int flags, int fd, off_t offset);</code>
+<img src="/img/socket/mmap_port.png" alt="mmap_port">
+<img src="/img/socket/mmap_flags.png" alt="mmap_flags"></p>
+<p><strong>munmap 释放mmap创建的内存空间</strong></p>
+<p><code>int munmap(void *addr, size_t length);</code></p>
+<p><strong>splice 用于在两个文件描述符之间移动数据-零拷贝</strong></p>
+<p><code>ssize_t splice(int fd_in, loff_t *off_in, int fd_out, loff_t *off_out, size_t len, unsigned int flags);</code></p>
+<p><img src="/img/socket/splice_flags.png" alt="splice_flags">
+<img src="/img/socket/splice_errno.png" alt="splice_errno"></p>
 
     </div>
     <div class="post-footer">
