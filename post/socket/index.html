@@ -438,6 +438,34 @@ int setegid(gid_t egid); //设置有效组ID
 <p><code>int chroot(const char * path);</code></p>
 <p><strong>daemon 守护进程</strong></p>
 <p><code>int daemon(int nochdir, int noclose);</code></p>
+<hr>
+<p><strong>基本框架</strong></p>
+<p><img src="/img/socket/server_framework.png" alt="server_framework"></p>
+<p><strong>reactor 要求主线程只负责监听文件描述上是否有事情发生 有的话立即将该事件通知工作线程</strong></p>
+<p><img src="/img/socket/reactor.png" alt="reactor"></p>
+<p><strong>proactor 将所有I/0操作都交给主线程和内核来处理 工作线程仅仅负责业务逻辑</strong></p>
+<p><img src="/img/socket/proactor.png" alt="proactor"></p>
+<p><strong>同步模拟的Procator</strong></p>
+<p><img src="/img/socket/%E5%90%8C%E6%AD%A5io.png" alt="同步io"></p>
+<p><strong>并发模式</strong></p>
+<p><img src="/img/socket/%E5%90%8C%E6%AD%A5%E5%BC%82%E6%AD%A5%E5%88%86%E6%9E%90.png" alt="同步异步分析"></p>
+<p><strong>半同步/半异步模式</strong></p>
+<p><img src="/img/socket/%E5%8D%8A%E5%90%8C%E6%AD%A5%E5%8D%8A%E5%BC%82%E6%AD%A5.png" alt="半同步半异步">
+<img src="/img/socket/%E5%8F%8D%E5%BA%94%E5%A0%86.png" alt="反应堆"></p>
+<p><strong>存在的缺点</strong></p>
+<p><img src="/img/socket/%E7%BC%BA%E7%82%B9.png" alt="缺点"></p>
+<p><strong>高效模式</strong></p>
+<p><img src="/img/socket/%E9%AB%98%E6%95%88%E6%A8%A1%E5%BC%8F.png" alt="高效模式"></p>
+<hr>
+<p><strong>领导者/追随者模式 是多个工作线程轮流获得事件源集合, 轮流监听、分发并处理事件的一种模式</strong></p>
+<p><img src="/img/socket/leader.png" alt="leader"></p>
+<p><strong>1. 句柄集 句柄表示I/O资源 在linux下通常是一个文件描述符 句柄集管理众多句柄</strong></p>
+<p><strong>2. 线程集 负责各线程之间的同步 以及新领导者线程的推选. 线程集里的线程在任何时间都必须处于一下三种状态之一</strong></p>
+<p><img src="/img/socket/thread_1.png" alt="thread1">
+<img src="/img/socket/thread_2.png" alt="thread2">
+<img src="/img/socket/%E8%BD%AC%E6%8D%A2%E5%85%B3%E7%B3%BB.png" alt="转换关系"></p>
+<p><strong>领导者/追随者 工作流程图</strong></p>
+<p><img src="/img/socket/%E9%A2%86%E5%AF%BC%E8%BF%BD%E9%9A%8F%E8%80%85%E6%A8%A1%E5%BC%8F.png" alt="领导追随者模式"></p>
 
     </div>
     <div class="post-footer">
