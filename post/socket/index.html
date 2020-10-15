@@ -466,6 +466,22 @@ int setegid(gid_t egid); //设置有效组ID
 <img src="/img/socket/%E8%BD%AC%E6%8D%A2%E5%85%B3%E7%B3%BB.png" alt="转换关系"></p>
 <p><strong>领导者/追随者 工作流程图</strong></p>
 <p><img src="/img/socket/%E9%A2%86%E5%AF%BC%E8%BF%BD%E9%9A%8F%E8%80%85%E6%A8%A1%E5%BC%8F.png" alt="领导追随者模式"></p>
+<hr>
+<p><strong>select 在一段指定时间内 监听用户感兴趣的文件描述符上的可读、可写、异常等事件, readfds\writefds\exceptfds分别指向可读、可写、异常</strong></p>
+<p><code>int select(int nfds, fd_set *readfds, fd_set *writefds, fd_set *exceptfds, struct timeval *timeout);</code></p>
+<p><strong>poll 指定时间内轮询一定数量的文件描述符 测试其中是否有就绪者</strong></p>
+<p><code>int poll(struct pollfd *fds, nfds_t nfds, int timeout);</code>
+<img src="/img/socket/poll1.png" alt="poll1">
+<img src="/img/socket/poll2.png" alt="poll2"></p>
+<p><strong>epoll 把用户关心的文件描述符上的事件放在内核里的一个事件表中, 从而无需每次调用都要重复传入文件描述符集或事件集, 但epoll需要额外的文件描述符, 来唯一标识内核中的事件表</strong></p>
+<p><strong>epoll_create 创建文件描述符</strong></p>
+<p><code>int epoll_create(int size);</code></p>
+<p><strong>操作epoll的内核事件表</strong></p>
+<p><code>int epoll_ctl(int epfd, int op, int fd, struct epoll_event *event);</code></p>
+<p><img src="/img/socket/optype.png" alt="op"></p>
+<p><strong>epoll_wait 在一段超时时间内等待一组文件描述符上的事件</strong></p>
+<p><code>int epoll_wait(int epfd, struct epoll_event *events, int maxevents, int timeout);</code></p>
+<p><strong>LT 水平触发是默认工作模式、ET边缘触发</strong></p>
 
     </div>
     <div class="post-footer">
