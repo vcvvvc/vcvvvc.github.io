@@ -482,6 +482,12 @@ int setegid(gid_t egid); //设置有效组ID
 <p><strong>epoll_wait 在一段超时时间内等待一组文件描述符上的事件</strong></p>
 <p><code>int epoll_wait(int epfd, struct epoll_event *events, int maxevents, int timeout);</code></p>
 <p><strong>LT 水平触发是默认工作模式、ET边缘触发</strong></p>
+<p><strong>select\poll\epoll 区别比较</strong></p>
+<p><img src="/img/socket/poll_compare.png" alt="poll_compare"></p>
+<hr>
+<p><strong>kill 一个进程给其他进程发送信号</strong></p>
+<p><code>int kill(pid_t pid, int sig);</code></p>
+<p><img src="/img/socket/kill.png" alt="kill"></p>
 
     </div>
     <div class="post-footer">
