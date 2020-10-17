@@ -93,7 +93,7 @@ https://www.cnblogs.com/eeexu123/p/5275783.html
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          Take 4 min read
+          Take 5 min read
         </div><div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
   <title>tag</title>
@@ -488,6 +488,28 @@ int setegid(gid_t egid); //设置有效组ID
 <p><strong>kill 一个进程给其他进程发送信号</strong></p>
 <p><code>int kill(pid_t pid, int sig);</code></p>
 <p><img src="/img/socket/kill.png" alt="kill"></p>
+<p><strong>kill出错的情况</strong></p>
+<p><img src="/img/socket/kill_error.png" alt="kill_error"></p>
+<p><strong>信号处理函数SIG_DFL使用信号的默认处理方式、SIG_IGN表示忽略目标信号</strong></p>
+<pre><code>//原型: typedef void (* __sighandler_t) (int);
+#define SIG_DFL((__sighandler_t) 0)
+#define SIG_IGN((__sighandler_t) 1) 
+</code></pre><p><strong>signal信号设置处理函数</strong></p>
+<p><code>sighandler_t signal(int signum, sighandler_t handler);</code></p>
+<p><strong>signal更健壮的接口</strong></p>
+<p><code>int sigaction(int signum, const struct sigaction *act, struct sigaction *oldact);</code></p>
+<p><img src="/img/socket/sa_flags.png" alt="sa_flags"></p>
+<p><strong>信号集</strong></p>
+<pre><code>int sigemptyset(sigset_t * _set) //清空信号集
+int sigfillset(sigset_t * _set) //在信号集中设置所有信号
+int sigaddset(sigset_t * _set, int _signo) //将信号 _signo添加至信号集中
+int sigdelset(sigset_t * _set, int _signo) //将信号 _signo从信号集中删除
+int sigismember(const sigset_t * _set, int _signo) //测试 _signo是否在信号集中
+</code></pre><p><strong>设置或查看进程信号掩码</strong></p>
+<p><code>int sigprocmask(int how, const sigset_t *set, sigset_t *oldset);</code></p>
+<p><img src="/img/socket/sigprocmask.png" alt="sigprocmask"></p>
+<p><strong>sigpending 获得进程当前被挂起的信号集 成功返回0 失败-1</strong></p>
+<p><code>int sigpending(sigset_t *set);</code></p>
 
     </div>
     <div class="post-footer">
