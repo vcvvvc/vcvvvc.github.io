@@ -93,7 +93,7 @@ https://www.cnblogs.com/eeexu123/p/5275783.html
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          Take 5 min read
+          Take 6 min read
         </div><div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
   <title>tag</title>
@@ -515,6 +515,40 @@ int sigismember(const sigset_t * _set, int _signo) //测试 _signo是否在信�
 <p><img src="/img/socket/timeo.png" alt="timeo"></p>
 <p><strong>高性能定时器 时间轮</strong></p>
 <p><img src="/img/socket/%E6%97%B6%E9%97%B4%E8%BD%AE.png" alt="时间轮"></p>
+<hr>
+<p><strong>fork 复制当前进程, 在内核进程表中创建一个新的进程表项</strong></p>
+<p><code>pid_t fork(void);</code></p>
+<p><strong>exec 在子进程中执行其他程序, 即替换当前进程映像</strong></p>
+<pre><code>int execl(const char* path, const char * arg, ...);
+int execlp(const char* file, const char* arg, ...);
+int execle(const char *pathname, const char *arg, ... /*, (char *) NULL, char *const envp[] */);
+int execv(const char *pathname, char *const argv[]);
+int execvp(const char *file, char *const argv[]);
+int execvpe(const char *file, char *const argv[], char *const envp[]);
+</code></pre><p><strong>wait 在父进程中调用, 等待子进程的结束, 并获取子进程的返回信息,避免了僵尸进程的产生或使子进程的僵尸态立即结束, wait函数将阻塞进程,直到进程的某个子进程结束运行为止</strong></p>
+<pre><code>pid_t wait(int *wstatus);
+pid_t waitpid(pid_t pid, int *wstatus, int options);
+</code></pre><p><img src="/img/socket/%E5%AD%90%E8%BF%9B%E7%A8%8B%E7%8A%B6%E6%80%81%E4%BF%A1%E6%81%AF.png" alt="子进程状态信息"></p>
+<p><strong>semget 系统调用创建一个新的信号量集, 或者获取一个已经存在的信号量集</strong></p>
+<p><code>int semget(key_t key, int nsems, int semflg);</code></p>
+<p><strong>semop 对信号量的操作是对这些内核变量的操作</strong></p>
+<p><code>int semop(int semid, struct sembuf *sops, size_t nsops);</code></p>
+<p><strong>semctl 系统调用允许调用者对信号量进行直接控制</strong></p>
+<p><code>int semctl(int semid, int semnum, int cmd, ...);</code></p>
+<p><strong>shmget 系统调用创建一段新的共享内存,或者获取一段已存在的共享内存</strong></p>
+<p><code>int shmget(key_t key, size_t size, int shmflg);</code></p>
+<p><strong>shmat shmdt 共享内存被创建\获取后,不能立即访问,而是需要先将它关联到进程的地址空间中,使用完共享内存之后,也需要将它从进程地址空间中分离</strong></p>
+<pre><code>void *shmat(int shmid, const void *shmaddr, int shmflg);
+int shmdt(const void *shmaddr);
+</code></pre><p><strong>shmctl系统调用控制内存的某些属性</strong></p>
+<p><code>int shmctl(int shmid, int cmd, struct shmid_ds *buf);</code></p>
+<p><img src="/img/socket/shmctl.png" alt="shmctl"></p>
+<p><strong>shm_open 创建或打开POSIX共享内存对象. Linux提供了一种利用mmap在无关进程之间共享内存的方式,这种方式无须任何文件支持,但它需要先使用shm_open 创建\打开一个POSIX共享内存对象</strong></p>
+<pre><code>//编译时需要指定链接: -lrt
+int shm_open(const char *name, int oflag, mode_t mode);
+</code></pre><p><img src="/img/socket/shm_open_oflag.png" alt="shm_open_oflag"></p>
+<p><strong>shm_unlink 删除创建的共享内存对象</strong></p>
+<p><code>int shm_unlink(const char *name);</code></p>
 
     </div>
     <div class="post-footer">
