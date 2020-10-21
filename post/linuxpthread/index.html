@@ -300,6 +300,25 @@ int pthread_mutexattr_setpshared(pthread_mutex_attr_t * attr, int pshared);
 int pthread_mutexattr_gettype(const pthread_mutexattr_t * attr, int * type);
 int pthread_mutexattr_settype(pthread_mutexattr_t * attr, int type);
 </code></pre><p><img src="/img/linuxpthread/mutex_type.png" alt="mutex_type"></p>
+<h1 id="条件变量">条件变量</h1>
+<pre><code>//初始化条件变量
+int pthread_cond_init(pthread_cond_t *cv, const pthread_condattr_t *cattr);
+
+//销毁条件变量
+int pthread_cond_destroy(pthread_cond_t *cv);
+
+//以广播方式唤醒所有等待目标条件变量的线程
+int pthread_cond_broadcast(pthread_cond_t *cv);
+
+//释放被阻塞在指定条件变量上的一个线程
+int pthread_cond_signal(pthread_cond_t * cond);
+
+//等待目标条件变量
+int pthread_cond_wait(pthread_cond_t *cv, pthread_mutex_t *mutex);
+</code></pre><hr>
+<h1 id="进程池和线程池">进程池和线程池</h1>
+<p><img src="/img/linuxpthread/process_thread.png" alt="process_thread">
+<img src="/img/linuxpthread/more_process_deal.png" alt="more_process_deal"></p>
 
     </div>
     <div class="post-footer">
