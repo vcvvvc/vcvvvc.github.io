@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>Vim_config // VcVc Blog</title>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.68.3" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="VcVc" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="VcVc,VcVc Blog,Cplusplus, CPP,Open Source,Rust,Python,Linux" />
+    <link rel="stylesheet" href="https://6923403.github.io/css/main.min.e363a654febc5798565b4d076b3590c04f18a0cc82bb8631bf442c1929dadf97.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Vim_config"/>
+<meta name="twitter:description" content="编译安装 apt install libncurses5-dev libgnome2-dev ./configure --with-features=huge \ --enable-multibyte \ --enable-cscope \ --prefix=/usr/local make make install  主题配置 首先要确认你的终端支持真彩，一般来说，主流的比如iTerm2, Putty, Powershell的最新版本都已经支持了。我们可以运行以下命令检测一下
+(echo -e &#39;\e[48:2:1:2:3m\eP$qm\e\\&#39; ; xxd)
+&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot; &quot;&quot;&quot;=&gt;全局配置&lt;=&quot;&quot;&quot; &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot; &quot;关闭vi兼容模式&quot; set nocompatible &quot;设置历史记录步数&quot; set history=1000 &quot;开启相关插件&quot; &quot;侦测文件类型&quot; filetype on &quot;载入文件类型插件&quot; filetype plugin on &quot;为特定文件类型载入相关缩进文件&quot; filetype indent on &quot;当文件在外部被修改时，自动更新该文件&quot; set autoread &quot;激活鼠标的使用&quot; set mouse=a set selection=exclusive set selectmode=mouse,key &quot;保存全局变量&quot; set viminfo&#43;=! &quot;带有如下符号的单词不要被换行分割&quot; set iskeyword&#43;=_,$,@,%,#,- &quot;通过使用: commands命令，告诉我们文件的哪一行被改变过&quot; set report=0 &quot;被分割的窗口间显示空白，便于阅读&quot; set fillchars=vert:\ ,stl:\ ,stlnc:\ &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot; &quot;&quot;&quot;=&gt;字体和颜色&lt;=&quot;&quot;&quot; &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot; &quot;自动开启语法高亮&quot; syntax enable &quot;设置字体&quot; &quot;set guifont=dejaVu\ Sans\ MONO\ 10 set guifont=Courier_New:h10:cANSI &quot;设置颜色&quot; &quot;colorscheme desert &quot;#set t_Co=256 记着注释或者删除这一行&quot; if has(&quot;termguicolors&quot;) set termguicolors endif &quot;高亮显示当前行&quot; &quot;set cursorline 白色条框 不喜欢可以关闭&quot; set cursorline &quot;hi cursorline guibg=#00ff00&quot; &quot;hi CursorColumn guibg=#00ff00&quot; &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot; &quot;&quot;&quot;=&gt;代码折叠功能&lt;=&quot;&quot;&quot; &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot; &quot;激活折叠功能&quot; set foldenable &quot;set nofen（这个是关闭折叠功能）&quot; &quot;设置按照语法方式折叠（可简写set fdm=XX）&quot; &quot;有6种折叠方法： &quot;manual 手工定义折叠&quot; &quot;indent 更多的缩进表示更高级别的折叠&quot; &quot;expr 用表达式来定义折叠&quot; &quot;syntax 用语法高亮来定义折叠&quot; &quot;diff 对没有更改的文本进行折叠&quot; &quot;marker 对文中的标志进行折叠&quot; set foldmethod=manual &quot;set fdl=0（这个是不选用任何折叠方法）&quot; &quot;设置折叠区域的宽度&quot; &quot;如果不为0，则在屏幕左侧显示一个折叠标识列 &quot;分别用“-”和“&#43;”来表示打开和关闭的折叠 set foldcolumn=0 &quot;设置折叠层数为3&quot; setlocal foldlevel=3 &quot;设置为自动关闭折叠&quot; set foldclose=all &quot;用空格键来代替zo和zc快捷键实现开关折叠&quot; &quot;zo O-pen a fold (打开折叠) &quot;zc C-lose a fold (关闭折叠) &quot;zf F-old creation (创建折叠) &quot;nnoremap &lt;space&gt; @=((foldclosed(line(&#39;."/>
+
+    <meta property="og:title" content="Vim_config" />
+<meta property="og:description" content="编译安装 apt install libncurses5-dev libgnome2-dev ./configure --with-features=huge \ --enable-multibyte \ --enable-cscope \ --prefix=/usr/local make make install  主题配置 首先要确认你的终端支持真彩，一般来说，主流的比如iTerm2, Putty, Powershell的最新版本都已经支持了。我们可以运行以下命令检测一下
+(echo -e &#39;\e[48:2:1:2:3m\eP$qm\e\\&#39; ; xxd)
+&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot; &quot;&quot;&quot;=&gt;全局配置&lt;=&quot;&quot;&quot; &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot; &quot;关闭vi兼容模式&quot; set nocompatible &quot;设置历史记录步数&quot; set history=1000 &quot;开启相关插件&quot; &quot;侦测文件类型&quot; filetype on &quot;载入文件类型插件&quot; filetype plugin on &quot;为特定文件类型载入相关缩进文件&quot; filetype indent on &quot;当文件在外部被修改时，自动更新该文件&quot; set autoread &quot;激活鼠标的使用&quot; set mouse=a set selection=exclusive set selectmode=mouse,key &quot;保存全局变量&quot; set viminfo&#43;=! &quot;带有如下符号的单词不要被换行分割&quot; set iskeyword&#43;=_,$,@,%,#,- &quot;通过使用: commands命令，告诉我们文件的哪一行被改变过&quot; set report=0 &quot;被分割的窗口间显示空白，便于阅读&quot; set fillchars=vert:\ ,stl:\ ,stlnc:\ &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot; &quot;&quot;&quot;=&gt;字体和颜色&lt;=&quot;&quot;&quot; &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot; &quot;自动开启语法高亮&quot; syntax enable &quot;设置字体&quot; &quot;set guifont=dejaVu\ Sans\ MONO\ 10 set guifont=Courier_New:h10:cANSI &quot;设置颜色&quot; &quot;colorscheme desert &quot;#set t_Co=256 记着注释或者删除这一行&quot; if has(&quot;termguicolors&quot;) set termguicolors endif &quot;高亮显示当前行&quot; &quot;set cursorline 白色条框 不喜欢可以关闭&quot; set cursorline &quot;hi cursorline guibg=#00ff00&quot; &quot;hi CursorColumn guibg=#00ff00&quot; &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot; &quot;&quot;&quot;=&gt;代码折叠功能&lt;=&quot;&quot;&quot; &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot; &quot;激活折叠功能&quot; set foldenable &quot;set nofen（这个是关闭折叠功能）&quot; &quot;设置按照语法方式折叠（可简写set fdm=XX）&quot; &quot;有6种折叠方法： &quot;manual 手工定义折叠&quot; &quot;indent 更多的缩进表示更高级别的折叠&quot; &quot;expr 用表达式来定义折叠&quot; &quot;syntax 用语法高亮来定义折叠&quot; &quot;diff 对没有更改的文本进行折叠&quot; &quot;marker 对文中的标志进行折叠&quot; set foldmethod=manual &quot;set fdl=0（这个是不选用任何折叠方法）&quot; &quot;设置折叠区域的宽度&quot; &quot;如果不为0，则在屏幕左侧显示一个折叠标识列 &quot;分别用“-”和“&#43;”来表示打开和关闭的折叠 set foldcolumn=0 &quot;设置折叠层数为3&quot; setlocal foldlevel=3 &quot;设置为自动关闭折叠&quot; set foldclose=all &quot;用空格键来代替zo和zc快捷键实现开关折叠&quot; &quot;zo O-pen a fold (打开折叠) &quot;zc C-lose a fold (关闭折叠) &quot;zf F-old creation (创建折叠) &quot;nnoremap &lt;space&gt; @=((foldclosed(line(&#39;." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://6923403.github.io/post/vim_config/" />
+<meta property="article:published_time" content="2020-10-13T18:12:48+08:00" />
+<meta property="article:modified_time" content="2020-10-13T18:12:48+08:00" />
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://6923403.github.io"><img class="app-header-avatar" src="/avatar.jpg" alt="VcVc" /></a>
+      <h1>VcVc Blog</h1>
+      <p>Relax mentality, keep good heart. </p>
+      <div class="app-header-social">
+        
+          <a target="_blank" href="https://github.com/6923403" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg></a>
+        
+          <a target="_blank" href="https://twitter.com/vcvckw" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-twitter">
+  <title>twitter</title>
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+</svg></a>
+        
+          <a target="_blank" href="mailto:vcvckw@gmail.com" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-mail">
+  <title>mail</title>
+  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline>
+</svg></a>
+        
+
+
+<div class="searchBox">
+       <form method="get" target = "_blank" action="http://www.google.com/search">
+           <input type="text" name="query" class="searchField" placeholder = "Search-goolge" />
+           <input type="hidden" name="sitesearch" value="6923403.github.io">
+       </form>
+</div>
+
+      </div>  
+    </header>    
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Vim_config</h1>
+      <div class="post-meta">         
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Oct 13, 2020
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          Take 2 min read
+        </div><div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line>
+</svg>
+          <a class="tag" href="https://6923403.github.io/tags/cpp/">CPP</a><a class="tag" href="https://6923403.github.io/tags/volatile/">Volatile</a></div></div>
+    </header>
+    <div class="post-content">
+      <h1 id="编译安装">编译安装</h1>
+<pre><code>apt install libncurses5-dev libgnome2-dev
+
+./configure --with-features=huge \
+    --enable-multibyte \
+    --enable-cscope \
+    --prefix=/usr/local
+
+make
+make install
+</code></pre><hr>
+<h1 id="主题配置">主题配置</h1>
+<p><strong>首先要确认你的终端支持真彩，一般来说，主流的比如iTerm2, Putty, Powershell的最新版本都已经支持了。我们可以运行以下命令检测一下</strong></p>
+<p><code>(echo -e '\e[48:2:1:2:3m\eP$qm\e\\' ; xxd)</code></p>
+<pre><code>&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+&quot;&quot;&quot;=&gt;全局配置&lt;=&quot;&quot;&quot;
+&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+
+&quot;关闭vi兼容模式&quot;
+
+set nocompatible
+
+&quot;设置历史记录步数&quot;
+
+set history=1000
+
+&quot;开启相关插件&quot;   
+
+&quot;侦测文件类型&quot;
+
+filetype on
+
+&quot;载入文件类型插件&quot;
+
+filetype plugin on
+
+&quot;为特定文件类型载入相关缩进文件&quot;
+
+filetype indent on
+
+&quot;当文件在外部被修改时，自动更新该文件&quot;
+
+set autoread
+
+&quot;激活鼠标的使用&quot;
+
+set mouse=a
+
+set selection=exclusive
+
+set selectmode=mouse,key
+
+&quot;保存全局变量&quot;
+
+set viminfo+=!
+
+&quot;带有如下符号的单词不要被换行分割&quot;
+
+set iskeyword+=_,$,@,%,#,-
+
+&quot;通过使用: commands命令，告诉我们文件的哪一行被改变过&quot;
+
+set report=0
+
+&quot;被分割的窗口间显示空白，便于阅读&quot;
+
+set fillchars=vert:\ ,stl:\ ,stlnc:\
+
+&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+
+&quot;&quot;&quot;=&gt;字体和颜色&lt;=&quot;&quot;&quot;
+
+&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+
+&quot;自动开启语法高亮&quot;
+
+syntax enable
+
+&quot;设置字体&quot;
+
+&quot;set guifont=dejaVu\ Sans\ MONO\ 10
+
+set guifont=Courier_New:h10:cANSI
+
+&quot;设置颜色&quot;
+
+&quot;colorscheme desert
+
+&quot;#set t_Co=256 记着注释或者删除这一行&quot;
+
+if has(&quot;termguicolors&quot;)
+
+    set termguicolors
+
+endif
+
+&quot;高亮显示当前行&quot;
+
+&quot;set cursorline    白色条框 不喜欢可以关闭&quot;
+
+set cursorline  
+
+&quot;hi cursorline guibg=#00ff00&quot;
+
+&quot;hi CursorColumn guibg=#00ff00&quot;
+
+&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+
+&quot;&quot;&quot;=&gt;代码折叠功能&lt;=&quot;&quot;&quot;
+
+&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+
+&quot;激活折叠功能&quot;
+
+set foldenable
+
+&quot;set nofen（这个是关闭折叠功能）&quot;
+
+&quot;设置按照语法方式折叠（可简写set fdm=XX）&quot;
+
+&quot;有6种折叠方法：
+
+&quot;manual  手工定义折叠&quot;
+
+&quot;indent  更多的缩进表示更高级别的折叠&quot;
+
+&quot;expr    用表达式来定义折叠&quot;
+
+&quot;syntax  用语法高亮来定义折叠&quot;
+
+&quot;diff    对没有更改的文本进行折叠&quot;
+
+&quot;marker  对文中的标志进行折叠&quot;
+
+set foldmethod=manual
+
+&quot;set fdl=0（这个是不选用任何折叠方法）&quot;
+
+&quot;设置折叠区域的宽度&quot;
+
+&quot;如果不为0，则在屏幕左侧显示一个折叠标识列
+
+&quot;分别用“-”和“+”来表示打开和关闭的折叠
+
+set foldcolumn=0
+
+&quot;设置折叠层数为3&quot;
+
+setlocal foldlevel=3
+
+&quot;设置为自动关闭折叠&quot;
+
+set foldclose=all
+
+&quot;用空格键来代替zo和zc快捷键实现开关折叠&quot;
+
+&quot;zo O-pen a fold (打开折叠)
+
+&quot;zc C-lose a fold (关闭折叠)
+
+&quot;zf F-old creation (创建折叠)
+
+&quot;nnoremap &lt;space&gt; @=((foldclosed(line('.')) &lt; 0) ? 'zc' : 'zo')&lt;CR&gt;
+
+&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+
+&quot;&quot;&quot;=&gt;文字处理&lt;=&quot;&quot;&quot;
+
+&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+
+&quot;使用空格来替换Tab&quot;
+
+set expandtab
+
+&quot;设置所有的Tab和缩进为4个空格&quot;
+
+set tabstop=4
+
+&quot;设定&lt;&lt;和&gt;&gt;命令移动时的宽度为4&quot;
+
+set shiftwidth=4
+
+&quot;使得按退格键时可以一次删除4个空格&quot;
+
+set softtabstop=4
+
+set smarttab
+
+&quot;缩进，自动缩进（继承前一行的缩进）&quot;
+
+&quot;set autoindent 命令打开自动缩进，是下面配置的缩写
+
+&quot;可使用autoindent命令的简写，即“:set ai”和“:set noai”
+
+&quot;还可以使用“:set ai sw=4”在一个命令中打开缩进并设置缩进级别
+
+set ai
+
+set cindent
+
+&quot;智能缩进&quot;
+
+set si
+
+&quot;自动换行”
+
+set wrap
+
+&quot;设置软宽度&quot;
+
+set sw=4
+
+&quot;行内替换&quot;
+
+set gdefault
+
+&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+
+&quot;&quot;&quot;=&gt;Vim 界面&lt;=&quot;&quot;&quot;
+
+&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+
+&quot;增强模式中的命令行自动完成操作&quot;
+
+set wildmenu
+
+&quot;显示标尺&quot;
+
+set ruler
+
+&quot;设置命令行的高度&quot;
+
+set cmdheight=1
+
+&quot;显示行数&quot;
+
+set nu
+
+&quot;不要图形按钮&quot;
+
+set go=
+
+&quot;在执行宏命令时，不进行显示重绘；在宏命令执行完成后，一次性重绘，以便提高性能&quot;
+
+set lz
+
+&quot;使回格键（backspace）正常处理indent, eol, start等&quot;
+
+set backspace=eol,start,indent
+
+&quot;允许空格键和光标键跨越行边界&quot;
+
+set whichwrap+=&lt;,&gt;,h,l
+
+&quot;设置魔术&quot;
+
+set magic
+
+&quot;关闭遇到错误时的声音提示&quot;
+
+&quot;关闭错误信息响铃&quot;
+
+set noerrorbells
+
+&quot;关闭使用可视响铃代替呼叫&quot;
+
+set novisualbell
+
+&quot;高亮显示匹配的括号([{和}])&quot;
+
+set showmatch
+
+&quot;匹配括号高亮的时间（单位是十分之一秒）&quot;
+
+set mat=2
+
+&quot;光标移动到buffer的顶部和底部时保持3行距离&quot;
+
+set scrolloff=3
+
+&quot;搜索逐字符高亮&quot;
+
+set hlsearch
+
+set incsearch
+
+&quot;搜索时不区分大小写&quot;
+
+&quot;还可以使用简写（“:set ic”和“:set noic”）&quot;
+
+set ignorecase
+
+&quot;用浅色高亮显示当前行&quot;
+
+autocmd InsertLeave * se nocul
+
+autocmd InsertEnter * se cul
+
+&quot;输入的命令显示出来，看的清楚&quot;
+
+set showcmd
+
+&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+
+&quot;&quot;&quot;=&gt;编码设置&lt;=&quot;&quot;&quot;
+
+&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+
+&quot;设置编码&quot;
+
+set encoding=utf-8
+
+set fencs=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936
+
+&quot;设置文件编码&quot;
+
+set fileencodings=utf-8,gbk,latin1
+
+&quot;设置终端编码&quot;
+
+set termencoding=utf-8
+
+&quot;设置语言编码&quot;
+
+set langmenu=zh_CN.UTF-8
+
+set helplang=cn
+
+&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+
+&quot;&quot;&quot;=&gt;其他设置&lt;=&quot;&quot;&quot;
+
+&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+
+&quot;开启新行时使用智能自动缩进&quot;
+
+set smartindent
+
+set cin
+
+set showmatch
+
+&quot;在处理未保存或只读文件的时候，弹出确认&quot;
+
+set confirm
+
+&quot;隐藏工具栏&quot;
+
+set guioptions-=T
+
+&quot;隐藏菜单栏&quot;
+
+set guioptions-=m
+
+&quot;置空错误铃声的终端代码&quot;
+
+set vb t_vb=
+
+&quot;显示状态栏（默认值为1，表示无法显示状态栏）&quot;
+
+set laststatus=2
+
+&quot;状态行显示的内容&quot;
+
+set statusline=%F%m%r%h%w\ [FORMAT=%{&amp;ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\&quot;%d/%m/%y\ -\ %H:%M\&quot;)}
+
+&quot;粘贴不换行问题的解决方法&quot;
+
+set pastetoggle=&lt;F9&gt;
+
+&quot;设置背景颜色&quot;
+
+set background=dark
+
+&quot;文件类型自动检测，代码智能补全&quot;
+
+set completeopt=longest,preview,menu
+
+&quot;共享剪切板&quot;
+
+set clipboard+=unnamed
+
+&quot;从不备份&quot;
+
+set nobackup
+
+set noswapfile
+
+&quot;自动保存&quot;
+
+set autowrite
+
+&quot;显示中文帮助&quot;
+
+if version &gt;= 603
+
+        set helplang=cn
+
+            set encoding=utf-8
+
+endif
+
+&quot;设置高亮相关项&quot;
+
+highlight Search ctermbg=black ctermfg=white guifg=white guibg=black
+</code></pre>
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>  
+<br />
+<hr width = "450" color="#eeeeee" align="left">
+  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+
+    </main>
+  </body>
+</html>
