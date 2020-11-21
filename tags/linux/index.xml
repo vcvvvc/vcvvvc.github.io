@@ -6,10 +6,27 @@
     <description>Recent content in Linux on VcVc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 11 Oct 2020 18:00:39 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 21 Nov 2020 14:59:41 +0800</lastBuildDate>
     
 	<atom:link href="https://6923403.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Socket write_send</title>
+      <link>https://6923403.github.io/post/socket_write_send/</link>
+      <pubDate>Sat, 21 Nov 2020 14:59:41 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/socket_write_send/</guid>
+      <description>ssize_t write(int fd, const void*buf,size_t nbytes);
+write函数将buf中的nbytes字节内容写入文件描述符fd.
+成功时返回写的字节数.失败时返回-1. 并设置errno变量. 在网络程序中,当我们向套接字文件描述符写时有两可能. 1)write的返回值大于0,表示写了部分或者是全部的数据. 这样我们用一个while循环来不停的写入，但是循环过程中的buf参数和nbyte参数得由我们来更新。也就是说，网络写函数是不负责将全部数据写完之后在返回的。 2)返回的值小于0,此时出现了错误.我们要根据错误类型来处理. 如果错误为EINTR表示在写的时候出现了中断错误. 如果为EPIPE表示网络连接出现了问题(对方已经关闭了连接).
+ ssize_t read(int fd,void *buf,size_t nbyte)
+read函数是负责从fd中读取内容.
+当读成功 时,read返回实际所读的字节数,如果返回的值是0 表示已经读到文件的结束了,小于0表示出现了错误.如果错误为EINTR说明读是由中断引起 的, 如果是ECONNREST表示网络连接出了问题. 和上面一样,我们也写一个自己的读函数.
+ recv和send函数提供了和read和write差不多的功能.不过它们提供了第四个参数来控制读写操作.
+int recv(int sockfd,void *buf,int len,int flags) int send(int sockfd,void *buf,int len,int flags) 前面的三个参数和read, write一样,第四个参数可以是0或者是以下的组合
+   标题 内容     MSG_DONTROUTE 不查找表   MSG_OOB 接受或者发送带外数据   MSG_PEEK 查看数据,并不从系统缓冲区移走数据   MSG_WAITALL 等待所有数据    MSG_DONTROUTE:是 send函数使用的标志.</description>
+    </item>
     
     <item>
       <title>Socket sum</title>
