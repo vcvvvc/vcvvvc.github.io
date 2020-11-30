@@ -6,10 +6,28 @@
     <description>Recent content in Tags on VcVc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 24 Nov 2020 16:50:16 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 30 Nov 2020 16:24:28 +0800</lastBuildDate>
     
 	<atom:link href="https://6923403.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Mysql</title>
+      <link>https://6923403.github.io/tags/mysql/</link>
+      <pubDate>Mon, 30 Nov 2020 16:24:28 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/tags/mysql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://6923403.github.io/tags/python/</link>
+      <pubDate>Mon, 30 Nov 2020 16:24:28 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/tags/python/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Ubuntu</title>
@@ -53,15 +71,6 @@
       <pubDate>Sat, 21 Nov 2020 14:59:41 +0800</pubDate>
       
       <guid>https://6923403.github.io/tags/socket/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Python</title>
-      <link>https://6923403.github.io/tags/python/</link>
-      <pubDate>Tue, 17 Nov 2020 16:13:32 +0800</pubDate>
-      
-      <guid>https://6923403.github.io/tags/python/</guid>
       <description></description>
     </item>
     
@@ -161,15 +170,6 @@
       <pubDate>Sun, 27 Sep 2020 17:53:48 +0800</pubDate>
       
       <guid>https://6923403.github.io/tags/pthread/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Mysql</title>
-      <link>https://6923403.github.io/tags/mysql/</link>
-      <pubDate>Fri, 25 Sep 2020 16:40:02 +0800</pubDate>
-      
-      <guid>https://6923403.github.io/tags/mysql/</guid>
       <description></description>
     </item>
     
