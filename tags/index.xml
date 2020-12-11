@@ -6,10 +6,46 @@
     <description>Recent content in Tags on VcVc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 30 Nov 2020 16:24:28 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 11 Dec 2020 15:40:38 +0800</lastBuildDate>
     
 	<atom:link href="https://6923403.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Excel</title>
+      <link>https://6923403.github.io/tags/excel/</link>
+      <pubDate>Fri, 11 Dec 2020 15:40:38 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/tags/excel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>News-M</title>
+      <link>https://6923403.github.io/tags/news-m/</link>
+      <pubDate>Fri, 11 Dec 2020 15:40:38 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/tags/news-m/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://6923403.github.io/tags/python/</link>
+      <pubDate>Fri, 11 Dec 2020 15:40:38 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tutorial</title>
+      <link>https://6923403.github.io/tags/tutorial/</link>
+      <pubDate>Fri, 11 Dec 2020 15:40:38 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/tags/tutorial/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Mysql</title>
@@ -17,15 +53,6 @@
       <pubDate>Mon, 30 Nov 2020 16:24:28 +0800</pubDate>
       
       <guid>https://6923403.github.io/tags/mysql/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Python</title>
-      <link>https://6923403.github.io/tags/python/</link>
-      <pubDate>Mon, 30 Nov 2020 16:24:28 +0800</pubDate>
-      
-      <guid>https://6923403.github.io/tags/python/</guid>
       <description></description>
     </item>
     
