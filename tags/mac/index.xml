@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mac on VcVc Blog</title>
+    <link>https://6923403.github.io/tags/mac/</link>
+    <description>Recent content in Mac on VcVc Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh_cn</language>
+    <lastBuildDate>Fri, 15 Jan 2021 20:37:54 +0800</lastBuildDate>
+    
+	<atom:link href="https://6923403.github.io/tags/mac/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Mac os vmware16pro</title>
+      <link>https://6923403.github.io/post/mac_os_vmware/</link>
+      <pubDate>Fri, 15 Jan 2021 20:37:54 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/mac_os_vmware/</guid>
+      <description>unlocker git clone https://github.com/paolo-projects/auto-unlocker.git
+ Download cdr https://www.mfpud.com/topics/3888/
+ Tutorial https://www.mfpud.com/topics/612/
+进入之后先选择磁盘工具 抹掉磁盘 安装即可</description>
+    </item>
+    
+  </channel>
+</rss>
