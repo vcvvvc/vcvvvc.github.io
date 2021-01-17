@@ -3,7 +3,7 @@
   <head>
     <title>Cpp exception class // VcVc Blog</title>
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.68.3" />
+    <meta name="generator" content="Hugo 0.80.0" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="VcVc" />
     <meta name="description" content="" />
@@ -106,38 +106,38 @@ public:
 <table>
 <thead>
 <tr>
-<th align="left">exceptopn</th>
-<th align="left">explain</th>
+<th style="text-align:left">exceptopn</th>
+<th style="text-align:left">explain</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">login_error</td>
-<td align="left">logic error</td>
+<td style="text-align:left">login_error</td>
+<td style="text-align:left">logic error</td>
 </tr>
 <tr>
-<td align="left">runtime_error</td>
-<td align="left">运行时错误</td>
+<td style="text-align:left">runtime_error</td>
+<td style="text-align:left">运行时错误</td>
 </tr>
 <tr>
-<td align="left">bad_alloc</td>
-<td align="left">使用 new 或 new[] 分配内存失败时抛出的异常</td>
+<td style="text-align:left">bad_alloc</td>
+<td style="text-align:left">使用 new 或 new[] 分配内存失败时抛出的异常</td>
 </tr>
 <tr>
-<td align="left">bad_typeid</td>
-<td align="left">使用 typeid 操作一个 NULL 指针，而且该指针是带有虚函数的类，这时抛出 bad_typeid 异常</td>
+<td style="text-align:left">bad_typeid</td>
+<td style="text-align:left">使用 typeid 操作一个 NULL 指针，而且该指针是带有虚函数的类，这时抛出 bad_typeid 异常</td>
 </tr>
 <tr>
-<td align="left">bad_cast</td>
-<td align="left">使用 dynamic_cast 转换失败时抛出的异常</td>
+<td style="text-align:left">bad_cast</td>
+<td style="text-align:left">使用 dynamic_cast 转换失败时抛出的异常</td>
 </tr>
 <tr>
-<td align="left">ios_base::failure</td>
-<td align="left">io 过程中出现的异常</td>
+<td style="text-align:left">ios_base::failure</td>
+<td style="text-align:left">io 过程中出现的异常</td>
 </tr>
 <tr>
-<td align="left">bad_exception</td>
-<td align="left">这是个特殊的异常，如果函数的异常列表里声明了 bad_exception 异常，当函数内部抛出了异常列表中没有的异常时，如果调用的 unexpected() 函数中抛出了异常，不论什么类型，都会被替换为 bad_exception 类型</td>
+<td style="text-align:left">bad_exception</td>
+<td style="text-align:left">这是个特殊的异常，如果函数的异常列表里声明了 bad_exception 异常，当函数内部抛出了异常列表中没有的异常时，如果调用的 unexpected() 函数中抛出了异常，不论什么类型，都会被替换为 bad_exception 类型</td>
 </tr>
 </tbody>
 </table>
@@ -146,26 +146,26 @@ public:
 <table>
 <thead>
 <tr>
-<th align="left">异常名称</th>
-<th align="left">说明</th>
+<th style="text-align:left">异常名称</th>
+<th style="text-align:left">说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">length_error</td>
-<td align="left">试图生成一个超出该类型最大长度的对象时抛出该异常，例如 vector 的 resize 操作</td>
+<td style="text-align:left">length_error</td>
+<td style="text-align:left">试图生成一个超出该类型最大长度的对象时抛出该异常，例如 vector 的 resize 操作</td>
 </tr>
 <tr>
-<td align="left">domain_error</td>
-<td align="left">参数的值域错误，主要用在数学函数中，例如使用一个负值调用只能操作非负数的函数</td>
+<td style="text-align:left">domain_error</td>
+<td style="text-align:left">参数的值域错误，主要用在数学函数中，例如使用一个负值调用只能操作非负数的函数</td>
 </tr>
 <tr>
-<td align="left">out_of_range</td>
-<td align="left">超出有效范围</td>
+<td style="text-align:left">out_of_range</td>
+<td style="text-align:left">超出有效范围</td>
 </tr>
 <tr>
-<td align="left">invalid_argument</td>
-<td align="left">参数不合适。在标准库中，当利用string对象构造 bitset 时，而 string 中的字符不是 0 或1 的时候，抛出该异常</td>
+<td style="text-align:left">invalid_argument</td>
+<td style="text-align:left">参数不合适。在标准库中，当利用string对象构造 bitset 时，而 string 中的字符不是 0 或1 的时候，抛出该异常</td>
 </tr>
 </tbody>
 </table>
@@ -174,22 +174,22 @@ public:
 <table>
 <thead>
 <tr>
-<th align="left">异常名称</th>
-<th align="left">说明</th>
+<th style="text-align:left">异常名称</th>
+<th style="text-align:left">说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">range_error</td>
-<td align="left">计算结果超出了有意义的值域范围</td>
+<td style="text-align:left">range_error</td>
+<td style="text-align:left">计算结果超出了有意义的值域范围</td>
 </tr>
 <tr>
-<td align="left">overflow_error</td>
-<td align="left">算术计算上溢</td>
+<td style="text-align:left">overflow_error</td>
+<td style="text-align:left">算术计算上溢</td>
 </tr>
 <tr>
-<td align="left">underflow_error</td>
-<td align="left">算术计算下溢</td>
+<td style="text-align:left">underflow_error</td>
+<td style="text-align:left">算术计算下溢</td>
 </tr>
 </tbody>
 </table>

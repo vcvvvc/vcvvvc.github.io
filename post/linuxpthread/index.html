@@ -3,7 +3,7 @@
   <head>
     <title>Linux Pthread // VcVc Blog</title>
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.68.3" />
+    <meta name="generator" content="Hugo 0.80.0" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="VcVc" />
     <meta name="description" content="" />
@@ -190,7 +190,7 @@ pthread_cond_broadcast() -------激活所有等待线程列表中最先入队的
 <p><strong>条件变量是利用线程间共享的全局变量进行同步的一种机制，主要包括两个动作：</strong></p>
 <ul>
 <li>1）一个线程等待&quot;条件变量的条件成立&quot;而挂起；</li>
-<li>2）另一个线程使&quot;条件成立&rdquo;（给出条件成立信号）。</li>
+<li>2）另一个线程使&quot;条件成立&quot;（给出条件成立信号）。</li>
 </ul>
 <p><strong>为了防止竞争，条件变量的使用总是和一个互斥锁结合在一起。</strong></p>
 <p>注意：</p>

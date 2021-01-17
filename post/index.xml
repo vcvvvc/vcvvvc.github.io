@@ -6,10 +6,30 @@
     <description>Recent content in Posts on VcVc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh_cn</language>
-    <lastBuildDate>Fri, 15 Jan 2021 20:37:54 +0800</lastBuildDate>
-    
-	<atom:link href="https://6923403.github.io/post/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Sun, 17 Jan 2021 13:19:24 +0800</lastBuildDate><atom:link href="https://6923403.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dell7590 install macos</title>
+      <link>https://6923403.github.io/post/dell7590_install_macos/</link>
+      <pubDate>Sun, 17 Jan 2021 13:19:24 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/dell7590_install_macos/</guid>
+      <description>First 接近完美 可以用intel网卡连接wifi 速度还不错
+装好之后win10引导没了 反正我也不用 其他问题只发现内置麦克风无法使用 Siri不能用 蓝牙未启动 也就没测试
+U盘16g 再来个小内存U盘或者有网线联网 分出一块磁盘空间至少100G  镜像下载 第二个是帖子里 我下载的那个
+  https://blog.daliansky.net/macOS-Catalina-10.15.6-19G73-Release-version-with-Clover-5119-original-image-Double-EFI-Version-UEFI-and-MBR.html
+  https://cloud.189.cn/t/UzMVZfUFj6za
+   Video 看这个视频的操作 参考我下面的内容即可
+安装系统操作 https://www.bilibili.com/video/BV1854y1X7oP
+安装wifi操作 https://www.bilibili.com/video/BV12y4y167Qv
+ Start //OC git clone https://github.com/Pinming/Dell-Inspiron-7590-Hackintosh-Opencore //WIFI 这四个可以提前下好存另一个U盘或者网线下 https://github.com/OpenIntelWireless/HeliPort/releases https://github.com/OpenIntelWireless/itlwm/releases/ https://mackie100projects.altervista.org/download-clover-configurator/ https://mackie100projects.altervista.org/download-opencore-configurator/ //Diskgenius 官网自行下载最新版 //balennaEther 官网自行下载最新版 先把Dell-Inspiron-7590-Hackintosh-Opencore重命名为OC
+打开OC文件夹 根据屏幕改名1080P的屏幕使用config-1080p.plist需改名成config.plist 如果你是4K屏 不需要修改
+balennaEther烧录dmg镜像文件到U盘
+打开Diskgenius 进入U盘的ESP分区文件夹 删除Clover文件夹 然后将OC文件夹拖入
+打开U盘ESP的EFI 将Diskgenius程序文件夹拖进去 备用 以免出问题
+提前准备好安装空间100g
+再创建出一个300MB的空间 用Diskgenius做成ESP
+ 继续 重启F2 关闭Secure Boot安全启动 检查磁盘模式为ACHI 百度搜</description>
+    </item>
     
     <item>
       <title>Mac os vmware16pro</title>
