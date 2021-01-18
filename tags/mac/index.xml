@@ -17,7 +17,7 @@
  Start 下载之后安装一路点继续 设置完root密码
 安装完成后 需要开启/关闭Mysql 系统偏好设置-Mysql图标
 停止MySQL服务 sudo mysql.server stop 重启MySQL服务 sudo mysql.server restart 查看MySQL服务状态 sudo mysql.server status  Connect Mysql 终端输入 vim ~/.bash_profile
-export PATH=$PATH:/usr/local/mysql/bin export PATH=$PATH:/usr/local/mysql/support-files 再执行 source ~/.bash_profile
+PATH=$PATH:/usr/local/mysql/bin PATH=$PATH:/usr/local/mysql/support-files 再执行 source ~/.bash_profile
 Login mysql -u root -p 输入密码之后成功进入mysql
 mysql&amp;gt; select version();查看MySQL版本
  Reference: https://www.jianshu.com/p/07a9826898c0
