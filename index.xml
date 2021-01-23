@@ -6,7 +6,19 @@
     <description>Recent content on VcVc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh_cn</language>
-    <lastBuildDate>Mon, 18 Jan 2021 17:20:58 +0800</lastBuildDate><atom:link href="https://6923403.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 23 Jan 2021 20:45:54 +0800</lastBuildDate><atom:link href="https://6923403.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux Sem</title>
+      <link>https://6923403.github.io/post/sem/</link>
+      <pubDate>Sat, 23 Jan 2021 20:45:54 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/sem/</guid>
+      <description>int sem_init(sem_t *sem, int pshared, unsigned int value)
+初始化m_sem value为指定信号量的初始值
+ pshared为0 信号量在进程的线程之间共享 pshared非0 信号量在进程之间共享   Reference:
+https://blog.csdn.net/m0_45867846/article/details/109021863</description>
+    </item>
+    
     <item>
       <title>Mac install mysql_8.0</title>
       <link>https://6923403.github.io/post/mac_install_mysql/</link>
@@ -249,15 +261,11 @@ For O(n) int function1(int x, int n) { int result = 1; // 注意 任何数的0�
       <guid>https://6923403.github.io/post/linuxpthread/</guid>
       <description>#include &amp;lt;pthread.h&amp;gt; int pthread_condattr_init(pthread_condattr_t* attr); int pthread_condattr_destroy(pthread_condattr_t* attr); //返回值：成功返回0；失败返回错误编码 pthread_condattr_init
  功能：对条件变量属性结构体初始化 调用此函数之后，条件变量属性结构体的属性都是系统默认值，如果想要设置其他属性，还需要调用不同的函数进行设置  pthread_condattr_destroy
- 功能：对条件变量属性结构体反初始化（销毁） 只反初始化，不释放内存  Re:
-https://blog.csdn.net/qq_41453285/article/details/90904870
- #include &amp;lt;pthread.h&amp;gt; int pthread_condattr_setshared(pthread_condattr_t* attr,int pshared); int pthread_condattr_getshared(const pthread_condattr_t* restrict attr,int* restrict pshared); //返回值：成功返回0；失败返回错误编码 pthread_condattr_setshared
+ 功能：对条件变量属性结构体反初始化（销毁） 只反初始化，不释放内存   #include &amp;lt;pthread.h&amp;gt; int pthread_condattr_setshared(pthread_condattr_t* attr,int pshared); int pthread_condattr_getshared(const pthread_condattr_t* restrict attr,int* restrict pshared); //返回值：成功返回0；失败返回错误编码 pthread_condattr_setshared
  功能：设置条件变量的进程共享属性  pthread_condattr_getshared
- 功能：获取条件变量的进程共享属性  Re:
-https://blog.csdn.net/qq_41453285/article/details/90904870
- #include &amp;lt;pthread.h&amp;gt; int pthread_condattr_setclock(pthread_condattr_t* attr,clockid_t clock_id); int pthread_condattr_getclock(const pthread_condattr_t* restrict attr,clockid_t *restrict clock_id); //返回值：成功返回0；失败返回错误编码 pthread_condattr_setclock
+ 功能：获取条件变量的进程共享属性   #include &amp;lt;pthread.h&amp;gt; int pthread_condattr_setclock(pthread_condattr_t* attr,clockid_t clock_id); int pthread_condattr_getclock(const pthread_condattr_t* restrict attr,clockid_t *restrict clock_id); //返回值：成功返回0；失败返回错误编码 pthread_condattr_setclock
  功能：此函数用于设置pthread_cond_timewait函数使用的时钟ID  pthread_condattr_getclock
- 功能：此函数获取可被用于pthread_cond_timedwait函数的时钟ID。pthread_cond_timedwait函数使用前需要用pthread_condattr_t对条件变量进行初始化  Re:</description>
+ 功能：此函数获取可被用于pthread_cond_timedwait函数的时钟ID。pthread_cond_timedwait函数使用前需要用pthread_condattr_t对条件变量进行初始化   int pthread_cond_init(pthread_cond_t *cond, pthread_condattr_t *cond_attr)</description>
     </item>
     
     <item>

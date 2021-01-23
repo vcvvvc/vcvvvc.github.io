@@ -15,28 +15,20 @@
 <meta name="twitter:title" content="Linux Pthread"/>
 <meta name="twitter:description" content="#include &lt;pthread.h&gt; int pthread_condattr_init(pthread_condattr_t* attr); int pthread_condattr_destroy(pthread_condattr_t* attr); //返回值：成功返回0；失败返回错误编码 pthread_condattr_init
  功能：对条件变量属性结构体初始化 调用此函数之后，条件变量属性结构体的属性都是系统默认值，如果想要设置其他属性，还需要调用不同的函数进行设置  pthread_condattr_destroy
- 功能：对条件变量属性结构体反初始化（销毁） 只反初始化，不释放内存  Re:
-https://blog.csdn.net/qq_41453285/article/details/90904870
- #include &lt;pthread.h&gt; int pthread_condattr_setshared(pthread_condattr_t* attr,int pshared); int pthread_condattr_getshared(const pthread_condattr_t* restrict attr,int* restrict pshared); //返回值：成功返回0；失败返回错误编码 pthread_condattr_setshared
+ 功能：对条件变量属性结构体反初始化（销毁） 只反初始化，不释放内存   #include &lt;pthread.h&gt; int pthread_condattr_setshared(pthread_condattr_t* attr,int pshared); int pthread_condattr_getshared(const pthread_condattr_t* restrict attr,int* restrict pshared); //返回值：成功返回0；失败返回错误编码 pthread_condattr_setshared
  功能：设置条件变量的进程共享属性  pthread_condattr_getshared
- 功能：获取条件变量的进程共享属性  Re:
-https://blog.csdn.net/qq_41453285/article/details/90904870
- #include &lt;pthread.h&gt; int pthread_condattr_setclock(pthread_condattr_t* attr,clockid_t clock_id); int pthread_condattr_getclock(const pthread_condattr_t* restrict attr,clockid_t *restrict clock_id); //返回值：成功返回0；失败返回错误编码 pthread_condattr_setclock
+ 功能：获取条件变量的进程共享属性   #include &lt;pthread.h&gt; int pthread_condattr_setclock(pthread_condattr_t* attr,clockid_t clock_id); int pthread_condattr_getclock(const pthread_condattr_t* restrict attr,clockid_t *restrict clock_id); //返回值：成功返回0；失败返回错误编码 pthread_condattr_setclock
  功能：此函数用于设置pthread_cond_timewait函数使用的时钟ID  pthread_condattr_getclock
- 功能：此函数获取可被用于pthread_cond_timedwait函数的时钟ID。pthread_cond_timedwait函数使用前需要用pthread_condattr_t对条件变量进行初始化  Re:"/>
+ 功能：此函数获取可被用于pthread_cond_timedwait函数的时钟ID。pthread_cond_timedwait函数使用前需要用pthread_condattr_t对条件变量进行初始化   int pthread_cond_init(pthread_cond_t *cond, pthread_condattr_t *cond_attr)"/>
 
     <meta property="og:title" content="Linux Pthread" />
 <meta property="og:description" content="#include &lt;pthread.h&gt; int pthread_condattr_init(pthread_condattr_t* attr); int pthread_condattr_destroy(pthread_condattr_t* attr); //返回值：成功返回0；失败返回错误编码 pthread_condattr_init
  功能：对条件变量属性结构体初始化 调用此函数之后，条件变量属性结构体的属性都是系统默认值，如果想要设置其他属性，还需要调用不同的函数进行设置  pthread_condattr_destroy
- 功能：对条件变量属性结构体反初始化（销毁） 只反初始化，不释放内存  Re:
-https://blog.csdn.net/qq_41453285/article/details/90904870
- #include &lt;pthread.h&gt; int pthread_condattr_setshared(pthread_condattr_t* attr,int pshared); int pthread_condattr_getshared(const pthread_condattr_t* restrict attr,int* restrict pshared); //返回值：成功返回0；失败返回错误编码 pthread_condattr_setshared
+ 功能：对条件变量属性结构体反初始化（销毁） 只反初始化，不释放内存   #include &lt;pthread.h&gt; int pthread_condattr_setshared(pthread_condattr_t* attr,int pshared); int pthread_condattr_getshared(const pthread_condattr_t* restrict attr,int* restrict pshared); //返回值：成功返回0；失败返回错误编码 pthread_condattr_setshared
  功能：设置条件变量的进程共享属性  pthread_condattr_getshared
- 功能：获取条件变量的进程共享属性  Re:
-https://blog.csdn.net/qq_41453285/article/details/90904870
- #include &lt;pthread.h&gt; int pthread_condattr_setclock(pthread_condattr_t* attr,clockid_t clock_id); int pthread_condattr_getclock(const pthread_condattr_t* restrict attr,clockid_t *restrict clock_id); //返回值：成功返回0；失败返回错误编码 pthread_condattr_setclock
+ 功能：获取条件变量的进程共享属性   #include &lt;pthread.h&gt; int pthread_condattr_setclock(pthread_condattr_t* attr,clockid_t clock_id); int pthread_condattr_getclock(const pthread_condattr_t* restrict attr,clockid_t *restrict clock_id); //返回值：成功返回0；失败返回错误编码 pthread_condattr_setclock
  功能：此函数用于设置pthread_cond_timewait函数使用的时钟ID  pthread_condattr_getclock
- 功能：此函数获取可被用于pthread_cond_timedwait函数的时钟ID。pthread_cond_timedwait函数使用前需要用pthread_condattr_t对条件变量进行初始化  Re:" />
+ 功能：此函数获取可被用于pthread_cond_timedwait函数的时钟ID。pthread_cond_timedwait函数使用前需要用pthread_condattr_t对条件变量进行初始化   int pthread_cond_init(pthread_cond_t *cond, pthread_condattr_t *cond_attr)" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://6923403.github.io/post/linuxpthread/" />
 <meta property="article:published_time" content="2020-09-27T17:53:48+08:00" />
@@ -119,8 +111,6 @@ int pthread_condattr_destroy(pthread_condattr_t* attr);
 <li>功能：对条件变量属性结构体反初始化（销毁）</li>
 <li>只反初始化，不释放内存</li>
 </ul>
-<p>Re:</p>
-<p><a href="https://blog.csdn.net/qq_41453285/article/details/90904870">https://blog.csdn.net/qq_41453285/article/details/90904870</a></p>
 <hr>
 <pre><code>#include &lt;pthread.h&gt;
 int pthread_condattr_setshared(pthread_condattr_t* attr,int pshared);
@@ -135,8 +125,6 @@ int pthread_condattr_getshared(const pthread_condattr_t* restrict attr,int* rest
 <ul>
 <li>功能：获取条件变量的进程共享属性</li>
 </ul>
-<p>Re:</p>
-<p><a href="https://blog.csdn.net/qq_41453285/article/details/90904870">https://blog.csdn.net/qq_41453285/article/details/90904870</a></p>
 <hr>
 <pre><code>#include &lt;pthread.h&gt;
 int pthread_condattr_setclock(pthread_condattr_t* attr,clockid_t clock_id);
@@ -151,8 +139,6 @@ int pthread_condattr_getclock(const pthread_condattr_t* restrict attr,clockid_t 
 <ul>
 <li>功能：此函数获取可被用于pthread_cond_timedwait函数的时钟ID。pthread_cond_timedwait函数使用前需要用pthread_condattr_t对条件变量进行初始化</li>
 </ul>
-<p>Re:</p>
-<p><a href="https://blog.csdn.net/qq_41453285/article/details/90904870">https://blog.csdn.net/qq_41453285/article/details/90904870</a></p>
 <hr>
 <p><code>int pthread_cond_init(pthread_cond_t *cond, pthread_condattr_t *cond_attr)</code></p>
 <p><strong>其中cond是一个指向结构pthread_cond_t的指针，cond_attr是一个指向结构pthread_condattr_t的指针。结构 pthread_condattr_t是条件变量的属性结构，和互斥锁一样我们可以用它来设置条件变量是进程内可用还是进程间可用，</strong>
@@ -209,8 +195,6 @@ pthread_cond_broadcast() -------激活所有等待线程列表中最先入队的
 <p>pthread_mutex_lock() 和 pthread_mutex_unlock() 返回0，否则返回一个错误的提示码</p>
 <p>pthread_mutex_trylock() 在成功获得了一个mutex的锁后返回0，否则返回一个错误提示码错误</p>
 <p>pthread_mutex_lock() 和 pthread_mutex_unlock()失败的时候 [EINVAL] mutex在生成的时候，它的protocol属性的值是 PTHREAD_PRIO_PROTECT，同时调用线程的优先级(priority)比该mutex的当前prority上限高</p>
-<p><a href="https://blog.csdn.net/u012109245/article/details/38662371">https://blog.csdn.net/u012109245/article/details/38662371</a></p>
-<p><a href="https://www.jianshu.com/p/af0ec2eded33">https://www.jianshu.com/p/af0ec2eded33</a></p>
 <hr>
 <p><code>int pthread_create(pthread_t *thread, const pthread_attr_t *attr, void *(*start_routine) (void *), void *arg);</code></p>
 <ul>
@@ -228,9 +212,6 @@ pthread_cond_broadcast() -------激活所有等待线程列表中最先入队的
 <p>retval: 线程tid所执行的函数返回值（返回值地址需要保证有效），其中status可以为NULL</p>
 </li>
 </ul>
-<p><a href="https://blog.csdn.net/liangxanhai/article/details/7767430">https://blog.csdn.net/liangxanhai/article/details/7767430</a></p>
-<p><a href="https://blog.csdn.net/wushuomin/article/details/80051295">https://blog.csdn.net/wushuomin/article/details/80051295</a></p>
-<p><a href="https://blog.csdn.net/lovecodeless/article/details/24885127">https://blog.csdn.net/lovecodeless/article/details/24885127</a></p>
 <hr>
 <p><strong>Linux 线程库版本</strong></p>
 <p><code>getconf GNU_LIBPTHREAD_VERSION</code></p>
@@ -256,9 +237,12 @@ int pthread_setcanceltype(int type, int *oldtype);
 <p><strong>POSIX信号量函数</strong></p>
 <pre><code>//初始化一个未命名的信号量
 int sem_init(sem_t *sem, int pshared, unsigned int value);
+其中sem是要初始化的信号量，pshared表示此信号量是在进程间共享还是线程间共享，value是信号量的初始值。
 
 //用于销毁信号量
 int sem_destroy(sem_t *sem);
+其中sem是要销毁的信号量。只有用sem_init初始化的信号量才能用sem_destroy销毁。
+等待信号量，如果信号量的值大于0,将信号量的值减1,立即返回。如果信号量的值为0,则线程阻塞。相当于P操作。成功返回0,失败返回-1。
 
 //以原子操作的方式将信号量值减1
 int sem_wait(sem_t *sem);
@@ -268,6 +252,7 @@ int sem_trywait(sem_t *sem);
 
 //以原子操作的方式将信号量的值加1 信号量大于0时 其他正在调用sem_wait等待信号量的线程将被唤醒**
 int sem_post(sem_t *sem);
+释放信号量，让信号量的值加1。相当于V操作。
 </code></pre><hr>
 <h1 id="互斥锁">互斥锁</h1>
 <pre><code>//初始化互斥锁
@@ -319,6 +304,12 @@ int pthread_cond_wait(pthread_cond_t *cv, pthread_mutex_t *mutex);
 <h1 id="进程池和线程池">进程池和线程池</h1>
 <p><img src="/img/linuxpthread/process_thread.png" alt="process_thread">
 <img src="/img/linuxpthread/more_process_deal.png" alt="more_process_deal"></p>
+<hr>
+<h1 id="reference">Reference:</h1>
+<p><a href="https://blog.csdn.net/qq_41453285/article/details/90904870">https://blog.csdn.net/qq_41453285/article/details/90904870</a></p>
+<p><a href="https://blog.csdn.net/liangxanhai/article/details/7767430">https://blog.csdn.net/liangxanhai/article/details/7767430</a></p>
+<p><a href="https://blog.csdn.net/wushuomin/article/details/80051295">https://blog.csdn.net/wushuomin/article/details/80051295</a></p>
+<p><a href="https://blog.csdn.net/lovecodeless/article/details/24885127">https://blog.csdn.net/lovecodeless/article/details/24885127</a></p>
 
     </div>
     <div class="post-footer">
