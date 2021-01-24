@@ -6,7 +6,29 @@
     <description>Recent content in CPP on VcVc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh_cn</language>
-    <lastBuildDate>Mon, 11 Jan 2021 22:40:43 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/cpp/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 24 Jan 2021 12:00:39 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/cpp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Server sum</title>
+      <link>https://6923403.github.io/post/socketsum/</link>
+      <pubDate>Sun, 24 Jan 2021 12:00:39 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/socketsum/</guid>
+      <description>socket struct整理
+https://6923403.github.io/post/socket_struct/
+socket编程需要的头文件整理
+https://6923403.github.io/post/socket_file/
+socket function
+https://6923403.github.io/post/socket/
+ exception class 异常类
+https://6923403.github.io/post/cpp_exception/
+ Linux Pthread 线程创建与使用
+https://6923403.github.io/post/linuxpthread/
+C++11 thread
+https://6923403.github.io/post/
+ epoll function
+https://6923403.github.io/post/epoll_use/</description>
+    </item>
+    
     <item>
       <title>Unp note</title>
       <link>https://6923403.github.io/post/unp_note/</link>
@@ -25,26 +47,6 @@
       <description>编译安装 apt install libncurses5-dev libgnome2-dev ./configure --with-features=huge \ --enable-multibyte \ --enable-cscope \ --prefix=/usr/local make make install  主题配置 首先要确认你的终端支持真彩，一般来说，主流的比如iTerm2, Putty, Powershell的最新版本都已经支持了。我们可以运行以下命令检测一下
 (echo -e &#39;\e[48:2:1:2:3m\eP$qm\e\\&#39; ; xxd)
 &amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot; &amp;quot;&amp;quot;&amp;quot;=&amp;gt;全局配置&amp;lt;=&amp;quot;&amp;quot;&amp;quot; &amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot; &amp;quot;关闭vi兼容模式&amp;quot; set nocompatible &amp;quot;设置历史记录步数&amp;quot; set history=1000 &amp;quot;开启相关插件&amp;quot; &amp;quot;侦测文件类型&amp;quot; filetype on &amp;quot;载入文件类型插件&amp;quot; filetype plugin on &amp;quot;为特定文件类型载入相关缩进文件&amp;quot; filetype indent on &amp;quot;当文件在外部被修改时，自动更新该文件&amp;quot; set autoread &amp;quot;激活鼠标的使用&amp;quot; set mouse=a set selection=exclusive set selectmode=mouse,key &amp;quot;保存全局变量&amp;quot; set viminfo+=! &amp;quot;带有如下符号的单词不要被换行分割&amp;quot; set iskeyword+=_,$,@,%,#,- &amp;quot;通过使用: commands命令，告诉我们文件的哪一行被改变过&amp;quot; set report=0 &amp;quot;被分割的窗口间显示空白，便于阅读&amp;quot; set fillchars=vert:\ ,stl:\ ,stlnc:\ &amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot; &amp;quot;&amp;quot;&amp;quot;=&amp;gt;字体和颜色&amp;lt;=&amp;quot;&amp;quot;&amp;quot; &amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot; &amp;quot;自动开启语法高亮&amp;quot; syntax enable &amp;quot;设置字体&amp;quot; &amp;quot;set guifont=dejaVu\ Sans\ MONO\ 10 set guifont=Courier_New:h10:cANSI &amp;quot;设置颜色&amp;quot; &amp;quot;colorscheme desert &amp;quot;#set t_Co=256 记着注释或者删除这一行&amp;quot; if has(&amp;quot;termguicolors&amp;quot;) set termguicolors endif &amp;quot;高亮显示当前行&amp;quot; &amp;quot;set cursorline 白色条框 不喜欢可以关闭&amp;quot; set cursorline &amp;quot;hi cursorline guibg=#00ff00&amp;quot; &amp;quot;hi CursorColumn guibg=#00ff00&amp;quot; &amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot; &amp;quot;&amp;quot;&amp;quot;=&amp;gt;代码折叠功能&amp;lt;=&amp;quot;&amp;quot;&amp;quot; &amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot; &amp;quot;激活折叠功能&amp;quot; set foldenable &amp;quot;set nofen（这个是关闭折叠功能）&amp;quot; &amp;quot;设置按照语法方式折叠（可简写set fdm=XX）&amp;quot; &amp;quot;有6种折叠方法： &amp;quot;manual 手工定义折叠&amp;quot; &amp;quot;indent 更多的缩进表示更高级别的折叠&amp;quot; &amp;quot;expr 用表达式来定义折叠&amp;quot; &amp;quot;syntax 用语法高亮来定义折叠&amp;quot; &amp;quot;diff 对没有更改的文本进行折叠&amp;quot; &amp;quot;marker 对文中的标志进行折叠&amp;quot; set foldmethod=manual &amp;quot;set fdl=0（这个是不选用任何折叠方法）&amp;quot; &amp;quot;设置折叠区域的宽度&amp;quot; &amp;quot;如果不为0，则在屏幕左侧显示一个折叠标识列 &amp;quot;分别用“-”和“+”来表示打开和关闭的折叠 set foldcolumn=0 &amp;quot;设置折叠层数为3&amp;quot; setlocal foldlevel=3 &amp;quot;设置为自动关闭折叠&amp;quot; set foldclose=all &amp;quot;用空格键来代替zo和zc快捷键实现开关折叠&amp;quot; &amp;quot;zo O-pen a fold (打开折叠) &amp;quot;zc C-lose a fold (关闭折叠) &amp;quot;zf F-old creation (创建折叠) &amp;quot;nnoremap &amp;lt;space&amp;gt; @=((foldclosed(line(&#39;.</description>
-    </item>
-    
-    <item>
-      <title>Socket sum</title>
-      <link>https://6923403.github.io/post/socketsum/</link>
-      <pubDate>Sun, 11 Oct 2020 18:00:39 +0800</pubDate>
-      
-      <guid>https://6923403.github.io/post/socketsum/</guid>
-      <description>socket struct整理
-https://6923403.github.io/post/socket_struct/
- socket编程需要的头文件整理
-https://6923403.github.io/post/socket_file/
- exception_class 异常类
-https://6923403.github.io/post/cpp_exception/
- Linux Pthread 线程创建与使用
-https://6923403.github.io/post/linuxpthread/
- epoll tutorial, epoll处理教程
-https://6923403.github.io/post/epoll_use/
- socket function, socket函数
-https://6923403.github.io/post/socket/</description>
     </item>
     
     <item>
@@ -253,24 +255,6 @@ thread库提供了future用来访问异步操作的结果，因为一个异步�
     </item>
     
     <item>
-      <title>epoll use</title>
-      <link>https://6923403.github.io/post/epoll_use/</link>
-      <pubDate>Thu, 27 Aug 2020 12:09:01 +0800</pubDate>
-      
-      <guid>https://6923403.github.io/post/epoll_use/</guid>
-      <description>epoll是Linux内核为处理大批量文件描述符而作了改进的poll，是Linux下多路复用IO接口select/poll的增强版本，它能显著提高程序在大量并发连接中只有少量活跃的情况下的系统CPU利用率。原因就是获取事件的时候，它无须遍历整个被侦听的描述符集，只要遍历那些被内核IO事件异步唤醒而加入Ready队列的描述符集合就行了。
-epoll除了提供select/poll那种IO事件的水平触发（Level Triggered）外，还提供了边缘触发（Edge Triggered），这就使得用户空间程序有可能缓存IO状态，减少epoll_wait/epoll_pwait的调用，提高应用程序效率。
-  水平触发（LT）：默认工作模式，即当epoll_wait检测到某描述符事件就绪并通知应用程序时，应用程序可以不立即处理该事件；下次调用epoll_wait时，会再次通知此事件
-  边缘触发（ET）： 当epoll_wait检测到某描述符事件就绪并通知应用程序时，应用程序必须立即处理该事件。如果不处理，下次调用epoll_wait时，不会再次通知此事件。（直到你做了某些操作导致该描述符变成未就绪状态了，也就是说边缘触发只在状态由未就绪变为就绪时只通知一次）。
-   #include &amp;lt;sys/epoll.h&amp;gt; epoll与select Epoll 没有最大并发连接的限制，上限是最大可以打开文件的数目 效率提升，epoll对于句柄事件的选择不是遍历的，是事件响应的，就是句柄上事件来就马上选择出来，不需要遍历整个句柄链表，因此效率非常高，内核将句柄用红黑树保存的，IO效率不随FD数目增加而线性下降。 内存拷贝， select让内核把 FD 消息通知给用户空间的时候使用了内存拷贝的方式，开销较大，但是Epoll 在这点上使用了共享内存的方式，这个内存拷贝也省略了。 相比于select，epoll最大的好处在于它不会随着监听fd数目的增长而降低效率。因为在内核中的select实现中，它是采用轮询来处理的，轮询的fd数目越多，自然耗时越多。 并且，在linux/posix_types.h头文件有这样的声明： #define __FD_SETSIZE 1024 表示select最多同时监听1024个fd，当然，可以通过修改头文件再重编译内核来扩大这个数目，但这似乎并不治本。
- epoll_create int epoll_create(int size); 创建一个epoll的句柄，
-size用来告诉内核这个监听的数目一共有多大。 这个参数不同于select()中的第一个参数，给出最大监听的fd+1的值。需要注意的是，当创建好epoll句柄后，它就是会占用一个fd值，在linux下如果查看/proc/进程id/fd/，是能够看到这个fd的，所以在使用完epoll后，必须调用close()关闭，否则可能导致fd被耗尽。
- epoll_ctl int epoll_ctl(int epfd, int op, int fd, struct epoll_event *event); epoll_ctl(_iEpollfd, op, fd, &amp;amp;ev); //Error:_iEpollfd: -1. Success: _iEpollfd = fd epoll的事件注册函数，它不同与select()是在监听事件时告诉内核要监听什么类型的事件，而是在这里先注册要监听的事件类型
-EPOLL_CTL_ADD 注册新的fd到epfd中； EPOLL_CTL_MOD 修改已经注册的fd的监听事件； EPOLL_CTL_DEL 从epfd中删除一个fd；
-fd 是要监听的fd</description>
-    </item>
-    
-    <item>
       <title>Socket function</title>
       <link>https://6923403.github.io/post/socket/</link>
       <pubDate>Wed, 26 Aug 2020 22:47:24 +0800</pubDate>
@@ -278,14 +262,13 @@ fd 是要监听的fd</description>
       <guid>https://6923403.github.io/post/socket/</guid>
       <description>setsockopt
 获取或者设置与某个套接字关联的选 项。选项可能存在于多层协议中，它们总会出现在最上面的套接字层。当操作套接字选项时， 选项位于的层和选项的名称必须给出。为了操作套接字层的选项，应该 将层的值指定为SOL_SOCKET。为了操作其它层的选项，控制选 项的合适协议号必须给出。例如，为了表示一个选项由TCP协议解析，层应该设定为协议 号TCP。 SO_LINGER选项
-struct linger { int l_onoff; int l_linger; }; Re: https://segmentfault.com/a/1190000019360464
-https://www.cnblogs.com/eeexu123/p/5275783.html
- epoll_ctl(_iEpollfd, op, fd, &amp;amp;ev); //Error:_iEpollfd: -1. Success: _iEpollfd = fd
- int fcntl(int fd, int cmd); int fcntl(int fd, int cmd, long arg); int fcntl(int fd, int cmd, struct flock *lock); fcntl函数有5种功能：
- 1.复制一个现有的描述符（cmd=F_DUPFD）. 2.获得／设置文件描述符标记(cmd=F_GETFD或F_SETFD). 3.获得／设置文件状态标记(cmd=F_GETFL或F_SETFL). 4.获得／设置异步I/O所有权(cmd=F_GETOWN或F_SETOWN). 5.获得／设置记录锁(cmd=F_GETLK,F_SETLK或F_SETLKW).  Re: https://www.cnblogs.com/xuyh/p/3273082.html
- 非阻塞I/O使我们的操作要么成功，要么立即返回错误，不被阻塞。
-对于一个给定的描述符两种方法对其指定非阻塞I/O:
- 1.调用open获得描述符，并指定O_NONBLOCK标志 2.对已经打开的文件描述符，调用fcntl，打开O_NONBLOCK文件状态标志。  flags = fcntl( s, F_GETFL, 0 ) ) fcntl( s, F_SETFL, flags | O_NONBLOCK ) Re: https://blog.</description>
+struct linger { int l_onoff; int l_linger; };  l_onoff = 0, 数据保持发送完成后立即返回 l_onoff = 1, l_linger = 0, 立即放回 放弃发送, 发送rst 自身立即复位 l_onoff = 1, l_linger = 1, 阻塞到超时或数据发送完成, 保持尝试发送,超时后立即结束  SO_REUSEADDR选项
+改变了通配绑定时处理源地址冲突的处理方式, 让端口释放后立即就可以被再次使用
+ 允许启动一个监听服务器并捆绑其众所周知端口，即使以前建立的将此端口用做他们的本地端口的连接仍存在 允许在同一端口上启动同一服务器的多个实例，只要每个实例捆绑一个不同的本地IP地址即可 允许单个进程捆绑同一端口到多个套接口上，只要每个捆绑指定不同的本地IP地址即可。一般不用于tco服务器 允许完全重复的捆绑  Re:
+https://www.cnblogs.com/my_life/articles/5174585.html
+https://www.jianshu.com/p/141aa1c41f15
+https://blog.csdn.net/u010144805/article/details/78579528
+ int fcntl(int fd, int cmd); int fcntl(int fd, int cmd, long arg); int fcntl(int fd, int cmd, struct flock *lock); fcntl函数有5种功能：</description>
     </item>
     
     <item>
