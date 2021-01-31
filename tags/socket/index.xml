@@ -6,11 +6,11 @@
     <description>Recent content in Socket on VcVc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh_cn</language>
-    <lastBuildDate>Sun, 24 Jan 2021 12:00:39 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/socket/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 31 Jan 2021 22:22:39 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/socket/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Server sum</title>
       <link>https://6923403.github.io/post/socketsum/</link>
-      <pubDate>Sun, 24 Jan 2021 12:00:39 +0800</pubDate>
+      <pubDate>Sun, 31 Jan 2021 22:22:39 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/socketsum/</guid>
       <description>socket struct整理
@@ -28,7 +28,9 @@ https://6923403.github.io/post/cppthread/
  epoll function
 https://6923403.github.io/post/epoll_use/
 sem function
-https://6923403.github.io/post/sem/</description>
+https://6923403.github.io/post/sem/
+server io actor
+https://6923403.github.io/post/server_actor/</description>
     </item>
     
     <item>
