@@ -6,31 +6,32 @@
     <description>Recent content in Server on VcVc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh_cn</language>
-    <lastBuildDate>Sun, 31 Jan 2021 22:22:39 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/server/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 07 Feb 2021 21:46:09 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/server/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Server sum</title>
       <link>https://6923403.github.io/post/socketsum/</link>
-      <pubDate>Sun, 31 Jan 2021 22:22:39 +0800</pubDate>
+      <pubDate>Sun, 07 Feb 2021 21:46:09 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/socketsum/</guid>
-      <description>socket struct整理
-https://6923403.github.io/post/socket_struct/
-socket编程需要的头文件整理
-https://6923403.github.io/post/socket_file/
-socket function
-https://6923403.github.io/post/socket/
- exception class 异常类
-https://6923403.github.io/post/cpp_exception/
- Linux Pthread 线程创建与使用
-https://6923403.github.io/post/linuxpthread/
-C++11 thread
-https://6923403.github.io/post/cppthread/
- epoll function
-https://6923403.github.io/post/epoll_use/
-sem function
-https://6923403.github.io/post/sem/
-server io actor
-https://6923403.github.io/post/server_actor/</description>
+      <description>socket struct整理  https://6923403.github.io/post/socket_struct/  socket编程需要的头文件整理  https://6923403.github.io/post/socket_file/  socket function  https://6923403.github.io/post/socket/  epoll function  https://6923403.github.io/post/epoll_use/  sem function  https://6923403.github.io/post/sem/  server io actor  https://6923403.github.io/post/server_actor/  timer function  https://6923403.github.io/post/timer_function/   Linux Pthread 线程创建与使用 https://6923403.github.io/post/linuxpthread/
+C++11 thread https://6923403.github.io/post/cppthread/
+ Unp note https://6923403.github.io/post/unp_note/
+ exception class 异常类 https://6923403.github.io/post/cpp_exception/</description>
+    </item>
+    
+    <item>
+      <title>Timer function</title>
+      <link>https://6923403.github.io/post/timer_function/</link>
+      <pubDate>Sun, 07 Feb 2021 21:45:11 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/timer_function/</guid>
+      <description>非活跃，是指客户端（这里是浏览器）与服务器端建立连接后，长时间不交换数据，一直占用服务器端的文件描述符，导致连接资源的浪费。
+  定时事件，是指固定一段时间之后触发某段代码，由该段代码处理一个事件，如从内核事件表删除事件，并关闭文件描述符，释放连接资源。
+  定时器，是指利用结构体或其他形式，将多种定时事件进行封装起来。具体的，这里只涉及一种定时事件，即定期检测非活跃连接，这里将该定时事件与连接资源封装为一个结构体定时器。
+  定时器容器，是指使用某种容器类数据结构，将上述多个定时器组合起来，便于对定时事件统一管理。具体的，项目中使用升序链表将所有定时器串联组织起来。
+   Linux下提供了三种定时的方法:
+ socket选项SO_RECVTIMEO和SO_SNDTIMEO SIGALRM信号 I/O复用系统调用的超时参数   Socket选项  Re:
+定时器-Web服务器项目</description>
     </item>
     
     <item>
