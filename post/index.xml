@@ -30,8 +30,8 @@ C++11 thread https://6923403.github.io/post/cppthread/
   定时器，是指利用结构体或其他形式，将多种定时事件进行封装起来。具体的，这里只涉及一种定时事件，即定期检测非活跃连接，这里将该定时事件与连接资源封装为一个结构体定时器。
   定时器容器，是指使用某种容器类数据结构，将上述多个定时器组合起来，便于对定时事件统一管理。具体的，项目中使用升序链表将所有定时器串联组织起来。
    Linux下提供了三种定时的方法:
- socket选项SO_RECVTIMEO和SO_SNDTIMEO SIGALRM信号 I/O复用系统调用的超时参数   Socket选项  Re:
-定时器-Web服务器项目</description>
+ socket选项SO_RECVTIMEO和SO_SNDTIMEO SIGALRM信号 I/O复用系统调用的超时参数   Socket选项 struct timeval timeout; timeout.tv_sec = time; timeout.tv_usec = 0; socklen_t time_len = sizeof(timeout); ret = setsockopt(sockfd, SOL_SOCKET, SO_SNDTIMEO, &amp;amp;timeout, time_len); //发送数据超时 用返回值errno判断是否达到指定时间 (errno == SO_SNDTIMEO)  SIGALRM信号 sigaction结构体
+struct sigaction { void (*sa_handler)(int); void (*sa_sigaction)(int, siginfo_t *, void *); sigset_t sa_mask; int sa_flags; void (*sa_restorer)(void); } sa_handler是一个函数指针，指向信号处理函数 sa_sigaction同样是信号处理函数，有三个参数，可以获得关于信号更详细的信息 sa_mask用来指定在信号处理函数执行期间需要被屏蔽的信号 sa_flags用于指定信号处理的行为 SA_RESTART，使被信号打断的系统调用自动重新发起 SA_NOCLDSTOP，使父进程在它的子进程暂停或继续运行时不会收到 SIGCHLD 信号 SA_NOCLDWAIT，使父进程在它的子进程退出时不会收到 SIGCHLD 信号，这时子进程如果退出也不会成为僵尸进程 SA_NODEFER，使对信号的屏蔽无效，即在信号处理函数执行期间仍能发出这个信号 SA_RESETHAND，信号处理之后重新设置为默认的处理方式 SA_SIGINFO，使用 sa_sigaction 成员而不是 sa_handler 作为信号处理函数 sa_restorer一般不使用</description>
     </item>
     
     <item>
@@ -142,13 +142,11 @@ balennaEther烧录dmg镜像文件到U盘
       <pubDate>Fri, 11 Dec 2020 15:40:38 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/news_wps/</guid>
-      <description>闻讯——获取主流财经新闻网站新闻以及获取个人股票的辅助信息(例如30日内资金流向、当日成交明细), 将数据聚合、归类并写入表格中 。
-News-M &amp;ndash;News Spider, Crawling news from mainstream financial news websites and obtaining auxiliary information on personal stocks, aggregate, categorize and write data into tables .
+      <description>闻讯——获取主流财经新闻网站新闻信息获取, 将数据聚合、归类并写入表格中 。
+News-M &amp;ndash;News Spider, Crawling news from mainstream financial news websites, categorize and write data into tables .
  Note 1. 操作完成后数据存放在表格中 Windows系统在桌面 Linux在运行目录下
-已解决 2. 个人股票必须存入Code.txt 代码必须按照格式填写 Windows跟Linux编码不同 Windows需要另外为ANSI格式 UTF-8也不行 这个小问题放以后处理 影响不大
-3. 表格行高列宽是可以自动调整的 不用自己手动一行行的调整 具体操作看图
-4. 操作完成后数据存放在表格中 Windows系统在桌面 Linux\Macos在运行目录下
- 推荐入门书籍: 富爸爸穷爸爸</description>
+2. 表格行高列宽是可以自动调整的 不用自己手动一行行的调整 具体操作看图
+3. 操作完成后数据存放在表格中 Windows系统在桌面 Linux\Macos在运行目录下</description>
     </item>
     
     <item>
