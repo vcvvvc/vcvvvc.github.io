@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Clion on VcVc Blog</title>
+    <link>https://6923403.github.io/tags/clion/</link>
+    <description>Recent content in Clion on VcVc Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh_cn</language>
+    <lastBuildDate>Mon, 22 Feb 2021 22:10:27 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/clion/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Clion_remote_debug</title>
+      <link>https://6923403.github.io/post/clion_remote_debug/</link>
+      <pubDate>Mon, 22 Feb 2021 22:10:27 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/clion_remote_debug/</guid>
+      <description>环境  Macos Clion2020.3.2 Server: ubuntu18   设置 1. 首先添加一个ssh
+2. 部署服务器上传文件
+选择SFTP协议
+3. 设置本地与远程文件路径
+4. 上传文件
+5. 设置自动上传
+ 环境配置 安装环境
+Centos # cmake yum install cmake -y # gcc &amp;amp; gdb yum install gcc-c++ -y yum install gdb -y #gdbserver yum install gdb-gdbserver -y Ubuntu apt-get install cmake apt-get install gcc apt-get install g++ apt-get install gdb apt-get install gdbserver gdbserver配置
+ 远程调试 编译程序 -g 或者cmkae
+cmake .</description>
+    </item>
+    
+  </channel>
+</rss>
