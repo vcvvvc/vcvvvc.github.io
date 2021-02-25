@@ -21,8 +21,8 @@
 5. 设置自动上传
  环境配置 安装环境
 Centos # cmake yum install cmake -y # gcc &amp;amp; gdb yum install gcc-c++ -y yum install gdb -y #gdbserver yum install gdb-gdbserver -y Ubuntu apt-get install cmake apt-get install gcc apt-get install g++ apt-get install gdb apt-get install gdbserver gdbserver配置
- 远程调试 编译程序 -g 或者cmkae
-cmake .</description>
+target remote中格式是: tcp:ip:port
+ 远程调试 编译程序 -g 或者cmkae</description>
     </item>
     
   </channel>

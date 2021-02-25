@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="zh_cn">
+  <head>
+    <title>Tcp_ip // VcVc Blog</title>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.80.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="VcVc" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="VcVc,VcVc Blog,Cplusplus, CPP,Open Source,Rust,Python,Linux" />
+    <link rel="stylesheet" href="https://6923403.github.io/css/main.min.e363a654febc5798565b4d076b3590c04f18a0cc82bb8631bf442c1929dadf97.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Tcp_ip"/>
+<meta name="twitter:description" content="计算机体系结构 各层作用及协议    分层 作用 协议     物理层 通过媒介传输比特，确定机械及电气规范（比特 Bit） RJ45、CLOCK、IEEE802.3（中继器，集线器）   数据链路层 将比特组装成帧和点到点的传递（帧 Frame） PPP、FR、HDLC、VLAN、MAC（网桥，交换机）   网络层 负责数据包从源到宿的传递和网际互连（包 Packet） IP、ICMP、ARP、RARP、OSPF、IPX、RIP、IGRP（路由器）   运输层 提供端到端的可靠报文传递和错误恢复（ 段Segment） TCP、UDP、SPX   会话层 建立、管理和终止会话（会话协议数据单元 SPDU） NFS、SQL、NETBIOS、RPC   表示层 对数据进行翻译、加密和压缩（表示协议数据单元 PPDU） JPEG、MPEG、ASII   应用层 允许访问OSI环境的手段（应用协议数据单元 APDU） FTP、DNS、Telnet、SMTP、HTTP、WWW、NFS     封装  链路层 链路层主要有三个目的：
+ 为IP模块发送和接收IP数据报； 为ARP模块发送ARP请求和接收ARP应答； 为RARP发送RARP请求和接收RARP应答。  PPP（点到点协议）是为在同等单元之间传输数据包这样的简单链路设计的链路层协议。
+环回接口"/>
+
+    <meta property="og:title" content="Tcp_ip" />
+<meta property="og:description" content="计算机体系结构 各层作用及协议    分层 作用 协议     物理层 通过媒介传输比特，确定机械及电气规范（比特 Bit） RJ45、CLOCK、IEEE802.3（中继器，集线器）   数据链路层 将比特组装成帧和点到点的传递（帧 Frame） PPP、FR、HDLC、VLAN、MAC（网桥，交换机）   网络层 负责数据包从源到宿的传递和网际互连（包 Packet） IP、ICMP、ARP、RARP、OSPF、IPX、RIP、IGRP（路由器）   运输层 提供端到端的可靠报文传递和错误恢复（ 段Segment） TCP、UDP、SPX   会话层 建立、管理和终止会话（会话协议数据单元 SPDU） NFS、SQL、NETBIOS、RPC   表示层 对数据进行翻译、加密和压缩（表示协议数据单元 PPDU） JPEG、MPEG、ASII   应用层 允许访问OSI环境的手段（应用协议数据单元 APDU） FTP、DNS、Telnet、SMTP、HTTP、WWW、NFS     封装  链路层 链路层主要有三个目的：
+ 为IP模块发送和接收IP数据报； 为ARP模块发送ARP请求和接收ARP应答； 为RARP发送RARP请求和接收RARP应答。  PPP（点到点协议）是为在同等单元之间传输数据包这样的简单链路设计的链路层协议。
+环回接口" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://6923403.github.io/post/tcp_ip/" />
+<meta property="article:published_time" content="2021-02-25T14:28:11+08:00" />
+<meta property="article:modified_time" content="2021-02-25T14:28:11+08:00" />
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://6923403.github.io"><img class="app-header-avatar" src="/avatar.jpg" alt="VcVc" /></a>
+      <h1>VcVc Blog</h1>
+      <p>Relax mentality, keep good heart. </p>
+      <div class="app-header-social">
+        
+          <a target="_blank" href="https://github.com/6923403" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg></a>
+        
+          <a target="_blank" href="https://twitter.com/vcvckw" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-twitter">
+  <title>twitter</title>
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+</svg></a>
+        
+          <a target="_blank" href="mailto:vcvckw@gmail.com" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-mail">
+  <title>mail</title>
+  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline>
+</svg></a>
+        
+
+
+<div class="searchBox">
+       <form method="get" target = "_blank" action="http://www.google.com/search">
+           <input type="text" name="query" class="searchField" placeholder = "Search-goolge" />
+           <input type="hidden" name="sitesearch" value="6923403.github.io">
+       </form>
+</div>
+
+      </div>  
+    </header>    
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Tcp_ip</h1>
+      <div class="post-meta">         
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Feb 25, 2021
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          Take 1 min read
+        </div><div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line>
+</svg>
+          <a class="tag" href="https://6923403.github.io/tags/tcp/">TCP</a><a class="tag" href="https://6923403.github.io/tags/ip/">IP</a><a class="tag" href="https://6923403.github.io/tags/udp/">UDP</a><a class="tag" href="https://6923403.github.io/tags/socket/">Socket</a></div></div>
+    </header>
+    <div class="post-content">
+      <h1 id="计算机体系结构">计算机体系结构</h1>
+<p><img src="/img/tcp_ip/q2.png" alt="q2"></p>
+<h1 id="各层作用及协议">各层作用及协议</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">分层</th>
+<th style="text-align:left">作用</th>
+<th style="text-align:left">协议</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">物理层</td>
+<td style="text-align:left">通过媒介传输比特，确定机械及电气规范（比特 Bit）</td>
+<td style="text-align:left">RJ45、CLOCK、IEEE802.3（中继器，集线器）</td>
+</tr>
+<tr>
+<td style="text-align:left">数据链路层</td>
+<td style="text-align:left">将比特组装成帧和点到点的传递（帧 Frame）</td>
+<td style="text-align:left">PPP、FR、HDLC、VLAN、MAC（网桥，交换机）</td>
+</tr>
+<tr>
+<td style="text-align:left">网络层</td>
+<td style="text-align:left">负责数据包从源到宿的传递和网际互连（包 Packet）</td>
+<td style="text-align:left">IP、ICMP、ARP、RARP、OSPF、IPX、RIP、IGRP（路由器）</td>
+</tr>
+<tr>
+<td style="text-align:left">运输层</td>
+<td style="text-align:left">提供端到端的可靠报文传递和错误恢复（ 段Segment）</td>
+<td style="text-align:left">TCP、UDP、SPX</td>
+</tr>
+<tr>
+<td style="text-align:left">会话层</td>
+<td style="text-align:left">建立、管理和终止会话（会话协议数据单元 SPDU）</td>
+<td style="text-align:left">NFS、SQL、NETBIOS、RPC</td>
+</tr>
+<tr>
+<td style="text-align:left">表示层</td>
+<td style="text-align:left">对数据进行翻译、加密和压缩（表示协议数据单元 PPDU）</td>
+<td style="text-align:left">JPEG、MPEG、ASII</td>
+</tr>
+<tr>
+<td style="text-align:left">应用层</td>
+<td style="text-align:left">允许访问OSI环境的手段（应用协议数据单元 APDU）</td>
+<td style="text-align:left">FTP、DNS、Telnet、SMTP、HTTP、WWW、NFS</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="封装">封装</h1>
+<p><img src="/img/tcp_ip/q1.png" alt="q1"></p>
+<hr>
+<h1 id="链路层">链路层</h1>
+<p><strong>链路层主要有三个目的：</strong></p>
+<ol>
+<li>为IP模块发送和接收IP数据报；</li>
+<li>为ARP模块发送ARP请求和接收ARP应答；</li>
+<li>为RARP发送RARP请求和接收RARP应答。</li>
+</ol>
+<p>PPP（点到点协议）是为在同等单元之间传输数据包这样的简单链路设计的链路层协议。</p>
+<p><strong>环回接口</strong></p>
+<p><img src="/img/tcp_ip/q3.png" alt="q3"></p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>  
+<br />
+<hr width = "450" color="#eeeeee" align="left">
+  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+<a rel="index" href="https://6923403.github.io/"></a>
+
+    </main>
+  </body>
+</html>
