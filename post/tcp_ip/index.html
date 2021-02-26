@@ -15,12 +15,16 @@
 <meta name="twitter:title" content="Tcp_ip"/>
 <meta name="twitter:description" content="计算机体系结构 各层作用及协议    分层 作用 协议     物理层 通过媒介传输比特，确定机械及电气规范（比特 Bit） RJ45、CLOCK、IEEE802.3（中继器，集线器）   数据链路层 将比特组装成帧和点到点的传递（帧 Frame） PPP、FR、HDLC、VLAN、MAC（网桥，交换机）   网络层 负责数据包从源到宿的传递和网际互连（包 Packet） IP、ICMP、ARP、RARP、OSPF、IPX、RIP、IGRP（路由器）   运输层 提供端到端的可靠报文传递和错误恢复（ 段Segment） TCP、UDP、SPX   会话层 建立、管理和终止会话（会话协议数据单元 SPDU） NFS、SQL、NETBIOS、RPC   表示层 对数据进行翻译、加密和压缩（表示协议数据单元 PPDU） JPEG、MPEG、ASII   应用层 允许访问OSI环境的手段（应用协议数据单元 APDU） FTP、DNS、Telnet、SMTP、HTTP、WWW、NFS     封装  链路层 链路层主要有三个目的：
  为IP模块发送和接收IP数据报； 为ARP模块发送ARP请求和接收ARP应答； 为RARP发送RARP请求和接收RARP应答。  PPP（点到点协议）是为在同等单元之间传输数据包这样的简单链路设计的链路层协议。
-环回接口"/>
+环回接口
+re: mtu
+ 网络层  IP（Internet Protocol，网际协议）是为计算机网络相互连接进行通信而设计的协议。 ARP（Address Resolution Protocol，地址解析协议） ICMP（Internet Control Message Protocol，网际控制报文协议） IGMP（Internet Group Management Protocol，网际组管理协议）  IP是TCP/IP协议族中最为核心的协议。所有的TCP、UDP、ICMP及IGMP数据都以IP数据报格式传输"/>
 
     <meta property="og:title" content="Tcp_ip" />
 <meta property="og:description" content="计算机体系结构 各层作用及协议    分层 作用 协议     物理层 通过媒介传输比特，确定机械及电气规范（比特 Bit） RJ45、CLOCK、IEEE802.3（中继器，集线器）   数据链路层 将比特组装成帧和点到点的传递（帧 Frame） PPP、FR、HDLC、VLAN、MAC（网桥，交换机）   网络层 负责数据包从源到宿的传递和网际互连（包 Packet） IP、ICMP、ARP、RARP、OSPF、IPX、RIP、IGRP（路由器）   运输层 提供端到端的可靠报文传递和错误恢复（ 段Segment） TCP、UDP、SPX   会话层 建立、管理和终止会话（会话协议数据单元 SPDU） NFS、SQL、NETBIOS、RPC   表示层 对数据进行翻译、加密和压缩（表示协议数据单元 PPDU） JPEG、MPEG、ASII   应用层 允许访问OSI环境的手段（应用协议数据单元 APDU） FTP、DNS、Telnet、SMTP、HTTP、WWW、NFS     封装  链路层 链路层主要有三个目的：
  为IP模块发送和接收IP数据报； 为ARP模块发送ARP请求和接收ARP应答； 为RARP发送RARP请求和接收RARP应答。  PPP（点到点协议）是为在同等单元之间传输数据包这样的简单链路设计的链路层协议。
-环回接口" />
+环回接口
+re: mtu
+ 网络层  IP（Internet Protocol，网际协议）是为计算机网络相互连接进行通信而设计的协议。 ARP（Address Resolution Protocol，地址解析协议） ICMP（Internet Control Message Protocol，网际控制报文协议） IGMP（Internet Group Management Protocol，网际组管理协议）  IP是TCP/IP协议族中最为核心的协议。所有的TCP、UDP、ICMP及IGMP数据都以IP数据报格式传输" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://6923403.github.io/post/tcp_ip/" />
 <meta property="article:published_time" content="2021-02-25T14:28:11+08:00" />
@@ -151,6 +155,72 @@
 <p>PPP（点到点协议）是为在同等单元之间传输数据包这样的简单链路设计的链路层协议。</p>
 <p><strong>环回接口</strong></p>
 <p><img src="/img/tcp_ip/q3.png" alt="q3"></p>
+<p>re: <a href="https://developer.aliyun.com/article/222535">mtu</a></p>
+<hr>
+<h1 id="网络层">网络层</h1>
+<ul>
+<li>IP（Internet Protocol，网际协议）是为计算机网络相互连接进行通信而设计的协议。</li>
+<li>ARP（Address Resolution Protocol，地址解析协议）</li>
+<li>ICMP（Internet Control Message Protocol，网际控制报文协议）</li>
+<li>IGMP（Internet Group Management Protocol，网际组管理协议）</li>
+</ul>
+<p><strong>IP是TCP/IP协议族中最为核心的协议。所有的TCP、UDP、ICMP及IGMP数据都以IP数据报格式传输</strong></p>
+<p><strong>不可靠（unreliable）的意思是它不能保证IP数据报能成功地到达目的地。IP仅提供最好的传输服务。</strong></p>
+<p><strong>无连接（connectionless）这个术语的意思是IP并不维护任何关于后续数据报的状态信息。每个数据报的处理是相互独立的。</strong></p>
+<p><img src="/img/tcp_ip/q4.png" alt="q4"></p>
+<p><img src="/img/tcp_ip/q5.png" alt="q5"></p>
+<p><strong>IP 地址分类:</strong></p>
+<ul>
+<li>IP 地址 ::= {&lt;网络号&gt;,&lt;主机号&gt;}</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">IP地址类别</th>
+<th style="text-align:left">网络号</th>
+<th style="text-align:left">网络范围</th>
+<th style="text-align:right">主机号</th>
+<th style="text-align:right">IP地址范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">A 类</td>
+<td style="text-align:left">8bit，第一位固定为0</td>
+<td style="text-align:left">0——127</td>
+<td style="text-align:right">24bit</td>
+<td style="text-align:right">1.0.0.0——127.255.255.255</td>
+</tr>
+<tr>
+<td style="text-align:left">B 类</td>
+<td style="text-align:left">16bit，前两位固定为10</td>
+<td style="text-align:left">128.0——191.255</td>
+<td style="text-align:right">16bit</td>
+<td style="text-align:right">128.0.0.0——191.255.255.255</td>
+</tr>
+<tr>
+<td style="text-align:left">C 类</td>
+<td style="text-align:left">24bit，前三位固定为110</td>
+<td style="text-align:left">192.0.0——223.255.255</td>
+<td style="text-align:right">8bit</td>
+<td style="text-align:right">192.0.0.0——223.255.255.255</td>
+</tr>
+<tr>
+<td style="text-align:left">D 类</td>
+<td style="text-align:left">前四位固定为1110，后面为多播地址</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">E 类</td>
+<td style="text-align:left">前五位固定为11110，后面保留为今后所用</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
     </div>
     <div class="post-footer">
