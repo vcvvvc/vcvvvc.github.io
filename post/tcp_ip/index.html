@@ -228,8 +228,30 @@ re: mtu
 <p><strong>ARP高效运行的关键是由于每个主机上都有一个ARP高速缓存。可以用<code>apr -a</code>来进行检查ARP高速缓存</strong></p>
 <p><strong>ARP分组格式</strong></p>
 <p><img src="/img/tcp_ip/q7.png" alt="q7"></p>
-<h2 id="raap-逆地址解析协议">RAAP 逆地址解析协议</h2>
+<h2 id="rarp-逆地址解析协议">RARP 逆地址解析协议</h2>
+<p>RARP协议是许多无盘系统在引导时用来获取IP地址的。RARP分组格式基本上与ARP分组一致。一个RARP请求在网络上进行广播，它在分组中标明发送端的硬件地址，以请求相应IP地址的响应。应答通常是单播传送的。</p>
 <h2 id="icmp-网际控制报文协议">ICMP 网际控制报文协议</h2>
+<p><strong>ICMP经常被认为是IP层的一个组成部分。它传递差错报文以及其他需要注意的信息。</strong></p>
+<p><strong>ICMP报文通常被IP层或更高层协议（TCP或UDP）使用。一些ICMP报文把差错报文返回给用户进程。</strong></p>
+<p><strong>ICMP报文是在IP数据报内部被传输的</strong></p>
+<p><img src="/img/tcp_ip/q8.png" alt="q8"></p>
+<p><strong>检验和字段覆盖整个ICMP报文。</strong></p>
+<p><img src="/img/tcp_ip/q9.png" alt="q9"></p>
+<h3 id="icmp报文类型">ICMP报文类型</h3>
+<p><img src="/img/tcp_ip/q10.png" alt="q10"></p>
+<p><strong>下面各种情况都不会导致产生ICMP差错报文:</strong></p>
+<ul>
+<li>ICMP差错报文（但是，ICMP查询报文可能会产生ICMP差错报文）。</li>
+<li>目的地址是广播地址或多播地址（D类地址）的IP数据报。</li>
+<li>作为链路层广播的数据报。</li>
+<li>不是IP分片的第一片。</li>
+<li>源地址不是单个主机的数据报。这就是说，源地址不能为零地址、环回地址、广播地
+址或多播地址。</li>
+</ul>
+<p><img src="/img/tcp_ip/q11.png" alt="q11"></p>
+<p><img src="/img/tcp_ip/q12.png" alt="q12"></p>
+<p><img src="/img/tcp_ip/q13.png" alt="q13"></p>
+<p><img src="/img/tcp_ip/q14.png" alt="q14"></p>
 
     </div>
     <div class="post-footer">
