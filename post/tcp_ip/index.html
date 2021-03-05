@@ -36,7 +36,7 @@ re: mtu
     <header class="app-header">
       <a href="https://6923403.github.io"><img class="app-header-avatar" src="/avatar.jpg" alt="VcVc" /></a>
       <h1>VcVc Blog</h1>
-      <p>Relax mentality, keep good heart. </p>
+      <p>Learning finance .</p>
       <div class="app-header-social">
         
           <a target="_blank" href="https://github.com/6923403" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
@@ -263,6 +263,20 @@ re: mtu
 <p><img src="/img/tcp_ip/q17.png" alt="q17"></p>
 <p><strong>UDP首部</strong></p>
 <p><img src="/img/tcp_ip/q18.png" alt="q18"></p>
+<h3 id="udp数据报中的伪首部">UDP数据报中的伪首部</h3>
+<p><strong>UDP数据报和TCP段都包含一个12字节长的伪首部，它是为了计算检验和而设置的。其目的是让UDP两次检查数据是否已经正确到达目的地。</strong></p>
+<p><img src="/img/tcp_ip/q19.png" alt="q19"></p>
+<h2 id="ip分片">IP分片</h2>
+<p><img src="/img/tcp_ip/q20.png" alt="q20"></p>
+<ul>
+<li>在分片时，除最后一片外，其他每一片中的数据部分（除 I P首部外的其余部分）必须是 8
+字节的整数倍。</li>
+<li>位于@符号后的数字是从数据报开始处计算的片偏移值。</li>
+<li>IP数据报是指IP层端到端的传输单元（在分片之前和重新组装之后）</li>
+<li>分组是指在IP层和链路层之间传送的数据单元。</li>
+<li>一个分组可以是一个完整的IP数据报，也可以是IP数据报的一个分片。</li>
+</ul>
+<p><img src="/img/tcp_ip/q21.png" alt="q21"></p>
 
     </div>
     <div class="post-footer">

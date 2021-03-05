@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tcpdump on VcVc Blog</title>
+    <link>https://6923403.github.io/tags/tcpdump/</link>
+    <description>Recent content in Tcpdump on VcVc Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh_cn</language>
+    <lastBuildDate>Fri, 05 Mar 2021 22:03:34 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/tcpdump/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tcpdump</title>
+      <link>https://6923403.github.io/post/tcpdump/</link>
+      <pubDate>Fri, 05 Mar 2021 22:03:34 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/tcpdump/</guid>
+      <description>备忘 简洁明了的教程
+https://www.jianshu.com/p/d9162722f189
+https://www.jianshu.com/p/a57a5b0e58f0
+https://zhuanlan.zhihu.com/p/74812069</description>
+    </item>
+    
+  </channel>
+</rss>
