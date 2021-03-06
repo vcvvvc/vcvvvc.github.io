@@ -277,6 +277,11 @@ re: mtu
 <li>一个分组可以是一个完整的IP数据报，也可以是IP数据报的一个分片。</li>
 </ul>
 <p><img src="/img/tcp_ip/q21.png" alt="q21"></p>
+<h2 id="icmp不可达差错">ICMP不可达差错</h2>
+<p><strong>发生ICMP不可达差错的另一种情况是，当路由器收到一份需要分片的数据报，而在IP首部又设置了不分片（DF）的标志比特。如果路由器没有提供这种新的ICMP差错报文格式，那么下一站的MTU就设为0。</strong></p>
+<p><img src="/img/tcp_ip/q22.png" alt="q22"></p>
+<hr>
+<p><strong>ip数据报格式:</strong> <a href="https://www.jianshu.com/p/d3f9e70c6220">https://www.jianshu.com/p/d3f9e70c6220</a></p>
 
     </div>
     <div class="post-footer">
