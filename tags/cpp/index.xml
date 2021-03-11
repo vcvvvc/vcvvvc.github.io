@@ -6,14 +6,14 @@
     <description>Recent content in CPP on VcVc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh_cn</language>
-    <lastBuildDate>Thu, 25 Feb 2021 14:41:09 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/cpp/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 11 Mar 2021 11:41:09 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/cpp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Server sum</title>
       <link>https://6923403.github.io/post/server_sum/</link>
-      <pubDate>Thu, 25 Feb 2021 14:41:09 +0800</pubDate>
+      <pubDate>Thu, 11 Mar 2021 11:41:09 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/server_sum/</guid>
-      <description>socket struct整理  https://6923403.github.io/post/socket_struct/  socket编程需要的头文件整理  https://6923403.github.io/post/socket_file/  socket function  https://6923403.github.io/post/socket/  epoll function  https://6923403.github.io/post/epoll_use/  sem function  https://6923403.github.io/post/sem/  server io actor  https://6923403.github.io/post/server_actor/  timer function  https://6923403.github.io/post/timer_function/   Linux Pthread 线程创建与使用 https://6923403.github.io/post/linuxpthread/
+      <description>socket struct整理  https://6923403.github.io/post/socket_struct/  socket编程需要的头文件整理  https://6923403.github.io/post/socket_file/  socket function  https://6923403.github.io/post/socket/  epoll function  https://6923403.github.io/post/epoll_use/  sem function  https://6923403.github.io/post/sem/  server io actor  https://6923403.github.io/post/server_actor/  timer function  https://6923403.github.io/post/timer_function/   Linux Pthread 线程创建与使用 https://6923403.github.io/post/pthread/
 C++11 thread https://6923403.github.io/post/cppthread/
  Unp note https://6923403.github.io/post/unp_note/
 TCP_IP | 计算机网络 https://6923403.github.io/post/tcp_ip/
@@ -62,10 +62,10 @@ For O(n) int function1(int x, int n) { int result = 1; // 注意 任何数的0�
     
     <item>
       <title>Linux Pthread</title>
-      <link>https://6923403.github.io/post/linuxpthread/</link>
+      <link>https://6923403.github.io/post/pthread/</link>
       <pubDate>Sun, 27 Sep 2020 17:53:48 +0800</pubDate>
       
-      <guid>https://6923403.github.io/post/linuxpthread/</guid>
+      <guid>https://6923403.github.io/post/pthread/</guid>
       <description>#include &amp;lt;pthread.h&amp;gt; int pthread_condattr_init(pthread_condattr_t* attr); int pthread_condattr_destroy(pthread_condattr_t* attr); //返回值：成功返回0；失败返回错误编码 pthread_condattr_init
  功能：对条件变量属性结构体初始化 调用此函数之后，条件变量属性结构体的属性都是系统默认值，如果想要设置其他属性，还需要调用不同的函数进行设置  pthread_condattr_destroy
  功能：对条件变量属性结构体反初始化（销毁） 只反初始化，不释放内存   #include &amp;lt;pthread.h&amp;gt; int pthread_condattr_setshared(pthread_condattr_t* attr,int pshared); int pthread_condattr_getshared(const pthread_condattr_t* restrict attr,int* restrict pshared); //返回值：成功返回0；失败返回错误编码 pthread_condattr_setshared

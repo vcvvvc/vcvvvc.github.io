@@ -9,10 +9,10 @@
     <lastBuildDate>Sun, 27 Sep 2020 17:53:48 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/pthread/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linux Pthread</title>
-      <link>https://6923403.github.io/post/linuxpthread/</link>
+      <link>https://6923403.github.io/post/pthread/</link>
       <pubDate>Sun, 27 Sep 2020 17:53:48 +0800</pubDate>
       
-      <guid>https://6923403.github.io/post/linuxpthread/</guid>
+      <guid>https://6923403.github.io/post/pthread/</guid>
       <description>#include &amp;lt;pthread.h&amp;gt; int pthread_condattr_init(pthread_condattr_t* attr); int pthread_condattr_destroy(pthread_condattr_t* attr); //返回值：成功返回0；失败返回错误编码 pthread_condattr_init
  功能：对条件变量属性结构体初始化 调用此函数之后，条件变量属性结构体的属性都是系统默认值，如果想要设置其他属性，还需要调用不同的函数进行设置  pthread_condattr_destroy
  功能：对条件变量属性结构体反初始化（销毁） 只反初始化，不释放内存   #include &amp;lt;pthread.h&amp;gt; int pthread_condattr_setshared(pthread_condattr_t* attr,int pshared); int pthread_condattr_getshared(const pthread_condattr_t* restrict attr,int* restrict pshared); //返回值：成功返回0；失败返回错误编码 pthread_condattr_setshared
