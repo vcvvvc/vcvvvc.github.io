@@ -6,11 +6,11 @@
     <description>Recent content in Posts on VcVc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh_cn</language>
-    <lastBuildDate>Thu, 11 Mar 2021 11:41:09 +0800</lastBuildDate><atom:link href="https://6923403.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 14 Mar 2021 18:21:09 +0800</lastBuildDate><atom:link href="https://6923403.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Server sum</title>
       <link>https://6923403.github.io/post/server_sum/</link>
-      <pubDate>Thu, 11 Mar 2021 11:41:09 +0800</pubDate>
+      <pubDate>Sun, 14 Mar 2021 18:21:09 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/server_sum/</guid>
       <description>socket struct整理  https://6923403.github.io/post/socket_struct/  socket编程需要的头文件整理  https://6923403.github.io/post/socket_file/  socket function  https://6923403.github.io/post/socket/  epoll function  https://6923403.github.io/post/epoll_use/  sem function  https://6923403.github.io/post/sem/  server io actor  https://6923403.github.io/post/server_actor/  timer function  https://6923403.github.io/post/timer_function/   Linux Pthread 线程创建与使用 https://6923403.github.io/post/pthread/
@@ -18,6 +18,15 @@ C++11 thread https://6923403.github.io/post/cppthread/
  Unp note https://6923403.github.io/post/unp_note/
 TCP_IP | 计算机网络 https://6923403.github.io/post/tcp_ip/
  exception class 异常类 https://6923403.github.io/post/cpp_exception/</description>
+    </item>
+    
+    <item>
+      <title>getopt_long</title>
+      <link>https://6923403.github.io/post/getopt_long/</link>
+      <pubDate>Sun, 14 Mar 2021 14:26:33 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/getopt_long/</guid>
+      <description>#include &amp;lt;unistd.h&amp;gt; int getopt(int argc, char * const argv[], const char *optstring); extern char *optarg; extern int optind, opterr, optopt; #include &amp;lt;getopt.h&amp;gt; int getopt_long(int argc, char * const argv[], const char *optstring, const struct option *longopts, int *longindex); int getopt_long_only(int argc, char * const argv[], const char *optstring, const struct option *longopts, int *longindex);  static struct option Vcopts[] = { {&amp;quot;device&amp;quot;, required_argument, NULL, &#39;d&#39;}, {&amp;quot;savefile&amp;quot;, optional_argument, NULL, &#39;f&#39;}, {&amp;quot;help&amp;quot;, no_argument, NULL, &#39;h&#39;}, {&amp;quot;version&amp;quot;, no_argument, NULL, &#39;v&#39;}, {&amp;quot;Device list&amp;quot;, no_argument, NULL, &#39;l&#39;}, {&amp;quot;http-proxy&amp;quot;, required_argument, &amp;amp;lopt, 1}, {0, 0, 0, 0} };  no_argument: -h --h, -v --v required_argument: -d/ -d ens33/ -d = ens33 optional_argument: -f filename/ -f = filename &amp;amp;lopt: &amp;ndash;http-proxy=127.</description>
     </item>
     
     <item>
@@ -393,15 +402,6 @@ daemonize no 改为 daemonize yes  开机自启 vim /etc/systemd/system/redis.se
 mysql_secure_installation
 9.设置数据库编码为utf8 sudo vim /etc/my.cnf
 [client] default-character-set=utf8 [mysql] default-character-set=utf8 [mysqld] collation-server = utf8_unicode_ci init-connect=&#39;SET NAMES utf8&#39; character-set-server = utf8 reboot sudo systemctl restart mysqld</description>
-    </item>
-    
-    <item>
-      <title>getopt_long</title>
-      <link>https://6923403.github.io/post/getopt_long/</link>
-      <pubDate>Sun, 20 Sep 2020 14:26:33 +0800</pubDate>
-      
-      <guid>https://6923403.github.io/post/getopt_long/</guid>
-      <description>#include &amp;lt;unistd.h&amp;gt; int getopt(int argc, char * const argv[], const char *optstring); extern char *optarg; extern int optind, opterr, optopt; #include &amp;lt;getopt.h&amp;gt; int getopt_long(int argc, char * const argv[], const char *optstring, const struct option *longopts, int *longindex); int getopt_long_only(int argc, char * const argv[], const char *optstring, const struct option *longopts, int *longindex);  static struct option Vcopts[] = { {&amp;quot;device&amp;quot;, required_argument, NULL, &#39;d&#39;}, {&amp;quot;savefile&amp;quot;, optional_argument, NULL, &#39;f&#39;}, {&amp;quot;help&amp;quot;, no_argument, NULL, &#39;h&#39;}, {&amp;quot;version&amp;quot;, no_argument, NULL, &#39;v&#39;}, {&amp;quot;Device list&amp;quot;, no_argument, NULL, &#39;l&#39;}, {&amp;quot;http-proxy&amp;quot;, required_argument, &amp;amp;lopt, 1}, {0, 0, 0, 0} };  no_argument: -h --h, -v --v required_argument: -d/ -d ens33/ -d = ens33 optional_argument: -f filename/ -f = filename &amp;amp;lopt: &amp;ndash;http-proxy=127.</description>
     </item>
     
     <item>

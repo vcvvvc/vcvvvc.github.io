@@ -19,8 +19,8 @@
 <meta property="og:description" content="#include &lt;unistd.h&gt; int getopt(int argc, char * const argv[], const char *optstring); extern char *optarg; extern int optind, opterr, optopt; #include &lt;getopt.h&gt; int getopt_long(int argc, char * const argv[], const char *optstring, const struct option *longopts, int *longindex); int getopt_long_only(int argc, char * const argv[], const char *optstring, const struct option *longopts, int *longindex);  static struct option Vcopts[] = { {&quot;device&quot;, required_argument, NULL, &#39;d&#39;}, {&quot;savefile&quot;, optional_argument, NULL, &#39;f&#39;}, {&quot;help&quot;, no_argument, NULL, &#39;h&#39;}, {&quot;version&quot;, no_argument, NULL, &#39;v&#39;}, {&quot;Device list&quot;, no_argument, NULL, &#39;l&#39;}, {&quot;http-proxy&quot;, required_argument, &amp;lopt, 1}, {0, 0, 0, 0} };  no_argument: -h --h, -v --v required_argument: -d/ -d ens33/ -d = ens33 optional_argument: -f filename/ -f = filename &amp;lopt: &ndash;http-proxy=127." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://6923403.github.io/post/getopt_long/" />
-<meta property="article:published_time" content="2020-09-20T14:26:33+08:00" />
-<meta property="article:modified_time" content="2020-09-20T14:26:33+08:00" />
+<meta property="article:published_time" content="2021-03-14T14:26:33+08:00" />
+<meta property="article:modified_time" content="2021-03-14T14:26:33+08:00" />
 
 
   </head>
@@ -68,14 +68,14 @@
   <title>calendar</title>
   <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
 </svg>
-          Sep 20, 2020
+          Mar 14, 2021
         </div>
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          Take 1 min read
+          Take 3 min read
         </div><div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
   <title>tag</title>
@@ -117,8 +117,153 @@ int getopt_long_only(int argc, char * const argv[],
 <li><strong>&amp;lopt: &ndash;http-proxy=127.0.0.1:80 getopt_long return 0, lopt return 1</strong></li>
 </ul>
 <hr>
+<h1 id="版本2">版本2</h1>
+<pre><code>#include &lt;unistd.h&gt;
+extern char *optarg;
+extern int optind, opterr, optopt;
+#include &lt;getopt.h&gt;
+int getopt(int argc, char * const argv[],const char *optstring);
+int getopt_long(int argc, char * const argv[], const char *optstring, const struct option *longopts, int *longindex);
+int getopt_long_only(int argc, char * const argv[], const char *optstring, const struct option *longopts, int *longindex);
+</code></pre><p>参数以及返回值介绍（以上三个函数都适用）：</p>
+<p>1、argc和argv和main函数的两个参数一致。</p>
+<p>2、optstring: 表示短选项字符串。</p>
+<p>形式如“a:b::cd:“，分别表示程序支持的命令行短选项有-a、-b、-c、-d，冒号含义如下：</p>
+<ul>
+<li>只有一个字符，不带冒号——只表示选项， 如-c </li>
+<li>一个字符，后接一个冒号——表示选项后面带一个参数，如-a 100</li>
+<li>一个字符，后接两个冒号——表示选项后面带一个可选参数，即参数可有可无，如果带参数，则选项与参数直接不能有空格,形式应该如-b</li>
+</ul>
+<p>3、longopts：表示长选项结构体。结构如下：</p>
+<pre><code>struct option
+{
+     const char *name;
+     int         has_arg;
+     int        *flag;
+     int         val;
+};
+eg:
+ static struct option longOpts[] = {
+      { &quot;daemon&quot;, no_argument, NULL, 'D' },
+      { &quot;dir&quot;, required_argument, NULL, 'd' },
+      { &quot;out&quot;, required_argument, NULL, 'o' },
+      { &quot;log&quot;, required_argument, NULL, 'l' },
+      { &quot;split&quot;, required_argument, NULL, 's' },
+      { &quot;http-proxy&quot;, required_argument, &amp;lopt, 1 },
+      { &quot;http-user&quot;, required_argument, &amp;lopt, 2 },
+      { &quot;http-passwd&quot;, required_argument, &amp;lopt, 3 },
+      { &quot;http-proxy-user&quot;, required_argument, &amp;lopt, 4 },
+      { &quot;http-proxy-passwd&quot;, required_argument, &amp;lopt, 5 },
+      { &quot;http-auth-scheme&quot;, required_argument, &amp;lopt, 6 },
+      { &quot;version&quot;, no_argument, NULL, 'v' },
+      { &quot;help&quot;, no_argument, NULL, 'h' },
+      { 0, 0, 0, 0 }
+    };
+</code></pre><p>(1)name:表示选项的名称,比如daemon,dir,out等。</p>
+<p>(2)has_arg:表示选项后面是否携带参数。
+该参数有三个不同值，如下：</p>
+<ul>
+<li>a: no_argument(或者是0)时 ——参数后面不跟参数值，eg: &ndash;version,&ndash;help</li>
+<li>b: required_argument(或者是1)时 ——参数输入格式为：&ndash;参数 值 或者 &ndash;参数=值。eg:&ndash;dir=/home</li>
+<li>c: optional_argument(或者是2)时  ——参数输入格式只能为：&ndash;参数=值</li>
+</ul>
+<p>(3) flag:这个参数有两个意思，空或者非空。</p>
+<pre><code>a:如果参数为空NULL，那么当选中某个长选项的时候，getopt_long将返回val值。eg，可执行程序 --help，getopt_long的返回值为h.             
+
+b:如果参数不为空，那么当选中某个长选项的时候，getopt_long将返回0，并且将flag指针参数指向val值。eg: 可执行程序 --http-proxy=127.0.0.1:80 那么getopt_long返回值为0，并且lopt值为1。
+</code></pre><p>(4) val：表示指定函数找到该选项时的返回值，或者当flag非空时指定flag指向的数据的值val。</p>
+<p>4、longindex：longindex非空，它指向的变量将记录当前找到参数符合longopts里的第几个元素的描述，即是longopts的下标值。</p>
+<p>5、全局变量：</p>
+<pre><code>（1）optarg：表示当前选项对应的参数值。
+
+（2）optind：表示的是下一个将被处理到的参数在argv中的下标值。
+
+（3）opterr：如果opterr = 0，在getopt、getopt_long、getopt_long_only遇到错误将不会输出错误信息到标准输出流。opterr在非0时，向屏幕输出错误。
+
+（4）optopt：表示没有被未标识的选项。
+</code></pre><p>6、返回值：</p>
+<pre><code>（1）如果短选项找到，那么将返回短选项对应的字符。
+
+（2）如果长选项找到，如果flag为NULL，返回val。如果flag不为空，返回0
+
+（3）如果遇到一个选项没有在短字符、长字符里面。或者在长字符里面存在二义性的，返回“？”
+
+（4）如果解析完所有字符没有找到（一般是输入命令参数格式错误，eg： 连斜杠都没有加的选项），返回“-1”
+
+（5）如果选项需要参数，忘了添加参数。返回值取决于optstring，如果其第一个字符是“：”，则返回“：”，否则返回“？”。
+</code></pre><p>注意：</p>
+<ul>
+<li>
+<p>longopts的最后一个元素必须是全0填充，否则会报段错误</p>
+</li>
+<li>
+<p>短选项中每个选项都是唯一的。而长选项如果简写，也需要保持唯一性。</p>
+</li>
+</ul>
+<hr>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;unistd.h&gt;
+#include &lt;getopt.h&gt;
+using namespace std;
+
+int main(int argc, char **argv)
+{
+    int opt;
+    int digit_optind = 0;
+    int option_index = 0;
+    /*
+     * 形式如“a:b::cd:“，分别表示程序支持的命令行短选项有-a、-b、-c、-d，冒号含义如下：
+     * (1)只有一个字符，不带冒号——只表示选项， 如-c
+     * (2)一个字符，后接一个冒号——表示选项后面带一个参数，如-a 100
+     * (3)一个字符，后接两个冒号——表示选项后面带一个可选参数，即参数可有可无，如果带参数，则选项与参数直接不能有空格
+     * 形式应该如-b200
+     */
+    char *optstring = &quot;a:b:c:d&quot;;
+
+    static struct option long_options[] = {
+        /*
+         * no_argument (即 0) 表明这个长参数不带参数（即不带数值，如：--name）
+         * required_argument (即 1) 表明这个长参数必须带参数（即必须带数值，如：--name Bob）
+         * optional_argument（即2）表明这个长参数后面带的参数是可选的，（即--name和--name Bob均可）
+         */
+        { &quot;reqarg&quot;, required_argument, NULL, 'r'},
+        { &quot;noarg&quot;, no_argument, NULL, 'n'},
+        { &quot;optarg&quot;, optional_argument, NULL, 'o'},
+        { 0, 0, 0, 0}
+    };
+
+    /*
+     * 如果longindex非空，它指向的变量将记录当前找到参数符合longopts里的第几个元素的描述，即是longopts的下标值。
+     * optind表示的是下一个将被处理到的参数在argv中的下标值。
+     */
+    while((opt = getopt_long(argc, argv, optstring, long_options, &amp;option_index)) != -1)
+    {
+        cout &lt;&lt; &quot;opt = &quot; &lt;&lt; opt &lt;&lt; endl;
+        cout &lt;&lt; &quot;optarg = &quot; &lt;&lt; optarg &lt;&lt; endl;
+        cout &lt;&lt; &quot;optind = &quot; &lt;&lt; optind &lt;&lt; endl;
+        cout &lt;&lt; &quot;argv[optind -1] = &quot; &lt;&lt; argv[optind - 1] &lt;&lt; endl;
+        cout &lt;&lt; &quot;option_index = &quot; &lt;&lt; option_index &lt;&lt; endl;
+    }
+
+    return 0;
+}
+</code></pre><pre><code>root@Tk:~/git/Cplusplus/test/getopt# ./a.out -a 100 -b 200 --reqarg
+opt = 97
+optarg = 100
+optind = 3
+argv[optind -1] = 100
+option_index = 0
+opt = 98
+optarg = 200
+optind = 5
+argv[optind -1] = 200
+option_index = 0
+./a.out: option '--reqarg' requires an argument
+opt = 63
+</code></pre><hr>
 <p>Re:</p>
 <p><a href="https://blog.csdn.net/qq_33850438/article/details/80172275">https://blog.csdn.net/qq_33850438/article/details/80172275</a></p>
+<p><a href="https://www.jianshu.com/p/ae4ae0ef57bc">https://www.jianshu.com/p/ae4ae0ef57bc</a></p>
 
     </div>
     <div class="post-footer">
