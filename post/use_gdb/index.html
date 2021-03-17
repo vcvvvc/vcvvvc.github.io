@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="zh_cn">
   <head>
-    <title>GDB tutorial // VcVc Blog</title>
+    <title>Use_gdb // VcVc Blog</title>
     <meta charset="utf-8" />
     <meta name="generator" content="Hugo 0.80.0" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -12,21 +12,21 @@
 
     
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="GDB tutorial"/>
-<meta name="twitter:description" content="Start gdb or gdb -q # exit ctrl &#43; d or quit  Use g&#43;&#43; -g main.cpp -o main gdb main -q or gdb -q file main Debug runing program
-ps ux | grep showpng gdb showpng 28334 -q  CoreDump ** Check if off **
-ulimit -c 0 # is off # tmp use ulimit -c unlimited ulimit -c unlimited # turn open permanent use
-vim /etc/security/limits.conf # add line * soft core unlimited # and echo &quot;core."/>
+<meta name="twitter:title" content="Use_gdb"/>
+<meta name="twitter:description" content="GDB 教程 转载自：https://github.com/DAN-AND-DNA/learn-gdb-by-example-for-c.git
+ 内容  原理 启动gdb 退出gdb 为gdb进行编译 调试程序 CoreDump简单概念 产生CoreDump文件 调试CoreDump文件 help命令 list命令 start命令 next命令 step命令 break命令 查看断点 删除断点 tbreak命令 continue命令 backtrace命令 查看当前所处的函数堆栈帧 选择函数堆栈帧 打印函数局部变量 run命令 修改变量值 查看变量类型 查看线程运行 启动图像界面  原理 断点功能一般是通过gdb捕获特定的内核信号来实现的，然后定位目标程序停止的地址来判断断点是否成功触发。大致的流程为， 首先gdb fork()出来一个子进程，该子进程启动目标程序(通过ptrace() 和 exec())， 父进程捕获该子进程的所有的信号(通过ptrace() 和 wait())，当子进程收到信号时，子进程就会被挂起，直到父进程通知其继续运行(通过ptrace())
+启动gdb 1 常规启动，非常多的提示信息:
+$ gdb GNU gdb (GDB) Red Hat Enterprise Linux 7.6.1-114.el7 Copyright (C) 2013 Free Software Foundation, Inc. License GPLv3&#43;: GNU GPL version 3 or later &lt;http://gnu."/>
 
-    <meta property="og:title" content="GDB tutorial" />
-<meta property="og:description" content="Start gdb or gdb -q # exit ctrl &#43; d or quit  Use g&#43;&#43; -g main.cpp -o main gdb main -q or gdb -q file main Debug runing program
-ps ux | grep showpng gdb showpng 28334 -q  CoreDump ** Check if off **
-ulimit -c 0 # is off # tmp use ulimit -c unlimited ulimit -c unlimited # turn open permanent use
-vim /etc/security/limits.conf # add line * soft core unlimited # and echo &quot;core." />
+    <meta property="og:title" content="Use_gdb" />
+<meta property="og:description" content="GDB 教程 转载自：https://github.com/DAN-AND-DNA/learn-gdb-by-example-for-c.git
+ 内容  原理 启动gdb 退出gdb 为gdb进行编译 调试程序 CoreDump简单概念 产生CoreDump文件 调试CoreDump文件 help命令 list命令 start命令 next命令 step命令 break命令 查看断点 删除断点 tbreak命令 continue命令 backtrace命令 查看当前所处的函数堆栈帧 选择函数堆栈帧 打印函数局部变量 run命令 修改变量值 查看变量类型 查看线程运行 启动图像界面  原理 断点功能一般是通过gdb捕获特定的内核信号来实现的，然后定位目标程序停止的地址来判断断点是否成功触发。大致的流程为， 首先gdb fork()出来一个子进程，该子进程启动目标程序(通过ptrace() 和 exec())， 父进程捕获该子进程的所有的信号(通过ptrace() 和 wait())，当子进程收到信号时，子进程就会被挂起，直到父进程通知其继续运行(通过ptrace())
+启动gdb 1 常规启动，非常多的提示信息:
+$ gdb GNU gdb (GDB) Red Hat Enterprise Linux 7.6.1-114.el7 Copyright (C) 2013 Free Software Foundation, Inc. License GPLv3&#43;: GNU GPL version 3 or later &lt;http://gnu." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://6923403.github.io/post/use_gdb/" />
-<meta property="article:published_time" content="2020-08-07T16:45:20+08:00" />
-<meta property="article:modified_time" content="2020-08-07T16:45:20+08:00" />
+<meta property="article:published_time" content="2021-03-17T23:02:08+08:00" />
+<meta property="article:modified_time" content="2021-03-17T23:02:08+08:00" />
 
 
   </head>
@@ -67,163 +67,1166 @@ vim /etc/security/limits.conf # add line * soft core unlimited # and echo &quot;
       
   <article class="post">
     <header class="post-header">
-      <h1 class ="post-title">GDB tutorial</h1>
+      <h1 class ="post-title">Use_gdb</h1>
       <div class="post-meta">         
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
   <title>calendar</title>
   <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
 </svg>
-          Aug 7, 2020
+          Mar 17, 2021
         </div>
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          Take 2 min read
+          Take 15 min read
         </div><div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
   <title>tag</title>
   <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line>
 </svg>
-          <a class="tag" href="https://6923403.github.io/tags/gdb/">GDB</a><a class="tag" href="https://6923403.github.io/tags/linux/">Linux</a><a class="tag" href="https://6923403.github.io/tags/cpp/">CPP</a></div></div>
+          <a class="tag" href="https://6923403.github.io/tags/linux/">Linux</a><a class="tag" href="https://6923403.github.io/tags/gdb/">GDB</a><a class="tag" href="https://6923403.github.io/tags/cpp/">CPP</a></div></div>
     </header>
     <div class="post-content">
-      <h1 id="start">Start</h1>
-<pre><code>gdb or gdb -q
-# exit
-ctrl + d or quit
-</code></pre><hr>
-<h1 id="use">Use</h1>
-<pre><code>g++ -g main.cpp -o main
-gdb main -q 
-or
-gdb -q 
-file main
-</code></pre><p><strong>Debug runing program</strong></p>
-<pre><code>ps ux | grep showpng 
-gdb showpng 28334 -q
-</code></pre><p><img src="/img/usegdb/gdbps.png" alt="psux"></p>
+      <h1 id="gdb-教程">GDB 教程</h1>
+<p>转载自：https://github.com/DAN-AND-DNA/learn-gdb-by-example-for-c.git</p>
 <hr>
-<h1 id="coredump">CoreDump</h1>
-<p>** Check if off **</p>
-<pre><code>ulimit -c
-0 # is off
-# tmp use 
-ulimit -c unlimited
+<h2 id="内容">内容</h2>
+<ul>
+<li><a href="#%E5%8E%9F%E7%90%86">原理</a></li>
+<li><a href="#%E5%90%AF%E5%8A%A8gdb">启动gdb</a></li>
+<li><a href="#%E9%80%80%E5%87%BAgdb">退出gdb</a></li>
+<li><a href="#%E4%B8%BAgdb%E8%BF%9B%E8%A1%8C%E7%BC%96%E8%AF%91">为gdb进行编译</a></li>
+<li><a href="#%E8%B0%83%E8%AF%95%E7%A8%8B%E5%BA%8F">调试程序</a></li>
+<li><a href="#CoreDump%E7%AE%80%E5%8D%95%E6%A6%82%E5%BF%B5">CoreDump简单概念</a></li>
+<li><a href="#%E4%BA%A7%E7%94%9FCoreDump%E6%96%87%E4%BB%B6">产生CoreDump文件</a></li>
+<li><a href="#%E8%B0%83%E8%AF%95CoreDump%E6%96%87%E4%BB%B6">调试CoreDump文件</a></li>
+<li><a href="#help%E5%91%BD%E4%BB%A4">help命令</a></li>
+<li><a href="#list%E5%91%BD%E4%BB%A4">list命令</a></li>
+<li><a href="#start%E5%91%BD%E4%BB%A4">start命令</a></li>
+<li><a href="#next%E5%91%BD%E4%BB%A4">next命令</a></li>
+<li><a href="#step%E5%91%BD%E4%BB%A4">step命令</a></li>
+<li><a href="#break%E5%91%BD%E4%BB%A4">break命令</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E6%96%AD%E7%82%B9">查看断点</a></li>
+<li><a href="#%E5%88%A0%E9%99%A4%E6%96%AD%E7%82%B9">删除断点</a></li>
+<li><a href="#tbreak%E5%91%BD%E4%BB%A4">tbreak命令</a></li>
+<li><a href="#continue%E5%91%BD%E4%BB%A4">continue命令</a></li>
+<li><a href="#backtrace%E5%91%BD%E4%BB%A4">backtrace命令</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E6%89%80%E5%A4%84%E7%9A%84%E5%87%BD%E6%95%B0%E5%A0%86%E6%A0%88%E5%B8%A7">查看当前所处的函数堆栈帧</a></li>
+<li><a href="#%E9%80%89%E6%8B%A9%E5%87%BD%E6%95%B0%E5%A0%86%E6%A0%88%E5%B8%A7">选择函数堆栈帧</a></li>
+<li><a href="#%E6%89%93%E5%8D%B0%E5%87%BD%E6%95%B0%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F">打印函数局部变量</a></li>
+<li><a href="#run%E5%91%BD%E4%BB%A4">run命令</a></li>
+<li><a href="#%E4%BF%AE%E6%94%B9%E5%8F%98%E9%87%8F%E5%80%BC">修改变量值</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B">查看变量类型</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E7%BA%BF%E7%A8%8B%E8%BF%90%E8%A1%8C">查看线程运行</a></li>
+<li><a href="#%E5%90%AF%E5%8A%A8%E5%9B%BE%E5%83%8F%E7%95%8C%E9%9D%A2">启动图像界面</a></li>
+</ul>
+<h2 id="原理">原理</h2>
+<p>断点功能一般是通过gdb捕获特定的内核信号来实现的，然后定位目标程序停止的地址来判断断点是否成功触发。大致的流程为，
+首先gdb fork()出来一个子进程，该子进程启动目标程序(通过ptrace() 和 exec())，
+父进程捕获该子进程的所有的信号(通过ptrace() 和 wait())，当子进程收到信号时，子进程就会被挂起，直到父进程通知其继续运行(通过ptrace())</p>
+<h2 id="启动gdb">启动gdb</h2>
+<p>1 常规启动，非常多的提示信息:</p>
+<pre><code>$ gdb
+GNU gdb (GDB) Red Hat Enterprise Linux 7.6.1-114.el7
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later &lt;http://gnu.org/licenses/gpl.html&gt;
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type &quot;show copying&quot;
+and &quot;show warranty&quot; for details.
+This GDB was configured as &quot;x86_64-redhat-linux-gnu&quot;.
+For bug reporting instructions, please see:
+&lt;http://www.gnu.org/software/gdb/bugs/&gt;.
+(gdb)
+</code></pre>
+<p>2 简约启动，关闭提示信息:</p>
+<pre><code>$ gdb -q
+(gdb)
+</code></pre>
+<h2 id="退出gdb">退出gdb</h2>
+<p>1 输入quit:</p>
+<pre><code>$ gdb -q
+(gdb) quit
+</code></pre>
+<p>2 输入Ctrl-d:</p>
+<pre><code>$ gdb -q
+(gdb) quit
+</code></pre>
+<h2 id="为gdb进行编译">为gdb进行编译</h2>
+<pre><code>为了获得调试信息，需要添加 CFLAGS=-g -o0 选项
+</code></pre>
+<p>具体参考<a href="https://sourceware.org/gdb/current/onlinedocs/gdb/Compilation.html#Compilation">gdb手册</a></p>
+<h2 id="调试程序">调试程序</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">//boom.c
+</span><span style="color:#75715e"></span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">fun</span>(<span style="color:#66d9ef">void</span>)
+{
+    printf(<span style="color:#e6db74">&#34;hello</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+}
+    
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    fun();
+    sleep(<span style="color:#ae81ff">1000</span>);
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><p>1 直接启动:</p>
+<p>方法1</p>
+<pre><code>$ gdb boom -q
+(gdb) 
+</code></pre>
+<p>方法2</p>
+<pre><code>$ gdb -q
+(gdb) file boom 
+Reading symbols from /home/dan/work/learn_core/build/bin/boom...done.
+(gdb)
+</code></pre>
+<p>2 调试正在运行的程序:</p>
+<pre><code>$ ps ux | grep boom | grep -v 'grep' 
+dan       5647  0.0  0.0  11520   472 pts/0    S+   15:31   0:00 ./boom
 
-ulimit -c
-unlimited # turn open
-</code></pre><p><strong>permanent use</strong></p>
-<pre><code>vim /etc/security/limits.conf
-# add line 
+
+$ gdb boom 5647 -q
+Reading symbols from /home/dan/work/learn_core/build/bin/boom...done.
+Attaching to program: /home/dan/work/learn_core/build/bin/boom, process 5647
+Reading symbols from /lib64/libpthread.so.0...(no debugging symbols found)...done.
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library &quot;/lib64/libthread_db.so.1&quot;.
+Loaded symbols for /lib64/libpthread.so.0
+Reading symbols from /lib64/libdl.so.2...(no debugging symbols found)...done.
+Loaded symbols for /lib64/libdl.so.2
+Reading symbols from /lib64/libm.so.6...(no debugging symbols found)...done.
+Loaded symbols for /lib64/libm.so.6
+Reading symbols from /lib64/libc.so.6...(no debugging symbols found)...done.
+Loaded symbols for /lib64/libc.so.6
+Reading symbols from /lib64/ld-linux-x86-64.so.2...(no debugging symbols found)...done.
+Loaded symbols for /lib64/ld-linux-x86-64.so.2
+0x00007f1e2185be10 in __nanosleep_nocancel () from /lib64/libc.so.6
+Missing separate debuginfos, use: debuginfo-install glibc-2.17-260.el7.x86_64
+(gdb) 
+</code></pre>
+<p>具体参考<a href="https://sourceware.org/gdb/onlinedocs/gdb/Invoking-GDB.html#Invoking-GDB">gdb手册</a></p>
+<h2 id="coredump简单概念">CoreDump简单概念</h2>
+<p>CoreDump即核心转储，是程序运行异常崩溃时，系统内核为该程序产生的内存、寄存器、运行栈等快照，并保存为一个二进制文件，可以利用该文件进行GDB调试，发现运行错误。</p>
+<h2 id="产生coredump文件">产生CoreDump文件</h2>
+<p>查看系统是否已经开启了该功能:</p>
+<pre><code>$ ulimit -c
+0
+</code></pre>
+<p>上述输出结果为0说明当前系统已经关闭了该功能，所以需要打开该功能:</p>
+<p>临时启用</p>
+<pre><code>$ ulimit -c unlimited
+$ ulimit -c
+unlimited
+</code></pre>
+<p>永久启用</p>
+<pre><code>在/etc/security/limits.conf添加一行:
 *       soft    core    unlimited
-# and 
-echo &quot;core.%e.%p.%t&quot; &gt;/proc/sys/kernel/core_pattern
-</code></pre><p><strong>gdb core</strong></p>
-<pre><code>gdb core* -q
-# or
-gdb -q 
-core core*
-</code></pre><hr>
-<h1 id="list">List</h1>
-<p><strong>1. list num</strong></p>
-<pre><code>gdb main -q
-list 7
-# or
-l 7
-</code></pre><p><img src="/img/usegdb/gdblist.png" alt="list"></p>
-<p><strong>2. list func</strong></p>
-<pre><code>l main
-</code></pre><p><img src="/img/usegdb/listfunc.png" alt="func"></p>
-<p><strong>3. list range</strong></p>
-<pre><code>list 1,20
-</code></pre><p><img src="/img/usegdb/listrange.png" alt="area"></p>
-<hr>
-<h1 id="debug">Debug</h1>
-<p><strong>1. start</strong>
-<strong>start set temp-block</strong></p>
-<pre><code>start
-</code></pre><p><strong>2. next</strong>
-<strong>run to the next line</strong></p>
-<pre><code>next
-# or 
-n
-</code></pre><p><strong>3. next num</strong></p>
-<pre><code># run 3 rows continuously
-n 3
-</code></pre><hr>
-<h1 id="step">Step</h1>
-<p><strong>Run the next line of code</strong></p>
-<pre><code>step
-# or 
-s
-</code></pre><hr>
-<h1 id="break">Break</h1>
-<p><strong>1. Set break</strong></p>
-<pre><code>break 10
-# or
-b 10
-</code></pre><p><strong>2. See break</strong></p>
-<pre><code># info b
-i b
-</code></pre><p><strong>3. you can use &lsquo;run&rsquo; or &lsquo;r&rsquo;</strong></p>
-<pre><code>run
-# or
-r
-</code></pre><p><strong>4. delete break</strong></p>
-<pre><code>#d num
-d 1
-</code></pre><p><img src="/img/usegdb/gdbbreak.png" alt="break"></p>
-<p><strong>5. tempbreak</strong></p>
-<pre><code>tb 100
-</code></pre><p><strong>6. continue</strong></p>
-<pre><code>#continue run program
-c
-</code></pre><hr>
-<h1 id="backtrace">backtrace</h1>
-<p><strong>1. Print function stack frame, trace back the entire call process</strong></p>
-<pre><code>bt
-</code></pre><p><strong>2. Partial printing</strong></p>
-<pre><code>bt full
-</code></pre><p><strong>3. current function stack frame</strong></p>
-<pre><code>i frame
-</code></pre><p><strong>4. choose function stack frame</strong></p>
-<pre><code>bt
-f 1
-</code></pre><p><img src="/img/usegdb/gdbbt.png" alt="bt"></p>
-<p><strong>5. Print function local variables</strong></p>
-<pre><code>info locals
-</code></pre><hr>
-<h1 id="value">Value</h1>
-<p><strong>1. Print value and modify value(p &amp; set)</strong>
-<em>int i = 0</em></p>
-<pre><code>p i
-# 0
 
-set var i = 10
-p i
-# 10
-</code></pre><p><strong>2. View value type</strong></p>
-<pre><code>ptype error
-</code></pre><p><img src="/img/usegdb/type.png" alt="type"></p>
-<hr>
-<h1 id="thread-status">Thread status</h1>
-<p><strong>1. Info threads</strong></p>
-<pre><code>i threads
-</code></pre><p><img src="/img/usegdb/ithread.png" alt="thread"></p>
-<p><strong>2. Print specified thread stack</strong></p>
-<pre><code>thread apply 3 bt
-</code></pre><p><strong>3. Print all thread stack</strong></p>
-<pre><code>thread apply all bt
-</code></pre><hr>
-<h1 id="use-gui">Use-GUI</h1>
-<pre><code>gdb file -tui -q
-</code></pre><hr>
-<blockquote>
-<p>Re: <a href="https://github.com/DAN-AND-DNA/learn-gdb-by-example-for-c">https://github.com/DAN-AND-DNA/learn-gdb-by-example-for-c</a></p>
-</blockquote>
+修改文件格式，例如：
+echo &quot;core.%e.%p.%t&quot; &gt;/proc/sys/kernel/core_pattern
+or
+echo &quot;/home/dan/mycore/core.%e.%p.%t&quot; &gt;/proc/sys/kernel/core_pattern
+</code></pre>
+<h2 id="调试coredump文件">调试CoreDump文件</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span> 
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> p <span style="color:#f92672">=</span> NULL;
+    printf(<span style="color:#e6db74">&#34;here&#34;</span>);
+    <span style="color:#f92672">*</span>p <span style="color:#f92672">=</span> <span style="color:#ae81ff">7</span>;
+    sleep(<span style="color:#ae81ff">1000</span>);
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><p>运行上述程序就会产生core dump 文件，如果修了core dump文件的位置就需要加上绝对地址如:</p>
+<p>方法1</p>
+<pre><code>$ gdb /home/dan/work/learn_core/build/bin/boom /home/dan/mycore/core.boom.5859.1557305516 -q
+Reading symbols from /home/dan/work/learn_core/build/bin/boom...done.
+[New LWP 5859]
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library &quot;/lib64/libthread_db.so.1&quot;.
+Core was generated by `./boom'.
+Program terminated with signal 11, Segmentation fault.
+#0  0x0000000000400770 in main () at /home/dan/work/learn_core/boom.c:8
+8           *p = 7;
+Missing separate debuginfos, use: debuginfo-install glibc-2.17-260.el7.x86_64
+(gdb) 
+</code></pre>
+<p>方法2</p>
+<pre><code>gdb -q
+(gdb) file /home/dan/work/learn_core/build/bin/boom
+Reading symbols from /home/dan/work/learn_core/build/bin/boom...done.
+(gdb) core /home/dan/mycore/core.boom.5859.1557305516
+[New LWP 5859]
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library &quot;/lib64/libthread_db.so.1&quot;.
+Core was generated by `./boom'.
+Program terminated with signal 11, Segmentation fault.
+#0  0x0000000000400770 in main () at /home/dan/work/learn_core/boom.c:8
+8           *p = 7;
+Missing separate debuginfos, use: debuginfo-install glibc-2.17-260.el7.x86_64
+(gdb) 
+</code></pre>
+<p>如果没有修改core dump文件的位置，该文件就会在程序的当前位置产生，就可以直接启动如:</p>
+<p>方法1</p>
+<pre><code>$ gdb boom core.boom.5941.1557306910 -q
+Reading symbols from /home/dan/work/learn_core/build/bin/boom...done.
+[New LWP 5941]
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library &quot;/lib64/libthread_db.so.1&quot;.
+Core was generated by `./boom'.
+Program terminated with signal 11, Segmentation fault.
+#0  0x0000000000400770 in main () at /home/dan/work/learn_core/boom.c:8
+8           *p = 7;
+Missing separate debuginfos, use: debuginfo-install glibc-2.17-260.el7.x86_64
+(gdb) 
+</code></pre>
+<p>方法2</p>
+<pre><code>$ gdb -q
+(gdb) file boom
+Reading symbols from /home/dan/work/learn_core/build/bin/boom...done.
+(gdb) core  core.boom.5941.1557306910
+[New LWP 5941]
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library &quot;/lib64/libthread_db.so.1&quot;.
+Core was generated by `./boom'.
+Program terminated with signal 11, Segmentation fault.
+#0  0x0000000000400770 in main () at /home/dan/work/learn_core/boom.c:8
+8           *p = 7;
+Missing separate debuginfos, use: debuginfo-install glibc-2.17-260.el7.x86_64
+(gdb) 
+</code></pre>
+<h2 id="help命令">help命令</h2>
+<p>简写为h，查询命令帮助手册，例如:</p>
+<pre><code>$ gdb -q
+(gdb) help start
+Run the debugged program until the beginning of the main procedure.
+You may specify arguments to give to your program, just as with the
+&quot;run&quot; command.
+(gdb) 
+</code></pre>
+<h2 id="list命令">list命令</h2>
+<p>简写为l，查看源代码，例如:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span> 
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func</span>()
+{
+    printf(<span style="color:#e6db74">&#34;here&#34;</span>);
+}
+      
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">int</span> a <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    func();
+    a<span style="color:#f92672">++</span>;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><p>list num 指定行号</p>
+<pre><code>$ gdb boom -q
+Reading symbols from /home/dan/work/learn_core/build/bin/boom...done.
+(gdb) l 7
+
+void func()
+{
+    printf(&quot;here&quot;);
+}
+
+
+int main()
+{
+    int a = 0;
+</code></pre>
+<p>list function 指定函数名</p>
+<pre><code>$ gdb boom -q
+Reading symbols from /home/dan/work/learn_core/build/bin/boom...done.
+(gdb) list func
+#include &lt;stdio.h&gt;
+
+void func()
+{
+    printf(&quot;here&quot;);
+}
+
+int main()
+{
+    int a = 0;
+(gdb) 
+</code></pre>
+<p>list start,end 指定范围</p>
+<pre><code>$ gdb boom -q
+Reading symbols from /home/dan/work/learn_core/build/bin/boom...done.
+(gdb) list 1,22
+#include &lt;stdio.h&gt;
+
+void func()
+{
+    printf(&quot;here&quot;);
+}
+
+int main()
+{
+    int a = 0;
+    func();
+    a++;
+    return 0;
+}
+(gdb) 
+</code></pre>
+<p>list + 向后打印
+list - 向前打印</p>
+<h2 id="start命令">start命令</h2>
+<p>start命令会给main函数的第一个可执行语句打上临时断点，然后运行程序直到该断点，例如:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span> 
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func</span>()
+{
+    printf(<span style="color:#e6db74">&#34;here&#34;</span>);
+}
+      
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">int</span> a <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    func();
+    a<span style="color:#f92672">++</span>;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><pre><code>gdb boom -q
+Reading symbols from /home/dan/work/learn_core/build/bin/boom...done.
+(gdb) start
+Temporary breakpoint 1 at 0x40074a: file /home/dan/work/learn_core/boom.c, line 10.
+Starting program: /home/dan/work/learn_core/build/bin/boom 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library &quot;/lib64/libthread_db.so.1&quot;.
+
+Temporary breakpoint 1, main () at /home/dan/work/learn_core/boom.c:10
+10          int a = 0;
+Missing separate debuginfos, use: debuginfo-install glibc-2.17-260.el7.x86_64
+(gdb) 
+</code></pre>
+<h2 id="next命令">next命令</h2>
+<p>简写为n，继续运行到下一个代码行，遇到函数则直接运行函数，例如:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span> 
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func</span>()
+{
+    printf(<span style="color:#e6db74">&#34;here&#34;</span>);
+}
+      
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">int</span> a <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    func();
+    a<span style="color:#f92672">++</span>;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><pre><code>$ gdb boom -q
+Reading symbols from /home/dan/work/learn_core/build/bin/boom...done.
+(gdb) start
+Temporary breakpoint 1 at 0x40074a: file /home/dan/work/learn_core/boom.c, line 10.
+Starting program: /home/dan/work/learn_core/build/bin/boom 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library &quot;/lib64/libthread_db.so.1&quot;.
+
+Temporary breakpoint 1, main () at /home/dan/work/learn_core/boom.c:10
+10          int a = 0;
+Missing separate debuginfos, use: debuginfo-install glibc-2.17-260.el7.x86_64
+(gdb) next
+11          func();
+(gdb) n
+12          a++;
+(gdb) 
+13          return 0;
+(gdb) 
+14      }
+(gdb) 
+0x00007ffff730e3d5 in __libc_start_main () from /lib64/libc.so.6
+(gdb) 
+Single stepping until exit from function __libc_start_main,
+which has no line number information.
+here[Inferior 1 (process 6236) exited normally]
+(gdb) 
+</code></pre>
+<p>next num 可以指定连续运行的代码行数量，例如:</p>
+<pre><code>(gdb) start
+Temporary breakpoint 2 at 0x40074a: file /home/dan/work/learn_core/boom.c, line 10.
+Starting program: /home/dan/work/learn_core/build/bin/boom 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library &quot;/lib64/libthread_db.so.1&quot;.
+
+Temporary breakpoint 2, main () at /home/dan/work/learn_core/boom.c:10
+10          int a = 0;
+(gdb) n 3
+13          return 0;
+(gdb) 
+</code></pre>
+<h2 id="step命令">step命令</h2>
+<p>简写为s，继续运行到下一个代码行，遇到函数则进入函数，例如:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span> 
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func</span>()
+{
+    printf(<span style="color:#e6db74">&#34;here&#34;</span>);
+}
+      
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">int</span> a <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    func();
+    a<span style="color:#f92672">++</span>;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><pre><code>$ gdb boom -q
+Reading symbols from /home/dan/work/learn_core/build/bin/boom...done.
+(gdb) start
+Temporary breakpoint 1 at 0x40074a: file /home/dan/work/learn_core/boom.c, line 10.
+Starting program: /home/dan/work/learn_core/build/bin/boom 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library &quot;/lib64/libthread_db.so.1&quot;.
+
+Temporary breakpoint 1, main () at /home/dan/work/learn_core/boom.c:10
+10          int a = 0;
+Missing separate debuginfos, use: debuginfo-install glibc-2.17-260.el7.x86_64
+(gdb) step
+11          func();
+(gdb) 
+func () at /home/dan/work/learn_core/boom.c:5
+5           printf(&quot;here&quot;);
+(gdb) 
+6       }
+(gdb) 
+main () at /home/dan/work/learn_core/boom.c:12
+12          a++;
+(gdb) 
+13          return 0;
+(gdb) 
+14      }
+(gdb) 
+0x00007ffff730e3d5 in __libc_start_main () from /lib64/libc.so.6
+(gdb) 
+Single stepping until exit from function __libc_start_main,
+which has no line number information.
+here[Inferior 1 (process 6252) exited normally]
+(gdb) 
+</code></pre>
+<h2 id="break命令">break命令</h2>
+<p>简写为b，设置断点，程序运行到断点就会暂停挂起，例如:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span> 
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func</span>()
+{
+    printf(<span style="color:#e6db74">&#34;here&#34;</span>);
+}
+      
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">int</span> a <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    func();
+    a<span style="color:#f92672">++</span>;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><pre><code>gdb boom -q
+Reading symbols from /home/dan/work/learn_core/build/bin/boom...done.
+(gdb) list 1,20
+1       #include &lt;stdio.h&gt;
+2
+3       void func()
+4       {
+5           printf(&quot;here&quot;);
+6       }
+7
+8       int main()
+9       {
+10          int a = 0;
+11          func();
+12          a++;
+13          return 0;
+14      }
+(gdb) b 5
+Breakpoint 1 at 0x400731: file /home/dan/work/learn_core/boom.c, line 5.
+(gdb) run
+Starting program: /home/dan/work/learn_core/build/bin/boom 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library &quot;/lib64/libthread_db.so.1&quot;.
+
+Breakpoint 1, func () at /home/dan/work/learn_core/boom.c:5
+5           printf(&quot;here&quot;);
+Missing separate debuginfos, use: debuginfo-install glibc-2.17-260.el7.x86_64
+(gdb) 
+</code></pre>
+<h2 id="查看断点">查看断点</h2>
+<p>info breakpoints 可以查看全部设置的断点，命令缩写成 i b，例如:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span> 
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func</span>()
+{
+    printf(<span style="color:#e6db74">&#34;here&#34;</span>);
+}
+      
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">int</span> a <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    func();
+    a<span style="color:#f92672">++</span>;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><pre><code>$ gdb boom -q
+Reading symbols from /home/dan/work/learn_core/build/bin/boom...done.
+(gdb) list 1,20
+1       #include &lt;stdio.h&gt;
+2
+3       void func()
+4       {
+5           printf(&quot;here&quot;);
+6       }
+7
+8       int main()
+9       {
+10          int a = 0;
+11          func();
+12          a++;
+13          return 0;
+14      }
+(gdb) b 5
+Breakpoint 1 at 0x400731: file /home/dan/work/learn_core/boom.c, line 5.
+(gdb) info break
+Num     Type           Disp Enb Address            What
+1       breakpoint     keep y   0x0000000000400731 in func at /home/dan/work/learn_core/boom.c:5
+(gdb) 
+</code></pre>
+<h2 id="删除断点">删除断点</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span> 
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func</span>()
+{
+    printf(<span style="color:#e6db74">&#34;here&#34;</span>);
+}
+      
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">int</span> a <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    func();
+    a<span style="color:#f92672">++</span>;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><pre><code>$ gdb boom -q
+Reading symbols from /home/dan/work/learn_core/build/bin/boom...done.
+(gdb) list 1,20
+1       #include &lt;stdio.h&gt;
+2
+3       void func()
+4       {
+5           printf(&quot;here&quot;);
+6       }
+7
+8       int main()
+9       {
+10          int a = 0;
+11          func();
+12          a++;
+13          return 0;
+14      }
+(gdb) b 5
+Breakpoint 1 at 0x400731: file /home/dan/work/learn_core/boom.c, line 5.
+(gdb) info break
+Num     Type           Disp Enb Address            What
+1       breakpoint     keep y   0x0000000000400731 in func at /home/dan/work/learn_core/boom.c:5
+(gdb) delete 1
+(gdb) info break
+No breakpoints or watchpoints.
+(gdb) 
+</code></pre>
+<h2 id="tbreak命令">tbreak命令</h2>
+<p>设置临时断点，指令简写为ts，该断点一旦触发就会失效例如:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span> 
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func</span>()
+{
+    printf(<span style="color:#e6db74">&#34;here&#34;</span>);
+}
+      
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">int</span> a <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    func();
+    a<span style="color:#f92672">++</span>;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><pre><code>$ gdb boom -q
+Reading symbols from /home/dan/work/learn_core/build/bin/boom...done.
+(gdb) tb 5
+Temporary breakpoint 1 at 0x400731: file /home/dan/work/learn_core/boom.c, line 5.
+(gdb) info b
+Num     Type           Disp Enb Address            What
+1       breakpoint     del  y   0x0000000000400731 in func at /home/dan/work/learn_core/boom.c:5
+(gdb) run
+Starting program: /home/dan/work/learn_core/build/bin/boom 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library &quot;/lib64/libthread_db.so.1&quot;.
+
+Temporary breakpoint 1, func () at /home/dan/work/learn_core/boom.c:5
+5           printf(&quot;here&quot;);
+Missing separate debuginfos, use: debuginfo-install glibc-2.17-260.el7.x86_64
+(gdb) info b
+No breakpoints or watchpoints.
+(gdb)
+</code></pre>
+<h2 id="continue命令">continue命令</h2>
+<p>遇到断点可以选择next，step等命令继续运行到下一个代码行，也可以使用continue，继续运行整个程序，例如:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span> 
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func3</span>()
+{
+    <span style="color:#66d9ef">int</span> d <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>;
+    printf(<span style="color:#e6db74">&#34;d=%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, d);
+}
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func2</span>()
+{
+    <span style="color:#66d9ef">int</span> c <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>;
+    printf(<span style="color:#e6db74">&#34;c=%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, c);
+    func3();
+}
+ 
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func1</span>()
+{
+    <span style="color:#66d9ef">int</span> b <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
+    printf(<span style="color:#e6db74">&#34;b=%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, b);
+    func2();
+}
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">int</span> a  <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+    printf(<span style="color:#e6db74">&#34;a=%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, a);
+    func1();
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><pre><code>$ gdb boom -q
+Reading symbols from /home/dan/work/learn_core/build/bin/boom...done.
+(gdb) b 5
+Breakpoint 1 at 0x400775: file /home/dan/work/learn_core/boom.c, line 5.
+(gdb) r
+Starting program: /home/dan/work/learn_core/build/bin/boom 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library &quot;/lib64/libthread_db.so.1&quot;.
+a=1
+b=2
+c=3
+
+Breakpoint 1, func3 () at /home/dan/work/learn_core/boom.c:5
+5           int d = 4;
+Missing separate debuginfos, use: debuginfo-install glibc-2.17-260.el7.x86_64
+(gdb) c
+Continuing.
+d=4
+[Inferior 1 (process 4209) exited normally]
+(gdb) 
+</code></pre>
+<h2 id="backtrace命令">backtrace命令</h2>
+<p>打印函数堆栈帧，回溯整个调用过程，之类简写为bt，例如:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func3</span>()
+{
+    <span style="color:#66d9ef">int</span> d <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>;
+    (<span style="color:#66d9ef">void</span>)(d);
+    <span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> p <span style="color:#f92672">=</span> NULL;
+    <span style="color:#f92672">*</span>p <span style="color:#f92672">=</span> <span style="color:#ae81ff">7</span>;
+}
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func2</span>()
+{
+    <span style="color:#66d9ef">int</span> c <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>;
+    (<span style="color:#66d9ef">void</span>)(c);
+    func3();
+}
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func1</span>()
+{
+    <span style="color:#66d9ef">int</span> b <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
+    (<span style="color:#66d9ef">void</span>)(b);
+    func2();
+}
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">int</span> a  <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+    (<span style="color:#66d9ef">void</span>)(a);
+    func1();
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+               
+</code></pre></div><pre><code>gdb boom core.boom.4042.1557369051 -q
+Reading symbols from /home/dan/work/learn_core/build/bin/boom...done.
+[New LWP 4042]
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library &quot;/lib64/libthread_db.so.1&quot;.
+Core was generated by `./boom'.
+Program terminated with signal 11, Segmentation fault.
+#0  0x0000000000400744 in func3 () at /home/dan/work/learn_core/boom.c:8
+8           *p = 7;
+Missing separate debuginfos, use: debuginfo-install glibc-2.17-260.el7.x86_64
+(gdb) bt
+#0  0x0000000000400744 in func3 () at /home/dan/work/learn_core/boom.c:8
+#1  0x0000000000400765 in func2 () at /home/dan/work/learn_core/boom.c:15
+#2  0x0000000000400780 in func1 () at /home/dan/work/learn_core/boom.c:22
+#3  0x000000000040079b in main () at /home/dan/work/learn_core/boom.c:29
+</code></pre>
+<p>bt full 可以打印每个函数的局部变量</p>
+<pre><code>(gdb) bt full
+#0  0x0000000000400744 in func3 () at /home/dan/work/learn_core/boom.c:8
+        d = 4
+        p = 0x0
+#1  0x0000000000400765 in func2 () at /home/dan/work/learn_core/boom.c:15
+        c = 3
+#2  0x0000000000400780 in func1 () at /home/dan/work/learn_core/boom.c:22
+        b = 2
+#3  0x000000000040079b in main () at /home/dan/work/learn_core/boom.c:29
+        a = 1
+(gdb) 
+</code></pre>
+<h2 id="查看当前所处的函数堆栈帧">查看当前所处的函数堆栈帧</h2>
+<p>通过 info frame 可以查看当前所处的函数堆栈帧信息，例如:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func3</span>()
+{
+    <span style="color:#66d9ef">int</span> d <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>;
+    (<span style="color:#66d9ef">void</span>)(d);
+    <span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> p <span style="color:#f92672">=</span> NULL;
+    <span style="color:#f92672">*</span>p <span style="color:#f92672">=</span> <span style="color:#ae81ff">7</span>;
+}
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func2</span>()
+{
+    <span style="color:#66d9ef">int</span> c <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>;
+    (<span style="color:#66d9ef">void</span>)(c);
+    func3();
+}
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func1</span>()
+{
+    <span style="color:#66d9ef">int</span> b <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
+    (<span style="color:#66d9ef">void</span>)(b);
+    func2();
+}
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">int</span> a  <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+    (<span style="color:#66d9ef">void</span>)(a);
+    func1();
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+               
+</code></pre></div><pre><code>$ gdb boom core.boom.4042.1557369051 -q
+Reading symbols from /home/dan/work/learn_core/build/bin/boom...done.
+[New LWP 4042]
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library &quot;/lib64/libthread_db.so.1&quot;.
+Core was generated by `./boom'.
+Program terminated with signal 11, Segmentation fault.
+#0  0x0000000000400744 in func3 () at /home/dan/work/learn_core/boom.c:8
+8           *p = 7;
+Missing separate debuginfos, use: debuginfo-install glibc-2.17-260.el7.x86_64
+(gdb) i frame
+Stack level 0, frame at 0x7ffddb0d63d0:
+rip = 0x400744 in func3 (/home/dan/work/learn_core/boom.c:8); saved rip 0x400765
+called by frame at 0x7ffddb0d63f0
+source language c.
+Arglist at 0x7ffddb0d63c0, args: 
+Locals at 0x7ffddb0d63c0, Previous frame's sp is 0x7ffddb0d63d0
+Saved registers:
+rbp at 0x7ffddb0d63c0, rip at 0x7ffddb0d63c8
+(gdb) 
+</code></pre>
+<h2 id="选择函数堆栈帧">选择函数堆栈帧</h2>
+<p>通过frame 可以选择指定的函数堆栈帧，该指令缩写为f，例如:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func3</span>()
+{
+    <span style="color:#66d9ef">int</span> d <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>;
+    (<span style="color:#66d9ef">void</span>)(d);
+    <span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> p <span style="color:#f92672">=</span> NULL;
+    <span style="color:#f92672">*</span>p <span style="color:#f92672">=</span> <span style="color:#ae81ff">7</span>;
+}
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func2</span>()
+{
+    <span style="color:#66d9ef">int</span> c <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>;
+    (<span style="color:#66d9ef">void</span>)(c);
+    func3();
+}
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func1</span>()
+{
+    <span style="color:#66d9ef">int</span> b <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
+    (<span style="color:#66d9ef">void</span>)(b);
+    func2();
+}
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">int</span> a  <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+    (<span style="color:#66d9ef">void</span>)(a);
+    func1();
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+               
+</code></pre></div><pre><code>$ gdb boom core.boom.4042.1557369051 -q
+Reading symbols from /home/dan/work/learn_core/build/bin/boom...done.
+[New LWP 4042]
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library &quot;/lib64/libthread_db.so.1&quot;.
+Core was generated by `./boom'.
+Program terminated with signal 11, Segmentation fault.
+#0  0x0000000000400744 in func3 () at /home/dan/work/learn_core/boom.c:8
+8           *p = 7;
+Missing separate debuginfos, use: debuginfo-install glibc-2.17-260.el7.x86_64
+(gdb) bt
+#0  0x0000000000400744 in func3 () at /home/dan/work/learn_core/boom.c:8
+#1  0x0000000000400765 in func2 () at /home/dan/work/learn_core/boom.c:15
+#2  0x0000000000400780 in func1 () at /home/dan/work/learn_core/boom.c:22
+#3  0x000000000040079b in main () at /home/dan/work/learn_core/boom.c:29
+(gdb) info frame
+Stack level 0, frame at 0x7ffddb0d63d0:
+rip = 0x400744 in func3 (/home/dan/work/learn_core/boom.c:8); saved rip 0x400765
+called by frame at 0x7ffddb0d63f0
+source language c.
+Arglist at 0x7ffddb0d63c0, args: 
+Locals at 0x7ffddb0d63c0, Previous frame's sp is 0x7ffddb0d63d0
+Saved registers:
+rbp at 0x7ffddb0d63c0, rip at 0x7ffddb0d63c8
+(gdb) frame 2
+#2  0x0000000000400780 in func1 () at /home/dan/work/learn_core/boom.c:22
+22          func2();
+(gdb) info frame
+Stack level 2, frame at 0x7ffddb0d6410:
+rip = 0x400780 in func1 (/home/dan/work/learn_core/boom.c:22); saved rip 0x40079b
+called by frame at 0x7ffddb0d6430, caller of frame at 0x7ffddb0d63f0
+source language c.
+Arglist at 0x7ffddb0d6400, args: 
+Locals at 0x7ffddb0d6400, Previous frame's sp is 0x7ffddb0d6410
+Saved registers:
+ rbp at 0x7ffddb0d6400, rip at 0x7ffddb0d6408
+(gdb) 
+</code></pre>
+<h2 id="打印函数局部变量">打印函数局部变量</h2>
+<p>通过info locals 可以打印当前函数堆栈帧内的局部变量，例如:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func3</span>()
+{
+    <span style="color:#66d9ef">int</span> d <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>;
+    (<span style="color:#66d9ef">void</span>)(d);
+    <span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> p <span style="color:#f92672">=</span> NULL;
+    <span style="color:#f92672">*</span>p <span style="color:#f92672">=</span> <span style="color:#ae81ff">7</span>;
+}
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func2</span>()
+{
+    <span style="color:#66d9ef">int</span> c <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>;
+    (<span style="color:#66d9ef">void</span>)(c);
+    func3();
+}
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func1</span>()
+{
+    <span style="color:#66d9ef">int</span> b <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
+    (<span style="color:#66d9ef">void</span>)(b);
+    func2();
+}
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">int</span> a  <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+    (<span style="color:#66d9ef">void</span>)(a);
+    func1();
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+               
+</code></pre></div><pre><code>$ gdb boom core.boom.4042.1557369051 -q
+Reading symbols from /home/dan/work/learn_core/build/bin/boom...done.
+[New LWP 4042]
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library &quot;/lib64/libthread_db.so.1&quot;.
+Core was generated by `./boom'.
+Program terminated with signal 11, Segmentation fault.
+#0  0x0000000000400744 in func3 () at /home/dan/work/learn_core/boom.c:8
+8           *p = 7;
+Missing separate debuginfos, use: debuginfo-install glibc-2.17-260.el7.x86_64
+(gdb) i frame
+Stack level 0, frame at 0x7ffddb0d63d0:
+rip = 0x400744 in func3 (/home/dan/work/learn_core/boom.c:8); saved rip 0x400765
+called by frame at 0x7ffddb0d63f0
+source language c.
+Arglist at 0x7ffddb0d63c0, args: 
+Locals at 0x7ffddb0d63c0, Previous frame's sp is 0x7ffddb0d63d0
+Saved registers:
+  rbp at 0x7ffddb0d63c0, rip at 0x7ffddb0d63c8
+(gdb) info locals
+d = 4
+p = 0x0
+(gdb) frame 1
+#1  0x0000000000400765 in func2 () at /home/dan/work/learn_core/boom.c:15
+15          func3();
+(gdb) info locals
+c = 3
+(gdb) 
+</code></pre>
+<h2 id="run命令">run命令</h2>
+<p>简写为 r，直接运行程序直到发生错误或者遇到断点，和start不同的是，不会在第一个可执行点暂停，例如:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func3</span>()
+{
+    <span style="color:#66d9ef">int</span> d <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>;
+    printf(<span style="color:#e6db74">&#34;d=%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, d);
+}
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func2</span>()
+{
+    <span style="color:#66d9ef">int</span> c <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>;
+    printf(<span style="color:#e6db74">&#34;c=%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, c);
+    func3();
+}
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func1</span>()
+{
+    <span style="color:#66d9ef">int</span> b <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
+    printf(<span style="color:#e6db74">&#34;b=%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, b);
+    func2();
+}
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">int</span> a  <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+    printf(<span style="color:#e6db74">&#34;a=%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, a);
+    func1();
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><pre><code>$ gdb boom -q
+Reading symbols from /home/dan/work/learn_core/build/bin/boom...done.
+(gdb) r
+Starting program: /home/dan/work/learn_core/build/bin/boom 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library &quot;/lib64/libthread_db.so.1&quot;.
+a=1
+b=2
+c=3
+d=4
+[Inferior 1 (process 4201) exited normally]
+Missing separate debuginfos, use: debuginfo-install glibc-2.17-260.el7.x86_64
+(gdb) b 5
+Breakpoint 1 at 0x400775: file /home/dan/work/learn_core/boom.c, line 5.
+(gdb) r
+Starting program: /home/dan/work/learn_core/build/bin/boom 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library &quot;/lib64/libthread_db.so.1&quot;.
+a=1
+b=2
+c=3
+
+Breakpoint 1, func3 () at /home/dan/work/learn_core/boom.c:5
+5           int d = 4;
+(gdb) 
+</code></pre>
+<h2 id="修改变量值">修改变量值</h2>
+<p>利用set 命令可以修改程序变量，利用print 可以打印变量的值，缩写为p，例如:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func1</span>()
+{
+    <span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+
+    <span style="color:#66d9ef">while</span>(i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">200</span>)
+    {
+        sleep(<span style="color:#ae81ff">1</span>);
+    }
+}
+ 
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    func1();
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+ 
+</code></pre></div><pre><code>$ gdb -q
+(gdb) file boom
+Reading symbols from /home/dan/work/learn_core/build/bin/boom...done.
+(gdb) b 8
+Breakpoint 1 at 0x40073c: file /home/dan/work/learn_core/boom.c, line 8.
+(gdb) r
+Starting program: /home/dan/work/learn_core/build/bin/boom 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library &quot;/lib64/libthread_db.so.1&quot;.
+
+Breakpoint 1, func1 () at /home/dan/work/learn_core/boom.c:8
+8           while(i &lt; 200)
+Missing separate debuginfos, use: debuginfo-install glibc-2.17-260.el7.x86_64
+(gdb) p i
+$1 = 0
+(gdb) set var i = 200
+(gdb) p i
+$2 = 200
+(gdb) s
+12      }
+(gdb) 
+main () at /home/dan/work/learn_core/boom.c:17
+17          return 0;
+(gdb) 
+18      }
+(gdb) 
+0x00007ffff730e3d5 in __libc_start_main () from /lib64/libc.so.6
+(gdb) 
+Single stepping until exit from function __libc_start_main,
+which has no line number information.
+[Inferior 1 (process 4361) exited normally]
+(gdb) 
+</code></pre>
+<p>要用print打印数组，如果数组的元素数量大于200，是没办法显示完全的，但是可以设置最大元素数量，如:</p>
+<pre><code>set print elements 0    //不进行限制
+</code></pre>
+<h2 id="查看变量类型">查看变量类型</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span> 
+
+<span style="color:#66d9ef">struct</span> User {
+    <span style="color:#66d9ef">char</span> openid[<span style="color:#ae81ff">15</span>];
+    <span style="color:#66d9ef">int</span>  age;
+};
+
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func1</span>()
+{
+    <span style="color:#66d9ef">struct</span> User u <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;wx1234567&#34;</span>, <span style="color:#ae81ff">7</span>};
+    printf(<span style="color:#e6db74">&#34;openid = %s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, u.openid);
+    <span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+
+    <span style="color:#66d9ef">while</span>(i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">200</span>)
+    {
+        sleep(<span style="color:#ae81ff">1</span>);
+    }
+}
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    func1();
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><pre><code>$ gdb boom -q
+Reading symbols from /home/dan/work/learn_core/build/bin/boom...done.
+(gdb) b 17
+Breakpoint 1 at 0x4007b8: file /home/dan/work/learn_core/boom.c, line 17.
+(gdb) r
+Starting program: /home/dan/work/learn_core/build/bin/boom 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library &quot;/lib64/libthread_db.so.1&quot;.
+openid = wx1234567
+
+Breakpoint 1, func1 () at /home/dan/work/learn_core/boom.c:17
+warning: Source file is more recent than executable.
+17          while(i &lt; 200)
+Missing separate debuginfos, use: debuginfo-install glibc-2.17-260.el7.x86_64
+(gdb) ptype u
+type = struct User {
+    char openid[15];
+    int age;
+}
+(gdb) 
+</code></pre>
+<h2 id="查看线程运行">查看线程运行</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;pthread.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+
+<span style="color:#66d9ef">void</span><span style="color:#f92672">*</span> <span style="color:#a6e22e">func</span>(<span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>p_arg)
+{
+    <span style="color:#66d9ef">while</span>(<span style="color:#ae81ff">1</span>)
+    {
+        sleep(<span style="color:#ae81ff">3</span>);
+    }
+}
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    pthread_t t1;
+    pthread_t t2;
+    <span style="color:#66d9ef">char</span> t1n[] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;t1&#34;</span>;
+    <span style="color:#66d9ef">char</span> t2n[] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;t2&#34;</span>;
+
+    pthread_create(<span style="color:#f92672">&amp;</span>t1, NULL, func, t1n);
+    pthread_create(<span style="color:#f92672">&amp;</span>t2, NULL, func, t2n);
+    sleep(<span style="color:#ae81ff">100</span>);
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><p>info threads 可以查看全部的线程运行情况，包括线程的id和系统id以及当前栈， info thread ID 可以查看单独的线程的运行情况。</p>
+<pre><code>$ gdb boom -q
+Reading symbols from /home/dan/work/learn_core/build/bin/boom...done.
+(gdb) b 23
+Breakpoint 1 at 0x40080b: file /home/dan/work/learn_core/boom.c, line 23.
+(gdb) r
+Starting program: /home/dan/work/learn_core/build/bin/boom 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library &quot;/lib64/libthread_db.so.1&quot;.
+[New Thread 0x7ffff72eb700 (LWP 4675)]
+[New Thread 0x7ffff6aea700 (LWP 4676)]
+
+Breakpoint 1, main () at /home/dan/work/learn_core/boom.c:23
+23          sleep(100);
+Missing separate debuginfos, use: debuginfo-install glibc-2.17-260.el7.x86_64
+(gdb) i threads
+Id   Target Id         Frame 
+3    Thread 0x7ffff6aea700 (LWP 4676) &quot;boom&quot; 0x00007ffff73b0e2d in nanosleep () from /lib64/libc.so.6
+2    Thread 0x7ffff72eb700 (LWP 4675) &quot;boom&quot; 0x00007ffff73b0e2d in nanosleep () from /lib64/libc.so.6
+* 1    Thread 0x7ffff7fee740 (LWP 4671) &quot;boom&quot; main () at /home/dan/work/learn_core/boom.c:23
+(gdb) 
+</code></pre>
+<p>thread apply ID bt 命令可以打印 指定线程的调用栈</p>
+<pre><code>(gdb) thread apply 3 bt
+
+Thread 3 (Thread 0x7ffff6aea700 (LWP 4676)):
+#0  0x00007ffff73b0e2d in nanosleep () from /lib64/libc.so.6
+#1  0x00007ffff73b0cc4 in sleep () from /lib64/libc.so.6
+#2  0x00000000004007b3 in func (p_arg=0x7fffffffe3b0) at /home/dan/work/learn_core/boom.c:10
+#3  0x00007ffff7bc6dd5 in start_thread () from /lib64/libpthread.so.0
+#4  0x00007ffff73e9ead in clone () from /lib64/libc.so.6
+</code></pre>
+<p>thread apply all bt 命令可以打印 全部线程的调用栈</p>
+<pre><code>(gdb) thread apply all bt
+
+Thread 3 (Thread 0x7ffff6aea700 (LWP 4676)):
+#0  0x00007ffff73b0e2d in nanosleep () from /lib64/libc.so.6
+#1  0x00007ffff73b0cc4 in sleep () from /lib64/libc.so.6
+#2  0x00000000004007b3 in func (p_arg=0x7fffffffe3b0) at /home/dan/work/learn_core/boom.c:10
+#3  0x00007ffff7bc6dd5 in start_thread () from /lib64/libpthread.so.0
+#4  0x00007ffff73e9ead in clone () from /lib64/libc.so.6
+
+Thread 2 (Thread 0x7ffff72eb700 (LWP 4675)):
+#0  0x00007ffff73b0e2d in nanosleep () from /lib64/libc.so.6
+#1  0x00007ffff73b0cc4 in sleep () from /lib64/libc.so.6
+#2  0x00000000004007b3 in func (p_arg=0x7fffffffe3c0) at /home/dan/work/learn_core/boom.c:10
+#3  0x00007ffff7bc6dd5 in start_thread () from /lib64/libpthread.so.0
+#4  0x00007ffff73e9ead in clone () from /lib64/libc.so.6
+
+Thread 1 (Thread 0x7ffff7fee740 (LWP 4671)):
+#0  main () at /home/dan/work/learn_core/boom.c:23
+(gdb)  
+</code></pre>
+<p>具体参考<a href="https://sourceware.org/gdb/onlinedocs/gdb/Threads.html">gdb手册</a></p>
+<h2 id="启动图像界面">启动图像界面</h2>
+<p>$ gdb boom -tui -q启动图像界面</p>
+<p>具体参考<a href="https://sourceware.org/gdb/onlinedocs/gdb/TUI.html">gdb手册</a></p>
 
     </div>
     <div class="post-footer">

@@ -6,17 +6,17 @@
     <description>Recent content in GDB on VcVc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh_cn</language>
-    <lastBuildDate>Fri, 07 Aug 2020 16:45:20 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/gdb/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 17 Mar 2021 23:02:08 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/gdb/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>GDB tutorial</title>
+      <title>Use_gdb</title>
       <link>https://6923403.github.io/post/use_gdb/</link>
-      <pubDate>Fri, 07 Aug 2020 16:45:20 +0800</pubDate>
+      <pubDate>Wed, 17 Mar 2021 23:02:08 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/use_gdb/</guid>
-      <description>Start gdb or gdb -q # exit ctrl + d or quit  Use g++ -g main.cpp -o main gdb main -q or gdb -q file main Debug runing program
-ps ux | grep showpng gdb showpng 28334 -q  CoreDump ** Check if off **
-ulimit -c 0 # is off # tmp use ulimit -c unlimited ulimit -c unlimited # turn open permanent use
-vim /etc/security/limits.conf # add line * soft core unlimited # and echo &amp;quot;core.</description>
+      <description>GDB 教程 转载自：https://github.com/DAN-AND-DNA/learn-gdb-by-example-for-c.git
+ 内容  原理 启动gdb 退出gdb 为gdb进行编译 调试程序 CoreDump简单概念 产生CoreDump文件 调试CoreDump文件 help命令 list命令 start命令 next命令 step命令 break命令 查看断点 删除断点 tbreak命令 continue命令 backtrace命令 查看当前所处的函数堆栈帧 选择函数堆栈帧 打印函数局部变量 run命令 修改变量值 查看变量类型 查看线程运行 启动图像界面  原理 断点功能一般是通过gdb捕获特定的内核信号来实现的，然后定位目标程序停止的地址来判断断点是否成功触发。大致的流程为， 首先gdb fork()出来一个子进程，该子进程启动目标程序(通过ptrace() 和 exec())， 父进程捕获该子进程的所有的信号(通过ptrace() 和 wait())，当子进程收到信号时，子进程就会被挂起，直到父进程通知其继续运行(通过ptrace())
+启动gdb 1 常规启动，非常多的提示信息:
+$ gdb GNU gdb (GDB) Red Hat Enterprise Linux 7.6.1-114.el7 Copyright (C) 2013 Free Software Foundation, Inc. License GPLv3+: GNU GPL version 3 or later &amp;lt;http://gnu.</description>
     </item>
     
   </channel>
