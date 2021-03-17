@@ -203,7 +203,9 @@ pthread_cond_broadcast() -------激活所有等待线程列表中最先入队的
 <li>第三个参数是线程运行函数的起始地址。</li>
 <li>最后一个参数是运行函数的参数。</li>
 </ul>
-<p><code>int pthread_join(pthread_t thread, void **retval);</code></p>
+<p><strong><a href="https://blog.csdn.net/weibo1230123/article/details/81410241">https://blog.csdn.net/weibo1230123/article/details/81410241</a></strong></p>
+<p><code>int pthread_join(pthread_t thread, void **retval);</code>
+子线程合入主线程，主线程阻塞等待子线程结束，然后回收子线程资源。</p>
 <ul>
 <li>
 <p>thread: 需要等待的线程,指定的线程必须位于当前的进程中，而且不得是分离线程</p>
@@ -211,6 +213,10 @@ pthread_cond_broadcast() -------激活所有等待线程列表中最先入队的
 <li>
 <p>retval: 线程tid所执行的函数返回值（返回值地址需要保证有效），其中status可以为NULL</p>
 </li>
+</ul>
+<p><code>int pthread_detach(pthread_t tid);</code></p>
+<ul>
+<li>主线程与子线程分离，子线程结束后，资源自动回收。</li>
 </ul>
 <hr>
 <p><strong>Linux 线程库版本</strong></p>
@@ -319,6 +325,7 @@ int pthread_cond_wait(pthread_cond_t *cv, pthread_mutex_t *mutex);
 <p><a href="https://blog.csdn.net/liangxanhai/article/details/7767430">https://blog.csdn.net/liangxanhai/article/details/7767430</a></p>
 <p><a href="https://blog.csdn.net/wushuomin/article/details/80051295">https://blog.csdn.net/wushuomin/article/details/80051295</a></p>
 <p><a href="https://blog.csdn.net/lovecodeless/article/details/24885127">https://blog.csdn.net/lovecodeless/article/details/24885127</a></p>
+<p><a href="https://blog.csdn.net/weibo1230123/article/details/81410241">https://blog.csdn.net/weibo1230123/article/details/81410241</a></p>
 
     </div>
     <div class="post-footer">
