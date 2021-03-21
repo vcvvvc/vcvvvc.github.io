@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Macos on VcVc Blog</title>
+    <title>Macos on Vcvc Blog</title>
     <link>https://6923403.github.io/tags/macos/</link>
-    <description>Recent content in Macos on VcVc Blog</description>
+    <description>Recent content in Macos on Vcvc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh_cn</language>
     <lastBuildDate>Sun, 17 Jan 2021 13:19:24 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/macos/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Dell7590 install macos</title>

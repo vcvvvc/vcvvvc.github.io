@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Volatile on VcVc Blog</title>
+    <title>Volatile on Vcvc Blog</title>
     <link>https://6923403.github.io/tags/volatile/</link>
-    <description>Recent content in Volatile on VcVc Blog</description>
+    <description>Recent content in Volatile on Vcvc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh_cn</language>
     <lastBuildDate>Tue, 13 Oct 2020 18:12:48 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/volatile/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Vim_config</title>

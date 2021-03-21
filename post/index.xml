@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on VcVc Blog</title>
+    <title>Posts on Vcvc Blog</title>
     <link>https://6923403.github.io/post/</link>
-    <description>Recent content in Posts on VcVc Blog</description>
+    <description>Recent content in Posts on Vcvc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh_cn</language>
     <lastBuildDate>Wed, 17 Mar 2021 23:02:08 +0800</lastBuildDate><atom:link href="https://6923403.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Use_gdb</title>
@@ -345,13 +344,17 @@ For O(n) int function1(int x, int n) { int result = 1; // 注意 任何数的0�
       <pubDate>Sun, 27 Sep 2020 17:53:48 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/pthread/</guid>
-      <description>#include &amp;lt;pthread.h&amp;gt; int pthread_condattr_init(pthread_condattr_t* attr); int pthread_condattr_destroy(pthread_condattr_t* attr); //返回值：成功返回0；失败返回错误编码 pthread_condattr_init
- 功能：对条件变量属性结构体初始化 调用此函数之后，条件变量属性结构体的属性都是系统默认值，如果想要设置其他属性，还需要调用不同的函数进行设置  pthread_condattr_destroy
- 功能：对条件变量属性结构体反初始化（销毁） 只反初始化，不释放内存   #include &amp;lt;pthread.h&amp;gt; int pthread_condattr_setshared(pthread_condattr_t* attr,int pshared); int pthread_condattr_getshared(const pthread_condattr_t* restrict attr,int* restrict pshared); //返回值：成功返回0；失败返回错误编码 pthread_condattr_setshared
- 功能：设置条件变量的进程共享属性  pthread_condattr_getshared
- 功能：获取条件变量的进程共享属性   #include &amp;lt;pthread.h&amp;gt; int pthread_condattr_setclock(pthread_condattr_t* attr,clockid_t clock_id); int pthread_condattr_getclock(const pthread_condattr_t* restrict attr,clockid_t *restrict clock_id); //返回值：成功返回0；失败返回错误编码 pthread_condattr_setclock
- 功能：此函数用于设置pthread_cond_timewait函数使用的时钟ID  pthread_condattr_getclock
- 功能：此函数获取可被用于pthread_cond_timedwait函数的时钟ID。pthread_cond_timedwait函数使用前需要用pthread_condattr_t对条件变量进行初始化   int pthread_cond_init(pthread_cond_t *cond, pthread_condattr_t *cond_attr)</description>
+      <description>int pthread_cond_init(pthread_cond_t *cond, pthread_condattr_t *cond_attr)
+其中cond是一个指向结构pthread_cond_t的指针，cond_attr是一个指向结构pthread_condattr_t的指针。结构 pthread_condattr_t是条件变量的属性结构，和互斥锁一样我们可以用它来设置条件变量是进程内可用还是进程间可用， 默认值是PTHREAD_ PROCESS_PRIVATE，即此条件变量被同一进程内的各个线程使用。
+注意初始化条件变量只有未被使用时才能重新初始化或被释放。释放一个条件变量的函数为pthread_cond_destroy（pthread_cond_t cond）。
+也可以静态的初始化条件变量
+pthread_cond_t my_condition = PTHREAD_COND_INITIALIZER;  pthread_mutex_init(pthread_mutex_t * mutex, const pthread_mutexattr_t *attr); // 初始化锁变量mutex。 // attr为锁属性，NULL值为默认属性。 pthread_mutex_lock(pthread_mutex_t *mutex); // 加锁（阻塞操作） pthread_mutex_trylock(pthread_mutex_t *mutex); // 试图加锁（不阻塞操作） // 当互斥锁空闲时将占有该锁；否则立即返回 // 但是与2不一样的是当锁已经在使用的时候，返回为EBUSY，而不是挂起等待。 pthread_mutex_unlock(pthread_mutex_t *mutex); 释放锁 pthread_mutex_destroy(pthread_mutex_t *mutex); 销毁一个不再需要的互斥量，释放系统资源。 pthread_cond_wait() / pthread_cond_timedwait -----等待条件变量，挂起线程，区别是后者，会有timeout时间， 如果到了timeout,线程自动解除阻塞，这个时间和 time()系统调用相同意义的。以1970年时间算起。 pthread_cond_signal ----激活等待列表中的线程， pthread_cond_broadcast() -------激活所有等待线程列表中最先入队的线程 条件变量
+条件变量是利用线程间共享的全局变量进行同步的一种机制，主要包括两个动作：
+ 1）一个线程等待&amp;quot;条件变量的条件成立&amp;quot;而挂起； 2）另一个线程使&amp;quot;条件成立&amp;quot;（给出条件成立信号）。  为了防止竞争，条件变量的使用总是和一个互斥锁结合在一起。
+注意：
+  1）上面这几个函数都是原子操作，可以为理解为一条指令，不会被其他程序打断
+  2）上面这个几个函数，必须配合使用。
+  3）pthread_cond_wait，先会解除当前线程的互斥锁，然后挂线线程，等待条件变量满足条件。一旦条件变量满足条件，则会给线程上锁，继续执行pthread_cond_wait</description>
     </item>
     
     <item>
