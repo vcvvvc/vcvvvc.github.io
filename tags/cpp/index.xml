@@ -5,23 +5,32 @@
     <link>https://6923403.github.io/tags/cpp/</link>
     <description>Recent content in CPP on Vcvc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 17 Mar 2021 23:02:08 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/cpp/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 11 Apr 2021 14:44:22 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/cpp/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Use_gdb</title>
-      <link>https://6923403.github.io/post/use_gdb/</link>
-      <pubDate>Wed, 17 Mar 2021 23:02:08 +0800</pubDate>
+      <title>Effective C&#43;&#43; 总结</title>
+      <link>https://6923403.github.io/post/effective_cpp/</link>
+      <pubDate>Sun, 11 Apr 2021 14:44:22 +0800</pubDate>
       
-      <guid>https://6923403.github.io/post/use_gdb/</guid>
-      <description>GDB 教程 转载自：https://github.com/DAN-AND-DNA/learn-gdb-by-example-for-c.git
- 内容  原理 启动gdb 退出gdb 为gdb进行编译 调试程序 CoreDump简单概念 产生CoreDump文件 调试CoreDump文件 help命令 list命令 start命令 next命令 step命令 break命令 查看断点 删除断点 tbreak命令 continue命令 backtrace命令 查看当前所处的函数堆栈帧 选择函数堆栈帧 打印函数局部变量 run命令 修改变量值 查看变量类型 查看线程运行 启动图像界面  原理 断点功能一般是通过gdb捕获特定的内核信号来实现的，然后定位目标程序停止的地址来判断断点是否成功触发。大致的流程为， 首先gdb fork()出来一个子进程，该子进程启动目标程序(通过ptrace() 和 exec())， 父进程捕获该子进程的所有的信号(通过ptrace() 和 wait())，当子进程收到信号时，子进程就会被挂起，直到父进程通知其继续运行(通过ptrace())
-启动gdb 1 常规启动，非常多的提示信息:
-$ gdb GNU gdb (GDB) Red Hat Enterprise Linux 7.6.1-114.el7 Copyright (C) 2013 Free Software Foundation, Inc. License GPLv3+: GNU GPL version 3 or later &amp;lt;http://gnu.</description>
+      <guid>https://6923403.github.io/post/effective_cpp/</guid>
+      <description>条款01: 将C++视为一个语言联邦 C++已经是个多重范型编程语言 (multiparadigm programming language）
+同时支持过程形式（procedural）、面向对象形式（object-oriented）、函数形式（functional）、泛型形式（generic）、元编程形式（metaprogramming）的语言。
+ 条款02：尽量以 const，enum，inline替换#define 也可以说是 宁可以编译器替换预处理器
+#define 不被视为语言的一部分 当编译出错后你可能很难找到这个错误，从而浪费大量时间
+第二、 值得注意的是class专属常量。为了将常量的作用域（scope）限制于class内，你必须让它成为class的一个成员（member）；而为确保此常量至多只有一份实体，你必须让它成为一个static成员：
+class Gameplayer { private: static const int NumTurns = 5; //常量声明式  int scores[NumTurns]; ... }; 第三、 万一你的编译器（错误地）不允许“static整数型class常量”完成“in class初值设定”，可改用所谓的&amp;quot;the enum hack&amp;quot;补偿做法。其理论基础是：“一个属于枚举类型（enumerated type）的数值可权充ints被使用”
+enum hack的行为某方面说比较像#define而不像const
+class Gameplayer { private: enum {NumTurns = 5}; int scores[NumTurns]; ... }; 牢记两点
+  对于单纯常量,最好以const对象或enums替换#defines.
+  对于形似函数的宏(macros) ,最好改用inline函数替换#defines.
+   条款03: 尽可能使用const 如果关键字const出现在星号左边,表示被指物是常量;如果出现在星号右边,表示指针自身是常量;如果出现在星号两边,表示被指物和指针两者都是常量。
+作用
+ 修饰变量，说明该变量不可以被改变； 修饰指针，分为指向常量的指针（pointer to const）和自身是常量的指针（常量指针，const pointer）； 修饰引用，指向常量的引用（reference to const），用于形参类型，即避免了拷贝，又避免了函数对值的修改； 修饰成员函数，说明该成员函数内不能修改成员变量。  char* p1 = greeting; // 指针变量，指向字符数组变量 const char* p2 = greeting; // 指针变量，指向字符数组常量（const 后面是 char，说明指向的字符（char）不可改变） char* const p3 = greeting; // 自身是常量的指针，指向字符数组变量（const 后面是 p3，说明 p3 指针自身不可改变） const char* const p4 = greeting; // 自身是常量的指针，指向字符数组常量  // 函数 void function1(const int Var); // 传递过来的参数在函数内不可变 void function2(const char* Var); // 参数指针所指内容为常量 void function3(char* const Var); // 参数指针为常量 void function4(const int&amp;amp; Var); // 引用参数在函数内为常量  // 函数返回值 const int function5(); // 返回一个常数 const int* function6(); // 返回一个指向常量的指针变量，使用：const int *p = function6(); int* const function7(); // 返回一个指向变量的常指针，使用：int* const p = function7(); </description>
     </item>
     
     <item>
       <title>Server sum</title>
       <link>https://6923403.github.io/post/server_sum/</link>
-      <pubDate>Sun, 14 Mar 2021 18:21:09 +0800</pubDate>
+      <pubDate>Sun, 04 Apr 2021 18:21:09 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/server_sum/</guid>
       <description>socket struct整理  https://6923403.github.io/post/socket_struct/  socket编程需要的头文件整理  https://6923403.github.io/post/socket_file/  socket function  https://6923403.github.io/post/socket/  epoll function  https://6923403.github.io/post/epoll_use/  sem function  https://6923403.github.io/post/sem/  server io actor  https://6923403.github.io/post/server_actor/  timer function  https://6923403.github.io/post/timer_function/   Linux Pthread 线程创建与使用 https://6923403.github.io/post/pthread/
@@ -38,6 +47,18 @@ TCP_IP | 计算机网络 https://6923403.github.io/post/tcp_ip/
       
       <guid>https://6923403.github.io/post/getopt_long/</guid>
       <description>#include &amp;lt;unistd.h&amp;gt; int getopt(int argc, char * const argv[], const char *optstring); extern char *optarg; extern int optind, opterr, optopt; #include &amp;lt;getopt.h&amp;gt; int getopt_long(int argc, char * const argv[], const char *optstring, const struct option *longopts, int *longindex); int getopt_long_only(int argc, char * const argv[], const char *optstring, const struct option *longopts, int *longindex);  static struct option Vcopts[] = { {&amp;quot;device&amp;quot;, required_argument, NULL, &#39;d&#39;}, {&amp;quot;savefile&amp;quot;, optional_argument, NULL, &#39;f&#39;}, {&amp;quot;help&amp;quot;, no_argument, NULL, &#39;h&#39;}, {&amp;quot;version&amp;quot;, no_argument, NULL, &#39;v&#39;}, {&amp;quot;Device list&amp;quot;, no_argument, NULL, &#39;l&#39;}, {&amp;quot;http-proxy&amp;quot;, required_argument, &amp;amp;lopt, 1}, {0, 0, 0, 0} };  no_argument: -h --h, -v --v required_argument: -d/ -d ens33/ -d = ens33 optional_argument: -f filename/ -f = filename &amp;amp;lopt: &amp;ndash;http-proxy=127.</description>
+    </item>
+    
+    <item>
+      <title>Use_gdb</title>
+      <link>https://6923403.github.io/post/use_gdb/</link>
+      <pubDate>Wed, 17 Feb 2021 23:02:08 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/use_gdb/</guid>
+      <description>GDB 教程 转载自：https://github.com/DAN-AND-DNA/learn-gdb-by-example-for-c.git
+ 内容  原理 启动gdb 退出gdb 为gdb进行编译 调试程序 CoreDump简单概念 产生CoreDump文件 调试CoreDump文件 help命令 list命令 start命令 next命令 step命令 break命令 查看断点 删除断点 tbreak命令 continue命令 backtrace命令 查看当前所处的函数堆栈帧 选择函数堆栈帧 打印函数局部变量 run命令 修改变量值 查看变量类型 查看线程运行 启动图像界面  原理 断点功能一般是通过gdb捕获特定的内核信号来实现的，然后定位目标程序停止的地址来判断断点是否成功触发。大致的流程为， 首先gdb fork()出来一个子进程，该子进程启动目标程序(通过ptrace() 和 exec())， 父进程捕获该子进程的所有的信号(通过ptrace() 和 wait())，当子进程收到信号时，子进程就会被挂起，直到父进程通知其继续运行(通过ptrace())
+启动gdb 1 常规启动，非常多的提示信息:
+$ gdb GNU gdb (GDB) Red Hat Enterprise Linux 7.6.1-114.el7 Copyright (C) 2013 Free Software Foundation, Inc. License GPLv3+: GNU GPL version 3 or later &amp;lt;http://gnu.</description>
     </item>
     
     <item>
