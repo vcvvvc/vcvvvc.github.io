@@ -26,7 +26,7 @@ class Gameplayer { private: enum {NumTurns = 5}; int scores[NumTurns]; ... }; �
   对于形似函数的宏(macros) ,最好改用inline函数替换#defines.
    条款03: 尽可能使用const 如果关键字const出现在星号左边,表示被指物是常量;如果出现在星号右边,表示指针自身是常量;如果出现在星号两边,表示被指物和指针两者都是常量。
 作用
- 修饰变量，说明该变量不可以被改变； 修饰指针，分为指向常量的指针（pointer to const）和自身是常量的指针（常量指针，const pointer）； 修饰引用，指向常量的引用（reference to const），用于形参类型，即避免了拷贝，又避免了函数对值的修改； 修饰成员函数，说明该成员函数内不能修改成员变量。  char* p1 = greeting; // 指针变量，指向字符数组变量 const char* p2 = greeting; // 指针变量，指向字符数组常量（const 后面是 char，说明指向的字符（char）不可改变） char* const p3 = greeting; // 自身是常量的指针，指向字符数组变量（const 后面是 p3，说明 p3 指针自身不可改变） const char* const p4 = greeting; // 自身是常量的指针，指向字符数组常量  // 函数 void function1(const int Var); // 传递过来的参数在函数内不可变 void function2(const char* Var); // 参数指针所指内容为常量 void function3(char* const Var); // 参数指针为常量 void function4(const int&amp; Var); // 引用参数在函数内为常量  // 函数返回值 const int function5(); // 返回一个常数 const int* function6(); // 返回一个指向常量的指针变量，使用：const int *p = function6(); int* const function7(); // 返回一个指向变量的常指针，使用：int* const p = function7(); "/>
+ 修饰变量，说明该变量不可以被改变； 修饰指针，分为指向常量的指针（pointer to const）和自身是常量的指针（常量指针，const pointer）； 修饰引用，指向常量的引用（reference to const），用于形参类型，即避免了拷贝，又避免了函数对值的修改； 修饰成员函数，说明该成员函数内不能修改成员变量。  char* p1 = greeting; // 指针变量，指向字符数组变量 const char* p2 = greeting; // 指针变量，指向字符数组常量（const 后面是 char，说明指向的字符（char）不可改变） char* const p3 = greeting; // 自身是常量的指针，指向字符数组变量（const 后面是 p3，说明 p3 指针自身不可改变） const char* const p4 = greeting; // 自身是常量的指针，指向字符数组常量  // 函数 void function1(const int Var); // 传递过来的参数在函数内不可变 void function2(const char* Var); // 参数指针所指内容为常量 void function3(char* const Var); // 参数指针为常量 void function4(const int&amp; Var); // 引用参数在函数内为常量  // 函数返回值 const int function5(); // 返回一个常数 const int* function6(); // 返回一个指向常量的指针变量，使用：const int *p = function6(); int* const function7(); // 返回一个指向变量的常指针，使用：int* const p = function7(); const成员函数承诺绝不改变其对象的逻辑状态 (logical state) , non-const成员函数却没有这般承诺。如果在const函数内调用non-const函数,就是冒了这样的风险:你曾经承诺不改动的那个对象被改动了。这就是为什么&quot;const成员函数调用non-const成员函数”是一种错误行为:因为对象有可能因此被改动。"/>
 
     <meta property="og:title" content="Effective C&#43;&#43; 总结" />
 <meta property="og:description" content="条款01: 将C&#43;&#43;视为一个语言联邦 C&#43;&#43;已经是个多重范型编程语言 (multiparadigm programming language）
@@ -41,7 +41,7 @@ class Gameplayer { private: enum {NumTurns = 5}; int scores[NumTurns]; ... }; �
   对于形似函数的宏(macros) ,最好改用inline函数替换#defines.
    条款03: 尽可能使用const 如果关键字const出现在星号左边,表示被指物是常量;如果出现在星号右边,表示指针自身是常量;如果出现在星号两边,表示被指物和指针两者都是常量。
 作用
- 修饰变量，说明该变量不可以被改变； 修饰指针，分为指向常量的指针（pointer to const）和自身是常量的指针（常量指针，const pointer）； 修饰引用，指向常量的引用（reference to const），用于形参类型，即避免了拷贝，又避免了函数对值的修改； 修饰成员函数，说明该成员函数内不能修改成员变量。  char* p1 = greeting; // 指针变量，指向字符数组变量 const char* p2 = greeting; // 指针变量，指向字符数组常量（const 后面是 char，说明指向的字符（char）不可改变） char* const p3 = greeting; // 自身是常量的指针，指向字符数组变量（const 后面是 p3，说明 p3 指针自身不可改变） const char* const p4 = greeting; // 自身是常量的指针，指向字符数组常量  // 函数 void function1(const int Var); // 传递过来的参数在函数内不可变 void function2(const char* Var); // 参数指针所指内容为常量 void function3(char* const Var); // 参数指针为常量 void function4(const int&amp; Var); // 引用参数在函数内为常量  // 函数返回值 const int function5(); // 返回一个常数 const int* function6(); // 返回一个指向常量的指针变量，使用：const int *p = function6(); int* const function7(); // 返回一个指向变量的常指针，使用：int* const p = function7(); " />
+ 修饰变量，说明该变量不可以被改变； 修饰指针，分为指向常量的指针（pointer to const）和自身是常量的指针（常量指针，const pointer）； 修饰引用，指向常量的引用（reference to const），用于形参类型，即避免了拷贝，又避免了函数对值的修改； 修饰成员函数，说明该成员函数内不能修改成员变量。  char* p1 = greeting; // 指针变量，指向字符数组变量 const char* p2 = greeting; // 指针变量，指向字符数组常量（const 后面是 char，说明指向的字符（char）不可改变） char* const p3 = greeting; // 自身是常量的指针，指向字符数组变量（const 后面是 p3，说明 p3 指针自身不可改变） const char* const p4 = greeting; // 自身是常量的指针，指向字符数组常量  // 函数 void function1(const int Var); // 传递过来的参数在函数内不可变 void function2(const char* Var); // 参数指针所指内容为常量 void function3(char* const Var); // 参数指针为常量 void function4(const int&amp; Var); // 引用参数在函数内为常量  // 函数返回值 const int function5(); // 返回一个常数 const int* function6(); // 返回一个指向常量的指针变量，使用：const int *p = function6(); int* const function7(); // 返回一个指向变量的常指针，使用：int* const p = function7(); const成员函数承诺绝不改变其对象的逻辑状态 (logical state) , non-const成员函数却没有这般承诺。如果在const函数内调用non-const函数,就是冒了这样的风险:你曾经承诺不改动的那个对象被改动了。这就是为什么&quot;const成员函数调用non-const成员函数”是一种错误行为:因为对象有可能因此被改动。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://6923403.github.io/post/effective_cpp/" />
 <meta property="article:published_time" content="2021-04-11T14:44:22+08:00" />
@@ -113,7 +113,7 @@ class Gameplayer { private: enum {NumTurns = 5}; int scores[NumTurns]; ... }; �
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          1 min read
+          2 min read
         </div>
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
@@ -181,7 +181,77 @@ class Gameplayer { private: enum {NumTurns = 5}; int scores[NumTurns]; ... }; �
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">function5</span>();      <span style="color:#75715e">// 返回一个常数
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> <span style="color:#a6e22e">function6</span>();     <span style="color:#75715e">// 返回一个指向常量的指针变量，使用：const int *p = function6();
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">function7</span>();     <span style="color:#75715e">// 返回一个指向变量的常指针，使用：int* const p = function7();
-</span></code></pre></div>
+</span></code></pre></div><p><strong>const成员函数承诺绝不改变其对象的逻辑状态 (logical state) , non-const成员函数却没有这般承诺。如果在const函数内调用non-const函数,就是冒了这样的风险:<code>你曾经承诺不改动的那个对象被改动了。</code>这就是为什么&quot;const成员函数调用non-const成员函数”是一种错误行为:因为对象有可能因此被改动。</strong></p>
+<p><strong>non-const成员函数本来就可以对其对象做任何动作,所以在其中调用一个const成员函数并不会带来风险。这就是为什么本例以static_cast作用于*this的原因: 这里并不存在const相关危险。</strong></p>
+<p><strong>观点</strong></p>
+<ul>
+<li>将某些东西声明为const可帮助编译器侦测出错误用法。const可被施加于任何作用域内的对象、函数参数、函数返回类型、成员函数本体。</li>
+<li>编译器强制实施bitwise constness,但你编写程序时应该使用“概念上的常量性” (conceptual constness)</li>
+<li>当const和non-const成员函数有着实质等价的实现时,令non-const版本调用const版本可避免代码重复。</li>
+</ul>
+<hr>
+<h3 id="条款04-确定对象被使用前已先被初始化">条款04: 确定对象被使用前已先被初始化</h3>
+<p><strong>第一、 读取未初始化的值会导致不明确的行为。</strong></p>
+<p><strong>第二、使用构造函数初始化列表进行初始化为佳</strong></p>
+<p><strong><code>#2</code>这个构造函数和<code>#1</code>的最终结果相同,但通常效率较高。基于赋值的那个版 本(本例第一版本)首先调用default构造函数为theName, theAddress和thePhones设初值,然后立刻再对它们赋予新值。 default构造函数的一切作为因此浪费了。</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ABEntry</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    ABEntry();
+<span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">int</span> a;
+    <span style="color:#66d9ef">int</span> b;
+    <span style="color:#66d9ef">int</span> c;
+};
+
+<span style="color:#75715e"># 1 
+</span><span style="color:#75715e"></span>ABEntry<span style="color:#f92672">::</span>ABEntry()
+{
+    a <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    b <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    c <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+}
+
+<span style="color:#75715e">#2
+</span><span style="color:#75715e"></span>ABEntry<span style="color:#f92672">::</span>ABEntry() <span style="color:#f92672">:</span> a(<span style="color:#ae81ff">0</span>), b(<span style="color:#ae81ff">0</span>), c(<span style="color:#ae81ff">0</span>)
+{}
+</code></pre></div><p><strong>有些情况下即使面对的成员变量属于内置类型(那么其初始化与赋值的成本相同) ,也一定得使用初值列。是的,如果成员变量是const或references,它们就一定需要初值,不能被赋值。</strong></p>
+<p><strong>第三、 防止初始化次序问题 合理运用单例模式</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#1
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Filesystem</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    ...
+    <span style="color:#66d9ef">static</span> Filesystem<span style="color:#f92672">*</span> fts();
+};
+
+Filesystem<span style="color:#f92672">*</span> Filesystem<span style="color:#f92672">::</span>GetInstance()
+{
+	<span style="color:#66d9ef">static</span> connection_pool connPool;
+	<span style="color:#66d9ef">return</span> <span style="color:#f92672">&amp;</span>connPool;
+}
+
+<span style="color:#75715e">#2
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Filesystem</span> {
+<span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">static</span> Filesystem<span style="color:#f92672">*</span> fts;
+    Filesystem(){};
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">static</span> Filesystem<span style="color:#f92672">*</span> getInstance()
+    {
+        <span style="color:#66d9ef">if</span> (fts <span style="color:#f92672">==</span> <span style="color:#66d9ef">nullptr</span>)
+        {
+            fts <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Filesystem();
+        }
+        <span style="color:#66d9ef">return</span> fts;
+    }
+};
+</code></pre></div><p><strong>本文要点</strong></p>
+<ul>
+<li>为内置型对象进行手工初始化,因为C++不保证初始化它们。</li>
+<li>构造函数最好使用成员初值列(member initialization list) ,而不要在构造函数</li>
+<li>本体内使用赋值操作(assignment) 。初值列列出的成员变量,其排列次序应该和它们在class中的声明次序相同。</li>
+<li>为免除“跨编译单元之初始化次序”问题,请以local static对象替换non-local static对象。</li>
+</ul>
+
     </div>
     <div class="post-footer">
       
