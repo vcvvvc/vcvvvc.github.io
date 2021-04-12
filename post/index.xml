@@ -19,7 +19,7 @@
 第二、 值得注意的是class专属常量。为了将常量的作用域（scope）限制于class内，你必须让它成为class的一个成员（member）；而为确保此常量至多只有一份实体，你必须让它成为一个static成员：
 class Gameplayer { private: static const int NumTurns = 5; //常量声明式  int scores[NumTurns]; ... }; 第三、 万一你的编译器（错误地）不允许“static整数型class常量”完成“in class初值设定”，可改用所谓的&amp;quot;the enum hack&amp;quot;补偿做法。其理论基础是：“一个属于枚举类型（enumerated type）的数值可权充ints被使用”
 enum hack的行为某方面说比较像#define而不像const
-class Gameplayer { private: enum {NumTurns = 5}; int scores[NumTurns]; ... }; 牢记两点
+class Gameplayer { private: enum {NumTurns = 5}; int scores[NumTurns]; ... }; 本文要点
   对于单纯常量,最好以const对象或enums替换#defines.
   对于形似函数的宏(macros) ,最好改用inline函数替换#defines.
    条款03: 尽可能使用const 如果关键字const出现在星号左边,表示被指物是常量;如果出现在星号右边,表示指针自身是常量;如果出现在星号两边,表示被指物和指针两者都是常量。

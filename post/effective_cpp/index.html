@@ -21,7 +21,7 @@
 第二、 值得注意的是class专属常量。为了将常量的作用域（scope）限制于class内，你必须让它成为class的一个成员（member）；而为确保此常量至多只有一份实体，你必须让它成为一个static成员：
 class Gameplayer { private: static const int NumTurns = 5; //常量声明式  int scores[NumTurns]; ... }; 第三、 万一你的编译器（错误地）不允许“static整数型class常量”完成“in class初值设定”，可改用所谓的&quot;the enum hack&quot;补偿做法。其理论基础是：“一个属于枚举类型（enumerated type）的数值可权充ints被使用”
 enum hack的行为某方面说比较像#define而不像const
-class Gameplayer { private: enum {NumTurns = 5}; int scores[NumTurns]; ... }; 牢记两点
+class Gameplayer { private: enum {NumTurns = 5}; int scores[NumTurns]; ... }; 本文要点
   对于单纯常量,最好以const对象或enums替换#defines.
   对于形似函数的宏(macros) ,最好改用inline函数替换#defines.
    条款03: 尽可能使用const 如果关键字const出现在星号左边,表示被指物是常量;如果出现在星号右边,表示指针自身是常量;如果出现在星号两边,表示被指物和指针两者都是常量。
@@ -36,7 +36,7 @@ class Gameplayer { private: enum {NumTurns = 5}; int scores[NumTurns]; ... }; �
 第二、 值得注意的是class专属常量。为了将常量的作用域（scope）限制于class内，你必须让它成为class的一个成员（member）；而为确保此常量至多只有一份实体，你必须让它成为一个static成员：
 class Gameplayer { private: static const int NumTurns = 5; //常量声明式  int scores[NumTurns]; ... }; 第三、 万一你的编译器（错误地）不允许“static整数型class常量”完成“in class初值设定”，可改用所谓的&quot;the enum hack&quot;补偿做法。其理论基础是：“一个属于枚举类型（enumerated type）的数值可权充ints被使用”
 enum hack的行为某方面说比较像#define而不像const
-class Gameplayer { private: enum {NumTurns = 5}; int scores[NumTurns]; ... }; 牢记两点
+class Gameplayer { private: enum {NumTurns = 5}; int scores[NumTurns]; ... }; 本文要点
   对于单纯常量,最好以const对象或enums替换#defines.
   对于形似函数的宏(macros) ,最好改用inline函数替换#defines.
    条款03: 尽可能使用const 如果关键字const出现在星号左边,表示被指物是常量;如果出现在星号右边,表示指针自身是常量;如果出现在星号两边,表示被指物和指针两者都是常量。
@@ -113,7 +113,7 @@ class Gameplayer { private: enum {NumTurns = 5}; int scores[NumTurns]; ... }; �
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          2 min read
+          3 min read
         </div>
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
@@ -147,7 +147,7 @@ class Gameplayer { private: enum {NumTurns = 5}; int scores[NumTurns]; ... }; �
     <span style="color:#66d9ef">int</span> scores[NumTurns];
     ...
 };
-</code></pre></div><p><strong>牢记两点</strong></p>
+</code></pre></div><p><strong>本文要点</strong></p>
 <ul>
 <li>
 <p><strong>对于单纯常量,最好以const对象或enums替换#defines.</strong></p>
@@ -250,6 +250,154 @@ Filesystem<span style="color:#f92672">*</span> Filesystem<span style="color:#f92
 <li>构造函数最好使用成员初值列(member initialization list) ,而不要在构造函数</li>
 <li>本体内使用赋值操作(assignment) 。初值列列出的成员变量,其排列次序应该和它们在class中的声明次序相同。</li>
 <li>为免除“跨编译单元之初始化次序”问题,请以local static对象替换non-local static对象。</li>
+</ul>
+<hr>
+<h3 id="条款05-了解c默默编写并调用哪些函数">条款05: 了解C++默默编写并调用哪些函数</h3>
+<p><strong>编译器可以暗自为class创建默认构造函数、拷贝构造函数、拷贝赋值操作符、以及析构函数。记住，这些函数不是类一创建出来就有的，惟有当这些函数被需要（调用），它们才会被编译器创建出来。</strong></p>
+<p><strong>当然，如果你在创建类时，自己声明了那些函数，编译器就不会再创建了。</strong></p>
+<hr>
+<h3 id="条款06-若不想使用编译器自动生成的函数就该明确拒绝">条款06: 若不想使用编译器自动生成的函数，就该明确拒绝</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HomeForSale</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    ...
+<span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+    HomeForSale(<span style="color:#66d9ef">const</span> HomeForSale<span style="color:#f92672">&amp;</span>);
+    HomeForSale<span style="color:#f92672">&amp;</span> <span style="color:#66d9ef">operator</span><span style="color:#f92672">=</span>(<span style="color:#66d9ef">const</span> HomeForSale<span style="color:#f92672">&amp;</span>);
+    ...
+};
+</code></pre></div><p><strong>本文要点</strong></p>
+<ul>
+<li>为驳回编译器自动(暗自)提供的机能,可将相应的成员函数声明为private并且 不予实现。使用像Uncopyable这样的base class也是一种做法。</li>
+</ul>
+<hr>
+<h3 id="条款07-为多态基类声明virtual析构函数">条款07: 为多态基类声明virtual析构函数</h3>
+<p><strong>如果base class没有<code>virtual</code> 会直接调用base class析构函数, derived class成员未释放。造成资源泄漏、内存浪费。</strong></p>
+<p><strong>无端地将所有classes的析构函数声明为virtual,就像从未声明它们为virtual一样,都是错误的。许多人的心得是:只有当class内含至少一个virtual函数,才为它声明virtual析构函数。</strong></p>
+<p><strong>欲实现出virtual函数,对象必须携带某些信息,主要用来在运行期决定哪一个 virtual函数该被调用。这份信息通常是由一个所谓<code>vptr (virtual table pointer)</code>指针指 出。vptr指向一个由函数指针构成的数组,称为<code>vtbl(virtual table);</code>每一个带有virtual函数的class都有一个相应的vtbl。当对象调用某一virtual函数,实际被调用的函数取决于该对象的vptr所指的那个vtbl-编译器在其中寻找适当的函数指针。</strong></p>
+<p><strong>第二、 关于虚函数、纯虚函数</strong></p>
+<ul>
+<li>虚函数，在类成员方法的声明（不是定义）语句前加“virtual”, 如 virtual void func()</li>
+<li>纯虚函数，在虚函数后加“=0”，如 virtual void func()=0</li>
+<li>对于虚函数，子类可以（也可以不）重新定义基类的虚函数，该行为称之为复写Override。</li>
+<li>对于纯虚函数，子类必须提供纯虚函数的个性化实现。</li>
+<li>一个纯虚函数就可以使类成为抽象基类，但是抽象基类中除了包含纯虚函数外，还可以包含其它的成员函数（虚函数或普通函数）和成员变量。</li>
+<li>只有类中的虚函数才能被声明为纯虚函数，普通成员函数和顶层函数均不能声明为纯虚函数。</li>
+<li>构造函数不能是虚函数，析构函数可以是虚函数且推荐最好设置为虚函数。</li>
+</ul>
+<p><strong>如何选用</strong></p>
+<ul>
+<li>当基类中的某个成员方法，在大多数情形下都应该由子类提供个性化实现，但基类也可以提供缺省备选方案的时候，该方法应该设计为虚函数。</li>
+<li>当基类中的某个成员方法，必须由子类提供个性化实现的时候，应该设计为纯虚函数。</li>
+</ul>
+<p><strong>本文要点</strong></p>
+<ul>
+<li>polymorphic (带多态性质的) base classes应该声明一个virtual析构函数。如果 class带有任何virtual函数,它就应该拥有一个virtual析构函数。</li>
+<li>Classes的设计目的如果不是作为base classes使用,或不是为了具备多态性 (polymorphically) ,就不该声明virtual析构函数。</li>
+</ul>
+<hr>
+<h3 id="条款08-别让异常逃离析构函数">条款08: 别让异常逃离析构函数</h3>
+<p><strong>当vector v被销毁,它有责任销毁其内含的所有widgets。假设v内含十个Widgets,而在析构第一个元素期间,有个异常被抛出。其他九个widgets还是应该被销毁(否则它们保存的任何资源都会发生泄漏) ,因此v应该调用它们各个析构函数。但假设在那些调用期间,第二个widget析构函数又抛出异常。</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Widget</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#f92672">~</span>widget() {
+        ... <span style="color:#75715e">//假设可能抛出异常
+</span><span style="color:#75715e"></span>    };
+};
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">dosomething</span>()
+{
+    std:;vector<span style="color:#f92672">&lt;</span>widget<span style="color:#f92672">&gt;</span> v;
+    ...
+}
+</code></pre></div><p><strong>但如果你的析构函数必须执行一个动作，如果该调用导致异常, DBConn析构函数会传播该异常,也就是允许它离开这个析构函数。</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DBConnection</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">static</span> DBconnection create();
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">close</span>();
+<span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+    DBConnection db;
+};
+</code></pre></div><p><strong>有两个方法 但是作用不大</strong></p>
+<p><strong>1. 调用abort</strong></p>
+<p><strong>如果程序遭遇一个“于析构期间发生的错误”后无法继续执行, “强迫结束程序”是个合理选项。毕竟它可以阻止异常从析构函数传播出去(那会导致不明确的行为)。也就是说调用abort可以抢先制“不明确行为”于死地。</strong></p>
+<p><strong>2. 吞下因调用close而发生的异常</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">DBconn<span style="color:#f92672">::~</span>DBconn()
+{
+    <span style="color:#66d9ef">try</span>{
+        db.close();
+    }
+    <span style="color:#66d9ef">catch</span>(...)
+    {
+        std<span style="color:#f92672">::</span>abort();
+    }
+}
+</code></pre></div><p><strong>一个较佳策略是重新设计DBConn接口,使其客户有机会对可能出现的问题作出反应。</strong></p>
+<p><strong>如果某个操作可能在失败时抛出异常,而又存在某种需要必须处理该异常,那么这个异常必须来自析构函数以外的某个函数。因为析构函数吐出异常就是危险,总会带来“过早结束程序”或“发生不明确行为”的风险。</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DBConn</span>{
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+...
+	<span style="color:#66d9ef">void</span> close()                 <span style="color:#75715e">//供客户使用的新函数
+</span><span style="color:#75715e"></span>	{
+		db.close();
+		closed <span style="color:#f92672">=</span> true;
+	}
+	<span style="color:#f92672">~</span>DBConn()
+	{
+		<span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span>closed){
+			<span style="color:#66d9ef">try</span>{                  <span style="color:#75715e">//关闭连接（如果客户不那么做的话）
+</span><span style="color:#75715e"></span>				db.close();
+			}
+			<span style="color:#66d9ef">catch</span>(...){           <span style="color:#75715e">//如果关闭动作失败，记录下并结束程序或吞下异常
+</span><span style="color:#75715e"></span>				                  <span style="color:#75715e">//制作运转记录，记下对close的调用失败；
+</span><span style="color:#75715e"></span>			...
+			}
+		}
+	}
+<span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+	DBConnection db;
+	<span style="color:#66d9ef">bool</span> closed;
+};
+</code></pre></div><p><strong>本文要点</strong></p>
+<ul>
+<li>析构函数绝对不要吐出异常。如果一个被析构函数调用的函数可能抛出异常,析构函数应该捕捉任何异常,然后吞下它们(不传播)或结束程序。</li>
+<li>如果客户需要对某个操作函数运行期间抛出的异常做出反应,那么class应该提供一个普通函数(而非在析构函数中)执行该操作。</li>
+</ul>
+<hr>
+<h3 id="条款09-绝不在构造和析构过程中调用virtual函数">条款09: 绝不在构造和析构过程中调用virtual函数</h3>
+<p><strong><code>BuyTransaction b;</code>这时候被调用的logTransaction是 Transaction内的版本,不是Buyrransaction内的版本-即使目前即将建立的对象类型是BuyTransaction。base class构造期间virtual函数绝不会下降到derived classes阶层。</strong></p>
+<p><strong>非正式的说法或许比较传神: 在base class构造期间, virtual函数不是virtual函数。</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Transaction</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    Transaction( );
+    <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">logrransaction</span>() <span style="color:#66d9ef">const</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
+    ...
+};
+Transaction<span style="color:#f92672">::</span> Transaction ()
+{
+    ...
+    logTransaction();
+}
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BuyTransaction</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">public</span> Transaction { 
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> logrransaction() <span style="color:#66d9ef">const</span>;
+    ...
+};
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SellTransaction</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">public</span> Transaction {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> logTransaction() <span style="color:#66d9ef">const</span>;
+    ...
+};
+</code></pre></div><p><strong>其他方案可以解决这个问题。一种做法是在class Transaction内将 1ogTransaction函数改为non-virtual,然后要求derived class构造函数传递必要信 息给Transaction构造函数,而后那个构造函数便可安全地调用non-virtual logTransaction。</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BuyTransaction</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">public</span> Transaction {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    Buyrransaction ( parameters) <span style="color:#f92672">:</span> Transaction (createLogstring ( parameters ))  {...}
+<span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">static</span> std<span style="color:#f92672">::</span>string createLogstring( parameters );
+};
+</code></pre></div><p><strong>本文要点</strong></p>
+<ul>
+<li>在构造和析构期间不要调用virtual函数,因为这类调用从不下降至derived class(比起当前执行构造函数和析构函数的那层)。</li>
 </ul>
 
     </div>
