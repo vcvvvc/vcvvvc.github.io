@@ -232,7 +232,20 @@ Missing separate debuginfos, use: debuginfo-install glibc-2.17-260.el7.x86_64
 <h2 id="coredump简单概念">CoreDump简单概念</h2>
 <p>CoreDump即核心转储，是程序运行异常崩溃时，系统内核为该程序产生的内存、寄存器、运行栈等快照，并保存为一个二进制文件，可以利用该文件进行GDB调试，发现运行错误。</p>
 <h2 id="产生coredump文件">产生CoreDump文件</h2>
-<p>查看系统是否已经开启了该功能:</p>
+<pre><code>macosx
+sudo sysctl kern.coredump=1
+: kern.coredump: 1 -&gt; 1
+
+设置 /cores 目录属性
+
+sudo mkdir /cores 
+sudo chown root:admin /cores 
+sudo chmod 1775 /cores
+sudo chmod o+w /cores
+
+ulimit -c unlimited
+/cores/core*
+</code></pre><p>查看系统是否已经开启了该功能:</p>
 <pre><code>$ ulimit -c
 0
 </code></pre>
