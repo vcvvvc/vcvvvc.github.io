@@ -113,7 +113,7 @@ class Gameplayer { private: enum {NumTurns = 5}; int scores[NumTurns]; ... }; �
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          3 min read
+          4 min read
         </div>
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
@@ -399,6 +399,129 @@ Transaction<span style="color:#f92672">::</span> Transaction ()
 <ul>
 <li>在构造和析构期间不要调用virtual函数,因为这类调用从不下降至derived class(比起当前执行构造函数和析构函数的那层)。</li>
 </ul>
+<hr>
+<h3 id="条款10-令operator返回一个reference-to-this">条款10: 令operator=返回一个<code>reference to *this</code></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">Widget<span style="color:#f92672">&amp;</span> <span style="color:#66d9ef">operator</span><span style="color:#f92672">=</span>(<span style="color:#66d9ef">const</span> Widget<span style="color:#f92672">&amp;</span> rhs)  <span style="color:#75715e">//返回类型是个reference，指向当前对象
+</span><span style="color:#75715e"></span>{
+	...
+	<span style="color:#66d9ef">return</span> <span style="color:#f92672">*</span><span style="color:#66d9ef">this</span>;                     <span style="color:#75715e">//返回左侧对象
+</span><span style="color:#75715e"></span>}
+
+<span style="color:#75715e"># 实现连锁赋值
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> x, y, z;
+x <span style="color:#f92672">=</span> y <span style="color:#f92672">=</span> z <span style="color:#f92672">=</span> <span style="color:#ae81ff">15</span>;                       <span style="color:#75715e">//赋值连锁形式
+</span></code></pre></div><p><strong>本文要点</strong></p>
+<ul>
+<li>令赋值(assignment)操作符返回一个reference to *this</li>
+</ul>
+<hr>
+<h3 id="条款11-在operator中处理自我赋值">条款11: 在operator=中处理“自我赋值”</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Bitmap</span> {...};
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Widget</span> {
+    ...
+<span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+    Bitmap<span style="color:#f92672">*</span> pb;
+};
+
+<span style="color:#75715e"># 直接赋值不具备自我赋值安全、异常安全性
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e"># 传统不安全做法
+</span><span style="color:#75715e"># 不具备异常安全性
+</span><span style="color:#75715e"></span>Widget<span style="color:#f92672">&amp;</span> Widget<span style="color:#f92672">::</span><span style="color:#66d9ef">operator</span><span style="color:#f92672">=</span> (<span style="color:#66d9ef">const</span> Widqet<span style="color:#f92672">&amp;</span> rhs) {
+    <span style="color:#66d9ef">delete</span> pb;
+    pb <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Bitmap(<span style="color:#f92672">*</span>rhs.pb); 
+    <span style="color:#66d9ef">return</span> <span style="color:#f92672">*</span><span style="color:#66d9ef">this</span>;
+}
+
+<span style="color:#75715e"># 保证异常安全性做法
+</span><span style="color:#75715e"></span>Widget<span style="color:#f92672">&amp;</span> Widget<span style="color:#f92672">::</span><span style="color:#66d9ef">operator</span><span style="color:#f92672">=</span>(<span style="color:#66d9ef">const</span> Widget<span style="color:#f92672">&amp;</span> rhs) {
+    Bitmap<span style="color:#f92672">*</span> pOring <span style="color:#f92672">=</span> pb;
+    pb <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Bitmap(<span style="color:#f92672">*</span>rhs.pb);
+    <span style="color:#66d9ef">delete</span> pOring;
+    <span style="color:#66d9ef">return</span> <span style="color:#f92672">*</span><span style="color:#66d9ef">this</span>;
+}
+
+<span style="color:#75715e"># copy-and-swap v1
+</span><span style="color:#75715e"></span>Widget<span style="color:#f92672">&amp;</span> Widget<span style="color:#f92672">::</span><span style="color:#66d9ef">operator</span><span style="color:#f92672">=</span>(<span style="color:#66d9ef">const</span> Widget<span style="color:#f92672">&amp;</span> rhs) {
+     Widget <span style="color:#a6e22e">temp</span> (rhs); 
+     swap (temp);
+     <span style="color:#66d9ef">return</span> <span style="color:#f92672">*</span><span style="color:#66d9ef">this</span>;
+}
+
+<span style="color:#75715e"># copy-and-swap v2
+</span><span style="color:#75715e"></span>Widget<span style="color:#f92672">&amp;</span> Widget<span style="color:#f92672">::</span><span style="color:#66d9ef">operator</span><span style="color:#f92672">=</span>(Widget rhs) {
+     Widget <span style="color:#a6e22e">temp</span> (rhs); 
+     swap (temp);
+     <span style="color:#66d9ef">return</span> <span style="color:#f92672">*</span><span style="color:#66d9ef">this</span>;
+}
+</code></pre></div><p><strong>本文要点</strong></p>
+<ul>
+<li>确保当对象自我赋值时operator-有良好行为。其中技术包括比较“来源对象”和“目标对象”的地址、精心周到的语句顺序、以及copy-and-swap.</li>
+<li>确定任何函数如果操作一个以上的对象,而其中多个对象是同一个对象时,其行为仍然正确。</li>
+</ul>
+<hr>
+<h3 id="条款12-复制对象时勿忘其每一个成分">条款12: 复制对象时勿忘其每一个成分</h3>
+<p><strong>如果你声明自己的copying函数,意思就是告诉编译器你并不喜欢缺省实现中的某些行为。编译器仿佛被冒犯似的,会以一种奇怪的方式回敬: 当你的实现代码几乎必然出错时却不告诉你。</strong></p>
+<p><strong>当类含有其他类的成员、类发生继承</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Date</span> { ... };
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Customer</span> { 
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    ...
+<span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+    std<span style="color:#f92672">::</span>string name; 
+    Date lastTransaction;
+};
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PriorityCustomer</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">public</span> Customer { 
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+     PrioriuyCustomer(<span style="color:#66d9ef">const</span> PriorityCustomer<span style="color:#f92672">&amp;</span> rhs);
+     PriorityCustomer<span style="color:#f92672">&amp;</span> <span style="color:#66d9ef">operator</span><span style="color:#f92672">=</span>(<span style="color:#66d9ef">const</span> PriorityCustomer<span style="color:#f92672">&amp;</span> rhs);
+<span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+     <span style="color:#66d9ef">int</span> priority;
+};
+
+Prioritycustomer<span style="color:#f92672">::</span>PriorityCustomer(<span style="color:#66d9ef">const</span> PriorityCustomer<span style="color:#f92672">&amp;</span> rhs) <span style="color:#f92672">:</span> priority(rhs.priority)
+{
+    logCall(<span style="color:#e6db74">&#34;PriorityCustomer copy constructor&#34;</span>);
+}
+
+PriorityCustomer<span style="color:#f92672">&amp;</span> PriorityCustomer<span style="color:#f92672">::</span><span style="color:#66d9ef">operator</span><span style="color:#f92672">=</span>(<span style="color:#66d9ef">const</span> PriorityCustomer<span style="color:#f92672">&amp;</span> rhs) {
+    logCall(<span style="color:#e6db74">&#34;PriorityCustomer copy assignment operator&#34;</span>); 
+    priority<span style="color:#f92672">=</span>rhs.priority;
+    <span style="color:#66d9ef">return</span> <span style="color:#f92672">*</span><span style="color:#66d9ef">this</span>;
+}
+</code></pre></div><p><strong>它们复制了Prioritycustomer声明的成员变量, 但每个PriorityCustomer还内含它所继承的Customer成员变量复件(副本) ,而那些成员变量却未被复制。</strong></p>
+<p><strong>应该让derived class的copying函数调用相应的base class函数</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">PriorityCustomer<span style="color:#f92672">::</span>PriorityCustomer(<span style="color:#66d9ef">const</span> Prioritycustomer<span style="color:#f92672">&amp;</span> rhs) <span style="color:#f92672">:</span> customer(rhs), priority(rhs.priority)
+{
+    logCall (<span style="color:#e6db74">&#34;PriorityCustomer copy constructor&#34;</span>);
+}
+PriorityCustomer<span style="color:#f92672">&amp;</span> PriorityCustomer<span style="color:#f92672">::</span><span style="color:#66d9ef">operator</span><span style="color:#f92672">=</span>(<span style="color:#66d9ef">const</span> Prioritycustomer<span style="color:#f92672">&amp;</span> rhs) {
+    logCall (<span style="color:#e6db74">&#34;PriorityCustomer copy assignment operator&#34;</span>);
+    Customer: <span style="color:#f92672">:</span> <span style="color:#66d9ef">operator</span><span style="color:#f92672">=</span> (rhs);
+    priority<span style="color:#f92672">=</span>rhs.priority;
+    <span style="color:#66d9ef">return</span> <span style="color:#f92672">*</span><span style="color:#66d9ef">this</span>;
+}
+</code></pre></div><p><strong>copy assignment操作符调用copy构造函数是不合理的,因为这就像试图构造一个已经存在的对象。</strong></p>
+<p><strong>反方向&ndash;令copy构造函数调用copy assignment操作符-同样无意义。构造函数用来初始化新对象,而assignment操作符只施行于已初始化对象身上。</strong></p>
+<p><strong>本文要点</strong></p>
+<ul>
+<li>
+<p>本条款题目所说的“复制每一个成分”现在应该很清楚了。当你编写一个copying函数,请确保:</p>
+<ul>
+<li>复制所有local成员变量</li>
+<li>调用所有base classes内的适当的 copying函数。</li>
+</ul>
+</li>
+<li>
+<p>Copying函数应该确保复制“对象内的所有成员变量”及“所有base class成分”</p>
+</li>
+<li>
+<p>不要尝试以某个copying函数实现另一个copying函数。应该将共同机能放进第三个函数中,并由两个coping函数共同调用。</p>
+</li>
+</ul>
+<hr>
+<h3 id="条款13-以对象管理资源">条款13: 以对象管理资源</h3>
 
     </div>
     <div class="post-footer">
