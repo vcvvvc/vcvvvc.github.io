@@ -522,6 +522,54 @@ PriorityCustomer<span style="color:#f92672">&amp;</span> PriorityCustomer<span s
 </ul>
 <hr>
 <h3 id="条款13-以对象管理资源">条款13: 以对象管理资源</h3>
+<p>所谓资源就是,一旦用了它,将来必须还给系统。C++程序中最常使用的资源就是动态分配内存(如果你分配内存却从来不曾归还它,会导致内存泄漏) ,但内存只是你必须管理的众多资源之一。</p>
+<p>程序中过早的return、continus、goto等 略过delete， 泄漏的不只是内含投资对象的那块内存,还包括那些投资对象所保存的任何资源。</p>
+<p><strong>使用智能指针</strong></p>
+<p><code>auto_ptr</code>在C++11已被弃用</p>
+<p><strong>代替方案为 “引用计数型智慧指针&quot;(reference-counting smart pointer;RCSP)</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">f</span>() {
+    std<span style="color:#f92672">::</span>tr1<span style="color:#f92672">::</span>shared_ptr<span style="color:#f92672">&lt;</span>Investment<span style="color:#f92672">&gt;</span> pInv(createInvestment());
+    ...
+}
+</code></pre></div><ul>
+<li>获得资源后立刻放进管理对象( managing object)内。</li>
+<li>管理对象(managing object)运用析构函数确保资源被释放。</li>
+</ul>
+<p><strong>本文要点</strong></p>
+<ul>
+<li>为防止资源泄漏,请使用RAI1对象,它们在构造函数中获得资源并在析构函数中释放资源。</li>
+<li>两个常被使用的RAlI classes分别是tr1::shared-ptr和autoptr,前者通常是较佳选择,因为其copy行为比较直观。若选择auto-ptr,复制动作会使它(被复制物)指向null</li>
+</ul>
+<hr>
+<h3 id="条款14-在资源管理类中小心coping行为">条款14: 在资源管理类中小心coping行为</h3>
+<pre><code>Lock ml1 (&amp;m); //锁定m
+Lock ml2 (ml1); //将ml1复制到m12身上。这会发生什么事?
+</code></pre><p><strong>当一个RAI1对象被复制 该怎么办:</strong></p>
+<ul>
+<li>禁止复制</li>
+<li>对底层资源采用“引用计数法”(智能指针)</li>
+<li>复制底部资源。(深度拷贝)</li>
+<li>转移底部资源的拥有权。</li>
+</ul>
+<p><strong>本文要点</strong></p>
+<ul>
+<li>复制RAl1对象必须一并复制它所管理的资源,所以资源的copying行为决定 RAII对象的copying行为。</li>
+<li>普遍而常见的RAll class copying行为是:抑制copying、施行引用计数法 (reference counting) 。不过其他行为也都可能被实现。</li>
+</ul>
+<hr>
+<h3 id="条款15-在资源管理类中提供对原始资源的访问">条款15: 在资源管理类中提供对原始资源的访问</h3>
+<p><strong>最佳设计很可能是坚持条款18的忠告: “让接口容易被正确使用,不易被误用”。</strong></p>
+<p><strong>本文要点</strong></p>
+<ul>
+<li>APIs往往要求访问原始资源(raw resources) ,所以每一个RAII class应该提供一个“取得其所管理之资源”的办法。</li>
+<li>对原始资源的访问可能经由显式转换或隐式转换。一般而言显式转换比较安全,但隐式转换对客户比较方便。</li>
+</ul>
+<hr>
+<h3 id="条款16-成对使用new和delete时要采取相同形式">条款16: 成对使用new和delete时要采取相同形式</h3>
+<p><strong>本文要点</strong></p>
+<ul>
+<li>如果你在new表达式中使用1],必须在相应的delete表达式中也使用1]。如果你在new表达式中不使用[],一定不要在相应的delete表达式中使用[1.</li>
+</ul>
 
     </div>
     <div class="post-footer">
