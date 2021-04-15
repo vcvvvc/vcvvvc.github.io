@@ -618,6 +618,32 @@ Lock ml2 (ml1); //将ml1复制到m12身上。这会发生什么事?
 </ul>
 <hr>
 <h3 id="条款20宁以pass-by-reference-to-const替换pass-by-value">条款20:宁以pass-by-reference-to-const替换pass-by-value</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">validatestudent</span>(<span style="color:#66d9ef">const</span> student<span style="color:#f92672">&amp;</span> s);
+</code></pre></div><p><strong>这种传递方式的效率高得多:没有任何构造函数或析构函数被调用,因为没有任何新对象被创建。修订后的这个参数声明中的const是重要的。以by reference方式传递参数也可以避免对象切割问题</strong></p>
+<p><strong>本文要点</strong></p>
+<ul>
+<li>尽量以pass-by-reference-to-const替换pass-by-value,前者通常比较高效,并可避免</li>
+<li>切割问题(slicing problem) 。
+以上规则并不适用于内置类型,以及STL的迭代器和函数对象。对它们而言, pass-by-value往往比较适当。</li>
+</ul>
+<hr>
+<h3 id="条款21-必须返回对象时别妄想返回其reference">条款21: 必须返回对象时,别妄想返回其reference</h3>
+<p>任何时候看到一个引用声明式，你都应该立刻问自己，它的另一个名称是什么？</p>
+<p><strong>虽然函数参数最好用引用值，但函数返回值却不要随便去用引用，这回造成很多问题，比如引用的对象在函数结束后即被销毁，或是需要付出很多成本和代码来保证其不被销毁且不重复，这大概率没有必要，就返回一个值/对象就好了。</strong></p>
+<p><strong>本文要点</strong></p>
+<ul>
+<li>绝不要返回pointer或reference指向一个local stack对象,或返回reference指向一 个heap-allocated对象,或返回pointer或reference指向一个local static对象而有可能同时需要多个这样的对象。条款4已经为“在单线程环境中合理返回reference指向一个local static对象”提供了一份设计实例。</li>
+</ul>
+<hr>
+<h3 id="条款22将成员变量声明为private">条款22:将成员变量声明为private</h3>
+<p><strong>封装重要性,可以确保class的约束条件总是会获得维护,因为只有成员函数可以影响它们。</strong></p>
+<p><strong>protected并不比public更加具有封装性，因为protected修饰的成员变量一旦修改，也会造成子类的大量修改。</strong></p>
+<p>从封装的角度观之,其实只有两种访问权限: private (提供封装)和其他(不提供封装)</p>
+<p><strong>本文要点</strong></p>
+<ul>
+<li>切记将成员变量声明为private。这可赋予客户访问数据的一致性、可细微划分访问控制、允诺约束条件获得保证,并提供class作者以充分的实现弹性。</li>
+<li>protected并不比public更具封装性。</li>
+</ul>
 
     </div>
     <div class="post-footer">
