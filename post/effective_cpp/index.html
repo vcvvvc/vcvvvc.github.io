@@ -113,7 +113,7 @@ class Gameplayer { private: enum {NumTurns = 5}; int scores[NumTurns]; ... }; �
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          4 min read
+          5 min read
         </div>
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
@@ -568,8 +568,56 @@ Lock ml2 (ml1); //将ml1复制到m12身上。这会发生什么事?
 <h3 id="条款16-成对使用new和delete时要采取相同形式">条款16: 成对使用new和delete时要采取相同形式</h3>
 <p><strong>本文要点</strong></p>
 <ul>
-<li>如果你在new表达式中使用1],必须在相应的delete表达式中也使用1]。如果你在new表达式中不使用[],一定不要在相应的delete表达式中使用[1.</li>
+<li>如果你在new表达式中使用1],必须在相应的delete表达式中也使用1]。如果你在new表达式中不使用[],一定不要在相应的delete表达式中使用[]</li>
 </ul>
+<hr>
+<h3 id="条款17-以独立语句将newed对象置入智能指针">条款17: 以独立语句将newed对象置入智能指针</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">processwidget</span>(std<span style="color:#f92672">::</span>tr1<span style="color:#f92672">::</span>shared ptr<span style="color:#f92672">&lt;</span>widget<span style="color:#f92672">&gt;</span> pw, priority());
+</code></pre></div><p>虽然我们在此使用“对象管理式资源” (object-managingresources) ,上述调用却可能泄漏资源。</p>
+<p>在调用processWidget之前,编译器必须创建代码,做以下三件事:</p>
+<ul>
+<li>调用priority</li>
+<li>执行&quot;new widget&quot;</li>
+<li>调用trl::sharedptr构造函数</li>
+</ul>
+<p><strong>c++并不是特定次序完成函数参数的核算、弹性大。如果<code>priority</code>出现异常 <code>new widget</code>返回的指针将会遗失</strong></p>
+<p><strong>本文要点</strong></p>
+<ul>
+<li>以独立语句将newed对象存储于(置入)智能指针内。如果不这样做,一旦异常被抛出,有可能导致难以察觉的资源泄漏。</li>
+</ul>
+<hr>
+<h3 id="条款18-让接口容易被正确使用不易被误用">条款18: 让接口容易被正确使用,不易被误用</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">std<span style="color:#f92672">::</span>tr1<span style="color:#f92672">::</span>shared ptr<span style="color:#f92672">&lt;</span>Investment<span style="color:#f92672">&gt;</span> pInv( <span style="color:#66d9ef">static</span> cast<span style="color:#f92672">&lt;</span>Investment<span style="color:#f92672">*&gt;</span>(<span style="color:#ae81ff">0</span>), getRidofInvestment);
+</code></pre></div><p><strong>本文要点</strong></p>
+<ul>
+<li>好的接口很容易被正确使用,不容易被误用。你应该在你的所有接口中努力达成这些性质。</li>
+<li>“促进正确使用”的办法包括接口的一致性,以及与内置类型的行为兼容。</li>
+<li>“阻止误用”的办法包括建立新类型、限制类型上的操作,束缚对象值,以及消除客户的资源管理责任。</li>
+<li>tr1::sharedptr支持定制型删除器(custom deleter) 。这可防范DLL问题,可被用来自动解除互斥锁(mutexes,见条款14)等等。</li>
+</ul>
+<hr>
+<h3 id="条款19设计class犹如设计type">条款19:设计class犹如设计type</h3>
+<p>在设计class时,要考虑一系列的问题, 包括：</p>
+<ul>
+<li>新type的对象应该如何被创建和销毁（构造和析构）</li>
+<li>对象的初始化和对象的赋值该有什么样的差别，这个答案决定你的构造函数和赋值操作符的行为，以及其间的差异。</li>
+<li>新的type的对象如果被pass by value，意味着什么？记住，拷贝构造函数用来定义一个type的pass-by-value该如何实现。</li>
+<li>什么是新type的“合法值”？（约束条件）成员函数必须进行错误检查工作。</li>
+<li>你的新type需要配合某个继承图系吗？（注意虚函数）</li>
+<li>你的新type需要什么样的转换？（显示转换、类型转换操作符）</li>
+<li>什么样的操作符和函数对此新type而言是合理的？这决定你为你的class声明哪些函数，哪些是成员函数，哪些不是。</li>
+<li>什么样的标准函数应该驳回？那些正是必须声明为private者（条款6）。</li>
+<li>什么是新type的“未声明接口”</li>
+<li>你的新type有多么一般化？（class template）</li>
+<li>成员函数和成员变量的可见范围（public/protected/private）</li>
+<li>是否真的需要一个新type</li>
+</ul>
+<p><strong>本文要点</strong></p>
+<ul>
+<li>Class的设计就是type的设计。在定义一个新type之前,请确定你已经考虑过本条款覆盖的所有讨论主题。</li>
+</ul>
+<hr>
+<h3 id="条款20宁以pass-by-reference-to-const替换pass-by-value">条款20:宁以pass-by-reference-to-const替换pass-by-value</h3>
 
     </div>
     <div class="post-footer">
