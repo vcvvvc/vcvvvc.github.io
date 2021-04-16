@@ -113,7 +113,7 @@ class Gameplayer { private: enum {NumTurns = 5}; int scores[NumTurns]; ... }; �
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          5 min read
+          6 min read
         </div>
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
@@ -664,6 +664,77 @@ Lock ml2 (ml1); //将ml1复制到m12身上。这会发生什么事?
 </ul>
 <hr>
 <h3 id="条款24-若所有参数皆需类型转换请为此采用non-member函数">条款24: 若所有参数皆需类型转换,请为此采用non-member函数</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Rational</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">const</span> Rational <span style="color:#66d9ef">operator</span><span style="color:#f92672">*</span>(<span style="color:#66d9ef">const</span> Rational<span style="color:#f92672">&amp;</span> rhs) <span style="color:#66d9ef">const</span>;
+}<span style="color:#960050;background-color:#1e0010">；</span>
+
+<span style="color:#75715e">#没问题
+</span><span style="color:#75715e"></span>Rational oneEighth(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">8</span>);
+Rational <span style="color:#a6e22e">oneHalf</span>(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>);
+Rational result <span style="color:#f92672">=</span> oneHalf <span style="color:#f92672">*</span> oneEighth;
+result <span style="color:#f92672">=</span> result <span style="color:#f92672">*</span> oneEighth;
+result <span style="color:#f92672">=</span> oneHalf <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>; <span style="color:#75715e">// result = oneHalf.operator*(2);
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">#错误
+</span><span style="color:#75715e"></span>result <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> oneHalf; <span style="color:#75715e">//出错  result = 2.operator*(oneHalf);
+</span></code></pre></div><p>编译器知道你正在传递一个int,而函数需要的是Rational;但它也知道只要调用Rational构造函数并赋予你所提供的int,就可以变出一个适当的Rational来。</p>
+<p><strong>结论是,只有当参数被列于参数列(parameter list)内,这个参数才是隐式类型转换的合格参与者。地位相当于“被调用之成员函数所隶属的那个对象”&ndash;即this对象-的那个隐喻参数,绝不是隐式转换的合格参与者。</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Rational</span>{
+    ...
+};
+
+<span style="color:#66d9ef">const</span> Rational <span style="color:#66d9ef">operator</span><span style="color:#f92672">*</span> (<span style="color:#66d9ef">const</span> Rational<span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">1</span>hs, <span style="color:#66d9ef">const</span> Rational<span style="color:#f92672">&amp;</span> rhs) {
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">Rational</span> (<span style="color:#ae81ff">1</span>hs.numerator() <span style="color:#f92672">*</span> rhs.numerator( ), 
+                    <span style="color:#ae81ff">1</span>hs.denominator() <span style="color:#f92672">*</span> rhs.denominator());
+}
+
+<span style="color:#75715e">#编译通过
+</span><span style="color:#75715e"></span>Rational <span style="color:#a6e22e">oneFourth</span> (<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">4</span>);
+Rational result; result <span style="color:#f92672">=</span> oneFourth <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>;
+result <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> oneFourth;
+</code></pre></div><p><strong><code>operator*</code> 无需设置为friend 因为<code>operator*</code> 可以完全藉由Rational的public接口完成任务</strong></p>
+<p><strong>结论是,只有当参数被列于参数列(parameter list)内,这个参数才是隐式类型转换的合格参与者。地位相当于“被调用之成员函数所隶属的那个对象”&ndash;即this对象-的那个隐喻参数,绝不是隐式转换的合格参与者。</strong></p>
+<p><strong>本文要点</strong></p>
+<ul>
+<li>如果你需要为某个函数的所有参数(包括被this指针所指的那个隐喻参数)进行类型转换,那么这个函数必须是个non-member.</li>
+</ul>
+<hr>
+<h3 id="条款25-考虑写出一个不抛异常的swap函数">条款25: 考虑写出一个不抛异常的swap函数</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">namespace</span> WidgetStuff {
+    <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">widget</span> {
+    <span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+        <span style="color:#66d9ef">void</span> swap (Widget<span style="color:#f92672">&amp;</span> other)
+        {
+            <span style="color:#66d9ef">using</span> std<span style="color:#f92672">::</span>swap;
+            swap (pImpl, other.pImpl);
+        }
+    };
+
+    <span style="color:#66d9ef">template</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> T<span style="color:#f92672">&gt;</span>
+    <span style="color:#66d9ef">void</span> swap(widget<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;&amp;</span> a, widget<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;&amp;</span> b) {
+        a.swap(b);
+    }
+}
+
+<span style="color:#75715e">#调用T专属版本,并在该版本不存在的情况下调用std内的一般化版本。
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">template</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> T<span style="color:#f92672">&gt;</span> 
+<span style="color:#66d9ef">void</span> dosomething(T<span style="color:#f92672">&amp;</span> a, T<span style="color:#f92672">&amp;</span> b) {
+        <span style="color:#66d9ef">using</span> std<span style="color:#f92672">::</span>swap;
+        ...
+        swap(a, b);
+    }
+}
+</code></pre></div><p><strong>本文要点</strong></p>
+<ul>
+<li>成员函数swap版本绝不可抛出异常</li>
+<li>当std::swap对你的类型效率不高时,提供一个swap成员函数,并确定这个函数不抛出异常。</li>
+<li>如果你提供一个member swap,也该提供一个non-member swap用来调用前者。对 于classes (而非templates) ,也请特化std::swapo</li>
+<li>调用swap时应针对std: :swap使用using声明式,然后调用swap并且不带任何“命名空间资格修饰”</li>
+<li>为“用户定义类型”进行std templates全特化是好的,但千万不要尝试在std内加入某些对std而言全新的东西。</li>
+</ul>
+<hr>
+<h3 id="条款26-尽可能延后变量定义式的出现时间">条款26: 尽可能延后变量定义式的出现时间</h3>
 
     </div>
     <div class="post-footer">
