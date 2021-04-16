@@ -644,6 +644,26 @@ Lock ml2 (ml1); //将ml1复制到m12身上。这会发生什么事?
 <li>切记将成员变量声明为private。这可赋予客户访问数据的一致性、可细微划分访问控制、允诺约束条件获得保证,并提供class作者以充分的实现弹性。</li>
 <li>protected并不比public更具封装性。</li>
 </ul>
+<hr>
+<h3 id="条款23-宁以non-member-non-friend替换member函数">条款23: 宁以non-member, non-friend替换member函数</h3>
+<p><strong>提供non-member函数可允许对webBrowser相关机能有较大的包裹弹性 (packaging flexibility) ,而那最终导致较低的编译相依度,增加webBrowser的可延伸性。</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">clearBrowser</span>(WebBrowser<span style="color:#f92672">&amp;</span> wb) {
+    wb.clearCache();
+    wb.clearHistory();
+    wb.removeCookies();
+}
+</code></pre></div><p>愈少代码可以看到数据(也就是访问它) ,愈多的数据可被封装,而我们也就愈能自由地改变对象数据</p>
+<p>在C++,比较自然的做法是让clearBrowser成为一个non-member函数并且位于 WebBrowser所在的同一个namespace (命名空间)内:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">namespace</span> WebBrowserStuff{
+    <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">WebBrowser</span>{... };
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">clearBrowser</span>(WebBrowser<span style="color:#f92672">&amp;</span> wb);
+}
+</code></pre></div><p><strong>本文要点</strong></p>
+<ul>
+<li>宁可拿non-member non-friend函数替换member函数。这样做可以增加封装性、包 裹弹性(packaging flexibility)和机能扩充性。</li>
+</ul>
+<hr>
+<h3 id="条款24-若所有参数皆需类型转换请为此采用non-member函数">条款24: 若所有参数皆需类型转换,请为此采用non-member函数</h3>
 
     </div>
     <div class="post-footer">
