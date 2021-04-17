@@ -113,7 +113,7 @@ class Gameplayer { private: enum {NumTurns = 5}; int scores[NumTurns]; ... }; �
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          6 min read
+          7 min read
         </div>
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
@@ -412,7 +412,7 @@ Transaction<span style="color:#f92672">::</span> Transaction ()
 x <span style="color:#f92672">=</span> y <span style="color:#f92672">=</span> z <span style="color:#f92672">=</span> <span style="color:#ae81ff">15</span>;                       <span style="color:#75715e">//赋值连锁形式
 </span></code></pre></div><p><strong>本文要点</strong></p>
 <ul>
-<li>令赋值(assignment)操作符返回一个reference to *this</li>
+<li>令赋值(assignment)操作符返回一个<code>reference to *this</code></li>
 </ul>
 <hr>
 <h3 id="条款11-在operator中处理自我赋值">条款11: 在operator=中处理“自我赋值”</h3>
@@ -735,6 +735,134 @@ result <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
 </ul>
 <hr>
 <h3 id="条款26-尽可能延后变量定义式的出现时间">条款26: 尽可能延后变量定义式的出现时间</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">std<span style="color:#f92672">::</span>string encryptPassword(<span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>string<span style="color:#f92672">&amp;</span> password) {
+    <span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+    string encrypted;
+    <span style="color:#66d9ef">if</span> (password.length() <span style="color:#f92672">&lt;</span> MinimumPasswordLength) {
+        <span style="color:#66d9ef">throw</span> <span style="color:#a6e22e">logic_error</span> (<span style="color:#e6db74">&#34;Password is too short&#34;</span>);
+    }
+    ...
+    <span style="color:#66d9ef">return</span> encrypted;
+<span style="color:#960050;background-color:#1e0010">）</span>
+</code></pre></div><p>如果函数encryptPassword丢出异常,你仍得付出encrypted的构造成本和析构成本。所以最好延后encrypted的定义式,直到确实需要它。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#1 效率低
+</span><span style="color:#75715e"></span>std<span style="color:#f92672">::</span>string encrypted; 
+encrypted <span style="color:#f92672">=</span> password;
+
+<span style="color:#75715e">#高效
+</span><span style="color:#75715e"></span>std<span style="color:#f92672">::</span>string encrypted (password);
+</code></pre></div><p><strong>你不只应该延后变量的定义,直到非得使用该变量的前一刻为止,甚至应该尝试延后这份定义直到能够给它初值实参为止。</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#做法A: 1个构造函数+1个析构函数+n个赋值操作
+</span><span style="color:#75715e">#方法A:定义于循环外
+</span><span style="color:#75715e"></span>widget w;
+<span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span>n; <span style="color:#f92672">++</span>i) {
+    w <span style="color:#f92672">=</span> <span style="color:#75715e">//取决于i的某个值;
+</span><span style="color:#75715e"></span>}
+
+<span style="color:#75715e">#做法B: n个构造函数+n个析构函数
+</span><span style="color:#75715e">#方法B:定义于循环内
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>n; <span style="color:#f92672">++</span>i) {
+    widget <span style="color:#a6e22e">w</span>(<span style="color:#f92672">//</span><span style="color:#960050;background-color:#1e0010">取决于</span>i的某个值);
+}
+</code></pre></div><ul>
+<li>你知道赋值成本比“构造+析构”成本低</li>
+<li>你正在处理代码中效率高度敏感(performance-sensitive)的部分,否则你应该使用做法B</li>
+</ul>
+<p><strong>本文要点</strong></p>
+<ul>
+<li>尽可能延后变量定义式的出现。这样做可增加程序的清晰度并改善程序效率。</li>
+</ul>
+<hr>
+<h3 id="条款27-尽量少做转型动作">条款27: 尽量少做转型动作</h3>
+<ul>
+<li>const-cast通常被用来将对象的常量性转除(cast away the constness)</li>
+<li>dynamic-cast主要用来执行“安全向下转型” (safe downcasting) ,也就是用来决定某对象是否归属继承体系中的某个类型。它是唯一无法由旧式语法执行的动作,也是唯一可能耗费重大运行成本的转型动作</li>
+<li>reinterpret-cast意图执行低级转型,实际动作(及结果)可能取决于编译器,这也就表示它不可移植。</li>
+<li>static_cast用来强迫隐式转换(implicit conversions)</li>
+</ul>
+<p><strong>C不可能发生这种事,Java不可能发生这种事,C#也不可能发生这种事。但C++可能!</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">window</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> onResize() {...}
+    ...
+}<span style="color:#960050;background-color:#1e0010">；</span>
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Specialwindow</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">public</span> Window {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> onResize() { 
+        <span style="color:#66d9ef">static_cast</span><span style="color:#f92672">&lt;</span>window<span style="color:#f92672">&gt;</span> (<span style="color:#f92672">*</span><span style="color:#66d9ef">this</span>).onResize ();
+        ...
+    }
+}
+</code></pre></div><p>解决之道是拿掉转型动作,代之以你真正想说的话。你并不想哄骗编译器将 *this视为一个base class对象,你只是想调用base class版本的onResize函数,令它作用于当前对象身上。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Specialwindow</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">public</span> window { 
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> onResize() {
+        <span style="color:#75715e">#调用window:;onresize 作用于*this上
+</span><span style="color:#75715e"></span>         window<span style="color:#f92672">::</span>onResize(); 
+    }
+}
+</code></pre></div><p><strong>本文要点</strong></p>
+<ul>
+<li>如果可以,尽量避免转型,特别是在注重效率的代码中避免dynamic-casts.如果有个设计需要转型动作,试着发展无需转型的替代设计。</li>
+<li>如果转型是必要的,试着将它隐藏于某个函数背后。客户随后可以调用该函数,而不需将转型放进他们自己的代码内。</li>
+<li>宁可使用C++-style (新式)转型,不要使用旧式转型。前者很容易辨识出来,
+而且也比较有着分门别类的职掌。</li>
+</ul>
+<hr>
+<h3 id="条款28-避免返回handles指向对象内部成分">条款28: 避免返回handles指向对象内部成分</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Point</span> { 
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    Point (<span style="color:#66d9ef">int</span> x, <span style="color:#66d9ef">int</span> y);
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setx</span>(<span style="color:#66d9ef">int</span> newVal); 
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setY</span>(<span style="color:#66d9ef">int</span> newVal);
+    ...
+ };
+
+<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">RectData</span> { 
+    Point ulhc; 
+    Point lrhc;
+};
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Rectangle</span> {
+    ...
+<span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+    std<span style="color:#f92672">::</span>tr1<span style="color:#f92672">::</span>shared_ptr<span style="color:#f92672">&lt;</span>RectData<span style="color:#f92672">&gt;</span> pData;
+};
+
+<span style="color:#75715e">#根据条款20 以by reference方式传递用户自定义类型往往比以by value方式传递更高效
+</span><span style="color:#75715e">#错误： 两个函数都返回references指向private内部数据,调用者于是可通过这些references更改内部数据!
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Rectangle</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    Point<span style="color:#f92672">&amp;</span> upperLeft() <span style="color:#66d9ef">const</span> {
+        <span style="color:#66d9ef">return</span> pData<span style="color:#f92672">-&gt;</span>ulhc; 
+    } 
+
+    Point<span style="color:#f92672">&amp;</span> lowerRight() <span style="color:#66d9ef">const</span> { 
+        <span style="color:#66d9ef">return</span> pData<span style="color:#f92672">-&gt;</span>lrhc; 
+    }
+}<span style="color:#960050;background-color:#1e0010">；</span>
+</code></pre></div><ul>
+<li>成员变量的封装性最多只等于“返回其 reference&quot;的函数的访问级别。</li>
+<li>如果const成员函数传出一个reference,后者所指数据与对象自身有关联,而它又被存储于对象之外,那么这个函数的调用者可以修改那笔数据。</li>
+</ul>
+<p><strong>通常我们认为,对象的“内部”就是指它的成员变量,但其实不被公开使用的成员函数(也就是被声明为protected或private者)也是对象“内部”的一部分。因此也应该留心不要返回它们的handles.这意味你绝对不该令成员函数返回一个指针指向“访问级别较低”的成员函数。</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#代码返回类型加上const即可
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Rectangle</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">const</span> Point<span style="color:#f92672">&amp;</span> upperLeft() <span style="color:#66d9ef">const</span> { 
+        <span style="color:#66d9ef">return</span> pData<span style="color:#f92672">-&gt;</span>ulhc; 
+    } 
+    <span style="color:#66d9ef">const</span> Point<span style="color:#f92672">&amp;</span> lowerRight() <span style="color:#66d9ef">const</span> { 
+        <span style="color:#66d9ef">return</span> pData<span style="color:#f92672">-&gt;</span>lrhc; 
+    }
+    ...
+};
+</code></pre></div><p>但即使如此, upperLeft和lowerRight还是返回了“代表对象内部”的handles,有可能在其他场合带来问题。更明确地说,它可能导致dangling handles (空悬的号码牌): 这种handles所指东西(的所属对象)不复存在。这种“不复存在的对象”最常见的来源就是函数返回值。</p>
+<p><strong>本文要点</strong></p>
+<ul>
+<li>避免返回handles (包括references、指针、迭代器)指向对象内部。遵守这个条款可增加封装性,帮助const成员函数的行为像个const,并将发生“虚吊号码 牌” (dangling handles)的可能性降至最低。</li>
+</ul>
 
     </div>
     <div class="post-footer">
