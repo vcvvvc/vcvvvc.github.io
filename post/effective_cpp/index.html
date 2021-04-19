@@ -113,7 +113,7 @@ class Gameplayer { private: enum {NumTurns = 5}; int scores[NumTurns]; ... }; �
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          7 min read
+          8 min read
         </div>
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
@@ -884,6 +884,108 @@ encrypted <span style="color:#f92672">=</span> password;
 <li>基本承诺:如果异常被抛出,程序内的任何事物仍然保持在有效状态下。</li>
 <li>强烈保证:如果异常被抛出,程序状态不改变。</li>
 <li>不抛掷( nothrow)保证,承诺绝不抛出异常,因为它们总是能够完成它们原先承诺的功能。</li>
+</ul>
+<p><strong>智能指针使用reset，当new Image(imgSrc)成功后，才会删除旧图像。</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PrettyMenu</span>{
+    ...
+    std<span style="color:#f92672">::</span>tr1<span style="color:#f92672">::</span>shared_ptr<span style="color:#f92672">&lt;</span>Image<span style="color:#f92672">&gt;</span> bgImage;
+    ...
+};
+<span style="color:#66d9ef">void</span> PrettyMenu<span style="color:#f92672">::</span>changeBackground(std<span style="color:#f92672">::</span>istream<span style="color:#f92672">&amp;</span> imgSrc)
+{
+    Lock <span style="color:#a6e22e">m1</span>(<span style="color:#f92672">&amp;</span>mutex);
+    bgImage.reset(<span style="color:#66d9ef">new</span> Image(imgSrc));<span style="color:#75715e">//用new Image执行结果设定bgImage内部指针
+</span><span style="color:#75715e"></span>    <span style="color:#f92672">++</span>imageChanges;
+}
+</code></pre></div><p>第二、将所有“隶属对象的数据”从原对象放进另一个对象内,然后赋予原对象一个指针,指向那个所谓的实现对象(implementation object,即副本)。这种手法常被称为pimpl idiom</p>
+<p><strong>copy-and-swap策略</strong></p>
+<p><strong>当“强烈保证”不切实际时,你就必须提供“基本保证”</strong></p>
+<p>一般而言并不保证函数具有强烈的异常安全性</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">void</span> PrettyMenu<span style="color:#f92672">::</span>changeBackground(std<span style="color:#f92672">::</span>istream<span style="color:#f92672">&amp;</span> imgSrc) {
+    <span style="color:#66d9ef">using</span> std<span style="color:#f92672">::</span>swap;
+    Lock <span style="color:#a6e22e">ml</span>(smutex);
+    std<span style="color:#f92672">::</span>tr1<span style="color:#f92672">::</span>shared ptr<span style="color:#f92672">&lt;</span>PMImpl<span style="color:#f92672">&gt;</span>
+        pNew (<span style="color:#66d9ef">new</span> PMImpl(<span style="color:#f92672">*</span>pImpl));
+    pNew<span style="color:#f92672">-&gt;</span>bgImage.reset(<span style="color:#66d9ef">new</span> Image(imgSrc));
+    <span style="color:#f92672">++</span>pNew<span style="color:#f92672">-&gt;</span>imageChanges;
+    swap(pImpl, pNew);
+}
+</code></pre></div><p>如果函数哪还对另外两个函数进行操作:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">someFunc</span>() {
+    ...
+    f1(); 
+    f2();
+    ...
+}
+</code></pre></div><ul>
+<li>
+<ol>
+<li>假设f1只提供基本保证,那么为了让someFunc提供强烈保证,我们必须写出代码获得调用f1之前的整个程序状态、捕捉f1的所有可能异常、然后恢复原状态。</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>如果F1和f2都是“强烈异常安全” ,情况并不就此好转。毕竟如果f1圆满结束,程序状态在任何方面都可能有所改变,因此如果f2随后抛出异常,程序状态和someFunc被调用前并不相同,甚至当F2没有改变任何东西时也是如此。</li>
+</ol>
+</li>
+</ul>
+<p><strong>问题出在“连带影响” (side effects) 。如果函数只操作局部性状态(local state,例如somerunc只影响其“调用者对象”的状态),便相对容易地提供强烈保证。但是当函数对“非局部性数据” (non-local data)有连带影响时,提供强烈保证就困难得多。</strong></p>
+<p><strong>本文要点</strong></p>
+<ul>
+<li>异常安全函数(Exception-safe functions)即使发生异常也不会泄漏资源或允许任何数据结构败坏。这样的函数区分为三种可能的保证:基本型、强烈型、不抛异常型。</li>
+<li>“强烈保证”往往能够以copy-and-swap实现出来,但“强烈保证”并非对所有函数都可实现或具备现实意义。</li>
+<li>函数提供的“异常安全保证”通常最高只等于其所调用之各个函数的“异常安全保证”中的最弱者。</li>
+</ul>
+<hr>
+<h3 id="条款30-透彻了解inlining的里里外外">条款30: 透彻了解inlining的里里外外</h3>
+<ul>
+<li>过度热衷inlining会造成程序体积太大(对可用空间而言)。即使拥有虚内存, inline造成的代码膨胀亦会导致额外的换页行为(paging) ,降低 指令高速缓存装置的击中率(instruction cache hit rate) ,以及伴随这些而来的效率损失。</li>
+</ul>
+<p>inline只是对编译器的一个申请,不是强制命令。这项申请可以隐喻提出,也可以明确提出。隐喻方式是将函数定义于class定义式内。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">int</span> age() <span style="color:#66d9ef">const</span>
+    {
+        <span style="color:#75715e">//一个隐喻的inline申请:
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">//age被定义于class定义式内。
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">return</span> theAge;
+    }
+    ...
+<span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">int</span> theAge;
+};
+</code></pre></div><p>friend函数也可被定义于class内,如果真是那样,它们也是被隐喻声明为inline.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">template</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> T<span style="color:#f92672">&gt;</span>
+<span style="color:#66d9ef">inline</span> <span style="color:#66d9ef">const</span> T<span style="color:#f92672">&amp;</span> std<span style="color:#f92672">::</span>max(<span style="color:#66d9ef">const</span> T<span style="color:#f92672">&amp;</span> a, <span style="color:#66d9ef">const</span> T<span style="color:#f92672">&amp;</span> b) {
+    <span style="color:#66d9ef">return</span> a <span style="color:#f92672">&lt;</span> b <span style="color:#f92672">?</span> b : a; 
+}
+</code></pre></div><p>Template的具现化与inlining无关。如果你写的template没有理由要求它所具现的每一个函数都是inlined,就应该避免将这个template声明为inline (不论显式或隐式) 。</p>
+<p><strong>本文要点</strong></p>
+<ul>
+<li>将大多数inlining限制在小型、被频繁调用的函数身上。这可使日后的调试过程和二进制升级(binary upgradability)更容易,也可使潜在的代码膨胀问题最小化,使程序的速度提升机会最大化。</li>
+<li>不要只因为function templates出现在头文件,就将它们声明为inline.</li>
+</ul>
+<hr>
+<h3 id="条款31-将文件间的编译依存关系降至最低">条款31: 将文件间的编译依存关系降至最低</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;date.h&#34; </span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;address.h&#34;</span><span style="color:#75715e">
+</span></code></pre></div><p>这么一来便是在Person定义文件和其含入文件之间形成了一种编译依存关系(compilation dependency)。如果这些头文件中有任何一个被改变,或这些头文件所倚赖的其他头文件有任何改变,那么每一个含入Person class的文件就得重新编译,任何使用Person class的文件也必须重新编译。</p>
+<p><strong>接口与实现分离</strong></p>
+<p>这个分离的关键在于以“声明的依存性”替换“定义的依存性”,那正是编译依存性最小化的本质:</p>
+<p>现实中让头文件尽可能自我满足,万一做不到,则让它与其他文件内的声明式(而非定义式)相依。其他每一件事都源自于这个简单的设计策略:</p>
+<ul>
+<li>如果使用object references或object pointers可以完成任务,就不要使用objects。你可以只靠一个类型声明式就定义出指向该类型的references和pointers;但如果定义某类型的objects,就需要用到该类型的定义式。</li>
+<li>如果能够,尽量以class声明式替换class定义式。</li>
+<li>为声明式和定义式提供不同的头文件。</li>
+</ul>
+<p>另一个制作Handle class的办法是,令Person成为一种特殊的abstract base class (抽象基类) ,称为Interface class。</p>
+<p><strong>本文要点</strong></p>
+<ul>
+<li>Handle classes和Interface classes解除了接口和实现之间的耦合关系,从而降低文件间的编译依存性(compilation dependencies) 。</li>
+<li>支持“编译依存性最小化”的一般构想是:相依于声明式,不要相依于定义式。 基于此构想的两个手段是Handle classes和Interface classes.</li>
+<li>程序库头文件应该以“完全且仅有声明式” (full and declaration-only forms)的
+形式存在。这种做法不论是否涉及templates都适用。</li>
 </ul>
 
     </div>
