@@ -113,7 +113,7 @@ class Gameplayer { private: enum {NumTurns = 5}; int scores[NumTurns]; ... }; �
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          8 min read
+          9 min read
         </div>
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
@@ -987,6 +987,117 @@ encrypted <span style="color:#f92672">=</span> password;
 <li>程序库头文件应该以“完全且仅有声明式” (full and declaration-only forms)的
 形式存在。这种做法不论是否涉及templates都适用。</li>
 </ul>
+<hr>
+<p><strong>virtual函数意味“接口必须被继承” , non-virtual函数意味“接口和实现都必须被继承”。</strong></p>
+<h3 id="条款32-确定你的public继承塑模出is-a关系">条款32: 确定你的public继承塑模出is-a关系</h3>
+<p>以C+进行面向对象编程,最重要的一个规则是: public inheritance (公开继承)意味&quot;is-a&quot; (是一种)的关系。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Bird</span>
+{
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> fly(){cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;it can fly.&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;}
+};
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Penguin</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">public</span> Bird
+{
+    <span style="color:#75715e">// fly()被继承过来了，可以覆写一个企鹅的fly()方法，也可以直接用父类的
+</span><span style="color:#75715e"></span>};
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    Penguin p;
+    p.fly(); <span style="color:#75715e">// 问题是企鹅并不会飞！
+</span><span style="color:#75715e"></span>}
+</code></pre></div><p>方法一，在Penguin的fly()方法里面抛出异常，一旦调用了p.fly()，那么就会在运行时捕捉到这个异常。这个方法不怎么好，因为它要在运行时才发现问题。</p>
+<p>方法二，去掉Bird的fly()方法，在中间加上一层FlyingBird类（有fly()方法）与NotFlyingBird类（没有fly()方法），然后让企鹅继承与NotFlyingBird类。这个方法也不好，因为会使注意力分散，继承的层次加深也会使代码难懂和难以维护。</p>
+<p>方法三，保留所有Bird一定会有的共性（比如生蛋和孵化），去掉Bird的fly()方法，只在其他可以飞的鸟的子类里面单独写这个方法。这是一种比较好的选择，因为根本没有定义fly()方法，所以Penguin对象调用fly()会在编译期报错。</p>
+<p>在艰难选择方法三之后，我们回过头来思考，就是在所有public继承的背后，一定要保证父类的所有特性子类都可以满足（父类能飞，子类一定可以飞），抽象起来说，就是在可以使用父类的地方，都一定可以使用子类去替换。</p>
+<p>这正是Liskov替代原则告诉我们的：<strong>任何父类可以出现的地方，子类一定可以替代这个父类，只有当替换使软件功能不受影响时，父类才可以真正被复用。通俗地说，是“子类可以扩展父类的功能，但不能改变父类原有的功能”。</strong></p>
+<p><strong>本文要点</strong></p>
+<ul>
+<li>&ldquo;public继承”意味is-a。适用于base classes身上的每一件事情一定也适用于 derived classes身上,因为每一个derived class对象也都是一个base class对象。</li>
+</ul>
+<hr>
+<h3 id="条款33-避免遮掩继承而来的名称">条款33: 避免遮掩继承而来的名称</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">int</span> x;
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">someFunc</span> () {
+    <span style="color:#66d9ef">double</span> x; 
+    std<span style="color:#f92672">::</span>cin <span style="color:#f92672">&gt;&gt;</span>x;
+}
+</code></pre></div><p>这个读取数据的语句指涉的是local变量x,而不是global变量x,因为内层作用域的名称会遮掩(遮蔽)外围作用域的名称。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Base</span> {
+<span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">int</span> x;
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> mf1() <span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
+    <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">mf2</span>();
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">mf3</span> ();
+}<span style="color:#960050;background-color:#1e0010">；</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Derived</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">public</span> Base {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> mf1();
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">mf4</span>();
+}<span style="color:#960050;background-color:#1e0010">；</span>
+
+<span style="color:#75715e">#mf4函数实现部分
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> Derived<span style="color:#f92672">::</span>mf4 () {
+    ...
+    mf2();
+}
+</code></pre></div><p>当编译器看到这里使用名称mf2,必须估算它指涉(refer to)什么东西。编译器的做法是查找各作用域,看看有没有某个名为mf2的声明式。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Base</span> {
+<span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">int</span> x;
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> mf1() <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">mfl</span>(<span style="color:#66d9ef">int</span>); 
+    <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">mf2</span>(); 
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">mf3</span>();
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">mf3</span> (<span style="color:#66d9ef">double</span>);
+    ...
+};
+
+<span style="color:#75715e">#从名称查找观点来看，base::mf1和base::mf3不再被derived继承
+</span><span style="color:#75715e"></span>Derived d;
+<span style="color:#66d9ef">int</span> x;
+d.mf1 ();  <span style="color:#75715e">//没问题,调用Derived::mf1
+</span><span style="color:#75715e"></span>d.mf1 (x); <span style="color:#75715e">//错误!因为Derived: :mf1遮掩了Base::mf1
+</span><span style="color:#75715e"></span>d.mf2 (); 
+d.mf3 ();
+d.mf3 (x); <span style="color:#75715e">//错误!因为Derived::mf3遮掩了Base::mf3
+</span></code></pre></div><p><strong>解决方法1 using声明</strong></p>
+<p>用using声明式来在子类中声明父类的同名函数(重载函数不需要声明多个),此时父类的各重载函数就是子类可见的了。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Derived</span><span style="color:#f92672">:</span><span style="color:#66d9ef">public</span> Base { 
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">using</span> Base<span style="color:#f92672">::</span>mf1;
+    <span style="color:#66d9ef">using</span> Base<span style="color:#f92672">::</span>mf3;
+    <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">mf1</span>();
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">mf3</span>();
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">mf4</span>();
+};
+</code></pre></div><p><strong>解决方法2 转交函数</strong></p>
+<p>使用转交函数，即在子类函数的声明时进行定义，调用父类的某个具体的重载函数（此时由于在声明时定义，成为inline函数），此举可以只让需要的部分父类重载函数于子类可见。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Base</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> mf1() <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; 
+    <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">mf1</span>(<span style="color:#66d9ef">int</span>);
+}
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Derived</span><span style="color:#f92672">:</span><span style="color:#66d9ef">private</span> Base {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> mf1() {
+        Base<span style="color:#f92672">::</span>mfl(); 
+};
+
+Derived d; 
+<span style="color:#66d9ef">int</span> x;
+d.mf1(); <span style="color:#75715e">//调用Derived::mf1 
+</span><span style="color:#75715e"></span>d.mf1(x); <span style="color:#75715e">//错误！Base::mf1被遮掩了
+</span></code></pre></div><p><strong>本文要点</strong></p>
+<ul>
+<li>derived classes内的名称会遮掩base classes内的名称。在public继承下从来没有人希望如此。</li>
+<li>为了让被遮掩的名称再见天日,可使用using声明式或转交函数(forwarding functions)</li>
+</ul>
+<hr>
+<h3 id="条款34-区分接口继承和实现继承">条款34: 区分接口继承和实现继承</h3>
 
     </div>
     <div class="post-footer">
