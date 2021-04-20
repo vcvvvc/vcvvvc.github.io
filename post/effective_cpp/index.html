@@ -113,7 +113,7 @@ class Gameplayer { private: enum {NumTurns = 5}; int scores[NumTurns]; ... }; �
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          9 min read
+          10 min read
         </div>
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
@@ -1098,6 +1098,111 @@ d.mf1(); <span style="color:#75715e">//调用Derived::mf1
 </ul>
 <hr>
 <h3 id="条款34-区分接口继承和实现继承">条款34: 区分接口继承和实现继承</h3>
+<p><strong>public继承概念由两部分组成:</strong></p>
+<ul>
+<li>函数接口(function interfaces)继承</li>
+<li>函数实现(function implementations)继承</li>
+</ul>
+<p><strong>这两种继承的差异很像函数声明与函数定义之间的差异。</strong></p>
+<ul>
+<li>成员函数的接口总是会被继承。一如条款32所说, public继承意味is-a (是一 种),所以对base class为真的任何事情一定也对其derived classes为真。</li>
+<li>声明一个pure virtual函数的目的是为了让derived classes只继承函数接口。 我们可以为pure virtual函数提供定义。也就是说可以为Shape::draw供应一份实现代码, C++并不会发出怨言,但调用它的唯一途径是“调用时明确指出其class名称”</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">Shape<span style="color:#f92672">*</span> ps1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Rectangle;
+ps1<span style="color:#f92672">-&gt;</span>Shape<span style="color:#f92672">::</span>draw(); <span style="color:#75715e">//调用Shape::draw
+</span></code></pre></div><ul>
+<li>声明简朴的(非纯) impure virtual函数的目的,是让derived classes继承该函数的接口和缺省实现。</li>
+</ul>
+<p>“你必须支持一个error函数,但如果你不想自己写一个,可以使用Shape class提供的缺省版本”。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Shape</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> error(<span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>string<span style="color:#f92672">&amp;</span> msg);
+};
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Airplane</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> fly(<span style="color:#66d9ef">const</span> Airport<span style="color:#f92672">&amp;</span> destination) <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#75715e">//pure virtual
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">protected</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">void</span> defaultFly(<span style="color:#66d9ef">const</span> Airport<span style="color:#f92672">&amp;</span> destination);
+};
+
+<span style="color:#66d9ef">void</span> Airplane<span style="color:#f92672">::</span>defaultFly(<span style="color:#66d9ef">const</span> Airport<span style="color:#f92672">&amp;</span> destination) {
+    <span style="color:#75715e">#缺省行为,将飞机飞至指定的目的地。
+</span><span style="color:#75715e"></span>}
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#inline函数和virtual函数之间的交互关系
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ModelA</span><span style="color:#f92672">:</span><span style="color:#66d9ef">public</span> Airplane {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> fly(<span style="color:#66d9ef">const</span> Airport<span style="color:#f92672">&amp;</span> destination) { 
+        defaultFly(destination); 
+    }
+};
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ModelB</span><span style="color:#f92672">:</span><span style="color:#66d9ef">public</span> Airplane {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> fly(<span style="color:#66d9ef">const</span> Airport<span style="color:#f92672">&amp;</span> destination) { 
+        defaultFly(destination);
+    }
+};
+
+<span style="color:#75715e">#Airplane 中的pure virtual函数迫使Mode1C必须提供自己的fly版本:
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ModelC</span><span style="color:#f92672">:</span><span style="color:#66d9ef">public</span> Airplane {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> fly(<span style="color:#66d9ef">const</span> Airport<span style="color:#f92672">&amp;</span> destination);
+};
+</code></pre></div><p>Airplane继承体系如何给pure virtual函数一份定义</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Airplane</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> fly(<span style="color:#66d9ef">const</span> Airport<span style="color:#f92672">&amp;</span> destination) <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+}<span style="color:#960050;background-color:#1e0010">；</span>
+
+<span style="color:#66d9ef">void</span> Airplane<span style="color:#f92672">::</span>fly(<span style="color:#66d9ef">const</span> Airport<span style="color:#f92672">&amp;</span> destination) {
+    <span style="color:#75715e">//缺省行为,将飞机飞至指定的目的地
+</span><span style="color:#75715e"></span>}
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ModelA</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">public</span> Airplane {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> fly(<span style="color:#66d9ef">const</span> Airport<span style="color:#f92672">&amp;</span> destination) { 
+        Airplane<span style="color:#f92672">::</span>fly(destination); <span style="color:#75715e">//airplane
+</span><span style="color:#75715e"></span>    }
+};
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ModelB</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">public</span> Airplane {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> fly(<span style="color:#66d9ef">const</span> Airport<span style="color:#f92672">&amp;</span> destination) { 
+        Airplane<span style="color:#f92672">::</span>fly(destination); <span style="color:#75715e">//airplane
+</span><span style="color:#75715e"></span>    }
+}
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Modelc</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">public</span> Airplane {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> fly(<span style="color:#66d9ef">const</span> Airport<span style="color:#f92672">&amp;</span> destination);
+}<span style="color:#960050;background-color:#1e0010">；</span>
+
+<span style="color:#66d9ef">void</span> ModelC<span style="color:#f92672">::</span>fly(<span style="color:#66d9ef">const</span> Airport<span style="color:#f92672">&amp;</span> destination) {
+    <span style="color:#75715e">//将c型飞机飞至指定的目的地
+</span><span style="color:#75715e"></span>}
+</code></pre></div><p>如果成员函数是个non-virtual函数,意味是它并不打算在derived classes中有不同的行为。实际上一个non-virtual成员函数所表现的不变性(invariant)凌驾其 特异性(specialization) ,因为它表示不论derived class变得多么特异化,它的行为都不可以改变。</p>
+<ul>
+<li>声明non-virtual函数的目的是为了令derived classes继承函数的接口及一份强制性实现。</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Shape</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">int</span> objectID() <span style="color:#66d9ef">const</span>;
+}
+</code></pre></div><p>pure virtual函数、simple (impure) virtual函数、non-virtual函数之间的差异,使你得以精确指定你想要derived classes继承的东西:只继承接口,或是继承接口和一份缺省实现,或是继承接口和一份强制实现。</p>
+<p><strong>两个常见的错误</strong></p>
+<ul>
+<li>第一个错误是将所有函数声明为non-virtual。这使得derived classes没有余裕空间进行特化工作。non-virtual析构函数尤其会带来问题(见条款7) 。</li>
+<li>另一个常见错误是将所有成员函数声明为virtual</li>
+</ul>
+<p><strong>本文要点</strong></p>
+<ul>
+<li>接口继承和实现继承不同。在public继承之下, derived classes总是继承base class的接口。</li>
+<li>pure virtual函数只具体指定接口继承。</li>
+<li>简朴的(非纯) impure virtual函数具体指定接口继承及缺省实现继承。</li>
+<li>non-virtual函数具体指定接口继承以及强制性实现继承。</li>
+</ul>
+<hr>
+<h3 id="条款35-考虑virtual函数以外的其他选择">条款35: 考虑virtual函数以外的其他选择</h3>
 
     </div>
     <div class="post-footer">
