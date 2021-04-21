@@ -113,7 +113,7 @@ class Gameplayer { private: enum {NumTurns = 5}; int scores[NumTurns]; ... }; �
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          11 min read
+          12 min read
         </div>
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
@@ -1344,6 +1344,119 @@ HealthCalcFunc defaultHealthCalc;
 </ul>
 <hr>
 <h3 id="条款36-绝不重新定义继承而来的non-virtual函数">条款36: 绝不重新定义继承而来的non-virtual函数</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">B</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">void</span> mf();
+};
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">D</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">public</span> B{ 
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">mf</span>();
+    ...
+};
+
+<span style="color:#75715e">#
+</span><span style="color:#75715e"></span>D x;
+B<span style="color:#f92672">*</span> pB <span style="color:#f92672">=&amp;</span>x;
+D<span style="color:#f92672">*</span> pD <span style="color:#f92672">=&amp;</span>x;
+pb<span style="color:#f92672">-&gt;</span>mf(); <span style="color:#75715e">//Bmf
+</span><span style="color:#75715e"></span>pd<span style="color:#f92672">-&gt;</span>mf(); <span style="color:#75715e">//Dmf
+</span></code></pre></div><p>由于pB被声明为一个pointer-to-B,通过pB调用的non-virtual函数永远是B所定义的版本,即使pB指向一个类型为“B派生之class&quot;的对象, virtual函数是动态绑定, 不论是pb,pd都是导致调用Dmf, 因为pB和pD真正指的都是一个类型为D的对象。</p>
+<ul>
+<li>适用于B对象的每一件事,也适用于D对象,因为每个D对象都是一个B对象;</li>
+<li>B的derived classes一定会继承mf的接口和实现,因为mf是B的一个non-virtual函数。</li>
+</ul>
+<p><strong>本文要点</strong></p>
+<ul>
+<li>绝对不要重新定义继承而来的non-virtual函数。</li>
+</ul>
+<hr>
+<h3 id="条款37-绝不重新定义继承而来的缺省参数值">条款37: 绝不重新定义继承而来的缺省参数值</h3>
+<p><strong>virtual函数系动态绑定(dynamically bound) ,而缺省参数值却是静态绑定(statically bound)</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Shape</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">ShapeColor</span> { Red, Green, Blue };
+    <span style="color:#f92672">/</span><span style="color:#960050;background-color:#1e0010">所有形状都必须提供一个函数</span>,<span style="color:#960050;background-color:#1e0010">用来绘出自己</span>
+    <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> draw (ShapeColor color <span style="color:#f92672">=</span> Red) <span style="color:#66d9ef">const</span> <span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
+};
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Rectangle</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">public</span> Shape {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#f92672">/</span><span style="color:#960050;background-color:#1e0010">注意</span>,<span style="color:#960050;background-color:#1e0010">赋予不同的缺省参数值。这真糟糕</span><span style="color:#f92672">!</span>
+    <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> draw (ShapeColor color <span style="color:#f92672">=</span> Green) <span style="color:#66d9ef">const</span>;
+};
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Circle</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">public</span> Shape {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> draw(ShapeColor color) <span style="color:#66d9ef">const</span>;
+    ...
+};
+Shape<span style="color:#f92672">*</span> ps;
+Shape<span style="color:#f92672">*</span> pc <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> circle; <span style="color:#75715e">//静态类型为Shape*
+</span><span style="color:#75715e"></span>Shape<span style="color:#f92672">*</span> pr <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Rectangle; <span style="color:#75715e">//静态类型为shape*
+</span><span style="color:#75715e"></span>
+ps <span style="color:#f92672">=</span> pc;
+ps <span style="color:#f92672">=</span> pr;
+pc<span style="color:#f92672">-&gt;</span>draw(Shape<span style="color:#f92672">::</span>Red); <span style="color:#75715e">//调用circle::draw(Shape::Red)
+</span><span style="color:#75715e"></span>pr<span style="color:#f92672">-&gt;</span>draw(Shape<span style="color:#f92672">::</span>Red) ; <span style="color:#75715e">//调用Rectangle::draw(Shape::Red)
+</span></code></pre></div><p>virtual函数是动态绑定,而缺省参数值却是静态绑定。意思是你可能会在“调用一个定义于derived class内的virtual函数”的同时,却使用base class为它所指定的缺省参数值</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">pr<span style="color:#f92672">-&gt;</span>draw(); <span style="color:#75715e">//调用Rectangle::draw (Shape::Red)
+</span></code></pre></div><p>Rectangle::draw函数的缺省参数值应该是GREEN,但由于pr的静态类型是Shape*,所以此一调用的缺省参数值来自Shape class而非Rectangle class!</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Shape</span>
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+<span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">ShapeColor</span> { Red, Green, Blue };
+<span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">draw</span> (ShapeColor color <span style="color:#f92672">=</span>Red) <span style="color:#66d9ef">const</span> <span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
+};
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Rectangle</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">public</span> Shape {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> draw (ShapeColor color <span style="color:#f92672">=</span>Red) <span style="color:#66d9ef">const</span>;
+    ...
+}
+</code></pre></div><p>代码重复又带着相依性(with dependencies): 如果Shape内的缺省参数值改变了,所有“重复给定缺省参数值”的那些derivedclasses也必须改变,否则它们最终会导致“重复定义一个继承而来的缺省参数值”。</p>
+<p><strong>NVI方法</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Shape</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">ShapeColor</span> { Red, Green, Blue }; 
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">draw</span> (ShapeColor color <span style="color:#f92672">=</span>Red) <span style="color:#66d9ef">const</span> {
+        doDraw (color);
+    }
+<span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> doDraw(ShapeColor color) <span style="color:#66d9ef">const</span> <span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
+};
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Rectangle</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">public</span> Shape {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    ...
+<span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> doDraw (Shapecolor color) <span style="color:#66d9ef">const</span>; <span style="color:#75715e">//注意,不须指定缺省参数值。
+</span><span style="color:#75715e"></span>    ...
+}
+</code></pre></div><p><strong>本文要点</strong></p>
+<ul>
+<li>绝对不要重新定义一个继承而来的缺省参数值,因为缺省参数值都是静态绑定,而virtual函数&ndash;你唯一应该覆写的东西-却是动态绑定。</li>
+</ul>
+<hr>
+<h3 id="条款38-通过复合塑模出has-a或根据某物实现出">条款38: 通过复合塑模出has-a或&quot;根据某物实现出&quot;</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Address</span>{...}; 
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PhoneNumber</span> {...}
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span> { 
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    ...
+<span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+    std<span style="color:#f92672">::</span>string name; 
+    Address address; 
+    PhoneNumber voiceNumber;
+    PhoneNumber faxNumber;
+};
+</code></pre></div><p>条款32曾说, &ldquo;public继承”带有is-a (是一种)的意义。
+复合意味has-a(有一个)或is-implemented-in-terms-of(根据某物实现出) 。
+当复合发生于应用域内的对象之间,表现出has-a的关系;当它发生于 实现域内则是表现is-implemented-in-terms-of的关系。</p>
+<p><strong>本文要点</strong></p>
+<ul>
+<li>复合(composition)的意义和public继承完全不同。</li>
+<li>在应用域(application domain) ,复合意味has-a (有一个) 。在实现域 (implementation domain) ,复合意味is-implemented-in-terms-of (根据某物实现出)。</li>
+</ul>
+<hr>
 
     </div>
     <div class="post-footer">
