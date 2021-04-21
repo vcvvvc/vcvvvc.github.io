@@ -113,7 +113,7 @@ class Gameplayer { private: enum {NumTurns = 5}; int scores[NumTurns]; ... }; �
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          10 min read
+          11 min read
         </div>
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
@@ -1203,6 +1203,147 @@ ps1<span style="color:#f92672">-&gt;</span>Shape<span style="color:#f92672">::</
 </ul>
 <hr>
 <h3 id="条款35-考虑virtual函数以外的其他选择">条款35: 考虑virtual函数以外的其他选择</h3>
+<p><strong>Non-Virtual Interface手法实现Template Method模式</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GameCharacter</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">int</span> healthvalue() <span style="color:#66d9ef">const</span> {
+        ...
+        <span style="color:#66d9ef">int</span> retVal <span style="color:#f92672">=</span> doHealthValue ();
+        <span style="color:#66d9ef">return</span> retVal;
+        ...
+    }
+    ...
+<span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">int</span> doHealthValue() <span style="color:#66d9ef">const</span>
+    {
+        ...
+    }
+};
+</code></pre></div><p>这一基本设计,也就是“令客户通过public non-virtual成员函数间接调用private virtual函数”,称为non-virtual interface (NVI)手法。</p>
+<p><strong>藉由Function Pointers实现Strategy模式</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GameCharacter</span>; 
+<span style="color:#75715e">//以下函数是计算健康指数的缺省算法。
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">defaultHealthCalc</span> (<span style="color:#66d9ef">const</span> GameCharacter<span style="color:#f92672">&amp;</span> gc);
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GameCharacter</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">int</span> (<span style="color:#f92672">*</span>HealthCalcFunc) (<span style="color:#66d9ef">const</span> GameCharacter<span style="color:#f92672">&amp;</span>);
+    <span style="color:#66d9ef">explicit</span> <span style="color:#a6e22e">GameCharacter</span> (HealthCalcFunc hcf <span style="color:#f92672">=</span> defaultHealthCalc) <span style="color:#f92672">:</span> healthFunc (hcf)
+    {}
+    <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">healthValue</span>() <span style="color:#66d9ef">const</span> {
+        <span style="color:#66d9ef">return</span> healthFunc(<span style="color:#f92672">*</span><span style="color:#66d9ef">this</span>); 
+    }
+<span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+    HealthCalcFunc healthFunc;
+}
+</code></pre></div><ul>
+<li>同一人物类型之不同实体可以有不同的健康计算函数。</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">EvilBadGuy</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">public</span> GameCharacter {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">explicit</span> EvilBadGuy(HealthCalcFunc hcf <span style="color:#f92672">=</span> defaultHealthCalc) <span style="color:#f92672">:</span> GameCharacter (hcf)
+    {...}
+    ...
+};
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">loseHealthQuickly</span>(<span style="color:#66d9ef">const</span> GameCharacter<span style="color:#f92672">&amp;</span>); 
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">loseHealthslowly</span>(<span style="color:#66d9ef">const</span> GameCharacter<span style="color:#f92672">&amp;</span>);
+
+<span style="color:#75715e">#相同类型的人物搭配, 不同的健康计算方式
+</span><span style="color:#75715e"></span>EvilBadGuy <span style="color:#a6e22e">ebg1</span>(loseHealthQuickly); 
+EvilBadGuy <span style="color:#a6e22e">ebg2</span>(loseHealthslowly);
+</code></pre></div><ul>
+<li>某已知人物之健康指数计算函数可在运行期变更。</li>
+</ul>
+<p>“健康指数计算函数不再是GameCharacter继承体系内的成员函数”这一事实意味,这些计算函数并未特别访问“即将被计算健康指数”的那个对象的 内部成分。</p>
+<ul>
+<li>藉由tr1:function完成Strategy模式</li>
+</ul>
+<p>如果我们不再使用函数指针(如前例的healthFunc) ,而是改用一个类型为tr1l:: function的对象,这些约束就全都挥发不见了。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GameCharacter</span>; <span style="color:#75715e">//如前
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">defaultHealthcalc</span> (<span style="color:#66d9ef">const</span> GameCharacter<span style="color:#f92672">&amp;</span> gc); <span style="color:#75715e">//如前
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GameCharacter</span> {
+    <span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#75715e">//HealthCalcFunc可以是任何“可调用物” (callable entity) ,
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">//可被调用并接受任何兼容于GameCharacter之物,返回任何兼容于int的东西。详下。
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">typedef</span> std<span style="color:#f92672">::</span>tr1<span style="color:#f92672">::</span>functio<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span> (<span style="color:#66d9ef">const</span> GameCharacter<span style="color:#f92672">&amp;</span>)<span style="color:#f92672">&gt;</span> HealthCalcFunc;
+    <span style="color:#66d9ef">explicit</span> <span style="color:#a6e22e">GameCharacter</span> (HealthCalcFunc hcf <span style="color:#f92672">=</span> defaultHealthCalc) <span style="color:#f92672">:</span> healthFunc (hcf )
+    {}
+    <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">healthValue</span> () <span style="color:#66d9ef">const</span> { 
+        <span style="color:#66d9ef">return</span> healthFunc(<span style="color:#f92672">*</span> <span style="color:#66d9ef">this</span>); 
+    }
+    ...
+<span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+    HealthcalcFunc healthFunc;
+};
+</code></pre></div><p><code>std::tr1::function&lt;int (const GameCharacter&amp;)&gt;</code></p>
+<p><strong>“接受一个reference指向const GameCharacter,并返回int&rdquo;。</strong></p>
+<p>这个trl::function类型(也就是我们所定义的HealthCalcFunc类型)产生的对象可以持有(保存)任何与此签名式兼容的可调用物(callable entity)。</p>
+<p>所谓兼容,意思是这个可调用物的参数可被隐式转换为const GameCharacterk,而其返回类型可被隐式转换为into</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">short</span> <span style="color:#a6e22e">calcHealth</span> (<span style="color:#66d9ef">const</span> GameCharacter<span style="color:#f92672">&amp;</span>);
+
+<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">HealthCalculator</span> {
+    <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">operator</span> () (<span style="color:#66d9ef">const</span> GameCharacter<span style="color:#f92672">&amp;</span>) <span style="color:#66d9ef">const</span> 
+    { ..}
+};
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GameLevel</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">float</span> health (<span style="color:#66d9ef">const</span> GameCharacter<span style="color:#f92672">&amp;</span>) <span style="color:#66d9ef">const</span>;
+    ...
+}<span style="color:#960050;background-color:#1e0010">；</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">EvilBadGuy</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">public</span> GameCharacter {
+    ...
+}<span style="color:#960050;background-color:#1e0010">；</span>
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">EyeCandyCharacter</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">public</span> GameCharacter {
+    ...
+}<span style="color:#960050;background-color:#1e0010">；</span>
+EvilBadGuy ebg1(calcHealth);
+
+EyeCandyCharacter <span style="color:#a6e22e">eccl</span>(HealthCalculator()); <span style="color:#75715e">//使用某个函数对象计算健康指数
+</span><span style="color:#75715e"></span>GameLevel currentLevel;
+...
+EvilBadGuy ebg2 (
+    std<span style="color:#f92672">::</span>tr1<span style="color:#f92672">::</span>bind(<span style="color:#f92672">&amp;</span>GaneLevel<span style="color:#f92672">::</span>health, currentLevel, _1) <span style="color:#75715e">//使用某个成员函数计算健康指数
+</span><span style="color:#75715e"></span>);
+</code></pre></div><ul>
+<li>古典的Strategy模式</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GameCharacter</span>;
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HealthCalcFunc</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">int</span> calc(<span style="color:#66d9ef">const</span> GameCharacter<span style="color:#f92672">&amp;</span> gc) <span style="color:#66d9ef">const</span> {
+        ...
+    }
+};
+
+HealthCalcFunc defaultHealthCalc;
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GameCharacter</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">explicit</span> GameCharacter (HealthCalcFunc<span style="color:#f92672">*</span> phcf <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span>defaultHealthCalc)
+    <span style="color:#f92672">:</span> pHealthCalc (phcf)
+    {}
+
+    <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">healthValue</span>() <span style="color:#66d9ef">const</span>
+    { 
+        <span style="color:#66d9ef">return</span> pHealthCalc<span style="color:#f92672">-&gt;</span>calc(<span style="color:#f92672">*</span><span style="color:#66d9ef">this</span>); 
+    }
+<span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+    HealthcalcFunc<span style="color:#f92672">*</span> pHealthCalc;
+};
+</code></pre></div><p><strong>本文要点</strong></p>
+<ul>
+<li>使用non-virtual interface (NVI)手法,那是Template Method设计模式的一种 特殊形式。它以public non-virtual成员函数包裹较低访问性(private或protected) 的virtual函数。</li>
+<li>将virtual函数替换为“函数指针成员变量” ,这是Strategy设计模式的一种分解表现形式。</li>
+<li>以tr1::function成员变量替换virtual函数,因而允许使用任何可调用物 (callable entity)搭配一个兼容于需求的签名式。这也是Strategy设计模式的某种形式。</li>
+<li>将继承体系内的virtual函数替换为另一个继承体系内的virtual函数。这是Strategy设计模式的传统实现手法。</li>
+<li>virtual函数的替代方案包括NVI手法及Strategy设计模式的多种形式。NVI手法自身是一个特殊形式的Template Method设计模式。</li>
+<li>将机能从成员函数移到class外部函数,带来的一个缺点是,非成员函数无法访 问class的non-public成员。</li>
+<li>trl::function对象的行为就像一般函数指针。这样的对象可接纳“与给定之目标签名式(target signature)兼容”的所有可调用物(callable entities)</li>
+</ul>
+<hr>
+<h3 id="条款36-绝不重新定义继承而来的non-virtual函数">条款36: 绝不重新定义继承而来的non-virtual函数</h3>
 
     </div>
     <div class="post-footer">
