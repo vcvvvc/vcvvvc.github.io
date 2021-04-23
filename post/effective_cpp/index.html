@@ -113,7 +113,7 @@ class Gameplayer { private: enum {NumTurns = 5}; int scores[NumTurns]; ... }; �
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          12 min read
+          13 min read
         </div>
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
@@ -1430,25 +1430,27 @@ pc<span style="color:#f92672">-&gt;</span>draw(Shape<span style="color:#f92672">
 <span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
     <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> doDraw (Shapecolor color) <span style="color:#66d9ef">const</span>; <span style="color:#75715e">//注意,不须指定缺省参数值。
 </span><span style="color:#75715e"></span>    ...
-}
+};
 </code></pre></div><p><strong>本文要点</strong></p>
 <ul>
 <li>绝对不要重新定义一个继承而来的缺省参数值,因为缺省参数值都是静态绑定,而virtual函数&ndash;你唯一应该覆写的东西-却是动态绑定。</li>
 </ul>
 <hr>
 <h3 id="条款38-通过复合塑模出has-a或根据某物实现出">条款38: 通过复合塑模出has-a或&quot;根据某物实现出&quot;</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Address</span>{...}; 
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PhoneNumber</span> {...}
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span> { 
-<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
-    ...
-<span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
-    std<span style="color:#f92672">::</span>string name; 
+<pre><code>class Address{...}; 
+
+class PhoneNumber {...};
+
+class Person { 
+public:
+    //...
+private:
+    std::string name; 
     Address address; 
     PhoneNumber voiceNumber;
     PhoneNumber faxNumber;
 };
-</code></pre></div><p>条款32曾说, &ldquo;public继承”带有is-a (是一种)的意义。
+</code></pre><p>条款32曾说, &ldquo;public继承”带有is-a (是一种)的意义。
 复合意味has-a(有一个)或is-implemented-in-terms-of(根据某物实现出) 。
 当复合发生于应用域内的对象之间,表现出has-a的关系;当它发生于 实现域内则是表现is-implemented-in-terms-of的关系。</p>
 <p><strong>本文要点</strong></p>
@@ -1458,6 +1460,29 @@ pc<span style="color:#f92672">-&gt;</span>draw(Shape<span style="color:#f92672">
 </ul>
 <hr>
 <h3 id="条款39-明智而审慎地使用private继承">条款39: 明智而审慎地使用private继承</h3>
+<p>private继承主要用于“当一个意欲成为derived class者想访问 一个意欲成为base class者的protected成分,或为了重新定义一或多个virtual函数&rdquo; 但这时候两个classes之间的概念关系其实是is-implemented-in-terms-of (根据某物实现出)而非is-a。</p>
+<p><strong>本文要点</strong></p>
+<ul>
+<li>Private继承意味is-mplemented-in-terms of (根据某物实现出) 。它通常比复合 (composition)的级别低。但是当derived class需要访问protected base class的成员,或需要重新定义继承而来的virtual函数时,这么设计是合理的。</li>
+<li>和复合(composition)不同, private继承可以造成empty base最优化。这对致力于“对象尺寸最小化”的程序库开发者而言,可能很重要。</li>
+</ul>
+<hr>
+<h3 id="条款40-明智而审慎地使用多重继承">条款40: 明智而审慎地使用多重继承</h3>
+<ul>
+<li>多重继承(multiple inheritance; MI)</li>
+<li>单一继承(single inheritance; SI)</li>
+</ul>
+<p><strong>virtual base class忠告</strong></p>
+<ul>
+<li>第一,非必 要不使用virtual bases。平常请使用non-virtual继承。</li>
+<li>第二,如果你必须使用virtualbase classes,尽可能避免在其中放置数据。</li>
+</ul>
+<p><strong>本文要点</strong></p>
+<ul>
+<li>多重继承比单一继承复杂。它可能导致新的歧义性,以及对virtual继承的需要。</li>
+<li>virtual继承会增加大小、速度、初始化(及赋值)复杂度等等成本。如果virtualbase classes不带任何数据,将是最具实用价值的情况。</li>
+<li>多重继承的确有正当用途。其中一个情节涉及&quot;public继承某个Interface class和&quot;private继承某个协助实现的class&quot;的两相组合。</li>
+</ul>
 
     </div>
     <div class="post-footer">
