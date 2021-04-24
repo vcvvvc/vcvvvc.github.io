@@ -1472,6 +1472,30 @@ private:
 <li>多重继承(multiple inheritance; MI)</li>
 <li>单一继承(single inheritance; SI)</li>
 </ul>
+<p>当MI进入设计景框,程序有可能从一个以上的base classes继承相同名称(如函数、typedef等等)。那会导致较多的歧义(ambiguity)机会。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Borrowableltem</span> { 
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">void</span> checkout();
+};
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ElectronicGadget</span> { 
+<span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">bool</span> checkOut() <span style="color:#66d9ef">const</span>;
+}<span style="color:#960050;background-color:#1e0010">；</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MP3Player</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">public</span> Borrowableltem,
+<span style="color:#66d9ef">public</span> ElectronicGadget
+{..};
+
+MP3Player mp; 
+mp.checkOut(); <span style="color:#75715e">//调用哪个checkout
+</span></code></pre></div><p>为了解决这个歧义,你必须明白指出你要调用哪一个base class内的函数:</p>
+<p><code>mp.Borrowableltem::checkOut();</code></p>
+<p><strong>“钻石继承”</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">File</span> {...};
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Inputfile</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">public</span> File {...};
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Outputfile</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">public</span> File {...};
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">IOFile</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">public</span> Inputfile, <span style="color:#66d9ef">public</span> OutFile
+{...};
+</code></pre></div><p>使用virtual继承的那些classes所产生的对象往往比使 用non-virtual继承的兄弟们体积大,访问virtual base classes的成员变量时,也比访问non-virtual base classes的成员变量速度慢。种种细节因编译器不同而异,但基本重点很清楚:你得为virtual继承付出代价。</p>
 <p><strong>virtual base class忠告</strong></p>
 <ul>
 <li>第一,非必 要不使用virtual bases。平常请使用non-virtual继承。</li>

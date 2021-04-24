@@ -26,7 +26,8 @@ private继承：
 1）编译器不会自动将一个子类对象转换为一个父类对象，而public继承会；
 2）子类中由父类继承而来的成员（protected和public）都变为private。
 implemented-in-terms-of也可以由复合实现。在应用域，复合意味着has-a；在实现域，复合意味着is-implemented-in-terms-of。尽可能使用复合实现这种关系，必要时（涉及protected成员或virtual函数时）才使用private继承。
- 原文链接：https://blog.csdn.net/kingzone_2008/article/details/10066181  </description>
+ 原文链接：https://blog.csdn.net/kingzone_2008/article/details/10066181   虚继承 C++使用虚拟继承（Virtual Inheritance），解决从不同途径继承来的同名的数据成员在内存中有不同的拷贝造成数据不一致问题，将共同基类设置为虚基类。解决二义性。
+class sum {}; class a : virtual public sum { ... } class b : virtual public sum { ... }; class c:: public a, public b { ... }; </description>
     </item>
     
     <item>
