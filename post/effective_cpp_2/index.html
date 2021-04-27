@@ -99,7 +99,7 @@ template&lt;typename T&gt; void doProcessing( T&amp; w) { if (w.size() &gt; 10 &
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          5 min read
+          8 min read
         </div>
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
@@ -484,6 +484,288 @@ sm2.invert();
 </ul>
 <hr>
 <h3 id="条款47-请使用traits-classes表现类型信息">条款47: 请使用traits classes表现类型信息</h3>
+<p><strong>STL迭代器分类(categories)</strong></p>
+<ul>
+<li>
+<p>input选代器
+只能向前移动,一次一步,客户只可读取(不能涂写)它们所指的东西,而且只能读取一次。</p>
+</li>
+<li>
+<p>Output迭代器
+一切只为输出:它们只向前移动,一次一步,客户只可涂写它们所指的东西,而且只能涂写一次。</p>
+</li>
+<li>
+<p>forward迭代器。
+这种迭代器可以做前述两种分类所能做的每一件事,而且可以读或写其所指物一次以上。这使得它们可施行于多次性操作算法(multi-pass algorithms) 。</p>
+</li>
+<li>
+<p>Bidirectional迭代器
+比上一个分类威力更大: 它除了可以向前移动,还可以向后移动。</p>
+</li>
+<li>
+<p>random access选代器
+这种迭代器比上一个分类威力更大的地方在于它可以执行“迭代器算术”,也就是它可以在常量时间内向前或向后跳跃任意距离。</p>
+</li>
+</ul>
+<p><strong>针对这五种分类,C++标准库分别提供专属的&quot;卷标结构&rdquo;(tag struct)加以区分:</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">input_iterator_tag</span>{};
+<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">output_iterator_tag</span>{};
+<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">forward_iterator_tag</span><span style="color:#f92672">:</span><span style="color:#66d9ef">public</span> input_iterator_tag{};
+<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">bidirectional_iterator_tag</span><span style="color:#f92672">:</span><span style="color:#66d9ef">public</span> forward_iterator_tag{};
+<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">random_access_iterator_tag</span><span style="color:#f92672">:</span><span style="color:#66d9ef">public</span> bidirectional_iterator_tag{};
+</code></pre></div><p><strong>traits允许我们在编译期得到类型的信息。traits并非一个关键字，而是一个编程惯例。</strong></p>
+<p>traits的另一个需求在于advance对与基本数据类型也能正常工作，比如char*。所以traits不能借助类来实现， 于是我们把traits放到模板中。比如：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">template</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> IterT<span style="color:#f92672">&gt;</span>          <span style="color:#75715e">// template for information about
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">iterator_traits</span>;           <span style="color:#75715e">// iterator types
+</span></code></pre></div><p>terator_traits&lt; IterT&gt;将会标识IterT的迭代器类别。iterator_traits的实现包括两部分：</p>
+<ul>
+<li>用户定义类型的迭代器</li>
+<li>基本数据类型的指针</li>
+</ul>
+<p><strong>用户类型的迭代器</strong></p>
+<p>在用户定义的类型中，typedef该类型支持迭代器的Tag</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">template</span><span style="color:#f92672">&lt;</span> ... <span style="color:#f92672">&gt;</span> <span style="color:#75715e">// template params elided
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">deque</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+  <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">iterator</span> {
+  <span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">typedef</span> random_access_iterator_tag iterator_category;
+  }<span style="color:#f92672">:</span>
+};
+</code></pre></div><p>在全局的iterator_traits模板中typedef那个用户类型中的Tag，以提供全局和统一的类型识别。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">template</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> IterT<span style="color:#f92672">&gt;</span>
+<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">iterator_traits</span> {
+  <span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">typename</span> IterT<span style="color:#f92672">::</span>iterator_category iterator_category;
+};
+</code></pre></div><p><strong>基本数据类型的指针</strong></p>
+<p>为了支持指针迭代器, iterator-traits特别针对指针类型提供一个偏特化版本(partial template specialization) 。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">template</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> IterT<span style="color:#f92672">&gt;</span>
+<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">iterator</span> traits<span style="color:#f92672">&lt;</span>IterT<span style="color:#f92672">*&gt;</span>
+{
+    <span style="color:#66d9ef">typedef</span> random access iterator tag iterator category;
+    ...
+};
+</code></pre></div><p><strong>如何设计并实现一个traits class</strong></p>
+<ul>
+<li>确认若干你希望将来可取得的类型相关信息。例如对迭代器而言,我们希望将 来可取得其分类(category) 。</li>
+<li>为该信息选择一个名称(例如iterator_category) 。</li>
+<li>提供一个template和一组特化版本(例如稍早说的iterator-traits) ,内含你希望支持的类型相关信息。</li>
+</ul>
+<p><strong>advance的实现</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">template</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> IterT, <span style="color:#66d9ef">typename</span> DistT<span style="color:#f92672">&gt;</span>
+<span style="color:#66d9ef">void</span> advance(IterT<span style="color:#f92672">&amp;</span> iter, DistT d) {
+    <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">typeid</span>(<span style="color:#66d9ef">typename</span> std<span style="color:#f92672">::</span>iterator_traits<span style="color:#f92672">&lt;</span>IterT<span style="color:#f92672">&gt;::</span>iterator_category) <span style="color:#f92672">==</span>
+        <span style="color:#66d9ef">typeid</span>(std<span style="color:#f92672">::</span>random_access_iterator_tag))
+  ...
+}
+</code></pre></div><p>上述实现其实并不完美，至少if语句中的条件在编译时就已经决定，它的判断却推迟到了运行时（显然是低效的）。 在编译时作此判断，需要为不同的iterator提供不同的方法，然后在advance里调用它们。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">template</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> IterT, <span style="color:#66d9ef">typename</span> DistT<span style="color:#f92672">&gt;</span>
+<span style="color:#66d9ef">void</span> advance(IterT<span style="color:#f92672">&amp;</span> iter, DistT d) {
+  doAdvance(                                              <span style="color:#75715e">// call the version
+</span><span style="color:#75715e"></span>    iter, d,                                              <span style="color:#75715e">// of doAdvance
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">typename</span> std<span style="color:#f92672">::</span>iterator_traits<span style="color:#f92672">&lt;</span>IterT<span style="color:#f92672">&gt;::</span>iterator_category()
+  );
+}
+
+<span style="color:#75715e">// 随机访问迭代器
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">template</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> IterT, <span style="color:#66d9ef">typename</span> DistT<span style="color:#f92672">&gt;</span>
+<span style="color:#66d9ef">void</span> doAdvance(IterT<span style="color:#f92672">&amp;</span> iter, DistT d, std<span style="color:#f92672">::</span>random_access_iterator_tag) {
+  iter <span style="color:#f92672">+=</span> d;
+}
+
+<span style="color:#75715e">// 双向迭代器
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">template</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> IterT, <span style="color:#66d9ef">typename</span> DistT<span style="color:#f92672">&gt;</span>
+<span style="color:#66d9ef">void</span> doAdvance(IterT<span style="color:#f92672">&amp;</span> iter, DistT d, std<span style="color:#f92672">::</span>bidirectional_iterator_tag) {
+  <span style="color:#66d9ef">if</span> (d <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span>) { <span style="color:#66d9ef">while</span> (d<span style="color:#f92672">--</span>) <span style="color:#f92672">++</span>iter; }
+  <span style="color:#66d9ef">else</span> { <span style="color:#66d9ef">while</span> (d<span style="color:#f92672">++</span>) <span style="color:#f92672">--</span>iter; }
+}
+
+<span style="color:#75715e">// 输入迭代器
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">template</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> IterT, <span style="color:#66d9ef">typename</span> DistT<span style="color:#f92672">&gt;</span>
+<span style="color:#66d9ef">void</span> doAdvance(IterT<span style="color:#f92672">&amp;</span> iter, DistT d, std<span style="color:#f92672">::</span>input_iterator_tag) {
+  <span style="color:#66d9ef">if</span> (d <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span> ) {
+     <span style="color:#66d9ef">throw</span> std<span style="color:#f92672">::</span>out_of_range(<span style="color:#e6db74">&#34;Negative distance&#34;</span>);    <span style="color:#75715e">// see below
+</span><span style="color:#75715e"></span>  }
+  <span style="color:#66d9ef">while</span> (d<span style="color:#f92672">--</span>) <span style="color:#f92672">++</span>iter;
+}
+</code></pre></div><p><strong>总结如何使用一个traits class</strong></p>
+<ul>
+<li>建立一组重载函数(身份像劳工)或函数模板(例如doAdvance) ,彼此间的差异只在于各自的traits参数。令每个函数实现码与其接受之traits信息相应和。</li>
+<li>建立一个控制函数(身份像工头)或函数模板(例如advance) ,它调用上述那些“劳工函数”并传递traits class所提供的信息。</li>
+</ul>
+<p><strong>本文要点</strong></p>
+<ul>
+<li>Traits classes使得“类型相关信息”在编译期可用。它们以templates和&quot;templates特化”完成实现。</li>
+<li>整合重载技术(overloading)后, traits classes有可能在编译期对类型执行 if.else测试。</li>
+</ul>
+<hr>
+<h3 id="条款48-认识template元编程">条款48: 认识template元编程</h3>
+<p><strong>Template metaprogramming (TMP,模板元编程)是编写template-based C++程序并执行于编译期的过程。</strong></p>
+<p>**使用TMP有两个好处: **</p>
+<ul>
+<li>第一,它让某些事情更容易。如果没有它,那些事情 将是困难的,甚至不可能的。</li>
+<li>第二,由于template metaprograms执行于C++编译期,因此可将工作从运行期转移到编译期。</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">template</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> IterT, <span style="color:#66d9ef">typename</span> DistT<span style="color:#f92672">&gt;</span>
+<span style="color:#66d9ef">void</span> advance(IterT<span style="color:#f92672">&amp;</span> iter, DistT d) {
+  <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">typeid</span>(<span style="color:#66d9ef">typename</span> std<span style="color:#f92672">::</span>iterator_traits<span style="color:#f92672">&lt;</span>IterT<span style="color:#f92672">&gt;::</span>iterator_category) <span style="color:#f92672">==</span>
+    <span style="color:#66d9ef">typeid</span>(std<span style="color:#f92672">::</span>random_access_iterator_tag)){
+        iter <span style="color:#f92672">+=</span> d;
+  }
+  ...
+}
+
+list<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;::</span>iterator it;
+advance(it, <span style="color:#ae81ff">10</span>);
+</code></pre></div><p>其实上述代码是不能编译的，设想以下advance&lt;list<!-- raw HTML omitted -->::iterator, int&gt;中的这条语句：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">iter <span style="color:#f92672">+=</span> d;
+</code></pre></div><p><code>list&lt;int&gt;::iterator</code>是双向迭代器，不支持+=运算。虽然上述语句不会执行，但编译器不知道这一点。 编译时这条语句仍然会抛出类型错误。</p>
+<p><strong>TMP已被证明是个“图灵完全”(Turing-complete)机器</strong></p>
+<p>TMP主要是个“函数式语言” (functional language), TMP的递归甚至不是正常种类,因为TMP循环并不涉及递归函数调用,而是涉及“递归模板具现化”(recursive template instantiation) 。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">template</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">unsigned</span> n<span style="color:#f92672">&gt;</span> 
+<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Factorial</span> {
+    <span style="color:#66d9ef">enum</span> { value <span style="color:#f92672">=</span> n <span style="color:#f92672">*</span> Factorial<span style="color:#f92672">&lt;</span>n<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">&gt;::</span>value };
+};
+
+<span style="color:#66d9ef">template</span><span style="color:#f92672">&lt;&gt;</span>
+<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Factorial</span><span style="color:#f92672">&lt;</span><span style="color:#ae81ff">0</span><span style="color:#f92672">&gt;</span> { <span style="color:#75715e">//Factorial&lt;0&gt; 值为1
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">enum</span>{ value<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> };
+};
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> Factorial<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">5</span><span style="color:#f92672">&gt;::</span>value; <span style="color:#75715e">//印出120
+</span><span style="color:#75715e"></span>    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> Factorial<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">10</span><span style="color:#f92672">&gt;::</span>value; <span style="color:#75715e">//印出3628800
+</span><span style="color:#75715e"></span>}
+</code></pre></div><p>为了更好地理解TMP的重要性，我们来看看TMP能干什么：</p>
+<ul>
+<li>确保量纲正确。在科学计算中，量纲的结合要始终保持正确。比如一定要单位为”m”的变量和单位为”s”的变量相除才能得到一个速度变量（其单位为”m/s”）。 使用TMP时，编译器可以保证这一点。因为不同的量纲在TMP中会被映射为不同的类型。</li>
+<li>优化矩阵运算。比如矩阵连乘问题，TMP中有一项表达式模板（expression template）的技术，可以在编译期去除临时变量和合并循环。 可以做到更好的运行时效率。</li>
+<li>自定义设计模式的实现。设计模式往往有多种实现方式，而一项叫基于策略设计（policy-based design）的TMP技术可以帮你创建独立的设计策略（design choices），而这些设计策略可以以任意方式组合。生成无数的设计模式实现方式。</li>
+</ul>
+<p><strong>本文要点</strong></p>
+<ul>
+<li>Template metaprogramming (TMP,模板元编程)可将工作由运行期移往编译期,因而得以实现早期错误侦测和更高的执行效率。</li>
+<li>TMP可被用来生成“基于政策选择组合&rdquo; (based on combinations of policychoices)的客户定制代码,也可用来避免生成对某些特殊类型并不适合的代码。</li>
+</ul>
+<hr>
+<p>了解C++内存管理例程的行为。这场游戏的两个主角是分配例程和归还例程(allocation and deallocation routines,也就是operator new和operator delete), 配角是new-handler, 这是当operator new无法满足客户的内存需求时所调用的函数。</p>
+<p>operator new和operator delete只适合用来分配单一对 象。Arrays所用的内存由operator new1]分配出来,并由operator delete[]归还(注意两个函数名称中的[])</p>
+<h3 id="条款49-了解new-handler的行为">条款49: 了解new-handler的行为</h3>
+<p><strong><a href="https://github.com/6923403/CPP_Demo/blob/master/test/new_handler.cpp">new_handler函数运行代码</a></strong></p>
+<p>当operator new抛出异常以反映一个未获满足的内存需求之前,它会先调用个客户指定的错误处理函数,一个所谓的new-handler。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">namespace</span> std {
+    <span style="color:#66d9ef">typedef</span> <span style="color:#a6e22e">void</span>(<span style="color:#f92672">*</span><span style="color:#66d9ef">new</span> handler) (); 
+    new_handler <span style="color:#a6e22e">set_new_handler</span>(new_handler p) <span style="color:#66d9ef">throw</span>();
+}
+</code></pre></div><p>//以下是当operator new无法分配足够内存时, 该被调用的函数</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">outOfMem</span>(){
+    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Unable to alloc memory&#34;</span>;
+    std<span style="color:#f92672">::</span>abort();
+}
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
+    std<span style="color:#f92672">::</span>set_new_handler(outOfMem);
+    <span style="color:#66d9ef">int</span> <span style="color:#f92672">*</span>p <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span>[<span style="color:#ae81ff">100000000L</span>];
+}
+</code></pre></div><p><strong>当operator new无法满足内存申请时,它会不断调用new-handler函数,直到找到足够内存。</strong></p>
+<p>一个设计良好的new-handler函数必须做以下事情:</p>
+<ul>
+<li>使更多内存可用；</li>
+<li>安装一个新的”new-handler”；</li>
+<li>卸载当前”new-handler”，传递null给set_new_handler即可；</li>
+<li>抛出bad_alloc（或它的子类）异常；</li>
+<li>不返回，可以abort或者exit。</li>
+</ul>
+<p>std::set_new_handler设置的是全局的bad_alloc的错误处理函数，C++并未提供类型相关的bad_alloc异常处理机制。 但我们可以重载类的operator new，当创建对象时暂时设置全局的错误处理函数，结束后再恢复全局的错误处理函数。</p>
+<p>比如Widget类，首先需要声明自己的set_new_handler和operator new：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Widget</span>{
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">static</span> std<span style="color:#f92672">::</span>new_handler set_new_handler(std<span style="color:#f92672">::</span>new_handler p) <span style="color:#66d9ef">throw</span>();
+    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">operator</span> <span style="color:#a6e22e">new</span>(std<span style="color:#f92672">::</span>size_t size) <span style="color:#66d9ef">throw</span>(std<span style="color:#f92672">::</span>bad_alloc);
+<span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">static</span> std<span style="color:#f92672">::</span>new_handler current;
+};
+
+<span style="color:#75715e">// 静态成员需要定义在类的外面
+</span><span style="color:#75715e"></span>std<span style="color:#f92672">::</span>new_handler Widget<span style="color:#f92672">::</span>current <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+std<span style="color:#f92672">::</span>new_handler Widget<span style="color:#f92672">::</span>set_new_handler(std<span style="color:#f92672">::</span>new_handler p) <span style="color:#66d9ef">throw</span>(){
+    std<span style="color:#f92672">::</span>new_handler old <span style="color:#f92672">=</span> current;
+    current <span style="color:#f92672">=</span> p;
+    <span style="color:#66d9ef">return</span> old;
+}
+</code></pre></div><p>关于abort, exit, terminate的区别：abort会设置程序非正常退出，exit会设置程序正常退出，当存在未处理异常时C++会调用terminate， 它会回调由std::set_terminate设置的处理函数，默认会调用abort。</p>
+<p>最后来实现operator new，该函数的工作分为三个步骤：</p>
+<ul>
+<li>调用std::set_new_handler，把Widget::current设置为全局的错误处理函数；</li>
+<li>调用全局的operator new来分配真正的内存；</li>
+<li>如果分配内存失败，Widget::current将会抛出异常；</li>
+<li>不管成功与否，都卸载Widget::current，并安装调用Widget::operator new之前的全局错误处理函数。</li>
+</ul>
+<p>我们通过RAII类来保证原有的全局错误处理函数能够恢复，让异常继续传播。关于RAII可以参见Item 13。 先来编写一个保持错误处理函数的RAII类：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">NewHandlerHolder</span>{
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">explicit</span> NewHandlerHolder(std<span style="color:#f92672">::</span>new_handler nh)<span style="color:#f92672">:</span> handler(nh){}
+    <span style="color:#f92672">~</span>NewHandlerHolder(){ std<span style="color:#f92672">::</span>set_new_handler(handler); }
+<span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+    std<span style="color:#f92672">::</span>new_handler handler;
+    NewHandlerHolder(<span style="color:#66d9ef">const</span> HandlerHolder<span style="color:#f92672">&amp;</span>);     <span style="color:#75715e">// 禁用拷贝构造函数
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> NewHandlerHolder<span style="color:#f92672">&amp;</span> <span style="color:#66d9ef">operator</span><span style="color:#f92672">=</span>(<span style="color:#66d9ef">const</span> NewHandlerHolder<span style="color:#f92672">&amp;</span>); <span style="color:#75715e">// 禁用赋值运算符
+</span><span style="color:#75715e"></span>};
+</code></pre></div><p>Widget::operator new的实现</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span> Widget<span style="color:#f92672">::</span><span style="color:#66d9ef">operator</span> <span style="color:#66d9ef">new</span>(std<span style="color:#f92672">::</span>size_t size) <span style="color:#66d9ef">throw</span>(std<span style="color:#f92672">::</span>bad_alloc){
+    NewHandlerHolder <span style="color:#a6e22e">h</span>(std<span style="color:#f92672">::</span>set_new_handler(current));
+    <span style="color:#66d9ef">return</span> <span style="color:#f92672">::</span><span style="color:#66d9ef">operator</span> <span style="color:#66d9ef">new</span>(size);    <span style="color:#75715e">// 调用全局的new，抛出异常或者成功
+</span><span style="color:#75715e"></span>}   <span style="color:#75715e">// 函数调用结束，原有错误处理函数恢复
+</span></code></pre></div><p><strong>客户使用Widget的方式也符合基本数据类型的惯例：</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">outOfMem</span>();
+Widget<span style="color:#f92672">::</span>set_new_handler(outOfMem);
+
+Widget <span style="color:#f92672">*</span>p1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Widget;    <span style="color:#75715e">// 如果失败，将会调用outOfMem
+</span><span style="color:#75715e"></span>string <span style="color:#f92672">*</span>ps <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> string;    <span style="color:#75715e">// 如果失败，将会调用全局的 new-handling function，当然如果没有的话就没有了
+</span><span style="color:#75715e"></span>Widget<span style="color:#f92672">::</span>set_new_handler(<span style="color:#ae81ff">0</span>); <span style="color:#75715e">// 把Widget的异常处理函数设为空
+</span><span style="color:#75715e"></span>Widget <span style="color:#f92672">*</span>p2 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Widget;    <span style="color:#75715e">// 如果失败，立即抛出异常
+</span></code></pre></div><p>仔细观察上面的代码，很容易发现自定义”new-handler”的逻辑其实和Widget是无关的。我们可以把这些逻辑抽取出来作为一个模板基类：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">template</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> T<span style="color:#f92672">&gt;</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">NewHandlerSupport</span>{
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">static</span> std<span style="color:#f92672">::</span>new_handler set_new_handler(std<span style="color:#f92672">::</span>new_handler p) <span style="color:#66d9ef">throw</span>();
+    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">operator</span> <span style="color:#a6e22e">new</span>(std<span style="color:#f92672">::</span>size_t size) <span style="color:#66d9ef">throw</span>(std<span style="color:#f92672">::</span>bad_alloc);
+<span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">static</span> std<span style="color:#f92672">::</span>new_handler current;
+};
+
+<span style="color:#66d9ef">template</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> T<span style="color:#f92672">&gt;</span>
+std<span style="color:#f92672">::</span>new_handler NewHandlerSupport<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;::</span>current <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+
+<span style="color:#66d9ef">template</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> T<span style="color:#f92672">&gt;</span>
+std<span style="color:#f92672">::</span>new_handler NewHandlerSupport<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;::</span>set_new_handler(std<span style="color:#f92672">::</span>new_handler p) <span style="color:#66d9ef">throw</span>(){
+    std<span style="color:#f92672">::</span>new_handler old <span style="color:#f92672">=</span> current;
+    current <span style="color:#f92672">=</span> p;
+    <span style="color:#66d9ef">return</span> old;
+}
+
+<span style="color:#66d9ef">template</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> T<span style="color:#f92672">&gt;</span>
+<span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span> NewHandlerSupport<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;::</span><span style="color:#66d9ef">operator</span> <span style="color:#66d9ef">new</span>(std<span style="color:#f92672">::</span>size_t size) <span style="color:#66d9ef">throw</span>(std<span style="color:#f92672">::</span>bad_alloc){
+    NewHandlerHolder <span style="color:#a6e22e">h</span>(std<span style="color:#f92672">::</span>set_new_handler(current));
+    <span style="color:#66d9ef">return</span> <span style="color:#f92672">::</span><span style="color:#66d9ef">operator</span> <span style="color:#66d9ef">new</span>(size);
+}
+</code></pre></div><p>有了这个class template,为widget添加set-new-handler支持能力就轻而易举了:</p>
+<p>只要令widget继承自<code>NewHandlerSupport&lt;widget&gt;</code>就好</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Widget</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">public</span> NewHandlerSupport<span style="color:#f92672">&lt;</span>Widget<span style="color:#f92672">&gt;</span> { 
+    ... 
+    <span style="color:#75715e">//和先前一样但不必声明set_new_handler或operator new
+</span><span style="color:#75715e"></span>};
+</code></pre></div><p><strong>operator new则应该抛出bad alloc异常</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">widget</span>{ ....};
+widget<span style="color:#f92672">*</span> pw1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> widget; <span style="color:#75715e">//分配失败 抛出bad_alloc
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span> (pw1 <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) ... <span style="color:#75715e">//一定失败
+</span><span style="color:#75715e"></span>widget<span style="color:#f92672">*</span> pw2 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> (std<span style="color:#f92672">::</span>nothrow) widget; <span style="color:#75715e">//分配失败返回0
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span> (pw2 <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) ... <span style="color:#75715e">//可能成功
+</span></code></pre></div><p><strong>本文要点</strong></p>
+<ul>
+<li>set-new_handler允许客户指定一个函数,在内存分配无法获得满足时被调用。</li>
+<li>Nothrow new是一个颇为局限的工具,因为它只适用于内存分配;后继的构造函数调用还是可能抛出异常。</li>
+</ul>
 
     </div>
     <div class="post-footer">
