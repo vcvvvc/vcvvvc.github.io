@@ -99,7 +99,7 @@ template&lt;typename T&gt; void doProcessing( T&amp; w) { if (w.size() &gt; 10 &
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          8 min read
+          11 min read
         </div>
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
@@ -765,6 +765,236 @@ widget<span style="color:#f92672">*</span> pw1 <span style="color:#f92672">=</sp
 <ul>
 <li>set-new_handler允许客户指定一个函数,在内存分配无法获得满足时被调用。</li>
 <li>Nothrow new是一个颇为局限的工具,因为它只适用于内存分配;后继的构造函数调用还是可能抛出异常。</li>
+</ul>
+<hr>
+<h3 id="条款50-了解new和delete的合理替换时机">条款50: 了解new和delete的合理替换时机</h3>
+<p><strong>替换编译器提供的operator new或operator delete理由:</strong></p>
+<ul>
+<li>检测使用错误。new得到的内存如果没有delete会导致内存泄露，而多次delete又会引发未定义行为。如果自定义operator new来保存动态内存的地址列表，在delete中判断内存是否完整，便可以识别使用错误，避免程序崩溃的同时还可以记录这些错误使用的日志。</li>
+<li>提高效率。全局的new和delete被设计为通用目的（general purpose）的使用方式，通过提供自定义的new，我们可以手动维护更适合应用场景的存储策略。</li>
+<li>收集使用信息。在继续自定义new之前，你可能需要先自定义一个new来收集地址分配信息，比如动态内存块大小是怎样分布的？分配和回收是先进先出FIFO还是后进先出LIFO？</li>
+<li>实现非常规的行为。比如考虑到安全，operator new把新申请的内存全部初始化为0.</li>
+<li>其他原因，比如抵消平台相关的字节对齐，将相关的对象放在一起等等。</li>
+</ul>
+<p><strong>定制型operator new</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> signature <span style="color:#f92672">=</span> <span style="color:#ae81ff">0xDEADBEEF</span>;    <span style="color:#75715e">// 边界符
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">char</span> Byte;
+
+<span style="color:#66d9ef">void</span><span style="color:#f92672">*</span> <span style="color:#66d9ef">operator</span> <span style="color:#a6e22e">new</span>(std<span style="color:#f92672">::</span>size_t size) <span style="color:#66d9ef">throw</span>(std<span style="color:#f92672">::</span>bad_alloc) {
+    <span style="color:#75715e">// 多申请一些内存来存放占位符
+</span><span style="color:#75715e"></span>    size_t realSize <span style="color:#f92672">=</span> size <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">int</span>);
+
+    <span style="color:#75715e">// 申请内存
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>pMem <span style="color:#f92672">=</span> malloc(realSize);
+    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>pMem) <span style="color:#66d9ef">throw</span> bad_alloc();
+
+    <span style="color:#75715e">// 写入边界符
+</span><span style="color:#75715e"></span>    <span style="color:#f92672">*</span>(<span style="color:#66d9ef">reinterpret_cast</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">*&gt;</span>(<span style="color:#66d9ef">static_cast</span><span style="color:#f92672">&lt;</span>Byte<span style="color:#f92672">*&gt;</span>(pMem)<span style="color:#f92672">+</span>realSize<span style="color:#f92672">-</span><span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">int</span>)))
+        <span style="color:#f92672">=</span> <span style="color:#f92672">*</span>(<span style="color:#66d9ef">static_cast</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">*&gt;</span>(pMem)) <span style="color:#f92672">=</span> signature;
+
+    <span style="color:#75715e">// 返回真正的内存区域
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">static_cast</span><span style="color:#f92672">&lt;</span>Byte<span style="color:#f92672">*&gt;</span>(pMem) <span style="color:#f92672">+</span> <span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">int</span>);
+}
+</code></pre></div><p>这个operator new的缺点主要在于它疏忽了身为这个特殊函数所应该具备的“坚持C++规矩”的态度。</p>
+<p><strong>所有operator news都应该内含一个循环,反复调用某个new-handling函数。</strong></p>
+<p><strong>齐位(alignment)意义重大,因为C++要求所有operator news返回的指针都有适当的对齐(取决于数据类型)。</strong></p>
+<p><strong>本条款的主题是,了解何时可在“全局性的”或&quot;class专属的”基础上合理替换缺省的new和delete:</strong></p>
+<ul>
+<li>为了检测运用错误</li>
+<li>为了收集动态分配内存之使用统计信息</li>
+<li>为了增加分配和归还的速度。</li>
+<li>为了降低缺省内存管理器带来的空间额外开销。</li>
+<li>为了弥补缺省分配器中的非最佳齐位(suboptimal alignment)。</li>
+<li>为了将相关对象成簇集中。</li>
+<li>为了获得非传统的行为。</li>
+</ul>
+<p><strong>本文要点</strong></p>
+<ul>
+<li>有许多理由需要写个自定的new和delete,包括改善效能、对heap运用错误进行调试、收集heap使用信息。</li>
+</ul>
+<hr>
+<h3 id="条款51-编写new和delete时需固守常规">条款51: 编写new和delete时需固守常规</h3>
+<p>实现一致性operator new必得返回正确的值,内存不足时必得调用new-handling函数 ,必须有对付零内存需求的准备,还需避免不慎掩盖正常形式的new。</p>
+<p>operator new的返回值十分单纯。如果它有能力供应客户申请的内存,就返回一个指针指向那块内存。如果没有那个能力,就遵循条款49描述的规则,并抛出一个badalloc异常。然而其实也不是非常单纯,因为operatornew实际上不只一次尝试分配内存,并在每次失败后调用new-handling函数。</p>
+<p>奇怪的是C++规定,即使客户要求0bytes, operator new也得返回一个合法指针。</p>
+<p><strong>non-member operator new</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">void</span><span style="color:#f92672">*</span> <span style="color:#66d9ef">operator</span> <span style="color:#a6e22e">new</span>(std<span style="color:#f92672">::</span>size_t size) <span style="color:#66d9ef">throw</span>(std<span style="color:#f92672">::</span>bad_alloc) {
+    <span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std; <span style="color:#66d9ef">if</span> (size <span style="color:#f92672">==</span><span style="color:#ae81ff">0</span>) {
+    size <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+    }
+    <span style="color:#66d9ef">while</span> (true) { 
+        <span style="color:#960050;background-color:#1e0010">尝试分配</span>size bytes;
+        <span style="color:#66d9ef">if</span> (<span style="color:#960050;background-color:#1e0010">分配成功</span>)
+        <span style="color:#66d9ef">return</span> (<span style="color:#960050;background-color:#1e0010">一个指针</span>,<span style="color:#960050;background-color:#1e0010">指向分配得来的内存</span>);
+        <span style="color:#75715e">//分配失败;找出目前的new-handling函数(见下)
+</span><span style="color:#75715e"></span>        new_handler globalHandler <span style="color:#f92672">=</span> set_new_handler(<span style="color:#ae81ff">0</span>);
+        set_new_handler(globalHandler);
+        <span style="color:#66d9ef">if</span> (globalHandler) 
+            (<span style="color:#f92672">*</span>globalHandler)();
+        <span style="color:#66d9ef">else</span> 
+            <span style="color:#66d9ef">throw</span> std<span style="color:#f92672">::</span>bad_alloc();
+    }
+}
+</code></pre></div><ul>
+<li>size == 0时申请大小为1看起来不太合适，但它非常简单而且能正常工作。况且你不会经常申请大小为0的空间吧？</li>
+<li>两次set_new_handler调用先把全局”new handler”设置为空再设置回来，这是因为无法直接获取”new handler”，多线程环境下这里一定需要锁。</li>
+<li>while(true)意味着这可能是一个死循环。所以Item 49提到，”new handler”要么释放更多内存、要么安装一个新的”new handler”，如果你实现了一个无用的”new handler”这里就是死循环了。</li>
+</ul>
+<p>谈到operator new内含一个无穷循环,而上述伪码明白表明出这个循环: &ldquo;while (true)&ldquo;就是那个无穷循环。</p>
+<p>退出此循环的唯一办法是:内存被成功分配或new-handling函数做了一件描述于条款49的事情:让更多内存可用、安装 另一个new-hander、卸除new-handler、抛出badalloc异常(或其派生物) ,或是承认失败而直接return。</p>
+<p>重载operator new为成员函数通常是为了对某个特定的类进行动态内存管理的优化，而不是用来给它的子类用的。 因为在实现Base::operator new()时，是基于对象大小为sizeof(Base)来进行内存管理优化的。</p>
+<p>当然，有些情况你写的Base::operator new是通用于整个class及其子类的，这时这一条规则不适用。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Base</span>{
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span><span style="color:#f92672">*</span> <span style="color:#66d9ef">operator</span> <span style="color:#66d9ef">new</span>(std<span style="color:#f92672">::</span>size_t size) <span style="color:#66d9ef">throw</span>(std<span style="color:#f92672">::</span>bad_alloc);
+};
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Derived</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">public</span> Base{...};
+Derived <span style="color:#f92672">*</span>p <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Derived; <span style="color:#75715e">//调用了Base::operator new
+</span></code></pre></div><p>子类继承Base::operator new()之后，因为当前对象不再是假设的大小，该方法不再适合管理当前对象的内存了。
+处理此情势的最佳做法是将“内存申请量错误”的调用行为改采标准operator new</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>Base<span style="color:#f92672">::</span><span style="color:#66d9ef">operator</span> <span style="color:#66d9ef">new</span>(std<span style="color:#f92672">::</span>size_t size) <span style="color:#66d9ef">throw</span>(std<span style="color:#f92672">::</span>bad_alloc){
+    <span style="color:#66d9ef">if</span>(size <span style="color:#f92672">!=</span> <span style="color:#66d9ef">sizeof</span>(Base)) <span style="color:#66d9ef">return</span> <span style="color:#f92672">::</span><span style="color:#66d9ef">operator</span> <span style="color:#66d9ef">new</span>(size);
+    ...
+}
+</code></pre></div><p>上面的代码没有检查size == 0！这是C++神奇的地方，大小为0的独立对象会被插入一个char（见Item 39）。 所以sizeof(Base)永远不会是0，所以size == 0的情况交给::operator new(size)去处理了。</p>
+<p>这里提一下operator new[]，它和operator new具有同样的参数和返回值， 要注意的是你不要假设其中有几个对象，以及每个对象的大小是多少，所以不要操作这些还不存在的对象。因为：</p>
+<ul>
+<li>你不知道对象大小是什么。上面也提到了当继承发生时size不一定等于sizeof(Base)。</li>
+<li>size实参的值可能大于这些对象的大小之和。因为Item 16中提到，数组的大小可能也需要存储。</li>
+</ul>
+<p><strong>operatore delete</strong></p>
+<p><strong>C++保证“删除null指针永远安全”</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">void</span> <span style="color:#66d9ef">operator</span> <span style="color:#a6e22e">delete</span>(<span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>rawMem) <span style="color:#66d9ef">throw</span>(){
+    <span style="color:#66d9ef">if</span>(rawMem <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">return</span>;
+    <span style="color:#75715e">// 释放内存
+</span><span style="color:#75715e"></span>}
+</code></pre></div><p>万一你的class专属的operator new将大小有误的分配行为转交::operator new执行,你也必须将大小有误的删除行为转交::operator delete执行:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Base</span>{
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">operator</span> <span style="color:#66d9ef">new</span>(std<span style="color:#f92672">::</span>size_t size) <span style="color:#66d9ef">throw</span>(std<span style="color:#f92672">::</span>bad_alloc);
+    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#66d9ef">operator</span> <span style="color:#a6e22e">delete</span>(<span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>rawMem, std<span style="color:#f92672">::</span>size_t size) <span style="color:#66d9ef">throw</span>();
+};
+<span style="color:#66d9ef">void</span> Base<span style="color:#f92672">::</span><span style="color:#66d9ef">operator</span> <span style="color:#66d9ef">delete</span>(<span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>rawMem, std<span style="color:#f92672">::</span>size_t size) <span style="color:#66d9ef">throw</span>(){
+    <span style="color:#66d9ef">if</span>(rawMem <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">return</span>;     <span style="color:#75715e">// 检查空指针
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span>(size <span style="color:#f92672">!=</span> <span style="color:#66d9ef">sizeof</span>(Base)){
+        <span style="color:#f92672">::</span><span style="color:#66d9ef">operator</span> <span style="color:#66d9ef">delete</span>(rawMem);
+    }
+    <span style="color:#75715e">// 释放内存
+</span><span style="color:#75715e"></span>}
+</code></pre></div><p>如果即将被删除的对象派生自某个base class而后者欠缺virtual析 构函数,那么C++传给operatordelete的sizet数值可能不正确。</p>
+<p><strong>本文要点</strong></p>
+<ul>
+<li>operator new应该内含一个无穷循环,并在其中尝试分配内存,如果它无法满足内存需求,就该调用new_handler,它也应该有能力处理0 bytes申请。Class专属版本则还应该处理“比正确大小更大的(错误)申请”。</li>
+<li>operator delete应该在收到null指针时不做任何事。Class专属版本则还应该处理“比正确大小更大的(错误)申请”。</li>
+</ul>
+<hr>
+<h3 id="条款52-写了placement-new也要写placement-delete">条款52: 写了placement new也要写placement delete</h3>
+<p>“placement new”通常是专指指定了位置的new(std::size_t size, void *mem)，用于vector申请capacity剩余的可用内存。 但广义的”placement new”指的是拥有额外参数的operator new。</p>
+<p>new和delete是要成对的，因为当构造函数抛出异常时用户无法得到对象指针，因而delete的责任在于C++运行时。 运行时需要找到匹配的delete并进行调用。因此当我们编写了”placement new”时，也应当编写对应的”placement delete”， 否则会引起内存泄露。在编写自定义new和delete时，还要避免不小心隐藏它们的正常版本。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">widget</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#75715e">//非正常形式的new
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span><span style="color:#f92672">*</span> <span style="color:#66d9ef">operator</span> <span style="color:#66d9ef">new</span>(std<span style="color:#f92672">::</span>size t size, std: <span style="color:#f92672">:</span>ostream<span style="color:#f92672">&amp;</span> logStream) <span style="color:#66d9ef">throw</span> (std<span style="color:#f92672">::</span>bad alloc);
+
+    <span style="color:#75715e">//正常的class专属delete
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#66d9ef">operator</span> <span style="color:#a6e22e">delete</span> (<span style="color:#66d9ef">void</span><span style="color:#f92672">*</span> pMemory std<span style="color:#f92672">::</span>size_t size) <span style="color:#66d9ef">throw</span>();
+};
+</code></pre></div><p>如果operatornew接受的参数除了一定会有的那个sizet之外还有其他,这 便是个所谓的placement new。因此,上述的operator new是个placement版本。众多placement new版本中特别有用的一个是“接受一个指针指向对象该被构造之处”:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">void</span><span style="color:#f92672">*</span> <span style="color:#66d9ef">operator</span> <span style="color:#a6e22e">new</span>(std<span style="color:#f92672">::</span>size_t, <span style="color:#66d9ef">void</span><span style="color:#f92672">*</span> pMemory) <span style="color:#66d9ef">throw</span>();
+</code></pre></div><p><strong>那个class将引起微妙的内存泄漏</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">widget<span style="color:#f92672">*</span> pw <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> (std<span style="color:#f92672">::</span>cerr)widget;
+</code></pre></div><p>如果内存分配成功,而widget构造函数抛出异常,运行期系统有责任取消operator new的分配并恢复旧观。然而运行期系统无法知道真正被调用的那个operator new如何运作,因此它无法取消分配并恢复旧观,所以上述做法行不通。</p>
+<p><strong>运行期系统寻找“参数个数和类型都与operator new相同”的某个operator delete。如果找到,那就是它的调用对象。</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">void</span> <span style="color:#66d9ef">operator</span> <span style="color:#a6e22e">delete</span>(<span style="color:#66d9ef">void</span><span style="color:#f92672">*</span>, std<span style="color:#f92672">::</span>ostream<span style="color:#f92672">&amp;</span>) <span style="color:#66d9ef">throw</span>();
+</code></pre></div><p>如果一个带额外参数的operator new没有“带相同额外参数”的对应版operator delete,那么当new的内存分配动作需要取消并恢复旧观时就没有任何operator delete会被调用。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">widget</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span><span style="color:#f92672">*</span> <span style="color:#66d9ef">operator</span> <span style="color:#66d9ef">new</span>(std<span style="color:#f92672">::</span>size t size, std<span style="color:#f92672">::</span>ostream<span style="color:#f92672">&amp;</span> logstream) <span style="color:#66d9ef">throw</span> (std<span style="color:#f92672">::</span>bad alloc);
+    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#66d9ef">operator</span> <span style="color:#a6e22e">delete</span> (<span style="color:#66d9ef">void</span><span style="color:#f92672">*</span> pMemory) <span style="color:#66d9ef">throw</span>();
+    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#66d9ef">operator</span> <span style="color:#a6e22e">delete</span> (<span style="color:#66d9ef">void</span><span style="color:#f92672">*</span> pMemory, std<span style="color:#f92672">::</span>ostream<span style="color:#f92672">&amp;</span> logstream) <span style="color:#66d9ef">throw</span>();
+};
+</code></pre></div><p>placement delete只有在“伴随placement new调用而触发的构造函数”出现异常时才会被调用。对着一个指针(例如上述的pw)施行delete绝不会导致调用 placement delete, 这意味着避免内存泄漏我们需要一个正常的operatordelete(用于构造期间无任何异常被抛出)和一个placement版本(用于构造期间有异常被抛出)。后者的额外参数必须和operator new一样。</p>
+<p>由于成员函数的名称会掩盖其外围作用域中的相同名称(见条款33),你必须小心避免让class专属的news掩盖客户期望的其他news (包括正常版 本) 。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Base</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span><span style="color:#f92672">*</span> <span style="color:#66d9ef">operator</span> <span style="color:#66d9ef">new</span>(std<span style="color:#f92672">::</span>size t size, std<span style="color:#f92672">::</span>ostream<span style="color:#f92672">&amp;</span> logStream) 
+        <span style="color:#66d9ef">throw</span>(std<span style="color:#f92672">::</span>bad alloc);
+};
+
+Base<span style="color:#f92672">*</span> pb <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Base; <span style="color:#75715e">//错误!因为正常形式的operator new被掩盖.
+</span><span style="color:#75715e"></span>Base<span style="color:#f92672">*</span> pb <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> (std<span style="color:#f92672">::</span>cerr) Base; <span style="color:#75715e">//正确,调用Base的placement new.
+</span></code></pre></div><p>为了避免全局的”new”被隐藏，先来了解一下C++提供的三种全局”new”：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">void</span><span style="color:#f92672">*</span> <span style="color:#66d9ef">operator</span> <span style="color:#a6e22e">new</span>(std<span style="color:#f92672">::</span>size_t) <span style="color:#66d9ef">throw</span>(std<span style="color:#f92672">::</span>bad_alloc); <span style="color:#75715e">//normal new
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span><span style="color:#f92672">*</span> <span style="color:#66d9ef">operator</span> <span style="color:#a6e22e">new</span>(std<span style="color:#f92672">::</span>size_t, <span style="color:#66d9ef">void</span><span style="color:#f92672">*</span>) <span style="color:#66d9ef">throw</span>(); <span style="color:#75715e">//placement new
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span><span style="color:#f92672">*</span> <span style="color:#66d9ef">operator</span> <span style="color:#a6e22e">new</span>(std<span style="color:#f92672">::</span>size_t, <span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>nothrow_t<span style="color:#f92672">&amp;</span>) <span style="color:#66d9ef">throw</span>(); <span style="color:#75715e">//见Item 49
+</span></code></pre></div><p>对于每一个可用的operator new也请确定提供对应的operator delete。如果你希望这些函数有着平常的行为,只要令你的class专属版本调用global版本即可。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">StandardNewDeleteForms</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+  <span style="color:#75715e">// normal new/delete
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span><span style="color:#f92672">*</span> <span style="color:#66d9ef">operator</span> <span style="color:#66d9ef">new</span>(std<span style="color:#f92672">::</span>size_t size) <span style="color:#66d9ef">throw</span>(std<span style="color:#f92672">::</span>bad_alloc) { <span style="color:#66d9ef">return</span> <span style="color:#f92672">::</span><span style="color:#66d9ef">operator</span> <span style="color:#66d9ef">new</span>(size); }
+  <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#66d9ef">operator</span> <span style="color:#a6e22e">delete</span>(<span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>pMemory) <span style="color:#66d9ef">throw</span>() { <span style="color:#f92672">::</span><span style="color:#66d9ef">operator</span> <span style="color:#66d9ef">delete</span>(pMemory); }
+
+  <span style="color:#75715e">// placement new/delete
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span><span style="color:#f92672">*</span> <span style="color:#66d9ef">operator</span> <span style="color:#a6e22e">new</span>(std<span style="color:#f92672">::</span>size_t size, <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>ptr) <span style="color:#66d9ef">throw</span>() { <span style="color:#66d9ef">return</span> <span style="color:#f92672">::</span><span style="color:#66d9ef">operator</span> <span style="color:#66d9ef">new</span>(size, ptr); }
+  <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#66d9ef">operator</span> <span style="color:#a6e22e">delete</span>(<span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>pMemory, <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>ptr) <span style="color:#66d9ef">throw</span>() { <span style="color:#66d9ef">return</span> <span style="color:#f92672">::</span><span style="color:#66d9ef">operator</span> <span style="color:#66d9ef">delete</span>(pMemory, ptr); }
+
+  <span style="color:#75715e">// nothrow new/delete
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span><span style="color:#f92672">*</span> <span style="color:#66d9ef">operator</span> <span style="color:#a6e22e">new</span>(std<span style="color:#f92672">::</span>size_t size, <span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>nothrow_t<span style="color:#f92672">&amp;</span> nt) <span style="color:#66d9ef">throw</span>() { <span style="color:#66d9ef">return</span> <span style="color:#f92672">::</span><span style="color:#66d9ef">operator</span> <span style="color:#66d9ef">new</span>(size, nt); }
+  <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#66d9ef">operator</span> <span style="color:#a6e22e">delete</span>(<span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>pMemory, <span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>nothrow_t<span style="color:#f92672">&amp;</span>) <span style="color:#66d9ef">throw</span>() { <span style="color:#f92672">::</span><span style="color:#66d9ef">operator</span> <span style="color:#66d9ef">delete</span>(pMemory); }
+};
+</code></pre></div><p>凡是想以自定形式扩充标准形式的客户,可利用继承机制及using声明式, 取得标准形式:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">widget</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">public</span> StandardNewDeleteForms { 
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">using</span> StandardNewDeleteForms<span style="color:#f92672">::</span><span style="color:#66d9ef">operator</span> <span style="color:#66d9ef">new</span>; 
+    <span style="color:#66d9ef">using</span> standardNewDeleteForms<span style="color:#f92672">::</span><span style="color:#66d9ef">operator</span> <span style="color:#66d9ef">delete</span>;
+    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span><span style="color:#f92672">*</span> <span style="color:#66d9ef">operator</span> <span style="color:#a6e22e">new</span>(std<span style="color:#f92672">::</span>size t size std: <span style="color:#f92672">:</span>ostrean<span style="color:#f92672">&amp;</span> logSt.ream) <span style="color:#66d9ef">throw</span> (std<span style="color:#f92672">::</span>bad alloc);
+    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#66d9ef">operator</span> <span style="color:#a6e22e">delete</span>(<span style="color:#66d9ef">void</span><span style="color:#f92672">*</span> pMemory, std<span style="color:#f92672">::</span>ostream<span style="color:#f92672">&amp;</span> logstream) <span style="color:#66d9ef">throw</span>();
+    ...
+};
+</code></pre></div><p><strong>本文要点</strong></p>
+<ul>
+<li>当你写一个placement operator new,请确定也写出了对应的placementoperator delete。如果没有这样做,你的程序可能会发生隐微而时断时续的内存泄漏。</li>
+<li>当你声明placement new和placement delete,请确定不要无意识(非故意)地遮掩了它们的正常版本。</li>
+</ul>
+<hr>
+<h3 id="条款53-不要轻忽编译器的警告">条款53: 不要轻忽编译器的警告</h3>
+<p>编译警告在C++中很重要，因为它可能是个错误啊！ 不要随便忽略那些警告，因为编译器的作者比你更清楚那些代码在干什么。 所以，</p>
+<ul>
+<li>请严肃对待所有warning，要追求最高warning级别的warning-free代码；</li>
+<li>但不要依赖于warning，可能换个编译器有些warning就不在了。</li>
+</ul>
+<p><strong>一个常见错误</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">B</span>{
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> f() <span style="color:#66d9ef">const</span>;
+};
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">D</span><span style="color:#f92672">:</span><span style="color:#66d9ef">public</span> B{
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> f();
+};
+</code></pre></div><p>这里希望以D::f重新定义virtual函数B::,但其中有个错误: B中的f是个const成员函数,而在D中它未被声明为const。我手上的一个编译器于是这样说
+话了：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">warning: D<span style="color:#f92672">::</span>f() hides <span style="color:#66d9ef">virtual</span> B<span style="color:#f92672">::</span>f()
+</code></pre></div><p>这个编译器试图告诉你声明于B中的f并未在D中被重新声明, 而是被整个遮掩了。</p>
+<p><strong>本文要点</strong></p>
+<ul>
+<li>严肃对待编译器发出的警告信息。努力在你的编译器的最高(最严苛)警告级别下争取“无任何警告”的荣誉。</li>
+<li>不要过度倚赖编译器的报警能力,因为不同的编译器对待事情的态度并不相同。一旦移植到另一个编译器上,你原本倚赖的警告信息有可能消失。</li>
+</ul>
+<hr>
+<h3 id="条款54-让自己熟悉包括tr1在内的标准程序库">条款54: 让自己熟悉包括TR1在内的标准程序库</h3>
+<p><strong>本文要点</strong></p>
+<ul>
+<li>C++标准程序库的主要机能由STL, iostreams、 locales组成。并包含C99标准程序库。</li>
+<li>TR1添加了智能指针(例如trl::shared ptr)、一般化函数指针(tr1:: function) 、 hash-based容器、正则表达式(regular expressions)以及另外10个组件的支持。</li>
+<li>TR1自身只是一份规范。为获得TR1提供的好处,你需要一份实物。一个好的 实物来源是Boost</li>
+</ul>
+<hr>
+<h3 id="条款55-让自己熟悉boost">条款55: 让自己熟悉Boost</h3>
+<p><strong>本文要点</strong></p>
+<ul>
+<li>Boost是一个社群,也是一个网站。致力于免费、源码开放、同僚复审的C++程序库开发。Boost在CH+标准化过程中扮演深具影响力的角色。</li>
+<li>Boost提供许多TR1组件实现品,以及其他许多程序库。</li>
 </ul>
 
     </div>
