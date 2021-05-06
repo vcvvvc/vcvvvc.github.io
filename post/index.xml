@@ -5,7 +5,26 @@
     <link>https://6923403.github.io/post/</link>
     <description>Recent content in Posts on Vcvc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 06 May 2021 07:29:52 +0800</lastBuildDate><atom:link href="https://6923403.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 06 May 2021 10:09:44 +0800</lastBuildDate><atom:link href="https://6923403.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Computer_network</title>
+      <link>https://6923403.github.io/post/computer_network/</link>
+      <pubDate>Thu, 06 May 2021 10:09:44 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/computer_network/</guid>
+      <description>计算机网络 应用层 HTTP   HTTP（HyperText Transfer Protocol，超文本传输协议）是一种用于分布式、协作式和超媒体信息系统的应用层协议。HTTP 是万维网的数据通信的基础。
+  Cookie
+ HTTP 是一种不保存状态，即无状态（stateless）协议。 Cookie 会根据从服务器端发送的响应报文内的一个叫做 Set-Cookie 的 首部字段信息，通知客户端保存 Cookie。    请求方法
+  OPTIONS
+ 请求一些选项信息，允许客户端查看服务器的性能    GET
+ 请求指定的页面信息，并返回实体主体    HEAD
+ 类似于 get 请求，只不过返回的响应中没有具体的内容，用于获取报头    POST
+ 向指定资源提交数据进行处理请求（例如提交表单或者上传文件）。数据被包含在请求体中。POST请求可能会导致新的资源的建立和/或已有资源的修改    PUT
+ 从客户端向服务器传送的数据取代指定的文档的内容    DELETE
+ 请求服务器删除指定的页面    TRACE
+ 回显服务器收到的请求，主要用于测试或诊断      报文</description>
+    </item>
+    
     <item>
       <title>Ubuntu20 Install Nvidia drivers</title>
       <link>https://6923403.github.io/post/install_nvidia/</link>
