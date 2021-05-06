@@ -5,7 +5,27 @@
     <link>https://6923403.github.io/</link>
     <description>Recent content on Vcvc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 24 Apr 2021 20:40:36 +0800</lastBuildDate><atom:link href="https://6923403.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 06 May 2021 07:29:52 +0800</lastBuildDate><atom:link href="https://6923403.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ubuntu20 Install Nvidia drivers</title>
+      <link>https://6923403.github.io/post/install_nvidia/</link>
+      <pubDate>Thu, 06 May 2021 07:29:52 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/install_nvidia/</guid>
+      <description>2021-05-06更新 完善一下
+  网上教程坑特别多 这个步骤是我自己装好总结的
+  电脑dell
+  显卡1650
+   1. 去残留 sudo apt-get remove --purge nvidia*  2. 添加规则 vim /etc/modprobe.d/blacklist.conf
+blacklist nouveau options nouveau modeset=0  3. 验证是否成功 重启 重启之后输入命令
+sudo update-initramfs -u lsmod | grep nouveau 如果没有返回信息代表成功
+有信息的话 先检查下步骤2 再重启, 也可忽视 我这边见过一次有返回
+ 4.选择合适的版本   1.输入命令: ubuntu-drivers devices
+  2.官网：Nvidia Official website
+  选择合适的版本来进行安装
+sudo add-apt-repository ppa:graphics-drivers/ppa sudo apt-get update #选择自己的版本 例如我这边安装440 sudo apt-get install nvidia-driver-440  5.</description>
+    </item>
+    
     <item>
       <title>Effective C&#43;&#43; 下</title>
       <link>https://6923403.github.io/post/effective_cpp_2/</link>
@@ -770,18 +790,6 @@ Then, ping google.com, detect interent connection
       <guid>https://6923403.github.io/post/hugomarkdown/</guid>
       <description>0. Hugo &amp;amp; Markdown Hugo &amp;amp;&amp;amp; MarkDown
  1. MarkDown template --- title: &amp;quot;{{ replace .Name &amp;quot;-&amp;quot; &amp;quot; &amp;quot; | title }}&amp;quot; date: {{ .Date }} lastmod: {{ .Date }} draft: false tags: [ ] categories: [ ] comment: true ---  2. Hugo command hugo #build html havn&#39;t draft=true hugo -D #build html and dragt=true hugo server #Start hugo server  3. Other Reference</description>
-    </item>
-    
-    <item>
-      <title>Ubuntu20 Install Nvidia drivers</title>
-      <link>https://6923403.github.io/post/install_nvidia/</link>
-      <pubDate>Wed, 29 Jul 2020 17:29:52 +0800</pubDate>
-      
-      <guid>https://6923403.github.io/post/install_nvidia/</guid>
-      <description>0.Ready work Disable BIOS secure boot，choose disable .
- 1. Uninstall old Nvidia drivers sudo apt-get remove --purge nvidia*  2. Add rules vim /etc/modprobe.d/blacklist.conf
-1. blacklist nouveau 2. options nouveau modeset=0  3. Verification After reboot, use the following command no return is successful
-sudo update-initramfs -u lsmod | grep nouveau  4. Choose Navidia drivers version  1.Use command: ubuntu-drivers devices 2.Nvidia Official website  Choose stable version and install</description>
     </item>
     
     <item>

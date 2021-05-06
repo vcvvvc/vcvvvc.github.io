@@ -14,20 +14,36 @@
     
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Ubuntu20 Install Nvidia drivers"/>
-<meta name="twitter:description" content="0.Ready work Disable BIOS secure boot，choose disable .
- 1. Uninstall old Nvidia drivers sudo apt-get remove --purge nvidia*  2. Add rules vim /etc/modprobe.d/blacklist.conf
-1. blacklist nouveau 2. options nouveau modeset=0  3. Verification After reboot, use the following command no return is successful
-sudo update-initramfs -u lsmod | grep nouveau  4. Choose Navidia drivers version  1.Use command: ubuntu-drivers devices 2.Nvidia Official website  Choose stable version and install"/>
+<meta name="twitter:description" content="2021-05-06更新 完善一下
+  网上教程坑特别多 这个步骤是我自己装好总结的
+  电脑dell
+  显卡1650
+   1. 去残留 sudo apt-get remove --purge nvidia*  2. 添加规则 vim /etc/modprobe.d/blacklist.conf
+blacklist nouveau options nouveau modeset=0  3. 验证是否成功 重启 重启之后输入命令
+sudo update-initramfs -u lsmod | grep nouveau 如果没有返回信息代表成功
+有信息的话 先检查下步骤2 再重启, 也可忽视 我这边见过一次有返回
+ 4.选择合适的版本   1.输入命令: ubuntu-drivers devices
+  2.官网：Nvidia Official website
+  选择合适的版本来进行安装
+sudo add-apt-repository ppa:graphics-drivers/ppa sudo apt-get update #选择自己的版本 例如我这边安装440 sudo apt-get install nvidia-driver-440  5."/>
 
     <meta property="og:title" content="Ubuntu20 Install Nvidia drivers" />
-<meta property="og:description" content="0.Ready work Disable BIOS secure boot，choose disable .
- 1. Uninstall old Nvidia drivers sudo apt-get remove --purge nvidia*  2. Add rules vim /etc/modprobe.d/blacklist.conf
-1. blacklist nouveau 2. options nouveau modeset=0  3. Verification After reboot, use the following command no return is successful
-sudo update-initramfs -u lsmod | grep nouveau  4. Choose Navidia drivers version  1.Use command: ubuntu-drivers devices 2.Nvidia Official website  Choose stable version and install" />
+<meta property="og:description" content="2021-05-06更新 完善一下
+  网上教程坑特别多 这个步骤是我自己装好总结的
+  电脑dell
+  显卡1650
+   1. 去残留 sudo apt-get remove --purge nvidia*  2. 添加规则 vim /etc/modprobe.d/blacklist.conf
+blacklist nouveau options nouveau modeset=0  3. 验证是否成功 重启 重启之后输入命令
+sudo update-initramfs -u lsmod | grep nouveau 如果没有返回信息代表成功
+有信息的话 先检查下步骤2 再重启, 也可忽视 我这边见过一次有返回
+ 4.选择合适的版本   1.输入命令: ubuntu-drivers devices
+  2.官网：Nvidia Official website
+  选择合适的版本来进行安装
+sudo add-apt-repository ppa:graphics-drivers/ppa sudo apt-get update #选择自己的版本 例如我这边安装440 sudo apt-get install nvidia-driver-440  5." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://6923403.github.io/post/install_nvidia/" />
-<meta property="article:published_time" content="2020-07-29T17:29:52+08:00" />
-<meta property="article:modified_time" content="2020-07-29T17:29:52+08:00" />
+<meta property="article:published_time" content="2021-05-06T07:29:52+08:00" />
+<meta property="article:modified_time" content="2021-05-06T07:29:52+08:00" />
 
 
   </head>
@@ -90,7 +106,7 @@ sudo update-initramfs -u lsmod | grep nouveau  4. Choose Navidia drivers version
   <title>calendar</title>
   <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
 </svg>
-          Jul 29, 2020
+          May 6, 2021
         </div>
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
@@ -105,44 +121,64 @@ sudo update-initramfs -u lsmod | grep nouveau  4. Choose Navidia drivers version
   <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line>
 </svg>
               <a class="tag" href="https://6923403.github.io/tags/linux/">Linux</a>
-              <a class="tag" href="https://6923403.github.io/tags/drivers/">drivers</a>
               <a class="tag" href="https://6923403.github.io/tags/ubuntu/">Ubuntu</a>
-              <a class="tag" href="https://6923403.github.io/tags/nvidia/">Nvidia</a>
         </div>
       </div>
     </header>
     <div class="post-content">
-      <h1 id="0ready-work">0.Ready work</h1>
-<p><strong>Disable BIOS secure boot，choose disable .</strong></p>
+      <p><strong>2021-05-06更新 完善一下</strong></p>
+<ul>
+<li>
+<p>网上教程坑特别多 这个步骤是我自己装好总结的</p>
+</li>
+<li>
+<p>电脑dell</p>
+</li>
+<li>
+<p>显卡1650</p>
+</li>
+</ul>
 <hr>
-<h1 id="1-uninstall-old-nvidia-drivers">1. Uninstall old Nvidia drivers</h1>
+<h1 id="1-去残留">1. 去残留</h1>
 <pre><code>sudo apt-get remove --purge nvidia* 
 </code></pre><hr>
-<h1 id="2-add-rules">2. Add rules</h1>
+<h1 id="2-添加规则">2. 添加规则</h1>
 <p><strong>vim /etc/modprobe.d/blacklist.conf</strong></p>
-<pre><code>1. blacklist nouveau 
-2. options nouveau modeset=0
+<pre><code>blacklist nouveau 
+options nouveau modeset=0
 </code></pre><hr>
-<h1 id="3-verification">3. Verification</h1>
-<p><strong>After reboot, use the following command no return is successful</strong></p>
+<h1 id="3-验证是否成功">3. 验证是否成功</h1>
+<p><strong>重启 重启之后输入命令</strong></p>
 <pre><code>sudo update-initramfs -u
 lsmod | grep nouveau
-</code></pre><hr>
-<h1 id="4-choose-navidia-drivers-version">4. Choose Navidia drivers version</h1>
+</code></pre><p><strong>如果没有返回信息代表成功</strong></p>
+<p>有信息的话 先检查下步骤2 再重启, 也可忽视 我这边见过一次有返回</p>
+<hr>
+<h1 id="4选择合适的版本">4.选择合适的版本</h1>
 <ul>
-<li>1.Use command: <code>ubuntu-drivers devices</code></li>
-<li>2.<a href="https://www.nvidia.com/en-us/geforce/drivers/">Nvidia Official website</a></li>
+<li>
+<p>1.输入命令:  <code>ubuntu-drivers devices</code></p>
+</li>
+<li>
+<p>2.官网：<a href="https://www.nvidia.com/en-us/geforce/drivers/">Nvidia Official website</a></p>
+</li>
 </ul>
-<p><strong>Choose stable version and install</strong></p>
+<p><strong>选择合适的版本来进行安装</strong></p>
 <pre><code>sudo add-apt-repository ppa:graphics-drivers/ppa
 sudo apt-get update
-sudo apt-get install nvidia-driver-***
+
+#选择自己的版本 例如我这边安装440
+sudo apt-get install nvidia-driver-440
 </code></pre><hr>
-<h1 id="5-end">5. End</h1>
-<pre><code>reboot
-nvidia-smi
-</code></pre><p><strong>Open warehouse =&gt; additional drivers =&gt; choose you drivers .</strong></p>
-<p><img src="/img/installnvidia/nvidiadrivers.png" alt="Nbidia-smi"></p>
+<h1 id="5选择驱动应用">5.选择驱动应用</h1>
+<p><strong>ubuntu配置点击 软件和更新 ==&gt; 附件驱动 然后选择合适版本的驱动</strong></p>
+<p><strong>Open warehouse =&gt; additional drivers =&gt; choose you drivers .</strong></p>
+<hr>
+<h1 id="6-end">6. End</h1>
+<p><strong>重启 之后输入命令</strong></p>
+<pre><code>nvidia-smi
+#完成
+</code></pre><p><img src="/img/installnvidia/nvidiadrivers.png" alt="Nbidia-smi"></p>
 
     </div>
     <div class="post-footer">

@@ -3,27 +3,42 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://6923403.github.io/tags/linux/</loc>
+    <lastmod>2021-05-06T07:29:52+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://6923403.github.io/post/</loc>
+    <lastmod>2021-05-06T07:29:52+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://6923403.github.io/tags/</loc>
+    <lastmod>2021-05-06T07:29:52+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://6923403.github.io/tags/ubuntu/</loc>
+    <lastmod>2021-05-06T07:29:52+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://6923403.github.io/post/install_nvidia/</loc>
+    <lastmod>2021-05-06T07:29:52+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://6923403.github.io/</loc>
+    <lastmod>2021-05-06T07:29:52+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://6923403.github.io/tags/cpp/</loc>
     <lastmod>2021-04-24T20:40:36+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://6923403.github.io/post/effective_cpp_2/</loc>
-    <lastmod>2021-04-24T20:40:36+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://6923403.github.io/post/</loc>
-    <lastmod>2021-04-24T20:40:36+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://6923403.github.io/tags/</loc>
-    <lastmod>2021-04-24T20:40:36+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://6923403.github.io/</loc>
     <lastmod>2021-04-24T20:40:36+08:00</lastmod>
   </url>
   
@@ -35,11 +50,6 @@
   <url>
     <loc>https://6923403.github.io/post/effective_cpp/</loc>
     <lastmod>2021-04-11T14:44:22+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://6923403.github.io/tags/linux/</loc>
-    <lastmod>2021-04-04T18:21:09+08:00</lastmod>
   </url>
   
   <url>
@@ -189,11 +199,6 @@
   
   <url>
     <loc>https://6923403.github.io/tags/opencv/</loc>
-    <lastmod>2021-01-14T22:02:25+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://6923403.github.io/tags/ubuntu/</loc>
     <lastmod>2021-01-14T22:02:25+08:00</lastmod>
   </url>
   
@@ -555,21 +560,6 @@
   <url>
     <loc>https://6923403.github.io/tags/markdown/</loc>
     <lastmod>2020-07-29T18:27:35+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://6923403.github.io/tags/drivers/</loc>
-    <lastmod>2020-07-29T17:29:52+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://6923403.github.io/tags/nvidia/</loc>
-    <lastmod>2020-07-29T17:29:52+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://6923403.github.io/post/install_nvidia/</loc>
-    <lastmod>2020-07-29T17:29:52+08:00</lastmod>
   </url>
   
   <url>
