@@ -111,7 +111,7 @@
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          4 min read
+          5 min read
         </div>
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
@@ -1042,13 +1042,392 @@
 </li>
 </ul>
 </li>
+<li>
+<p>数据包首部</p>
+<ul>
+<li>以太网包首部</li>
+<li>IP包首部</li>
+<li>TCP包首部</li>
+<li>数据</li>
+</ul>
+</li>
+<li>
+<p>数据单位</p>
+<ul>
+<li>
+<p>包</p>
+<ul>
+<li>全能性述语</li>
+</ul>
+</li>
+<li>
+<p>帧</p>
+<ul>
+<li>数据链路层中包的单位</li>
+</ul>
+</li>
+<li>
+<p>数据报</p>
+<ul>
+<li>数据报是IP和UDP等网络层以上的分层中包的单位</li>
+</ul>
+</li>
+<li>
+<p>段</p>
+<ul>
+<li>TCP数 据流中的信息</li>
+</ul>
+</li>
+<li>
+<p>消息</p>
+<ul>
+<li>应用协议中数据的单位</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>发送数据包</p>
+<ul>
+<li>
+<p>应用程序处理</p>
+</li>
+<li>
+<p>TCP模块的处理</p>
+</li>
+<li>
+<p>IP模块的处理</p>
+</li>
+<li>
+<p>网络接口（以太网驱动）的处理</p>
+<ul>
+<li>每个包首部中至少都会包含两个信息：一个是发送端和接收端地址，另一个是上一层的协议类型。</li>
+<li>每个分层的包首部中还包含一个识别位，它是用来标识上一层协议的种类信息。</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <h3 id="udp">UDP</h3>
 <ul>
 <li>UDP（User Datagram Protocol，用户数据报协议）是 OSI（Open System Interconnection 开放式系统互联） 参考模型中一种无连接的传输层协议，提供面向事务的简单不可靠信息传送服务，其传输的单位是用户数据报。</li>
 </ul>
 <h2 id="网络层">网络层</h2>
+<h3 id="ip">IP</h3>
+<ul>
+<li>
+<p>（Internet Protocol，网际协议）是为计算机网络相互连接进行通信而设计的协议。</p>
+</li>
+<li>
+<p>三大作用模块</p>
+<ul>
+<li>
+<p>IP寻址</p>
+<ul>
+<li>IP地址用 于在“连接到网络中的所有主机中识别出进行通信的目标地址”。</li>
+</ul>
+</li>
+<li>
+<p>路由</p>
+<ul>
+<li>
+<p>将分组数据发送到最终目标地址的功能。</p>
+</li>
+<li>
+<p>发送数据至最终目标地址</p>
+<ul>
+<li>Hop译为中文叫“跳”。它是指网络中的一个区间。IP包正是在网络 中一个个跳间被转发。因此IP路由也叫做多跳路由。在每一个区间内决 定着包在下一跳被转发的路径。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>IP分包与组包</p>
+<ul>
+<li>
+<p>MTU</p>
+<ul>
+<li>在线路上传送比 包长还要小的MTU</li>
+</ul>
+</li>
+<li>
+<p>IP分片(IP Fragmentation)</p>
+<ul>
+<li>将较大的IP包分成多个较小的IP包</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>IP属于面向无连接型</p>
+<ul>
+<li>即在发包之前，不需要建立与对端目标地址之间的 连接。上层如果遇到需要发送给IP的数据，该数据会立即被压缩成IP包 发送出去。</li>
+<li>一是为了简化，二是为了提速。</li>
+<li>IP为了实现简单化与 高速化采用面向无连接的方式。</li>
+</ul>
+</li>
+<li>
+<p>IP地址由网络和主机两部分标识组成</p>
+</li>
+<li>
+<p>IP地址的分类</p>
+<ul>
+<li>为A类、B类、C类、D类（还有一个一 直未使用的E类。)</li>
+</ul>
+</li>
+<li>
+<p>广播地址</p>
+<ul>
+<li>
+<p>用于在同一个链路中相互连接的主机之间发送数据包。</p>
+</li>
+<li>
+<p>本地广播</p>
+<ul>
+<li>在本网络内的广播叫做本地广播</li>
+</ul>
+</li>
+<li>
+<p>直接广播</p>
+<ul>
+<li>在不同网络之间的广播叫做直接广播。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>IP多播</p>
+<ul>
+<li>
+<p>同时发送提高效率</p>
+<ul>
+<li>多播用于将包发送给特定组内的所有主机。由于其直接使用IP协 议，因此也不存在可靠传输。</li>
+</ul>
+</li>
+<li>
+<p>IP多播与地址</p>
+<ul>
+<li>多播使用D类地址。</li>
+<li>IGMP（Internet Group Management Protocol，网际组管理协议）</li>
+<li>多播路由选择协议</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>子网掩码</p>
+<ul>
+<li>
+<p>子网与子网掩码</p>
+<ul>
+<li>子网掩码（subnet mask）：用来判断 IP 所属网络</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>IPv6</p>
+<ul>
+<li>
+<p>IP地址的扩大与路由控制表的聚合</p>
+</li>
+<li>
+<p>性能提升</p>
+<ul>
+<li>包首部长度采用固定的值（40字节），不再采用首部检验码。</li>
+</ul>
+</li>
+<li>
+<p>支持即插即用功能</p>
+<ul>
+<li>即使没有DHCP服务器也可以实现自动分配IP地址。</li>
+</ul>
+</li>
+<li>
+<p>采用认证与加密功能</p>
+</li>
+<li>
+<p>多播、Mobile IP成为扩展功能</p>
+</li>
+<li>
+<p>全局单播地址</p>
+<ul>
+<li>全局单播地址是指世界上唯一的一个地址。</li>
+</ul>
+</li>
+<li>
+<p>链路本地单播地址</p>
+<ul>
+<li>在同一个数据链路内唯一的地址。</li>
+</ul>
+</li>
+<li>
+<p>唯一本地地址</p>
+<ul>
+<li>是不进行互联网通信时所使用的地址。</li>
+</ul>
+</li>
+<li>
+<p>IPv6分段处理</p>
+<ul>
+<li>IPv6的分片处理只在作为起点的发送端主机上进行，路由器不参与 分片。这也是为了减少路由器的负荷，提高网速。</li>
+<li>最小MTU为1280字节。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>IPV4首部</p>
+<ul>
+<li>数据报格式</li>
+</ul>
+</li>
+</ul>
+<h3 id="arp">ARP</h3>
+<ul>
+<li>ARP（Address Resolution Protocol，地址解析协议）</li>
+</ul>
+<h3 id="icmp">ICMP</h3>
+<ul>
+<li>ICMP（Internet Control Message Protocol，网际控制报文协议）</li>
+</ul>
+<h3 id="igmp">IGMP</h3>
+<ul>
+<li>IGMP（Internet Group Management Protocol，网际组管理协议）</li>
+</ul>
 <h2 id="数据链路层">数据链路层</h2>
+<h3 id="以太网">以太网</h3>
+<h3 id="无线lan">无线LAN</h3>
+<h3 id="ppp光纤">PPP(光纤)</h3>
+<h3 id="主要信道">主要信道</h3>
+<ul>
+<li>
+<p>点对点信道</p>
+<ul>
+<li>
+<p>点对点协议（Point-to-Point Protocol）：用户计算机和 ISP 通信时所使用的协议</p>
+</li>
+<li>
+<p>数据单元：帧</p>
+</li>
+<li>
+<p>三个基本问题</p>
+<ul>
+<li>封装成帧：把网络层的 IP 数据报封装成帧，SOH - 数据部分 - EOT</li>
+<li>透明传输：不管数据部分什么字符，都能传输出去；可以通过字节填充方法解决（冲突字符前加转义字符）</li>
+<li>差错检测：降低误码率（BER，Bit Error Rate），广泛使用循环冗余检测（CRC，Cyclic Redundancy Check）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>广播信道</p>
+</li>
+</ul>
+<h3 id="数据链路的段是指一个被分割的网络">数据链路的段是指一个被分割的网络。</h3>
+<ul>
+<li>从网络层的概念看，它是一个网络（逻辑上）→即，从网络层的 立场出发，这两条网线组成一个段。</li>
+<li>从物理层的概念看，两条网线分别是两个物体（物理上）→即， 从物理层的观点出发，一条网线是一个段。</li>
+</ul>
+<h3 id="网络拓扑">网络拓扑</h3>
+<ul>
+<li>网络的连接和构成的形态称为网络拓扑（Topology）。网络拓扑 包括总线型、环型、星型、网状型等。</li>
+</ul>
+<h3 id="相关技术">相关技术</h3>
+<ul>
+<li>
+<p>MAC地址</p>
+<ul>
+<li>
+<p>识别数据链路中互连的节点</p>
+</li>
+<li>
+<p>根据MAC地址转发</p>
+<ul>
+<li>
+<p>交换机转发方式</p>
+<ul>
+<li>
+<p>存储转发</p>
+<ul>
+<li>检查以太网数据帧末尾的FCS位后再进行转发。可以避免发送由于冲 突而被破坏的帧或噪声导致的错误帧。</li>
+</ul>
+</li>
+<li>
+<p>直通转发</p>
+<ul>
+<li>不需要将整个帧全部接收下来以后再进行转发</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>共享介质型网络</p>
+<ul>
+<li>
+<p>指由多个设备共享一个通信介质的一种网络。</p>
+</li>
+<li>
+<p>争用方式</p>
+<ul>
+<li>争用方式（Contention）是指争夺获取数据传输的权力，也叫 CSMA（载波监听多路访问）。</li>
+</ul>
+</li>
+<li>
+<p>令牌传递方式</p>
+<ul>
+<li>发送一种叫做“令牌”的特殊报文</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>非共享介质网络</p>
+<ul>
+<li>指不共享介质，是对介质采取专用的一种传输控 制方式。</li>
+<li>全双工通信方式</li>
+<li>半双工是指，只发送或只接收的通信方式</li>
+</ul>
+</li>
+<li>
+<p>环路检测技术</p>
+<ul>
+<li>
+<p>最坏的情况下，数据帧会在环路 中被一而再再而三地持续转发。而一旦这种数据帧越积越多将会导致网 络瘫痪。</p>
+</li>
+<li>
+<p>生成树方式</p>
+<ul>
+<li>每个网桥必须在每1～10秒内相互交换 BPDU（Bridge Protocol Data Unit）包，从而判断哪些端口使用哪些不使 用，以便消除环路。</li>
+</ul>
+</li>
+<li>
+<p>源路由法</p>
+<ul>
+<li>判断发送数据的源 地址是通过哪个网桥实现传输的，并将帧写入RIF（Routing Information Field）。网桥则根据这个RIF信息发送帧给目标地址。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>VLAN</p>
+<ul>
+<li>采用带有 VLAN技术的网桥，就不用实际修改网络布线，只需修改网络的结构即 可。</li>
+</ul>
+</li>
+</ul>
+<h3 id="以太网-1">以太网</h3>
+<h3 id="无线通信">无线通信</h3>
+<h3 id="ppp">PPP</h3>
+<ul>
+<li>点对点协议（Point-to-Point Protocol）：用户计算机和 ISP 通信时所使用的协议</li>
+</ul>
 <h2 id="物理层">物理层</h2>
 <h2 id="物理层-1">物理层</h2>
 <h3 id="各层作用协议">各层作用/协议</h3>
