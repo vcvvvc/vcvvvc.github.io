@@ -5,7 +5,22 @@
     <link>https://6923403.github.io/</link>
     <description>Recent content on Vcvc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 06 May 2021 10:09:44 +0800</lastBuildDate><atom:link href="https://6923403.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 09 May 2021 23:34:49 +0800</lastBuildDate><atom:link href="https://6923403.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kindle</title>
+      <link>https://6923403.github.io/post/kindle/</link>
+      <pubDate>Sun, 09 May 2021 23:34:49 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/kindle/</guid>
+      <description>本来想等着越狱来着 没想到还会自动更新。。
+ 去掉更新 只需要再 Kindle 根目录创建一个名为 update.bin.tmp.partial 的文件夹即可。
+当亚马逊向你的 Kindle 推送更新固件时，会在 Kindle 根目录创建一个名为 update.bin.tmp.partial 的临时文件（该临时文件其实就是未下载完成的新固件文件，即便网络不稳定，它也会不断续传直至下载完毕），但是如果 Kindle 根目录有同名文件，它就无法创建了，从而达到阻止 Kindle 固件自动更新的目的。
+ 我创建了个zip再改名为update.bin.tmp.partial
+chmod a=r update.bin.tmp.partial  查看文件权限 ls -ld update.bin.tmp.partial -rw-r--r-- 1 root root 208 5月 10 2021 update.bin.tmp.partial  chattr 这个问题相关解答很少 帖子也很老 算了
+#这个保护命令没成 root@: mount --bind /media/root/Kindle/ /mnt/kindle/ root@: chattr +i update.bin.tmp.partial - chattr: 对设备不适当的 ioctl 操作 读取 update.bin.tmp.partial 的标志时  Re:
+书伴 https://bookfere.com/post/472.html</description>
+    </item>
+    
     <item>
       <title>Computer_network</title>
       <link>https://6923403.github.io/post/computer_network/</link>
