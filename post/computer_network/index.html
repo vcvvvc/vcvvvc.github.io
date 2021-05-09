@@ -111,7 +111,7 @@
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          5 min read
+          6 min read
         </div>
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
@@ -1107,16 +1107,173 @@
 </li>
 </ul>
 </li>
+<li>
+<p>TCP通过检验和、序列号、确认应答、重发控制、连接管理以及窗 口控制等机制实现可靠性传输。</p>
+<ul>
+<li>
+<p>通过序列号与确认应答提高可靠性</p>
+<ul>
+<li>在TCP中，当发送端的数据到达接收主机时，接收端主机会返回一 个已收到消息的通知。这个消息叫做确认应答（ACK（ACK（Positive Acknowled-gement）意指已经接收。） ）。</li>
+</ul>
+</li>
+<li>
+<p>重发超时</p>
+<ul>
+<li>重发超时是指在重发数据之前，等待确认应答到来的那个特定时间 间隔。如果超过了这个时间仍未收到确认应答，发送端将进行数据重 发。</li>
+<li>在每次发 包时都会计算往返时间（Round Trip Time也叫RTT。是指报文段的往返 时间。） 及其偏差（RTT时间波动的值、方差。有时也叫抖动。） 。将 这个往返时间和偏差相加重发超时的时间，就是比这个总和要稍大一点 的值。</li>
+</ul>
+</li>
+<li>
+<p>连接管理</p>
+<ul>
+<li>TCP提供面向有连接的通信传输。面向有连接是指在数据通信开始 之前先做好通信两端之间的准备工作。</li>
+<li>UDP是一种面向无连接的通信协议，因此不检查对端是否可以通 信，直接将UDP包发送出去。</li>
+</ul>
+</li>
+<li>
+<p>TCP以段为单位发送数据</p>
+<ul>
+<li>在建立TCP连接的同时，也可以确定发送数据包的单位，我们也可 以称其为“最大消息长度”（MSS：Maximum Segment Size）。</li>
+</ul>
+</li>
+<li>
+<p>窗口控制</p>
+<ul>
+<li>使用大量的缓冲区（缓冲区（Buffer）在此处表示 临时保存收发数据的场所。通常是在计算机内存中开辟的一部分空 间。） ，通过对多个段同时进行确认应答的功能。</li>
+</ul>
+</li>
+<li>
+<p>流控制</p>
+<ul>
+<li>TCP提供一种机制可以让发送端根据接 收端的实际接收能力控制发送的数据量。</li>
+<li>接收端主机向发送端主机通知自己可以接收数据的大小，于 是发送端会发送不超过这个限度的数据。</li>
+</ul>
+</li>
+<li>
+<p>拥塞控制</p>
+<ul>
+<li>
+<p>为了在发送端调节所要发送数据的量</p>
+</li>
+<li>
+<p>在慢启动的时候，将这个拥塞窗口的大小设置为1 个数据段（1MSS） 发送数据，之后每收到一 次确认应答（ACK），拥塞窗口的值就加1。</p>
+</li>
+<li>
+<p>随着包的每次往返，拥塞窗口也会以1、2、4等指数函数的 增长，拥堵状况激增甚至导致网络拥塞的发生。</p>
+<ul>
+<li>为了防止这些，引入了 慢启动阀值的概念。只要拥塞窗口的值超出这个阀值，在每收到一次确 认应答时，只允许以下面这种比例放大拥塞窗口</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>提高网络利用率的规范</p>
+<ul>
+<li>
+<p>Nagle算法</p>
+<ul>
+<li>送端即使还有应该发送的数据，但如果这部分数据很 少的话，则进行延迟发送的一种处理机制。</li>
+</ul>
+</li>
+<li>
+<p>延迟确认应答</p>
+<ul>
+<li>接收数据的主机如果每次都立刻回复确认应答的话，可能会返回一 个较小的窗口。那是因为刚接收完数据，缓冲区已满。</li>
+</ul>
+</li>
+<li>
+<p>捎带应答</p>
+<ul>
+<li>根据应用层协议，发送出去的消息到达对端，对端进行处理以后， 会返回一个回执。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <h3 id="udp">UDP</h3>
 <ul>
-<li>UDP（User Datagram Protocol，用户数据报协议）是 OSI（Open System Interconnection 开放式系统互联） 参考模型中一种无连接的传输层协议，提供面向事务的简单不可靠信息传送服务，其传输的单位是用户数据报。</li>
+<li>
+<p>UDP（User Datagram Protocol，用户数据报协议）是 OSI（Open System Interconnection 开放式系统互联） 参考模型中一种无连接的传输层协议，提供面向事务的简单不可靠信息传送服务，其传输的单位是用户数据报。</p>
+</li>
+<li>
+<p>数据报格式</p>
+<ul>
+<li>
+<p>源端口号（Source Port）</p>
+<ul>
+<li>表示发送端端口号，字段长16位。该字段是可选项。</li>
+</ul>
+</li>
+<li>
+<p>目标端口号（Destination Port）</p>
+<ul>
+<li>表示接收端端口，字段长度16位。</li>
+</ul>
+</li>
+<li>
+<p>包长度（Length）</p>
+<ul>
+<li>保存了UDP首部的长度跟数据的长度之和</li>
+</ul>
+</li>
+<li>
+<p>校验和（Checksum）</p>
+<ul>
+<li>校验和是为了提供可靠的UDP首部和数据而设计。在计算校验和时，附加在UDP伪首部与UDP数据报之前。</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <h2 id="网络层">网络层</h2>
 <h3 id="ip">IP</h3>
 <ul>
 <li>
 <p>（Internet Protocol，网际协议）是为计算机网络相互连接进行通信而设计的协议。</p>
+<ul>
+<li>
+<p>IP地址由网络和主机两部分标识组成</p>
+</li>
+<li>
+<p>IP属于面向无连接型</p>
+<ul>
+<li>即在发包之前，不需要建立与对端目标地址之间的 连接。上层如果遇到需要发送给IP的数据，该数据会立即被压缩成IP包 发送出去。</li>
+<li>一是为了简化，二是为了提速。</li>
+<li>IP为了实现简单化与 高速化采用面向无连接的方式。</li>
+</ul>
+</li>
+<li>
+<p>IP地址的分类</p>
+<ul>
+<li>为A类、B类、C类、D类（还有一个一 直未使用的E类。)</li>
+</ul>
+</li>
+<li>
+<p>子网掩码</p>
+<ul>
+<li>
+<p>子网与子网掩码</p>
+<ul>
+<li>子网掩码（subnet mask）：用来判断 IP 所属网络</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>不可靠</p>
+<ul>
+<li>不可靠(unreliable)的意思是它不能保证IP数据报能成功地到达目的地。IP仅提供最好的传输服务。</li>
+</ul>
+</li>
+<li>
+<p>无连接</p>
+<ul>
+<li>无连接(connectionless)这个术语的意思是IP并不维护任何关于后续数据报的状态信息。每个数据报的处理是相互独立的。</li>
+</ul>
+</li>
+</ul>
 </li>
 <li>
 <p>三大作用模块</p>
@@ -1147,7 +1304,7 @@
 <li>
 <p>MTU</p>
 <ul>
-<li>在线路上传送比 包长还要小的MTU</li>
+<li>在线路上传送比包长还要小的MTU</li>
 </ul>
 </li>
 <li>
@@ -1158,23 +1315,6 @@
 </li>
 </ul>
 </li>
-</ul>
-</li>
-<li>
-<p>IP属于面向无连接型</p>
-<ul>
-<li>即在发包之前，不需要建立与对端目标地址之间的 连接。上层如果遇到需要发送给IP的数据，该数据会立即被压缩成IP包 发送出去。</li>
-<li>一是为了简化，二是为了提速。</li>
-<li>IP为了实现简单化与 高速化采用面向无连接的方式。</li>
-</ul>
-</li>
-<li>
-<p>IP地址由网络和主机两部分标识组成</p>
-</li>
-<li>
-<p>IP地址的分类</p>
-<ul>
-<li>为A类、B类、C类、D类（还有一个一 直未使用的E类。)</li>
 </ul>
 </li>
 <li>
@@ -1212,17 +1352,6 @@
 <li>多播使用D类地址。</li>
 <li>IGMP（Internet Group Management Protocol，网际组管理协议）</li>
 <li>多播路由选择协议</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>子网掩码</p>
-<ul>
-<li>
-<p>子网与子网掩码</p>
-<ul>
-<li>子网掩码（subnet mask）：用来判断 IP 所属网络</li>
 </ul>
 </li>
 </ul>
@@ -1281,23 +1410,279 @@
 <li>
 <p>IPV4首部</p>
 <ul>
-<li>数据报格式</li>
+<li>
+<p>数据报格式</p>
+<ul>
+<li>
+<p>版本（Version）</p>
+<ul>
+<li>表示标识IP首部的版本号。</li>
+</ul>
+</li>
+<li>
+<p>首部长度（IHL：Internet Header Length）</p>
+<ul>
+<li>表明IP首部的大小,  单位为4字节（32比特）</li>
+</ul>
+</li>
+<li>
+<p>区分服务（TOS：Type Of Service）</p>
+<ul>
+<li>由8比特构成，用来表明服务质量。</li>
+</ul>
+</li>
+<li>
+<p>DSCP段与ECN段</p>
+<ul>
+<li>DSCP（Differential Services Codepoint，差分服务代码点）是 TOS（Type Of Service）的一部分。现在统称为DiffServ ，用来进行质量控制。</li>
+</ul>
+</li>
+<li>
+<p>总长度（Total Length）</p>
+<ul>
+<li>表示IP首部与数据部分合起来的总字节数。该字段长16比特。</li>
+</ul>
+</li>
+<li>
+<p>标识（ID：Identification）</p>
+<ul>
+<li>由16比特构成，用于分片重组。同一个分片的标识值相同，不同分 片的标识值不同。</li>
+</ul>
+</li>
+<li>
+<p>标志（Flags）</p>
+<ul>
+<li>
+<p>由3比特构成，表示包被分片的相关信息。</p>
+<ul>
+<li>0 未使用。现在必须是0。</li>
+<li>1 指示是否进行分片（don&rsquo;t fragment） 0- 可以分片 1- 不能分片</li>
+<li>2 包被分片的情况下，表示是否为最后一个包（more fragment）。 0- 最后一个分片的包 1- 分片中段的包</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>片偏移（FO：Fragment Offset）</p>
+<ul>
+<li>由13比特构成，用来标识被分片的每一个分段相对于原始数据的位 置。第一个分片对应的值为0。</li>
+</ul>
+</li>
+<li>
+<p>生存时间（TTL：Time To Live）</p>
+<ul>
+<li>由8比特构成，它最初的意思是以秒为单位记录当前包在网络上应 该生存的期限。然而，在实际中它是指可以中转多少个路由器的意思。</li>
+</ul>
+</li>
+<li>
+<p>协议（Protocol）</p>
+<ul>
+<li>由8比特构成，表示IP首部的下一个首部隶属于哪个协议。</li>
+</ul>
+</li>
+<li>
+<p>首部校验和（Header Checksum）</p>
+<ul>
+<li>由16比特（2个字节）构成，也叫IP首部校验和。该字段只校验数 据报的首部，不校验数据部分。它主要用来确保IP数据报不被破坏。</li>
+</ul>
+</li>
+<li>
+<p>源地址（Source Address）</p>
+<ul>
+<li>由32比特（4个字节）构成，表示发送端IP地址。</li>
+</ul>
+</li>
+<li>
+<p>目标地址（Destination Address）</p>
+<ul>
+<li>由32比特（4个字节）构成，表示接收端IP地址。</li>
+</ul>
+</li>
+<li>
+<p>可选项（Options）</p>
+<ul>
+<li>长度可变，通常只在进行实验或诊断时使用。</li>
+</ul>
+</li>
+<li>
+<p>填充（Padding）</p>
+<ul>
+<li>也称作填补物。在有可选项的情况下，首部长度可能不是32比特的 整数倍。为此，通过向字段填充0，调整为32比特的整数倍。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>IPV6首部</p>
+<ul>
+<li>
+<p>版本（Version）</p>
+<ul>
+<li>与IPv4一样，由4比特构成。IPv6其版本号为6，因此在这个字段上 的值为“6”。</li>
+</ul>
+</li>
+<li>
+<p>通信量类（Traffic Class）</p>
+<ul>
+<li>相当于IPv4的TOS（Type Of Service）字段，也由8比特构成。</li>
+</ul>
+</li>
+<li>
+<p>流标号（Flow Label）</p>
+<ul>
+<li>由20比特构成，准备用于服务质量（QoS：Quality Of Service）控制。</li>
+</ul>
+</li>
+<li>
+<p>有效载荷长度（Payload Length）</p>
+<ul>
+<li>有效载荷是指包的数据部分。IPv4的TL（Total Length）是指包括 首部在内的所有长度。然而IPv6中的这个Playload Length不包括首部， 只表示数据部分的长度。由于IPv6的可选项是指连接IPv6首部的数据， 因此当有可选项时，此处包含可选项数据的所有长度就是Playload Length</li>
+</ul>
+</li>
+<li>
+<p>下一个首部（Next Header）</p>
+<ul>
+<li>由8比特构成。通常表示IP的上一层协 议是TCP或UDP。不过在有IPv6扩展首部的情况下，该字段表示后面第 一个扩展首部的协议类型。</li>
+</ul>
+</li>
+<li>
+<p>跳数限制（Hop Limit）</p>
+<ul>
+<li>由8比特构成。与IPv4中的TTL意思相同。</li>
+</ul>
+</li>
+<li>
+<p>源地址（Source Address）</p>
+<ul>
+<li>由128比特（8个16位字节）构成。表示发送端IP地址。</li>
+</ul>
+</li>
+<li>
+<p>目标地址（Destination Address）</p>
+<ul>
+<li>由128比特（8个16位字节）构成。表示接收端IP地址。</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 <h3 id="arp">ARP</h3>
 <ul>
-<li>ARP（Address Resolution Protocol，地址解析协议）</li>
+<li>
+<p>ARP（Address Resolution Protocol，地址解析协议）</p>
+<ul>
+<li>以目标IP地址为线索，用来定位下一个应该接收数据分包的网络设 备对应的MAC地址。如果目标主机不在同一个链路上时，可以通过 ARP查找下一跳路由器的MAC地址。不过ARP只适用于IPv4</li>
+</ul>
+</li>
+<li>
+<p>RARP（Reverse Address Resolution Protocol）是将ARP反过来，从 MAC地址定位IP地址的一种协议。</p>
+</li>
 </ul>
 <h3 id="icmp">ICMP</h3>
 <ul>
-<li>ICMP（Internet Control Message Protocol，网际控制报文协议）</li>
+<li>
+<p>ICMP（Internet Control Message Protocol，网际控制报文协议）</p>
+<ul>
+<li>
+<p>确认IP包是否成功送达目标地址，通知在 发送过程当中IP包被废弃的具体原因，改善网络设置等。</p>
+</li>
+<li>
+<p>ICMP目标不可达消息</p>
+<ul>
+<li>IP路由器无法将IP数据包发送给目标地址时，会给发送端主机返回 一个目标不可达（Destination Unreachable Message）的ICMP消息，并在 这个消息中显示不可达的具体原因</li>
+</ul>
+</li>
+<li>
+<p>ICMP重定向消息</p>
+<ul>
+<li>如果路由器发现发送端主机使用了次优的路径发送数据，那么它会 返回一个ICMP重定向（ICMP Redirect Message）的消息给这个主机。</li>
+</ul>
+</li>
+<li>
+<p>ICMP超时消息</p>
+<ul>
+<li>IP包中有一个字段叫做TTL（Time To Live，生存周期），它的值 随着每经过一次路由器就会减1（当IP包在路由器上停留1秒以上时减去 所停留的秒数，但是现在绝大多数设备并不做这样的处理。） ，直到 减到0时该IP包会被丢弃</li>
+</ul>
+</li>
+<li>
+<p>ICMP回送消息</p>
+<ul>
+<li>用于进行通信的主机或路由器之间，判断所发送的数据包是否已经 成功到达对端的一种消息。</li>
+</ul>
+</li>
+<li>
+<p>ICMP原点抑制消息</p>
+<ul>
+<li>。ICMP原点抑制消息的目的就是为了缓和这种拥堵情况。</li>
+</ul>
+</li>
+<li>
+<p>ICMP路由器探索消息</p>
+<ul>
+<li>主要用于发现与自己相连网络中的路由器。</li>
+</ul>
+</li>
+<li>
+<p>ICMP地址掩码消息</p>
+<ul>
+<li>主要用于主机或路由器想要了解子网掩码的情况。</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <h3 id="igmp">IGMP</h3>
 <ul>
 <li>IGMP（Internet Group Management Protocol，网际组管理协议）</li>
 </ul>
+<h3 id="dhcp">DHCP</h3>
+<ul>
+<li>为了实现自动设置IP地址、统一管理IP地址分配</li>
+</ul>
+<h3 id="nat">NAT</h3>
+<ul>
+<li>NAT（Network Address Translator）是用于在本地网络中使用私有 地址，在连接互联网时转而使用全局IP地址的技术。</li>
+</ul>
+<h3 id="路由控制">路由控制</h3>
+<ul>
+<li>
+<p>互联网是由路由器连接的网络组合而成的。为了能让数据包正确达 地到达目标主机，路由器必须在途中进行正确地转发。这种向“正确的 方向”转发数据所进行的处理就叫做路由控制或路由。</p>
+</li>
+<li>
+<p>静态路由</p>
+<ul>
+<li>静态路由是指事先设置好路由器和主机中并将路由信息固定的一种 方法。</li>
+</ul>
+</li>
+<li>
+<p>动态路由</p>
+<ul>
+<li>动态路由是指让路由协议在运行过程中自动地设置路由控制信 息的一种方法。</li>
+</ul>
+</li>
+<li>
+<p>路由控制的范围</p>
+<ul>
+<li>IGP（Interior Gateway Protocol）</li>
+<li>EGP（Exterior Gateway Protocol）</li>
+</ul>
+</li>
+<li>
+<p>自治系统（路由选择域）</p>
+<ul>
+<li>内部动态路由采用的协议是域内路由协 议，即IGP。而自治系统之间的路由控制采用的是域间路由协议，即 EGP。</li>
+</ul>
+</li>
+</ul>
 <h2 id="数据链路层">数据链路层</h2>
+<h3 id="三个目的">三个目的</h3>
+<ul>
+<li>为I P模块发送和接收IP数据报</li>
+<li>为ARP模块发送ARP请求和接收ARP应答</li>
+<li>为RARP发送RARP请求和接收RARP应答。</li>
+</ul>
 <h3 id="以太网">以太网</h3>
 <h3 id="无线lan">无线LAN</h3>
 <h3 id="ppp光纤">PPP(光纤)</h3>
@@ -1427,6 +1812,37 @@
 <h3 id="ppp">PPP</h3>
 <ul>
 <li>点对点协议（Point-to-Point Protocol）：用户计算机和 ISP 通信时所使用的协议</li>
+<li>
+<ol>
+<li>在串行链路上封装 I P数据报的方法。</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>建立、配置及测试数据链路的链路控制协议（ LCP：Link Control Protocol）。</li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li>针对不同网络层协议的网络控制协议（NCP：Network Control Protocol）体系。当前RFC定义的网络层有IP、OSI网络层、DECnet以及AppleTalk。</li>
+</ol>
+</li>
+</ul>
+<h3 id="双工">双工</h3>
+<h3 id="mtu">MTU</h3>
+<ul>
+<li>
+<p>最大传输单元MTU</p>
+<ul>
+<li>如果IP层有一个数据报要传,而且数据的长度比链路层的MTU还大,那么IP层 就需要进行分片( fragmentation),把数据报分成若干片,这样每一片都小于MTU</li>
+</ul>
+</li>
+<li>
+<p>路径MTU</p>
+<ul>
+<li>两台通信主机路径中的最小MTU.</li>
+</ul>
+</li>
 </ul>
 <h2 id="物理层">物理层</h2>
 <h2 id="物理层-1">物理层</h2>
