@@ -18,10 +18,10 @@ For O(n) int function1(int x, int n) { int result = 1; // 注意 任何数的0�
     
     <item>
       <title>Binary Tree</title>
-      <link>https://6923403.github.io/post/binart_tree/</link>
+      <link>https://6923403.github.io/post/binary_tree/</link>
       <pubDate>Tue, 18 Aug 2020 14:40:25 +0800</pubDate>
       
-      <guid>https://6923403.github.io/post/binart_tree/</guid>
+      <guid>https://6923403.github.io/post/binary_tree/</guid>
       <description>性质1:在二叉树的第i层上至多有2 i-1 个结点(i≥1)。
   性质2:深度为k的二叉树至多有2 k -1个结点(k≥1)。
   性质3:对任何一棵二叉树T,如果其终端结点数为n 0 ,度为2的结点数 为n 2 ,则n 0 =n 2 +1。

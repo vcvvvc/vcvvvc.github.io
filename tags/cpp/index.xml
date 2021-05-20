@@ -5,7 +5,27 @@
     <link>https://6923403.github.io/tags/cpp/</link>
     <description>Recent content in CPP on Vcvc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 24 Apr 2021 20:40:36 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/cpp/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 19 May 2021 22:48:49 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/cpp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>B_Tree</title>
+      <link>https://6923403.github.io/post/b_tree/</link>
+      <pubDate>Wed, 19 May 2021 22:48:49 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/b_tree/</guid>
+      <description>主角得拿出来文字记录下。  一个m阶的B树具有如下属性:
+ 如果根结点不是叶结点，则其至少有两棵子树。 每一个非根的分支结点都有k-1个元素和k个孩子，其中每一个叶子结点n都有k-1个元素。 所有叶子结点都位于同一层次。 所有分支结点包含下列信息数据  在含有n个关键字的B树上查找时，从根结点到关键字结点的 路径上涉及的结点数不超过log |m/2| ((n+1)/2)+1。
+两个不错的讲解与实现
+https://www.yiibai.com/data_structure/b-tree.html
+https://blog.csdn.net/yantingtao_sunny/article/details/51231934
+ 一棵m阶的B+树和m阶的B树的差异在于:
+ 有n棵子树的结点中包含有n个关键字； 所有的叶子结点包含全部关键字的信息，及指向含这些关键字记录 的指针，叶子结点本身依关键字的大小自小而大顺序链接； 所有分支结点可以看成是索引，结点中仅含有其子树中的最大（或 最小）关键字。  实现
+https://blog.csdn.net/liu1064782986/article/details/7982290
+ 2-3树是这样的一棵多路查找树：其中的每一个结点都具有两个孩（我们称它为2结点）或三个孩子（我们称它为3结点）。
+一个2结点包含一个元素和两个孩子（或没有孩子），且与二叉排序树类似，左子树包含的元素小于该元素，右子树包含的元素大于该元素。
+这个2结点要么没有孩子，要有就有两个，不能只有一个孩子。
+ 一个3结点包含一小一大两个元素和三个孩子（或没有孩子），一个3结点要么没有孩子，要么具有3个孩子。</description>
+    </item>
+    
     <item>
       <title>Effective C&#43;&#43; 下</title>
       <link>https://6923403.github.io/post/effective_cpp_2/</link>
@@ -346,10 +366,10 @@ https://blog.csdn.net/u010144805/article/details/78579528
     
     <item>
       <title>Binary Tree</title>
-      <link>https://6923403.github.io/post/binart_tree/</link>
+      <link>https://6923403.github.io/post/binary_tree/</link>
       <pubDate>Tue, 18 Aug 2020 14:40:25 +0800</pubDate>
       
-      <guid>https://6923403.github.io/post/binart_tree/</guid>
+      <guid>https://6923403.github.io/post/binary_tree/</guid>
       <description>性质1:在二叉树的第i层上至多有2 i-1 个结点(i≥1)。
   性质2:深度为k的二叉树至多有2 k -1个结点(k≥1)。
   性质3:对任何一棵二叉树T,如果其终端结点数为n 0 ,度为2的结点数 为n 2 ,则n 0 =n 2 +1。

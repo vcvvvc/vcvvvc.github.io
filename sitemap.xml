@@ -3,27 +3,42 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://6923403.github.io/post/b_tree/</loc>
+    <lastmod>2021-05-19T22:48:49+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://6923403.github.io/tags/cpp/</loc>
+    <lastmod>2021-05-19T22:48:49+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://6923403.github.io/post/</loc>
+    <lastmod>2021-05-19T22:48:49+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://6923403.github.io/tags/</loc>
+    <lastmod>2021-05-19T22:48:49+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://6923403.github.io/</loc>
+    <lastmod>2021-05-19T22:48:49+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://6923403.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
+    <lastmod>2021-05-19T22:48:49+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://6923403.github.io/tags/kindle/</loc>
     <lastmod>2021-05-09T23:34:49+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://6923403.github.io/post/kindle_%E5%8E%BB%E6%9B%B4%E6%96%B0/</loc>
-    <lastmod>2021-05-09T23:34:49+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://6923403.github.io/post/</loc>
-    <lastmod>2021-05-09T23:34:49+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://6923403.github.io/tags/</loc>
-    <lastmod>2021-05-09T23:34:49+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://6923403.github.io/</loc>
     <lastmod>2021-05-09T23:34:49+08:00</lastmod>
   </url>
   
@@ -55,11 +70,6 @@
   <url>
     <loc>https://6923403.github.io/post/install_nvidia/</loc>
     <lastmod>2021-05-06T07:29:52+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://6923403.github.io/tags/cpp/</loc>
-    <lastmod>2021-04-24T20:40:36+08:00</lastmod>
   </url>
   
   <url>
@@ -503,7 +513,7 @@
   </url>
   
   <url>
-    <loc>https://6923403.github.io/post/binart_tree/</loc>
+    <loc>https://6923403.github.io/post/binary_tree/</loc>
     <lastmod>2020-08-18T14:40:25+08:00</lastmod>
   </url>
   
