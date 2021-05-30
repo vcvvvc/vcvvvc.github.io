@@ -12,7 +12,8 @@
       <pubDate>Sat, 22 Aug 2020 16:42:04 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/docker_tutorial/</guid>
-      <description>Install docker apt-get remove docker docker-engine docker.io containerd runc curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - apt-key fingerprint 0EBF**** add-apt-repository \ &amp;quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu \ bionic \ stable&amp;quot; apt-get install docker-ce docker-ce-cli containerd.io # https://www.daocloud.io/mirror curl -sSL https://get.daocloud.io/daotools/set_mirror.sh | sh -s http://f1361db2.m.daocloud.io docker run hello-world  Compose https://gitee.com/xipushi/dockercompose.git chmod +x docker-compose-Linux-x86_64 mv docker-compose-Linux-x86_64 docker-compose cp /use/local/bin docker-compose --version  Dockerfile # from based nginx # run start FROM nginx # exec: RUN[&amp;quot;.</description>
+      <description>2021-5-30 更新 老方法不行了
+Install docker apt-get install apt-transport-https ca-certificates software-properties-common curl curl -fsSL https://download.docker.com/linux/ubuntu/gpg|sudo apt-key add - sudo add-apt-repository &amp;quot;deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu \ $(lsb_release -cs) stable&amp;quot; apt-get update apt-get install docker-ce docker run hello-world # 重启 service docker restart  Compose https://gitee.com/xipushi/dockercompose.git chmod +x docker-compose-Linux-x86_64 mv docker-compose-Linux-x86_64 docker-compose cp /use/local/bin docker-compose --version  Dockerfile # from based nginx # run start FROM nginx # exec: RUN[&amp;quot;./go&amp;quot;, &amp;quot;dev&amp;quot;, &amp;quot;offline&amp;quot;] RUN echo &#39;Nginx image&#39; &amp;gt; /usr/share/nginx/html/index.</description>
     </item>
     
   </channel>
