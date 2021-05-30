@@ -157,38 +157,35 @@ WHERE
 <pre><code>CREATE TABLE [IF NOT EXISTS] table_name(
         column_list
 ) engine=table_type;
+
+CREATE TABLE IF NOT EXISTS user (
+    uid INT(11) AUTO_INCREMENT, 
+    username VARCHAR(45) NOT NULL, 
+    registration_time DATE DEFAULT NULL, 
+    PRIMARY KEY(uid) 
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 </code></pre><ul>
 <li>首先，指定要在CREATE TABLE子句之后创建的表的名称。表名在数据库中必须是唯一的。 IF NOT EXISTS是语句的可选部分，允许您检查正在创建的表是否已存在于数据库中。 如果是这种情况，MySQL将忽略整个语句，不会创建任何新的表。 强烈建议在每个CREATE TABLE语句中使用IF NOT EXISTS来防止创建已存在的新表而产生错误。</li>
 <li>其次，在column_list部分指定表的列表。字段的列用逗号(，)分隔。我们将在下一节中向您展示如何更详细地列(字段)定义。</li>
 <li>第三，需要为engine子句中的表指定存储引擎。可以使用任何存储引擎，如：InnoDB，MyISAM，HEAP，EXAMPLE，CSV，ARCHIVE，MERGE， FEDERATED或NDBCLUSTER。如果不明确声明存储引擎，MySQL将默认使用InnoDB。</li>
 </ul>
-<pre><code>//为表定义列
-column_name data_type[size] [NOT NULL|NULL] [DEFAULT value]
-[AUTO_INCREMENT]
-</code></pre><ul>
-<li>column_name指定列的名称。每列具有特定数据类型和大小，例如：VARCHAR(255)。</li>
-<li>NOT NULL或NULL表示该列是否接受NULL值。</li>
-<li>DEFAULT值用于指定列的默认值。</li>
-<li>AUTO_INCREMENT指示每当将新行插入到表中时，列的值会自动增加。每个表都有一个且只有一个AUTO_INCREMENT列。</li>
-<li>PRIMARY KEY (col1,col2,&hellip;) 设为主键</li>
-</ul>
-<pre><code>USE testdb;
+<p><strong>查看表的列属性</strong></p>
+<pre><code>1. show columns from user;
 
-CREATE TABLE IF NOT EXISTS tasks (
-    task_id INT(11) AUTO_INCREMENT,
-    subject VARCHAR(45) DEFAULT NULL,
-    start_date DATE DEFAULT NULL,
-    end_date DATE DEFAULT NULL,
-    description VARCHAR(200) DEFAULT NULL,
-    PRIMARY KEY (task_id)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+2. desc user;
 </code></pre><p><strong>ALTER TABLE语句来设置列的自动递增属性</strong></p>
 <pre><code>ALTER TABLE tasks
 CHANGE COLUMN task_id task_id INT(11) NOT NULL AUTO_INCREMENT;
 </code></pre><p><strong>添加新列</strong></p>
-<pre><code>ALTER TABLE tasks
+<pre><code>ALTER TABLE vendors
+ADD COLUMN phone VARCHAR(15) AFTER name;
+
+ALTER TABLE tasks
 ADD COLUMN complete DECIMAL(2,1) NULL
 AFTER description;
+</code></pre><p><strong>修改列的属性</strong></p>
+<pre><code>原来表dictionary的一列enword的属性为VARCHAR(32),修改为VARCHAR(64)  NOT NULL.
+ALTER TABLE table_name MODIFY COLUMN column_name VARCHAR(64) NOT NULL;
 </code></pre><p><strong>删除列</strong></p>
 <pre><code>ALTER TABLE tasks
 DROP COLUMN description;
