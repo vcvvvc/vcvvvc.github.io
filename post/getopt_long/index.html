@@ -14,10 +14,22 @@
     
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="getopt_long"/>
-<meta name="twitter:description" content="#include &lt;unistd.h&gt; int getopt(int argc, char * const argv[], const char *optstring); extern char *optarg; extern int optind, opterr, optopt; #include &lt;getopt.h&gt; int getopt_long(int argc, char * const argv[], const char *optstring, const struct option *longopts, int *longindex); int getopt_long_only(int argc, char * const argv[], const char *optstring, const struct option *longopts, int *longindex);  static struct option Vcopts[] = { {&quot;device&quot;, required_argument, NULL, &#39;d&#39;}, {&quot;savefile&quot;, optional_argument, NULL, &#39;f&#39;}, {&quot;help&quot;, no_argument, NULL, &#39;h&#39;}, {&quot;version&quot;, no_argument, NULL, &#39;v&#39;}, {&quot;Device list&quot;, no_argument, NULL, &#39;l&#39;}, {&quot;http-proxy&quot;, required_argument, &amp;lopt, 1}, {0, 0, 0, 0} };  no_argument: -h --h, -v --v required_argument: -d/ -d ens33/ -d = ens33 optional_argument: -f filename/ -f = filename &amp;lopt: &ndash;http-proxy=127."/>
+<meta name="twitter:description" content="2021-5-31更新
+#include &lt;unistd.h&gt; extern char *optarg; extern int optind, opterr, optopt; #include &lt;getopt.h&gt; int getopt(int argc, char * const argv[],const char *optstring); int getopt_long(int argc, char * const argv[], const char *optstring, const struct option *longopts, int *longindex); int getopt_long_only(int argc, char * const argv[], const char *optstring, const struct option *longopts, int *longindex); 参数以及返回值介绍（以上三个函数都适用）：
+1、argc和argv和main函数的两个参数一致。
+2、optstring: 表示短选项字符串。
+形式如“a:b::cd:“，分别表示程序支持的命令行短选项有-a、-b、-c、-d，冒号含义如下：
+ 只有一个字符，不带冒号——只表示选项， 如-c  一个字符，后接一个冒号——表示选项后面带一个参数，如-a 100 一个字符，后接两个冒号——表示选项后面带一个可选参数，即参数可有可无，如果带参数，则选项与参数直接不能有空格,形式应该如-b  3、longopts：表示长选项结构体。结构如下：
+struct option { const char *name; int has_arg; int *flag; int val; }; static struct option longOpts[] = { { &quot;daemon&quot;, no_argument, NULL, &#39;D&#39; }, { &quot;dir&quot;, required_argument, NULL, &#39;d&#39; }, { &quot;out&quot;, required_argument, NULL, &#39;o&#39; }, { &quot;log&quot;, required_argument, NULL, &#39;l&#39; }, { &quot;split&quot;, required_argument, NULL, &#39;s&#39; }, { &quot;http-proxy&quot;, required_argument, &amp;lopt, 1 }, { &quot;http-user&quot;, required_argument, &amp;lopt, 2 }, { &quot;http-passwd&quot;, required_argument, &amp;lopt, 3 }, { &quot;http-proxy-user&quot;, required_argument, &amp;lopt, 4 }, { &quot;http-proxy-passwd&quot;, required_argument, &amp;lopt, 5 }, { &quot;http-auth-scheme&quot;, required_argument, &amp;lopt, 6 }, { &quot;version&quot;, no_argument, NULL, &#39;v&#39; }, { &quot;help&quot;, no_argument, NULL, &#39;h&#39; }, { 0, 0, 0, 0 } }; (1)name:表示选项的名称,比如daemon,dir,out等。"/>
 
     <meta property="og:title" content="getopt_long" />
-<meta property="og:description" content="#include &lt;unistd.h&gt; int getopt(int argc, char * const argv[], const char *optstring); extern char *optarg; extern int optind, opterr, optopt; #include &lt;getopt.h&gt; int getopt_long(int argc, char * const argv[], const char *optstring, const struct option *longopts, int *longindex); int getopt_long_only(int argc, char * const argv[], const char *optstring, const struct option *longopts, int *longindex);  static struct option Vcopts[] = { {&quot;device&quot;, required_argument, NULL, &#39;d&#39;}, {&quot;savefile&quot;, optional_argument, NULL, &#39;f&#39;}, {&quot;help&quot;, no_argument, NULL, &#39;h&#39;}, {&quot;version&quot;, no_argument, NULL, &#39;v&#39;}, {&quot;Device list&quot;, no_argument, NULL, &#39;l&#39;}, {&quot;http-proxy&quot;, required_argument, &amp;lopt, 1}, {0, 0, 0, 0} };  no_argument: -h --h, -v --v required_argument: -d/ -d ens33/ -d = ens33 optional_argument: -f filename/ -f = filename &amp;lopt: &ndash;http-proxy=127." />
+<meta property="og:description" content="2021-5-31更新
+#include &lt;unistd.h&gt; extern char *optarg; extern int optind, opterr, optopt; #include &lt;getopt.h&gt; int getopt(int argc, char * const argv[],const char *optstring); int getopt_long(int argc, char * const argv[], const char *optstring, const struct option *longopts, int *longindex); int getopt_long_only(int argc, char * const argv[], const char *optstring, const struct option *longopts, int *longindex); 参数以及返回值介绍（以上三个函数都适用）：
+1、argc和argv和main函数的两个参数一致。
+2、optstring: 表示短选项字符串。
+形式如“a:b::cd:“，分别表示程序支持的命令行短选项有-a、-b、-c、-d，冒号含义如下：
+ 只有一个字符，不带冒号——只表示选项， 如-c  一个字符，后接一个冒号——表示选项后面带一个参数，如-a 100 一个字符，后接两个冒号——表示选项后面带一个可选参数，即参数可有可无，如果带参数，则选项与参数直接不能有空格,形式应该如-b  3、longopts：表示长选项结构体。结构如下：
+struct option { const char *name; int has_arg; int *flag; int val; }; static struct option longOpts[] = { { &quot;daemon&quot;, no_argument, NULL, &#39;D&#39; }, { &quot;dir&quot;, required_argument, NULL, &#39;d&#39; }, { &quot;out&quot;, required_argument, NULL, &#39;o&#39; }, { &quot;log&quot;, required_argument, NULL, &#39;l&#39; }, { &quot;split&quot;, required_argument, NULL, &#39;s&#39; }, { &quot;http-proxy&quot;, required_argument, &amp;lopt, 1 }, { &quot;http-user&quot;, required_argument, &amp;lopt, 2 }, { &quot;http-passwd&quot;, required_argument, &amp;lopt, 3 }, { &quot;http-proxy-user&quot;, required_argument, &amp;lopt, 4 }, { &quot;http-proxy-passwd&quot;, required_argument, &amp;lopt, 5 }, { &quot;http-auth-scheme&quot;, required_argument, &amp;lopt, 6 }, { &quot;version&quot;, no_argument, NULL, &#39;v&#39; }, { &quot;help&quot;, no_argument, NULL, &#39;h&#39; }, { 0, 0, 0, 0 } }; (1)name:表示选项的名称,比如daemon,dir,out等。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://6923403.github.io/post/getopt_long/" />
 <meta property="article:published_time" content="2021-03-14T14:26:33+08:00" />
@@ -90,7 +102,7 @@
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          3 min read
+          2 min read
         </div>
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
@@ -103,40 +115,7 @@
       </div>
     </header>
     <div class="post-content">
-      <pre><code>#include &lt;unistd.h&gt;
-int getopt(int argc, char * const argv[],
-                  const char *optstring);
-
-extern char *optarg;
-extern int optind, opterr, optopt;
-
-#include &lt;getopt.h&gt;
-int getopt_long(int argc, char * const argv[],
-                     const char *optstring,
-                     const struct option *longopts, int *longindex);
-
-int getopt_long_only(int argc, char * const argv[],
-                         const char *optstring,
-                         const struct option *longopts, int *longindex);
-</code></pre><hr>
-<pre><code>static struct option Vcopts[] = {
-
-    {&quot;device&quot;, required_argument, NULL, 'd'},
-    {&quot;savefile&quot;, optional_argument, NULL, 'f'}, 
-    {&quot;help&quot;, no_argument, NULL, 'h'},
-    {&quot;version&quot;, no_argument, NULL, 'v'},
-    {&quot;Device list&quot;, no_argument, NULL, 'l'},
-    {&quot;http-proxy&quot;, required_argument, &amp;lopt, 1},
-    {0, 0, 0, 0}
-};
-</code></pre><ul>
-<li><strong>no_argument: -h --h, -v --v</strong></li>
-<li><strong>required_argument: -d/ -d ens33/ -d = ens33</strong></li>
-<li><strong>optional_argument: -f filename/ -f = filename</strong></li>
-<li><strong>&amp;lopt: &ndash;http-proxy=127.0.0.1:80 getopt_long return 0, lopt return 1</strong></li>
-</ul>
-<hr>
-<h1 id="版本2">版本2</h1>
+      <p><strong>2021-5-31更新</strong></p>
 <pre><code>#include &lt;unistd.h&gt;
 extern char *optarg;
 extern int optind, opterr, optopt;
@@ -161,7 +140,7 @@ int getopt_long_only(int argc, char * const argv[], const char *optstring, const
      int        *flag;
      int         val;
 };
-eg:
+
  static struct option longOpts[] = {
       { &quot;daemon&quot;, no_argument, NULL, 'D' },
       { &quot;dir&quot;, required_argument, NULL, 'd' },
@@ -267,12 +246,12 @@ int main(int argc, char **argv)
     return 0;
 }
 </code></pre><pre><code>root@Tk:~/git/Cplusplus/test/getopt# ./a.out -a 100 -b 200 --reqarg
-opt = 97
+opt = 97(a)
 optarg = 100
 optind = 3
 argv[optind -1] = 100
 option_index = 0
-opt = 98
+opt = 98(b) 
 optarg = 200
 optind = 5
 argv[optind -1] = 200
@@ -281,8 +260,8 @@ option_index = 0
 opt = 63
 </code></pre><hr>
 <p>Re:</p>
+<p><a href="https://blog.csdn.net/cashey1991/article/details/7942809">https://blog.csdn.net/cashey1991/article/details/7942809</a></p>
 <p><a href="https://blog.csdn.net/qq_33850438/article/details/80172275">https://blog.csdn.net/qq_33850438/article/details/80172275</a></p>
-<p><a href="https://www.jianshu.com/p/ae4ae0ef57bc">https://www.jianshu.com/p/ae4ae0ef57bc</a></p>
 
     </div>
     <div class="post-footer">
