@@ -13,9 +13,11 @@
       
       <guid>https://6923403.github.io/post/ubuntu_install_mysql/</guid>
       <description>安装 不是root自行加sudo
-apt-get update apt-get install mysql-server apt-get install libmysqld-dev  配置 mysql_secure_installation 1. NO 2. 输入密码 3. 其余全部默认  状态 #开启 service mysql start # 关闭 service mysql stop # 重启 service mysql restart # 状态 systemctl status mysql.service  Re:
+apt-get update apt-get install mysql-server apt-get install libmysqld-dev  配置 mysql_secure_installation 1. NO 2. 输入密码 3. 其余全部默认 修改root密码 8.0
+use mysql; update user set authentication_string=&#39;&#39; where user=&#39;root&#39;;--将字段置为空 ALTER user &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;root&#39;;--修改密码为root  状态 #开启 service mysql start # 关闭 service mysql stop # 重启 service mysql restart # 状态 systemctl status mysql.service  Re:
 https://blog.csdn.net/u010520724/article/details/107444032
-https://blog.csdn.net/weixin_38924500/article/details/106261971</description>
+https://blog.csdn.net/weixin_38924500/article/details/106261971
+https://blog.csdn.net/wolf131721/article/details/93004013</description>
     </item>
     
     <item>

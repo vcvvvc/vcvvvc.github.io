@@ -203,6 +203,10 @@ VALUES('Learn MySQL INSERT','2017-07-21','2017-07-22','Start learning..');
 VALUES (value1,value2,...),
        (value1,value2,...),
        (value1, value2,...);
+</code></pre><p><strong>插入日期出错</strong></p>
+<pre><code>#https://blog.csdn.net/weixin_50518271/article/details/113761164
+select @@SQL_MODE
+SET @@SQL_MODE = REPLACE(@@SQL_MODE, 'NO_ZERO_DATE', '');
 </code></pre><hr>
 <p><strong>复制表结构</strong></p>
 <pre><code>CREATE TABLE tasks_bak LIKE tasks;
