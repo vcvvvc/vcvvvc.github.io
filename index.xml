@@ -5,7 +5,16 @@
     <link>https://6923403.github.io/</link>
     <description>Recent content on Vcvc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 30 May 2021 16:36:22 +0800</lastBuildDate><atom:link href="https://6923403.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 01 Jun 2021 15:57:31 +0800</lastBuildDate><atom:link href="https://6923403.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Chrono_use</title>
+      <link>https://6923403.github.io/post/chrono_use/</link>
+      <pubDate>Tue, 01 Jun 2021 15:57:31 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/chrono_use/</guid>
+      <description>时间戳获取 using namespace std::chrono; auto millisec_since_epoch = duration_cast&amp;lt;milliseconds&amp;gt;(system_clock::now().time_since_epoch()).count(); auto msec = duration_cast&amp;lt;microseconds&amp;gt;(system_clock::now().time_since_epoch()).count(); auto sec_since_epoch = duration_cast&amp;lt;seconds&amp;gt;(system_clock::now().time_since_epoch()).count(); std::cout &amp;lt;&amp;lt; &amp;quot;seconds since epoch: &amp;quot; &amp;lt;&amp;lt; sec_since_epoch &amp;lt;&amp;lt; std::endl; std::cout &amp;lt;&amp;lt; &amp;quot;milliseconds since epoch: &amp;quot; &amp;lt;&amp;lt; millisec_since_epoch &amp;lt;&amp;lt; std::endl;  秒seconds since epoch: 1622534342 微妙 milliseconds since epoch: 1622534342050   标准年月日+时间获取 std::time_t now = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now()); char re_time[256] = {0}; std::strftime(re_time, sizeof(re_time), &amp;quot;%Y-%m-%d %X&amp;quot;, std::localtime(&amp;amp;now)); std::cout &amp;lt;&amp;lt; “注册时间 ” &amp;lt;&amp;lt; re_time &amp;lt;&amp;lt; std::endl; 注册时间: 2021-06-01 15:56:42</description>
+    </item>
+    
     <item>
       <title>Ubuntu_install_mysql</title>
       <link>https://6923403.github.io/post/ubuntu_install_mysql/</link>
