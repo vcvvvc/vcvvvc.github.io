@@ -4,7 +4,7 @@
     <title>Centos7 Install_redis // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.80.0" />
+    <meta name="generator" content="Hugo 0.83.1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -23,9 +23,10 @@ daemonize no 改为 daemonize yes  开机自启 vim /etc/systemd/system/redis.se
 daemonize no 改为 daemonize yes  开机自启 vim /etc/systemd/system/redis.service
 [Unit] Description=redis-server After=network.target [Service] Type=forking ExecStart=/usr/local/redis/bin/redis-server /usr/local/redis/bin/redis.conf PrivateTmp=true [Install] WantedBy=multi-user.target systemctl daemon-reload ln -s /usr/local/redis/bin/redis-cli /usr/bin/redis systemctl start redis." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://6923403.github.io/post/install_redis/" />
-<meta property="article:published_time" content="2020-09-21T13:32:22+08:00" />
-<meta property="article:modified_time" content="2020-09-21T13:32:22+08:00" />
+<meta property="og:url" content="https://6923403.github.io/post/install_redis/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2020-09-21T13:32:22&#43;08:00" />
+<meta property="article:modified_time" content="2020-09-21T13:32:22&#43;08:00" />
+
 
   </head>
   <body>

@@ -4,7 +4,7 @@
     <title>Cpp11 move // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.80.0" />
+    <meta name="generator" content="Hugo 0.83.1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -21,9 +21,10 @@ After copy, str is &quot;Hello&quot; After move, str is &quot;&quot; The content
 <meta property="og:description" content="#include &lt;iostream&gt; #include &lt;utility&gt; #include &lt;vector&gt; #include &lt;string&gt; int main() { std::string str = &quot;Hello&quot;; std::vector&lt;std::string&gt; v; //调用常规的拷贝构造函数，新建字符数组，拷贝数据 v.push_back(str); std::cout &lt;&lt; &quot;After copy, str is \&quot;&quot; &lt;&lt; str &lt;&lt; &quot;\&quot;\n&quot;; //调用移动构造函数，掏空str，掏空后，最好不要使用str v.push_back(std::move(str)); std::cout &lt;&lt; &quot;After move, str is \&quot;&quot; &lt;&lt; str &lt;&lt; &quot;\&quot;\n&quot;; std::cout &lt;&lt; &quot;The contents of the vector are \&quot;&quot; &lt;&lt; v[0] &lt;&lt; &quot;\&quot;, \&quot;&quot; &lt;&lt; v[1] &lt;&lt; &quot;\&quot;\n&quot;; } Cout:
 After copy, str is &quot;Hello&quot; After move, str is &quot;&quot; The contents of the vector are &quot;Hello&quot;, &quot;Hello&quot;  函数原型 template &lt;typename T&gt; typename remove_reference&lt;T&gt;::type&amp;&amp; move(T&amp;&amp; t) { return static_cast&lt;typename remove_reference&lt;T&gt;::type&amp;&amp;&gt;(t); }  原型定义中的原理实现: 公式一）X&amp; &amp;、X&amp;&amp; &amp;、X&amp; &amp;&amp;都折叠成X&amp;，用于处理左值" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://6923403.github.io/post/move/" />
-<meta property="article:published_time" content="2020-08-30T19:57:05+08:00" />
-<meta property="article:modified_time" content="2020-08-30T19:57:05+08:00" />
+<meta property="og:url" content="https://6923403.github.io/post/move/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2020-08-30T19:57:05&#43;08:00" />
+<meta property="article:modified_time" content="2020-08-30T19:57:05&#43;08:00" />
+
 
   </head>
   <body>

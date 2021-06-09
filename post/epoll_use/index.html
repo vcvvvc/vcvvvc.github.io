@@ -4,7 +4,7 @@
     <title>epoll use // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.80.0" />
+    <meta name="generator" content="Hugo 0.83.1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -35,9 +35,10 @@ Epoll 没有最大并发连接的限制，上限是最大可以打开文件的�
 这个参数不同于select()中的第一个参数，给出最大监听的fd&#43;1的值。需要注意的是，当创建好epoll句柄后，它就是会占用一个fd值，在linux下如果查看/proc/进程id/fd/，是能够看到这个fd的，所以在使用完epoll后，必须调用close()关闭，否则可能导致fd被耗尽。
 2. 将被监听的描述符添加到epoll句柄或从epool句柄中删除或者对监听事件进行修改 int epoll_ctl(int epfd, int op, int fd, struct epoll_event *event); //op为注册事件 epoll的事件注册函数，它不同与select()是在监听事件时告诉内核要监听什么类型的事件，而是在这里先注册要监听的事件类型。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://6923403.github.io/post/epoll_use/" />
-<meta property="article:published_time" content="2020-08-27T12:09:01+08:00" />
-<meta property="article:modified_time" content="2020-08-27T12:09:01+08:00" />
+<meta property="og:url" content="https://6923403.github.io/post/epoll_use/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2020-08-27T12:09:01&#43;08:00" />
+<meta property="article:modified_time" content="2020-08-27T12:09:01&#43;08:00" />
+
 
   </head>
   <body>

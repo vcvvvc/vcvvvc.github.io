@@ -4,7 +4,7 @@
     <title>Dell7590 install macos // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.80.0" />
+    <meta name="generator" content="Hugo 0.83.1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -14,44 +14,43 @@
     
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Dell7590 install macos"/>
-<meta name="twitter:description" content="First 接近完美 可以用intel网卡连接wifi 速度还不错
-装好之后win10引导没了 反正我也不用 其他问题只发现内置麦克风无法使用 Siri不能用 蓝牙未启动 也就没测试
-U盘16g 再来个小内存U盘或者有网线联网 分出一块磁盘空间至少100G  镜像下载 第二个是帖子里 我下载的那个
-  https://blog.daliansky.net/macOS-Catalina-10.15.6-19G73-Release-version-with-Clover-5119-original-image-Double-EFI-Version-UEFI-and-MBR.html
-  https://cloud.189.cn/t/UzMVZfUFj6za
-   Video 看这个视频的操作 参考我下面的内容即可
-安装系统操作 https://www.bilibili.com/video/BV1854y1X7oP
-安装wifi操作 https://www.bilibili.com/video/BV12y4y167Qv
- Start //OC git clone https://github.com/Pinming/Dell-Inspiron-7590-Hackintosh-Opencore //WIFI 这四个可以提前下好存另一个U盘或者网线下 https://github.com/OpenIntelWireless/HeliPort/releases https://github.com/OpenIntelWireless/itlwm/releases/ https://mackie100projects.altervista.org/download-clover-configurator/ https://mackie100projects.altervista.org/download-opencore-configurator/ //Diskgenius 官网自行下载最新版 //balennaEther 官网自行下载最新版 先把Dell-Inspiron-7590-Hackintosh-Opencore重命名为OC
-打开OC文件夹 根据屏幕改名1080P的屏幕使用config-1080p.plist需改名成config.plist 如果你是4K屏 不需要修改
-balennaEther烧录dmg镜像文件到U盘
-打开Diskgenius 进入U盘的ESP分区文件夹 删除Clover文件夹 然后将OC文件夹拖入
-打开U盘ESP的EFI 将Diskgenius程序文件夹拖进去 备用 以免出问题
-提前准备好安装空间100g
-再创建出一个300MB的空间 用Diskgenius做成ESP
- 继续 重启F2 关闭Secure Boot安全启动 检查磁盘模式为ACHI 百度搜"/>
+<meta name="twitter:description" content="2021-06-09更新 系统为big sur 11.4
+接近完美 可以用intel网卡连接wifi 速度还不错
+已知麦克风、隔空投送不能用
+U盘至少16g 再来个小内存U盘或者有网线联网 分出一块磁盘空间至少100G  镜像下载 搜素：黑果小兵
+big sur用11.4
+ 重要前提 如果你没有网线，并且没有其他PC设备联网 你需要提前下载这些 并存储在另一个U盘中
+https://github.com/OpenIntelWireless/HeliPort/releases https://github.com/OpenIntelWireless/itlwm/releases/ https://mackie100projects.altervista.org/download-clover-configurator/ #这个往下找找不要最新几个版本 https://mackie100projects.altervista.org/download-opencore-configurator/  Start //OC git clone https://github.com/Pinming/Dell-Inspiron-7590-Hackintosh-Opencore //Diskgenius 官网自行下载最新版 //balennaEther 官网自行下载最新版 1. 先把Dell-Inspiron-7590-Hackintosh-Opencore重命名为OC
+2. 打开OC文件夹 根据屏幕改名1080P的屏幕使用config-1080p.plist需改名成config.plist 如果你是4K屏 不需要修改
+3. balennaEther烧录dmg镜像文件到U盘
+4. 打开Diskgenius 进入U盘的ESP分区文件夹 删除Clover文件夹 然后将OC文件夹拖入
+5. 打开U盘ESP分区中的EFI 将Diskgenius程序文件夹拖进去 备用 以免出问题
+提前准备好安装空间建议200g 至少100g
+6. 用Diskgenius分ESP区 建议300mb至少200mb [https://www.cnblogs.com/liuzhaoyzz/p/12348682.html]
+ 安装 1. 重启F2 关闭Secure Boot安全启动 检查磁盘模式为ACHI 百度搜
+2. 进入Boot Sequence &lsquo;add option&rsquo; 添加一个引导 选择启动文件为自己的U盘EFI(找到EFI/OC/OpenCore."/>
 
     <meta property="og:title" content="Dell7590 install macos" />
-<meta property="og:description" content="First 接近完美 可以用intel网卡连接wifi 速度还不错
-装好之后win10引导没了 反正我也不用 其他问题只发现内置麦克风无法使用 Siri不能用 蓝牙未启动 也就没测试
-U盘16g 再来个小内存U盘或者有网线联网 分出一块磁盘空间至少100G  镜像下载 第二个是帖子里 我下载的那个
-  https://blog.daliansky.net/macOS-Catalina-10.15.6-19G73-Release-version-with-Clover-5119-original-image-Double-EFI-Version-UEFI-and-MBR.html
-  https://cloud.189.cn/t/UzMVZfUFj6za
-   Video 看这个视频的操作 参考我下面的内容即可
-安装系统操作 https://www.bilibili.com/video/BV1854y1X7oP
-安装wifi操作 https://www.bilibili.com/video/BV12y4y167Qv
- Start //OC git clone https://github.com/Pinming/Dell-Inspiron-7590-Hackintosh-Opencore //WIFI 这四个可以提前下好存另一个U盘或者网线下 https://github.com/OpenIntelWireless/HeliPort/releases https://github.com/OpenIntelWireless/itlwm/releases/ https://mackie100projects.altervista.org/download-clover-configurator/ https://mackie100projects.altervista.org/download-opencore-configurator/ //Diskgenius 官网自行下载最新版 //balennaEther 官网自行下载最新版 先把Dell-Inspiron-7590-Hackintosh-Opencore重命名为OC
-打开OC文件夹 根据屏幕改名1080P的屏幕使用config-1080p.plist需改名成config.plist 如果你是4K屏 不需要修改
-balennaEther烧录dmg镜像文件到U盘
-打开Diskgenius 进入U盘的ESP分区文件夹 删除Clover文件夹 然后将OC文件夹拖入
-打开U盘ESP的EFI 将Diskgenius程序文件夹拖进去 备用 以免出问题
-提前准备好安装空间100g
-再创建出一个300MB的空间 用Diskgenius做成ESP
- 继续 重启F2 关闭Secure Boot安全启动 检查磁盘模式为ACHI 百度搜" />
+<meta property="og:description" content="2021-06-09更新 系统为big sur 11.4
+接近完美 可以用intel网卡连接wifi 速度还不错
+已知麦克风、隔空投送不能用
+U盘至少16g 再来个小内存U盘或者有网线联网 分出一块磁盘空间至少100G  镜像下载 搜素：黑果小兵
+big sur用11.4
+ 重要前提 如果你没有网线，并且没有其他PC设备联网 你需要提前下载这些 并存储在另一个U盘中
+https://github.com/OpenIntelWireless/HeliPort/releases https://github.com/OpenIntelWireless/itlwm/releases/ https://mackie100projects.altervista.org/download-clover-configurator/ #这个往下找找不要最新几个版本 https://mackie100projects.altervista.org/download-opencore-configurator/  Start //OC git clone https://github.com/Pinming/Dell-Inspiron-7590-Hackintosh-Opencore //Diskgenius 官网自行下载最新版 //balennaEther 官网自行下载最新版 1. 先把Dell-Inspiron-7590-Hackintosh-Opencore重命名为OC
+2. 打开OC文件夹 根据屏幕改名1080P的屏幕使用config-1080p.plist需改名成config.plist 如果你是4K屏 不需要修改
+3. balennaEther烧录dmg镜像文件到U盘
+4. 打开Diskgenius 进入U盘的ESP分区文件夹 删除Clover文件夹 然后将OC文件夹拖入
+5. 打开U盘ESP分区中的EFI 将Diskgenius程序文件夹拖进去 备用 以免出问题
+提前准备好安装空间建议200g 至少100g
+6. 用Diskgenius分ESP区 建议300mb至少200mb [https://www.cnblogs.com/liuzhaoyzz/p/12348682.html]
+ 安装 1. 重启F2 关闭Secure Boot安全启动 检查磁盘模式为ACHI 百度搜
+2. 进入Boot Sequence &lsquo;add option&rsquo; 添加一个引导 选择启动文件为自己的U盘EFI(找到EFI/OC/OpenCore." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://6923403.github.io/post/dell7590_install_macos/" />
-<meta property="article:published_time" content="2021-01-17T13:19:24+08:00" />
-<meta property="article:modified_time" content="2021-01-17T13:19:24+08:00" />
+<meta property="og:url" content="https://6923403.github.io/post/dell7590_install_macos/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-01-17T13:19:24&#43;08:00" />
+<meta property="article:modified_time" content="2021-01-17T13:19:24&#43;08:00" />
+
 
   </head>
   <body>
@@ -128,91 +127,79 @@ balennaEther烧录dmg镜像文件到U盘
   <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line>
 </svg>
               <a class="tag" href="https://6923403.github.io/tags/dell/">Dell</a>
-              <a class="tag" href="https://6923403.github.io/tags/macos/">Macos</a>
+              <a class="tag" href="https://6923403.github.io/tags/mac/">Mac</a>
         </div>
       </div>
     </header>
     <div class="post-content">
-      <h1 id="first">First</h1>
+      <h1 id="2021-06-09更新">2021-06-09更新</h1>
+<p><strong>系统为big sur 11.4</strong></p>
 <p><strong>接近完美 可以用intel网卡连接wifi 速度还不错</strong></p>
-<p><strong>装好之后win10引导没了 反正我也不用 其他问题只发现内置麦克风无法使用 Siri不能用 蓝牙未启动 也就没测试</strong></p>
-<pre><code>U盘16g 再来个小内存U盘或者有网线联网
+<p><strong>已知麦克风、隔空投送不能用</strong></p>
+<pre><code>U盘至少16g 再来个小内存U盘或者有网线联网
 分出一块磁盘空间至少100G
 </code></pre><hr>
 <h1 id="镜像下载">镜像下载</h1>
-<p><strong>第二个是帖子里 我下载的那个</strong></p>
-<ul>
-<li>
-<p><a href="https://blog.daliansky.net/macOS-Catalina-10.15.6-19G73-Release-version-with-Clover-5119-original-image-Double-EFI-Version-UEFI-and-MBR.html">https://blog.daliansky.net/macOS-Catalina-10.15.6-19G73-Release-version-with-Clover-5119-original-image-Double-EFI-Version-UEFI-and-MBR.html</a></p>
-</li>
-<li>
-<p><a href="https://cloud.189.cn/t/UzMVZfUFj6za">https://cloud.189.cn/t/UzMVZfUFj6za</a></p>
-</li>
-</ul>
+<p><code>搜素：黑果小兵</code></p>
+<p><strong>big sur用11.4</strong></p>
 <hr>
-<h1 id="video">Video</h1>
-<p><strong>看这个视频的操作 参考我下面的内容即可</strong></p>
-<p><strong>安装系统操作</strong>
-<a href="https://www.bilibili.com/video/BV1854y1X7oP">https://www.bilibili.com/video/BV1854y1X7oP</a></p>
-<p><strong>安装wifi操作</strong>
-<a href="https://www.bilibili.com/video/BV12y4y167Qv">https://www.bilibili.com/video/BV12y4y167Qv</a></p>
-<hr>
+<h1 id="重要前提">重要前提</h1>
+<p><strong>如果你没有网线，并且没有其他PC设备联网 你需要提前下载这些 并存储在另一个U盘中</strong></p>
+<pre><code>https://github.com/OpenIntelWireless/HeliPort/releases
+https://github.com/OpenIntelWireless/itlwm/releases/
+https://mackie100projects.altervista.org/download-clover-configurator/ #这个往下找找不要最新几个版本
+https://mackie100projects.altervista.org/download-opencore-configurator/
+</code></pre><hr>
 <h1 id="start">Start</h1>
 <pre><code>//OC
 git clone https://github.com/Pinming/Dell-Inspiron-7590-Hackintosh-Opencore
-
-//WIFI 这四个可以提前下好存另一个U盘或者网线下
-https://github.com/OpenIntelWireless/HeliPort/releases
-https://github.com/OpenIntelWireless/itlwm/releases/
-https://mackie100projects.altervista.org/download-clover-configurator/
-https://mackie100projects.altervista.org/download-opencore-configurator/
 
 //Diskgenius
 官网自行下载最新版
 
 //balennaEther
 官网自行下载最新版
-</code></pre><p><strong>先把Dell-Inspiron-7590-Hackintosh-Opencore重命名为OC</strong></p>
-<p><strong>打开OC文件夹 根据屏幕改名1080P的屏幕使用config-1080p.plist需改名成config.plist 如果你是4K屏 不需要修改</strong></p>
-<p><strong>balennaEther烧录dmg镜像文件到U盘</strong></p>
-<p><strong>打开Diskgenius 进入U盘的ESP分区文件夹 删除Clover文件夹 然后将OC文件夹拖入</strong></p>
-<p><strong>打开U盘ESP的EFI 将Diskgenius程序文件夹拖进去 备用 以免出问题</strong></p>
-<p><strong>提前准备好安装空间100g</strong></p>
-<p><strong>再创建出一个300MB的空间 用Diskgenius做成ESP</strong></p>
+</code></pre><p><strong>1. 先把Dell-Inspiron-7590-Hackintosh-Opencore重命名为OC</strong></p>
+<p><strong>2. 打开OC文件夹 根据屏幕改名1080P的屏幕使用config-1080p.plist需改名成config.plist 如果你是4K屏 不需要修改</strong></p>
+<p><strong>3. balennaEther烧录dmg镜像文件到U盘</strong></p>
+<p><strong>4. 打开Diskgenius 进入U盘的ESP分区文件夹 删除Clover文件夹 然后将OC文件夹拖入</strong></p>
+<p><strong>5. 打开U盘ESP分区中的EFI 将Diskgenius程序文件夹拖进去 备用 以免出问题</strong></p>
+<p><strong>提前准备好安装空间建议200g 至少100g</strong></p>
+<p><strong>6. 用Diskgenius分ESP区 建议300mb至少200mb [https://www.cnblogs.com/liuzhaoyzz/p/12348682.html]</strong></p>
 <hr>
-<h1 id="继续">继续</h1>
-<p><strong>重启F2 关闭Secure Boot安全启动 检查磁盘模式为ACHI 百度搜</strong></p>
-<p><strong>之后进入Boot Sequence &lsquo;add option.?'(忘了名字了add**) 添加一个 选择启动文件为自己的U盘EFI(找到EFI/OC/OpenCore.efi这个文件)</strong></p>
-<p><strong>重启F12 选择刚才新建的启动项 选择Install mac</strong></p>
-<p><strong>进去之后选择磁盘工具先抹盘 选择你提前分好的空间 命名个macos就行 选择格式为APFS 抹不掉就先做成exft 再抹一次</strong></p>
-<p><strong>退出磁盘工具继续安装 然后自动重启 再次选mac启动项</strong></p>
-<p><strong>Siri不启用 iCloud先不要登陆 先创建好一个本地账户</strong></p>
-<pre><code>这是网上找的
-
-重启电脑，进入BIOS，把刚刚改过的设置全部改回来（启动顺序，磁盘模式，安全启动）
-
-这三件套一定要改回来，不然回不到原来的Windows系统！
-</code></pre><p><strong>这时候我这边win10进不去了 直接开机选择PE 在磁盘找到Diskgenius 打开程序 将U盘的OC复制到桌面 之后 打开磁盘的ESP 将OC拖到EFI文件之下</strong></p>
-<p><strong>重启F2 Boot Sequence add option 选择磁盘ESP 大概路径是这个EFI\OC\OpenCore.efi</strong></p>
-<p><strong>重启F12 进入这个启动项 进来了就OK了</strong></p>
+<h1 id="安装">安装</h1>
+<p><strong>1. 重启F2 关闭Secure Boot安全启动 检查磁盘模式为ACHI 百度搜</strong></p>
+<p><strong>2. 进入Boot Sequence &lsquo;add option&rsquo; 添加一个引导 选择启动文件为自己的U盘EFI(找到EFI/OC/OpenCore.efi这个文件)</strong></p>
+<p><strong>3. 重启F12 选择刚才新建的启动项 选择Install mac big sur</strong></p>
+<p><strong>4. 选择磁盘工具先抹盘 选择你提前分好的空间 命名个macos就行 选择格式为APFS 抹不掉就先做成exft 再抹一次</strong></p>
+<p><strong>5. 左上角退出磁盘工具继续安装 然后自动重启 再次选mac启动项</strong>  (此时我读条完毕 一直在转圈 等了5分钟 我手动强制关机)</p>
+<ul>
+<li>Siri不启用 iCloud先不要登陆 先创建好一个本地账户</li>
+</ul>
+<p><strong>6. 重启f12 选择install mac 本步骤需要重复几次 直到进入系统设置 创建用户的步骤才算完成</strong></p>
+<p><strong>7.1 重启f12 选择winPE, 在我的电脑 EFI中找到Diskgenius 打开程序将U盘的EFI文件复制到桌面</strong></p>
+<p><strong>7.2 选择磁盘的ESP 将EFI拖入</strong></p>
+<p><strong>8.1 重启F2 Boot Sequence add option 这里我命名为<code>macos</code> 选择磁盘中EFI\OC\OpenCore.efi</strong></p>
+<p><strong>8.2 把选项置顶。开机自动进入 选择macos</strong></p>
 <hr>
 <h1 id="wifi设置">Wifi设置</h1>
-<p><strong>需要提前下或者网线下载的 两个软件先装好</strong></p>
-<p><strong>安装HeliPort 然后设置-用户与群组-登录项 添加HeliPort</strong></p>
-<p><strong>打开Clover Configurator 选择左侧栏目的挂载分区 然后右边EFI分区 挂载分区</strong></p>
-<p><strong>打开分区 进去OC文件夹 config.plist右键选择<code>Clover Configurator</code>打开</strong></p>
-<p><strong>左侧机型设置 右侧内存信息网上一点点 然后最右侧 选择macpro15,3 生成序列号 跟Smuuid  多点几次生成 关闭点保存</strong></p>
-<p><strong>config.plist右键再用<code>Opencore</code>打开 左侧内核设置把<code>itlwm.kext</code>拖进右边 然后启用点上 重启即可 开机就有wifi了</strong></p>
+<p>下载&mdash;点击: <a href="#%E9%87%8D%E8%A6%81%E5%89%8D%E6%8F%90">前提文件</a></p>
+<p><strong>安装HeliPort</strong></p>
+<p><strong>1. 解压itlwm.zip, 会有一个itlwm.kext</strong></p>
+<p><strong>2. 打开Clover Configurator 选择左侧栏目的挂载分区 然后右边EFI分区 挂载分区 再打开分区 <code>EFI\OC</code>文件夹</strong></p>
+<p><strong>3.1 打开config.plist右键用<code>Opencore</code>打开 左侧<code>内核设置</code>把<code>itlwm.kext</code>拖进右边, 启用点亮</strong></p>
+<p><strong>3.2 打开<code>EFI\OC</code>文件夹 把itlwm.kext拖入 <code>kexts</code>文件夹下 重启电脑 打开HeliPort连接wifi</strong></p>
 <hr>
 <h1 id="安装成功">安装成功</h1>
-<p><img src="/img/macos/mac.png" alt="macos"></p>
+<p><img src="/img/macos/mac-2.png" alt="macos"></p>
 <hr>
 <h1 id="三码洗白">三码洗白</h1>
 <p><strong>电脑提前退出账号</strong></p>
 <p><strong>删除登陆设备 手机-设置-最上方进去-找到型号删除掉</strong></p>
 <pre><code>1. 安装Clover Configurator
 
-#一定要找对自己的型号 dell7590选择``MacPro 15.3``
+#一定要找对自己的型号 dell7590选择``MacPro 16.1``
+
 2. 选择合适的SMBIOS ID
 </code></pre><p><strong>1. 生成UUID 复制到图中SmUUID中</strong></p>
 <p><img src="/img/macos/q1.png" alt="q1"></p>
@@ -226,11 +213,15 @@ https://mackie100projects.altervista.org/download-opencore-configurator/
 <p><a href="https://zhuanlan.zhihu.com/p/190441192">https://zhuanlan.zhihu.com/p/190441192</a></p>
 <p><a href="https://zhuanlan.zhihu.com/p/117680791">https://zhuanlan.zhihu.com/p/117680791</a></p>
 <p><a href="https://zhuanlan.zhihu.com/p/148640325">https://zhuanlan.zhihu.com/p/148640325</a></p>
-<p><a href="https://www.bilibili.com/video/BV1854y1X7oP">https://www.bilibili.com/video/BV1854y1X7oP</a></p>
-<p><a href="https://www.bilibili.com/video/BV12y4y167Qv">https://www.bilibili.com/video/BV12y4y167Qv</a></p>
 <h1 id="三码参考">三码参考</h1>
 <p><a href="https://vlambda.com/wz_5fWCnLTxttA.html">https://vlambda.com/wz_5fWCnLTxttA.html</a></p>
 <p><a href="https://heipg.cn/tutorial/inject-identifier-for-hackintosh.html">https://heipg.cn/tutorial/inject-identifier-for-hackintosh.html</a></p>
+<hr>
+<h1 id="参考视频">参考视频</h1>
+<p><strong>安装系统操作</strong>
+<a href="https://www.bilibili.com/video/BV1854y1X7oP">https://www.bilibili.com/video/BV1854y1X7oP</a></p>
+<p><strong>安装wifi操作</strong>
+<a href="https://www.bilibili.com/video/BV12y4y167Qv">https://www.bilibili.com/video/BV12y4y167Qv</a></p>
 
     </div>
     <div class="post-footer">

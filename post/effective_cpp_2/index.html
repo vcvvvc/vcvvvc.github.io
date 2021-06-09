@@ -4,7 +4,7 @@
     <title>Effective C&#43;&#43; 下 // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.80.0" />
+    <meta name="generator" content="Hugo 0.83.1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -27,9 +27,10 @@ template&lt;typename T&gt; void doProcessing( T&amp; w) { if (w.size() &gt; 10 &
 template&lt;typename T&gt; void doProcessing( T&amp; w) { if (w.size() &gt; 10 &amp;&amp; w != someNastywidget) { ... } }  它必须提供一个名为size的成员函数,该函数返回一个整数值。 它必须支持一个operator!=函数,用来比较两个T对象。这里我们假设 someNastyWidget的类型为T  本文要点
  classes和templates都支持接口(interfaces)和多态(polymorphism) 。 对classes而言接口是显式的(explicit),以函数签名为中心。多态则是通过virtual函数发生于运行期。 对template参数而言,接口是隐式的(implicit) ,奠基于有效表达式。多态则 是通过template具现化和函数重载解析(function overloading resolution)发生于编译期。   条款42: 了解typename的双重意义 template&lt;class T&gt; class widget; //使用&#34;class&#34; template&lt;typename T&gt; class Widget; //使用&#34;typename&#34;  C&#43;&#43;并不总是把class和typename视为等价。有时候你一定得使用 typename。  template&lt;typename C&gt; void print2nd(const C&amp; container) { if (container." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://6923403.github.io/post/effective_cpp_2/" />
-<meta property="article:published_time" content="2021-04-24T20:40:36+08:00" />
-<meta property="article:modified_time" content="2021-04-24T20:40:36+08:00" />
+<meta property="og:url" content="https://6923403.github.io/post/effective_cpp_2/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-04-24T20:40:36&#43;08:00" />
+<meta property="article:modified_time" content="2021-04-24T20:40:36&#43;08:00" />
+
 
   </head>
   <body>

@@ -4,7 +4,7 @@
     <title>Cpp_inherit // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.80.0" />
+    <meta name="generator" content="Hugo 0.83.1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -23,9 +23,10 @@ class Shape { public: void setWidth(int w) { width = w; } void setHeight(int h) 
 class Shape { public: void setWidth(int w) { width = w; } void setHeight(int h) { height = h; } protected: int width; int height; }; // 派生类 class Rectangle: public Shape { public: int getArea() { return (width * height); } }; Rectangle rect; rect.setWidth(3); rect.setHeight(5); #rect result = 15 cout &lt;&lt; rect.getArea() &lt;&lt; endl;  访问控制和继承
    访问 public protected private     同一个类 yes yes yes   派生类 yes yes no   外部的类 yes no no     公有继承（public）：当一个类派生自公有基类时，基类的公有成员也是派生类的公有成员，基类的保护成员也是派生类的保护成员，基类的私有成员不能直接被派生类访问，但是可以通过调用基类的公有和保护成员来访问。 保护继承（protected）： 当一个类派生自保护基类时，基类的公有和保护成员将成为派生类的保护成员。 私有继承（private）：当一个类派生自私有基类时，基类的公有和保护成员将成为派生类的私有成员。  " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://6923403.github.io/post/cpp_inherit/" />
-<meta property="article:published_time" content="2020-09-25T17:44:01+08:00" />
-<meta property="article:modified_time" content="2020-09-25T17:44:01+08:00" />
+<meta property="og:url" content="https://6923403.github.io/post/cpp_inherit/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2020-09-25T17:44:01&#43;08:00" />
+<meta property="article:modified_time" content="2020-09-25T17:44:01&#43;08:00" />
+
 
   </head>
   <body>

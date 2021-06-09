@@ -4,7 +4,7 @@
     <title>Vim_config // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.80.0" />
+    <meta name="generator" content="Hugo 0.83.1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -23,9 +23,10 @@
 (echo -e &#39;\e[48:2:1:2:3m\eP$qm\e\\&#39; ; xxd)
 &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot; &quot;&quot;&quot;=&gt;全局配置&lt;=&quot;&quot;&quot; &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot; &quot;关闭vi兼容模式&quot; set nocompatible &quot;设置历史记录步数&quot; set history=1000 &quot;开启相关插件&quot; &quot;侦测文件类型&quot; filetype on &quot;载入文件类型插件&quot; filetype plugin on &quot;为特定文件类型载入相关缩进文件&quot; filetype indent on &quot;当文件在外部被修改时，自动更新该文件&quot; set autoread &quot;激活鼠标的使用&quot; set mouse=a set selection=exclusive set selectmode=mouse,key &quot;保存全局变量&quot; set viminfo&#43;=! &quot;带有如下符号的单词不要被换行分割&quot; set iskeyword&#43;=_,$,@,%,#,- &quot;通过使用: commands命令，告诉我们文件的哪一行被改变过&quot; set report=0 &quot;被分割的窗口间显示空白，便于阅读&quot; set fillchars=vert:\ ,stl:\ ,stlnc:\ &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot; &quot;&quot;&quot;=&gt;字体和颜色&lt;=&quot;&quot;&quot; &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot; &quot;自动开启语法高亮&quot; syntax enable &quot;设置字体&quot; &quot;set guifont=dejaVu\ Sans\ MONO\ 10 set guifont=Courier_New:h10:cANSI &quot;设置颜色&quot; &quot;colorscheme desert &quot;#set t_Co=256 记着注释或者删除这一行&quot; if has(&quot;termguicolors&quot;) set termguicolors endif &quot;高亮显示当前行&quot; &quot;set cursorline 白色条框 不喜欢可以关闭&quot; set cursorline &quot;hi cursorline guibg=#00ff00&quot; &quot;hi CursorColumn guibg=#00ff00&quot; &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot; &quot;&quot;&quot;=&gt;代码折叠功能&lt;=&quot;&quot;&quot; &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot; &quot;激活折叠功能&quot; set foldenable &quot;set nofen（这个是关闭折叠功能）&quot; &quot;设置按照语法方式折叠（可简写set fdm=XX）&quot; &quot;有6种折叠方法： &quot;manual 手工定义折叠&quot; &quot;indent 更多的缩进表示更高级别的折叠&quot; &quot;expr 用表达式来定义折叠&quot; &quot;syntax 用语法高亮来定义折叠&quot; &quot;diff 对没有更改的文本进行折叠&quot; &quot;marker 对文中的标志进行折叠&quot; set foldmethod=manual &quot;set fdl=0（这个是不选用任何折叠方法）&quot; &quot;设置折叠区域的宽度&quot; &quot;如果不为0，则在屏幕左侧显示一个折叠标识列 &quot;分别用“-”和“&#43;”来表示打开和关闭的折叠 set foldcolumn=0 &quot;设置折叠层数为3&quot; setlocal foldlevel=3 &quot;设置为自动关闭折叠&quot; set foldclose=all &quot;用空格键来代替zo和zc快捷键实现开关折叠&quot; &quot;zo O-pen a fold (打开折叠) &quot;zc C-lose a fold (关闭折叠) &quot;zf F-old creation (创建折叠) &quot;nnoremap &lt;space&gt; @=((foldclosed(line(&#39;." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://6923403.github.io/post/vim_config/" />
-<meta property="article:published_time" content="2020-10-13T18:12:48+08:00" />
-<meta property="article:modified_time" content="2020-10-13T18:12:48+08:00" />
+<meta property="og:url" content="https://6923403.github.io/post/vim_config/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2020-10-13T18:12:48&#43;08:00" />
+<meta property="article:modified_time" content="2020-10-13T18:12:48&#43;08:00" />
+
 
   </head>
   <body>

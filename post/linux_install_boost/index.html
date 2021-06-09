@@ -4,7 +4,7 @@
     <title>Linux install Boost c&#43;&#43; // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.80.0" />
+    <meta name="generator" content="Hugo 0.83.1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -21,9 +21,10 @@
 <meta property="og:description" content="Boost C&#43;&#43; is Cpp programming language that provides support for tasks and structures
  Download Source https://dl.bintray.com/boostorg/release/1.73.0/source/boost_1_73_0.tar.gz tar zxvf boost(解压)  Set use GCC cd boost ./bootstrap.sh --with-libraries=all --with-toolset=gcc  Compile &amp; Install boost ./b2 toolset=gcc ./b2 install --prefix=/usr  Test programming #include &lt;boost/thread/thread.hpp&gt; //boost thread #include &lt;iostream&gt; #include &lt;cstdlib&gt; using namespace std; volatile bool isRuning = true; void func1() { static int cnt1 = 0; while(isRuning) { cout &lt;&lt; &quot;func1:&quot; &lt;&lt; cnt1&#43;&#43; &lt;&lt; endl; sleep(1); } } void func2() { static int cnt2 = 0; while(isRuning) { cout &lt;&lt; &quot;\tfunc2:&quot; &lt;&lt; cnt2&#43;&#43; &lt;&lt; endl; sleep(2); } } int main() { boost::thread thread1(&amp;func1); boost::thread thread2(&amp;func2); system(&quot;read&quot;); isRuning = false; thread2." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://6923403.github.io/post/linux_install_boost/" />
-<meta property="article:published_time" content="2020-07-28T13:09:01+08:00" />
-<meta property="article:modified_time" content="2020-07-28T13:09:01+08:00" />
+<meta property="og:url" content="https://6923403.github.io/post/linux_install_boost/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2020-07-28T13:09:01&#43;08:00" />
+<meta property="article:modified_time" content="2020-07-28T13:09:01&#43;08:00" />
+
 
   </head>
   <body>
