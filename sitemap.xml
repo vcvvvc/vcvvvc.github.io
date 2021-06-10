@@ -200,10 +200,10 @@
     <loc>https://6923403.github.io/post/opepyxl_sytle/</loc>
     <lastmod>2020-11-15T19:14:58+08:00</lastmod>
   </url><url>
-    <loc>https://6923403.github.io/post/vim_config/</loc>
+    <loc>https://6923403.github.io/tags/vim/</loc>
     <lastmod>2020-10-13T18:12:48+08:00</lastmod>
   </url><url>
-    <loc>https://6923403.github.io/tags/volatile/</loc>
+    <loc>https://6923403.github.io/post/vim_config/</loc>
     <lastmod>2020-10-13T18:12:48+08:00</lastmod>
   </url><url>
     <loc>https://6923403.github.io/tags/const/</loc>
@@ -261,6 +261,9 @@
     <lastmod>2020-09-17T21:49:43+08:00</lastmod>
   </url><url>
     <loc>https://6923403.github.io/post/volatile/</loc>
+    <lastmod>2020-09-13T18:12:48+08:00</lastmod>
+  </url><url>
+    <loc>https://6923403.github.io/tags/volatile/</loc>
     <lastmod>2020-09-13T18:12:48+08:00</lastmod>
   </url><url>
     <loc>https://6923403.github.io/post/socket_struct/</loc>
