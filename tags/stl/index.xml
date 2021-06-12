@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>STL on Vcvc Blog</title>
+    <link>https://6923403.github.io/tags/stl/</link>
+    <description>Recent content in STL on Vcvc Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 12 Jun 2021 14:26:45 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/stl/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cpp_stl</title>
+      <link>https://6923403.github.io/post/cpp_stl/</link>
+      <pubDate>Sat, 12 Jun 2021 14:26:45 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/cpp_stl/</guid>
+      <description>容器类型  标准STL序列容器: vector,string、 deque和list. 标准STL关联容器: set, multiset. map和multimap. 非标准序列容器slist和rope, slist是一个单向链表, rope本质上是一“重型&amp;quot; string 非标准的关联容器hash-set, hash-multiset. hash-map和hash-multimap 标准的非STL容器,包括数组、bitset. valarray、 stack, queue和priority_queue.   </description>
+    </item>
+    
+  </channel>
+</rss>
