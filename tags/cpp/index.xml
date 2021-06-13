@@ -366,7 +366,8 @@ thread库提供了future用来访问异步操作的结果，因为一个异步�
       <pubDate>Wed, 26 Aug 2020 22:47:24 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/socket/</guid>
-      <description>setsockopt
+      <description>{:toc}
+setsockopt
 获取或者设置与某个套接字关联的选 项。选项可能存在于多层协议中，它们总会出现在最上面的套接字层。当操作套接字选项时， 选项位于的层和选项的名称必须给出。为了操作套接字层的选项，应该 将层的值指定为SOL_SOCKET。为了操作其它层的选项，控制选 项的合适协议号必须给出。例如，为了表示一个选项由TCP协议解析，层应该设定为协议 号TCP。 SO_LINGER选项
 struct linger { int l_onoff; int l_linger; };  l_onoff = 0, 数据保持发送完成后立即返回 l_onoff = 1, l_linger = 0, 立即放回 放弃发送, 发送rst 自身立即复位 l_onoff = 1, l_linger = 1, 阻塞到超时或数据发送完成, 保持尝试发送,超时后立即结束  SO_REUSEADDR选项
 改变了通配绑定时处理源地址冲突的处理方式, 让端口释放后立即就可以被再次使用

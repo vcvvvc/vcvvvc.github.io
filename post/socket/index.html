@@ -14,7 +14,8 @@
     
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Socket function"/>
-<meta name="twitter:description" content="setsockopt
+<meta name="twitter:description" content="{:toc}
+setsockopt
 获取或者设置与某个套接字关联的选 项。选项可能存在于多层协议中，它们总会出现在最上面的套接字层。当操作套接字选项时， 选项位于的层和选项的名称必须给出。为了操作套接字层的选项，应该 将层的值指定为SOL_SOCKET。为了操作其它层的选项，控制选 项的合适协议号必须给出。例如，为了表示一个选项由TCP协议解析，层应该设定为协议 号TCP。 SO_LINGER选项
 struct linger { int l_onoff; int l_linger; };  l_onoff = 0, 数据保持发送完成后立即返回 l_onoff = 1, l_linger = 0, 立即放回 放弃发送, 发送rst 自身立即复位 l_onoff = 1, l_linger = 1, 阻塞到超时或数据发送完成, 保持尝试发送,超时后立即结束  SO_REUSEADDR选项
 改变了通配绑定时处理源地址冲突的处理方式, 让端口释放后立即就可以被再次使用
@@ -25,7 +26,8 @@ https://blog.csdn.net/u010144805/article/details/78579528
  int fcntl(int fd, int cmd); int fcntl(int fd, int cmd, long arg); int fcntl(int fd, int cmd, struct flock *lock); fcntl函数有5种功能："/>
 
     <meta property="og:title" content="Socket function" />
-<meta property="og:description" content="setsockopt
+<meta property="og:description" content="{:toc}
+setsockopt
 获取或者设置与某个套接字关联的选 项。选项可能存在于多层协议中，它们总会出现在最上面的套接字层。当操作套接字选项时， 选项位于的层和选项的名称必须给出。为了操作套接字层的选项，应该 将层的值指定为SOL_SOCKET。为了操作其它层的选项，控制选 项的合适协议号必须给出。例如，为了表示一个选项由TCP协议解析，层应该设定为协议 号TCP。 SO_LINGER选项
 struct linger { int l_onoff; int l_linger; };  l_onoff = 0, 数据保持发送完成后立即返回 l_onoff = 1, l_linger = 0, 立即放回 放弃发送, 发送rst 自身立即复位 l_onoff = 1, l_linger = 1, 阻塞到超时或数据发送完成, 保持尝试发送,超时后立即结束  SO_REUSEADDR选项
 改变了通配绑定时处理源地址冲突的处理方式, 让端口释放后立即就可以被再次使用
@@ -121,7 +123,8 @@ https://blog.csdn.net/u010144805/article/details/78579528
       </div>
     </header>
     <div class="post-content">
-      <p><strong>setsockopt</strong></p>
+      <p>{:toc}</p>
+<p><strong>setsockopt</strong></p>
 <pre><code>获取或者设置与某个套接字关联的选 项。选项可能存在于多层协议中，它们总会出现在最上面的套接字层。当操作套接字选项时，
 
 选项位于的层和选项的名称必须给出。为了操作套接字层的选项，应该 将层的值指定为SOL_SOCKET。为了操作其它层的选项，控制选
@@ -580,6 +583,45 @@ int shm_open(const char *name, int oflag, mode_t mode);
 </code></pre><p><img src="/img/socket/shm_open_oflag.png" alt="shm_open_oflag"></p>
 <p><strong>shm_unlink 删除创建的共享内存对象</strong></p>
 <p><code>int shm_unlink(const char *name);</code></p>
+<hr>
+<p><strong>socketpair()函数用于创建一对无名的、相互连接的套接子。</strong></p>
+<p><a href="https://blog.csdn.net/weixin_40039738/article/details/81095013">https://blog.csdn.net/weixin_40039738/article/details/81095013</a></p>
+<pre><code>int socketpair(int d, int type, int protocol, int sv[2])；
+</code></pre><p>如果函数成功，则返回0，创建好的套接字分别是sv[0]和sv[1]；否则返回-1，错误码保存于errno中。</p>
+<p><strong>基本用法：</strong></p>
+<ul>
+<li>
+<ol>
+<li>这对套接字可以用于全双工通信，每一个套接字既可以读也可以写。例如，可以往sv[0]中写，从sv[1]中读；或者从sv[1]中写，从sv[0]中读； </li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>如果往一个套接字(如sv[0])中写入后，再从该套接字读时会阻塞，只能在另一个套接字中(sv[1])上读成功； </li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li>读、写操作可以位于同一个进程，也可以分别位于不同的进程，如父子进程。如果是父子进程时，一般会功能分离，一个进程用来读，一个用来写。因为文件描述副sv[0]和sv[1]是进程共享的，所以读的进程要关闭写描述符, 反之，写的进程关闭读描述符。 </li>
+</ol>
+</li>
+</ul>
+<p><strong>s</strong>endmsg、recvmsg、send函数的使用**</p>
+<pre><code>#sendmsg()用来将数据由指定的socket传给对方主机. 失败返回-1
+int sendmsg(int s, const strcut msghdr *msg, unsigned int flags);
+
+#函数说明：recvmsg()用来接收远程主机经指定的socket 传来的数据.  失败返回-1
+int recvmsg(int s, struct msghdr *msg, unsigned int flags);
+
+#send()用来将数据由指定的socket 传给对方主机.  失败返回-1
+int send(int s, const void * msg, int len, unsigned int falgs);
+</code></pre><p><strong>函数send参数flags 一般设0, 其他数值定义如下：</strong></p>
+<ul>
+<li>MSG_OOB 传送的数据以out-of-band 送出.</li>
+<li>MSG_DONTROUTE 取消路由表查询</li>
+<li>MSG_DONTWAIT 设置为不可阻断运作</li>
+<li>MSG_NOSIGNAL 此动作不愿被SIGPIPE 信号中断.</li>
+</ul>
 
     </div>
     <div class="post-footer">
@@ -588,8 +630,7 @@ int shm_open(const char *name, int oflag, mode_t mode);
   </article>
 <br />
 <hr width = "450" color="#eeeeee" align="left">
-  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
-<a rel="index" href="https://6923403.github.io/"></a>
+  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="/vcvc/license.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
 
     </main>
   </body>

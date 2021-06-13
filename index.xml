@@ -765,7 +765,8 @@ Epoll 没有最大并发连接的限制，上限是最大可以打开文件的�
       <pubDate>Wed, 26 Aug 2020 22:47:24 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/socket/</guid>
-      <description>setsockopt
+      <description>{:toc}
+setsockopt
 获取或者设置与某个套接字关联的选 项。选项可能存在于多层协议中，它们总会出现在最上面的套接字层。当操作套接字选项时， 选项位于的层和选项的名称必须给出。为了操作套接字层的选项，应该 将层的值指定为SOL_SOCKET。为了操作其它层的选项，控制选 项的合适协议号必须给出。例如，为了表示一个选项由TCP协议解析，层应该设定为协议 号TCP。 SO_LINGER选项
 struct linger { int l_onoff; int l_linger; };  l_onoff = 0, 数据保持发送完成后立即返回 l_onoff = 1, l_linger = 0, 立即放回 放弃发送, 发送rst 自身立即复位 l_onoff = 1, l_linger = 1, 阻塞到超时或数据发送完成, 保持尝试发送,超时后立即结束  SO_REUSEADDR选项
 改变了通配绑定时处理源地址冲突的处理方式, 让端口释放后立即就可以被再次使用
@@ -916,17 +917,13 @@ cd ffmpeg/ ./configure sudo make -j4 sudo make install  3. Check ffmpeg -version
     </item>
     
     <item>
-      <title>随笔</title>
+      <title>About &amp; Talk</title>
       <link>https://6923403.github.io/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://6923403.github.io/about/</guid>
-      <description>用文字记录经验。 其他写作平台规则繁琐、封禁关键词、 删文等操作实在无语。
- 2021-05
-个人了解金融证券、营销、计算机、周易。
-当时自学编程并想做点什么, 于是一直在深入学习.
-目前小有收获, 还能用这项技能赚点工资。
-偶尔再分析下财报, 做长期投资，也是不错。</description>
+      <description>每一篇文章都放置评论感觉太拥挤
+故单独一页畅所欲言专用</description>
     </item>
     
   </channel>
