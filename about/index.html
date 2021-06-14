@@ -92,16 +92,17 @@
   </article>
 <br />
 <hr width = "450" color="#eeeeee" align="left">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<div id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <div id="gitalk-container"></div>
         var gitalk = new Gitalk({
         clientID: '2ecb3e20dcbba9b506c2',
         clientSecret: 'a38eab2567bf0abbf43d858327df50dd388aeff6',
         repo: '6923403.github.io',
         owner: '6923403',
         admin: ['6923403'],
-        id: '',      // Ensure uniqueness and length less than 50
+        id: location.pathname,      // Ensure uniqueness and length less than 50
         distractionFreeMode: false  // Facebook-like distraction free mode
         })
         gitalk.render('gitalk-container')
