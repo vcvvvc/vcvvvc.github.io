@@ -923,7 +923,8 @@ cd ffmpeg/ ./configure sudo make -j4 sudo make install  3. Check ffmpeg -version
       
       <guid>https://6923403.github.io/about/</guid>
       <description>每一篇文章都放置评论感觉太拥挤
-故单独一页畅所欲言专用</description>
+故单独一页畅所欲言专用
+{{ partial &amp;ldquo;gitalk.html&amp;rdquo; . }}</description>
     </item>
     
   </channel>

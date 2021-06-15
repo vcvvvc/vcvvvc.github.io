@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en-us">
+<html lang="zh-cn">
   <head>
     <title>Vim_config // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
-    <meta name="description" content="用文字记录经验， 个人了解金融证券、商务、计算机、周易。" />
+    <meta name="description" content="用文字记录经验。" />
     <meta name="keywords" content="Vcvc,Vcvc Blog,CPP,Open Source,Python,Linux" />
     <link rel="stylesheet" href="https://6923403.github.io/css/main.min.c2052924716d810662c2cc67f9223190e814e1923e41ea4b9647c5c71b6ce3b6.css" />
     
@@ -523,6 +523,34 @@ highlight Search ctermbg=black ctermfg=white guifg=white guibg=black
 <br />
 <hr width = "450" color="#eeeeee" align="left">
   <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="/vcvc/license.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+<br />
+<br />
+<hr width = "450" color="#eeeeee" align="left">
+</div>
+  
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '21b0d923081673c4c523',
+        clientSecret: 'f3b067b311054eeea1dc23fed945221e8585372f',
+        repo: '6923403.github.io',
+        owner: '6923403',
+        admin: ['6923403'],
+        id: location.pathname, 
+        distractionFreeMode: false 
+    });
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
+            return;
+        }
+        gitalk.render('gitalk-container');
+    })();
+</script>
+
+  <div>
 
     </main>
   </body>
