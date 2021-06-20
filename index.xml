@@ -5,7 +5,49 @@
     <link>https://6923403.github.io/</link>
     <description>Recent content on Vcvc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 12 Jun 2021 14:26:45 +0800</lastBuildDate><atom:link href="https://6923403.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 20 Jun 2021 18:12:03 +0800</lastBuildDate><atom:link href="https://6923403.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>TCP_三次握手与四次挥手</title>
+      <link>https://6923403.github.io/post/tcp_%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B_%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/</link>
+      <pubDate>Sun, 20 Jun 2021 18:12:03 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/tcp_%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B_%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/</guid>
+      <description>三次握手 
+第一次握手:
+(客户端发送一个TCP的SYN标志位置1的包指明客户打算连接的服务器的端口，以及初始序号X,保存在包头的序列号(Sequence Number)字段里。)
+Client端将SYN置为1，表示希望与Server端建立连接；序号seq初始化为J，并将该数据包发送给Server端，Client进入SYN_SENT状态，等待Server确认。服务器发回确认包(ACK)应答。即SYN标志位和ACK标志位均为1同时，将确认序号(Acknowledgement Number)设置为客户的I S N加1以.即X+1。
+第二次握手:
+(服务器发回确认包(ACK)应答。即SYN标志位和ACK标志位均为1同时，将确认序号(Acknowledgement Number)设置为客户的I S N加1以.即X+1。)
+Server端检查报文发现SYN为1，知道了Client端想建立连接；Server端将SYN置为1，表示Server端也希望与Clinet端建立连接；Server端将ACK置为1，表示收到了Client端建立连接的请求；Server端将seq初始化为K；Server端将ack置为J+1，这里ack=seq + 1，还有疑问（如果控制位占1字节，为什么第三次握手时有ACK=1、SYN=1，ack为什么不是+2？如果+1只是告诉服务端收到了消息，那ACK控制位就已经达到目的了，为什么还要多次一举再加一个ack?）。第二次握手包括服务端确认客户端发来的报文和服务端向客户端发送报文两个过程。
+第三次握手:
+(客户端再次发送确认包(ACK) SYN标志位为0,ACK标志位为1.并且把服务器发来ACK的序号字段+1,放在确定字段中发送给对方.并且在数据段放写ISN的+1)
+Client收到报文后，检查ack是否为J+1，ACK是否为1，如果正确则将标志位ACK置为1，ack=K+1，并将该数据包发送给Server，Server检查ack是否为K+1，ACK是否为1，如果正确则连接建立成功，Client和Server进入ESTABLISHED状态，完成三次握手，随后Client与Server之间可以开始传输数据了。第三次握手包括客户端确认服务端发来的报文，客户端向服务端发送报文和服务端确认客户端发来的报文三个过程。
+ 四次挥手 
+第一次挥手
+(主动方发送Fin+Ack报文,并置发送序号为x)
+假设客户端主动发起断开请求，客户端向服务端发送报文，报文首部包括FIN=1，这个控制位代表客户端想要断开连接；序列号seq=u，这时客户端进入FIN-WAIT-1（终止等待1）状态，停止发送数据，并等待服务端的确认。
+第二次挥手
+(被动方送ACK报文,并置发送序号为Z,在确认序号为x+1)
+服务端收到客户端的报文后发出确认报文，控制位ACK=1；确认号ack=u+1；序列号seq=v；然后服务端就进入CLOSE-WAIT（关闭等待）状态。TCP服务端会告知上层的应用进程来自客户端的连接即将关闭，让应用程序做好相应的准备。此时客户端已经没有数据向服务端发送了，但服务端向客户端发送数据，客户端依然能接收。
+第三次挥手
+(被动方发送Fin+Ack报文,并置发送序号为Y,在确认序号为x)
+客户端收到服务器确认报文后，进入FIN-WAIT-2状态。此时服务器再次发送报文，报文首部控制位FIN=1，表示服务端向客户端发送断开连接请求；确认标志ACK=1；确认序号ack=u+1；序号seq=w，然后服务器进入LAST-ACK（最后确认态），等待客户端确认。
+第四次挥手
+(主动方发送ack报文,并置发送序号为x,在确认序号为Y)
+客户端收到了服务端的断开连接的报文后，必须发出确认报文，标志位ACK=1；确认号ack=w+1;序号seq=u+1；之后客户端就进入了TIME-WAIT（时间等待）状态。注意此时客户端的TCP连接还没有释放，必须经过2*MSL（最长报文段寿命）的时间后，客户端才进入CLOSED状态关闭连接。而服务端只要收到了客户端发送的确认报文后就会进入CLOSED状态关闭服务端连接。当客户端和服务端都进入了CLOSED状态后，客户端和服务端之间的连接才完全断开。
+ 相关面试题
+  TCP三次握手？为什么不是两次？为什么不是四次？
+ 第一次握手, 目的端确认源端的发送能力、目的端确认目的端的接受能力 第二次握手, 源端确认源端的发送能力、源端确认源端的接受能力、源端确认目的端的发送能力、源端确认目的端的接收能力 第三次握手, 目的端确认源端的接收能力、目的端确认目的端的发送能力  因为2次握手表格填充不完，源端和目的端无法确认双方的收发能力；为什么不是4次握手？3次握手表格就填充完毕了，不需要再多一次握手了。
+  TCP四次挥手？为什么不是三次？为什么不是五次？
+第二次挥手和第三次挥手都是服务端向客户端发送报文，第二次挥手是服务端收到了客户端的断开请求，通知客户端俺收到了，此时客户端没有数据向服务端发送了，但不代表服务端也没有数据向客户端发送，因为服务端要把剩余还没有发送的报文发送完毕再断开连接；第三次挥手是服务端数据全部发送完毕，向客户端发送断开请求报文（FIN=1）。
+如果是三次挥手，即把服务端向客户端发送报文的第二次挥手和第三次挥手合为一次，会造成服务端发送了回执后立刻又发送断开请求，造成服务端有数据没有全部发送至客户端，因此必须将第二次挥手和第三次挥手分开；五次挥手则完全没必要，多此一举。
+  在四次挥手中，为什么客户端进入TIME_WAIT状态等待2*MSL时间，而不是直接进入CLOSED状态？
+客户端在发送完给服务端的回执报文后没有立刻进入CLOSED状态，而是进入TIME-WAIT状态，然后等待2*MSL（最长报文段寿命）的时间后才进入CLOSED状态，这是为什么？原因有以下两点：
+  客户端发送给服务端回执后，有可能这个回执报文在传输途中丢失等原因，服务端并没有收到，此时服务端会再次向客户端发送FIN=1的断开请求报文，如果客户端没有等待2*MSL时间而直接进入了CLOSED状态，客户端就会收不到服务端再次发送的断开连接的请求报文，导致服务端无法进入CLOSED状态；
+  等待一段时间是为了让本连接持续时间内所产生的所有报文都从网络中消失，使得下一个新的连接不会出现旧的连接请求报文。
+  注：MSL是Maximum Segment Lifetime英文的缩写，中文可以译为“报文最大生存时间”，他是任何报文在网络上存在的最长时间，超过这个时间报文将被丢弃。</description>
+    </item>
+    
     <item>
       <title>Cpp_stl</title>
       <link>https://6923403.github.io/post/cpp_stl/</link>
@@ -923,8 +965,7 @@ cd ffmpeg/ ./configure sudo make -j4 sudo make install  3. Check ffmpeg -version
       
       <guid>https://6923403.github.io/about/</guid>
       <description>每一篇文章都放置评论感觉太拥挤
-故单独一页畅所欲言专用
-{{ partial &amp;ldquo;gitalk.html&amp;rdquo; . }}</description>
+故单独一页畅所欲言专用</description>
     </item>
     
   </channel>
