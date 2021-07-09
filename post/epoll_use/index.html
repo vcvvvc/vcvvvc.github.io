@@ -81,12 +81,15 @@ Epoll 没有最大并发连接的限制，上限是最大可以打开文件的�
         
         <a href="/vcvc/index.html" target="_blank">
           <img  border="0" src="/vcvc/arrow.png" alt="Home" width="24" height="24"></a>
-<div class="searchBox">
-       <form method="get" target = "_blank" action="http://www.google.com/search">
-           <input type="text" name="query" class="searchField" placeholder = "Search-goolge" />
-           <input type="hidden" name="sitesearch" value="6923403.github.io">
-       </form>
-</div>
+      <template id="mdl-wb__search-result" hidden>
+        <article class="content post">
+          <h4 class="post-title"><a class="search-result__link"></a></h4>
+          <p class="search-result__summary"></p>
+          <div>
+            <span class="mdl-button mdl-js-button mdl-button--accent" role="button"><a class="search-result__button">Expand Result</a></span>
+          </div>
+        </article>
+      </template>
       </div>
     </header>
     <main class="app-container">
@@ -107,7 +110,7 @@ Epoll 没有最大并发连接的限制，上限是最大可以打开文件的�
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          3 min read
+          5 min read
         </div>
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
@@ -316,6 +319,171 @@ eventpoll *ep;
 <p><img src="/img/epoll_use/wait.jpg" alt="wait"></p>
 <p>通过红黑树和双链表数据结构，并结合回调机制，造就了epoll的高效。</p>
 <hr>
+<h1 id="代码示例">代码示例</h1>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;unistd.h&gt;
+#include &lt;cstring&gt;
+#include &lt;cassert&gt;
+#include &lt;sys/socket.h&gt;
+#include &lt;netinet/in.h&gt;
+#include &lt;arpa/inet.h&gt;
+#include &lt;sys/epoll.h&gt;
+#include &lt;sys/types.h&gt;
+#include &lt;fcntl.h&gt;
+
+const int MAX_EVENT_NUMBER = 1024;
+const int BUFFER_SIZE = 10;
+
+int setnonblocking(int fd);
+void addfd(int epollfd, int fd, bool enable_et);
+void lt(epoll_event *events, int number, int epollfd, int listenfd);
+void et(epoll_event *events, int number, int epollfd, int listenfd);
+
+int main(int argc, char **argv)
+{
+    int port = 20999;
+
+    struct sockaddr_in addr;
+    memset(&amp;addr, 0, sizeof(addr));
+    addr.sin_family = AF_INET;
+    addr.sin_port = htons(port);
+    addr.sin_addr.s_addr = htonl(INADDR_ANY);
+
+    int listenfd = socket(AF_INET, SOCK_STREAM, 0);
+    assert(listenfd != -1);
+
+    int reuse = 1;
+    setsockopt(listenfd, SOL_SOCKET, SO_REUSEADDR, &amp;reuse, sizeof(reuse));
+
+    int ret = bind(listenfd, (struct sockaddr*) &amp;addr, sizeof(addr));
+    assert(ret != -1);
+    ret = listen(listenfd, 10);
+    assert(ret != -1);
+
+    epoll_event events[MAX_EVENT_NUMBER];
+    int epollfd = epoll_create(5);
+    assert(epollfd &gt; 0);
+
+    addfd(epollfd, listenfd, true);
+    while (true) {
+        int ret = epoll_wait(epollfd, events, MAX_EVENT_NUMBER, -1);
+        if (ret &lt; 0) {
+            std::cout &lt;&lt; &quot;epoll failed &quot; &lt;&lt; std::endl;
+            break;
+        }
+
+        //lt(events, ret, epollfd, sockfd);		//LT模式
+        et(events, ret, epollfd, listenfd);		//ET模式
+    }
+
+    return 0;
+}
+
+//设置非阻塞文件描述符
+int setnonblocking(int fd)
+{
+    int old_option = fcntl(fd, F_GETFL);
+    int new_option = old_option | O_NONBLOCK;
+    fcntl(fd, F_SETFL, new_option);
+    return old_option;
+}
+
+//将描述符fd的EPOLLIN注册到epollfd提示的epoll内核事件中，参数enable_et指定是否启用ET模式
+void addfd(int epollfd, int fd, bool enable_et)
+{
+    epoll_event event;
+    event.data.fd = fd;
+    event.events = EPOLLIN;
+
+    if (enable_et) {
+        event.events |= EPOLLET;
+    }
+
+    epoll_ctl(epollfd, EPOLL_CTL_ADD, fd, &amp;event);
+
+    setnonblocking(fd);
+}
+
+//LT模式
+void lt(epoll_event *events, int number, int epollfd, int listenfd)
+{
+    char buf[BUFFER_SIZE];
+
+    for (int i = 0; i &lt; number; i++) {
+        int sockfd = events[i].data.fd;
+        if (sockfd == listenfd) {
+            struct sockaddr_in client_address;
+            socklen_t client_addrlength = sizeof(client_address);
+
+            int connfd = accept(listenfd, (struct sockaddr*)&amp;client_address, &amp;client_addrlength);
+            addfd(epollfd, connfd, false);
+        }
+        else if (events[i].events &amp; EPOLLIN) {		//只要socket读缓存中还有未读出的数据，就会被触发
+            std::cout &lt;&lt; &quot;event trigger once&quot; &lt;&lt; std::endl;
+            memset(buf, '\0', BUFFER_SIZE);
+
+            int ret = recv(sockfd, buf, BUFFER_SIZE-1, 0);
+            if (ret &lt;= 0) {
+                close(sockfd);
+                continue;
+            }
+
+            std::cout &lt;&lt; &quot;get: &quot; &lt;&lt; ret &lt;&lt; &quot; bytes of content: &quot; &lt;&lt; buf &lt;&lt; std::endl;
+        }
+        else {
+            std::cout &lt;&lt; &quot;something else happened&quot; &lt;&lt; std::endl;
+        }
+    }
+}
+
+//ET模式
+void et(epoll_event *events, int number, int epollfd, int listenfd)
+{
+    char buf[BUFFER_SIZE];
+
+    for (int i = 0; i &lt; number; i++) {
+        int sockfd = events[i].data.fd;
+        if (sockfd == listenfd) {
+            struct sockaddr_in client_address;
+            socklen_t client_addrlength = sizeof(client_address);
+
+            int connfd = accept(listenfd, (struct sockaddr*)&amp;client_address, &amp;client_addrlength);
+            addfd(epollfd, connfd, true);
+        }
+        else if (events[i].events &amp; EPOLLIN) {
+            std::cout &lt;&lt; &quot;event trigger once&quot; &lt;&lt; std::endl;
+            int ret = 0;
+
+            //因为ET模式不会重复触发，所以我们要循环读取所有数据
+            while (true) {
+                memset(buf, '\0', BUFFER_SIZE);
+
+                ret = recv(sockfd, buf, BUFFER_SIZE-1, 0);
+                if (ret &lt; 0) {
+                    //对于非阻塞I/O，下面的条件成立时表示数据已全部读取完毕
+                    if (errno == EAGAIN || errno == EWOULDBLOCK) {
+                        std::cout &lt;&lt; &quot;read later!&quot; &lt;&lt; std::endl;
+                        break;
+                    }
+
+                    close(sockfd);
+                    break;
+                }
+                else if (ret == 0) {
+                    close(sockfd);
+                }
+                else {
+                    std::cout &lt;&lt; &quot;get &quot; &lt;&lt; ret &lt;&lt; &quot; bytes of content: &quot; &lt;&lt; buf &lt;&lt; std::endl;
+                }
+            }
+        }
+        else {
+            std::cout &lt;&lt; &quot;something else happened&quot; &lt;&lt; std::endl;
+        }
+    }
+
+}
+</code></pre><hr>
 <p>Re:</p>
 <p><a href="https://www.jianshu.com/p/718c24af400f">https://www.jianshu.com/p/718c24af400f</a></p>
 <p><a href="https://www.bbsmax.com/A/l1dymR3Gde/">https://www.bbsmax.com/A/l1dymR3Gde/</a></p>

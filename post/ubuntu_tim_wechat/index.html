@@ -73,12 +73,15 @@ sudo apt-get install fonts-droid-fallback ttf-wqy-zenhei ttf-wqy-microhei fonts-
         
         <a href="/vcvc/index.html" target="_blank">
           <img  border="0" src="/vcvc/arrow.png" alt="Home" width="24" height="24"></a>
-<div class="searchBox">
-       <form method="get" target = "_blank" action="http://www.google.com/search">
-           <input type="text" name="query" class="searchField" placeholder = "Search-goolge" />
-           <input type="hidden" name="sitesearch" value="6923403.github.io">
-       </form>
-</div>
+      <template id="mdl-wb__search-result" hidden>
+        <article class="content post">
+          <h4 class="post-title"><a class="search-result__link"></a></h4>
+          <p class="search-result__summary"></p>
+          <div>
+            <span class="mdl-button mdl-js-button mdl-button--accent" role="button"><a class="search-result__button">Expand Result</a></span>
+          </div>
+        </article>
+      </template>
       </div>
     </header>
     <main class="app-container">
