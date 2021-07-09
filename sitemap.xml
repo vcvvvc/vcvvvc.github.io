@@ -2,19 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://6923403.github.io/tags/news-m/</loc>
+    <lastmod>2021-07-09T22:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://6923403.github.io/post/news_wps/</loc>
+    <lastmod>2021-07-09T22:00:00+08:00</lastmod>
+  </url><url>
     <loc>https://6923403.github.io/post/</loc>
-    <lastmod>2021-06-20T18:12:03+08:00</lastmod>
+    <lastmod>2021-07-09T22:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://6923403.github.io/tags/python/</loc>
+    <lastmod>2021-07-09T22:00:00+08:00</lastmod>
   </url><url>
     <loc>https://6923403.github.io/tags/</loc>
-    <lastmod>2021-06-20T18:12:03+08:00</lastmod>
+    <lastmod>2021-07-09T22:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://6923403.github.io/tags/tutorial/</loc>
+    <lastmod>2021-07-09T22:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://6923403.github.io/</loc>
+    <lastmod>2021-07-09T22:00:00+08:00</lastmod>
   </url><url>
     <loc>https://6923403.github.io/tags/tcp/</loc>
     <lastmod>2021-06-20T18:12:03+08:00</lastmod>
   </url><url>
     <loc>https://6923403.github.io/post/tcp_%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B_%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/</loc>
-    <lastmod>2021-06-20T18:12:03+08:00</lastmod>
-  </url><url>
-    <loc>https://6923403.github.io/</loc>
     <lastmod>2021-06-20T18:12:03+08:00</lastmod>
   </url><url>
     <loc>https://6923403.github.io/tags/cpp/</loc>
@@ -166,21 +178,6 @@
   </url><url>
     <loc>https://6923403.github.io/post/unp_note/</loc>
     <lastmod>2021-01-11T22:40:43+08:00</lastmod>
-  </url><url>
-    <loc>https://6923403.github.io/tags/excel/</loc>
-    <lastmod>2020-12-11T15:40:38+08:00</lastmod>
-  </url><url>
-    <loc>https://6923403.github.io/tags/news-m/</loc>
-    <lastmod>2020-12-11T15:40:38+08:00</lastmod>
-  </url><url>
-    <loc>https://6923403.github.io/post/news_wps/</loc>
-    <lastmod>2020-12-11T15:40:38+08:00</lastmod>
-  </url><url>
-    <loc>https://6923403.github.io/tags/python/</loc>
-    <lastmod>2020-12-11T15:40:38+08:00</lastmod>
-  </url><url>
-    <loc>https://6923403.github.io/tags/tutorial/</loc>
-    <lastmod>2020-12-11T15:40:38+08:00</lastmod>
   </url><url>
     <loc>https://6923403.github.io/post/pymysql_err_1698/</loc>
     <lastmod>2020-11-30T16:24:28+08:00</lastmod>
