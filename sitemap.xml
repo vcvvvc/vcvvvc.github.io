@@ -2,16 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://6923403.github.io/post/</loc>
-    <lastmod>2021-07-09T22:37:33+08:00</lastmod>
+    <loc>https://6923403.github.io/tags/centos/</loc>
+    <lastmod>2021-07-12T13:28:17+08:00</lastmod>
   </url><url>
-    <loc>https://6923403.github.io/tags/python/</loc>
-    <lastmod>2021-07-09T22:37:33+08:00</lastmod>
+    <loc>https://6923403.github.io/post/centos8_install_redis/</loc>
+    <lastmod>2021-07-12T13:28:17+08:00</lastmod>
+  </url><url>
+    <loc>https://6923403.github.io/post/</loc>
+    <lastmod>2021-07-12T13:28:17+08:00</lastmod>
+  </url><url>
+    <loc>https://6923403.github.io/tags/redis/</loc>
+    <lastmod>2021-07-12T13:28:17+08:00</lastmod>
   </url><url>
     <loc>https://6923403.github.io/tags/</loc>
-    <lastmod>2021-07-09T22:37:33+08:00</lastmod>
+    <lastmod>2021-07-12T13:28:17+08:00</lastmod>
   </url><url>
     <loc>https://6923403.github.io/</loc>
+    <lastmod>2021-07-12T13:28:17+08:00</lastmod>
+  </url><url>
+    <loc>https://6923403.github.io/post/centos8_install_docker/</loc>
+    <lastmod>2021-07-12T12:25:06+08:00</lastmod>
+  </url><url>
+    <loc>https://6923403.github.io/tags/docker/</loc>
+    <lastmod>2021-07-12T12:25:06+08:00</lastmod>
+  </url><url>
+    <loc>https://6923403.github.io/tags/python/</loc>
     <lastmod>2021-07-09T22:37:33+08:00</lastmod>
   </url><url>
     <loc>https://6923403.github.io/post/hanchengwang/</loc>
@@ -257,9 +272,6 @@
     <loc>https://6923403.github.io/post/install_redis/</loc>
     <lastmod>2020-09-21T13:32:22+08:00</lastmod>
   </url><url>
-    <loc>https://6923403.github.io/tags/redis/</loc>
-    <lastmod>2020-09-21T13:32:22+08:00</lastmod>
-  </url><url>
     <loc>https://6923403.github.io/post/install_mysql/</loc>
     <lastmod>2020-09-20T22:36:44+08:00</lastmod>
   </url><url>
@@ -316,9 +328,6 @@
   </url><url>
     <loc>https://6923403.github.io/post/socket/</loc>
     <lastmod>2020-08-26T22:47:24+08:00</lastmod>
-  </url><url>
-    <loc>https://6923403.github.io/tags/docker/</loc>
-    <lastmod>2020-08-22T16:42:04+08:00</lastmod>
   </url><url>
     <loc>https://6923403.github.io/post/docker_tutorial/</loc>
     <lastmod>2020-08-22T16:42:04+08:00</lastmod>
