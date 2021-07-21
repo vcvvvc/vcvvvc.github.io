@@ -1007,8 +1007,7 @@ cd ffmpeg/ ./configure sudo make -j4 sudo make install  3. Check ffmpeg -version
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://6923403.github.io/about/</guid>
-      <description>每一篇文章都放置评论感觉太拥挤
-故单独一页畅所欲言专用</description>
+      <description></description>
     </item>
     
   </channel>
