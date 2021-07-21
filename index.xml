@@ -5,7 +5,19 @@
     <link>https://6923403.github.io/</link>
     <description>Recent content on Vcvc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 12 Jul 2021 13:28:17 +0800</lastBuildDate><atom:link href="https://6923403.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 22 Jul 2021 00:13:51 +0800</lastBuildDate><atom:link href="https://6923403.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>grpc install</title>
+      <link>https://6923403.github.io/post/grpc_install/</link>
+      <pubDate>Thu, 22 Jul 2021 00:13:51 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/grpc_install/</guid>
+      <description>macos11.4下 grpc-cpp安装
+ lib brew install autoconf automake libtool shtool gflags cmake pkg-config  grpc-cpp git clone https://github.com/grpc/grpc.git git checkout -b v1.38.x # 下载所有子模块 git submodule update --init --recursive  protobuf3 install git clone https://github.com/google/protobuf.git cd protobuf git checkout v3.9.0 sh ./autogen.sh ./configure --prefix=/usr/local/protobuf/ make sudo make install 查看版本
+cd /usr/local/protobuf/bin/ ./protoc --version 将下面指令加入.bash_profiile中之后执行source ~/.bash_profile
+export PATH=$PATH:/usr/local/protobuf/bin/  grpc install cd grpc export MY_INSTALL_DIR=$HOME/.local mkdir -p $MY_INSTALL_DIR export PATH=&amp;quot;$MY_INSTALL_DIR/bin:$PATH&amp;quot; mkdir -p cmake/build pushd cmake/build cmake -DgRPC_INSTALL=ON \ -DgRPC_BUILD_TESTS=OFF \ -DCMAKE_INSTALL_PREFIX=$MY_INSTALL_DIR \ .</description>
+    </item>
+    
     <item>
       <title>Centos8 install redis</title>
       <link>https://6923403.github.io/post/centos8_install_redis/</link>
