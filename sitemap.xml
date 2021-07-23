@@ -2,6 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://6923403.github.io/tags/</loc>
+    <lastmod>2021-07-22T22:22:22+08:00</lastmod>
+  </url><url>
+    <loc>https://6923403.github.io/</loc>
+    <lastmod>2021-07-22T22:22:22+08:00</lastmod>
+  </url><url>
+    <loc>https://6923403.github.io/zhouyi/</loc>
+    <lastmod>2021-07-22T22:22:22+08:00</lastmod>
+  </url><url>
+    <loc>https://6923403.github.io/tags/%E6%98%93/</loc>
+    <lastmod>2021-07-22T22:22:22+08:00</lastmod>
+  </url><url>
+    <loc>https://6923403.github.io/zhouyi/%E6%B0%B4%E9%9B%B7%E5%B1%AF/</loc>
+    <lastmod>2021-07-22T22:22:22+08:00</lastmod>
+  </url><url>
     <loc>https://6923403.github.io/tags/grpc/</loc>
     <lastmod>2021-07-22T00:13:51+08:00</lastmod>
   </url><url>
@@ -11,11 +26,8 @@
     <loc>https://6923403.github.io/post/</loc>
     <lastmod>2021-07-22T00:13:51+08:00</lastmod>
   </url><url>
-    <loc>https://6923403.github.io/tags/</loc>
-    <lastmod>2021-07-22T00:13:51+08:00</lastmod>
-  </url><url>
-    <loc>https://6923403.github.io/</loc>
-    <lastmod>2021-07-22T00:13:51+08:00</lastmod>
+    <loc>https://6923403.github.io/zhouyi/%E5%91%A8%E6%98%93%E7%99%BE%E7%A7%91/</loc>
+    <lastmod>2021-07-21T21:21:21+08:00</lastmod>
   </url><url>
     <loc>https://6923403.github.io/tags/centos/</loc>
     <lastmod>2021-07-12T13:28:17+08:00</lastmod>
