@@ -5,7 +5,23 @@
     <link>https://6923403.github.io/</link>
     <description>Recent content on Vcvc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 31 Jul 2021 23:31:17 +0800</lastBuildDate><atom:link href="https://6923403.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 18 Aug 2021 19:29:15 +0800</lastBuildDate><atom:link href="https://6923403.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>类静态成员初始化、赋值</title>
+      <link>https://6923403.github.io/post/%E7%B1%BB%E9%9D%99%E6%80%81%E6%88%90%E5%91%98%E5%88%9D%E5%A7%8B%E5%8C%96/</link>
+      <pubDate>Wed, 18 Aug 2021 19:29:15 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/%E7%B1%BB%E9%9D%99%E6%80%81%E6%88%90%E5%91%98%E5%88%9D%E5%A7%8B%E5%8C%96/</guid>
+      <description>类静态成员类外初始化与在另一个类成员函数赋值
+ 为什么类的静态成员要在类外初始化 因为静态成员属于整个类，而不属于某个对象，如果在类内初始化，会导致每个对象都包含该静态成员，这是矛盾的。
+C++的静态成员是需要初始化的（实际上需要分配一个内存，不一定需要赋值），初始化是赋一个初始值，而定义是分配内存。静态成员变量在类中仅仅是声明，没有定义，所以要在类的外面定义。 静态成员是单独存储的，并不是对象的组成部分。如果在类的内部进行定义，在建立多个对象时会多次声明和定义该变量的存储位置。在名字空间和作用于相同的情况下会导致重名的问题。
+ 静态常量成员可以在类内初始化   类的静态成员变量在另一个类赋值 //头文件代码 a.h class SPostMsgToMain { public: //存储消息线程的指针 static CWinThread* m_pThread; }; //a.cpp SPostMsgToMain::m_pThread=NULL; //此处为静态成员的定义。该定义要写在实现文件里面，不能写在头文件里面 //thread.cpp QueryThread::QueryThread(void) { SPostMsgToMain::m_pThread = this; }  Re:
+https://blog.csdn.net/sevenjoin/article/details/81772792
+https://blog.csdn.net/lvquanye9483/article/details/81946116
+下面是09年已经删除的帖子，这是bing保存的快照:
+http://cncc.bingj.com/cache.aspx?q=类的静态成员变量在另一个类赋值</description>
+    </item>
+    
     <item>
       <title>山水蒙</title>
       <link>https://6923403.github.io/zhouyi/%E5%B1%B1%E6%B0%B4%E8%92%99/</link>
