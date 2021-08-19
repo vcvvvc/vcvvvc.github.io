@@ -132,25 +132,25 @@ https://github.com/OpenIntelWireless/HeliPort/releases https://github.com/OpenIn
       </div>
     </header>
     <div class="post-content">
-      <h1 id="2021-06-09更新">2021-06-09更新</h1>
+      <h2 id="2021-06-09更新">2021-06-09更新</h2>
 <p><strong>系统为big sur 11.4</strong></p>
 <p><strong>接近完美 可以用intel网卡连接wifi 速度还不错</strong></p>
 <p><strong>已知麦克风、隔空投送不能用</strong></p>
 <pre><code>U盘至少16g 再来个小内存U盘或者有网线联网
 分出一块磁盘空间至少100G
 </code></pre><hr>
-<h1 id="镜像下载">镜像下载</h1>
+<h2 id="镜像下载">镜像下载</h2>
 <p><code>搜素：黑果小兵</code></p>
 <p><strong>big sur用11.4</strong></p>
 <hr>
-<h1 id="重要前提">重要前提</h1>
+<h2 id="重要前提">重要前提</h2>
 <p><strong>如果你没有网线，并且没有其他PC设备联网 你需要提前下载这些 并存储在另一个U盘中</strong></p>
 <pre><code>https://github.com/OpenIntelWireless/HeliPort/releases
 https://github.com/OpenIntelWireless/itlwm/releases/
 https://mackie100projects.altervista.org/download-clover-configurator/ #这个往下找找不要最新几个版本
 https://mackie100projects.altervista.org/download-opencore-configurator/
 </code></pre><hr>
-<h1 id="start">Start</h1>
+<h2 id="start">Start</h2>
 <pre><code>//OC
 git clone https://github.com/Pinming/Dell-Inspiron-7590-Hackintosh-Opencore
 
@@ -167,7 +167,7 @@ git clone https://github.com/Pinming/Dell-Inspiron-7590-Hackintosh-Opencore
 <p><strong>提前准备好安装空间建议200g 至少100g</strong></p>
 <p><strong>6. 用Diskgenius分ESP区 建议300mb至少200mb [https://www.cnblogs.com/liuzhaoyzz/p/12348682.html]</strong></p>
 <hr>
-<h1 id="安装">安装</h1>
+<h2 id="安装">安装</h2>
 <p><strong>1. 重启F2 关闭Secure Boot安全启动 检查磁盘模式为ACHI 百度搜</strong></p>
 <p><strong>2. 进入Boot Sequence &lsquo;add option&rsquo; 添加一个引导 选择启动文件为自己的U盘EFI(找到EFI/OC/OpenCore.efi这个文件)</strong></p>
 <p><strong>3. 重启F12 选择刚才新建的启动项 选择Install mac big sur</strong></p>
@@ -182,7 +182,7 @@ git clone https://github.com/Pinming/Dell-Inspiron-7590-Hackintosh-Opencore
 <p><strong>8.1 重启F2 Boot Sequence add option 这里我命名为<code>macos</code> 选择磁盘中EFI\OC\OpenCore.efi</strong></p>
 <p><strong>8.2 把选项置顶。开机自动进入 选择macos</strong></p>
 <hr>
-<h1 id="wifi设置">Wifi设置</h1>
+<h2 id="wifi设置">Wifi设置</h2>
 <p>下载&mdash;点击: <a href="#%E9%87%8D%E8%A6%81%E5%89%8D%E6%8F%90">前提文件</a></p>
 <p><strong>安装HeliPort</strong></p>
 <p><strong>1. 解压itlwm.zip, 会有一个itlwm.kext</strong></p>
@@ -190,10 +190,10 @@ git clone https://github.com/Pinming/Dell-Inspiron-7590-Hackintosh-Opencore
 <p><strong>3.1 打开config.plist右键用<code>Opencore</code>打开 左侧<code>内核设置</code>把<code>itlwm.kext</code>拖进右边, 启用点亮</strong></p>
 <p><strong>3.2 打开<code>EFI\OC</code>文件夹 把itlwm.kext拖入 <code>kexts</code>文件夹下 重启电脑 打开HeliPort连接wifi</strong></p>
 <hr>
-<h1 id="安装成功">安装成功</h1>
+<h2 id="安装成功">安装成功</h2>
 <p><img src="/img/macos/mac-2.png" alt="macos"></p>
 <hr>
-<h1 id="三码洗白">三码洗白</h1>
+<h2 id="三码洗白">三码洗白</h2>
 <p><strong>电脑提前退出账号</strong></p>
 <p><strong>删除登陆设备 手机-设置-最上方进去-找到型号删除掉</strong></p>
 <pre><code>1. 安装Clover Configurator
@@ -209,15 +209,15 @@ git clone https://github.com/Pinming/Dell-Inspiron-7590-Hackintosh-Opencore
 <p><a href="https://checkcoverage.apple.com/cn/zh">https://checkcoverage.apple.com/cn/zh</a></p>
 <p><strong>重启登陆 正常使用功能</strong></p>
 <hr>
-<h1 id="reference">Reference:</h1>
+<h2 id="reference">Reference:</h2>
 <p><a href="https://zhuanlan.zhihu.com/p/190441192">https://zhuanlan.zhihu.com/p/190441192</a></p>
 <p><a href="https://zhuanlan.zhihu.com/p/117680791">https://zhuanlan.zhihu.com/p/117680791</a></p>
 <p><a href="https://zhuanlan.zhihu.com/p/148640325">https://zhuanlan.zhihu.com/p/148640325</a></p>
-<h1 id="三码参考">三码参考</h1>
+<h2 id="三码参考">三码参考</h2>
 <p><a href="https://vlambda.com/wz_5fWCnLTxttA.html">https://vlambda.com/wz_5fWCnLTxttA.html</a></p>
 <p><a href="https://heipg.cn/tutorial/inject-identifier-for-hackintosh.html">https://heipg.cn/tutorial/inject-identifier-for-hackintosh.html</a></p>
 <hr>
-<h1 id="参考视频">参考视频</h1>
+<h2 id="参考视频">参考视频</h2>
 <p><strong>安装系统操作</strong>
 <a href="https://www.bilibili.com/video/BV1854y1X7oP">https://www.bilibili.com/video/BV1854y1X7oP</a></p>
 <p><strong>安装wifi操作</strong>

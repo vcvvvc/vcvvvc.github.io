@@ -139,22 +139,22 @@ sudo add-apt-repository ppa:graphics-drivers/ppa sudo apt-get update #选择自�
 </li>
 </ul>
 <hr>
-<h1 id="1-去残留">1. 去残留</h1>
+<h2 id="1-去残留">1. 去残留</h2>
 <pre><code>sudo apt-get remove --purge nvidia* 
 </code></pre><hr>
-<h1 id="2-添加规则">2. 添加规则</h1>
+<h2 id="2-添加规则">2. 添加规则</h2>
 <p><strong>vim /etc/modprobe.d/blacklist.conf</strong></p>
 <pre><code>blacklist nouveau 
 options nouveau modeset=0
 </code></pre><hr>
-<h1 id="3-验证是否成功">3. 验证是否成功</h1>
+<h2 id="3-验证是否成功">3. 验证是否成功</h2>
 <p><strong>重启 重启之后输入命令</strong></p>
 <pre><code>sudo update-initramfs -u
 lsmod | grep nouveau
 </code></pre><p><strong>如果没有返回信息代表成功</strong></p>
 <p>有信息的话 先检查下步骤2 再重启, 也可忽视 我这边见过一次有返回</p>
 <hr>
-<h1 id="4选择合适的版本">4.选择合适的版本</h1>
+<h2 id="4选择合适的版本">4.选择合适的版本</h2>
 <ul>
 <li>
 <p>1.输入命令:  <code>ubuntu-drivers devices</code></p>
@@ -170,14 +170,14 @@ sudo apt-get update
 #选择自己的版本 例如我这边安装440
 sudo apt-get install nvidia-driver-440
 </code></pre><hr>
-<h1 id="5选择驱动应用">5.选择驱动应用</h1>
+<h2 id="5选择驱动应用">5.选择驱动应用</h2>
 <p><strong>ubuntu配置点击 软件和更新 ==&gt; 附件驱动 然后选择合适版本的驱动</strong></p>
 <p><strong>Open warehouse =&gt; additional drivers =&gt; choose you drivers .</strong></p>
 <hr>
-<h1 id="6-end">6. End</h1>
+<h2 id="6-end">6. End</h2>
 <p><strong>重启 之后输入命令</strong></p>
 <pre><code>nvidia-smi
-#完成
+##完成
 </code></pre><p><img src="/img/installnvidia/nvidiadrivers.png" alt="Nbidia-smi"></p>
 
     </div>
