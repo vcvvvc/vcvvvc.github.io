@@ -5,7 +5,16 @@
     <link>https://6923403.github.io/tags/python/</link>
     <description>Recent content in Python on Vcvc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 09 Jul 2021 22:37:33 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 22 Aug 2021 22:01:44 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Python每天固定时间运行某程序代码</title>
+      <link>https://6923403.github.io/post/python%E6%AF%8F%E5%A4%A9%E5%9B%BA%E5%AE%9A%E6%97%B6%E9%97%B4%E8%BF%90%E8%A1%8C%E6%9F%90%E7%A8%8B%E5%BA%8F%E4%BB%A3%E7%A0%81/</link>
+      <pubDate>Sun, 22 Aug 2021 22:01:44 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/python%E6%AF%8F%E5%A4%A9%E5%9B%BA%E5%AE%9A%E6%97%B6%E9%97%B4%E8%BF%90%E8%A1%8C%E6%9F%90%E7%A8%8B%E5%BA%8F%E4%BB%A3%E7%A0%81/</guid>
+      <description>import time while True: time_now = time.strftime(&amp;quot;%H%M&amp;quot;, time.localtime()) # 刷新 if time_now == &amp;quot;00:01&amp;quot;: # 设置要执行的时间 # 要执行的代码 time.sleep(61) # 停止执行61秒，防止反复运行程序。 elif time_now == &amp;quot;08:01&amp;quot;: # 设置要执行的时间: # 要执行的代码 time.sleep(61) # 停止执行61秒，防止反复运行程序。 elif time_now == &amp;quot;16:01&amp;quot;: # 设置要执行的时间: # 要执行的代码 time.sleep(61) # 停止执行61秒，防止反复运行程序。  Re: 原文链接：https://blog.csdn.net/ainivip/article/details/106296599</description>
+    </item>
+    
     <item>
       <title>汉程网</title>
       <link>https://6923403.github.io/post/hanchengwang/</link>

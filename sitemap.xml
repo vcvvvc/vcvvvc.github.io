@@ -2,16 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://6923403.github.io/post/</loc>
-    <lastmod>2021-08-19T21:35:40+08:00</lastmod>
+    <loc>https://6923403.github.io/tags/linux/</loc>
+    <lastmod>2021-08-22T22:03:04+08:00</lastmod>
   </url><url>
-    <loc>https://6923403.github.io/tags/stock/</loc>
-    <lastmod>2021-08-19T21:35:40+08:00</lastmod>
+    <loc>https://6923403.github.io/post/linux_ssh_nohup/</loc>
+    <lastmod>2021-08-22T22:03:04+08:00</lastmod>
+  </url><url>
+    <loc>https://6923403.github.io/post/</loc>
+    <lastmod>2021-08-22T22:03:04+08:00</lastmod>
   </url><url>
     <loc>https://6923403.github.io/tags/</loc>
-    <lastmod>2021-08-19T21:35:40+08:00</lastmod>
+    <lastmod>2021-08-22T22:03:04+08:00</lastmod>
   </url><url>
     <loc>https://6923403.github.io/</loc>
+    <lastmod>2021-08-22T22:03:04+08:00</lastmod>
+  </url><url>
+    <loc>https://6923403.github.io/tags/python/</loc>
+    <lastmod>2021-08-22T22:01:44+08:00</lastmod>
+  </url><url>
+    <loc>https://6923403.github.io/post/python%E6%AF%8F%E5%A4%A9%E5%9B%BA%E5%AE%9A%E6%97%B6%E9%97%B4%E8%BF%90%E8%A1%8C%E6%9F%90%E7%A8%8B%E5%BA%8F%E4%BB%A3%E7%A0%81/</loc>
+    <lastmod>2021-08-22T22:01:44+08:00</lastmod>
+  </url><url>
+    <loc>https://6923403.github.io/tags/stock/</loc>
     <lastmod>2021-08-19T21:35:40+08:00</lastmod>
   </url><url>
     <loc>https://6923403.github.io/post/%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3%E5%8F%AF%E8%BD%AC%E5%80%BA/</loc>
@@ -58,9 +70,6 @@
   </url><url>
     <loc>https://6923403.github.io/tags/docker/</loc>
     <lastmod>2021-07-12T12:25:06+08:00</lastmod>
-  </url><url>
-    <loc>https://6923403.github.io/tags/python/</loc>
-    <lastmod>2021-07-09T22:37:33+08:00</lastmod>
   </url><url>
     <loc>https://6923403.github.io/post/hanchengwang/</loc>
     <lastmod>2021-07-09T22:37:33+08:00</lastmod>
@@ -118,9 +127,6 @@
   </url><url>
     <loc>https://6923403.github.io/tags/http/</loc>
     <lastmod>2021-05-06T10:09:44+08:00</lastmod>
-  </url><url>
-    <loc>https://6923403.github.io/tags/linux/</loc>
-    <lastmod>2021-05-06T07:29:52+08:00</lastmod>
   </url><url>
     <loc>https://6923403.github.io/tags/ubuntu/</loc>
     <lastmod>2021-05-06T07:29:52+08:00</lastmod>
