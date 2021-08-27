@@ -5,13 +5,31 @@
     <link>https://6923403.github.io/tags/</link>
     <description>Recent content in Tags on Vcvc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 24 Aug 2021 21:50:24 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 27 Aug 2021 16:40:00 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>News-M</title>
+      <link>https://6923403.github.io/tags/news-m/</link>
+      <pubDate>Fri, 27 Aug 2021 16:40:00 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/tags/news-m/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Python</title>
       <link>https://6923403.github.io/tags/python/</link>
-      <pubDate>Tue, 24 Aug 2021 21:50:24 +0800</pubDate>
+      <pubDate>Fri, 27 Aug 2021 16:40:00 +0800</pubDate>
       
       <guid>https://6923403.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tutorial</title>
+      <link>https://6923403.github.io/tags/tutorial/</link>
+      <pubDate>Fri, 27 Aug 2021 16:40:00 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/tags/tutorial/</guid>
       <description></description>
     </item>
     
@@ -84,24 +102,6 @@
       <pubDate>Mon, 12 Jul 2021 12:25:06 +0800</pubDate>
       
       <guid>https://6923403.github.io/tags/docker/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>News-M</title>
-      <link>https://6923403.github.io/tags/news-m/</link>
-      <pubDate>Fri, 09 Jul 2021 22:00:00 +0800</pubDate>
-      
-      <guid>https://6923403.github.io/tags/news-m/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Tutorial</title>
-      <link>https://6923403.github.io/tags/tutorial/</link>
-      <pubDate>Fri, 09 Jul 2021 22:00:00 +0800</pubDate>
-      
-      <guid>https://6923403.github.io/tags/tutorial/</guid>
       <description></description>
     </item>
     

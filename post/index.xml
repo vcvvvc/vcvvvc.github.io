@@ -5,7 +5,21 @@
     <link>https://6923403.github.io/post/</link>
     <description>Recent content in Posts on Vcvc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 24 Aug 2021 21:50:24 +0800</lastBuildDate><atom:link href="https://6923403.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 27 Aug 2021 16:40:00 +0800</lastBuildDate><atom:link href="https://6923403.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>News-M Tutorial</title>
+      <link>https://6923403.github.io/post/news_wps/</link>
+      <pubDate>Fri, 27 Aug 2021 16:40:00 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/news_wps/</guid>
+      <description>https://github.com/VcSpace/News-M.git 闻讯——获取主流财经新闻网站新闻信息获取, 将数据聚合、归类并写入表格中 。
+News-M &amp;ndash;News Spider, Crawling news from mainstream financial news websites, categorize and write data into tables .
+ 目的 时间与精力是有限的 为了节省查阅信息的时间成本故此创作News-M用来快捷提取有效信息, 节约时间, 放松精力。
+Time and energy are limited. In order to save the time cost of consulting information, news-m is created to quickly extract effective information, save time and relax energy.
+ 运行程序 #Run pip install -r requirements.txt python3 main.py 如果你想启用网盘功能 在命令行运行bypy info获取token, 在main.py将bd_flag改为True
+If you want to enable the network disk function, run bypy info on the command line to get the token, and BD will be displayed in main.</description>
+    </item>
+    
     <item>
       <title>News M定时运行</title>
       <link>https://6923403.github.io/post/news-m%E5%AE%9A%E6%97%B6%E8%BF%90%E8%A1%8C/</link>
@@ -130,19 +144,6 @@ https://www.jianshu.com/p/6d9e725da273</description>
   这是一个公益性网站 请不要修改sleep时间避免给服务器过大压力, 能使用成品就不要再次爬取
   程序支持跨平台, 但仅测试了mac
    </description>
-    </item>
-    
-    <item>
-      <title>News-M Tutorial</title>
-      <link>https://6923403.github.io/post/news_wps/</link>
-      <pubDate>Fri, 09 Jul 2021 22:00:00 +0800</pubDate>
-      
-      <guid>https://6923403.github.io/post/news_wps/</guid>
-      <description>https://github.com/VcSpace/News-M.git 闻讯——获取主流财经新闻网站新闻信息获取, 将数据聚合、归类并写入表格中 。
-News-M &amp;ndash;News Spider, Crawling news from mainstream financial news websites, categorize and write data into tables .
- 目的 时间与精力是有限的 为了节省查阅信息的时间成本故此创作News-M用来快捷提取有效信息, 节约时间, 放松精力。
-Time and energy are limited. In order to save the time cost of consulting information, news-m is created to quickly extract effective information, save time and relax energy.
- 运行程序 #Run pip install -r requirements.txt python3 main.py  Note 1. 操作完成后生成Finace文件夹 Windows系统在桌面 Linux在运行目录下</description>
     </item>
     
     <item>
