@@ -5,7 +5,40 @@
     <link>https://6923403.github.io/</link>
     <description>Recent content on Vcvc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 27 Aug 2021 16:40:00 +0800</lastBuildDate><atom:link href="https://6923403.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 07 Sep 2021 20:25:48 +0800</lastBuildDate><atom:link href="https://6923403.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Brew_ffmpeg_install</title>
+      <link>https://6923403.github.io/post/brew_ffmpeg_install/</link>
+      <pubDate>Tue, 07 Sep 2021 20:25:48 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/brew_ffmpeg_install/</guid>
+      <description>2021-09-07 发帖时间为安装时间 有些包下载较慢可以挂vpn
+ffmpeg 完全安装 解决brew install ffmpeg会报错
+ install brew tap homebrew-ffmpeg/ffmpeg brew options homebrew-ffmpeg/ffmpeg/ffmpeg brew install ffmpeg --HEAD ffmpeg -version 安装过程如果缺库 https://formulae.brew.sh/formula/ffmpeg 到这个链接查
+ 现在这步好像不需要了
+#完全安装 brew install homebrew-ffmpeg/ffmpeg/ffmpeg --with-chromaprint --with-fdk-aac --with-game-music-emu --with-libbluray --with-libbs2b --with-libcaca --with-libgsm --with-libmodplug --with-librsvg --with-libsoxr --with-libssh --with-libvidstab --with-libvmaf --with-libxml2 --with-opencore-amr --with-openh264 --with-openjpeg --with-openssl --with-rav1e --with-rtmpdump --with-rubberband --with-speex --with-srt --with-tesseract --with-two-lame --with-webp --with-xvid --with-zeromq --with-zimg  Re: http://www.manks.top/ffmpeg-install-mac.html
+https://www.jianshu.com/p/85fffceddf04
+https://zhuanlan.zhihu.com/p/90099862</description>
+    </item>
+    
+    <item>
+      <title>Select 总结</title>
+      <link>https://6923403.github.io/post/select/</link>
+      <pubDate>Tue, 07 Sep 2021 17:46:03 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/select/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Select_poll_epoll</title>
+      <link>https://6923403.github.io/post/select_poll_epoll/</link>
+      <pubDate>Tue, 07 Sep 2021 17:16:35 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/select_poll_epoll/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>News-M Tutorial</title>
       <link>https://6923403.github.io/post/news_wps/</link>

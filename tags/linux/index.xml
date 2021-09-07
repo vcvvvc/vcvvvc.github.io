@@ -5,7 +5,25 @@
     <link>https://6923403.github.io/tags/linux/</link>
     <description>Recent content in Linux on Vcvc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 22 Aug 2021 22:03:04 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 07 Sep 2021 17:46:03 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Select 总结</title>
+      <link>https://6923403.github.io/post/select/</link>
+      <pubDate>Tue, 07 Sep 2021 17:46:03 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/select/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Select_poll_epoll</title>
+      <link>https://6923403.github.io/post/select_poll_epoll/</link>
+      <pubDate>Tue, 07 Sep 2021 17:16:35 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/select_poll_epoll/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Linux_ssh_nohup</title>
       <link>https://6923403.github.io/post/linux_ssh_nohup/</link>
