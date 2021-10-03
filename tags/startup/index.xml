@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Startup on Vcvc Blog</title>
+    <link>https://6923403.github.io/tags/startup/</link>
+    <description>Recent content in Startup on Vcvc Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 03 Oct 2021 12:08:21 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/startup/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ubuntu20开机自启脚本</title>
+      <link>https://6923403.github.io/post/ubuntu20%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E8%84%9A%E6%9C%AC/</link>
+      <pubDate>Sun, 03 Oct 2021 12:08:21 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/ubuntu20%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E8%84%9A%E6%9C%AC/</guid>
+      <description>我测试了好几篇文章,终于有个成功了
+ local.service vim /etc/systemd/system/rc-local.service
+输入以下内容:
+[Unit] Description=/etc/rc.local Compatibility ConditionPathExists=/etc/rc.local [Service] Type=forking ExecStart=/etc/rc.local start TimeoutSec=0 StandardOutput=tty RemainAfterExit=yes SysVStartPriority=99 [Install] WantedBy=multi-user.target  rc.local vim /etc/rc.local
+#!/bin/sh -e ## rc.local sh /root/startup.sh exit 0  收尾   授权 chmod +x /etc/rc.local
+  自启动 systemctl enable rc-local
+  运行 systemctl start rc-local.service
+  查看状态 systemctl status rc-local.service
+  先别重启, ps -x配合grep搜索关键字看看进程启动没有
+之后保存好文件重启进行测试 再次查看是否启动
+ Re: https://www.cnblogs.com/Deskew/p/13798595.html</description>
+    </item>
+    
+  </channel>
+</rss>

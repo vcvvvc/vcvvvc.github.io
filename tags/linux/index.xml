@@ -5,23 +5,24 @@
     <link>https://6923403.github.io/tags/linux/</link>
     <description>Recent content in Linux on Vcvc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 07 Sep 2021 17:46:03 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 03 Oct 2021 12:08:21 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Select 总结</title>
-      <link>https://6923403.github.io/post/select/</link>
-      <pubDate>Tue, 07 Sep 2021 17:46:03 +0800</pubDate>
+      <title>Ubuntu20开机自启脚本</title>
+      <link>https://6923403.github.io/post/ubuntu20%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E8%84%9A%E6%9C%AC/</link>
+      <pubDate>Sun, 03 Oct 2021 12:08:21 +0800</pubDate>
       
-      <guid>https://6923403.github.io/post/select/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Select_poll_epoll</title>
-      <link>https://6923403.github.io/post/select_poll_epoll/</link>
-      <pubDate>Tue, 07 Sep 2021 17:16:35 +0800</pubDate>
-      
-      <guid>https://6923403.github.io/post/select_poll_epoll/</guid>
-      <description></description>
+      <guid>https://6923403.github.io/post/ubuntu20%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E8%84%9A%E6%9C%AC/</guid>
+      <description>我测试了好几篇文章,终于有个成功了
+ local.service vim /etc/systemd/system/rc-local.service
+输入以下内容:
+[Unit] Description=/etc/rc.local Compatibility ConditionPathExists=/etc/rc.local [Service] Type=forking ExecStart=/etc/rc.local start TimeoutSec=0 StandardOutput=tty RemainAfterExit=yes SysVStartPriority=99 [Install] WantedBy=multi-user.target  rc.local vim /etc/rc.local
+#!/bin/sh -e ## rc.local sh /root/startup.sh exit 0  收尾   授权 chmod +x /etc/rc.local
+  自启动 systemctl enable rc-local
+  运行 systemctl start rc-local.service
+  查看状态 systemctl status rc-local.service
+  先别重启, ps -x配合grep搜索关键字看看进程启动没有
+之后保存好文件重启进行测试 再次查看是否启动
+ Re: https://www.cnblogs.com/Deskew/p/13798595.html</description>
     </item>
     
     <item>
