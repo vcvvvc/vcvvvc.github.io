@@ -5,7 +5,24 @@
     <link>https://6923403.github.io/tags/linux/</link>
     <description>Recent content in Linux on Vcvc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 03 Oct 2021 12:08:21 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 04 Oct 2021 21:10:09 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>总结mmap(零拷贝)</title>
+      <link>https://6923403.github.io/post/use_mmap/</link>
+      <pubDate>Mon, 04 Oct 2021 21:10:09 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/use_mmap/</guid>
+      <description>总结分析传统io, mmap, sendfile
+传统IO 通过read()把数据从硬盘读取到内核缓冲区，再复制到用户缓冲区；然后再通过write()写入到socket缓冲区，最后写入目标。
+整个过程发生了4次用户态和内核态的上下文切换和4次拷贝
+ 用户进程通过read()方法向操作系统发起调用，此时上下文从用户态转向内核态 DMA控制器把数据从硬盘中拷贝到读缓冲区 CPU把读缓冲区数据拷贝到应用缓冲区，上下文从内核态转为用户态，read()返回 用户进程通过write()方法发起调用，上下文从用户态转为内核态 CPU将应用缓冲区中数据拷贝到socket缓冲区 DMA控制器把数据从socket缓冲区拷贝到网卡，上下文从内核态切换回用户态，write()返回   mmap #用来将某个文件内容映射到内存中，对该内存区域的存取即是直接对该文件内容的读写。 void *mmap(void *start, size_t length, int prot, int flags, int fd, off_t offsize); 调用 mmap() 系统调用对文件进行映射后，用户对映射后的内存进行读写实际上是对文件缓存的读写，所以减少了一次系统调用，从而加速了对文件读写的效率。
+整个过程发生了4次用户态和内核态的上下文切换和3次拷贝，具体流程如下：
+ 用户进程通过mmap()方法向操作系统发起调用，上下文从用户态转向内核态 DMA控制器把数据从硬盘中拷贝到读缓冲区 上下文从内核态转为用户态，mmap调用返回 用户进程通过write()方法发起调用，上下文从用户态转为内核态 CPU将读缓冲区中数据拷贝到socket缓冲区 DMA控制器把数据从socket缓冲区拷贝到网卡，上下文从内核态切换回用户态，write()返回  munmap int munmap(void *addr, size_t len); munmap()用来取消参数start 所指的映射内存起始地址，参数length 则是欲取消的内存大小。当进程结束或利用exec 相关函数来执行其他程序时，映射内存会自动解除，但关闭对应的文件描述词时不会解除映射。
+ Sendfile sendfile函数在两个文件描述符之间传递数据（完全在内核中操作），从而避免了内核缓冲区和用户缓冲区之间的数据拷贝，效率很高，被称为零拷贝。
+ssize_t senfile(int out_fd,int in_fd,off_t* offset,size_t count); 整个过程发生了2次用户态和内核态的上下文切换和3次拷贝
+ 用户进程通过sendfile()方法向操作系统发起调用，上下文从用户态转向内核态 DMA控制器把数据从硬盘中拷贝到读缓冲区 CPU将读缓冲区中数据拷贝到socket缓冲区 DMA控制器把数据从socket缓冲区拷贝到网卡，上下文从内核态切换回用户态，sendfile调用返回   sendfile+DMA Scatter/Gather 它将读缓冲区中的数据描述信息&amp;ndash;内存地址和偏移量记录到socket缓冲区，由 DMA 根据这些将数据从读缓冲区拷贝到网卡，相比之前版本减少了一次CPU拷贝的过程</description>
+    </item>
+    
     <item>
       <title>Ubuntu20开机自启脚本</title>
       <link>https://6923403.github.io/post/ubuntu20%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E8%84%9A%E6%9C%AC/</link>
