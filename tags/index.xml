@@ -5,22 +5,58 @@
     <link>https://6923403.github.io/tags/</link>
     <description>Recent content in Tags on Vcvc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 04 Oct 2021 21:10:09 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 Oct 2021 10:00:00 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>CPP</title>
-      <link>https://6923403.github.io/tags/cpp/</link>
-      <pubDate>Mon, 04 Oct 2021 21:10:09 +0800</pubDate>
+      <title>Epoll</title>
+      <link>https://6923403.github.io/tags/epoll/</link>
+      <pubDate>Sun, 10 Oct 2021 10:00:00 +0800</pubDate>
       
-      <guid>https://6923403.github.io/tags/cpp/</guid>
+      <guid>https://6923403.github.io/tags/epoll/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Linux</title>
       <link>https://6923403.github.io/tags/linux/</link>
-      <pubDate>Mon, 04 Oct 2021 21:10:09 +0800</pubDate>
+      <pubDate>Sun, 10 Oct 2021 10:00:00 +0800</pubDate>
       
       <guid>https://6923403.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Poll</title>
+      <link>https://6923403.github.io/tags/poll/</link>
+      <pubDate>Sun, 10 Oct 2021 10:00:00 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/tags/poll/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Select</title>
+      <link>https://6923403.github.io/tags/select/</link>
+      <pubDate>Sun, 10 Oct 2021 10:00:00 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/tags/select/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Server</title>
+      <link>https://6923403.github.io/tags/server/</link>
+      <pubDate>Sun, 10 Oct 2021 10:00:00 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/tags/server/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CPP</title>
+      <link>https://6923403.github.io/tags/cpp/</link>
+      <pubDate>Mon, 04 Oct 2021 21:10:09 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/tags/cpp/</guid>
       <description></description>
     </item>
     
@@ -201,15 +237,6 @@
       <pubDate>Thu, 06 May 2021 07:29:52 +0800</pubDate>
       
       <guid>https://6923403.github.io/tags/ubuntu/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Server</title>
-      <link>https://6923403.github.io/tags/server/</link>
-      <pubDate>Sun, 04 Apr 2021 18:21:09 +0800</pubDate>
-      
-      <guid>https://6923403.github.io/tags/server/</guid>
       <description></description>
     </item>
     
@@ -498,15 +525,6 @@
       <pubDate>Sun, 30 Aug 2020 19:57:05 +0800</pubDate>
       
       <guid>https://6923403.github.io/tags/move/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Epoll</title>
-      <link>https://6923403.github.io/tags/epoll/</link>
-      <pubDate>Thu, 27 Aug 2020 12:09:01 +0800</pubDate>
-      
-      <guid>https://6923403.github.io/tags/epoll/</guid>
       <description></description>
     </item>
     

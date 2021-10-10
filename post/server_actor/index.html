@@ -14,7 +14,8 @@
     
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Server actor"/>
-<meta name="twitter:description" content="Reactor Reactor模式要求主线程（I/O处理单元，下同）只负责监听文件描述上是否有事件发生，有的话就立即将该事件通知工作线程（逻辑单元，下同）。除此之外，主线程不做任何其他实质性的工作。读写数据，接受新的连接，以及处理客户请求均在工作线程中完成。
+<meta name="twitter:description" content="同步IO模型通常用于实现Reactor模式, 异步IO模型则用于实现Proactor模式。
+ Reactor Reactor模式要求主线程（I/O处理单元，下同）只负责监听文件描述上是否有事件发生，有的话就立即将该事件通知工作线程（逻辑单元，下同）。除此之外，主线程不做任何其他实质性的工作。读写数据，接受新的连接，以及处理客户请求均在工作线程中完成。
 Reactor工作流程∶
  主线程往 epoll内核事件表中注册 socket 上的读就绪事件。 主线程调用epoll_wait 等待socket上有数据可读。 当socket上有数据可读时，epoll_wait 通知主线程。主线程则将socket可读事件放入请求队列。 睡眠在请求队列上的某个工作线程被唤醒，它从socket读取数据，并处理客户请求，然后往 epoll 内核事件表中注册该 socket 上的写就绪事件。 主线程调用epoll_wait 等待socket可写。 当socket可写时，epoll_wait 通知主线程。主线程将socket可写事件放入请求队列。 睡眠在请求队列上的某个工作线程被唤醒，它往socket上写入服务器处理客户请求的结果。   Procactor 将多有I/O操作都交给主线程和内核来处理, 工作线程仅负责业务逻辑
 Proactor工作流程∶
@@ -22,7 +23,8 @@ Proactor工作流程∶
  主线程往 epoll 内核事件表中注册 socket 上的读就绪事件。 主线程调用 epoll_wait 等待 socket上有数据可读。 当 socket 上有数据可读时，epoll_wait通知主线程。主线程从socket循环读取数据，直到没有更多数据可读，然后将读取到的数据封装成一个请求对象并插入请求队列。 睡眠在请求队列上的某个工作线程被唤醒，它获得请求对象并处理客户请求，然后往 epoll 内核事件表中注册 socket上的写就绪事件。 主线程调用 epoll_wait 等待 socket 可写。 当 socket 可写时，epoll wait 通知主线程。主线程往 socket 上写人服务器处理客户请求的结果。    半同步/半异步 在I/O模型中，&ldquo;同步&quot;和&quot;异步&quot;区分的是内核向应用程序通知的是何种 I/O 事件（是就绪事件还是完成事件），以及该由谁来完成I/O读写（是应用程序还是内核）。在并发模式中，&ldquo;同步&quot;指的是程序完全按照代码序列的顺序执行∶&quot;异步&quot;指的是程序的执行需要由系统事件来驱动。常见的系统事件包括中断、信号等。"/>
 
     <meta property="og:title" content="Server actor" />
-<meta property="og:description" content="Reactor Reactor模式要求主线程（I/O处理单元，下同）只负责监听文件描述上是否有事件发生，有的话就立即将该事件通知工作线程（逻辑单元，下同）。除此之外，主线程不做任何其他实质性的工作。读写数据，接受新的连接，以及处理客户请求均在工作线程中完成。
+<meta property="og:description" content="同步IO模型通常用于实现Reactor模式, 异步IO模型则用于实现Proactor模式。
+ Reactor Reactor模式要求主线程（I/O处理单元，下同）只负责监听文件描述上是否有事件发生，有的话就立即将该事件通知工作线程（逻辑单元，下同）。除此之外，主线程不做任何其他实质性的工作。读写数据，接受新的连接，以及处理客户请求均在工作线程中完成。
 Reactor工作流程∶
  主线程往 epoll内核事件表中注册 socket 上的读就绪事件。 主线程调用epoll_wait 等待socket上有数据可读。 当socket上有数据可读时，epoll_wait 通知主线程。主线程则将socket可读事件放入请求队列。 睡眠在请求队列上的某个工作线程被唤醒，它从socket读取数据，并处理客户请求，然后往 epoll 内核事件表中注册该 socket 上的写就绪事件。 主线程调用epoll_wait 等待socket可写。 当socket可写时，epoll_wait 通知主线程。主线程将socket可写事件放入请求队列。 睡眠在请求队列上的某个工作线程被唤醒，它往socket上写入服务器处理客户请求的结果。   Procactor 将多有I/O操作都交给主线程和内核来处理, 工作线程仅负责业务逻辑
 Proactor工作流程∶
@@ -116,7 +118,9 @@ Proactor工作流程∶
       </div>
     </header>
     <div class="post-content">
-      <h1 id="reactor">Reactor</h1>
+      <p><strong>同步IO模型通常用于实现Reactor模式, 异步IO模型则用于实现Proactor模式。</strong></p>
+<hr>
+<h1 id="reactor">Reactor</h1>
 <p><strong>Reactor模式要求主线程（I/O处理单元，下同）只负责监听文件描述上是否有事件发生，有的话就立即将该事件通知工作线程（逻辑单元，下同）。除此之外，主线程不做任何其他实质性的工作。读写数据，接受新的连接，以及处理客户请求均在工作线程中完成。</strong></p>
 <p>Reactor工作流程∶</p>
 <ul>

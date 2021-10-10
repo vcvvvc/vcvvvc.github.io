@@ -12,7 +12,8 @@
       <pubDate>Sun, 31 Jan 2021 22:19:30 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/server_actor/</guid>
-      <description>Reactor Reactor模式要求主线程（I/O处理单元，下同）只负责监听文件描述上是否有事件发生，有的话就立即将该事件通知工作线程（逻辑单元，下同）。除此之外，主线程不做任何其他实质性的工作。读写数据，接受新的连接，以及处理客户请求均在工作线程中完成。
+      <description>同步IO模型通常用于实现Reactor模式, 异步IO模型则用于实现Proactor模式。
+ Reactor Reactor模式要求主线程（I/O处理单元，下同）只负责监听文件描述上是否有事件发生，有的话就立即将该事件通知工作线程（逻辑单元，下同）。除此之外，主线程不做任何其他实质性的工作。读写数据，接受新的连接，以及处理客户请求均在工作线程中完成。
 Reactor工作流程∶
  主线程往 epoll内核事件表中注册 socket 上的读就绪事件。 主线程调用epoll_wait 等待socket上有数据可读。 当socket上有数据可读时，epoll_wait 通知主线程。主线程则将socket可读事件放入请求队列。 睡眠在请求队列上的某个工作线程被唤醒，它从socket读取数据，并处理客户请求，然后往 epoll 内核事件表中注册该 socket 上的写就绪事件。 主线程调用epoll_wait 等待socket可写。 当socket可写时，epoll_wait 通知主线程。主线程将socket可写事件放入请求队列。 睡眠在请求队列上的某个工作线程被唤醒，它往socket上写入服务器处理客户请求的结果。   Procactor 将多有I/O操作都交给主线程和内核来处理, 工作线程仅负责业务逻辑
 Proactor工作流程∶

@@ -5,7 +5,20 @@
     <link>https://6923403.github.io/tags/server/</link>
     <description>Recent content in Server on Vcvc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 04 Apr 2021 18:21:09 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/server/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 Oct 2021 10:00:00 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/server/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>I/O多路复用</title>
+      <link>https://6923403.github.io/post/io%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</link>
+      <pubDate>Sun, 10 Oct 2021 10:00:00 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/io%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</guid>
+      <description>I/O多路复用 Select、Poll、Epoll, 多路是指？多个业务方（句柄）并发下来的 IO 。 复用是指？复用这一个后台处理程序。
+ Select select()函数主要解决的是accept()函数阻塞问题，而没有解决recv()和send()函数阻塞问题
+#include &amp;lt;sys/select.h&amp;gt; int select(int nfds, fd_set *readset, fd_set *writeset, fd_set *exceptset,struct timeval *timeout);   nfds参数指定被监听的文件描述符的总数。
+  readfds, writefds和exceptfds参数分别指向可读、可写和异常等事件对应的文件描述符集合。
+  #include &amp;lt;sys/select.h&amp;gt; int FD_ZERO(int fd, fd_set *fdset); //一个 fd_set类型变量的所有位都设为 0 int FD_CLR(int fd, fd_set *fdset); //清除某个位时可以使用 int FD_SET(int fd, fd_set *fd_set); //设置变量的某个位置位 int FD_ISSET(int fd, fd_set *fdset); //测试某个位是否被置位  timeout参数用来设置select函数的超时时间  struct timeval{ long tv_sec; /*秒 */ long tv_usec; /*微秒 */ } select示例代码: select.</description>
+    </item>
+    
     <item>
       <title>Server sum</title>
       <link>https://6923403.github.io/post/server_sum/</link>
@@ -40,7 +53,8 @@ struct sigaction { void (*sa_handler)(int); void (*sa_sigaction)(int, siginfo_t 
       <pubDate>Sun, 31 Jan 2021 22:19:30 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/server_actor/</guid>
-      <description>Reactor Reactor模式要求主线程（I/O处理单元，下同）只负责监听文件描述上是否有事件发生，有的话就立即将该事件通知工作线程（逻辑单元，下同）。除此之外，主线程不做任何其他实质性的工作。读写数据，接受新的连接，以及处理客户请求均在工作线程中完成。
+      <description>同步IO模型通常用于实现Reactor模式, 异步IO模型则用于实现Proactor模式。
+ Reactor Reactor模式要求主线程（I/O处理单元，下同）只负责监听文件描述上是否有事件发生，有的话就立即将该事件通知工作线程（逻辑单元，下同）。除此之外，主线程不做任何其他实质性的工作。读写数据，接受新的连接，以及处理客户请求均在工作线程中完成。
 Reactor工作流程∶
  主线程往 epoll内核事件表中注册 socket 上的读就绪事件。 主线程调用epoll_wait 等待socket上有数据可读。 当socket上有数据可读时，epoll_wait 通知主线程。主线程则将socket可读事件放入请求队列。 睡眠在请求队列上的某个工作线程被唤醒，它从socket读取数据，并处理客户请求，然后往 epoll 内核事件表中注册该 socket 上的写就绪事件。 主线程调用epoll_wait 等待socket可写。 当socket可写时，epoll_wait 通知主线程。主线程将socket可写事件放入请求队列。 睡眠在请求队列上的某个工作线程被唤醒，它往socket上写入服务器处理客户请求的结果。   Procactor 将多有I/O操作都交给主线程和内核来处理, 工作线程仅负责业务逻辑
 Proactor工作流程∶
