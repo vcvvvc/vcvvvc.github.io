@@ -12,7 +12,8 @@
       <pubDate>Mon, 11 Jan 2021 22:40:43 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/unp_note/</guid>
-      <description>基本流程图  客户角度 服务器角度  套接字选项   config_init connect_mysql init_socket setsockopt linger  </description>
+      <description>基本流程图 示范代码: https://github.com/6923403/CPP_Test/tree/master/server/socket/practice/8_socket
+ 客户角度 服务器角度  套接字选项   config_init connect_mysql init_socket setsockopt linger  </description>
     </item>
     
   </channel>
