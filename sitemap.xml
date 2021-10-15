@@ -2,6 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://6923403.github.io/post/</loc>
+    <lastmod>2021-10-15T22:57:45+08:00</lastmod>
+  </url><url>
+    <loc>https://6923403.github.io/tags/</loc>
+    <lastmod>2021-10-15T22:57:45+08:00</lastmod>
+  </url><url>
+    <loc>https://6923403.github.io/</loc>
+    <lastmod>2021-10-15T22:57:45+08:00</lastmod>
+  </url><url>
+    <loc>https://6923403.github.io/post/tianya_kk/</loc>
+    <lastmod>2021-10-15T22:57:45+08:00</lastmod>
+  </url><url>
+    <loc>https://6923403.github.io/tags/%E6%98%93/</loc>
+    <lastmod>2021-10-15T22:57:45+08:00</lastmod>
+  </url><url>
     <loc>https://6923403.github.io/tags/epoll/</loc>
     <lastmod>2021-10-10T10:00:00+08:00</lastmod>
   </url><url>
@@ -14,19 +29,10 @@
     <loc>https://6923403.github.io/tags/poll/</loc>
     <lastmod>2021-10-10T10:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://6923403.github.io/post/</loc>
-    <lastmod>2021-10-10T10:00:00+08:00</lastmod>
-  </url><url>
     <loc>https://6923403.github.io/tags/select/</loc>
     <lastmod>2021-10-10T10:00:00+08:00</lastmod>
   </url><url>
     <loc>https://6923403.github.io/tags/server/</loc>
-    <lastmod>2021-10-10T10:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://6923403.github.io/tags/</loc>
-    <lastmod>2021-10-10T10:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://6923403.github.io/</loc>
     <lastmod>2021-10-10T10:00:00+08:00</lastmod>
   </url><url>
     <loc>https://6923403.github.io/tags/cpp/</loc>
@@ -81,9 +87,6 @@
     <lastmod>2021-07-31T23:31:17+08:00</lastmod>
   </url><url>
     <loc>https://6923403.github.io/zhouyi/%E5%B1%B1%E6%B0%B4%E8%92%99/</loc>
-    <lastmod>2021-07-31T23:31:17+08:00</lastmod>
-  </url><url>
-    <loc>https://6923403.github.io/tags/%E6%98%93/</loc>
     <lastmod>2021-07-31T23:31:17+08:00</lastmod>
   </url><url>
     <loc>https://6923403.github.io/zhouyi/%E6%B0%B4%E9%9B%B7%E5%B1%AF/</loc>
