@@ -5,7 +5,21 @@
     <link>https://6923403.github.io/post/</link>
     <description>Recent content in Posts on Vcvc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 15 Oct 2021 22:57:45 +0800</lastBuildDate><atom:link href="https://6923403.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 22 Oct 2021 22:59:25 +0800</lastBuildDate><atom:link href="https://6923403.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Metaverse</title>
+      <link>https://6923403.github.io/post/metaverse/</link>
+      <pubDate>Fri, 22 Oct 2021 22:59:25 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/metaverse/</guid>
+      <description>Augmented reality 练手小项目
+wave(波)基于arkit制作: https://www.bilibili.com/video/BV1n44y147pY
+unity+easyar简单用例演示: https://www.bilibili.com/video/BV1wu411f7yH
+unity+easyar识别指定图片或物品播放音乐: https://www.bilibili.com/video/BV1X3411C7EW
+练手项目arkit制作的小地球: https://www.bilibili.com/video/BV1DR4y1J7xM
+练手项目arkit制作的小地球2: https://www.bilibili.com/video/BV1xq4y1G76k</description>
+    </item>
+    
     <item>
       <title>天涯 kkndme备份</title>
       <link>https://6923403.github.io/post/tianya_kk/</link>
