@@ -14,14 +14,16 @@
     
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="I/O多路复用"/>
-<meta name="twitter:description" content="I/O多路复用 Select、Poll、Epoll, 多路是指？多个业务方（句柄）并发下来的 IO 。 复用是指？复用这一个后台处理程序。
+<meta name="twitter:description" content="I/O模型 https://6923403.github.io/post/server_actor/
+ I/O多路复用 Select、Poll、Epoll, 多路是指？多个业务方（句柄）并发下来的 IO 。 复用是指？复用这一个后台处理程序。
  Select select()函数主要解决的是accept()函数阻塞问题，而没有解决recv()和send()函数阻塞问题
 #include &lt;sys/select.h&gt; int select(int nfds, fd_set *readset, fd_set *writeset, fd_set *exceptset,struct timeval *timeout);   nfds参数指定被监听的文件描述符的总数。
   readfds, writefds和exceptfds参数分别指向可读、可写和异常等事件对应的文件描述符集合。
   #include &lt;sys/select.h&gt; int FD_ZERO(int fd, fd_set *fdset); //一个 fd_set类型变量的所有位都设为 0 int FD_CLR(int fd, fd_set *fdset); //清除某个位时可以使用 int FD_SET(int fd, fd_set *fd_set); //设置变量的某个位置位 int FD_ISSET(int fd, fd_set *fdset); //测试某个位是否被置位  timeout参数用来设置select函数的超时时间  struct timeval{ long tv_sec; /*秒 */ long tv_usec; /*微秒 */ } select示例代码: select."/>
 
     <meta property="og:title" content="I/O多路复用" />
-<meta property="og:description" content="I/O多路复用 Select、Poll、Epoll, 多路是指？多个业务方（句柄）并发下来的 IO 。 复用是指？复用这一个后台处理程序。
+<meta property="og:description" content="I/O模型 https://6923403.github.io/post/server_actor/
+ I/O多路复用 Select、Poll、Epoll, 多路是指？多个业务方（句柄）并发下来的 IO 。 复用是指？复用这一个后台处理程序。
  Select select()函数主要解决的是accept()函数阻塞问题，而没有解决recv()和send()函数阻塞问题
 #include &lt;sys/select.h&gt; int select(int nfds, fd_set *readset, fd_set *writeset, fd_set *exceptset,struct timeval *timeout);   nfds参数指定被监听的文件描述符的总数。
   readfds, writefds和exceptfds参数分别指向可读、可写和异常等事件对应的文件描述符集合。
@@ -115,7 +117,10 @@
       </div>
     </header>
     <div class="post-content">
-      <h2 id="io多路复用">I/O多路复用</h2>
+      <h2 id="io模型">I/O模型</h2>
+<p><a href="%5B%5Dhttps://6923403.github.io/post/server_actor/">https://6923403.github.io/post/server_actor/</a></p>
+<hr>
+<h2 id="io多路复用">I/O多路复用</h2>
 <p><strong>Select、Poll、Epoll, 多路是指？多个业务方（句柄）并发下来的 IO 。 复用是指？复用这一个后台处理程序。</strong></p>
 <hr>
 <h2 id="select">Select</h2>
