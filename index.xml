@@ -5,7 +5,16 @@
     <link>https://6923403.github.io/</link>
     <description>Recent content on Vcvc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 22 Oct 2021 22:59:25 +0800</lastBuildDate><atom:link href="https://6923403.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 26 Oct 2021 21:18:31 +0800</lastBuildDate><atom:link href="https://6923403.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2021_10_26_note</title>
+      <link>https://6923403.github.io/post/2021_10_26_note/</link>
+      <pubDate>Tue, 26 Oct 2021 21:18:31 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/2021_10_26_note/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Metaverse</title>
       <link>https://6923403.github.io/post/metaverse/</link>
@@ -1263,9 +1272,11 @@ cd ffmpeg/ ./configure sudo make -j4 sudo make install  3. Check ffmpeg -version
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://6923403.github.io/about/</guid>
-      <description>业余哲学、投资人, 也是个写黑框框的cpper
+      <description>本博客采用GitHub page + hugo搭建 模版m10c
+ 经常一会看历史一会看经济一会看代码一会玩游戏
   隐藏入口: https://6923403.github.io/zhouyi
-  艺术秀-光L: 泽雷随 https://6923403.github.io/vcvc/index.html
+  艺术秀-光L: 随 https://6923403.github.io/vcvc/index.html
+  便签Note记录着我所有的随笔：https://6923403.github.io/tags/note
   </description>
     </item>
     
