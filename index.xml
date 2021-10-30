@@ -58,7 +58,8 @@
       <pubDate>Fri, 22 Oct 2021 22:59:25 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/metaverse/</guid>
-      <description>元宇宙 | Metaverse 趋势明显，顺势而为。
+      <description>元宇宙 | Metaverse We are at the beginning of the next chapter for the internet.
+趋势明显，顺势而为。
  Augmented reality 个人练手小项目:
   wave(波)基于arkit制作: https://www.bilibili.com/video/BV1n44y147pY
   unity+easyar简单用例演示: https://www.bilibili.com/video/BV1wu411f7yH
@@ -1312,17 +1313,15 @@ cd ffmpeg/ ./configure sudo make -j4 sudo make install  3. Check ffmpeg -version
       <guid>https://6923403.github.io/about/</guid>
       <description>我好奇心很强，什么都想做一做，非常喜欢交叉学科，效率创新, 让想法与软件结合并应用到生活以及各行各业中。
 所以我也是元宇宙的爱好者，我十分推崇这项技术创新。元宇宙中穿插各个学科的智慧，虚拟与现实的结合、产品与行业的结合以及应用丰富的多样性。
-Meteverse: https://6923403.github.io/post/metaverse/
-各个学科、各个行业与N的结合，来创造更多的可能
+We are at the beginning of the next chapter for the internet.
+ Meteverse: https://6923403.github.io/post/metaverse/  各个学科、各个行业与N的结合，来创造更多的可能
 N = 代码\技术
   古籍、哲学、历史 + N
   经济、金融、投资 + N
   娱乐、影视、游戏 + N
   教育 + 设计 + 历史 + 艺术 + 哲学 + 游戏 + &amp;hellip; + N
   &amp;hellip;&amp;hellip;
-  News-M便是我根据 经济 + 新闻 + 投资 + N的需求组合制作的，提取财经新闻标题、链接进行聚合归类写入表格，省去了平时搜索网站、打开网页、查看标题、打开网页、关闭网页、继续查看下一条的繁复步骤, 以往早起看新闻得用一个小时，现在10分钟内即可。
-News-D(私有项目)是我根据 经济 + 新闻 + 数据分析 + 投资 + N制作, 不过数据分析这块我还在学，学有小成之后我会充分利用这些数据做一个分析
- 隐藏 易: https://6923403.</description>
+  News-M便是我根据 经济 + 新闻 + 投资 + N的需求组合制作的，提取财经新闻标题、链接进行聚合归类写入表格，省去了平时搜索网站、打开网页、查看标题、打开网页、关闭网页、继续查看下一条的繁复步骤, 以往早起看新闻得用一个小时，现在10分钟内即可。</description>
     </item>
     
   </channel>
