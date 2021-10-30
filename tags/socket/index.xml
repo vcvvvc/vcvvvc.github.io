@@ -12,10 +12,10 @@
       <pubDate>Sun, 04 Apr 2021 18:21:09 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/server_sum/</guid>
-      <description>socket struct整理  https://6923403.github.io/post/socket_struct/  socket编程需要的头文件整理  https://6923403.github.io/post/socket_file/  socket function  https://6923403.github.io/post/socket/  epoll function  https://6923403.github.io/post/epoll_use/  sem function  https://6923403.github.io/post/sem/  server io actor  https://6923403.github.io/post/server_actor/  timer function  https://6923403.github.io/post/timer_function/   Linux Pthread 线程创建与使用 https://6923403.github.io/post/pthread/
+      <description>socket struct整理  https://6923403.github.io/post/socket_struct/  socket编程需要的头文件整理  https://6923403.github.io/post/socket_file/  socket function  https://6923403.github.io/post/socket/  I/O复用  https://6923403.github.io/post//io多路复用  sem function  https://6923403.github.io/post/sem/  server io actor  https://6923403.github.io/post/server_actor/  timer function  https://6923403.github.io/post/timer_function/   Linux Pthread 线程创建与使用 https://6923403.github.io/post/pthread/
 C++11 thread https://6923403.github.io/post/cppthread/
  Unp note https://6923403.github.io/post/unp_note/
-TCP_IP | 计算机网络 https://6923403.github.io/post/tcp_ip/
+TCP_IP | 计算机网络 https://6923403.github.io/post/computer_network/
  exception class 异常类 https://6923403.github.io/post/cpp_exception/</description>
     </item>
     
@@ -101,8 +101,7 @@ Epoll 没有最大并发连接的限制，上限是最大可以打开文件的�
       <pubDate>Wed, 26 Aug 2020 22:47:24 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/socket/</guid>
-      <description>{:toc}
-setsockopt
+      <description>setsockopt
 获取或者设置与某个套接字关联的选 项。选项可能存在于多层协议中，它们总会出现在最上面的套接字层。当操作套接字选项时， 选项位于的层和选项的名称必须给出。为了操作套接字层的选项，应该 将层的值指定为SOL_SOCKET。为了操作其它层的选项，控制选 项的合适协议号必须给出。例如，为了表示一个选项由TCP协议解析，层应该设定为协议 号TCP。 SO_LINGER选项
 struct linger { int l_onoff; int l_linger; };  l_onoff = 0, 数据保持发送完成后立即返回 l_onoff = 1, l_linger = 0, 立即放回 放弃发送, 发送rst 自身立即复位 l_onoff = 1, l_linger = 1, 阻塞到超时或数据发送完成, 保持尝试发送,超时后立即结束  SO_REUSEADDR选项
 改变了通配绑定时处理源地址冲突的处理方式, 让端口释放后立即就可以被再次使用
