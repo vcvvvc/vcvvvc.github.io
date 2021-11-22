@@ -5,7 +5,22 @@
     <link>https://6923403.github.io/tags/linux/</link>
     <description>Recent content in Linux on Vcvc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 10 Oct 2021 10:00:00 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 21 Nov 2021 22:08:01 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ip转换函数</title>
+      <link>https://6923403.github.io/post/ip%E8%BD%AC%E6%8D%A2%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Sun, 21 Nov 2021 22:08:01 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/ip%E8%BD%AC%E6%8D%A2%E5%87%BD%E6%95%B0/</guid>
+      <description>主机字节序（大端） 和 网络字节序（小端)
+  大端: 0x12 | 0x32 | 0x56
+  小端: 0x56 | 0x34 | 0x12
+  Host to Network long/short
+Network to Host long/short
+uint32_t htonl(uint32_t hostlong); //将主机的无符号长整型数转换成网络字节序 uint16_t htons(uint16_t hostshort); //将主机的无符号短整形数转换成网络字节序 uint32_t ntohl(uint32_t netlong); //将一个无符号长整型数从网络字节序转换为主机字节序 uint16_t ntohs(uint16_t netshort); //将一个无符号短整形数从网络字节序转换为主机字节序 https://github.com/6923403/CPP_Test/tree/master/test/hostto
+ #把ip地址转化为用于网络传输的二进制数值(32位) in_addr_t inet_addr(const char *cp); #少用了 int inet_aton(const char * cp, struct in_addr *inp); #将网络传输的二进制数值转化为成点分十进制的ip地址 char* inet_ntoa(struct in_addr in); #这两个函数是随IPv6出现的函数，对于IPv4地址和IPv6地址都适用，函数中p和n分别代表表达（presentation)和数值（numeric)。 地址的表达格式通常是ASCII字符串，数值格式则是存放到套接字地址结构的二进制值。 int inet_pton(int family, const char *strptr, void *addrptr); const char * inet_ntop(int family, const void *addrptr, char *strptr, size_t len);  Re: https://www.</description>
+    </item>
+    
     <item>
       <title>I/O多路复用</title>
       <link>https://6923403.github.io/post/io%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</link>
