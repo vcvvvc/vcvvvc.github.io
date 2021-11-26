@@ -5,7 +5,23 @@
     <link>https://6923403.github.io/post/</link>
     <description>Recent content in Posts on Vcvc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 26 Nov 2021 21:36:16 +0800</lastBuildDate><atom:link href="https://6923403.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 27 Nov 2021 00:41:42 +0800</lastBuildDate><atom:link href="https://6923403.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2021_11_27_随笔</title>
+      <link>https://6923403.github.io/post/2021_11_27_note/</link>
+      <pubDate>Sat, 27 Nov 2021 00:41:42 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/2021_11_27_note/</guid>
+      <description>目前凌晨12点，今天美股一点关门，目前纳斯达克跌了两个点, 今晚疫苗股领涨，科技跌。
+今天没有通胀，没有加息，没有利率，没有国债，只有一个New Covid。
+说实话国内太平和了，我第一时间都没意识到这个新的cd对海外影响这么大。
+我看了全球股市指数，今天就印度涨了0.2%，可太🐂了。
+现在又是通胀，又是新的cd，估计市场又得动荡起来了。
+其实就看经济预期是否变好就行了, 美国国债最近也在跌，现在是1.4990，疫情来的时候搞到0.342&amp;hellip;
+这波短期情绪恐慌，还是多听消息吧。
+ 最近看股票有点多，搞得我好像不务正业，主要还是最近这段时间特殊，今天又来个新cd</description>
+    </item>
+    
     <item>
       <title>利率、国债、股市</title>
       <link>https://6923403.github.io/post/%E5%A4%AE%E8%A1%8C%E5%88%A9%E7%8E%87_%E5%9B%BD%E5%80%BA%E5%85%B3%E7%B3%BB/</link>
@@ -30,6 +46,19 @@
  Re: https://www.zhihu.com/question/438523362/answer/1668529153
 https://zhuanlan.zhihu.com/p/21471980
 https://zhuanlan.zhihu.com/p/353299450</description>
+    </item>
+    
+    <item>
+      <title>readv_writev</title>
+      <link>https://6923403.github.io/post/readv_writev/</link>
+      <pubDate>Fri, 26 Nov 2021 20:31:17 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/readv_writev/</guid>
+      <description>readv和writev函数用于在一次函数调用中读、写多个非连续缓冲区。有时也将这两个函数称为散布读（scatter read）和聚集写（gather write）。
+#include &amp;lt;sys/uio.h&amp;gt; ssize_t readv(int filedes, const struct iovec *iov, int iovcnt); #散布读 ssize_t writev(int filedes, const struct iovec *iov, int iovcnt); #聚集写 其中的iovec
+#include &amp;lt;sys/uio.h&amp;gt; struct iovec { ptr_t iov_base; /* Starting address */ size_t iov_len; /* Length in bytes */ }; 代码：https://github.com/6923403/CPP_Test/tree/master/test/writev
+ Re: https://www.cnblogs.com/nufangrensheng/p/3559304.html
+https://www.cnblogs.com/youngerchina/p/5624567.html</description>
     </item>
     
     <item>

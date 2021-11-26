@@ -5,7 +5,20 @@
     <link>https://6923403.github.io/tags/cpp/</link>
     <description>Recent content in CPP on Vcvc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 21 Nov 2021 22:08:01 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/cpp/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 26 Nov 2021 20:31:17 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/cpp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>readv_writev</title>
+      <link>https://6923403.github.io/post/readv_writev/</link>
+      <pubDate>Fri, 26 Nov 2021 20:31:17 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/readv_writev/</guid>
+      <description>readv和writev函数用于在一次函数调用中读、写多个非连续缓冲区。有时也将这两个函数称为散布读（scatter read）和聚集写（gather write）。
+#include &amp;lt;sys/uio.h&amp;gt; ssize_t readv(int filedes, const struct iovec *iov, int iovcnt); #散布读 ssize_t writev(int filedes, const struct iovec *iov, int iovcnt); #聚集写 其中的iovec
+#include &amp;lt;sys/uio.h&amp;gt; struct iovec { ptr_t iov_base; /* Starting address */ size_t iov_len; /* Length in bytes */ }; 代码：https://github.com/6923403/CPP_Test/tree/master/test/writev
+ Re: https://www.cnblogs.com/nufangrensheng/p/3559304.html
+https://www.cnblogs.com/youngerchina/p/5624567.html</description>
+    </item>
+    
     <item>
       <title>ip转换函数</title>
       <link>https://6923403.github.io/post/ip%E8%BD%AC%E6%8D%A2%E5%87%BD%E6%95%B0/</link>
