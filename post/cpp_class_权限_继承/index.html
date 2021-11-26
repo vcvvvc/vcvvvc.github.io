@@ -198,28 +198,6 @@ class sum {}; class a : virtual public sum { ... } class b : virtual public sum 
 <br />
 <hr width = "450" color="#eeeeee" align="left">
 
-<div id="gitalk-container"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script>
-    const gitalk = new Gitalk({
-        clientID: '21b0d923081673c4c523',
-        clientSecret: '39264d5c26bb7e184d3a97f99cc2844caea7f417',
-        repo: '6923403.github.io',
-        owner: '6923403',
-        admin: ['6923403'],
-        id: location.pathname, 
-        distractionFreeMode: false 
-    });
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
-            return;
-        }
-        gitalk.render('gitalk-container');
-    })();
-</script>
-
 
     </main>
   </body>
