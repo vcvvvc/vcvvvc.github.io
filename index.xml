@@ -5,7 +5,38 @@
     <link>https://6923403.github.io/</link>
     <description>Recent content on Vcvc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 30 Nov 2021 01:26:58 +0800</lastBuildDate><atom:link href="https://6923403.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 01 Dec 2021 11:24:45 +0800</lastBuildDate><atom:link href="https://6923403.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Wifi6与Wifi6e</title>
+      <link>https://6923403.github.io/post/wifi6_6e/</link>
+      <pubDate>Wed, 01 Dec 2021 11:24:45 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/wifi6_6e/</guid>
+      <description>2021-12-01： 写在市场Wi-Fi6概念未爆发前。
+以下非科普，只做了一些整理
+ 发展历程  WI-FI 6 维基百科：https://zh.wikipedia.org/wiki/IEEE_802.11ax
+百度百科：https://baike.baidu.com/item/Wi-Fi6
+**Wi-Fi 6（原称：IEEE 802.11.ax）即第六代无线网络技术，是Wi-Fi标准的名称。是Wi-Fi联盟创建于IEEE 802.11标准的无线局域网技术。Wi-Fi 6将允许与多达8个设备通信，最高速率可达9.6Gbps。**o
+主要先进功能:
+速度更快、延时更低、容量更大、更安全、更省电
+  向下兼容11a/b/g/n/ac
+  正交频分多址（OFDMA）：在要求严格的环境中，同时面向上行链路和下行链路有效共享信道，以提高网络效率并降低延迟。
+  多用户多输入多输出（MU-MIMO）：允许一次传送更多下行链路数据，使接入点能够同时将数据传送到更多的设备。
+  160MHz信道：增大带宽，从而能够以低延迟提供更高性能。
+  1024正交幅度调制模式（1024-QAM）：通过在同样数量的频谱中编码更多数据，提高Wi-Fi设备的吞吐量。
+  目标唤醒时间（TWT）：显著延长Wi-Fi设备的电池寿命，例如物联网（IoT）设备。
+  发送波束成形：在给定范围内支持更高的数据速率，从而提供更大的网络容量。
+  4倍OFDM符号时间（symbol duration）
+  自适应的空闲信道评估（Adaptive CCA）
+  安全标准升级为WPA3
+   WI-FI 6E Wi-Fi 6 Extension
+6GHz频段是一个全球统一的连续频谱块，范围从5925MHz扩展到7125MHz，共计1200MHz频谱，意味着额外提供了提供7个160MHz信道，或14个80MHz信道，或29个40MHz信道或59个20MHz信道。
+  新增6GHz频段
+  容量提升
+  速率新突破
+  时延更低</description>
+    </item>
+    
     <item>
       <title>2021_11_30_随笔</title>
       <link>https://6923403.github.io/post/2021_11_30_note/</link>
