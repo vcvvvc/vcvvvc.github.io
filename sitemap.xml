@@ -2,19 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://6923403.github.io/tags/gcc/</loc>
+    <lastmod>2021-12-02T11:08:36+08:00</lastmod>
+  </url><url>
+    <loc>https://6923403.github.io/tags/linux/</loc>
+    <lastmod>2021-12-02T11:08:36+08:00</lastmod>
+  </url><url>
+    <loc>https://6923403.github.io/post/</loc>
+    <lastmod>2021-12-02T11:08:36+08:00</lastmod>
+  </url><url>
+    <loc>https://6923403.github.io/tags/</loc>
+    <lastmod>2021-12-02T11:08:36+08:00</lastmod>
+  </url><url>
+    <loc>https://6923403.github.io/post/ubuntu20_install_gcc11/</loc>
+    <lastmod>2021-12-02T11:08:36+08:00</lastmod>
+  </url><url>
+    <loc>https://6923403.github.io/</loc>
+    <lastmod>2021-12-02T11:08:36+08:00</lastmod>
+  </url><url>
     <loc>https://6923403.github.io/tags/note/</loc>
     <lastmod>2021-12-01T11:24:45+08:00</lastmod>
   </url><url>
-    <loc>https://6923403.github.io/post/</loc>
-    <lastmod>2021-12-01T11:24:45+08:00</lastmod>
-  </url><url>
     <loc>https://6923403.github.io/tags/stock/</loc>
-    <lastmod>2021-12-01T11:24:45+08:00</lastmod>
-  </url><url>
-    <loc>https://6923403.github.io/tags/</loc>
-    <lastmod>2021-12-01T11:24:45+08:00</lastmod>
-  </url><url>
-    <loc>https://6923403.github.io/</loc>
     <lastmod>2021-12-01T11:24:45+08:00</lastmod>
   </url><url>
     <loc>https://6923403.github.io/post/wifi6_6e/</loc>
@@ -30,9 +39,6 @@
     <lastmod>2021-11-26T21:36:16+08:00</lastmod>
   </url><url>
     <loc>https://6923403.github.io/tags/cpp/</loc>
-    <lastmod>2021-11-26T20:31:17+08:00</lastmod>
-  </url><url>
-    <loc>https://6923403.github.io/tags/linux/</loc>
     <lastmod>2021-11-26T20:31:17+08:00</lastmod>
   </url><url>
     <loc>https://6923403.github.io/post/readv_writev/</loc>
@@ -502,9 +508,6 @@
   </url><url>
     <loc>https://6923403.github.io/tags/markdown/</loc>
     <lastmod>2020-07-29T18:27:35+08:00</lastmod>
-  </url><url>
-    <loc>https://6923403.github.io/tags/gcc/</loc>
-    <lastmod>2020-07-28T14:44:30+08:00</lastmod>
   </url><url>
     <loc>https://6923403.github.io/post/variable_function/</loc>
     <lastmod>2020-07-28T14:44:30+08:00</lastmod>
