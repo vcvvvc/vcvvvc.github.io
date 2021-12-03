@@ -13,7 +13,7 @@
       
       <guid>https://6923403.github.io/post/ubuntu2010_install_vscode/</guid>
       <description>20.10有点下问题，得简单配置下
- 添加到bashrc 或zshrc alias code=&#39;sudo code --user-data-dir=&amp;quot;/!:1&amp;quot;&#39;  root运行 vim /usr/bin/code # 跟谷歌浏览器一样 添加 --no-sandbox </description>
+ 添加到bashrc 或zshrc cd ~ mkdir vscode alias code=&#39;code --user-data-dir $HOME/vscode&#39;  root运行 vim /usr/bin/code # 跟谷歌浏览器一样 添加 --no-sandbox </description>
     </item>
     
     <item>
