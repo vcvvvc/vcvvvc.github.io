@@ -2,13 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://6923403.github.io/tags/linux/</loc>
-    <lastmod>2021-12-02T16:06:36+08:00</lastmod>
+    <loc>https://6923403.github.io/tags/note/</loc>
+    <lastmod>2021-12-08T00:01:52+08:00</lastmod>
   </url><url>
     <loc>https://6923403.github.io/post/</loc>
-    <lastmod>2021-12-02T16:06:36+08:00</lastmod>
+    <lastmod>2021-12-08T00:01:52+08:00</lastmod>
   </url><url>
     <loc>https://6923403.github.io/tags/</loc>
+    <lastmod>2021-12-08T00:01:52+08:00</lastmod>
+  </url><url>
+    <loc>https://6923403.github.io/</loc>
+    <lastmod>2021-12-08T00:01:52+08:00</lastmod>
+  </url><url>
+    <loc>https://6923403.github.io/post/%E6%B0%A6%E6%B0%94%E6%A6%82%E5%BF%B5/</loc>
+    <lastmod>2021-12-08T00:01:52+08:00</lastmod>
+  </url><url>
+    <loc>https://6923403.github.io/post/2021_12_07_note/</loc>
+    <lastmod>2021-12-07T22:54:33+08:00</lastmod>
+  </url><url>
+    <loc>https://6923403.github.io/yi/</loc>
+    <lastmod>2021-12-04T21:06:16+08:00</lastmod>
+  </url><url>
+    <loc>https://6923403.github.io/yi/%E5%A4%A9%E7%81%AB%E5%90%8C%E4%BA%BA/</loc>
+    <lastmod>2021-12-04T21:06:16+08:00</lastmod>
+  </url><url>
+    <loc>https://6923403.github.io/tags/%E6%98%93/</loc>
+    <lastmod>2021-12-04T21:06:16+08:00</lastmod>
+  </url><url>
+    <loc>https://6923403.github.io/post/2021_12_04_note/</loc>
+    <lastmod>2021-12-03T23:08:24+08:00</lastmod>
+  </url><url>
+    <loc>https://6923403.github.io/tags/linux/</loc>
     <lastmod>2021-12-02T16:06:36+08:00</lastmod>
   </url><url>
     <loc>https://6923403.github.io/tags/ubuntu/</loc>
@@ -17,17 +41,11 @@
     <loc>https://6923403.github.io/post/ubuntu2010_install_vscode/</loc>
     <lastmod>2021-12-02T16:06:36+08:00</lastmod>
   </url><url>
-    <loc>https://6923403.github.io/</loc>
-    <lastmod>2021-12-02T16:06:36+08:00</lastmod>
-  </url><url>
     <loc>https://6923403.github.io/tags/gcc/</loc>
     <lastmod>2021-12-02T11:08:36+08:00</lastmod>
   </url><url>
     <loc>https://6923403.github.io/post/ubuntu20_install_gcc11/</loc>
     <lastmod>2021-12-02T11:08:36+08:00</lastmod>
-  </url><url>
-    <loc>https://6923403.github.io/tags/note/</loc>
-    <lastmod>2021-12-01T11:24:45+08:00</lastmod>
   </url><url>
     <loc>https://6923403.github.io/tags/stock/</loc>
     <lastmod>2021-12-01T11:24:45+08:00</lastmod>
@@ -74,13 +92,7 @@
     <loc>https://6923403.github.io/post/cpp%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/</loc>
     <lastmod>2021-10-31T21:51:37+08:00</lastmod>
   </url><url>
-    <loc>https://6923403.github.io/yi/</loc>
-    <lastmod>2021-10-30T13:08:52+08:00</lastmod>
-  </url><url>
     <loc>https://6923403.github.io/yi/%E5%A4%A9%E6%B0%B4%E8%AE%BC/</loc>
-    <lastmod>2021-10-30T13:08:52+08:00</lastmod>
-  </url><url>
-    <loc>https://6923403.github.io/tags/%E6%98%93/</loc>
     <lastmod>2021-10-30T13:08:52+08:00</lastmod>
   </url><url>
     <loc>https://6923403.github.io/yi/%E6%B0%B4%E5%A4%A9%E9%9C%80/</loc>
