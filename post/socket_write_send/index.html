@@ -4,7 +4,7 @@
     <title>Socket write_send // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.90.1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -36,8 +36,8 @@ int recv(int sockfd,void *buf,int len,int flags) int send(int sockfd,void *buf,i
    标题 内容     MSG_DONTROUTE 不查找表   MSG_OOB 接受或者发送带外数据   MSG_PEEK 查看数据,并不从系统缓冲区移走数据   MSG_WAITALL 等待所有数据    MSG_DONTROUTE:是 send函数使用的标志." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://6923403.github.io/post/socket_write_send/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2020-11-21T14:59:41&#43;08:00" />
-<meta property="article:modified_time" content="2020-11-21T14:59:41&#43;08:00" />
+<meta property="article:published_time" content="2020-11-21T14:59:41+08:00" />
+<meta property="article:modified_time" content="2020-11-21T14:59:41+08:00" />
 
 
   </head>
@@ -143,7 +143,7 @@ int recv(int sockfd,void *buf,int len,int flags) int send(int sockfd,void *buf,i
 <p>当读成功 时,read返回实际所读的字节数,如果返回的值是0 表示已经读到文件的结束了,小于0表示出现了错误.如果错误为EINTR说明读是由中断引起 的, 如果是ECONNREST表示网络连接出了问题. 和上面一样,我们也写一个自己的读函数.</p>
 <hr>
 <p><strong>recv和send函数提供了和read和write差不多的功能.不过它们提供了第四个参数来控制读写操作.</strong></p>
-<pre><code>int recv(int sockfd,void *buf,int len,int flags)
+<pre tabindex="0"><code>int recv(int sockfd,void *buf,int len,int flags)
 int send(int sockfd,void *buf,int len,int flags)
 </code></pre><p>前面的三个参数和read, write一样,第四个参数可以是0或者是以下的组合</p>
 <table>

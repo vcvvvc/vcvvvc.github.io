@@ -4,7 +4,7 @@
     <title>CPP_Mysql_use // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.90.1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -22,8 +22,8 @@
 使用mysql_init()初始化连接 使用mysql_real_connect()建立一个到mysql数据库的连接 使用mysql_query()执行查询语句 result = mysql_use_result(conn)获取结果集 mysql_field_count(conn)获取查询的列数，mysql_num_fields(result)获取结果集的字段数 通过mysql_fetch_row(result)不断获取下一行，然后循环输出 释放结果集所占内存mysql_free_result(result) mysql_close(conn)关闭连接  Re:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://6923403.github.io/post/mysql_use/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2020-09-25T16:40:02&#43;08:00" />
-<meta property="article:modified_time" content="2020-09-25T16:40:02&#43;08:00" />
+<meta property="article:published_time" content="2020-09-25T16:40:02+08:00" />
+<meta property="article:modified_time" content="2020-09-25T16:40:02+08:00" />
 
 
   </head>
@@ -155,7 +155,7 @@
 </tbody>
 </table>
 <hr>
-<pre><code>class MyDB
+<pre tabindex="0"><code>class MyDB
 {
 public:
 	MyDB();
@@ -169,7 +169,7 @@ private:
 };
 </code></pre><hr>
 <p><strong>基本步骤</strong></p>
-<pre><code>使用mysql_init()初始化连接
+<pre tabindex="0"><code>使用mysql_init()初始化连接
 使用mysql_real_connect()建立一个到mysql数据库的连接
 使用mysql_query()执行查询语句
 result = mysql_use_result(conn)获取结果集

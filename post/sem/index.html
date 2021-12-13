@@ -4,7 +4,7 @@
     <title>Linux Sem // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.90.1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -30,8 +30,8 @@ class sem{ public: //构造函数 sem() { //信号量初始化 if(sem_init(&amp;
 https://blog.csdn.net/m0_45867846/article/details/109021863" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://6923403.github.io/post/sem/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-01-23T20:45:54&#43;08:00" />
-<meta property="article:modified_time" content="2021-01-23T20:45:54&#43;08:00" />
+<meta property="article:published_time" content="2021-01-23T20:45:54+08:00" />
+<meta property="article:modified_time" content="2021-01-23T20:45:54+08:00" />
 
 
   </head>
@@ -136,18 +136,18 @@ https://blog.csdn.net/m0_45867846/article/details/109021863" />
 <li>pshared非0 信号量在进程之间共享</li>
 </ul>
 <hr>
-<pre><code>sem_init函数用于初始化一个未命名的信号量
+<pre tabindex="0"><code>sem_init函数用于初始化一个未命名的信号量
 sem_destory函数用于销毁信号量
 sem_wait函数将以原子操作方式将信号量减一,信号量为0时,sem_wait阻塞
 sem_post函数以原子操作方式将信号量加一,信号量大于0时,唤醒调用sem_post的线程
 </code></pre><hr>
-<pre><code>调用seminit函数时，操作系统将创建信号量对象，此对象中记录着“信号量值”（semaphoreValue）整数。
+<pre tabindex="0"><code>调用seminit函数时，操作系统将创建信号量对象，此对象中记录着“信号量值”（semaphoreValue）整数。
 该值在调用sem_post函数时增1，调用semwait函数时减1。
 但信号量的值不能小于0，因此，在信号量为0的情况下调用sem一vait函数时，调用函数的线程将进人阻塞状态（因为函数未返回）。
 当然，此时如果有其他线程调用sem一post函数，信号量的值将变为1，而原本阻塞的线程可以将该信号量重新减为0并跳出阻塞状态。
 实际上就是通过这种特性完成临界区的同步操作，可以通过如下形式同步临界区（假设信号量的初始值为1）。
 </code></pre><p>**类中主要是Linux下三种锁进行封装，将锁的创建于销毁函数封装在类的构造与析构函数中，实现RAII机制</p>
-<pre><code>class sem{
+<pre tabindex="0"><code>class sem{
     public:
         //构造函数
         sem()

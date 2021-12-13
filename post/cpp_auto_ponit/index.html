@@ -4,7 +4,7 @@
     <title>C&#43;&#43; auto ponit // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.90.1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -30,8 +30,8 @@ shared_ptr&lt;int&gt; p = make_shared&lt;int&gt;(42); 返回一个shared_ptr, �
  可打破环状引用（cycles of references，两个其实已经没有被使用的对象彼此互指，使之看似还在 “被使用” 的状态）的问题   4." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://6923403.github.io/post/cpp_auto_ponit/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2020-08-17T15:10:13&#43;08:00" />
-<meta property="article:modified_time" content="2020-08-17T15:10:13&#43;08:00" />
+<meta property="article:published_time" content="2020-08-17T15:10:13+08:00" />
+<meta property="article:modified_time" content="2020-08-17T15:10:13+08:00" />
 
 
   </head>
@@ -137,7 +137,7 @@ shared_ptr&lt;int&gt; p = make_shared&lt;int&gt;(42); 返回一个shared_ptr, �
 <hr>
 <h1 id="3-make_shared">3. make_shared</h1>
 <p><code>make_shared&lt;T&gt;(args)</code></p>
-<pre><code>shared_ptr&lt;int&gt; p = make_shared&lt;int&gt;(42);
+<pre tabindex="0"><code>shared_ptr&lt;int&gt; p = make_shared&lt;int&gt;(42);
 </code></pre><p><strong>返回一个shared_ptr, 指向一个动态分配的类型为T的对象。使用args初始化此对象</strong></p>
 <hr>
 <h1 id="3weak_ptr">3.weak_ptr</h1>
@@ -159,11 +159,11 @@ shared_ptr&lt;int&gt; p = make_shared&lt;int&gt;(42); 返回一个shared_ptr, �
 <a href="https://github.com/6923403/interview#%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88">github/Interview</a></p>
 <hr>
 <h1 id="6other">6.Other</h1>
-<pre><code>p.get() 
+<pre tabindex="0"><code>p.get() 
 </code></pre><p><strong>返回p中保存的指针。 若智能指针释放了其对象，返回的指针所指向的对象也就消失了。</strong></p>
-<pre><code>p.use_count()
+<pre tabindex="0"><code>p.use_count()
 </code></pre><p><strong>返回与p共享对象的智能指针数量 用于调试</strong></p>
-<pre><code>p.unqiue()
+<pre tabindex="0"><code>p.unqiue()
 </code></pre><p><strong>若p.use_count = 1, return true; 反之 return false</strong></p>
 
     </div>

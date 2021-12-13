@@ -4,7 +4,7 @@
     <title>CPP11_thread // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.90.1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -78,8 +78,8 @@ thread库提供了future用来访问异步操作的结果，因为一个异步�
  假设线程1需要线程2的数据，那么组合使用方式如下:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://6923403.github.io/post/cppthread/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2020-08-29T11:44:31&#43;08:00" />
-<meta property="article:modified_time" content="2020-08-29T11:44:31&#43;08:00" />
+<meta property="article:published_time" content="2020-08-29T11:44:31+08:00" />
+<meta property="article:modified_time" content="2020-08-29T11:44:31+08:00" />
 
 
   </head>
@@ -183,7 +183,7 @@ thread库提供了future用来访问异步操作的结果，因为一个异步�
 <p><strong>定义一个线程对象t1，这就自动创建了一个线程，参数就是你要线程去执行的函数，t1是变量名字 随便取</strong></p>
 <p><code>std::thread t1(func);</code></p>
 <p><strong>下面这里返回一个毫秒级别的时间间隔参数值，间隔10毫秒</strong></p>
-<pre><code>std::chrono::milliseconds(10)
+<pre tabindex="0"><code>std::chrono::milliseconds(10)
 this_thread::sleep_for（）就是让此线程休眠，可以传入休眠的时间
 this_thread::sleep_for(std::chrono::milliseconds(10));让本线程休眠10毫秒
 </code></pre><hr>
@@ -203,7 +203,7 @@ this_thread::sleep_for(std::chrono::milliseconds(10));让本线程休眠10毫秒
 <hr>
 <p>thread6</p>
 <p><strong>c++11还提供了<code>std::unique_lock</code></strong></p>
-<pre><code>类 unique_lock 是通用互斥包装器，允许延迟锁定、锁定的有时限尝试、递归锁定、所有权转移和与条件变量一同使用。
+<pre tabindex="0"><code>类 unique_lock 是通用互斥包装器，允许延迟锁定、锁定的有时限尝试、递归锁定、所有权转移和与条件变量一同使用。
 unique_lock比lock_guard使用更加灵活，功能更加强大。
 使用unique_lock需要付出更多的时间、性能成本。
 </code></pre><hr>
@@ -262,7 +262,7 @@ unique_lock比lock_guard使用更加灵活，功能更加强大。
 <hr>
 <p>thread12</p>
 <p><strong><code>std::future::wait_for()</code>函数作用</strong></p>
-<pre><code>template&lt; class Rep, class Period &gt;
+<pre tabindex="0"><code>template&lt; class Rep, class Period &gt;
 std::future_status wait_for( const std::chrono::duration&lt;Rep,Period&gt;&amp; timeout_duration ) const;
 </code></pre><p><strong>等待结果变得可用。阻塞直至经过指定的 timeout_duration ，或结果变为可用，两者的先到来者。返回值鉴别结果的状态。</strong></p>
 <p><strong>此函数可能由于调度或资源争议延迟而阻塞长于 timeout_duration 。</strong></p>

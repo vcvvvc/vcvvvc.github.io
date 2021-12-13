@@ -953,19 +953,20 @@ https://www.cnblogs.com/nickchen121/p/11145123.htm</description>
       <pubDate>Sun, 17 Jan 2021 13:19:24 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/dell7590_install_macos/</guid>
-      <description>2021-06-09更新 系统为big sur 11.4
+      <description>2021-12-13更新 系统为big sur 11.4
 接近完美 可以用intel网卡连接wifi 速度还不错
 已知麦克风、隔空投送不能用
-U盘至少16g 再来个小内存U盘或者有网线联网 分出一块磁盘空间至少100G  镜像下载 搜素：黑果小兵
+ 镜像下载 搜素：黑果小兵
 big sur用11.4
- 重要前提 如果你没有网线，并且没有其他PC设备联网 你需要提前下载这些 并存储在另一个U盘中
-https://github.com/OpenIntelWireless/HeliPort/releases https://github.com/OpenIntelWireless/itlwm/releases/ https://mackie100projects.altervista.org/download-clover-configurator/ #这个往下找找不要最新几个版本 https://mackie100projects.altervista.org/download-opencore-configurator/  Start //OC git clone https://github.com/Pinming/Dell-Inspiron-7590-Hackintosh-Opencore //Diskgenius 官网自行下载最新版 //balennaEther 官网自行下载最新版 1. 先把Dell-Inspiron-7590-Hackintosh-Opencore重命名为OC
+ 重要前提 如果你没有网线，并且没有其他PC设备联网 你需要提前下载这些
+https://github.com/OpenIntelWireless/itlwm/releases/ #AirportItlwm https://5435.lanzouo.com/isRfBxjxq4f #四叶草+occ  Start //OC git clone https://github.com/Pinming/Dell-Inspiron-7590-Hackintosh-Opencore //Diskgenius 官网自行下载最新版 //balennaEther 官网自行下载最新版 1. 先把Dell-Inspiron-7590-Hackintosh-Opencore重命名为OC
 2. 打开OC文件夹 根据屏幕改名1080P的屏幕使用config-1080p.plist需改名成config.plist 如果你是4K屏 不需要修改
 3. balennaEther烧录dmg镜像文件到U盘
 4. 打开Diskgenius 进入U盘的ESP分区文件夹 删除Clover文件夹 然后将OC文件夹拖入
 5. 打开U盘ESP分区中的EFI 将Diskgenius程序文件夹拖进去 备用 以免出问题
-提前准备好安装空间建议200g 至少100g
-6. 用Diskgenius分ESP区 建议300mb至少200mb [https://www.cnblogs.com/liuzhaoyzz/p/12348682.html]
+提前准备好安装空间建议300g 至少200g
+6. 用Diskgenius分ESP区 建议400m
+7. 双系统需要保存好windows efi
  安装 1. 重启F2 关闭Secure Boot安全启动 检查磁盘模式为ACHI 百度搜
 2. 进入Boot Sequence &amp;lsquo;add option&amp;rsquo; 添加一个引导 选择启动文件为自己的U盘EFI(找到EFI/OC/OpenCore.</description>
     </item>

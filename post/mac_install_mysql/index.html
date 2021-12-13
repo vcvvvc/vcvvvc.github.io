@@ -4,7 +4,7 @@
     <title>Mac install mysql_8.0 // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.90.1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -36,8 +36,8 @@ mysql&gt; select version();查看MySQL版本
 https://www.cnblogs.com/nickchen121/p/11145123.htm" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://6923403.github.io/post/mac_install_mysql/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-01-18T17:20:58&#43;08:00" />
-<meta property="article:modified_time" content="2021-01-18T17:20:58&#43;08:00" />
+<meta property="article:published_time" content="2021-01-18T17:20:58+08:00" />
+<meta property="article:modified_time" content="2021-01-18T17:20:58+08:00" />
 
 
   </head>
@@ -135,7 +135,7 @@ https://www.cnblogs.com/nickchen121/p/11145123.htm" />
 <h1 id="start">Start</h1>
 <p><strong>下载之后安装一路点继续 设置完root密码</strong></p>
 <p><strong>安装完成后 需要开启/关闭Mysql 系统偏好设置-Mysql图标</strong></p>
-<pre><code>停止MySQL服务
+<pre tabindex="0"><code>停止MySQL服务
 sudo mysql.server stop
 
 重启MySQL服务
@@ -146,7 +146,7 @@ sudo mysql.server status
 </code></pre><hr>
 <h1 id="connect-mysql">Connect Mysql</h1>
 <p><strong>终端输入  <code>vim ~/.bash_profile</code></strong></p>
-<pre><code>PATH=$PATH:/usr/local/mysql/bin
+<pre tabindex="0"><code>PATH=$PATH:/usr/local/mysql/bin
 PATH=$PATH:/usr/local/mysql/support-files
 </code></pre><p><strong>再执行</strong> <code>source ~/.bash_profile</code></p>
 <h1 id="login">Login</h1>

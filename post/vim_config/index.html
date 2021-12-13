@@ -4,7 +4,7 @@
     <title>Vim_config // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.90.1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -24,8 +24,8 @@
 &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot; &quot;&quot;&quot;=&gt;全局配置&lt;=&quot;&quot;&quot; &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot; &quot;关闭vi兼容模式&quot; set nocompatible &quot;设置历史记录步数&quot; set history=1000 &quot;开启相关插件&quot; &quot;侦测文件类型&quot; filetype on &quot;载入文件类型插件&quot; filetype plugin on &quot;为特定文件类型载入相关缩进文件&quot; filetype indent on &quot;当文件在外部被修改时，自动更新该文件&quot; set autoread &quot;激活鼠标的使用&quot; set mouse=a set selection=exclusive set selectmode=mouse,key &quot;保存全局变量&quot; set viminfo&#43;=!" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://6923403.github.io/post/vim_config/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2020-10-13T18:12:48&#43;08:00" />
-<meta property="article:modified_time" content="2020-10-13T18:12:48&#43;08:00" />
+<meta property="article:published_time" content="2020-10-13T18:12:48+08:00" />
+<meta property="article:modified_time" content="2020-10-13T18:12:48+08:00" />
 
 
   </head>
@@ -119,12 +119,12 @@
     </header>
     <div class="post-content">
       <h1 id="编译安装">编译安装</h1>
-<pre><code>#https://www.cnblogs.com/JoiT/p/build_from_source_for_linux_vim.html
+<pre tabindex="0"><code>#https://www.cnblogs.com/JoiT/p/build_from_source_for_linux_vim.html
 apt install libncurses5-dev libgtk2.0-dev libatk1.0-dev \
 libcairo2-dev libx11-dev libxpm-dev libxt-dev
 
 apt-get remove --purge vim-tiny vim vim-runtime gvim vim-common vim-gui-common vim-nox
-</code></pre><pre><code>./configure --with-features=huge \
+</code></pre><pre tabindex="0"><code>./configure --with-features=huge \
     --enable-multibyte \
     --enable-gui=gtk3 \
     --enable-cscope \
@@ -136,7 +136,7 @@ make install
 <h1 id="主题配置">主题配置</h1>
 <p><strong>首先要确认你的终端支持真彩，一般来说，主流的比如iTerm2, Putty, Powershell的最新版本都已经支持了。我们可以运行以下命令检测一下</strong></p>
 <p><code>(echo -e '\e[48:2:1:2:3m\eP$qm\e\\' ; xxd)</code></p>
-<pre><code>&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+<pre tabindex="0"><code>&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
 &quot;&quot;&quot;=&gt;全局配置&lt;=&quot;&quot;&quot;
 &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
 

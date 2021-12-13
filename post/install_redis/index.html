@@ -4,7 +4,7 @@
     <title>Centos7 Install_redis // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.90.1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -24,8 +24,8 @@ daemonize no 改为 daemonize yes  开机自启 vim /etc/systemd/system/redis.se
 [Unit] Description=redis-server After=network.target [Service] Type=forking ExecStart=/usr/local/redis/bin/redis-server /usr/local/redis/bin/redis.conf PrivateTmp=true [Install] WantedBy=multi-user.target systemctl daemon-reload ln -s /usr/local/redis/bin/redis-cli /usr/bin/redis systemctl start redis." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://6923403.github.io/post/install_redis/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2020-09-21T13:32:22&#43;08:00" />
-<meta property="article:modified_time" content="2020-09-21T13:32:22&#43;08:00" />
+<meta property="article:published_time" content="2020-09-21T13:32:22+08:00" />
+<meta property="article:modified_time" content="2020-09-21T13:32:22+08:00" />
 
 
   </head>
@@ -118,28 +118,28 @@ daemonize no 改为 daemonize yes  开机自启 vim /etc/systemd/system/redis.se
     </header>
     <div class="post-content">
       <h1 id="升级gcc">升级GCC</h1>
-<pre><code>yum -y install centos-release-scl
+<pre tabindex="0"><code>yum -y install centos-release-scl
 yum -y install devtoolset-9-gcc devtoolset-9-gcc-c++ devtoolset-9-binutils
 scl enable devtoolset-9 bash
 echo &quot;source /opt/rh/devtoolset-9/enable&quot; &gt;&gt; /etc/profile
 gcc -v
 </code></pre><hr>
 <h1 id="安装redis">安装redis</h1>
-<pre><code>wget http://download.redis.io/releases/redis-6.0.8.tar.gz
+<pre tabindex="0"><code>wget http://download.redis.io/releases/redis-6.0.8.tar.gz
 tar -xvf redis-6.0.8/tar/gz
-</code></pre><pre><code>cd redis
+</code></pre><pre tabindex="0"><code>cd redis
 make -j4
 make install PREFIX=/usr/local/redis
 </code></pre><hr>
 <h1 id="配置redis">配置redis</h1>
-<pre><code>cd redis
+<pre tabindex="0"><code>cd redis
 cp redis.conf /usr/local/redis/bin/
 </code></pre><p><strong>vim /usr/local/redis/bin/redis.conf</strong></p>
-<pre><code>daemonize no 改为 daemonize yes
+<pre tabindex="0"><code>daemonize no 改为 daemonize yes
 </code></pre><hr>
 <h1 id="开机自启">开机自启</h1>
 <p><strong>vim /etc/systemd/system/redis.service</strong></p>
-<pre><code>[Unit]
+<pre tabindex="0"><code>[Unit]
 Description=redis-server
 After=network.target
 
@@ -150,7 +150,7 @@ PrivateTmp=true
 
 [Install]
 WantedBy=multi-user.target
-</code></pre><pre><code>systemctl daemon-reload
+</code></pre><pre tabindex="0"><code>systemctl daemon-reload
 ln -s /usr/local/redis/bin/redis-cli /usr/bin/redis
 systemctl start redis.service
 systemctl enable redis.service

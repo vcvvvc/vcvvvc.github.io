@@ -4,7 +4,7 @@
     <title>getopt_long // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.90.1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -32,8 +32,8 @@ struct option { const char *name; int has_arg; int *flag; int val; }; static str
 struct option { const char *name; int has_arg; int *flag; int val; }; static struct option longOpts[] = { { &quot;daemon&quot;, no_argument, NULL, &#39;D&#39; }, { &quot;dir&quot;, required_argument, NULL, &#39;d&#39; }, { &quot;out&quot;, required_argument, NULL, &#39;o&#39; }, { &quot;log&quot;, required_argument, NULL, &#39;l&#39; }, { &quot;split&quot;, required_argument, NULL, &#39;s&#39; }, { &quot;http-proxy&quot;, required_argument, &amp;lopt, 1 }, { &quot;http-user&quot;, required_argument, &amp;lopt, 2 }, { &quot;http-passwd&quot;, required_argument, &amp;lopt, 3 }, { &quot;http-proxy-user&quot;, required_argument, &amp;lopt, 4 }, { &quot;http-proxy-passwd&quot;, required_argument, &amp;lopt, 5 }, { &quot;http-auth-scheme&quot;, required_argument, &amp;lopt, 6 }, { &quot;version&quot;, no_argument, NULL, &#39;v&#39; }, { &quot;help&quot;, no_argument, NULL, &#39;h&#39; }, { 0, 0, 0, 0 } }; (1)name:表示选项的名称,比如daemon,dir,out等。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://6923403.github.io/post/getopt_long/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-03-14T14:26:33&#43;08:00" />
-<meta property="article:modified_time" content="2021-03-14T14:26:33&#43;08:00" />
+<meta property="article:published_time" content="2021-03-14T14:26:33+08:00" />
+<meta property="article:modified_time" content="2021-03-14T14:26:33+08:00" />
 
 
   </head>
@@ -126,7 +126,7 @@ struct option { const char *name; int has_arg; int *flag; int val; }; static str
     </header>
     <div class="post-content">
       <p><strong>2021-5-31更新</strong></p>
-<pre><code>#include &lt;unistd.h&gt;
+<pre tabindex="0"><code>#include &lt;unistd.h&gt;
 extern char *optarg;
 extern int optind, opterr, optopt;
 #include &lt;getopt.h&gt;
@@ -143,7 +143,7 @@ int getopt_long_only(int argc, char * const argv[], const char *optstring, const
 <li>一个字符，后接两个冒号——表示选项后面带一个可选参数，即参数可有可无，如果带参数，则选项与参数直接不能有空格,形式应该如-b</li>
 </ul>
 <p>3、longopts：表示长选项结构体。结构如下：</p>
-<pre><code>struct option
+<pre tabindex="0"><code>struct option
 {
      const char *name;
      int         has_arg;
@@ -176,13 +176,13 @@ int getopt_long_only(int argc, char * const argv[], const char *optstring, const
 <li>c: optional_argument(或者是2)时  ——参数输入格式只能为：&ndash;参数=值</li>
 </ul>
 <p>(3) flag:这个参数有两个意思，空或者非空。</p>
-<pre><code>a:如果参数为空NULL，那么当选中某个长选项的时候，getopt_long将返回val值。eg，可执行程序 --help，getopt_long的返回值为h.             
+<pre tabindex="0"><code>a:如果参数为空NULL，那么当选中某个长选项的时候，getopt_long将返回val值。eg，可执行程序 --help，getopt_long的返回值为h.             
 
 b:如果参数不为空，那么当选中某个长选项的时候，getopt_long将返回0，并且将flag指针参数指向val值。eg: 可执行程序 --http-proxy=127.0.0.1:80 那么getopt_long返回值为0，并且lopt值为1。
 </code></pre><p>(4) val：表示指定函数找到该选项时的返回值，或者当flag非空时指定flag指向的数据的值val。</p>
 <p>4、longindex：longindex非空，它指向的变量将记录当前找到参数符合longopts里的第几个元素的描述，即是longopts的下标值。</p>
 <p>5、全局变量：</p>
-<pre><code>（1）optarg：表示当前选项对应的参数值。
+<pre tabindex="0"><code>（1）optarg：表示当前选项对应的参数值。
 
 （2）optind：表示的是下一个将被处理到的参数在argv中的下标值。
 
@@ -190,7 +190,7 @@ b:如果参数不为空，那么当选中某个长选项的时候，getopt_long�
 
 （4）optopt：表示没有被未标识的选项。
 </code></pre><p>6、返回值：</p>
-<pre><code>（1）如果短选项找到，那么将返回短选项对应的字符。
+<pre tabindex="0"><code>（1）如果短选项找到，那么将返回短选项对应的字符。
 
 （2）如果长选项找到，如果flag为NULL，返回val。如果flag不为空，返回0
 
@@ -209,7 +209,7 @@ b:如果参数不为空，那么当选中某个长选项的时候，getopt_long�
 </li>
 </ul>
 <hr>
-<pre><code>#include &lt;iostream&gt;
+<pre tabindex="0"><code>#include &lt;iostream&gt;
 #include &lt;unistd.h&gt;
 #include &lt;getopt.h&gt;
 using namespace std;
@@ -255,7 +255,7 @@ int main(int argc, char **argv)
 
     return 0;
 }
-</code></pre><pre><code>root@Tk:~/git/Cplusplus/test/getopt# ./a.out -a 100 -b 200 --reqarg
+</code></pre><pre tabindex="0"><code>root@Tk:~/git/Cplusplus/test/getopt# ./a.out -a 100 -b 200 --reqarg
 opt = 97(a)
 optarg = 100
 optind = 3

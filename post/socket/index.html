@@ -4,7 +4,7 @@
     <title>Socket function // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.90.1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -36,8 +36,8 @@ https://blog.csdn.net/u010144805/article/details/78579528
  int fcntl(int fd, int cmd); int fcntl(int fd, int cmd, long arg); int fcntl(int fd, int cmd, struct flock *lock); fcntl函数有5种功能：" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://6923403.github.io/post/socket/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2020-08-26T22:47:24&#43;08:00" />
-<meta property="article:modified_time" content="2020-08-26T22:47:24&#43;08:00" />
+<meta property="article:published_time" content="2020-08-26T22:47:24+08:00" />
+<meta property="article:modified_time" content="2020-08-26T22:47:24+08:00" />
 
 
   </head>
@@ -131,14 +131,14 @@ https://blog.csdn.net/u010144805/article/details/78579528
     </header>
     <div class="post-content">
       <p><strong>setsockopt</strong></p>
-<pre><code>获取或者设置与某个套接字关联的选 项。选项可能存在于多层协议中，它们总会出现在最上面的套接字层。当操作套接字选项时，
+<pre tabindex="0"><code>获取或者设置与某个套接字关联的选 项。选项可能存在于多层协议中，它们总会出现在最上面的套接字层。当操作套接字选项时，
 
 选项位于的层和选项的名称必须给出。为了操作套接字层的选项，应该 将层的值指定为SOL_SOCKET。为了操作其它层的选项，控制选
 
 项的合适协议号必须给出。例如，为了表示一个选项由TCP协议解析，层应该设定为协议 号TCP。
 </code></pre><p><img src="/img/socket/1.png" alt="option"></p>
 <p><strong>SO_LINGER选项</strong></p>
-<pre><code>struct linger
+<pre tabindex="0"><code>struct linger
 {
     int l_onoff;
     int l_linger;
@@ -161,7 +161,7 @@ https://blog.csdn.net/u010144805/article/details/78579528
 <p><a href="https://www.jianshu.com/p/141aa1c41f15">https://www.jianshu.com/p/141aa1c41f15</a></p>
 <p><a href="https://blog.csdn.net/u010144805/article/details/78579528">https://blog.csdn.net/u010144805/article/details/78579528</a></p>
 <hr>
-<pre><code>int fcntl(int fd, int cmd);
+<pre tabindex="0"><code>int fcntl(int fd, int cmd);
 int fcntl(int fd, int cmd, long arg);
 int fcntl(int fd, int cmd, struct flock *lock);
 </code></pre><p><strong>fcntl函数有5种功能：</strong></p>
@@ -180,7 +180,7 @@ int fcntl(int fd, int cmd, struct flock *lock);
 <li>1.调用open获得描述符，并指定O_NONBLOCK标志</li>
 <li>2.对已经打开的文件描述符，调用fcntl，打开O_NONBLOCK文件状态标志。</li>
 </ul>
-<pre><code>flags = fcntl( s, F_GETFL, 0 ) )
+<pre tabindex="0"><code>flags = fcntl( s, F_GETFL, 0 ) )
 fcntl( s, F_SETFL, flags | O_NONBLOCK )
 </code></pre><p>Re:
 <a href="https://blog.csdn.net/zhulinfeiba/article/details/5011573">https://blog.csdn.net/zhulinfeiba/article/details/5011573</a></p>
@@ -220,7 +220,7 @@ fcntl( s, F_SETFL, flags | O_NONBLOCK )
 <hr>
 <p><strong>新型网路地址转化函数inet_pton和inet_ntop</strong>
 这两个函数是随IPv6出现的函数，对于IPv4地址和IPv6地址都适用，函数中p和n分别代表表达（presentation)和数值（numeric)。地址的表达格式通常是ASCII字符串，数值格式则是存放到套接字地址结构的二进制值。</p>
-<pre><code>#include &lt;arpe/inet.h&gt;
+<pre tabindex="0"><code>#include &lt;arpe/inet.h&gt;
 int inet_pton(int family, const char *strptr, void *addrptr);     //将点分十进制的ip地址转化为用于网络传输的数值格式
         返回值：若成功则为1，若输入不是有效的表达式则为0，若出错则为-1
 
@@ -237,12 +237,12 @@ const char * inet_ntop(int family, const void *addrptr, char *strptr, size_t len
 <p>3.inet_ntop进行相反的转换，从数值格式（addrptr）转换到表达式（strptr)。inet_ntop函数的strptr参数不可以是一个空指针。调用者必须为目标存储单元分配内存并指定其大小，调用成功时，这个指针就是该函数的返回值。len参数是目标存储单元的大小，以免该函数溢出其调用者的缓冲区。如果len太小，不足以容纳表达式结果，那么返回一个空指针，并置为errno为ENOSPC。</p>
 </li>
 </ul>
-<pre><code>inet_pton(AF_INET, ip, &amp;foo.sin_addr);   //  代替 foo.sin_addr.addr=inet_addr(ip);
+<pre tabindex="0"><code>inet_pton(AF_INET, ip, &amp;foo.sin_addr);   //  代替 foo.sin_addr.addr=inet_addr(ip);
 
 char str[INET_ADDRSTRLEN];
 char *ptr = inet_ntop(AF_INET,&amp;foo.sin_addr, str, sizeof(str));      // 代替 ptr = inet_ntoa(foo.sin_addr)
 </code></pre><p><strong>示例代码</strong></p>
-<pre><code>int main()
+<pre tabindex="0"><code>int main()
 {
     char IPdotdec[20]; // 存放点分十进制IP地址
     struct in_addr s;  // IPv4地址结构体
@@ -301,7 +301,7 @@ inet_ntop: 127.0.0.1
 <p><code>read(sock, buf, sizeof(buf) -1)</code></p>
 <p><strong>read从套接字文件中读取数据, fd为要读取的文件的描述符，buf为要接收数据的缓冲区地址，nbytes为要读取的数据的字节数。</strong></p>
 <hr>
-<pre><code>    /*
+<pre tabindex="0"><code>    /*
      * 本函数向服务ip发起请求 服务器ip port 保存在sockaddr_in中
      * int connect(int sock, struct sockaddr *serv_addr, socklen_t addrlen);  //Linux
      * int connect(SOCKET sock, const struct sockaddr *serv_addr, int addrlen);  //Windows
@@ -317,11 +317,11 @@ inet_ntop: 127.0.0.1
 <li>Success: return 0</li>
 </ul>
 <p><strong>POSIX定义了一个宏PTHREAD_MUTEX_INITIALIZER来静态初始化互斥锁</strong></p>
-<pre><code>pthread_mutex_t mutex=PTHREAD_MUTEX_INITIALIZER;
+<pre tabindex="0"><code>pthread_mutex_t mutex=PTHREAD_MUTEX_INITIALIZER;
 </code></pre><p><strong>动态方式是采用pthread_mutex_init()函数来初始化互斥锁</strong></p>
-<pre><code>int pthread_mutex_init(pthread_mutex_t *mutex, const pthread_mutexattr_t *mutexattr)
+<pre tabindex="0"><code>int pthread_mutex_init(pthread_mutex_t *mutex, const pthread_mutexattr_t *mutexattr)
 </code></pre><p><strong>其中mutexattr用于指定互斥锁属性（见下），如果为NULL则使用缺省属性, <code>pthread_mutex_destroy()</code>用于注销一个互斥锁</strong></p>
-<pre><code>int pthread_mutex_destroy(pthread_mutex_t *mutex)
+<pre tabindex="0"><code>int pthread_mutex_destroy(pthread_mutex_t *mutex)
 </code></pre><p><strong>销毁一个互斥锁即意味着释放它所占用的资源，且要求锁当前处于开放状态。由于在Linux中，互斥锁并不占用任何资源，因此LinuxThreads中的 <code>pthread_mutex_destroy()</code>除了检查锁状态以外（锁定状态则返回EBUSY）没有其他动作。</strong></p>
 <p><strong>2.属性 3. 锁操作</strong></p>
 <p>Re:
@@ -367,13 +367,13 @@ inet_ntop: 127.0.0.1
 <a href="https://blog.csdn.net/jasmineal/article/details/8807744">https://blog.csdn.net/jasmineal/article/details/8807744</a></p>
 <p><a href="https://blog.csdn.net/oqqYuJi12345678/article/details/100585669">https://blog.csdn.net/oqqYuJi12345678/article/details/100585669</a></p>
 <hr>
-<pre><code>backtrace
+<pre tabindex="0"><code>backtrace
 backtrace_symbols
 backtrace_symbols_fd
 </code></pre><p>To: <a href="https://6923403.github.io/post/backtrace/">https://6923403.github.io/post/backtrace/</a></p>
 <hr>
 <p><strong><code>pthread_cond_broadcast(&amp;cond1)</code>的作用是唤醒所有正在<code>pthread_cond_wait(&amp;cond1,&amp;mutex1)</code>的线程。</strong></p>
-<pre><code>while(lock_status_[lid] == LOCKED) 
+<pre tabindex="0"><code>while(lock_status_[lid] == LOCKED) 
 {
     pthread_cond_wait(&amp;c_, &amp;m_);
 }
@@ -384,7 +384,7 @@ backtrace_symbols_fd
 <p><a href="https://www.cnblogs.com/XiaoXiaoShuai-/p/11855408.html">https://www.cnblogs.com/XiaoXiaoShuai-/p/11855408.html</a></p>
 <p><a href="https://www.cnblogs.com/zhouzhuo/p/3781511.html">https://www.cnblogs.com/zhouzhuo/p/3781511.html</a></p>
 <hr>
-<pre><code>struct hostent{
+<pre tabindex="0"><code>struct hostent{
     char *h_name;  //official name
     char **h_aliases;  //alias list
     int  h_addrtype;  //host address type
@@ -414,7 +414,7 @@ backtrace_symbols_fd
 <p><strong>之后用freeaddrinfo 释放getaddrinfo所分配的内存</strong></p>
 <p><code>void freeaddrinfo(struct addrinfo *res);</code></p>
 <p><strong>getnameinfo 通过socket地址同时获得字符串表示的主机名和服务名</strong></p>
-<p><code>int getnameinfo(const struct sockaddr *addr, socklen_t addrlen, char *host, socklen_t hostlen, char *serv, socklen_t servlen, int flags);</code></p>
+<p><code>int getnameinfo(const struct sockaddr *addr, socklen_t addrlen, char *host, socklen_t hostlen, char *serv, socklen_t servlen, int flags); </code></p>
 <hr>
 <p><strong>readv 将数据从文件描述符读到分散的内存块中</strong></p>
 <p><code>ssize_t readv(int fd, const struct iovec *iov, int iovcnt);</code></p>
@@ -446,7 +446,7 @@ backtrace_symbols_fd
 <p><code>void closelog();</code></p>
 <hr>
 <p><strong>get_uid获取和设置当前进程真实用户</strong></p>
-<pre><code>uid_t getuid(void); //真实用户ID
+<pre tabindex="0"><code>uid_t getuid(void); //真实用户ID
 uid_t geteuid(void); //有效用户ID
 gid_t getgid(void); //真实组ID
 gid_t getegid(void); //有效组ID
@@ -465,7 +465,7 @@ int setegid(gid_t egid); //设置有效组ID
 <p><strong>rlimit 系统资源读取\设置</strong></p>
 <p><code>int getrlimit(int resource, struct rlimit *rlim);</code></p>
 <p><code>int setrlimit(int resource, const struct rlimit *rlim);</code></p>
-<pre><code>struct rlimit
+<pre tabindex="0"><code>struct rlimit
 {
     rlim_t rlim_cur;
     rlim_t rlim_max;
@@ -531,7 +531,7 @@ int setegid(gid_t egid); //设置有效组ID
 <p><strong>kill出错的情况</strong></p>
 <p><img src="/img/socket/kill_error.png" alt="kill_error"></p>
 <p><strong>信号处理函数SIG_DFL使用信号的默认处理方式、SIG_IGN表示忽略目标信号</strong></p>
-<pre><code>//原型: typedef void (* __sighandler_t) (int);
+<pre tabindex="0"><code>//原型: typedef void (* __sighandler_t) (int);
 #define SIG_DFL((__sighandler_t) 0)
 #define SIG_IGN((__sighandler_t) 1) 
 </code></pre><p><strong>signal信号设置处理函数</strong></p>
@@ -540,7 +540,7 @@ int setegid(gid_t egid); //设置有效组ID
 <p><code>int sigaction(int signum, const struct sigaction *act, struct sigaction *oldact);</code></p>
 <p><img src="/img/socket/sa_flags.png" alt="sa_flags"></p>
 <p><strong>信号集</strong></p>
-<pre><code>int sigemptyset(sigset_t * _set) //清空信号集
+<pre tabindex="0"><code>int sigemptyset(sigset_t * _set) //清空信号集
 int sigfillset(sigset_t * _set) //在信号集中设置所有信号
 int sigaddset(sigset_t * _set, int _signo) //将信号 _signo添加至信号集中
 int sigdelset(sigset_t * _set, int _signo) //将信号 _signo从信号集中删除
@@ -559,14 +559,14 @@ int sigismember(const sigset_t * _set, int _signo) //测试 _signo是否在信�
 <p><strong>fork 复制当前进程, 在内核进程表中创建一个新的进程表项</strong></p>
 <p><code>pid_t fork(void);</code></p>
 <p><strong>exec 在子进程中执行其他程序, 即替换当前进程映像</strong></p>
-<pre><code>int execl(const char* path, const char * arg, ...);
+<pre tabindex="0"><code>int execl(const char* path, const char * arg, ...);
 int execlp(const char* file, const char* arg, ...);
 int execle(const char *pathname, const char *arg, ... /*, (char *) NULL, char *const envp[] */);
 int execv(const char *pathname, char *const argv[]);
 int execvp(const char *file, char *const argv[]);
 int execvpe(const char *file, char *const argv[], char *const envp[]);
 </code></pre><p><strong>wait 在父进程中调用, 等待子进程的结束, 并获取子进程的返回信息,避免了僵尸进程的产生或使子进程的僵尸态立即结束, wait函数将阻塞进程,直到进程的某个子进程结束运行为止</strong></p>
-<pre><code>pid_t wait(int *wstatus);
+<pre tabindex="0"><code>pid_t wait(int *wstatus);
 pid_t waitpid(pid_t pid, int *wstatus, int options);
 </code></pre><p><img src="/img/socket/%E5%AD%90%E8%BF%9B%E7%A8%8B%E7%8A%B6%E6%80%81%E4%BF%A1%E6%81%AF.png" alt="子进程状态信息"></p>
 <p><strong>semget 系统调用创建一个新的信号量集, 或者获取一个已经存在的信号量集</strong></p>
@@ -578,13 +578,13 @@ pid_t waitpid(pid_t pid, int *wstatus, int options);
 <p><strong>shmget 系统调用创建一段新的共享内存,或者获取一段已存在的共享内存</strong></p>
 <p><code>int shmget(key_t key, size_t size, int shmflg);</code></p>
 <p><strong>shmat shmdt 共享内存被创建\获取后,不能立即访问,而是需要先将它关联到进程的地址空间中,使用完共享内存之后,也需要将它从进程地址空间中分离</strong></p>
-<pre><code>void *shmat(int shmid, const void *shmaddr, int shmflg);
+<pre tabindex="0"><code>void *shmat(int shmid, const void *shmaddr, int shmflg);
 int shmdt(const void *shmaddr);
 </code></pre><p><strong>shmctl系统调用控制内存的某些属性</strong></p>
 <p><code>int shmctl(int shmid, int cmd, struct shmid_ds *buf);</code></p>
 <p><img src="/img/socket/shmctl.png" alt="shmctl"></p>
 <p><strong>shm_open 创建或打开POSIX共享内存对象. Linux提供了一种利用mmap在无关进程之间共享内存的方式,这种方式无须任何文件支持,但它需要先使用shm_open 创建\打开一个POSIX共享内存对象</strong></p>
-<pre><code>//编译时需要指定链接: -lrt
+<pre tabindex="0"><code>//编译时需要指定链接: -lrt
 int shm_open(const char *name, int oflag, mode_t mode);
 </code></pre><p><img src="/img/socket/shm_open_oflag.png" alt="shm_open_oflag"></p>
 <p><strong>shm_unlink 删除创建的共享内存对象</strong></p>
@@ -592,7 +592,7 @@ int shm_open(const char *name, int oflag, mode_t mode);
 <hr>
 <p><strong>socketpair()函数用于创建一对无名的、相互连接的套接子。</strong></p>
 <p><a href="https://blog.csdn.net/weixin_40039738/article/details/81095013">https://blog.csdn.net/weixin_40039738/article/details/81095013</a></p>
-<pre><code>int socketpair(int d, int type, int protocol, int sv[2])；
+<pre tabindex="0"><code>int socketpair(int d, int type, int protocol, int sv[2])；
 </code></pre><p>如果函数成功，则返回0，创建好的套接字分别是sv[0]和sv[1]；否则返回-1，错误码保存于errno中。</p>
 <p><strong>基本用法：</strong></p>
 <ul>
@@ -613,7 +613,7 @@ int shm_open(const char *name, int oflag, mode_t mode);
 </li>
 </ul>
 <p><strong>s</strong>endmsg、recvmsg、send函数的使用**</p>
-<pre><code>#sendmsg()用来将数据由指定的socket传给对方主机. 失败返回-1
+<pre tabindex="0"><code>#sendmsg()用来将数据由指定的socket传给对方主机. 失败返回-1
 int sendmsg(int s, const strcut msghdr *msg, unsigned int flags);
 
 #函数说明：recvmsg()用来接收远程主机经指定的socket 传来的数据.  失败返回-1

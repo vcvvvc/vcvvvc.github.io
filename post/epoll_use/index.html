@@ -4,7 +4,7 @@
     <title>epoll use // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.90.1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -36,8 +36,8 @@ Epoll 没有最大并发连接的限制，上限是最大可以打开文件的�
 2. 将被监听的描述符添加到epoll句柄或从epool句柄中删除或者对监听事件进行修改 int epoll_ctl(int epfd, int op, int fd, struct epoll_event *event); //op为注册事件 epoll的事件注册函数，它不同与select()是在监听事件时告诉内核要监听什么类型的事件，而是在这里先注册要监听的事件类型。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://6923403.github.io/post/epoll_use/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2020-08-27T12:09:01&#43;08:00" />
-<meta property="article:modified_time" content="2020-08-27T12:09:01&#43;08:00" />
+<meta property="article:published_time" content="2020-08-27T12:09:01+08:00" />
+<meta property="article:modified_time" content="2020-08-27T12:09:01+08:00" />
 
 
   </head>
@@ -134,7 +134,7 @@ Epoll 没有最大并发连接的限制，上限是最大可以打开文件的�
       <h2 id="简介">简介</h2>
 <p><strong>#include &lt;sys/epoll.h&gt;</strong></p>
 <p><strong>epoll与select</strong></p>
-<pre><code>Epoll 没有最大并发连接的限制，上限是最大可以打开文件的数目
+<pre tabindex="0"><code>Epoll 没有最大并发连接的限制，上限是最大可以打开文件的数目
 效率提升，epoll对于句柄事件的选择不是遍历的，是事件响应的，就是句柄上事件来就马上选择出来，不需要遍历整个句柄链表，因此效率非常高，内核将句柄用红黑树保存的，IO效率不随FD数目增加而线性下降。
 内存拷贝， select让内核把 FD 消息通知给用户空间的时候使用了内存拷贝的方式，开销较大，但是Epoll 在这点上使用了共享内存的方式，这个内存拷贝也省略了。
 相比于select，epoll最大的好处在于它不会随着监听fd数目的增长而降低效率。因为在内核中的select实现中，它是采用轮询来处理的，轮询的fd数目越多，自然耗时越多。
@@ -153,7 +153,7 @@ Epoll 没有最大并发连接的限制，上限是最大可以打开文件的�
 <li>边缘触发（ET）： 当epoll_wait检测到某描述符事件就绪并通知应用程序时，应用程序必须立即处理该事件。如果不处理，下次调用epoll_wait时，不会再次通知此事件。（直到你做了某些操作导致该描述符变成未就绪状态了，也就是说边缘触发只在状态由未就绪变为就绪时只通知一次）。</li>
 </ul>
 <p>//Edge Triggered(ET) //高速工作方式，错误率比较大，只支持no_block socket (非阻塞socket)</p>
-<pre><code>假设现在对方发送了2k的数据，而我们先读取了1k，然后这时调用了epoll_wait，如果是边沿触发ET，那么这个fd变成就绪状态就会从epoll 队列移除，
+<pre tabindex="0"><code>假设现在对方发送了2k的数据，而我们先读取了1k，然后这时调用了epoll_wait，如果是边沿触发ET，那么这个fd变成就绪状态就会从epoll 队列移除，
 则epoll_wait 会一直阻塞，忽略尚未读取的1k数据; 而如果是水平触发LT，那么epoll_wait 还会检测到可读事件而返回，我们可以继续读取剩下的1k 数据。
 总结: LT模式可能触发的次数更多, 一旦触发的次数多, 也就意味着效率会下降; 但这样也不能就说LT模式就比ET模式效率更低
 因为ET的使用对编程人员提出了更高更精细的要求,一旦使用者编程水平不够, 那ET模式还不如LT模式。
@@ -163,11 +163,11 @@ ET模式仅当状态发生变化的时候才获得通知,这里所谓的状态�
 而LT模式是只要有数据没有处理就会一直通知下去的.
 </code></pre><hr>
 <h3 id="1-创建一个epoll的句柄">1. 创建一个epoll的句柄</h3>
-<pre><code>int epoll_create(int size);
+<pre tabindex="0"><code>int epoll_create(int size);
 </code></pre><p>创建一个epoll的句柄，size用来告诉内核这个监听的数目一共有多大。</p>
 <p>这个参数不同于select()中的第一个参数，给出最大监听的fd+1的值。需要注意的是，当创建好epoll句柄后，它就是会占用一个fd值，在linux下如果查看/proc/进程id/fd/，是能够看到这个fd的，所以在使用完epoll后，必须调用close()关闭，否则可能导致fd被耗尽。</p>
 <h3 id="2-将被监听的描述符添加到epoll句柄或从epool句柄中删除或者对监听事件进行修改">2. 将被监听的描述符添加到epoll句柄或从epool句柄中删除或者对监听事件进行修改</h3>
-<pre><code>int epoll_ctl(int epfd, int op, int fd, struct epoll_event *event); //op为注册事件
+<pre tabindex="0"><code>int epoll_ctl(int epfd, int op, int fd, struct epoll_event *event); //op为注册事件
 </code></pre><p>epoll的事件注册函数，它不同与select()是在监听事件时告诉内核要监听什么类型的事件，而是在这里先注册要监听的事件类型。</p>
 <p><strong>用于控制某个epoll文件描述符上的事件，可以注册事件，修改事件，删除事件。</strong></p>
 <ul>
@@ -181,7 +181,7 @@ ET模式仅当状态发生变化的时候才获得通知,这里所谓的状态�
 <p>参数events用来从内核得到事件的集合，maxevents告之内核这个events有多大，这个 maxevents的值不能大于创建epoll_create()时的size，参数timeout是超时时间（毫秒，0会立即返回，-1将不确定，也有说法说是永久阻塞）。该函数返回需要处理的事件数目，如返回0表示已超时。</p>
 <p>如果下一个循环你还要关注这个socket fd的话，则需要用epoll_ctl(epfd,EPOLL_CTL_MOD,listenfd,&amp;ev)来重新设置socket fd的事件类型。这时不用EPOLL_CTL_ADD,因为socket fd并未清空，只是事件类型清空。</p>
 <hr>
-<pre><code>typedef union epoll_data {
+<pre tabindex="0"><code>typedef union epoll_data {
    void    *ptr;
    int      fd;
    uint32_t u32;
@@ -236,7 +236,7 @@ epoll的设计和实现与select完全不同。epoll通过在Linux内核中申�
 <hr>
 <h1 id="linux内核具体的epoll机制实现思路">Linux内核具体的epoll机制实现思路</h1>
 <p>当某一进程调用epoll_create方法时，Linux内核会创建一个eventpoll结构体，这个结构体中有两个成员与epoll的使用方式密切相关</p>
-<pre><code>/*
+<pre tabindex="0"><code>/*
  * This structure is stored inside the &quot;private_data&quot; member of the file
  * structure and rapresent the main data sructure for the eventpoll
  * interface.
@@ -279,7 +279,7 @@ struct eventpoll {
 </code></pre><p>每一个epoll对象都有一个独立的eventpoll结构体，用于存放通过epoll_ctl方法向epoll对象中添加进来的事件。这些事件都会挂载在红黑树中，如此，重复添加的事件就可以通过红黑树而高效的识别出来(红黑树的插入时间效率是lgn，其中n为树的高度)。</p>
 <p>而所有添加到epoll中的事件都会与设备(网卡)驱动程序建立回调关系，也就是说，当相应的事件发生时会调用这个回调方法。这个回调方法在内核中叫ep_poll_callback,它会将发生的事件添加到rdlist双链表中。</p>
 <p>在epoll中，对于每一个事件，都会建立一个epitem结构体，如下所示:</p>
-<pre><code>/*
+<pre tabindex="0"><code>/*
  * Each file descriptor added to the eventpoll interface will
  * have an entry of this type linked to the &quot;rbr&quot; RB tree.
  */
@@ -326,7 +326,7 @@ eventpoll *ep;
 <p>通过红黑树和双链表数据结构，并结合回调机制，造就了epoll的高效。</p>
 <hr>
 <h1 id="代码示例">代码示例</h1>
-<pre><code>#include &lt;iostream&gt;
+<pre tabindex="0"><code>#include &lt;iostream&gt;
 #include &lt;unistd.h&gt;
 #include &lt;cstring&gt;
 #include &lt;cassert&gt;

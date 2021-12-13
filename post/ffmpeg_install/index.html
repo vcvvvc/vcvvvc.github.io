@@ -4,7 +4,7 @@
     <title>Ubuntu20 install FFmpeg // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.90.1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -30,8 +30,8 @@ tar -xvf SDL2-2.0.12.tar.gz cd SDL2-2.0.12 ./configure sudo make -j4 sudo make i
 cd ffmpeg/ ./configure sudo make -j4 sudo make install  3. Check ffmpeg -version ffplay -version " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://6923403.github.io/post/ffmpeg_install/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2020-07-27T17:41:31&#43;08:00" />
-<meta property="article:modified_time" content="2020-07-27T17:41:31&#43;08:00" />
+<meta property="article:published_time" content="2020-07-27T17:41:31+08:00" />
+<meta property="article:modified_time" content="2020-07-27T17:41:31+08:00" />
 
 
   </head>
@@ -128,13 +128,13 @@ cd ffmpeg/ ./configure sudo make -j4 sudo make install  3. Check ffmpeg -version
 <hr>
 <h1 id="install-tool">Install tool</h1>
 <p><strong>1. install yasm</strong></p>
-<pre><code>sudo apt-get install yasm
+<pre tabindex="0"><code>sudo apt-get install yasm
 </code></pre><blockquote>
 <p>if not installed yasm, os will output &ldquo;nasm/yasm not found or too old. Use &ndash;disable-x86asm for a crippled build.&rdquo;</p>
 </blockquote>
 <p><strong>2. install SDL2</strong></p>
 <p><strong><a href="http://www.libsdl.org/release/SDL2-2.0.12.tar.gz">SDL2-2.0.12(stable)</a></strong></p>
-<pre><code>tar -xvf SDL2-2.0.12.tar.gz
+<pre tabindex="0"><code>tar -xvf SDL2-2.0.12.tar.gz
 cd SDL2-2.0.12
 ./configure
 sudo make -j4
@@ -142,13 +142,13 @@ sudo make install
 </code></pre><hr>
 <h1 id="install-ffmpeg">Install FFmpeg</h1>
 <p><strong>1. git clone <a href="https://git.ffmpeg.org/ffmpeg.git">https://git.ffmpeg.org/ffmpeg.git</a> ffmpeg</strong></p>
-<pre><code>cd ffmpeg/
+<pre tabindex="0"><code>cd ffmpeg/
 ./configure
 sudo make -j4
 sudo make install
 </code></pre><hr>
 <h1 id="3-check">3. Check</h1>
-<pre><code>ffmpeg -version
+<pre tabindex="0"><code>ffmpeg -version
 ffplay -version
 </code></pre>
     </div>

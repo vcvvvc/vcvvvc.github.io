@@ -4,7 +4,7 @@
     <title>Variable function(fun(char *, ...)) and vsnprintf() // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.90.1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -22,8 +22,8 @@
   Test programming #include &lt;stdio.h&gt; #include &lt;stdarg.h&gt; /* * Re: https://github.com/antirez/kilo/kilo.c * Re: https://www.runoob.com/cprogramming/c-function-vsprintf.html */ char buffer[80]; int editorSetstatus(const char * fmt, ...) { va_list ap; va_start(ap, fmt); int ret; ret = vsnprintf(buffer, sizeof(buffer - 1), fmt, ap); va_end(ap); return (ret); } int main(int argc, char **argv) { int len = 20; editorSetstatus(&quot;%d&quot;, len); printf(&quot;%s \n&quot;, buffer); return 0; }  gcc -Wall -g fun." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://6923403.github.io/post/variable_function/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2020-07-28T14:44:30&#43;08:00" />
-<meta property="article:modified_time" content="2020-07-28T14:44:30&#43;08:00" />
+<meta property="article:published_time" content="2020-07-28T14:44:30+08:00" />
+<meta property="article:modified_time" content="2020-07-28T14:44:30+08:00" />
 
 
   </head>
@@ -121,7 +121,7 @@ int vsprintf(char *str, const char *format, va_list arg);</p>
 </blockquote>
 <hr>
 <h1 id="test-programming">Test programming</h1>
-<pre><code>#include &lt;stdio.h&gt;
+<pre tabindex="0"><code>#include &lt;stdio.h&gt;
 #include &lt;stdarg.h&gt;
 
 /*

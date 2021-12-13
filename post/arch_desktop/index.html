@@ -4,7 +4,7 @@
     <title>Arch Beautify desktop // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.90.1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -22,8 +22,8 @@
 1. install xorg pacman -S xorg-server xorg-xinit 2. install zsh, feh, i3gapsr, compton, oh-my-zsh pacman -S zsh xfce4-terminal feh compton i3-gaps nautilus i3lock sh -c &quot;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;  install ttf pacman -S ttf-liberation pacman -S adobe-source-han-sans-cn-fonts pacman -S adobe-source-han-sans-tw-fonts pacman -S adobe-source-han-sans-jp-fonts  add user useradd -m -g users -s /bin/zsh xxxx #添加xxxx用户，用户名你自定义 passwd xxxx #为xxxx用户设置密码 vim /etc/sudoers #编辑配置文件 在root ALL = (ALL) ALL下添加xxxx ALL = (ALL) ALL;输入:wq!强制保存退出vim  startx exit login new user touch ." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://6923403.github.io/post/arch_desktop/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2020-07-30T18:04:47&#43;08:00" />
-<meta property="article:modified_time" content="2020-07-30T18:04:47&#43;08:00" />
+<meta property="article:published_time" content="2020-07-30T18:04:47+08:00" />
+<meta property="article:modified_time" content="2020-07-30T18:04:47+08:00" />
 
 
   </head>
@@ -118,25 +118,25 @@
     <div class="post-content">
       <p>updat&hellip;</p>
 <h1 id="1-install-xorg">1. install xorg</h1>
-<pre><code>pacman -S xorg-server xorg-xinit
+<pre tabindex="0"><code>pacman -S xorg-server xorg-xinit
 </code></pre><h1 id="2-install-zsh-feh-i3gapsr-compton-oh-my-zsh">2. install zsh, feh, i3gapsr, compton, oh-my-zsh</h1>
-<pre><code>pacman -S zsh xfce4-terminal feh compton i3-gaps nautilus i3lock 
+<pre tabindex="0"><code>pacman -S zsh xfce4-terminal feh compton i3-gaps nautilus i3lock 
 sh -c &quot;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;
 </code></pre><hr>
 <h1 id="install-ttf">install ttf</h1>
-<pre><code>pacman -S ttf-liberation
+<pre tabindex="0"><code>pacman -S ttf-liberation
 pacman -S adobe-source-han-sans-cn-fonts
 pacman -S adobe-source-han-sans-tw-fonts
 pacman -S adobe-source-han-sans-jp-fonts
 </code></pre><hr>
 <h1 id="add-user">add user</h1>
-<pre><code>useradd -m -g users -s /bin/zsh xxxx #添加xxxx用户，用户名你自定义
+<pre tabindex="0"><code>useradd -m -g users -s /bin/zsh xxxx #添加xxxx用户，用户名你自定义
 passwd xxxx #为xxxx用户设置密码
 vim /etc/sudoers #编辑配置文件
 在root ALL = (ALL) ALL下添加xxxx ALL = (ALL) ALL;输入:wq!强制保存退出vim
 </code></pre><hr>
 <h1 id="startx">startx</h1>
-<pre><code>exit
+<pre tabindex="0"><code>exit
 login new user
 touch .zshrc
 cp /etc/X11/xinit/xinitrc ~/.xinitrc
@@ -148,7 +148,7 @@ startx
 </code></pre><hr>
 <h1 id="安装-yaourt">安装 Yaourt</h1>
 <p>vim /etc/pacman.conf</p>
-<pre><code>[archlinuxcn]
+<pre tabindex="0"><code>[archlinuxcn]
 #The Chinese Arch Linux communities packages.
 SigLevel = Optional TrustAll
 Server = https://mirrors.aliyun.com/archlinuxcn/$arch
@@ -162,13 +162,13 @@ pacman -S archlinuxcn-keyring
 </code></pre><hr>
 <h1 id="pacmain--s-rofi">pacmain -S rofi</h1>
 <p>vim ~/.config/i3/config</p>
-<pre><code>#run rofi
+<pre tabindex="0"><code>#run rofi
 bindsym $mod+d exec rofi -show run
 
 mod+shift+r 刷新以下
 </code></pre><hr>
 <h1 id="set-static-ip">set static ip</h1>
-<pre><code>pacman -S netctl
+<pre tabindex="0"><code>pacman -S netctl
 - vim /etc/netctl/ens33-static
 Description='ens33'
 Interface=ens33
@@ -182,7 +182,7 @@ TimeoutUp=300
 TimeoutCarrier=300
 </code></pre><hr>
 <h1 id="wallpaper">wallpaper</h1>
-<pre><code>feh -bg-center Downloads/jpeg
+<pre tabindex="0"><code>feh -bg-center Downloads/jpeg
 
 vim .xinitrc
 exec feh -bg-center Downloads/jpeg &amp;
@@ -194,7 +194,7 @@ exec feh -bg-center Downloads/jpeg &amp;
 <a href="https://www.yuque.com/sunhl/mvumc2/rq64vb">https://www.yuque.com/sunhl/mvumc2/rq64vb</a></p>
 <hr>
 <h1 id="ohmysh-option">ohmysh option</h1>
-<pre><code>https://www.jianshu.com/p/17790d2fc2f6
+<pre tabindex="0"><code>https://www.jianshu.com/p/17790d2fc2f6
 https://www.jianshu.com/p/d194d29e488c?open_source=weibo_search
 https://blog.csdn.net/sgzqc/article/details/46627817 # static ip
 https://github.com/AshNobita/i3andpolybarconfig

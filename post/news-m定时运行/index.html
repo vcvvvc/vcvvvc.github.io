@@ -4,7 +4,7 @@
     <title>News M定时运行 // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.90.1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -20,8 +20,8 @@
 <meta property="og:description" content="#把原来的main设置为start函数 在末尾添加如下代码即可 #https://blog.csdn.net/ainivip/article/details/106296599 if __name__ == &#39;__main__&#39;: while True: logger = logging.getLogger() logger.setLevel(logging.INFO) log_time = time.strftime(&quot;%Y_%m_%d&quot;, time.localtime()) # 刷新 logfile = &quot;./&quot; &#43; log_time &#43; &quot;.log&quot; fh = logging.FileHandler(logfile,mode=&#39;w&#39;) fh.setLevel(logging.INFO) while True: formatter = logging.Formatter(&quot;%(asctime)s - %(filename)s[line:%(lineno)d] - %(levelname)s: %(message)s&quot;) fh.setFormatter(formatter) logger.addHandler(fh) time_now = time.strftime(&quot;%H&quot;, time.localtime()) # 刷新 if time_now == &quot;21&quot; or time_now == &quot;10&quot;: # 设置要执行的时间 start() logger.info(&quot;sleep(20000) start news_d&quot;) time.sleep(1500) elif time_now == &quot;00&quot;: logger.info(&quot;new day, log end&quot;) time." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://6923403.github.io/post/news-m%E5%AE%9A%E6%97%B6%E8%BF%90%E8%A1%8C/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-08-24T21:50:24&#43;08:00" />
-<meta property="article:modified_time" content="2021-08-24T21:50:24&#43;08:00" />
+<meta property="article:published_time" content="2021-08-24T21:50:24+08:00" />
+<meta property="article:modified_time" content="2021-08-24T21:50:24+08:00" />
 
 
   </head>
@@ -112,7 +112,7 @@
       </div>
     </header>
     <div class="post-content">
-      <pre><code>#把原来的main设置为start函数 在末尾添加如下代码即可
+      <pre tabindex="0"><code>#把原来的main设置为start函数 在末尾添加如下代码即可
 
 #https://blog.csdn.net/ainivip/article/details/106296599
 if __name__ == '__main__':

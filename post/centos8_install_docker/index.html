@@ -4,7 +4,7 @@
     <title>Centos8 install docker // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.90.1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -30,8 +30,8 @@ vim daemon.json
 https://www.jianshu.com/p/6d9e725da273" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://6923403.github.io/post/centos8_install_docker/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-07-12T12:25:06&#43;08:00" />
-<meta property="article:modified_time" content="2021-07-12T12:25:06&#43;08:00" />
+<meta property="article:published_time" content="2021-07-12T12:25:06+08:00" />
+<meta property="article:modified_time" content="2021-07-12T12:25:06+08:00" />
 
 
   </head>
@@ -123,7 +123,7 @@ https://www.jianshu.com/p/6d9e725da273" />
       </div>
     </header>
     <div class="post-content">
-      <pre><code>yum update -y
+      <pre tabindex="0"><code>yum update -y
 sudo yum install -y yum-utils device-mapper-persistent-data lvm2
 sudo yum-config-manager --add-repo   https://download.docker.com/linux/centos/docker-ce.repo
 sudo yum install docker-ce docker-ce-cli containerd.io -y 
@@ -132,17 +132,17 @@ sudo systemctl start docker
 docker --version
 sudo systemctl enable docker
 </code></pre><p><strong>出现安装包问题</strong></p>
-<pre><code>sudo yum install docker-ce docker-ce-cli containerd.io -y --allowerasing
+<pre tabindex="0"><code>sudo yum install docker-ce docker-ce-cli containerd.io -y --allowerasing
 </code></pre><hr>
 <h1 id="更换容器镜像">更换容器镜像</h1>
 <p><a href="https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors">https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors</a></p>
 <p><code>cd /etc/docker</code></p>
 <p><code>vim daemon.json</code></p>
-<pre><code># url改成自己的加速器地址，亦可使用该地址
+<pre tabindex="0"><code># url改成自己的加速器地址，亦可使用该地址
 {
   &quot;registry-mirrors&quot;: [&quot;https://k01sfudd.mirror.aliyuncs.com&quot;]
 }
-</code></pre><pre><code>systemctl daemon-reload
+</code></pre><pre tabindex="0"><code>systemctl daemon-reload
 systemctl restart docker
 </code></pre><hr>
 <h1 id="re">Re:</h1>

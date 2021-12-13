@@ -4,7 +4,7 @@
     <title>Chrono_use // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.90.1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -20,8 +20,8 @@
 <meta property="og:description" content="时间戳获取 using namespace std::chrono; auto millisec_since_epoch = duration_cast&lt;milliseconds&gt;(system_clock::now().time_since_epoch()).count(); auto msec = duration_cast&lt;microseconds&gt;(system_clock::now().time_since_epoch()).count(); auto sec_since_epoch = duration_cast&lt;seconds&gt;(system_clock::now().time_since_epoch()).count(); std::cout &lt;&lt; &quot;seconds since epoch: &quot; &lt;&lt; sec_since_epoch &lt;&lt; std::endl; std::cout &lt;&lt; &quot;milliseconds since epoch: &quot; &lt;&lt; millisec_since_epoch &lt;&lt; std::endl;  秒seconds since epoch: 1622534342 微妙 milliseconds since epoch: 1622534342050   标准年月日&#43;时间获取 std::time_t now = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now()); char re_time[256] = {0}; std::strftime(re_time, sizeof(re_time), &quot;%Y-%m-%d %X&quot;, std::localtime(&amp;now)); std::cout &lt;&lt; “注册时间 ” &lt;&lt; re_time &lt;&lt; std::endl; 注册时间: 2021-06-01 15:56:42" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://6923403.github.io/post/chrono_use/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-06-01T15:57:31&#43;08:00" />
-<meta property="article:modified_time" content="2021-06-01T15:57:31&#43;08:00" />
+<meta property="article:published_time" content="2021-06-01T15:57:31+08:00" />
+<meta property="article:modified_time" content="2021-06-01T15:57:31+08:00" />
 
 
   </head>
@@ -115,7 +115,7 @@
     </header>
     <div class="post-content">
       <h1 id="时间戳获取">时间戳获取</h1>
-<pre><code>using namespace std::chrono;
+<pre tabindex="0"><code>using namespace std::chrono;
     auto millisec_since_epoch = duration_cast&lt;milliseconds&gt;(system_clock::now().time_since_epoch()).count();
     auto msec = duration_cast&lt;microseconds&gt;(system_clock::now().time_since_epoch()).count();
 
@@ -129,7 +129,7 @@
 </ul>
 <hr>
 <h1 id="标准年月日时间获取">标准年月日+时间获取</h1>
-<pre><code>std::time_t now = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+<pre tabindex="0"><code>std::time_t now = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
 char re_time[256] = {0};
 std::strftime(re_time, sizeof(re_time), &quot;%Y-%m-%d %X&quot;, std::localtime(&amp;now));
 std::cout &lt;&lt; “注册时间 ” &lt;&lt; re_time &lt;&lt; std::endl;

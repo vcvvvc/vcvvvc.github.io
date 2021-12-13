@@ -4,7 +4,7 @@
     <title>Ubuntu tim_wechat // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.90.1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -28,8 +28,8 @@ WINEPREFIX=~/.deepinwine/Deepin-QQ deepin-wine winecfg WINEPREFIX=~/.deepinwine/
 sudo apt-get install fonts-droid-fallback ttf-wqy-zenhei ttf-wqy-microhei fonts-arphic-ukai fonts-arphic-uming " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://6923403.github.io/post/ubuntu_tim_wechat/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2020-11-24T16:50:16&#43;08:00" />
-<meta property="article:modified_time" content="2020-11-24T16:50:16&#43;08:00" />
+<meta property="article:published_time" content="2020-11-24T16:50:16+08:00" />
+<meta property="article:modified_time" content="2020-11-24T16:50:16+08:00" />
 
 
   </head>
@@ -125,12 +125,12 @@ sudo apt-get install fonts-droid-fallback ttf-wqy-zenhei ttf-wqy-microhei fonts-
 因为wine对HiDPI不会默认适配dpi值。解决方案:</p>
 <p>注意WINEPREFIX这个环境变量指向你的deepin wine容器目录，比如TIM在~/.deepinwine/Deepin-TIM，微信在~/.deepinwine/Deepin-WeChat
 执行以下命令</p>
-<pre><code>WINEPREFIX=~/.deepinwine/Deepin-QQ deepin-wine winecfg
+<pre tabindex="0"><code>WINEPREFIX=~/.deepinwine/Deepin-QQ deepin-wine winecfg
 WINEPREFIX=~/.deepinwine/Deepin-WeChat deepin-wine winecfg
 </code></pre><p>打开wine设置页面，在显示选项卡中调整屏幕分辨率的dpi值即可。比如想实现win 10的150% DPI只需要将96改到144即可，125%放大则对应120。手工调整下合适的DPI就可以了</p>
 <hr>
 <p>对于中文乱码是空格的情况，安装中文字体解决</p>
-<pre><code>sudo apt-get install fonts-droid-fallback ttf-wqy-zenhei ttf-wqy-microhei fonts-arphic-ukai fonts-arphic-uming
+<pre tabindex="0"><code>sudo apt-get install fonts-droid-fallback ttf-wqy-zenhei ttf-wqy-microhei fonts-arphic-ukai fonts-arphic-uming
 </code></pre>
     </div>
     <div class="post-footer">

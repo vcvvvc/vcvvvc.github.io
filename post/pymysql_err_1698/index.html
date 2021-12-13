@@ -4,7 +4,7 @@
     <title>Pymysqlerr 1698 // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.90.1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -22,8 +22,8 @@ sudo mysql -u root mysql&gt; USE mysql; mysql&gt; UPDATE user SET plugin=&#39;my
 sudo mysql -u root mysql&gt; USE mysql; mysql&gt; UPDATE user SET plugin=&#39;mysql_native_password&#39; WHERE User=&#39;root&#39;; mysql&gt; FLUSH PRIVILEGES; mysql&gt; exit; service mysql restart " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://6923403.github.io/post/pymysql_err_1698/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2020-11-30T16:24:28&#43;08:00" />
-<meta property="article:modified_time" content="2020-11-30T16:24:28&#43;08:00" />
+<meta property="article:published_time" content="2020-11-30T16:24:28+08:00" />
+<meta property="article:modified_time" content="2020-11-30T16:24:28+08:00" />
 
 
   </head>
@@ -116,7 +116,7 @@ sudo mysql -u root mysql&gt; USE mysql; mysql&gt; UPDATE user SET plugin=&#39;my
     </header>
     <div class="post-content">
       <p><code>pymysql.err.OperationalError: (1698, “Access denied for user ‘root’@‘localhost’”)</code></p>
-<pre><code>sudo mysql -u root
+<pre tabindex="0"><code>sudo mysql -u root
 
 mysql&gt; USE mysql;
 mysql&gt; UPDATE user SET plugin='mysql_native_password' WHERE User='root';

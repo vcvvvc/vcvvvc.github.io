@@ -4,7 +4,7 @@
     <title>I/O多路复用 // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.90.1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -30,8 +30,8 @@
   #include &lt;sys/select.h&gt; int FD_ZERO(int fd, fd_set *fdset); //一个 fd_set类型变量的所有位都设为 0 int FD_CLR(int fd, fd_set *fdset); //清除某个位时可以使用 int FD_SET(int fd, fd_set *fd_set); //设置变量的某个位置位 int FD_ISSET(int fd, fd_set *fdset); //测试某个位是否被置位  timeout参数用来设置select函数的超时时间  struct timeval{ long tv_sec; /*秒 */ long tv_usec; /*微秒 */ } select示例代码: select." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://6923403.github.io/post/io%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-10-10T10:00:00&#43;08:00" />
-<meta property="article:modified_time" content="2021-10-10T10:00:00&#43;08:00" />
+<meta property="article:published_time" content="2021-10-10T10:00:00+08:00" />
+<meta property="article:modified_time" content="2021-10-10T10:00:00+08:00" />
 
 
   </head>
@@ -134,7 +134,7 @@
 <hr>
 <h2 id="select">Select</h2>
 <p><strong>select()函数主要解决的是accept()函数阻塞问题，而没有解决recv()和send()函数阻塞问题</strong></p>
-<pre><code>#include &lt;sys/select.h&gt;
+<pre tabindex="0"><code>#include &lt;sys/select.h&gt;
 int select(int nfds, fd_set *readset, fd_set *writeset, fd_set *exceptset,struct timeval *timeout);
 </code></pre><ul>
 <li>
@@ -144,7 +144,7 @@ int select(int nfds, fd_set *readset, fd_set *writeset, fd_set *exceptset,struct
 <p>readfds, writefds和exceptfds参数分别指向可读、可写和异常等事件对应的文件描述符集合。</p>
 </li>
 </ul>
-<pre><code>#include &lt;sys/select.h&gt;
+<pre tabindex="0"><code>#include &lt;sys/select.h&gt;
 int FD_ZERO(int fd, fd_set *fdset);   //一个 fd_set类型变量的所有位都设为 0
 int FD_CLR(int fd, fd_set *fdset);  //清除某个位时可以使用
 int FD_SET(int fd, fd_set *fd_set);   //设置变量的某个位置位
@@ -152,14 +152,14 @@ int FD_ISSET(int fd, fd_set *fdset); //测试某个位是否被置位
 </code></pre><ul>
 <li>timeout参数用来设置select函数的超时时间</li>
 </ul>
-<pre><code>struct timeval{
+<pre tabindex="0"><code>struct timeval{
         long tv_sec;   /*秒 */
         long tv_usec;  /*微秒 */
     }
 </code></pre><h4 id="select示例代码-selectcpphttpsgithubcom6923403cpp_testblobmasterserversocketselect">select示例代码: <a href="https://github.com/6923403/CPP_Test/blob/master/server/socket/select">select.cpp</a></h4>
 <hr>
 <h2 id="poll">Poll</h2>
-<pre><code>#include &lt;poll.h&gt;
+<pre tabindex="0"><code>#include &lt;poll.h&gt;
 int poll(struct pollfd *ufds, unsigned int nfds, int timeout);
 
 struct pollfd {
@@ -183,11 +183,11 @@ struct pollfd {
 <h2 id="epoll">Epoll</h2>
 <h4 id="epoll示例代码-epollcpphttpsgithubcom6923403cpp_testtreemasterserverlinux_socket_highp14_epoll">epoll示例代码: <a href="https://github.com/6923403/CPP_Test/tree/master/server/linux_socket_high/p14_epoll">epoll.cpp</a></h4>
 <h3 id="1-创建一个epoll的句柄">1. 创建一个epoll的句柄</h3>
-<pre><code>int epoll_create(int size);
+<pre tabindex="0"><code>int epoll_create(int size);
 </code></pre><p>创建一个epoll的句柄，size用来告诉内核这个监听的数目一共有多大。</p>
 <p>这个参数不同于select()中的第一个参数，给出最大监听的fd+1的值。需要注意的是，当创建好epoll句柄后，它就是会占用一个fd值，在linux下如果查看/proc/进程id/fd/，是能够看到这个fd的，所以在使用完epoll后，必须调用close()关闭，否则可能导致fd被耗尽。</p>
 <h3 id="2-将被监听的描述符添加到epoll句柄或从epool句柄中删除或者对监听事件进行修改">2. 将被监听的描述符添加到epoll句柄或从epool句柄中删除或者对监听事件进行修改</h3>
-<pre><code>int epoll_ctl(int epfd, int op, int fd, struct epoll_event *event); //op为注册事件
+<pre tabindex="0"><code>int epoll_ctl(int epfd, int op, int fd, struct epoll_event *event); //op为注册事件
 </code></pre><p>epoll的事件注册函数，它不同与select()是在监听事件时告诉内核要监听什么类型的事件，而是在这里先注册要监听的事件类型。</p>
 <p><strong>用于控制某个epoll文件描述符上的事件，可以注册事件，修改事件，删除事件。</strong></p>
 <ul>
@@ -201,7 +201,7 @@ struct pollfd {
 <p>参数events用来从内核得到事件的集合，maxevents告之内核这个events有多大，这个 maxevents的值不能大于创建epoll_create()时的size，参数timeout是超时时间（毫秒，0会立即返回，-1将不确定，也有说法说是永久阻塞）。该函数返回需要处理的事件数目，如返回0表示已超时。</p>
 <p>如果下一个循环你还要关注这个socket fd的话，则需要用epoll_ctl(epfd,EPOLL_CTL_MOD,listenfd,&amp;ev)来重新设置socket fd的事件类型。这时不用EPOLL_CTL_ADD,因为socket fd并未清空，只是事件类型清空。</p>
 <hr>
-<pre><code>typedef union epoll_data {
+<pre tabindex="0"><code>typedef union epoll_data {
    void    *ptr;
    int      fd;
    uint32_t u32;
@@ -247,7 +247,7 @@ struct epoll_event {
 <li>边缘触发（ET）： 当epoll_wait检测到某描述符事件就绪并通知应用程序时，应用程序必须立即处理该事件。如果不处理，下次调用epoll_wait时，不会再次通知此事件。（直到你做了某些操作导致该描述符变成未就绪状态了，也就是说边缘触发只在状态由未就绪变为就绪时只通知一次）。</li>
 </ul>
 <p>//Edge Triggered(ET) //高速工作方式，错误率比较大，只支持no_block socket (非阻塞socket)</p>
-<pre><code>假设现在对方发送了2k的数据，而我们先读取了1k，然后这时调用了epoll_wait，如果是边沿触发ET，那么这个fd变成就绪状态就会从epoll 队列移除，
+<pre tabindex="0"><code>假设现在对方发送了2k的数据，而我们先读取了1k，然后这时调用了epoll_wait，如果是边沿触发ET，那么这个fd变成就绪状态就会从epoll 队列移除，
 则epoll_wait 会一直阻塞，忽略尚未读取的1k数据; 而如果是水平触发LT，那么epoll_wait 还会检测到可读事件而返回，我们可以继续读取剩下的1k 数据。
 总结: LT模式可能触发的次数更多, 一旦触发的次数多, 也就意味着效率会下降; 但这样也不能就说LT模式就比ET模式效率更低
 因为ET的使用对编程人员提出了更高更精细的要求,一旦使用者编程水平不够, 那ET模式还不如LT模式。
@@ -275,7 +275,7 @@ epoll的设计和实现与select完全不同。epoll通过在Linux内核中申�
 <hr>
 <h2 id="linux内核具体的epoll机制实现思路">Linux内核具体的epoll机制实现思路</h2>
 <p><strong>当某一进程调用epoll_create方法时，Linux内核会创建一个eventpoll结构体，这个结构体中有两个成员与epoll的使用方式密切相关</strong></p>
-<pre><code>/*
+<pre tabindex="0"><code>/*
  * This structure is stored inside the &quot;private_data&quot; member of the file
  * structure and rapresent the main data sructure for the eventpoll
  * interface.
@@ -318,7 +318,7 @@ struct eventpoll {
 </code></pre><p>每一个epoll对象都有一个独立的eventpoll结构体，用于存放通过epoll_ctl方法向epoll对象中添加进来的事件。这些事件都会挂载在红黑树中，如此，重复添加的事件就可以通过红黑树而高效的识别出来(红黑树的插入时间效率是lgn，其中n为树的高度)。</p>
 <p>而所有添加到epoll中的事件都会与设备(网卡)驱动程序建立回调关系，也就是说，当相应的事件发生时会调用这个回调方法。这个回调方法在内核中叫ep_poll_callback,它会将发生的事件添加到rdlist双链表中。</p>
 <p>在epoll中，对于每一个事件，都会建立一个epitem结构体，如下所示:</p>
-<pre><code>/*
+<pre tabindex="0"><code>/*
  * Each file descriptor added to the eventpoll interface will
  * have an entry of this type linked to the &quot;rbr&quot; RB tree.
  */
@@ -365,7 +365,7 @@ eventpoll *ep;
 <p>通过红黑树和双链表数据结构，并结合回调机制，造就了epoll的高效。</p>
 <hr>
 <h1 id="代码示例">代码示例</h1>
-<pre><code>#include &lt;iostream&gt;
+<pre tabindex="0"><code>#include &lt;iostream&gt;
 #include &lt;unistd.h&gt;
 #include &lt;cstring&gt;
 #include &lt;cassert&gt;

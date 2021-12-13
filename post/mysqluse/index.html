@@ -4,7 +4,7 @@
     <title>Mysql_use // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.90.1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -36,8 +36,8 @@ use vctest select city, phone, country from `offices`; SELECT语句由以下列�
 SELECT lastname, firstname, jobtitle FROM employees WHERE jobtitle = &#39;Sales Rep&#39;;  INSERT 创建表" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://6923403.github.io/post/mysqluse/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2020-09-19T12:08:34&#43;08:00" />
-<meta property="article:modified_time" content="2020-09-19T12:08:34&#43;08:00" />
+<meta property="article:published_time" content="2020-09-19T12:08:34+08:00" />
+<meta property="article:modified_time" content="2020-09-19T12:08:34+08:00" />
 
 
   </head>
@@ -141,7 +141,7 @@ SELECT lastname, firstname, jobtitle FROM employees WHERE jobtitle = &#39;Sales 
 <code>source test.sql</code></p>
 <hr>
 <p><strong>select</strong></p>
-<pre><code>use vctest
+<pre tabindex="0"><code>use vctest
 select city, phone, country from `offices`;
 </code></pre><p><strong>SELECT语句由以下列表中所述的几个子句组成：</strong></p>
 <p><strong>语句中的SELECT和FROM语句是必须的，其他部分是可选的。</strong></p>
@@ -156,7 +156,7 @@ select city, phone, country from `offices`;
 <li>LIMIT限制返回行的数量。</li>
 </ul>
 <p><strong>即使WHERE子句出现在语句的末尾，但MySQL会首先使用WHERE子句中的表达式来选择匹配的行。</strong></p>
-<pre><code>SELECT
+<pre tabindex="0"><code>SELECT
     lastname, firstname, jobtitle
 FROM
     employees
@@ -164,7 +164,7 @@ WHERE
     jobtitle = 'Sales Rep';
 </code></pre><hr>
 <p><strong>INSERT 创建表</strong></p>
-<pre><code>CREATE TABLE [IF NOT EXISTS] table_name(
+<pre tabindex="0"><code>CREATE TABLE [IF NOT EXISTS] table_name(
         column_list
 ) engine=table_type;
 
@@ -180,58 +180,58 @@ CREATE TABLE IF NOT EXISTS user (
 <li>第三，需要为engine子句中的表指定存储引擎。可以使用任何存储引擎，如：InnoDB，MyISAM，HEAP，EXAMPLE，CSV，ARCHIVE，MERGE， FEDERATED或NDBCLUSTER。如果不明确声明存储引擎，MySQL将默认使用InnoDB。</li>
 </ul>
 <p><strong>查看表的列属性</strong></p>
-<pre><code>1. show columns from user;
+<pre tabindex="0"><code>1. show columns from user;
 
 2. desc user;
 </code></pre><p><strong>ALTER TABLE语句来设置列的自动递增属性</strong></p>
-<pre><code>ALTER TABLE tasks
+<pre tabindex="0"><code>ALTER TABLE tasks
 CHANGE COLUMN task_id task_id INT(11) NOT NULL AUTO_INCREMENT;
 </code></pre><p><strong>添加新列</strong></p>
-<pre><code>ALTER TABLE vendors
+<pre tabindex="0"><code>ALTER TABLE vendors
 ADD COLUMN phone VARCHAR(15) AFTER name;
 
 ALTER TABLE tasks
 ADD COLUMN complete DECIMAL(2,1) NULL
 AFTER description;
 </code></pre><p><strong>修改列的属性</strong></p>
-<pre><code>原来表dictionary的一列enword的属性为VARCHAR(32),修改为VARCHAR(64)  NOT NULL.
+<pre tabindex="0"><code>原来表dictionary的一列enword的属性为VARCHAR(32),修改为VARCHAR(64)  NOT NULL.
 ALTER TABLE table_name MODIFY COLUMN column_name VARCHAR(64) NOT NULL;
 </code></pre><p><strong>删除列</strong></p>
-<pre><code>ALTER TABLE tasks
+<pre tabindex="0"><code>ALTER TABLE tasks
 DROP COLUMN description;
 </code></pre><p><strong>重命名表</strong></p>
-<pre><code>ALTER TABLE tasks
+<pre tabindex="0"><code>ALTER TABLE tasks
 RENAME TO work_items;
 
 2. RENAME TABLE old_table_name TO new_table_name;
 </code></pre><hr>
 <p><strong>插入数据</strong></p>
-<pre><code>INSERT INTO tasks(subject,start_date,end_date,description) //插入到tasks表中
+<pre tabindex="0"><code>INSERT INTO tasks(subject,start_date,end_date,description) //插入到tasks表中
 VALUES('Learn MySQL INSERT','2017-07-21','2017-07-22','Start learning..');
 </code></pre><p><strong>插入多行</strong></p>
-<pre><code>INSERT INTO table(column1,column2...)
+<pre tabindex="0"><code>INSERT INTO table(column1,column2...)
 VALUES (value1,value2,...),
        (value1,value2,...),
        (value1, value2,...);
 </code></pre><p><strong>插入日期出错</strong></p>
-<pre><code>#https://blog.csdn.net/weixin_50518271/article/details/113761164
+<pre tabindex="0"><code>#https://blog.csdn.net/weixin_50518271/article/details/113761164
 select @@SQL_MODE
 SET @@SQL_MODE = REPLACE(@@SQL_MODE, 'NO_ZERO_DATE', '');
 </code></pre><hr>
 <p><strong>复制表结构</strong></p>
-<pre><code>CREATE TABLE tasks_bak LIKE tasks;
+<pre tabindex="0"><code>CREATE TABLE tasks_bak LIKE tasks;
 
 INSERT INTO tasks_bak
 SELECT * FROM tasks;
 </code></pre><hr>
 <p><strong>MySQL INSERT与ON DUPLICATE KEY UPDATE</strong></p>
-<pre><code>INSERT INTO tasks(task_id,subject,start_date,end_date,description)
+<pre tabindex="0"><code>INSERT INTO tasks(task_id,subject,start_date,end_date,description)
 VALUES (4,'Test ON DUPLICATE KEY UPDATE','2017-01-01','2017-01-02','Next Priority')
 ON DUPLICATE KEY UPDATE
    task_id = task_id + 1,
    subject = 'Test ON DUPLICATE KEY UPDATE';
 </code></pre><p><strong>等同于UPDATE语句</strong></p>
-<pre><code>UPDATE tasks
+<pre tabindex="0"><code>UPDATE tasks
 SET
     task_id = task_id + 1,
     subject = 'Test ON DUPLICATE KEY UPDATE'
@@ -239,14 +239,14 @@ WHERE
     task_id = 4;
 </code></pre><hr>
 <p><strong>UPDATE</strong></p>
-<pre><code>UPDATE employees
+<pre tabindex="0"><code>UPDATE employees
 SET
     lastname = 'NKS',
     email = 'mary.new@yiibai.com'
 WHERE
     employeeNumber = 1056;
 </code></pre><p><strong>随机选择一个职位是Sales Rep的员工</strong></p>
-<pre><code>SELECT
+<pre tabindex="0"><code>SELECT
     employeeNumber
 FROM
     employees
@@ -255,7 +255,7 @@ WHERE
 ORDER BY RAND()
 LIMIT 1;
 </code></pre><p><strong>需要更新customers表中的销售代表员工编号(employeeNumber)列</strong></p>
-<pre><code>UPDATE customers
+<pre tabindex="0"><code>UPDATE customers
 SET
     salesRepEmployeeNumber = (SELECT
             employeeNumber
@@ -274,23 +274,23 @@ WHERE
 <p><strong>删除表</strong>
 <code>DROP TABLE IF EXISTS tasks;</code></p>
 <p><strong>删除指定条件</strong></p>
-<pre><code>DELETE FROM employees
+<pre tabindex="0"><code>DELETE FROM employees
 WHERE
     officeCode = 4;
 </code></pre><p><strong>删除表中所有行</strong>
 <code>delete from employees;</code></p>
 <p><strong>删除指定行数</strong></p>
-<pre><code>DELETE FROM customers
+<pre tabindex="0"><code>DELETE FROM customers
 ORDER BY customerName
 LIMIT 10; //10行
 </code></pre><p><strong>删除五个法国客户</strong></p>
-<pre><code>DELETE FROM customers
+<pre tabindex="0"><code>DELETE FROM customers
 WHERE country = 'France'
 ORDER BY creditLimit
 LIMIT 5;
 </code></pre><hr>
 <p><strong>创建函数</strong></p>
-<pre><code>DELIMITER //
+<pre tabindex="0"><code>DELIMITER //
 
 CREATE PROCEDURE get_employee(IN p_id INT)
 

@@ -4,7 +4,7 @@
     <title>Algorithm x^n // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.90.1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -22,8 +22,8 @@ For O(n) int function1(int x, int n) { int result = 1; // 注意 任何数的0�
 For O(n) int function1(int x, int n) { int result = 1; // 注意 任何数的0次方等于1 for (int i = 0; i &lt; n; i&#43;&#43;) { result = result * x; } return result; }  Recursion O(n) int function2(int x, int n) { if (n == 0) { return 1; // return 1 同样是因为0次方是等于1的 } return function2(x, n - 1) * x; }  Recursion2 O(n) int function3(int x, int n) { if (n == 0) { return 1; } if (n % 2 == 1) { return function3(x, n/2) * function3(x, n/2)*x; } return function3(x, n/2) * function3(x, n/2); }  Recursion3 O(logn) int function4(int x, int n) { if (n == 0) { return 1; } int t = function4(x, n/2);// 这里相对于function3，是把这个递归操作抽取出来 if (n % 2 == 1) { return t*t*x; } return t*t; } " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://6923403.github.io/post/recursion/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2020-10-04T16:09:26&#43;08:00" />
-<meta property="article:modified_time" content="2020-10-04T16:09:26&#43;08:00" />
+<meta property="article:published_time" content="2020-10-04T16:09:26+08:00" />
+<meta property="article:modified_time" content="2020-10-04T16:09:26+08:00" />
 
 
   </head>
@@ -118,7 +118,7 @@ For O(n) int function1(int x, int n) { int result = 1; // 注意 任何数的0�
     <div class="post-content">
       <p><strong>O(1)常数阶 &lt; O(logn)对数阶 &lt; O(n)线性阶 &lt; O(n^2)平方阶 &lt; O(n^3)(立方阶) &lt; O(2^n) (指数阶)</strong></p>
 <h1 id="for-on">For O(n)</h1>
-<pre><code>int function1(int x, int n) {
+<pre tabindex="0"><code>int function1(int x, int n) {
     int result = 1;  // 注意 任何数的0次方等于1
     for (int i = 0; i &lt; n; i++) {
         result = result * x;
@@ -127,7 +127,7 @@ For O(n) int function1(int x, int n) { int result = 1; // 注意 任何数的0�
 }
 </code></pre><hr>
 <h1 id="recursion-on">Recursion O(n)</h1>
-<pre><code>int function2(int x, int n) {
+<pre tabindex="0"><code>int function2(int x, int n) {
     if (n == 0) {
         return 1; // return 1 同样是因为0次方是等于1的
     }
@@ -135,7 +135,7 @@ For O(n) int function1(int x, int n) { int result = 1; // 注意 任何数的0�
 }
 </code></pre><hr>
 <h1 id="recursion2-on">Recursion2 O(n)</h1>
-<pre><code>int function3(int x, int n) {
+<pre tabindex="0"><code>int function3(int x, int n) {
     if (n == 0) {
         return 1;
     }
@@ -146,7 +146,7 @@ For O(n) int function1(int x, int n) { int result = 1; // 注意 任何数的0�
 }
 </code></pre><hr>
 <h1 id="recursion3-ologn">Recursion3 O(logn)</h1>
-<pre><code>int function4(int x, int n) {
+<pre tabindex="0"><code>int function4(int x, int n) {
     if (n == 0) {
         return 1;
     }

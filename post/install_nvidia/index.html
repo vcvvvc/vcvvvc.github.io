@@ -4,7 +4,7 @@
     <title>Ubuntu20 Install Nvidia drivers // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.90.1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -42,8 +42,8 @@ sudo update-initramfs -u lsmod | grep nouveau 如果没有返回信息代表成�
 sudo add-apt-repository ppa:graphics-drivers/ppa sudo apt-get update #选择自己的版本 例如我这边安装440 sudo apt-get install nvidia-driver-440  5." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://6923403.github.io/post/install_nvidia/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-05-06T07:29:52&#43;08:00" />
-<meta property="article:modified_time" content="2021-05-06T07:29:52&#43;08:00" />
+<meta property="article:published_time" content="2021-05-06T07:29:52+08:00" />
+<meta property="article:modified_time" content="2021-05-06T07:29:52+08:00" />
 
 
   </head>
@@ -149,16 +149,16 @@ sudo add-apt-repository ppa:graphics-drivers/ppa sudo apt-get update #选择自�
 </ul>
 <hr>
 <h2 id="1-去残留">1. 去残留</h2>
-<pre><code>sudo apt-get remove --purge nvidia* 
+<pre tabindex="0"><code>sudo apt-get remove --purge nvidia* 
 </code></pre><hr>
 <h2 id="2-添加规则">2. 添加规则</h2>
 <p><strong>vim /etc/modprobe.d/blacklist.conf</strong></p>
-<pre><code>blacklist nouveau 
+<pre tabindex="0"><code>blacklist nouveau 
 options nouveau modeset=0
 </code></pre><hr>
 <h2 id="3-验证是否成功">3. 验证是否成功</h2>
 <p><strong>重启 重启之后输入命令</strong></p>
-<pre><code>sudo update-initramfs -u
+<pre tabindex="0"><code>sudo update-initramfs -u
 lsmod | grep nouveau
 </code></pre><p><strong>如果没有返回信息代表成功</strong></p>
 <p>有信息的话 先检查下步骤2 再重启, 也可忽视 我这边见过一次有返回</p>
@@ -173,7 +173,7 @@ lsmod | grep nouveau
 </li>
 </ul>
 <p><strong>选择合适的版本来进行安装</strong></p>
-<pre><code>sudo add-apt-repository ppa:graphics-drivers/ppa
+<pre tabindex="0"><code>sudo add-apt-repository ppa:graphics-drivers/ppa
 sudo apt-get update
 
 #选择自己的版本 例如我这边安装440
@@ -185,7 +185,7 @@ sudo apt-get install nvidia-driver-440
 <hr>
 <h2 id="6-end">6. End</h2>
 <p><strong>重启 之后输入命令</strong></p>
-<pre><code>nvidia-smi
+<pre tabindex="0"><code>nvidia-smi
 ##完成
 </code></pre><p><img src="/img/installnvidia/nvidiadrivers.png" alt="Nbidia-smi"></p>
 

@@ -4,7 +4,7 @@
     <title>Cpp_stl // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.90.1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -20,8 +20,8 @@
 <meta property="og:description" content="空间配置器  容器类型  标准STL序列容器: vector,string、 deque和list. 标准STL关联容器: set, multiset. map和multimap. 非标准序列容器slist和rope, slist是一个单向链表, rope本质上是一“重型&quot; string 非标准的关联容器hash-set, hash-multiset. hash-map和hash-multimap 标准的非STL容器,包括数组、bitset. valarray、 stack, queue和priority_queue.   Vector template &lt;class T, class Alloc=alloc&gt; class vector{ private: //vector的嵌套型别定义 typedef T value_type; typedef value_type* pointer; typedef value_type* iterator; typedef value_type&amp; reference; typedef size_t size_type; typedef ptrdiff_t difference_type; protect: // simple_alloc是SGI STL默认的空间配置器 typedef simple_alloc&lt;value_type, Alloc&gt; data_allocator; iterator start;	// 表示目前使用空间的头 iterator finish;	// 表示目前使用空间的尾 iterator end_of_storage;	// 表示目前可用空间的尾 }; vector提供的接口：包括得到vector的属性接口、vector的操作接口以及构造函数：" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://6923403.github.io/post/cpp_stl/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-06-12T14:26:45&#43;08:00" />
-<meta property="article:modified_time" content="2021-06-12T14:26:45&#43;08:00" />
+<meta property="article:published_time" content="2021-06-12T14:26:45+08:00" />
+<meta property="article:modified_time" content="2021-06-12T14:26:45+08:00" />
 
 
   </head>
@@ -125,7 +125,7 @@
 </ul>
 <hr>
 <h1 id="vector">Vector</h1>
-<pre><code>template &lt;class T, class Alloc=alloc&gt;
+<pre tabindex="0"><code>template &lt;class T, class Alloc=alloc&gt;
 class vector{
 private:
     //vector的嵌套型别定义

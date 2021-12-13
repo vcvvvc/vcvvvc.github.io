@@ -4,7 +4,7 @@
     <title>Cpp11 move // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.90.1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -22,8 +22,8 @@ After copy, str is &quot;Hello&quot; After move, str is &quot;&quot; The content
 After copy, str is &quot;Hello&quot; After move, str is &quot;&quot; The contents of the vector are &quot;Hello&quot;, &quot;Hello&quot;  函数原型 template &lt;typename T&gt; typename remove_reference&lt;T&gt;::type&amp;&amp; move(T&amp;&amp; t) { return static_cast&lt;typename remove_reference&lt;T&gt;::type&amp;&amp;&gt;(t); }  原型定义中的原理实现: 公式一）X&amp; &amp;、X&amp;&amp; &amp;、X&amp; &amp;&amp;都折叠成X&amp;，用于处理左值" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://6923403.github.io/post/move/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2020-08-30T19:57:05&#43;08:00" />
-<meta property="article:modified_time" content="2020-08-30T19:57:05&#43;08:00" />
+<meta property="article:published_time" content="2020-08-30T19:57:05+08:00" />
+<meta property="article:modified_time" content="2020-08-30T19:57:05+08:00" />
 
 
   </head>
@@ -116,7 +116,7 @@ After copy, str is &quot;Hello&quot; After move, str is &quot;&quot; The content
       </div>
     </header>
     <div class="post-content">
-      <pre><code>#include &lt;iostream&gt;
+      <pre tabindex="0"><code>#include &lt;iostream&gt;
 #include &lt;utility&gt;
 #include &lt;vector&gt;
 #include &lt;string&gt;
@@ -134,12 +134,12 @@ int main()
                                          &lt;&lt; &quot;\&quot;, \&quot;&quot; &lt;&lt; v[1] &lt;&lt; &quot;\&quot;\n&quot;;
 }
 </code></pre><p>Cout:</p>
-<pre><code>After copy, str is &quot;Hello&quot;
+<pre tabindex="0"><code>After copy, str is &quot;Hello&quot;
 After move, str is &quot;&quot;
 The contents of the vector are &quot;Hello&quot;, &quot;Hello&quot;
 </code></pre><hr>
 <h1 id="函数原型">函数原型</h1>
-<pre><code>template &lt;typename T&gt;
+<pre tabindex="0"><code>template &lt;typename T&gt;
 typename remove_reference&lt;T&gt;::type&amp;&amp; move(T&amp;&amp; t)
 {
 	return static_cast&lt;typename remove_reference&lt;T&gt;::type&amp;&amp;&gt;(t);
@@ -147,7 +147,7 @@ typename remove_reference&lt;T&gt;::type&amp;&amp; move(T&amp;&amp; t)
 </code></pre><hr>
 <h1 id="原型定义中的原理实现">原型定义中的原理实现:</h1>
 <p><strong>公式一）X&amp; &amp;、X&amp;&amp; &amp;、X&amp; &amp;&amp;都折叠成X&amp;，用于处理左值</strong></p>
-<pre><code>string s(&quot;hello&quot;);
+<pre tabindex="0"><code>string s(&quot;hello&quot;);
 std::move(s) =&gt; std::move(string&amp; &amp;&amp;) =&gt; 折叠后 std::move(string&amp; )
 此时：T的类型为string&amp;
 typename remove_reference&lt;T&gt;::type为string 
@@ -158,7 +158,7 @@ string&amp;&amp; move(string&amp; t) //t为左值，移动后不能在使用t
     return static_cast&lt;string&amp;&amp;&gt;(t); 
 }
 </code></pre><p><strong>公式二）X&amp;&amp; &amp;&amp;折叠成X&amp;&amp;，用于处理右值</strong></p>
-<pre><code>std::move(string(&quot;hello&quot;)) =&gt; std::move(string&amp;&amp;)
+<pre tabindex="0"><code>std::move(string(&quot;hello&quot;)) =&gt; std::move(string&amp;&amp;)
 //此时：T的类型为string 
 //     remove_reference&lt;T&gt;::type为string 
 //整个std::move被实例如下
@@ -168,7 +168,7 @@ string&amp;&amp; move(string&amp;&amp; t) //t为右值
 }
 </code></pre><p><strong>右值经过T&amp;&amp;传递类型保持不变还是右值，而左值经过T&amp;&amp;变为普通的左值引用.</strong></p>
 <p><strong>②.对于static_cast&lt;&gt;的使用注意：任何具有明确定义的类型转换，只要不包含底层const,都可以使用static_cast。</strong></p>
-<pre><code>double d = 1;
+<pre tabindex="0"><code>double d = 1;
 void* p = &amp;d;
 double *dp = static_cast&lt;double*&gt; p; //正确
  
@@ -176,7 +176,7 @@ const char *cp = &quot;hello&quot;;
 char *q = static_cast&lt;char*&gt;(cp); //错误：static不能去掉const性质
 static_cast&lt;string&gt;(cp); //正确 
 </code></pre><p><strong>③对于remove_reference是通过类模板的部分特例化进行实现的</strong></p>
-<pre><code>//原始的，最通用的版本
+<pre tabindex="0"><code>//原始的，最通用的版本
 template &lt;typename T&gt; struct remove_reference{
     typedef T type;  //定义T的类型别名为type
 };

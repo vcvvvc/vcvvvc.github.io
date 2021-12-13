@@ -4,7 +4,7 @@
     <title>Opepyxl sytle // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.90.1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -20,8 +20,8 @@
 <meta property="og:description" content="font(字体类)：字号、字体颜色、下划线等 fill(填充类)：颜色等 border(边框类)：设置单元格边框 alignment(位置类)：对齐方式 number_format(格式类)：数据格式 protection(保护类)：写保护   &gt;&gt;&gt; from openpyxl.styles import PatternFill, Border, Side, Alignment, Protection, Font &gt;&gt;&gt; font = Font(name=&#39;Calibri&#39;, size=11, bold=False, italic=False, vertAlign=None, underline=&#39;none&#39;, strike=False, color=&#39;FF000000&#39;) &gt;&gt;&gt; fill = PatternFill(fill_type=None, start_color=&#39;FFFFFFFF&#39;, end_color=&#39;FF000000&#39;) &gt;&gt;&gt; border = Border(left=Side(border_style=None, color=&#39;FF000000&#39;), right=Side(border_style=None, color=&#39;FF000000&#39;), top=Side(border_style=None, color=&#39;FF000000&#39;), bottom=Side(border_style=None, color=&#39;FF000000&#39;), diagonal=Side(border_style=None, color=&#39;FF000000&#39;), diagonal_direction=0, outline=Side(border_style=None, color=&#39;FF000000&#39;), vertical=Side(border_style=None, color=&#39;FF000000&#39;), horizontal=Side(border_style=None, color=&#39;FF000000&#39;) ) &gt;&gt;&gt; alignment=Alignment(horizontal=&#39;general&#39;, vertical=&#39;bottom&#39;, text_rotation=0, wrap_text=False, shrink_to_fit=False, indent=0) &gt;&gt;&gt; number_format = &#39;General&#39; &gt;&gt;&gt; protection = Protection(locked=True, hidden=False) 以上几种样式（字体、填充、边框、位置和保护）实例一旦被创建实例的属性就不可更改，只能重新创建实例。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://6923403.github.io/post/opepyxl_sytle/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2020-11-15T19:14:58&#43;08:00" />
-<meta property="article:modified_time" content="2020-11-15T19:14:58&#43;08:00" />
+<meta property="article:published_time" content="2020-11-15T19:14:58+08:00" />
+<meta property="article:modified_time" content="2020-11-15T19:14:58+08:00" />
 
 
   </head>
@@ -122,7 +122,7 @@
 <li>protection(保护类)：写保护</li>
 </ul>
 <hr>
-<pre><code>&gt;&gt;&gt; from openpyxl.styles import PatternFill, Border, Side, Alignment, Protection, Font
+<pre tabindex="0"><code>&gt;&gt;&gt; from openpyxl.styles import PatternFill, Border, Side, Alignment, Protection, Font
 &gt;&gt;&gt; font = Font(name='Calibri',
                  size=11,
                  bold=False,
@@ -164,7 +164,7 @@
 </code></pre><p><strong>以上几种样式（字体、填充、边框、位置和保护）实例一旦被创建实例的属性就不可更改，只能重新创建实例。</strong></p>
 <hr>
 <p><strong>对一个cell进行格式设置：</strong></p>
-<pre><code>ws[&quot;B5&quot;].font = ft
+<pre tabindex="0"><code>ws[&quot;B5&quot;].font = ft
 ws[&quot;B5&quot;].fill =fill
 ws[&quot;B5&quot;].border = bd
 ws[&quot;B5&quot;].alignment = alignment
@@ -172,7 +172,7 @@ ws[&quot;B5&quot;].number_format = number_format
 ws[&quot;B5&quot;].value =&quot;pynote.net&quot;
 </code></pre><hr>
 <p><strong>编辑页面设置</strong></p>
-<pre><code>ws.page_setup.orientation = ws.ORIENTATION_LANDSCAPE
+<pre tabindex="0"><code>ws.page_setup.orientation = ws.ORIENTATION_LANDSCAPE
 ws.page_setup.paperSize = ws.PAPERSIZE_TABLOID
 ws.page_setup.fitToHeight = 0
 ws.page_setup.fitToWidth = 1
