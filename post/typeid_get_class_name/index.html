@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="zh-cn">
   <head>
-    <title>Ubuntu20_install_mysql // Vcvc Blog</title>
+    <title>通过typeid()获取类名 // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
     <meta name="generator" content="Hugo 0.90.1" />
@@ -13,15 +13,17 @@
     <link rel="stylesheet" href="https://6923403.github.io/css/main.min.c2052924716d810662c2cc67f9223190e814e1923e41ea4b9647c5c71b6ce3b6.css" />
     
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Ubuntu20_install_mysql"/>
-<meta name="twitter:description" content="安装mysql8.0 apt-get update apt-get install mysql-server  初始化 #初始化 mysql_secure_installation 1. NO 2. 输入密码 3. 其余全部默认 # 检查 systemctl status mysql.service 设置远程访问 #远程 vim /etc/mysql/mysql.conf.d/mysqld.cnf bind-address改为0.0.0.0 #重启 /etc/init.d/mysql restart #设置权限与密码 use mysql; ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED WITH mysql_native_password BY &#39;密码&#39;; #使用mysql_native_password修改加密规则 ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;密码&#39; PASSWORD EXPIRE NEVER; #更新一下用户的密码 UPDATE user SET host = &#39;%&#39; WHERE user = &#39;root&#39;; #允许远程访问 #刷新cache中配置 刷新权限 flush privileges; quit;  状态 #开启 service mysql start # 关闭 service mysql stop # 重启 service mysql restart # 状态 systemctl status mysql."/>
+<meta name="twitter:title" content="通过typeid()获取类名"/>
+<meta name="twitter:description" content="人老了，东西一多就容易忘。。
+ template&lt;typename T&gt; TC_LockT&lt;T&gt;::TC_LockT(const T &amp;mutex) { std::cout &lt;&lt; &quot;1class name = &quot; &lt;&lt; typeid(mutex).name() &lt;&lt; std::endl; std::cout &lt;&lt; &quot;2class name = &quot; &lt;&lt; typeid(*this).name() &lt;&lt; std::endl; } "/>
 
-    <meta property="og:title" content="Ubuntu20_install_mysql" />
-<meta property="og:description" content="安装mysql8.0 apt-get update apt-get install mysql-server  初始化 #初始化 mysql_secure_installation 1. NO 2. 输入密码 3. 其余全部默认 # 检查 systemctl status mysql.service 设置远程访问 #远程 vim /etc/mysql/mysql.conf.d/mysqld.cnf bind-address改为0.0.0.0 #重启 /etc/init.d/mysql restart #设置权限与密码 use mysql; ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED WITH mysql_native_password BY &#39;密码&#39;; #使用mysql_native_password修改加密规则 ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;密码&#39; PASSWORD EXPIRE NEVER; #更新一下用户的密码 UPDATE user SET host = &#39;%&#39; WHERE user = &#39;root&#39;; #允许远程访问 #刷新cache中配置 刷新权限 flush privileges; quit;  状态 #开启 service mysql start # 关闭 service mysql stop # 重启 service mysql restart # 状态 systemctl status mysql." />
+    <meta property="og:title" content="通过typeid()获取类名" />
+<meta property="og:description" content="人老了，东西一多就容易忘。。
+ template&lt;typename T&gt; TC_LockT&lt;T&gt;::TC_LockT(const T &amp;mutex) { std::cout &lt;&lt; &quot;1class name = &quot; &lt;&lt; typeid(mutex).name() &lt;&lt; std::endl; std::cout &lt;&lt; &quot;2class name = &quot; &lt;&lt; typeid(*this).name() &lt;&lt; std::endl; } " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://6923403.github.io/post/ubuntu_install_mysql/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-12-18T17:36:22+08:00" />
-<meta property="article:modified_time" content="2021-12-18T17:36:22+08:00" />
+<meta property="og:url" content="https://6923403.github.io/post/typeid_get_class_name/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-12-15T19:39:23+08:00" />
+<meta property="article:modified_time" content="2021-12-15T19:39:23+08:00" />
 
 
   </head>
@@ -86,14 +88,14 @@
       
   <article class="post">
     <header class="post-header">
-      <h1 class ="post-title">Ubuntu20_install_mysql</h1>
+      <h1 class ="post-title">通过typeid()获取类名</h1>
       <div class="post-meta">
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
   <title>calendar</title>
   <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
 </svg>
-          Dec 18, 2021
+          Dec 15, 2021
         </div>
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
@@ -107,66 +109,19 @@
   <title>tag</title>
   <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line>
 </svg>
-              <a class="tag" href="https://6923403.github.io/tags/mysql/">Mysql</a>
-              <a class="tag" href="https://6923403.github.io/tags/ubuntu/">Ubuntu</a>
+              <a class="tag" href="https://6923403.github.io/tags/cpp/">CPP</a>
         </div>
       </div>
     </header>
     <div class="post-content">
-      <h2 id="安装mysql80">安装mysql8.0</h2>
-<pre tabindex="0"><code>apt-get update
-apt-get install mysql-server
-</code></pre><hr>
-<h2 id="初始化">初始化</h2>
-<pre tabindex="0"><code>#初始化
-mysql_secure_installation
-1. NO
-2. 输入密码
-3. 其余全部默认
-
-# 检查
-systemctl status mysql.service
-</code></pre><h2 id="设置远程访问">设置远程访问</h2>
-<pre tabindex="0"><code>#远程
-vim /etc/mysql/mysql.conf.d/mysqld.cnf
-bind-address改为0.0.0.0
-
-#重启
-/etc/init.d/mysql restart
-
-#设置权限与密码
-use mysql;
-ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '密码'; #使用mysql_native_password修改加密规则
-ALTER USER 'root'@'localhost' IDENTIFIED BY '密码' PASSWORD EXPIRE NEVER; #更新一下用户的密码
-UPDATE user SET host = '%' WHERE user = 'root'; #允许远程访问
-
-#刷新cache中配置 刷新权限
-flush privileges;
-quit;
-</code></pre><hr>
-<h1 id="状态">状态</h1>
-<pre tabindex="0"><code>#开启
-service mysql start
-# 关闭
-service mysql stop
-# 重启
-service mysql restart
-# 状态
-systemctl status mysql.service
-</code></pre><hr>
-<h2 id="其他">其他</h2>
-<p><strong>缺少mysql.h头文件</strong></p>
-<pre tabindex="0"><code>apt-get install libmysqlclient-dev
-</code></pre><p><strong>修改root密码8.0</strong></p>
-<pre tabindex="0"><code>use mysql; 
-update user set authentication_string='' where user='root';--将字段置为空
-ALTER user 'root'@'localhost' IDENTIFIED BY 'root';--修改密码为root
-</code></pre><hr>
-<p>Re:</p>
-<p><a href="https://blog.csdn.net/u010520724/article/details/107444032">https://blog.csdn.net/u010520724/article/details/107444032</a></p>
-<p><a href="https://blog.csdn.net/weixin_38924500/article/details/106261971">https://blog.csdn.net/weixin_38924500/article/details/106261971</a></p>
-<p><a href="https://blog.csdn.net/wolf131721/article/details/93004013">https://blog.csdn.net/wolf131721/article/details/93004013</a></p>
-
+      <p>人老了，东西一多就容易忘。。</p>
+<pre tabindex="0"><code>    template&lt;typename T&gt;
+    TC_LockT&lt;T&gt;::TC_LockT(const T &amp;mutex) 
+    {
+        std::cout &lt;&lt; &quot;1class name = &quot; &lt;&lt; typeid(mutex).name() &lt;&lt; std::endl;
+        std::cout &lt;&lt; &quot;2class name = &quot; &lt;&lt; typeid(*this).name() &lt;&lt; std::endl;
+    }
+</code></pre>
     </div>
     <div class="post-footer">
       

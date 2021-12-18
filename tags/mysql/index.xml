@@ -5,19 +5,14 @@
     <link>https://6923403.github.io/tags/mysql/</link>
     <description>Recent content in Mysql on Vcvc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 30 May 2021 16:36:22 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 18 Dec 2021 17:36:22 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Ubuntu_install_mysql</title>
+      <title>Ubuntu20_install_mysql</title>
       <link>https://6923403.github.io/post/ubuntu_install_mysql/</link>
-      <pubDate>Sun, 30 May 2021 16:36:22 +0800</pubDate>
+      <pubDate>Sat, 18 Dec 2021 17:36:22 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/ubuntu_install_mysql/</guid>
-      <description>安装 不是root自行加sudo
-apt-get update apt-get install mysql-server apt-get install libmysqld-dev  配置 mysql_secure_installation 1. NO 2. 输入密码 3. 其余全部默认 修改root密码 8.0
-use mysql; update user set authentication_string=&#39;&#39; where user=&#39;root&#39;;--将字段置为空 ALTER user &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;root&#39;;--修改密码为root  状态 #开启 service mysql start # 关闭 service mysql stop # 重启 service mysql restart # 状态 systemctl status mysql.service  Re:
-https://blog.csdn.net/u010520724/article/details/107444032
-https://blog.csdn.net/weixin_38924500/article/details/106261971
-https://blog.csdn.net/wolf131721/article/details/93004013</description>
+      <description>安装mysql8.0 apt-get update apt-get install mysql-server  初始化 #初始化 mysql_secure_installation 1. NO 2. 输入密码 3. 其余全部默认 # 检查 systemctl status mysql.service 设置远程访问 #远程 vim /etc/mysql/mysql.conf.d/mysqld.cnf bind-address改为0.0.0.0 #重启 /etc/init.d/mysql restart #设置权限与密码 use mysql; ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED WITH mysql_native_password BY &#39;密码&#39;; #使用mysql_native_password修改加密规则 ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;密码&#39; PASSWORD EXPIRE NEVER; #更新一下用户的密码 UPDATE user SET host = &#39;%&#39; WHERE user = &#39;root&#39;; #允许远程访问 #刷新cache中配置 刷新权限 flush privileges; quit;  状态 #开启 service mysql start # 关闭 service mysql stop # 重启 service mysql restart # 状态 systemctl status mysql.</description>
     </item>
     
     <item>

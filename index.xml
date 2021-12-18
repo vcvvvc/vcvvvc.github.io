@@ -5,7 +5,26 @@
     <link>https://6923403.github.io/</link>
     <description>Recent content on Vcvc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 11 Dec 2021 13:13:22 +0800</lastBuildDate><atom:link href="https://6923403.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 18 Dec 2021 17:36:22 +0800</lastBuildDate><atom:link href="https://6923403.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ubuntu20_install_mysql</title>
+      <link>https://6923403.github.io/post/ubuntu_install_mysql/</link>
+      <pubDate>Sat, 18 Dec 2021 17:36:22 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/ubuntu_install_mysql/</guid>
+      <description>安装mysql8.0 apt-get update apt-get install mysql-server  初始化 #初始化 mysql_secure_installation 1. NO 2. 输入密码 3. 其余全部默认 # 检查 systemctl status mysql.service 设置远程访问 #远程 vim /etc/mysql/mysql.conf.d/mysqld.cnf bind-address改为0.0.0.0 #重启 /etc/init.d/mysql restart #设置权限与密码 use mysql; ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED WITH mysql_native_password BY &#39;密码&#39;; #使用mysql_native_password修改加密规则 ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;密码&#39; PASSWORD EXPIRE NEVER; #更新一下用户的密码 UPDATE user SET host = &#39;%&#39; WHERE user = &#39;root&#39;; #允许远程访问 #刷新cache中配置 刷新权限 flush privileges; quit;  状态 #开启 service mysql start # 关闭 service mysql stop # 重启 service mysql restart # 状态 systemctl status mysql.</description>
+    </item>
+    
+    <item>
+      <title>通过typeid()获取类名</title>
+      <link>https://6923403.github.io/post/typeid_get_class_name/</link>
+      <pubDate>Wed, 15 Dec 2021 19:39:23 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/typeid_get_class_name/</guid>
+      <description>人老了，东西一多就容易忘。。
+ template&amp;lt;typename T&amp;gt; TC_LockT&amp;lt;T&amp;gt;::TC_LockT(const T &amp;amp;mutex) { std::cout &amp;lt;&amp;lt; &amp;quot;1class name = &amp;quot; &amp;lt;&amp;lt; typeid(mutex).name() &amp;lt;&amp;lt; std::endl; std::cout &amp;lt;&amp;lt; &amp;quot;2class name = &amp;quot; &amp;lt;&amp;lt; typeid(*this).name() &amp;lt;&amp;lt; std::endl; } </description>
+    </item>
+    
     <item>
       <title>2007_Apple_iphone</title>
       <link>https://6923403.github.io/post/2007_apple_iphone/</link>
@@ -809,20 +828,6 @@ Client收到报文后，检查ack是否为J+1，ACK是否为1，如果正确则�
       
       <guid>https://6923403.github.io/post/chrono_use/</guid>
       <description>时间戳获取 using namespace std::chrono; auto millisec_since_epoch = duration_cast&amp;lt;milliseconds&amp;gt;(system_clock::now().time_since_epoch()).count(); auto msec = duration_cast&amp;lt;microseconds&amp;gt;(system_clock::now().time_since_epoch()).count(); auto sec_since_epoch = duration_cast&amp;lt;seconds&amp;gt;(system_clock::now().time_since_epoch()).count(); std::cout &amp;lt;&amp;lt; &amp;quot;seconds since epoch: &amp;quot; &amp;lt;&amp;lt; sec_since_epoch &amp;lt;&amp;lt; std::endl; std::cout &amp;lt;&amp;lt; &amp;quot;milliseconds since epoch: &amp;quot; &amp;lt;&amp;lt; millisec_since_epoch &amp;lt;&amp;lt; std::endl;  秒seconds since epoch: 1622534342 微妙 milliseconds since epoch: 1622534342050   标准年月日+时间获取 std::time_t now = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now()); char re_time[256] = {0}; std::strftime(re_time, sizeof(re_time), &amp;quot;%Y-%m-%d %X&amp;quot;, std::localtime(&amp;amp;now)); std::cout &amp;lt;&amp;lt; “注册时间 ” &amp;lt;&amp;lt; re_time &amp;lt;&amp;lt; std::endl; 注册时间: 2021-06-01 15:56:42</description>
-    </item>
-    
-    <item>
-      <title>Ubuntu_install_mysql</title>
-      <link>https://6923403.github.io/post/ubuntu_install_mysql/</link>
-      <pubDate>Sun, 30 May 2021 16:36:22 +0800</pubDate>
-      
-      <guid>https://6923403.github.io/post/ubuntu_install_mysql/</guid>
-      <description>安装 不是root自行加sudo
-apt-get update apt-get install mysql-server apt-get install libmysqld-dev  配置 mysql_secure_installation 1. NO 2. 输入密码 3. 其余全部默认 修改root密码 8.0
-use mysql; update user set authentication_string=&#39;&#39; where user=&#39;root&#39;;--将字段置为空 ALTER user &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;root&#39;;--修改密码为root  状态 #开启 service mysql start # 关闭 service mysql stop # 重启 service mysql restart # 状态 systemctl status mysql.service  Re:
-https://blog.csdn.net/u010520724/article/details/107444032
-https://blog.csdn.net/weixin_38924500/article/details/106261971
-https://blog.csdn.net/wolf131721/article/details/93004013</description>
     </item>
     
     <item>
