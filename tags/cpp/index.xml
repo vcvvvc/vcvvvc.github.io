@@ -12,7 +12,7 @@
       <pubDate>Wed, 15 Dec 2021 19:39:23 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/typeid_get_class_name/</guid>
-      <description>人老了，东西一多就容易忘。。
+      <description>时间一长，模版跟继承还多容易忘，这样比看代码更效率些。
  template&amp;lt;typename T&amp;gt; TC_LockT&amp;lt;T&amp;gt;::TC_LockT(const T &amp;amp;mutex) { std::cout &amp;lt;&amp;lt; &amp;quot;1class name = &amp;quot; &amp;lt;&amp;lt; typeid(mutex).name() &amp;lt;&amp;lt; std::endl; std::cout &amp;lt;&amp;lt; &amp;quot;2class name = &amp;quot; &amp;lt;&amp;lt; typeid(*this).name() &amp;lt;&amp;lt; std::endl; } </description>
     </item>
     
