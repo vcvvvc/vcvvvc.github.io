@@ -529,6 +529,27 @@ void et(epoll_event *events, int number, int epollfd, int listenfd)
 
 }
 </code></pre><hr>
+<h2 id="三种概念">三种概念</h2>
+<ul>
+<li>1）阻塞I/O</li>
+</ul>
+<p>进程发起read后，如果kernel未准备好数据，进程就会被block，进入等待阶段；</p>
+<p>等待kernel将数据准备好，才会返回数据，解除阻塞；</p>
+<ul>
+<li>2）非阻塞I/O</li>
+</ul>
+<p>进程发起read请求，kernel未准备好数据，直接返回一个error，进程无需阻塞等待；</p>
+<p>进程会轮询发送read请求，如此往复；</p>
+<p>一直到kernel准备好数据，才把数据拷贝并返回给进程，结束轮询；</p>
+<ul>
+<li>3）I/O多路复用</li>
+</ul>
+<p>进程调用select/poll/epoll，select/poll/epoll会将进程block起来；</p>
+<p>kernel会‘监视’所有select负责的socket；</p>
+<p>当任何一个socket准备好数据，select就会返回（也就是图中的return medable）；</p>
+<p>进程调用read（图中第二次 system call），将数据从kernel拷贝到用户进程；</p>
+<p>总结：所以，I/O 多路复用的特点是通过一种机制一个进程能同时等待多个文件描述符，而这些文件描述符（套接字描述符）其中的任意一个进入读就绪状态，select()函数就可以返回。</p>
+<hr>
 <h2 id="re">Re:</h2>
 <p><code>select</code></p>
 <p><a href="https://www.cnblogs.com/skyfsm/p/7079458.html">https://www.cnblogs.com/skyfsm/p/7079458.html</a></p>
@@ -539,6 +560,7 @@ void et(epoll_event *events, int number, int epollfd, int listenfd)
 <p><a href="https://blog.csdn.net/lingfengtengfei/article/details/12398299">https://blog.csdn.net/lingfengtengfei/article/details/12398299</a></p>
 <p><code>ot</code></p>
 <p><a href="https://www.jianshu.com/p/722819425dbd">https://www.jianshu.com/p/722819425dbd</a></p>
+<p><a href="https://www.jianshu.com/p/3137248d9ac5">https://www.jianshu.com/p/3137248d9ac5</a></p>
 
     </div>
     <div class="post-footer">
