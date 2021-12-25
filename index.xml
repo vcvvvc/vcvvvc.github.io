@@ -1731,18 +1731,18 @@ cd ffmpeg/ ./configure sudo make -j4 sudo make install  3. Check ffmpeg -version
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://6923403.github.io/about/</guid>
-      <description>个人非常喜欢交叉学科，效率创新。使想法与软件结合并应用到生活以及各行各业中。
+      <description>专注AR(Augmented reality) 我看好AR也看多VR
+ AAPL/FB/NVID/MSFT/GOOGL&amp;amp;ASML/TSLA小股东。
+ 个人非常喜欢交叉学科，效率创新。让想法与代码结合并应用到生活以及各行各业中。
 元宇宙是目前最具有这种特性的一项技术，我十分推崇这项技术创新。元宇宙中穿插各个学科的智慧，虚拟与现实的结合、产品与行业的结合以及应用丰富的多样性。
 We are at the beginning of the next chapter for the internet.
- Meteverse: https://6923403.github.io/post/metaverse/  各个学科、各个行业与N的结合，来创造更多的可能
-N = 代码
-  古籍、哲学、历史 + N
-  经济、金融、投资 + N
-  娱乐、影视、游戏 + N
-  教育 + 设计 + 历史 + 艺术 + 哲学 + 娱乐 + &amp;hellip; + N
+ Meteverse: https://6923403.github.io/post/metaverse/  各个学科、各个行业与XR的结合，来创造更多的可能
+  古籍、哲学、历史 + XR
+  经济、金融、投资 + XR
+  娱乐、影视、游戏 + XR
+  教育 + 设计 + 历史 + 艺术 + 哲学 + 娱乐 + &amp;hellip; + XR
   &amp;hellip;&amp;hellip;
-  News-M便是根据 经济 + 新闻 + 投资 + N的需求组合制作的，提取财经新闻标题、链接进行聚合归类写入表格，省去了平时搜索网站、打开网页、查看标题、打开网页、关闭网页、继续查看下一条的繁复步骤, 以往早起看新闻得用一个小时，现在10分钟内即可。
-News-D(未公开项目)是我根据 经济 + 新闻 + 数据分析 + 投资 + N制作, 这个项目工作量非常大,由于数据分析这块我还在学，之后我会充分利用这些数据来做一个分析</description>
+  News-M便是根据 经济 + 新闻 + 投资 + XR的需求组合制作的，提取财经新闻标题、链接进行聚合归类写入表格，省去了平时搜索网站、打开网页、查看标题、打开网页、关闭网页、继续查看下一条的繁复步骤, 以往早起看新闻得用一个小时，现在10分钟内即可。</description>
     </item>
     
   </channel>
