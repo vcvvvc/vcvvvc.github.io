@@ -5,7 +5,17 @@
     <link>https://6923403.github.io/</link>
     <description>Recent content on Vcvc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 31 Dec 2021 00:08:17 +0800</lastBuildDate><atom:link href="https://6923403.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 31 Dec 2021 00:10:24 +0800</lastBuildDate><atom:link href="https://6923403.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>云计算</title>
+      <link>https://6923403.github.io/post/cloud/</link>
+      <pubDate>Fri, 31 Dec 2021 00:10:24 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/cloud/</guid>
+      <description>未填的坑6
+云服务 saas 边缘计算</description>
+    </item>
+    
     <item>
       <title>以太坊_Eth</title>
       <link>https://6923403.github.io/post/eth/</link>
