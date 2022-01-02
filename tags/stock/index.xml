@@ -5,7 +5,38 @@
     <link>https://6923403.github.io/tags/stock/</link>
     <description>Recent content in Stock on Vcvc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 31 Dec 2021 00:10:24 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/stock/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 31 Dec 2021 22:54:32 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/stock/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>区块链｜Blockchain</title>
+      <link>https://6923403.github.io/post/blockchain/</link>
+      <pubDate>Fri, 31 Dec 2021 22:54:32 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/blockchain/</guid>
+      <description>区块链（Blockchain） 区块链是借由密码学串接并保护内容的串连文字记录（又称区块）。
+每一个区块包含了前一个区块的加密散列、相应时间戳记以及交易资料（通常用默克尔树（Merkle tree）算法计算的散列值表示），这样的设计使得区块内容具有难以篡改的特性。用区块链技术所串接的分布式账本能让两方有效记录交易，且可永久查验此交易。
+ BTC 比特币白皮书
+中文版本
+ Reference 维基百科：https://zh.wikipedia.org/wiki/%E5%8C%BA%E5%9D%97%E9%93%BE
+廖雪峰区块链教程：https://www.liaoxuefeng.com/wiki/1207298049439968</description>
+    </item>
+    
+    <item>
+      <title>以太坊_ETH</title>
+      <link>https://6923403.github.io/post/eth/</link>
+      <pubDate>Fri, 31 Dec 2021 00:17:17 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/eth/</guid>
+      <description>前言 谈到ETH就避不开区块链跟BTC，我单独写了一份简单理解。
+Blockchain &amp;amp; BTC
+ ETH https://ethereum.org/
+ ETH野心极大也极难实现。   以太坊（Ethereum）是一个去中心化的开源的有智能合约功能的公共区块链平台。 以太币（ETH 或 Ξ）是以太坊的原生加密货币。截止 2021 年 12 月，以太币是市值第二高的加密货币，仅次于比特币。以太坊是使用最多的区块链。  NFT(Non-Fungible Tokens) 比如我博客头像， 还有组织icon都是NFT
+ 在曼哈顿的公交车候车亭上展示的 CryptoPunk NFT © Dia Dipasupil/Getty   Re:
+以太坊将挑战比特币的霸权:
+https://www.ft.com/content/e003ee52-024c-42f5-8743-d69a7390d5ba
+NFT 如何在 2021 年成为 400 亿美元的市场:
+https://www.ft.com/content/e95f5ac2-0476-41f4-abd4-8a99faa7737d</description>
+    </item>
+    
     <item>
       <title>云计算</title>
       <link>https://6923403.github.io/post/cloud/</link>
@@ -14,16 +45,6 @@
       <guid>https://6923403.github.io/post/cloud/</guid>
       <description>未填的坑6
 云服务 saas 边缘计算</description>
-    </item>
-    
-    <item>
-      <title>以太坊_Eth</title>
-      <link>https://6923403.github.io/post/eth/</link>
-      <pubDate>Fri, 31 Dec 2021 00:08:17 +0800</pubDate>
-      
-      <guid>https://6923403.github.io/post/eth/</guid>
-      <description>未填的坑5
-https://ethereum.org/zh/what-is-ethereum/</description>
     </item>
     
     <item>
