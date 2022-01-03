@@ -8,40 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
-    <meta name="description" content="Metaverse爱好者,关注AR(Augmented reality)。" />
-    <meta name="keywords" content="Vcvc,Vcvc Blog,CPP,Open Source,Python,Linux,Metaverse" />
+    <meta name="description" content="Vcvc Blog | 前沿技术-投资:30%价值投资/70%成长投资，目前关注AR(Augmented reality)并看多VR" />
+    <meta name="keywords" content="Vcvc,Vcvc Blog,Open Source,前沿技术,成长投资,价值投资" />
     <link rel="stylesheet" href="https://6923403.github.io/css/main.min.c2052924716d810662c2cc67f9223190e814e1923e41ea4b9647c5c71b6ce3b6.css" />
-    
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Linux Pthread"/>
-<meta name="twitter:description" content="int pthread_cond_init(pthread_cond_t *cond, pthread_condattr_t *cond_attr)
-其中cond是一个指向结构pthread_cond_t的指针，cond_attr是一个指向结构pthread_condattr_t的指针。结构 pthread_condattr_t是条件变量的属性结构，和互斥锁一样我们可以用它来设置条件变量是进程内可用还是进程间可用， 默认值是PTHREAD_ PROCESS_PRIVATE，即此条件变量被同一进程内的各个线程使用。
-注意初始化条件变量只有未被使用时才能重新初始化或被释放。释放一个条件变量的函数为pthread_cond_destroy（pthread_cond_t cond）。
-也可以静态的初始化条件变量
-pthread_cond_t my_condition = PTHREAD_COND_INITIALIZER;  pthread_mutex_init(pthread_mutex_t * mutex, const pthread_mutexattr_t *attr); // 初始化锁变量mutex。 // attr为锁属性，NULL值为默认属性。 pthread_mutex_lock(pthread_mutex_t *mutex); // 加锁（阻塞操作） pthread_mutex_trylock(pthread_mutex_t *mutex); // 试图加锁（不阻塞操作） // 当互斥锁空闲时将占有该锁；否则立即返回 // 但是与2不一样的是当锁已经在使用的时候，返回为EBUSY，而不是挂起等待。 pthread_mutex_unlock(pthread_mutex_t *mutex); 释放锁 pthread_mutex_destroy(pthread_mutex_t *mutex); 销毁一个不再需要的互斥量，释放系统资源。 pthread_cond_wait() / pthread_cond_timedwait -----等待条件变量，挂起线程，区别是后者，会有timeout时间， 如果到了timeout,线程自动解除阻塞，这个时间和 time()系统调用相同意义的。以1970年时间算起。 pthread_cond_signal ----激活等待列表中的线程， pthread_cond_broadcast() -------激活所有等待线程列表中最先入队的线程 条件变量
-条件变量是利用线程间共享的全局变量进行同步的一种机制，主要包括两个动作：
- 1）一个线程等待&quot;条件变量的条件成立&quot;而挂起； 2）另一个线程使&quot;条件成立&quot;（给出条件成立信号）。  为了防止竞争，条件变量的使用总是和一个互斥锁结合在一起。
-注意：
-  1）上面这几个函数都是原子操作，可以为理解为一条指令，不会被其他程序打断
-  2）上面这个几个函数，必须配合使用。
-  3）pthread_cond_wait，先会解除当前线程的互斥锁，然后挂线线程，等待条件变量满足条件。一旦条件变量满足条件，则会给线程上锁，继续执行pthread_cond_wait"/>
 
-    <meta property="og:title" content="Linux Pthread" />
-<meta property="og:description" content="int pthread_cond_init(pthread_cond_t *cond, pthread_condattr_t *cond_attr)
-其中cond是一个指向结构pthread_cond_t的指针，cond_attr是一个指向结构pthread_condattr_t的指针。结构 pthread_condattr_t是条件变量的属性结构，和互斥锁一样我们可以用它来设置条件变量是进程内可用还是进程间可用， 默认值是PTHREAD_ PROCESS_PRIVATE，即此条件变量被同一进程内的各个线程使用。
-注意初始化条件变量只有未被使用时才能重新初始化或被释放。释放一个条件变量的函数为pthread_cond_destroy（pthread_cond_t cond）。
-也可以静态的初始化条件变量
-pthread_cond_t my_condition = PTHREAD_COND_INITIALIZER;  pthread_mutex_init(pthread_mutex_t * mutex, const pthread_mutexattr_t *attr); // 初始化锁变量mutex。 // attr为锁属性，NULL值为默认属性。 pthread_mutex_lock(pthread_mutex_t *mutex); // 加锁（阻塞操作） pthread_mutex_trylock(pthread_mutex_t *mutex); // 试图加锁（不阻塞操作） // 当互斥锁空闲时将占有该锁；否则立即返回 // 但是与2不一样的是当锁已经在使用的时候，返回为EBUSY，而不是挂起等待。 pthread_mutex_unlock(pthread_mutex_t *mutex); 释放锁 pthread_mutex_destroy(pthread_mutex_t *mutex); 销毁一个不再需要的互斥量，释放系统资源。 pthread_cond_wait() / pthread_cond_timedwait -----等待条件变量，挂起线程，区别是后者，会有timeout时间， 如果到了timeout,线程自动解除阻塞，这个时间和 time()系统调用相同意义的。以1970年时间算起。 pthread_cond_signal ----激活等待列表中的线程， pthread_cond_broadcast() -------激活所有等待线程列表中最先入队的线程 条件变量
-条件变量是利用线程间共享的全局变量进行同步的一种机制，主要包括两个动作：
- 1）一个线程等待&quot;条件变量的条件成立&quot;而挂起； 2）另一个线程使&quot;条件成立&quot;（给出条件成立信号）。  为了防止竞争，条件变量的使用总是和一个互斥锁结合在一起。
-注意：
-  1）上面这几个函数都是原子操作，可以为理解为一条指令，不会被其他程序打断
-  2）上面这个几个函数，必须配合使用。
-  3）pthread_cond_wait，先会解除当前线程的互斥锁，然后挂线线程，等待条件变量满足条件。一旦条件变量满足条件，则会给线程上锁，继续执行pthread_cond_wait" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://6923403.github.io/post/pthread/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2020-09-27T17:53:48+08:00" />
-<meta property="article:modified_time" content="2020-09-27T17:53:48+08:00" />
 
 
   </head>
@@ -91,14 +61,6 @@ pthread_cond_t my_condition = PTHREAD_COND_INITIALIZER;  pthread_mutex_init(pthr
            <input type="hidden" name="sitesearch" value="6923403.github.io">
        </form>
 </div>
-        
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-5DK982C50P"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-5DK982C50P');
-        </script>
       </div>
     </header>
     <main class="app-container">

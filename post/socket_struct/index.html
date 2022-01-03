@@ -8,30 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
-    <meta name="description" content="Metaverse爱好者,关注AR(Augmented reality)。" />
-    <meta name="keywords" content="Vcvc,Vcvc Blog,CPP,Open Source,Python,Linux,Metaverse" />
+    <meta name="description" content="Vcvc Blog | 前沿技术-投资:30%价值投资/70%成长投资，目前关注AR(Augmented reality)并看多VR" />
+    <meta name="keywords" content="Vcvc,Vcvc Blog,Open Source,前沿技术,成长投资,价值投资" />
     <link rel="stylesheet" href="https://6923403.github.io/css/main.min.c2052924716d810662c2cc67f9223190e814e1923e41ea4b9647c5c71b6ce3b6.css" />
-    
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Socket struct"/>
-<meta name="twitter:description" content="struct sockaddr { unsigned short sa_family; /* address family, AF_xxx */ char sa_data[14]; /* 14 bytes of protocol address */ }; 此数据结构用做bind、connect、recvfrom、sendto等函数的参数，指明地址信息。
- 但一般编程中并不直接针对此数据结构操作，而是使用另一个与sockaddr等价的数据结构sockaddr_in（在netinet/in.h中定义）：
-struct sockaddr_in { short int sin_family; /* Address family */ unsigned short int sin_port; /* Port number */ struct in_addr sin_addr; /* Internet address */ unsigned char sin_zero[8]; /* Same size as struct sockaddr */ }; 在编程中大多数是使用sockaddr_in这个结构来设置/获取地址信息
-  sin_family指代协议族，在socket编程中只能是AF_INET
-  sin_port存储端口号（使用网络字节顺序）
-  sin_addr存储IP地址，使用in_addr这个数据结构"/>
 
-    <meta property="og:title" content="Socket struct" />
-<meta property="og:description" content="struct sockaddr { unsigned short sa_family; /* address family, AF_xxx */ char sa_data[14]; /* 14 bytes of protocol address */ }; 此数据结构用做bind、connect、recvfrom、sendto等函数的参数，指明地址信息。
- 但一般编程中并不直接针对此数据结构操作，而是使用另一个与sockaddr等价的数据结构sockaddr_in（在netinet/in.h中定义）：
-struct sockaddr_in { short int sin_family; /* Address family */ unsigned short int sin_port; /* Port number */ struct in_addr sin_addr; /* Internet address */ unsigned char sin_zero[8]; /* Same size as struct sockaddr */ }; 在编程中大多数是使用sockaddr_in这个结构来设置/获取地址信息
-  sin_family指代协议族，在socket编程中只能是AF_INET
-  sin_port存储端口号（使用网络字节顺序）
-  sin_addr存储IP地址，使用in_addr这个数据结构" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://6923403.github.io/post/socket_struct/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2020-09-13T17:03:43+08:00" />
-<meta property="article:modified_time" content="2020-09-13T17:03:43+08:00" />
 
 
   </head>
@@ -81,14 +61,6 @@ struct sockaddr_in { short int sin_family; /* Address family */ unsigned short i
            <input type="hidden" name="sitesearch" value="6923403.github.io">
        </form>
 </div>
-        
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-5DK982C50P"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-5DK982C50P');
-        </script>
       </div>
     </header>
     <main class="app-container">

@@ -8,36 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
-    <meta name="description" content="Metaverse爱好者,关注AR(Augmented reality)。" />
-    <meta name="keywords" content="Vcvc,Vcvc Blog,CPP,Open Source,Python,Linux,Metaverse" />
+    <meta name="description" content="Vcvc Blog | 前沿技术-投资:30%价值投资/70%成长投资，目前关注AR(Augmented reality)并看多VR" />
+    <meta name="keywords" content="Vcvc,Vcvc Blog,Open Source,前沿技术,成长投资,价值投资" />
     <link rel="stylesheet" href="https://6923403.github.io/css/main.min.c2052924716d810662c2cc67f9223190e814e1923e41ea4b9647c5c71b6ce3b6.css" />
-    
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Socket write_send"/>
-<meta name="twitter:description" content="ssize_t write(int fd, const void*buf,size_t nbytes);
-write函数将buf中的nbytes字节内容写入文件描述符fd.
-成功时返回写的字节数.失败时返回-1. 并设置errno变量. 在网络程序中,当我们向套接字文件描述符写时有两可能. 1)write的返回值大于0,表示写了部分或者是全部的数据. 这样我们用一个while循环来不停的写入，但是循环过程中的buf参数和nbyte参数得由我们来更新。也就是说，网络写函数是不负责将全部数据写完之后在返回的。 2)返回的值小于0,此时出现了错误.我们要根据错误类型来处理. 如果错误为EINTR表示在写的时候出现了中断错误. 如果为EPIPE表示网络连接出现了问题(对方已经关闭了连接).
- ssize_t read(int fd,void *buf,size_t nbyte)
-read函数是负责从fd中读取内容.
-当读成功 时,read返回实际所读的字节数,如果返回的值是0 表示已经读到文件的结束了,小于0表示出现了错误.如果错误为EINTR说明读是由中断引起 的, 如果是ECONNREST表示网络连接出了问题. 和上面一样,我们也写一个自己的读函数.
- recv和send函数提供了和read和write差不多的功能.不过它们提供了第四个参数来控制读写操作.
-int recv(int sockfd,void *buf,int len,int flags) int send(int sockfd,void *buf,int len,int flags) 前面的三个参数和read, write一样,第四个参数可以是0或者是以下的组合
-   标题 内容     MSG_DONTROUTE 不查找表   MSG_OOB 接受或者发送带外数据   MSG_PEEK 查看数据,并不从系统缓冲区移走数据   MSG_WAITALL 等待所有数据    MSG_DONTROUTE:是 send函数使用的标志."/>
 
-    <meta property="og:title" content="Socket write_send" />
-<meta property="og:description" content="ssize_t write(int fd, const void*buf,size_t nbytes);
-write函数将buf中的nbytes字节内容写入文件描述符fd.
-成功时返回写的字节数.失败时返回-1. 并设置errno变量. 在网络程序中,当我们向套接字文件描述符写时有两可能. 1)write的返回值大于0,表示写了部分或者是全部的数据. 这样我们用一个while循环来不停的写入，但是循环过程中的buf参数和nbyte参数得由我们来更新。也就是说，网络写函数是不负责将全部数据写完之后在返回的。 2)返回的值小于0,此时出现了错误.我们要根据错误类型来处理. 如果错误为EINTR表示在写的时候出现了中断错误. 如果为EPIPE表示网络连接出现了问题(对方已经关闭了连接).
- ssize_t read(int fd,void *buf,size_t nbyte)
-read函数是负责从fd中读取内容.
-当读成功 时,read返回实际所读的字节数,如果返回的值是0 表示已经读到文件的结束了,小于0表示出现了错误.如果错误为EINTR说明读是由中断引起 的, 如果是ECONNREST表示网络连接出了问题. 和上面一样,我们也写一个自己的读函数.
- recv和send函数提供了和read和write差不多的功能.不过它们提供了第四个参数来控制读写操作.
-int recv(int sockfd,void *buf,int len,int flags) int send(int sockfd,void *buf,int len,int flags) 前面的三个参数和read, write一样,第四个参数可以是0或者是以下的组合
-   标题 内容     MSG_DONTROUTE 不查找表   MSG_OOB 接受或者发送带外数据   MSG_PEEK 查看数据,并不从系统缓冲区移走数据   MSG_WAITALL 等待所有数据    MSG_DONTROUTE:是 send函数使用的标志." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://6923403.github.io/post/socket_write_send/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2020-11-21T14:59:41+08:00" />
-<meta property="article:modified_time" content="2020-11-21T14:59:41+08:00" />
 
 
   </head>
@@ -87,14 +61,6 @@ int recv(int sockfd,void *buf,int len,int flags) int send(int sockfd,void *buf,i
            <input type="hidden" name="sitesearch" value="6923403.github.io">
        </form>
 </div>
-        
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-5DK982C50P"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-5DK982C50P');
-        </script>
       </div>
     </header>
     <main class="app-container">

@@ -8,50 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
-    <meta name="description" content="Metaverse爱好者,关注AR(Augmented reality)。" />
-    <meta name="keywords" content="Vcvc,Vcvc Blog,CPP,Open Source,Python,Linux,Metaverse" />
+    <meta name="description" content="Vcvc Blog | 前沿技术-投资:30%价值投资/70%成长投资，目前关注AR(Augmented reality)并看多VR" />
+    <meta name="keywords" content="Vcvc,Vcvc Blog,Open Source,前沿技术,成长投资,价值投资" />
     <link rel="stylesheet" href="https://6923403.github.io/css/main.min.c2052924716d810662c2cc67f9223190e814e1923e41ea4b9647c5c71b6ce3b6.css" />
-    
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="cpp_class权限 继承"/>
-<meta name="twitter:description" content="补充实例： cpp_class继承: https://6923403.github.io/post/cpp_inherit
- 1. private, public, protected 访问标号的访问范围
-private：只能由1.该类中的函数、2.其友元函数访问。 不能被任何其他访问，该类的对象也不能访问。
-protected：可以被1.该类中的函数、2.子类的函数、3.其友元函数访问。 但不能被该类的对象访问。
-public：可以被1.该类中的函数、2.子类的函数、3.其友元函数访问，也可以由4.该类的对象访问。
-注：友元函数包括3种：设为友元的普通的非成员函数；设为友元的其他类的成员函数；设为友元类中的所有成员函数。
-2 类被继承后方法属性变化
-private 属性不能够被继承。 使用private继承， 父类的protected和public属性在子类中变为private； 使用protected继承，父类的protected和public属性在子类中变为protected； 使用public继承， 父类的protected和public属性不发生改变;
-3 private继承和public继承的适用情况
-C&#43;&#43;将public继承视为is-a关系。private继承则并不意味着is-a关系，private继承意味着implemented-in-terms-of（根据某物实现出）。private继承意味着只有实现部分被继承，接口部分被略去。private继承在软件设计层面上没有意义，其意义只在于软件实现层面。
-private继承：
-1）编译器不会自动将一个子类对象转换为一个父类对象，而public继承会；
-2）子类中由父类继承而来的成员（protected和public）都变为private。
-implemented-in-terms-of也可以由复合实现。在应用域，复合意味着has-a；在实现域，复合意味着is-implemented-in-terms-of。尽可能使用复合实现这种关系，必要时（涉及protected成员或virtual函数时）才使用private继承。
- 原文链接：https://blog.csdn.net/kingzone_2008/article/details/10066181   虚继承 C&#43;&#43;使用虚拟继承（Virtual Inheritance），解决从不同途径继承来的同名的数据成员在内存中有不同的拷贝造成数据不一致问题，将共同基类设置为虚基类。解决二义性。
-class sum {}; class a : virtual public sum { ... } class b : virtual public sum { ... }; class c:: public a, public b { ... }; "/>
 
-    <meta property="og:title" content="cpp_class权限 继承" />
-<meta property="og:description" content="补充实例： cpp_class继承: https://6923403.github.io/post/cpp_inherit
- 1. private, public, protected 访问标号的访问范围
-private：只能由1.该类中的函数、2.其友元函数访问。 不能被任何其他访问，该类的对象也不能访问。
-protected：可以被1.该类中的函数、2.子类的函数、3.其友元函数访问。 但不能被该类的对象访问。
-public：可以被1.该类中的函数、2.子类的函数、3.其友元函数访问，也可以由4.该类的对象访问。
-注：友元函数包括3种：设为友元的普通的非成员函数；设为友元的其他类的成员函数；设为友元类中的所有成员函数。
-2 类被继承后方法属性变化
-private 属性不能够被继承。 使用private继承， 父类的protected和public属性在子类中变为private； 使用protected继承，父类的protected和public属性在子类中变为protected； 使用public继承， 父类的protected和public属性不发生改变;
-3 private继承和public继承的适用情况
-C&#43;&#43;将public继承视为is-a关系。private继承则并不意味着is-a关系，private继承意味着implemented-in-terms-of（根据某物实现出）。private继承意味着只有实现部分被继承，接口部分被略去。private继承在软件设计层面上没有意义，其意义只在于软件实现层面。
-private继承：
-1）编译器不会自动将一个子类对象转换为一个父类对象，而public继承会；
-2）子类中由父类继承而来的成员（protected和public）都变为private。
-implemented-in-terms-of也可以由复合实现。在应用域，复合意味着has-a；在实现域，复合意味着is-implemented-in-terms-of。尽可能使用复合实现这种关系，必要时（涉及protected成员或virtual函数时）才使用private继承。
- 原文链接：https://blog.csdn.net/kingzone_2008/article/details/10066181   虚继承 C&#43;&#43;使用虚拟继承（Virtual Inheritance），解决从不同途径继承来的同名的数据成员在内存中有不同的拷贝造成数据不一致问题，将共同基类设置为虚基类。解决二义性。
-class sum {}; class a : virtual public sum { ... } class b : virtual public sum { ... }; class c:: public a, public b { ... }; " />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://6923403.github.io/post/cpp_class_%E6%9D%83%E9%99%90_%E7%BB%A7%E6%89%BF/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-04-23T14:01:54+08:00" />
-<meta property="article:modified_time" content="2021-04-23T14:01:54+08:00" />
 
 
   </head>
@@ -101,14 +61,6 @@ class sum {}; class a : virtual public sum { ... } class b : virtual public sum 
            <input type="hidden" name="sitesearch" value="6923403.github.io">
        </form>
 </div>
-        
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-5DK982C50P"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-5DK982C50P');
-        </script>
       </div>
     </header>
     <main class="app-container">

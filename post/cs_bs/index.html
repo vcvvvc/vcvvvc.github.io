@@ -8,68 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
-    <meta name="description" content="Metaverse爱好者,关注AR(Augmented reality)。" />
-    <meta name="keywords" content="Vcvc,Vcvc Blog,CPP,Open Source,Python,Linux,Metaverse" />
+    <meta name="description" content="Vcvc Blog | 前沿技术-投资:30%价值投资/70%成长投资，目前关注AR(Augmented reality)并看多VR" />
+    <meta name="keywords" content="Vcvc,Vcvc Blog,Open Source,前沿技术,成长投资,价值投资" />
     <link rel="stylesheet" href="https://6923403.github.io/css/main.min.c2052924716d810662c2cc67f9223190e814e1923e41ea4b9647c5c71b6ce3b6.css" />
-    
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="C/S_B/S 架构"/>
-<meta name="twitter:description" content="什么是C/S和B/S架构？
-C/S架构 软件（即客户机/服务器模式）分为客户机和服务器两层：第一层是在客户机系统上结合了表示与业务逻辑，第二层是通过网络结合了数据库服务器。 简单的说就是第一层是用户表示层，第二层是数据库层。 客户端和服务器直接相连，这两个组成部分都承担着重要的角色。
-B/S架构 第一层是浏览器（即客户端）只有简单的输入输出功能，处理极少部分的事务逻辑。由于客户不需要安装客户端，只要有浏览器就能上网浏览，所以它面向的是大范围的用户，所以界面设计得比较简单，通用。
-第二层是WEB服务器，扮演着信息传送的角色。当用户想要访问数据库时，就会首先向WEB服务器发送请求，WEB服务器统一请求后会向数据库服务器发送访问数据库的请求，这个请求是以SQL语句实现的。
-第三层是数据库服务器，它存放着大量的数据。当数据库服务器收到了WEB服务器的请求后，会对SQL语句进行处理，并将返回的结果发送给WEB服务器，接下来，WEB服务器将收到的数据结果转换为HTML文本形式发送给浏览器。
- 优点/缺点 C/S架构的优点
-a. 客户端和服务器直接相连。点对点的连接方式更安全，可以直接操作本地文本，比较方便。
-b. 客户端可以处理一些逻辑事务。可以进行数据处理和数据存储，提供一定的帮助。
-c. 客户端直接操作界面。
-C/S架构的缺点
-a&gt; C/S架构适用于局域网，对网速的要求比较高。
-b&gt; 客户端界面缺乏通用性，且当业务更改时就需要更改界面，重新编写。
-c&gt; 随着用户数量的增多，会出现通信拥堵、服务器响应速度慢等情况。
-d&gt; 系统的维护也比较麻烦。
- B/S架构的优点  a&gt; 浏览器和数据库服务器采用多对多的方式连接。因此适合在广域网里实现巨大的互联网，甚至是全球网，有着很强大的信息共享性。
-b&gt; 浏览器只处理一些简单的逻辑事务，负担小。
-c&gt; 数据都集中存放在数据库服务器，所以不存在数据不一致现象。
-d&gt; 随着服务器负载的增加，可以平滑地增加服务器的个数并建立集群服务器系统，然后在各个服务器之间做负载均衡。
-e&gt; B/S建立在广域网上，所以需要的网速要求不高。
-f&gt; 不需要安装客户端，只要能连上网，就能随时随地的浏览页面。
-g&gt; 能有效地保护数据平台和管理访问权限，确保服务器数据库的数据安全。
-B/S架构的缺点  a&gt; 服务器承担着重要的责任，数据负荷较重。一旦发生服务器“崩溃”等问题，后果不堪设想。
-b&gt; 页面需要不断地动态刷新，当用户增多时，网速会变慢。
-  第一层是浏览器（即客户端）只有简单的输入输出功能，处理极少部分的事务逻辑。由于客户不需要安装客户端，只要有浏览器就能上网浏览，所以它面向的是大范围的用户，所以界面设计得比较简单，通用。 第二层是WEB服务器，扮演着信息传送的角色。当用户想要访问数据库时，就会首先向WEB服务器发送请求，WEB服务器统一请求后会向数据库服务器发送访问数据库的请求，这个请求是以SQL语句实现的。 第三层是数据库服务器，它存放着大量的数据。当数据库服务器收到了WEB服务器的请求后，会对SQL语句进行处理，并将返回的结果发送给WEB服务器，接下来，WEB服务器将收到的数据结果转换为HTML文本形式发送给浏览器。   https://blog.csdn.net/qq_42828949/article/details/82822901
-https://blog.csdn.net/zhengqijun_/article/details/53056624"/>
 
-    <meta property="og:title" content="C/S_B/S 架构" />
-<meta property="og:description" content="什么是C/S和B/S架构？
-C/S架构 软件（即客户机/服务器模式）分为客户机和服务器两层：第一层是在客户机系统上结合了表示与业务逻辑，第二层是通过网络结合了数据库服务器。 简单的说就是第一层是用户表示层，第二层是数据库层。 客户端和服务器直接相连，这两个组成部分都承担着重要的角色。
-B/S架构 第一层是浏览器（即客户端）只有简单的输入输出功能，处理极少部分的事务逻辑。由于客户不需要安装客户端，只要有浏览器就能上网浏览，所以它面向的是大范围的用户，所以界面设计得比较简单，通用。
-第二层是WEB服务器，扮演着信息传送的角色。当用户想要访问数据库时，就会首先向WEB服务器发送请求，WEB服务器统一请求后会向数据库服务器发送访问数据库的请求，这个请求是以SQL语句实现的。
-第三层是数据库服务器，它存放着大量的数据。当数据库服务器收到了WEB服务器的请求后，会对SQL语句进行处理，并将返回的结果发送给WEB服务器，接下来，WEB服务器将收到的数据结果转换为HTML文本形式发送给浏览器。
- 优点/缺点 C/S架构的优点
-a. 客户端和服务器直接相连。点对点的连接方式更安全，可以直接操作本地文本，比较方便。
-b. 客户端可以处理一些逻辑事务。可以进行数据处理和数据存储，提供一定的帮助。
-c. 客户端直接操作界面。
-C/S架构的缺点
-a&gt; C/S架构适用于局域网，对网速的要求比较高。
-b&gt; 客户端界面缺乏通用性，且当业务更改时就需要更改界面，重新编写。
-c&gt; 随着用户数量的增多，会出现通信拥堵、服务器响应速度慢等情况。
-d&gt; 系统的维护也比较麻烦。
- B/S架构的优点  a&gt; 浏览器和数据库服务器采用多对多的方式连接。因此适合在广域网里实现巨大的互联网，甚至是全球网，有着很强大的信息共享性。
-b&gt; 浏览器只处理一些简单的逻辑事务，负担小。
-c&gt; 数据都集中存放在数据库服务器，所以不存在数据不一致现象。
-d&gt; 随着服务器负载的增加，可以平滑地增加服务器的个数并建立集群服务器系统，然后在各个服务器之间做负载均衡。
-e&gt; B/S建立在广域网上，所以需要的网速要求不高。
-f&gt; 不需要安装客户端，只要能连上网，就能随时随地的浏览页面。
-g&gt; 能有效地保护数据平台和管理访问权限，确保服务器数据库的数据安全。
-B/S架构的缺点  a&gt; 服务器承担着重要的责任，数据负荷较重。一旦发生服务器“崩溃”等问题，后果不堪设想。
-b&gt; 页面需要不断地动态刷新，当用户增多时，网速会变慢。
-  第一层是浏览器（即客户端）只有简单的输入输出功能，处理极少部分的事务逻辑。由于客户不需要安装客户端，只要有浏览器就能上网浏览，所以它面向的是大范围的用户，所以界面设计得比较简单，通用。 第二层是WEB服务器，扮演着信息传送的角色。当用户想要访问数据库时，就会首先向WEB服务器发送请求，WEB服务器统一请求后会向数据库服务器发送访问数据库的请求，这个请求是以SQL语句实现的。 第三层是数据库服务器，它存放着大量的数据。当数据库服务器收到了WEB服务器的请求后，会对SQL语句进行处理，并将返回的结果发送给WEB服务器，接下来，WEB服务器将收到的数据结果转换为HTML文本形式发送给浏览器。   https://blog.csdn.net/qq_42828949/article/details/82822901
-https://blog.csdn.net/zhengqijun_/article/details/53056624" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://6923403.github.io/post/cs_bs/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2020-10-05T16:14:49+08:00" />
-<meta property="article:modified_time" content="2020-10-05T16:14:49+08:00" />
 
 
   </head>
@@ -119,14 +61,6 @@ https://blog.csdn.net/zhengqijun_/article/details/53056624" />
            <input type="hidden" name="sitesearch" value="6923403.github.io">
        </form>
 </div>
-        
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-5DK982C50P"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-5DK982C50P');
-        </script>
       </div>
     </header>
     <main class="app-container">
