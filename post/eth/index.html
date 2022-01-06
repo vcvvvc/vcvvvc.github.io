@@ -95,24 +95,115 @@
     </header>
     <div class="post-content">
       <h2 id="前言">前言</h2>
-<p>谈到ETH就避不开区块链跟BTC，我单独写了一份简单理解。</p>
+<p>谈到ETH就需要先了解区块链跟BTC，单独写了一篇：</p>
 <p><a href="/post/blockchain/">Blockchain &amp; BTC</a></p>
 <hr>
 <h2 id="eth">ETH</h2>
 <p><img src="/img/eth/eth-home-icon.png" alt="eth1">  <strong><a href="https://ethereum.org/zh/">https://ethereum.org/</a></strong></p>
-<ul>
-<li>ETH野心极大、极难实现。</li>
-</ul>
-<hr>
-<p><img src="/img/eth/hero.png" alt="eth"></p>
 <pre tabindex="0"><code>以太坊（Ethereum）是一个去中心化的开源的有智能合约功能的公共区块链平台。
 以太币（ETH 或 Ξ）是以太坊的原生加密货币。截止 2021 年 12 月，以太币是市值第二高的加密货币，仅次于比特币。以太坊是使用最多的区块链。
+</code></pre><p><strong>以太坊的特点包括下列：</strong></p>
+<ul>
+<li>智能合约（smart contract）：存储在区块链上的程序，由各节点执行，需要执行程序的人支付手续费给节点的矿工或权益人。[6]</li>
+<li>分布式应用程序：以太坊上的分布式应用程序不会停机，也不能被关掉。</li>
+<li>代币（tokens）：智能合约可以创造代币供分布式应用程序使用。分布式应用程序的代币化让用户、投资者以及管理者的利益一致。代币也可以用来进行首次代币发行。</li>
+<li>叔块（uncle block）：将因为速度较慢而未及时被收入母链的较短区块链并入，以提升交易量。使用的是有向无环图的相关技术。[6]</li>
+<li>权益证明（proof-of-stake）：相较于工作量证明更有效率，可节省大量在挖矿时浪费的电脑资源，并避免特殊应用集成电路造成网络中心化。平行运作中，预计2022年与主链合并。</li>
+<li>燃料（gas）：由交易手续费的概念扩展，在执行各种运算（computation）时需计算燃料消耗量，并缴交燃料费，包括发送以太币或者其他代币也被视为一种运算动作。</li>
+<li>分片（sharding）：减少每个节点所需纪录的资料量，并透过平行运算提升效率。预计于2022年实现。</li>
+</ul>
+<p>以太坊白皮书原版：<a href="https://ethereum.org/zh/whitepaper/">https://ethereum.org/zh/whitepaper/#further-reading</a></p>
+<p>以太坊白皮书中英对照：<a href="https://zhuanlan.zhihu.com/p/33779523">https://zhuanlan.zhihu.com/p/33779523</a></p>
+<p>以太坊白皮书简体中文：<a href="https://github.com/ethereum/wiki/wiki/%5B%E4%B8%AD%E6%96%87%5D-%E4%BB%A5%E5%A4%AA%E5%9D%8A%E7%99%BD%E7%9A%AE%E4%B9%A6">https://github.com/ethereum/wiki/wiki/%5B%E4%B8%AD%E6%96%87%5D-%E4%BB%A5%E5%A4%AA%E5%9D%8A%E7%99%BD%E7%9A%AE%E4%B9%A6</a></p>
+<hr>
+<h2 id="以太币">以太币</h2>
+<p>以太坊区块链上的代币称为以太币（Ether），代码为ETH，可在许多加密货币的外汇市场上交易，它也是以太坊上用来支付交易手续费和运算服务的介质</p>
+<hr>
+<h2 id="defi">DEFI</h2>
+<p>去中心化金融 (DEcentralized FInance）。</p>
+<ul>
+<li>
+<p>CeFi = Centralized Finance 中心化金融（传统金融）</p>
+</li>
+<li>
+<p><strong>DEFI - The Future Of Finance Explained:</strong>  <a href="https://www.youtube.com/watch?v=H-O3r2YMWJ4&amp;t=2s">https://www.youtube.com/watch?v=H-O3r2YMWJ4&amp;t=2s</a></p>
+</li>
+</ul>
+<p><strong>DEBI是一种基于区块链的金融，它不依赖券商、交易所或银行等金融机构提供金融工具，而是利用区块链上的智能合约（例如以太坊）进行金融活动。DeFi平台允许人们向他人借出或借入资金，交易加密货币，并在类似储蓄的账户中获得利息</strong></p>
+<ul>
+<li>去中心化金融（又名“DeFi”或“开放金融”）是指构建开放金融基础设施的许多去中心化协议。这些协议很有价值，因为它们正在创建必要的管道，使世界上任何拥有互联网连接的人都能够访问自主主权、抗审查的金融服务。</li>
+</ul>
+<p><strong>DeFi 如何运作？</strong></p>
+<pre tabindex="0"><code>DeFi 使用加密货币和智能合约来提供不需要中介的服务。 在现代金融体系下，金融机构充当交易的担保人。 因为您的资产通过这些机构流通，从而为这些机构赋予了巨大能量。 世界上还有数十亿人甚至无法使用银行帐户。
+
+在 DeFi，智能合约取代了交易中的金融机构。 智能合约是一种以太坊帐户，可以持有资金，并可以根据某些条件发送/退还资金。 当智能合约上线时，没有人可以改变其有效期，它会始终按程序运行。
+
+一份旨在发放补贴或零用钱的合同可以被编程为：每周五从 A 帐户向 B 帐户汇款。 只有帐户 A 拥有所需资金，它才会这样做。 没有人可以改变智能合约并将帐户 C 添加为收款人以窃取资金。
+
+合约也是公开的，任何人都可以检查和审计。 这意味着不良合约往往会很快受到社会监督。
+
+这确实意味着，目前需要信任以太坊社区中能够读取代码的技术员。 基于开源的社区有助于控制开发者，但是随着时间的推移，这种需求将逐渐减少，因为智能合约变得更易于阅读。并且开发了其他方法来证明代码的可信赖性。
 </code></pre><hr>
 <h2 id="智能合约">智能合约</h2>
 <p>智能合约（Smart Contract）。</p>
 <hr>
 <h2 id="nftnon-fungible-tokens">NFT(Non-Fungible Tokens)</h2>
-<p>比如我博客头像， 还有组织icon都是NFT</p>
+<p>非同质化代币 (NFT)</p>
+<p><strong>NFT 是我们用以代表独特物品所有权的代币。 NFT 让我们把诸如艺术品、收藏品、甚至房地产等物品代币化。 他们一次只有一个正式主人，并且受到以太坊区块链的保护 - 没有人可以修改所有权记录或者根据现有的 NFT 复制粘贴一份新的。</strong></p>
+<p>NFT 代表非同质化代币。 非同质化是一个经济术语，您可以用它来描述家具、歌曲文件或您的电脑等物品。 这些东西不能与其他物品互换，因为它们具有独特属性。</p>
+<p>另一方面，同质化物品可以互换，这取决于它们的价值而非独特属性。 例如，ETH 或美元具有同质化属性，因为 1 ETH/1 USD 可以兑换成另外的 1 ETH/1 USD。</p>
+<ul>
+<li><strong>What Are NFTs and How Can They Be Used in Decentralized Finance? DEFI Explained:</strong> <a href="https://www.youtube.com/watch?v=Xdkkux6OxfM">https://www.youtube.com/watch?v=Xdkkux6OxfM</a></li>
+</ul>
+<p>比如我博客头像， 还有组织icon都是NFT(物品代币化)</p>
+<p><strong>为创建人带来更大的收益</strong></p>
+<p>目前，NFT 的最大用途是在数字内容领域。 这是因为现在该行业已走向崩坏。 内容创建人眼看着自己的利润和潜在收入被平台吞噬。</p>
+<p>艺术家在社交网络上发表作品，为平台赚钱，而平台向艺术家的粉丝出售广告。 他们得到曝光度的回报，但曝光度并不能带来真金白银。</p>
+<p>NFT 为新的创建人经济提供动力，创作者不会将其内容的所有权交给他们用来宣传的平台。 所有权融入到内容本身。</p>
+<p>当他们出售内容时，资金直接转给他们。 如果新所有者随后出售 NFT，原创建人甚至可以自动收到版税。 这在每次出售时都有保证，因为创建人的地址是代币元数据的一部分 - 元数据无法修改。</p>
+<hr>
+<h2 id="nft_一些事件">NFT_一些事件</h2>
+<ul>
+<li>
+<p>阅文</p>
+<p>假设可以绕过阅文，直接连接到读者，读者付费，程序扣除手续费后直接到账给作者。</p>
+<ul>
+<li>阅文：<a href="https://www.zhihu.com/question/437331770">https://www.zhihu.com/question/437331770</a></li>
+</ul>
+</li>
+<li>
+<p>视觉中国</p>
+<p>版权纠纷问题，有些作品是签约作者投稿，按规定属于平台这没问题。不过一个黑洞的照片让我们看到了另一面，有些非平台作品也被平台划定为视觉中国的，同时利用爬虫找侵权公司，利用法律手段获取高额利润，还是A股上市公司。</p>
+<ul>
+<li>
+<p><a href="https://www.zhihu.com/question/319791425">https://www.zhihu.com/question/319791425</a></p>
+</li>
+<li>
+<p><a href="https://www.bbc.com/zhongwen/simp/chinese-news-47911590">https://www.bbc.com/zhongwen/simp/chinese-news-47911590</a></p>
+</li>
+</ul>
+</li>
+</ul>
+<p>如果我们引入NFT，直接去掉这种垃圾第三方的介入，让话语权回归到作者，有些事情可以更好的解决。</p>
+<hr>
+<h2 id="nft_复制粘贴问题">NFT_复制/粘贴问题</h2>
+<p>反对者们常常提及这样一件事实，他们一般会拿出一个 NFT 艺术品截图的图片来证明 NFT 是“愚蠢至极”的。 “看，现在我免费得到这个图像了！”他们得意地说。</p>
+<ul>
+<li>美术家可以临摹梵高的&lt;星夜&gt;🌃，可以临摹&lt;罗纳河上的星夜&gt;，钢琴家可以弹奏贝多芬的曲子。这些并没有改变什么，真品只有一个，且仅有一个。</li>
+</ul>
+<p>归根结底，拥有真正的东西，其价值由市场决定。 一个内容被屏幕抓取、分享和普遍使用的次数越多，它的价值就越大。</p>
+<p>拥有可供鉴定的真迹总会比赝品更有价值。</p>
+<hr>
+<h2 id="作品欣赏">作品欣赏</h2>
+<p>以下原图来自：<a href="http://iqartis.cn/">iqartis</a></p>
+<p><img src="/img/eth/Rhone_Starry_Night.jpg" alt="Rhone_Starry_Night"></p>
+<ul>
+<li>罗纳河上的星夜 | Starry Night Over the Rhône</li>
+</ul>
+<p><img src="/img/eth/Starry-Night.jpg" alt="t"></p>
+<ul>
+<li>星夜 ｜ Starry Night</li>
+</ul>
 <p><img src="/img/eth/nft1.jpg" alt="nft1"></p>
 <ul>
 <li>在曼哈顿的公交车候车亭上展示的 CryptoPunk NFT © Dia Dipasupil/Getty</li>
@@ -123,6 +214,12 @@
 <p><a href="https://www.ft.com/content/e003ee52-024c-42f5-8743-d69a7390d5ba">https://www.ft.com/content/e003ee52-024c-42f5-8743-d69a7390d5ba</a></p>
 <p><strong>NFT 如何在 2021 年成为 400 亿美元的市场:</strong></p>
 <p><a href="https://www.ft.com/content/e95f5ac2-0476-41f4-abd4-8a99faa7737d">https://www.ft.com/content/e95f5ac2-0476-41f4-abd4-8a99faa7737d</a></p>
+<p><a href="https://zh.wikipedia.org/wiki/%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96%E9%87%91%E8%9E%8D">https://zh.wikipedia.org/wiki/%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96%E9%87%91%E8%9E%8D</a></p>
+<p><a href="https://zh.wikipedia.org/wiki/%E4%BB%A5%E5%A4%AA%E5%9D%8A">https://zh.wikipedia.org/wiki/%E4%BB%A5%E5%A4%AA%E5%9D%8A</a></p>
+<p><a href="https://docs.ethhub.io/built-on-ethereum/open-finance/what-is-open-finance/">https://docs.ethhub.io/built-on-ethereum/open-finance/what-is-open-finance/</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/361370235">https://zhuanlan.zhihu.com/p/361370235</a></p>
+<p><a href="http://iqartis.cn/artwork/artwork_oil001.html">http://iqartis.cn/artwork/artwork_oil001.html</a></p>
+<p><a href="http://iqartis.cn/artwork/artwork_oil351.html">http://iqartis.cn/artwork/artwork_oil351.html</a></p>
 
     </div>
     <div class="post-footer">
