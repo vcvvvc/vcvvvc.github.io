@@ -53,12 +53,11 @@ Blockchain &amp;amp; BTC
 以太坊白皮书中英对照：https://zhuanlan.zhihu.com/p/33779523
 以太坊白皮书简体中文：https://github.com/ethereum/wiki/wiki/%5B%E4%B8%AD%E6%96%87%5D-%E4%BB%A5%E5%A4%AA%E5%9D%8A%E7%99%BD%E7%9A%AE%E4%B9%A6
  以太币 以太坊区块链上的代币称为以太币（Ether），代码为ETH，可在许多加密货币的外汇市场上交易，它也是以太坊上用来支付交易手续费和运算服务的介质
- DEFI 去中心化金融 (DEcentralized FInance）。
+  工作量证明 (POW)
+ 工作量证明是一个为矿工设置挖矿难度和规则的基础性算法。 挖矿就是“工作”本身。 挖矿是向区块链中添加有效区块。    权益证明机制(POS)
+ 权益证明是一种区块链网络达成共识的共识机制。     DEFI 去中心化金融 (DEcentralized FInance）。
   CeFi = Centralized Finance 中心化金融（传统金融）
-  DEFI - The Future Of Finance Explained: https://www.youtube.com/watch?v=H-O3r2YMWJ4&amp;amp;t=2s
-  What is DEFI? Decentralized Finance Explained: https://www.youtube.com/watch?v=k9HYC0EJU6E
-  DEBI是一种基于区块链的金融，它不依赖券商、交易所或银行等金融机构提供金融工具，而是利用区块链上的智能合约（例如以太坊）进行金融活动。DeFi平台允许人们向他人借出或借入资金，交易加密货币，并在类似储蓄的账户中获得利息
- 去中心化金融（又名“DeFi”或“开放金融”）是指构建开放金融基础设施的许多去中心化协议。这些协议很有价值，因为它们正在创建必要的管道，使世界上任何拥有互联网连接的人都能够访问自主主权、抗审查的金融服务。  DeFi 如何运作？</description>
+  DEFI - The Future Of Finance Explained: https://www.</description>
     </item>
     
     <item>
