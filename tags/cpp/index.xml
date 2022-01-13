@@ -5,7 +5,16 @@
     <link>https://6923403.github.io/tags/cpp/</link>
     <description>Recent content in CPP on Vcvc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 15 Dec 2021 19:39:23 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/cpp/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 14 Jan 2022 00:09:51 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/cpp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>C&#43;&#43;获取域名IP</title>
+      <link>https://6923403.github.io/post/get_domain_ip_cpp/</link>
+      <pubDate>Fri, 14 Jan 2022 00:09:51 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/get_domain_ip_cpp/</guid>
+      <description>#https://blog.csdn.net/dosthing/article/details/80383817  std::string ip = &amp;#34;www.baidu.com&amp;#34;; struct hostent stHostent; struct hostent *pstHostent = nullptr; char **pptr = nullptr; char buf[2048] = &amp;#34;\0&amp;#34;; sprintf(buf,&amp;#34;%s&amp;#34;, &amp;#34;ip&amp;#34;); int iError; if((pstHostent = gethostbyname(buf)) == NULL || pstHostent-&amp;gt;h_addr_list == NULL || pstHostent-&amp;gt;h_addr_list[0] == NULL) { std::cout &amp;lt;&amp;lt; &amp;#34;can&amp;#39;t parse the domain&amp;#34; &amp;lt;&amp;lt; std::endl; exit(0); } else { std::cout &amp;lt;&amp;lt; &amp;#34;official hostname: &amp;#34; &amp;lt;&amp;lt; pstHostent-&amp;gt;h_name &amp;lt;&amp;lt; std::endl; for(pptr = pstHostent-&amp;gt;h_aliases; *pptr != NULL; pptr++) std::cout &amp;lt;&amp;lt; &amp;#34;alias: &amp;#34; &amp;lt;&amp;lt; *pptr &amp;lt;&amp;lt; std::endl; switch(pstHostent-&amp;gt;h_addrtype) { case AF_INET: case AF_INET6: pptr = pstHostent-&amp;gt;h_addr_list; for(; *pptr!</description>
+    </item>
+    
     <item>
       <title>通过typeid()获取类名</title>
       <link>https://6923403.github.io/post/typeid_get_class_name/</link>
