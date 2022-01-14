@@ -16,6 +16,21 @@
     </item>
     
     <item>
+      <title>ip转换函数</title>
+      <link>https://6923403.github.io/post/ip%E8%BD%AC%E6%8D%A2%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Sun, 21 Nov 2021 22:08:01 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/ip%E8%BD%AC%E6%8D%A2%E5%87%BD%E6%95%B0/</guid>
+      <description>主机字节序（大端） 和 网络字节序（小端)
+  大端: 0x12 | 0x32 | 0x56
+  小端: 0x56 | 0x34 | 0x12
+  Host to Network long/short
+Network to Host long/short
+uint32_t htonl(uint32_t hostlong); //将主机的无符号长整型数转换成网络字节序 uint16_t htons(uint16_t hostshort); //将主机的无符号短整形数转换成网络字节序 uint32_t ntohl(uint32_t netlong); //将一个无符号长整型数从网络字节序转换为主机字节序 uint16_t ntohs(uint16_t netshort); //将一个无符号短整形数从网络字节序转换为主机字节序 https://github.com/6923403/CPP_Test/tree/master/test/hostto
+ #把ip地址转化为用于网络传输的二进制数值(32位) in_addr_t inet_addr(const char *cp); #少用了 int inet_aton(const char * cp, struct in_addr *inp); #将网络传输的二进制数值转化为成点分十进制的ip地址 char* inet_ntoa(struct in_addr in); #这两个函数是随IPv6出现的函数，对于IPv4地址和IPv6地址都适用，函数中p和n分别代表表达（presentation)和数值（numeric)。 地址的表达格式通常是ASCII字符串，数值格式则是存放到套接字地址结构的二进制值。 int inet_pton(int family, const char *strptr, void *addrptr); const char * inet_ntop(int family, const void *addrptr, char *strptr, size_t len);  Re: https://www.</description>
+    </item>
+    
+    <item>
       <title>I/O多路复用</title>
       <link>https://6923403.github.io/post/io%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</link>
       <pubDate>Sun, 10 Oct 2021 10:00:00 +0800</pubDate>
@@ -40,6 +55,19 @@ C++11 thread https://6923403.github.io/post/cppthread/
  Unp note https://6923403.github.io/post/unp_note/
 TCP_IP | 计算机网络 https://6923403.github.io/post/computer_network/
  exception class 异常类 https://6923403.github.io/post/cpp_exception/</description>
+    </item>
+    
+    <item>
+      <title>Tcp_ip</title>
+      <link>https://6923403.github.io/post/tcp_ip/</link>
+      <pubDate>Thu, 25 Feb 2021 14:28:11 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/tcp_ip/</guid>
+      <description>计算机体系结构 各层作用及协议    分层 作用 协议     物理层 通过媒介传输比特，确定机械及电气规范（比特 Bit） RJ45、CLOCK、IEEE802.3（中继器，集线器）   数据链路层 将比特组装成帧和点到点的传递（帧 Frame） PPP、FR、HDLC、VLAN、MAC（网桥，交换机）   网络层 负责数据包从源到宿的传递和网际互连（包 Packet） IP、ICMP、ARP、RARP、OSPF、IPX、RIP、IGRP（路由器）   运输层 提供端到端的可靠报文传递和错误恢复（ 段Segment） TCP、UDP、SPX   会话层 建立、管理和终止会话（会话协议数据单元 SPDU） NFS、SQL、NETBIOS、RPC   表示层 对数据进行翻译、加密和压缩（表示协议数据单元 PPDU） JPEG、MPEG、ASII   应用层 允许访问OSI环境的手段（应用协议数据单元 APDU） FTP、DNS、Telnet、SMTP、HTTP、WWW、NFS     封装  链路层 链路层主要有三个目的：
+ 为IP模块发送和接收IP数据报； 为ARP模块发送ARP请求和接收ARP应答； 为RARP发送RARP请求和接收RARP应答。  PPP（点到点协议）是为在同等单元之间传输数据包这样的简单链路设计的链路层协议。
+环回接口
+re: mtu
+ 网络层  IP（Internet Protocol，网际协议）是为计算机网络相互连接进行通信而设计的协议。 ARP（Address Resolution Protocol，地址解析协议） ICMP（Internet Control Message Protocol，网际控制报文协议） IGMP（Internet Group Management Protocol，网际组管理协议）  IP是TCP/IP协议族中最为核心的协议。所有的TCP、UDP、ICMP及IGMP数据都以IP数据报格式传输</description>
     </item>
     
     <item>
@@ -73,6 +101,52 @@ Proactor工作流程∶
     </item>
     
     <item>
+      <title>Socket write_send</title>
+      <link>https://6923403.github.io/post/socket_write_send/</link>
+      <pubDate>Sat, 21 Nov 2020 14:59:41 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/socket_write_send/</guid>
+      <description>ssize_t write(int fd, const void*buf,size_t nbytes);
+write函数将buf中的nbytes字节内容写入文件描述符fd.
+成功时返回写的字节数.失败时返回-1. 并设置errno变量. 在网络程序中,当我们向套接字文件描述符写时有两可能. 1)write的返回值大于0,表示写了部分或者是全部的数据. 这样我们用一个while循环来不停的写入，但是循环过程中的buf参数和nbyte参数得由我们来更新。也就是说，网络写函数是不负责将全部数据写完之后在返回的。 2)返回的值小于0,此时出现了错误.我们要根据错误类型来处理. 如果错误为EINTR表示在写的时候出现了中断错误. 如果为EPIPE表示网络连接出现了问题(对方已经关闭了连接).
+ ssize_t read(int fd,void *buf,size_t nbyte)
+read函数是负责从fd中读取内容.
+当读成功 时,read返回实际所读的字节数,如果返回的值是0 表示已经读到文件的结束了,小于0表示出现了错误.如果错误为EINTR说明读是由中断引起 的, 如果是ECONNREST表示网络连接出了问题. 和上面一样,我们也写一个自己的读函数.
+ recv和send函数提供了和read和write差不多的功能.不过它们提供了第四个参数来控制读写操作.
+int recv(int sockfd,void *buf,int len,int flags) int send(int sockfd,void *buf,int len,int flags) 前面的三个参数和read, write一样,第四个参数可以是0或者是以下的组合
+   标题 内容     MSG_DONTROUTE 不查找表   MSG_OOB 接受或者发送带外数据   MSG_PEEK 查看数据,并不从系统缓冲区移走数据   MSG_WAITALL 等待所有数据    MSG_DONTROUTE:是 send函数使用的标志.</description>
+    </item>
+    
+    <item>
+      <title>Socket file</title>
+      <link>https://6923403.github.io/post/socket_file/</link>
+      <pubDate>Sun, 13 Sep 2020 16:43:04 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/socket_file/</guid>
+      <description>socket编程中需要用到的头文件
+  sys/types.h：数据类型定义
+  sys/socket.h：提供socket函数及数据结构
+  netinet/in.h：定义数据结构sockaddr_in
+  arpa/inet.h：提供IP地址转换函数
+  netdb.h：提供设置及获取域名的函数
+  sys/ioctl.h：提供对I/O控制的函数
+  sys/poll.h：提供socket等待测试机制的函数
+   其他在网络程序中常见的头文件
+  unistd.h：提供通用的文件、目录、程序及进程操作的函数
+  errno.h：提供错误号errno的定义，用于错误处理
+  fcntl.h：提供对文件控制的函数
+  time.h：提供有关时间的函数
+  crypt.h：提供使用DES加密算法的加密函数
+  pwd.h：提供对/etc/passwd文件访问的函数
+  shadow.h：提供对/etc/shadow文件访问的函数
+  pthread.h：提供多线程操作的函数
+  signal.h：提供对信号操作的函数
+  sys/wait.h、sys/ipc.h、sys/shm.h：提供进程等待、进程间通讯（IPC）及共享内存的函数
+   建议：在编写网络程序时，可以直接使用下面这段头文件代码
+#include &amp;lt;unistd.h&amp;gt; #include &amp;lt;sys/types.h&amp;gt; #include &amp;lt;sys/socket.h&amp;gt; #include &amp;lt;netdb.h&amp;gt; #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;stdlib.</description>
+    </item>
+    
+    <item>
       <title>epoll use</title>
       <link>https://6923403.github.io/post/epoll_use/</link>
       <pubDate>Thu, 27 Aug 2020 12:09:01 +0800</pubDate>
@@ -87,6 +161,23 @@ Epoll 没有最大并发连接的限制，上限是最大可以打开文件的�
 假设现在对方发送了2k的数据，而我们先读取了1k，然后这时调用了epoll_wait，如果是边沿触发ET，那么这个fd变成就绪状态就会从epoll 队列移除， 则epoll_wait 会一直阻塞，忽略尚未读取的1k数据; 而如果是水平触发LT，那么epoll_wait 还会检测到可读事件而返回，我们可以继续读取剩下的1k 数据。 总结: LT模式可能触发的次数更多, 一旦触发的次数多, 也就意味着效率会下降; 但这样也不能就说LT模式就比ET模式效率更低 因为ET的使用对编程人员提出了更高更精细的要求,一旦使用者编程水平不够, 那ET模式还不如LT模式。 ET模式仅当状态发生变化的时候才获得通知,这里所谓的状态的变化并不包括缓冲区中还有未处理的数据, 也就是说,如果要采用ET模式,需要一直read/write直到出错为止,很多人反映为什么采用ET模式只接收了一部分数据就再也得不到通知了,大多因为这样; 而LT模式是只要有数据没有处理就会一直通知下去的.  1. 创建一个epoll的句柄 int epoll_create(int size); 创建一个epoll的句柄，size用来告诉内核这个监听的数目一共有多大。
 这个参数不同于select()中的第一个参数，给出最大监听的fd+1的值。需要注意的是，当创建好epoll句柄后，它就是会占用一个fd值，在linux下如果查看/proc/进程id/fd/，是能够看到这个fd的，所以在使用完epoll后，必须调用close()关闭，否则可能导致fd被耗尽。
 2. 将被监听的描述符添加到epoll句柄或从epool句柄中删除或者对监听事件进行修改 int epoll_ctl(int epfd, int op, int fd, struct epoll_event *event); //op为注册事件 epoll的事件注册函数，它不同与select()是在监听事件时告诉内核要监听什么类型的事件，而是在这里先注册要监听的事件类型。</description>
+    </item>
+    
+    <item>
+      <title>Socket function</title>
+      <link>https://6923403.github.io/post/socket/</link>
+      <pubDate>Wed, 26 Aug 2020 22:47:24 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/socket/</guid>
+      <description>setsockopt
+获取或者设置与某个套接字关联的选 项。选项可能存在于多层协议中，它们总会出现在最上面的套接字层。当操作套接字选项时， 选项位于的层和选项的名称必须给出。为了操作套接字层的选项，应该 将层的值指定为SOL_SOCKET。为了操作其它层的选项，控制选 项的合适协议号必须给出。例如，为了表示一个选项由TCP协议解析，层应该设定为协议 号TCP。 SO_LINGER选项
+struct linger { int l_onoff; int l_linger; };  l_onoff = 0, 数据保持发送完成后立即返回 l_onoff = 1, l_linger = 0, 立即放回 放弃发送, 发送rst 自身立即复位 l_onoff = 1, l_linger = 1, 阻塞到超时或数据发送完成, 保持尝试发送,超时后立即结束  SO_REUSEADDR选项
+改变了通配绑定时处理源地址冲突的处理方式, 让端口释放后立即就可以被再次使用
+ 允许启动一个监听服务器并捆绑其众所周知端口，即使以前建立的将此端口用做他们的本地端口的连接仍存在 允许在同一端口上启动同一服务器的多个实例，只要每个实例捆绑一个不同的本地IP地址即可 允许单个进程捆绑同一端口到多个套接口上，只要每个捆绑指定不同的本地IP地址即可。一般不用于tco服务器 允许完全重复的捆绑  Re:
+https://www.cnblogs.com/my_life/articles/5174585.html
+https://www.jianshu.com/p/141aa1c41f15
+https://blog.csdn.net/u010144805/article/details/78579528
+ int fcntl(int fd, int cmd); int fcntl(int fd, int cmd, long arg); int fcntl(int fd, int cmd, struct flock *lock); fcntl函数有5种功能：</description>
     </item>
     
   </channel>
