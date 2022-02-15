@@ -5,7 +5,16 @@
     <link>https://6923403.github.io/tags/tcp/</link>
     <description>Recent content in TCP on Vcvc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 20 Jun 2021 18:12:03 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/tcp/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 15 Feb 2022 20:36:44 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/tcp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ip首部</title>
+      <link>https://6923403.github.io/post/ip%E9%A6%96%E9%83%A8/</link>
+      <pubDate>Tue, 15 Feb 2022 20:36:44 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/ip%E9%A6%96%E9%83%A8/</guid>
+      <description>IPv4首部 </description>
+    </item>
+    
     <item>
       <title>TCP_三次握手与四次挥手</title>
       <link>https://6923403.github.io/post/tcp_%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B_%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/</link>
@@ -78,6 +87,16 @@ Client收到报文后，检查ack是否为J+1，ACK是否为1，如果正确则�
 环回接口
 re: mtu
  网络层  IP（Internet Protocol，网际协议）是为计算机网络相互连接进行通信而设计的协议。 ARP（Address Resolution Protocol，地址解析协议） ICMP（Internet Control Message Protocol，网际控制报文协议） IGMP（Internet Group Management Protocol，网际组管理协议）  IP是TCP/IP协议族中最为核心的协议。所有的TCP、UDP、ICMP及IGMP数据都以IP数据报格式传输</description>
+    </item>
+    
+    <item>
+      <title>Unp_Note</title>
+      <link>https://6923403.github.io/post/unp_note/</link>
+      <pubDate>Mon, 11 Jan 2021 22:40:43 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/unp_note/</guid>
+      <description>基本流程图 示范代码: https://github.com/6923403/CPP_Test/tree/master/server/socket/practice/8_socket
+ TCP UDP 客户角度 服务器角度  套接字选项   config_init connect_mysql init_socket setsockopt linger  </description>
     </item>
     
     <item>
