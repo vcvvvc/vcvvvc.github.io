@@ -5,14 +5,55 @@
     <link>https://6923403.github.io/post/</link>
     <description>Recent content in Posts on Vcvc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 15 Feb 2022 20:36:44 +0800</lastBuildDate><atom:link href="https://6923403.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 15 Feb 2022 22:10:40 +0800</lastBuildDate><atom:link href="https://6923403.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2022_02_15_note</title>
+      <link>https://6923403.github.io/post/2022_02_15_note/</link>
+      <pubDate>Tue, 15 Feb 2022 22:10:40 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/2022_02_15_note/</guid>
+      <description>今日正月十五元宵节，我老家本地习俗叫做上灯(去公墓林上蜡烛祭祖)。
+这是第一次非数据的形式, 人口老龄化的结果真实的展现在我的眼前，新增约30个坟头，但是却没有新增30个婴儿, 30个光棍倒是真有(至少30岁以上)，公墓林目前的地都不够了，又买了新的地。
+ 形式缓解，美股盘前高开，今日估计会有个大幅反弹。</description>
+    </item>
+    
+    <item>
+      <title>2022_02_15_随笔_2</title>
+      <link>https://6923403.github.io/post/2022_02_15_note2/</link>
+      <pubDate>Tue, 15 Feb 2022 21:40:25 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/2022_02_15_note2/</guid>
+      <description>今日正月十五元宵节，我老家本地习俗叫做上灯(去公墓林上蜡烛祭祖)。
+我很震惊，在城里没什么感觉，只看的到广场的的中老年人变多，但是活力尚存。
+这是第一次非数据的形式, 人口老龄化的结果真实的展现在我的眼前，新增约30个坟头，但是却没有新增30个婴儿, 30个光棍倒是真有(至少30岁以上)，公墓林目前的地都不够了，又买了新的地。
+我又联想了好多事情，我写着写着😭了，很难受，悲欢、离合, 必然发生，只想让它来的晚些。前段时日，童年好友奶奶去世，我爷爷说哭的很伤心，他奶奶家离我家很近。
+想到自己，好消息是爷爷奶奶都在，不好的消息是身体状况慢慢下降，年龄逐渐增大。
+我只能尽量的多回家，多住段日子，希望多陪一会。 但这应该最后一年了，下次新年，我只能尽量, 再如今时一般的概率变的非常低，一种无奈的规则之下，代价却很高昂。
+ 写于2022—02-15 10点08分。
+想了一下，我把这篇文章设为了非公开， 可以在我的github仓库看到，博客看不到。
+ 这是属于我，以及讲述给有缘人的故事。 你可以发邮件到我的邮箱vcvckw@gmail.com  </description>
+    </item>
+    
     <item>
       <title>ip首部</title>
       <link>https://6923403.github.io/post/ip%E9%A6%96%E9%83%A8/</link>
       <pubDate>Tue, 15 Feb 2022 20:36:44 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/ip%E9%A6%96%E9%83%A8/</guid>
-      <description>IPv4首部 </description>
+      <description>IPv4首部   版本：由4比特构成，表示标识IP首部的版本号。IPv4的版本号即为4，因此在这个字段上的值也为“4”。
+  首部长度(（IHL：Internet Header Length）)：由4比特构成，表明IP首部的大小，单位为4字节（32比特）。对于没有可选项的IP包，首部长度则设置为“5”。也就是说，当没有可选项时，IP首部的长度为20字节（4*5=20）。
+  区别服务（TOS：Type Of Service）: 由8比特构成，用来表明服务质量。每一个的具体含义如表所示。
+   DSCP（Differential Services Codepoint，差分服务代码点）是TOS（Type Of Services）的一部分。现在统称为DiffSer，用来进行质量控制。  如果3-5位的值为0,0~2位则被称作类别选择代码点。这样就可以向TOS的优先度那样提供8中类型的质量控级别。对于每一种级别所采取的措施则由提供DiffServ的运营管理者制定。为了与TOS保持一致，值越大优先度也越高。如果第五位为1，表示实验或本地使用的意思。
+ ECN(Ecplicit Congestion Notification，显示拥塞通告)用来报告网络拥塞情况，由两个比特构成。  第6位的ECT 用以通告上传TCP层协议是否处理ECN。当路由器在转发ECN为1的包的过程中，如果出现网络拥塞的情况，就将CE位设置为1。
+  总长度（Total Length）： 表示IP首部与数据部分合起来的字节数。该字段长16比特。因此IP包的最大长度为65535=2^16字节。目前还不存在能够传输最大长度为65535字节的IP包的数据链路。不过，由于有IP分片处理，从IP的上一层的角度看，不论底层采用何种数据链路，都可以认为能够以IP的最大包长传输数据。
+  标识（ID：Identification）：由16比特构成，用于分片重组。同一个分片的标识值相同，不同分片的标识值不同。通常，每发送一个IP包，它的值也逐渐递增。此外，即使IP相同，如果目标地址、源地址或协议不同的话，也会被认为是不同的分片。
+  标志：由3比特构成，标识包被分片的相关信息。每一个的具体含义如图：
+    片位移（FO：Fragment Offset）：由13比特构成，用来标识被分片的每一个分段相当于原始数据的位置。第一个分片对应的值为0.由于FO域占13位，因此最多可以表示8192（=2^13）个相对位置。单位为8字节，因此最大可表示原始数据8*8192=65536字节的位置。
+  生存时间（TTL：Time To Live）：由8比特构成，它最初的意思是以秒为单位记录当前包在网络上应该生存的期限。然而，在实际中它是指可以中转多少个路由器的意思。每经过一个路由器，TTL会减1，直到变成0则丢弃该包。
+  协议（Protocol）：由8比特构成，表示IP首部的下一个首部隶属于哪个协议。目前使用的协议部分如图：
+    首部校验和（Header Checksum）：由16比特（2个字节）构成，也叫IP首部校验和。该字段只校验数据报的首部，不校验数据部分。它主要用来确保IP数据报不被破坏。校验和的计算过程，首先要将校验和的所有位置设置为0，然后以16比特为单位划分IP首部，并用1补数计算所有16位字的和。最后将所得到这个和的1补数赋给首部校验和字段。
+  源地址（Source Address）：由32比特构成，表示发送端IP地址。
+  目标地址（Destination Address）：由32比特构成，表示接收端IP地址。</description>
     </item>
     
     <item>

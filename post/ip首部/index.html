@@ -97,6 +97,120 @@
       <h2 id="ipv4首部">IPv4首部</h2>
 <p><img src="/img/tcp_ip/ipv4-%E9%A6%96%E9%83%A8.png" alt="ipv4"></p>
 <p><img src="/img/tcp_ip/ipv4-%E9%A6%96%E9%83%A82.png" alt="ipv4-2"></p>
+<ul>
+<li>
+<p>版本：由4比特构成，表示标识IP首部的版本号。IPv4的版本号即为4，因此在这个字段上的值也为“4”。</p>
+</li>
+<li>
+<p>首部长度(（IHL：Internet Header Length）)：由4比特构成，表明IP首部的大小，单位为4字节（32比特）。对于没有可选项的IP包，首部长度则设置为“5”。也就是说，当没有可选项时，IP首部的长度为20字节（4*5=20）。</p>
+</li>
+<li>
+<p>区别服务（TOS：Type Of Service）: 由8比特构成，用来表明服务质量。每一个的具体含义如表所示。</p>
+</li>
+</ul>
+<p><img src="/img/tcp_ip/tos.png" alt="tos"></p>
+<ul>
+<li>DSCP（Differential Services Codepoint，差分服务代码点）是TOS（Type Of Services）的一部分。现在统称为DiffSer，用来进行质量控制。</li>
+</ul>
+<p><img src="/img/tcp_ip/dscp-ecn.png" alt="dscp-ecn"></p>
+<p>如果3-5位的值为0,0~2位则被称作类别选择代码点。这样就可以向TOS的优先度那样提供8中类型的质量控级别。对于每一种级别所采取的措施则由提供DiffServ的运营管理者制定。为了与TOS保持一致，值越大优先度也越高。如果第五位为1，表示实验或本地使用的意思。</p>
+<ul>
+<li>ECN(Ecplicit Congestion Notification，显示拥塞通告)用来报告网络拥塞情况，由两个比特构成。</li>
+</ul>
+<p><img src="/img/tcp_ip/ecn.png" alt="ecn"></p>
+<p>第6位的ECT 用以通告上传TCP层协议是否处理ECN。当路由器在转发ECN为1的包的过程中，如果出现网络拥塞的情况，就将CE位设置为1。</p>
+<ul>
+<li>
+<p>总长度（Total Length）： 表示IP首部与数据部分合起来的字节数。该字段长16比特。因此IP包的最大长度为65535=2^16字节。目前还不存在能够传输最大长度为65535字节的IP包的数据链路。不过，由于有IP分片处理，从IP的上一层的角度看，不论底层采用何种数据链路，都可以认为能够以IP的最大包长传输数据。</p>
+</li>
+<li>
+<p>标识（ID：Identification）：由16比特构成，用于分片重组。同一个分片的标识值相同，不同分片的标识值不同。通常，每发送一个IP包，它的值也逐渐递增。此外，即使IP相同，如果目标地址、源地址或协议不同的话，也会被认为是不同的分片。</p>
+</li>
+<li>
+<p>标志：由3比特构成，标识包被分片的相关信息。每一个的具体含义如图：</p>
+</li>
+</ul>
+<p><img src="/img/tcp_ip/biaozhi.png" alt="biaozhi"></p>
+<ul>
+<li>
+<p>片位移（FO：Fragment Offset）：由13比特构成，用来标识被分片的每一个分段相当于原始数据的位置。第一个分片对应的值为0.由于FO域占13位，因此最多可以表示8192（=2^13）个相对位置。单位为8字节，因此最大可表示原始数据8*8192=65536字节的位置。</p>
+</li>
+<li>
+<p>生存时间（TTL：Time To Live）：由8比特构成，它最初的意思是以秒为单位记录当前包在网络上应该生存的期限。然而，在实际中它是指可以中转多少个路由器的意思。每经过一个路由器，TTL会减1，直到变成0则丢弃该包。</p>
+</li>
+<li>
+<p>协议（Protocol）：由8比特构成，表示IP首部的下一个首部隶属于哪个协议。目前使用的协议部分如图：</p>
+</li>
+</ul>
+<p><img src="/img/tcp_ip/Protocol.png" alt="protocol"></p>
+<ul>
+<li>
+<p>首部校验和（Header Checksum）：由16比特（2个字节）构成，也叫IP首部校验和。该字段只校验数据报的首部，不校验数据部分。它主要用来确保IP数据报不被破坏。校验和的计算过程，首先要将校验和的所有位置设置为0，然后以16比特为单位划分IP首部，并用1补数计算所有16位字的和。最后将所得到这个和的1补数赋给首部校验和字段。</p>
+</li>
+<li>
+<p>源地址（Source Address）：由32比特构成，表示发送端IP地址。</p>
+</li>
+<li>
+<p>目标地址（Destination Address）：由32比特构成，表示接收端IP地址。</p>
+</li>
+<li>
+<p>可选项（Options）：长度可变，通常只在进行实验或诊断时使用。该字段包含如下几点信息：安全级别，源路径，路径记录，时间戳</p>
+</li>
+<li>
+<p>填充（Padding）：也称作填充物。在有可选项的情况下，首部长度可能不是32比特的整数倍。为此，通过向字段填充0，调整为32比特的整数倍。</p>
+</li>
+<li>
+<p>数据：存入数据。将IP上层协议的首部也作为数据进行处理。</p>
+</li>
+</ul>
+<hr>
+<h2 id="ipv6首部">IPv6首部</h2>
+<ul>
+<li>
+<p>IPv6为了减轻路由器的负担，省略了首部校验和字段。因此路由器不再需要计算校验和，从而提高了包的转发效率。</p>
+</li>
+<li>
+<p>此外，分片处理所用的识别码成为可选项。为了让64位CPU的计算机处理起来更方便，IPv6的首部及可选项都由8字节构成。</p>
+</li>
+</ul>
+<p><img src="/img/tcp_ip/ipv6.png" alt="ipv6"></p>
+<ul>
+<li>
+<p>版本：和IPv4 一样，由4比特构成。IPv6其版本号为6，因此在这个字段上的值为“6”。</p>
+</li>
+<li>
+<p>通信量类（Traffic Class）：相当于IPv4的TOS（Type Of Service）字段，也由8比特构成。有TOS在IPv4中几乎没有什么建树，未能成为卓有成效的技术，本来计划在IPv6中删掉这个字段，不过出于今后研究的考虑还是保留了该字段。</p>
+</li>
+<li>
+<p>流标号（Flow Label）：由20比特构成，准备用于服务质量（Qos：Quality Of Service）控制。使用这个字段提供怎样的服务已经成为未来研究的课题。不适用Qos时每一位可以全部设置为0。   在进行服务质量控制的时，将流标号设置为一个随机数，然后利用一种可以设置流的协议RSVP（Resource Reservation Protocol ）在路由器上进行Qos设置。当某个包在发送途中需要Qos时，需要附上RSVP预想的流标号。路由器接收到这样的IP包后现先将流标号作为查找关键字，迅速从服务质量控制信息中查找并做相应处理。此外，只有流标号、源地址以及目标地址三项完全一致时，才被认为是一个流。</p>
+</li>
+<li>
+<p>有效荷载长度（Payload Length）：有效荷载长度是指包的数据部分。IPv4的TL(Total Length)是指包含首部在内的所有长度。然而IPv6中的这个Playload Length不包括首部，只表示数据部分的长度。由于IPv6的可选项是指连接IPv6首部的数据，只有当有可选项时，此处包含可选项数据的所有长度就是Playload Length。</p>
+</li>
+<li>
+<p>下一个首部（Next Header）：相当于IPv4中的协议字段。由8比特构成。通常表示IP的上一层协议是TCP或UDP。不过在有IPv6扩展首部的情况下，该字段表示后面第一个扩展首部的协议类。</p>
+</li>
+<li>
+<p>跳数限制（Hop Limit）：由8比特构成。与IPv4中的TTL意思相同。为了强调“可通过路由器个数”这个概念，才将名字改为“Hop Limit”。数据每经过一次路由器就减1，减到0则丢弃数据。</p>
+</li>
+<li>
+<p>源地址（Source Address）：由128比特构成，表示发送端IP地址。</p>
+</li>
+<li>
+<p>目标地址（Destination Address）：由128比特构成，表示接收端IP地址。</p>
+</li>
+<li>
+<p>IPv6扩展首部：IPv6的首部长度对固定，无法将可选项将入其中，取而代之的是通过扩展首部对功能进行了有效扩展。 扩展首部通常介于IPv6首部与TCP/UDP首部中间。在IPv4中可选项长度固定为40字节，但是在IPv6中没有这样的限制。也就是说，IPv6的扩展首部可以是任意长度。扩展首部当中还可以包含扩展首部协议以及下一个扩展首部字段。</p>
+</li>
+</ul>
+<p><img src="/img/tcp_ip/ipv6kuozhan.png" alt="ipv6分片"></p>
+<p><img src="/img/tcp_ip/ipv6%E6%89%A9%E5%B1%95%E9%A6%96%E9%83%A8%E5%8D%8F%E8%AE%AE%E5%8F%B7.png" alt="ipv6kuozhan2"></p>
+<hr>
+<h2 id="re">Re:</h2>
+<p><a href="https://www.cnblogs.com/alway-july/p/9090137.html">https://www.cnblogs.com/alway-july/p/9090137.html</a></p>
+<p><a href="https://www.cnblogs.com/alway-july/p/9090255.html">https://www.cnblogs.com/alway-july/p/9090255.html</a></p>
+<p><a href="https://blog.csdn.net/richenyunqi/article/details/83660244">https://blog.csdn.net/richenyunqi/article/details/83660244</a></p>
+<p><a href="https://www.cnblogs.com/lakeone/p/3487173.html">https://www.cnblogs.com/lakeone/p/3487173.html</a></p>
 
     </div>
     <div class="post-footer">
