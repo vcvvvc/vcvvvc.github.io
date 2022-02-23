@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="zh-cn">
+  <head>
+    <title>TCP/UDP首部 // Vcvc Blog</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.90.1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Vcvc" />
+    
+    <meta name="description" content="Vcvc Blog | 前沿技术-投资:40%价值投资/60%成长投资，关注AR(Augmented reality)并看多VR" />
+    <meta name="keywords" content="Vcvc,Vcvc Blog,Open Source,前沿技术,成长投资,价值投资" />
+    <link rel="stylesheet" href="https://6923403.github.io/css/main.min.c2052924716d810662c2cc67f9223190e814e1923e41ea4b9647c5c71b6ce3b6.css" />
+
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://6923403.github.io"><img class="app-header-avatar" src="/avatar.jpg" alt="Vcvc" /></a>
+      <h1>Vcvc Blog</h1>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="/">Home</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/tags/">Tags</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/about/">About</a>
+      </nav>
+      <p>关注AR(Augmented reality)</p>
+      <div class="app-header-social">
+        
+          <a href="https://github.com/6923403" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>Github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+          </a>
+        
+          <a href="https://twitter.com/vcvckw" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-twitter">
+  <title>Twitter</title>
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+</svg>
+          </a>
+        
+          <a href="mailto:vcvckw@gmail.com" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-mail">
+  <title>mail</title>
+  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline>
+</svg>
+          </a>
+        
+        
+        <a href="/vcvc/index.html" target="_blank">
+          <img  border="0" src="/vcvc/arrow.png" alt="Home" width="26" height="26"></a>
+<div class="searchBox">
+       <form method="get" target = "_blank" action="http://www.google.com/search">
+           <input type="text" name="query" class="searchField" placeholder = "Search-goolge" />
+           <input type="hidden" name="sitesearch" value="6923403.github.io">
+       </form>
+</div>
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">TCP/UDP首部</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Feb 23, 2022
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          1 min read
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line>
+</svg>
+              <a class="tag" href="https://6923403.github.io/tags/server/">Server</a>
+              <a class="tag" href="https://6923403.github.io/tags/tcp/ip/">TCP/IP</a>
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <h2 id="tcp">TCP</h2>
+<p><img src="/img/tcp_ip/tcp_%E9%A6%96%E9%83%A81.png" alt="tcp_1"></p>
+<p><img src="/img/tcp_ip/tcp_%E9%A6%96%E9%83%A8.png" alt="tcp_"></p>
+<ul>
+<li>
+<p>tcp报文首部的前20个字节是固定的，后面有4n字节是需要根据需要增加的选项，因此tcp首部的最小长度是20字节。</p>
+</li>
+<li>
+<p>源端口、目标端口：
+计算机上的进程要和其他进程通信是要通过计算机端口的，而一个计算机端口某个时刻只能被一个进程占用，所以通过指定源端口和目标端口，就可以知道是哪两个进程需要通信。源端口、目标端口是用16位表示的，可推算计算机的端口个数为2^16个。</p>
+</li>
+<li>
+<p>序号：表示本报文段所发送数据的第一个字节的编号。在TCP连接中所传送的字节流的每一个字节都会按顺序编号。由于序列号由32位表示，所以每2^32个字节，就会出现序列号回绕，再次从 0 开始。</p>
+<ul>
+<li>序号增加到最大值的时候，下一个序号又回到了 0.
+也就是说 TCP 协议可对 4GB 的数据进行编号，在一般情况下可保证当序号重复使用时，旧序号的数据早已经通过网络到达终点或者丢失了。</li>
+</ul>
+</li>
+<li>
+<p>确认号：表示接收方期望收到发送方下一个报文段的第一个字节数据的编号。也就是告诉发送发：我希望你（指发送方）下次发送的数据的第一个字节数据的编号是这个确认号。也就是告诉发送方：我希望你（指发送方）下次发送给我的TCP报文段的序列号字段的值是这个确认号。</p>
+</li>
+<li>
+<p>数据偏移: 占4位，它指出TCP报文段的数据起始处距离TCP报文段的起始处有多远。这个字段实际上是指出TCP报文段的首部长度。由于首部中还有长度不确定的选项字段，因此数据偏移字段是必要的。
+但应注意，“数据偏移”的单位是32位字（即以4字节的字为计算单位）。由于4位二进制数能表示的最大十进制数字是15，因此数据偏移的最大值是60字节，这也是TCP首部的最大字节（即选项长度不能超过40字节）。</p>
+</li>
+<li>
+<p>保留: 占 0.5 个字节 (4 位)。  保留为今后使用，但目前应置为 0。</p>
+</li>
+<li>
+<p>控制位: 占 1 个字节 （8位）</p>
+<ul>
+<li>CWR（Congestion Window Reduced）</li>
+<li>ECE（ECN-Echo）</li>
+<li>URG（Urgent Flag）
+<ul>
+<li>该位为1时，表示包中有需要紧急处理的数据。对于需要紧急处理 的数据，会在后面的紧急指针中再进行解释。</li>
+</ul>
+</li>
+<li>ACK（Acknowledgement Flag）
+<ul>
+<li>该位为1时，确认应答的字段变为有效。TCP规定除了最初建立连 接时的SYN包之外该位必须设置为1。</li>
+</ul>
+</li>
+<li>PSH（Push Flag）
+<ul>
+<li>该位为1时，表示需要将受到的数据立刻传给上层应用协议。PSH 为0时，则不需要立即传而是先进行缓存。</li>
+</ul>
+</li>
+<li>RST（Reset Flag）
+<ul>
+<li>该位为1时表示TCP连接中出现异常必须强制断开连接。</li>
+</ul>
+</li>
+<li>SYN（Synchronize Flag）
+<ul>
+<li>用于建立连接。SYN为1表示希望建立连接，并在其序列号的字段 进行序列号初始值的设定</li>
+</ul>
+</li>
+<li>FIN（Fin Flag）
+<ul>
+<li>该位为1时，表示今后不会再有数据发送，希望断开连接。当通信 结束希望断开连接时，通信双方的主机之间就可以相互交换FIN位置为1 的TCP段。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>窗口大小（Window Size）</p>
+<ul>
+<li>该字段长为16位。用于通知从相同TCP首部的确认应答号所指位置 开始能够接收的数据大小（8位字节）。</li>
+</ul>
+</li>
+<li>
+<p>校验和（Checksum）</p>
+</li>
+<li>
+<p>紧急指针（Urgent Pointer）</p>
+<ul>
+<li>该字段长为16位。只有在URG控制位为1时有效。该字段的数值表 示本报文段中紧急数据的指针。正确来讲，从数据部分的首位到紧急指 针所指示的位置为止为紧急数据。因此也可以说紧急指针指出了紧急数 据的末尾在报文段中的位置。</li>
+</ul>
+</li>
+<li>
+<p>选项（Options）</p>
+<ul>
+<li>选项字段用于提高TCP的传输性能。因为根据数据偏移（首部长 度）进行控制，所以其长度最大为40字节。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="udp">UDP</h2>
+<p><img src="/img/tcp_ip/udp_%E9%A6%96%E9%83%A81.png" alt="udp_1"></p>
+<p><img src="/img/tcp_ip/udp_%E9%A6%96%E9%83%A8.png" alt="udp_"></p>
+<ul>
+<li>
+<p>源端口号：表示发送端端口号，字段长16位。该字段是可选项，有时可能不会设置源端口号。没有源端口号的时候该字段的设置为0。可用于不需要返回的通信中。</p>
+</li>
+<li>
+<p>目标端口号：表示接收端端口，字段长度16位。</p>
+</li>
+<li>
+<p>包长度：该字段保存了UDP首部的长度跟数据的长度之和。单位为字节。</p>
+</li>
+<li>
+<p>校验和：校验和是为了提供可靠的UDP首部和数据而设计的。</p>
+</li>
+<li>
+<p>udp的首部开销小，仅仅有8个字节。</p>
+</li>
+</ul>
+<hr>
+<h2 id="re">Re:</h2>
+<p><a href="https://blog.csdn.net/weixin_45649763/article/details/104082660">https://blog.csdn.net/weixin_45649763/article/details/104082660</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/348660544">https://zhuanlan.zhihu.com/p/348660544</a></p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+<br />
+<hr width = "450" color="#eeeeee" align="left">
+  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="/vcvc/license.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+<br />
+<br />
+<hr width = "450" color="#eeeeee" align="left">
+
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '04113d0f85a50a1085fb',
+        clientSecret: '3c6f0b9285b24893ac2ff9956d547aefd21a7eec',
+        repo: '6923403.github.io',
+        owner: '6923403',
+        admin: ['6923403'],
+        id: location.pathname, 
+        distractionFreeMode: false 
+    });
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
+            return;
+        }
+        gitalk.render('gitalk-container');
+    })();
+</script>
+
+
+    </main>
+  </body>
+</html>

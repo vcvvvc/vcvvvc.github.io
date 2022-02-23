@@ -5,7 +5,23 @@
     <link>https://6923403.github.io/</link>
     <description>Recent content on Vcvc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 22 Feb 2022 14:16:01 +0800</lastBuildDate><atom:link href="https://6923403.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 23 Feb 2022 17:47:16 +0800</lastBuildDate><atom:link href="https://6923403.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>TCP/UDP首部</title>
+      <link>https://6923403.github.io/post/tcp_udp%E9%A6%96%E9%83%A8/</link>
+      <pubDate>Wed, 23 Feb 2022 17:47:16 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/tcp_udp%E9%A6%96%E9%83%A8/</guid>
+      <description>TCP   tcp报文首部的前20个字节是固定的，后面有4n字节是需要根据需要增加的选项，因此tcp首部的最小长度是20字节。
+  源端口、目标端口： 计算机上的进程要和其他进程通信是要通过计算机端口的，而一个计算机端口某个时刻只能被一个进程占用，所以通过指定源端口和目标端口，就可以知道是哪两个进程需要通信。源端口、目标端口是用16位表示的，可推算计算机的端口个数为2^16个。
+  序号：表示本报文段所发送数据的第一个字节的编号。在TCP连接中所传送的字节流的每一个字节都会按顺序编号。由于序列号由32位表示，所以每2^32个字节，就会出现序列号回绕，再次从 0 开始。
+ 序号增加到最大值的时候，下一个序号又回到了 0. 也就是说 TCP 协议可对 4GB 的数据进行编号，在一般情况下可保证当序号重复使用时，旧序号的数据早已经通过网络到达终点或者丢失了。    确认号：表示接收方期望收到发送方下一个报文段的第一个字节数据的编号。也就是告诉发送发：我希望你（指发送方）下次发送的数据的第一个字节数据的编号是这个确认号。也就是告诉发送方：我希望你（指发送方）下次发送给我的TCP报文段的序列号字段的值是这个确认号。
+  数据偏移: 占4位，它指出TCP报文段的数据起始处距离TCP报文段的起始处有多远。这个字段实际上是指出TCP报文段的首部长度。由于首部中还有长度不确定的选项字段，因此数据偏移字段是必要的。 但应注意，“数据偏移”的单位是32位字（即以4字节的字为计算单位）。由于4位二进制数能表示的最大十进制数字是15，因此数据偏移的最大值是60字节，这也是TCP首部的最大字节（即选项长度不能超过40字节）。
+  保留: 占 0.5 个字节 (4 位)。 保留为今后使用，但目前应置为 0。
+  控制位: 占 1 个字节 （8位）
+ CWR（Congestion Window Reduced） ECE（ECN-Echo） URG（Urgent Flag）  该位为1时，表示包中有需要紧急处理的数据。对于需要紧急处理 的数据，会在后面的紧急指针中再进行解释。   ACK（Acknowledgement Flag）  该位为1时，确认应答的字段变为有效。TCP规定除了最初建立连 接时的SYN包之外该位必须设置为1。   PSH（Push Flag）  该位为1时，表示需要将受到的数据立刻传给上层应用协议。PSH 为0时，则不需要立即传而是先进行缓存。   RST（Reset Flag）  该位为1时表示TCP连接中出现异常必须强制断开连接。   SYN（Synchronize Flag）  用于建立连接。SYN为1表示希望建立连接，并在其序列号的字段 进行序列号初始值的设定   FIN（Fin Flag）  该位为1时，表示今后不会再有数据发送，希望断开连接。当通信 结束希望断开连接时，通信双方的主机之间就可以相互交换FIN位置为1 的TCP段。      窗口大小（Window Size）</description>
+    </item>
+    
     <item>
       <title>降准和降息</title>
       <link>https://6923403.github.io/post/%E9%99%8D%E5%87%86%E5%92%8C%E9%99%8D%E6%81%AF/</link>
@@ -29,7 +45,7 @@ https://baike.baidu.com/item/降息/7830368</description>
     </item>
     
     <item>
-      <title>ip首部</title>
+      <title>IPv4/v6首部</title>
       <link>https://6923403.github.io/post/ip%E9%A6%96%E9%83%A8/</link>
       <pubDate>Tue, 15 Feb 2022 20:36:44 +0800</pubDate>
       
