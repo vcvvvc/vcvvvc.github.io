@@ -12,8 +12,8 @@
       <pubDate>Thu, 30 Jul 2020 18:04:47 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/arch_desktop/</guid>
-      <description>updat&amp;hellip;
-1. install xorg pacman -S xorg-server xorg-xinit 2. install zsh, feh, i3gapsr, compton, oh-my-zsh pacman -S zsh xfce4-terminal feh compton i3-gaps nautilus i3lock sh -c &amp;quot;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&amp;quot;  install ttf pacman -S ttf-liberation pacman -S adobe-source-han-sans-cn-fonts pacman -S adobe-source-han-sans-tw-fonts pacman -S adobe-source-han-sans-jp-fonts  add user useradd -m -g users -s /bin/zsh xxxx #添加xxxx用户，用户名你自定义 passwd xxxx #为xxxx用户设置密码 vim /etc/sudoers #编辑配置文件 在root ALL = (ALL) ALL下添加xxxx ALL = (ALL) ALL;输入:wq!强制保存退出vim  startx exit login new user touch .</description>
+      <description>1. install xorg systemctl enable dhcpcd pacman -S xorg-server xorg-xinit  install tool pacman -S zsh alacritty fctix fcitx-im fcitx-configtool i3 git sh -c &amp;quot;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&amp;quot;  install ttf pacman -S ttf-liberation pacman -S adobe-source-han-sans-cn-fonts pacman -S adobe-source-han-sans-tw-fonts pacman -S adobe-source-han-sans-jp-fonts  add user 这一步随意
+useradd -m -g users -s /bin/zsh xxxx #添加xxxx用户，用户名你自定义 passwd xxxx #为xxxx用户设置密码 vim /etc/sudoers #编辑配置文件 在root ALL = (ALL) ALL下添加xxxx ALL = (ALL) ALL;输入:wq!强制保存退出vim login new user touch .</description>
     </item>
     
   </channel>

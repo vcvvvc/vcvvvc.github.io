@@ -98,14 +98,16 @@
 <pre tabindex="0"><code>Test environment:
 Vmware15.5.6pro
 arch-2020-07.iso
-</code></pre><p><strong>You should installed Vmware and download Archlinux iso .</strong></p>
-<p><strong>Change your firmwaretype to UEFI (The way many tutorials did not say)</strong>
-<img src="/img/arch_install/firmwaretype.png" alt="UEFI"></p>
+</code></pre><p><strong>准备最新景象</strong></p>
+<p><strong>选择UEFI引导</strong></p>
+<p><img src="/img/arch_install/firmwaretype.png" alt="UEFI"></p>
 <hr>
 <h1 id="1-start">1. Start</h1>
 <pre tabindex="0"><code>ls /sys/firmware/efi/efivars
-</code></pre><p><strong>The command detect UEFI files and if your dir not include files your firmwaretype is BIOS .</strong></p>
-<p><strong>Then, ping google.com, detect interent connection</strong></p>
+</code></pre><p><strong>这条命令检测是否在EFI模式下</strong></p>
+<p><strong>禁用 reflector</strong></p>
+<p><code>systemctl stop reflector.service</code></p>
+<p><strong>检查网络, ping qq.com</strong></p>
 <blockquote>
 <p>Archwiki: Note: The installation image has systemd-networkd.service, systemd-resolved.service and iwd.service enabled by default. That will not be the case for the installed system.</p>
 </blockquote>
@@ -192,6 +194,7 @@ reboot
 <p><strong>Reference:</strong></p>
 <p><a href="https://wiki.archlinux.org/index.php/Installation_guide#Verify_signature">Arch wiki</a>
 and <a href="https://www.stblog.com.cn/10564/">S.T.BLOG</a> and <a href="https://www.v2ex.com/t/310942">V2EX</a></p>
+<p><a href="https://archlinuxstudio.github.io/ArchLinuxTutorial">https://archlinuxstudio.github.io/ArchLinuxTutorial</a></p>
 
     </div>
     <div class="post-footer">

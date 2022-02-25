@@ -95,49 +95,49 @@
       </div>
     </header>
     <div class="post-content">
-      <p>updat&hellip;</p>
-<h1 id="1-install-xorg">1. install xorg</h1>
-<pre tabindex="0"><code>pacman -S xorg-server xorg-xinit
-</code></pre><h1 id="2-install-zsh-feh-i3gapsr-compton-oh-my-zsh">2. install zsh, feh, i3gapsr, compton, oh-my-zsh</h1>
-<pre tabindex="0"><code>pacman -S zsh xfce4-terminal feh compton i3-gaps nautilus i3lock 
+      <h2 id="1-install-xorg">1. install xorg</h2>
+<pre tabindex="0"><code>systemctl enable dhcpcd
+pacman -S xorg-server xorg-xinit
+</code></pre><hr>
+<h2 id="install-tool">install tool</h2>
+<pre tabindex="0"><code>pacman -S zsh alacritty fctix fcitx-im fcitx-configtool i3 git 
 sh -c &quot;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;
 </code></pre><hr>
-<h1 id="install-ttf">install ttf</h1>
+<h2 id="install-ttf">install ttf</h2>
 <pre tabindex="0"><code>pacman -S ttf-liberation
 pacman -S adobe-source-han-sans-cn-fonts
 pacman -S adobe-source-han-sans-tw-fonts
 pacman -S adobe-source-han-sans-jp-fonts
 </code></pre><hr>
-<h1 id="add-user">add user</h1>
+<h2 id="add-user">add user</h2>
+<p>这一步随意</p>
 <pre tabindex="0"><code>useradd -m -g users -s /bin/zsh xxxx #添加xxxx用户，用户名你自定义
 passwd xxxx #为xxxx用户设置密码
 vim /etc/sudoers #编辑配置文件
 在root ALL = (ALL) ALL下添加xxxx ALL = (ALL) ALL;输入:wq!强制保存退出vim
-</code></pre><hr>
-<h1 id="startx">startx</h1>
-<pre tabindex="0"><code>exit
 login new user
 touch .zshrc
-cp /etc/X11/xinit/xinitrc ~/.xinitrc
-vim .xinitrc
-exec compton -b &amp;
+</code></pre><hr>
+<h2 id="startx">startx</h2>
+<pre tabindex="0"><code>cp /etc/X11/xinit/xinitrc ~/.xinitrc
+vim ~/.xinitrc
 exec i3
 reboot
 startx
 </code></pre><hr>
-<h1 id="安装-yaourt">安装 Yaourt</h1>
-<p>vim /etc/pacman.conf</p>
-<pre tabindex="0"><code>[archlinuxcn]
-#The Chinese Arch Linux communities packages.
-SigLevel = Optional TrustAll
-Server = https://mirrors.aliyun.com/archlinuxcn/$arch
-Server = http://repo.archlinuxcn.org/$arch
-
-pacman -Syu
-pacman -S yaourt
-
-pacman -S google-chrome
-pacman -S archlinuxcn-keyring
+<h2 id="tool">tool</h2>
+<pre tabindex="0"><code>pacman -S compton  
+pacman -S polybar
+pacman -S rofi  feh #快捷程序启动 壁纸
+#feh --randomize --bg-fill ~/Pictureso/DesktopBackground 
+pacman -S ntfs-3g                                            #识别NTFS格式的硬盘
+pacman -S adobe-source-han-serif-cn-fonts wqy-zenhei         #安装几个开源中文字体 一般装上文泉驿就能解决大多wine应用中文方块的问题
+pacman -S noto-fonts-cjk noto-fonts-emoji noto-fonts-extra   #安装谷歌开源字体及表情
+pacman -S firefox chromium                                   #安装常用的火狐、谷歌浏览器
+pacman -S ark                                                #与dolphin同用右键解压
+pacman -S p7zip unrar unarchiver lzop lrzip                  #安装ark可选依赖
+#pacman -S packagekit-qt5 packagekit appstream-qt appstream   #确保Discover(软件中心）可用 需重启
+pacman -S gwenview                                           #图片查看器
 </code></pre><hr>
 <h1 id="pacmain--s-rofi">pacmain -S rofi</h1>
 <p>vim ~/.config/i3/config</p>
@@ -146,7 +146,7 @@ bindsym $mod+d exec rofi -show run
 
 mod+shift+r 刷新以下
 </code></pre><hr>
-<h1 id="set-static-ip">set static ip</h1>
+<h2 id="set-static-ip">set static ip</h2>
 <pre tabindex="0"><code>pacman -S netctl
 - vim /etc/netctl/ens33-static
 Description='ens33'
@@ -160,24 +160,27 @@ DNS=('192.168.0.1')
 TimeoutUp=300
 TimeoutCarrier=300
 </code></pre><hr>
-<h1 id="wallpaper">wallpaper</h1>
+<h2 id="wallpaper">wallpaper</h2>
 <pre tabindex="0"><code>feh -bg-center Downloads/jpeg
 
 vim .xinitrc
 exec feh -bg-center Downloads/jpeg &amp;
 </code></pre><hr>
-<h1 id="polybar">polybar</h1>
+<h2 id="polybar">polybar</h2>
+<p><a href="https://www.cnblogs.com/bluestorm/p/5929478.html">https://www.cnblogs.com/bluestorm/p/5929478.html</a></p>
+<p><a href="https://www.bilibili.com/video/BV1gW411H7Ke/">https://www.bilibili.com/video/BV1gW411H7Ke/</a></p>
+<p><a href="https://www.yuque.com/sunhl/mvumc2/rq64vb">https://www.yuque.com/sunhl/mvumc2/rq64vb</a></p>
 <hr>
-<p><a href="https://www.cnblogs.com/bluestorm/p/5929478.html">https://www.cnblogs.com/bluestorm/p/5929478.html</a>
-<a href="https://www.bilibili.com/video/BV1gW411H7Ke/">https://www.bilibili.com/video/BV1gW411H7Ke/</a>
-<a href="https://www.yuque.com/sunhl/mvumc2/rq64vb">https://www.yuque.com/sunhl/mvumc2/rq64vb</a></p>
-<hr>
-<h1 id="ohmysh-option">ohmysh option</h1>
+<h2 id="ohmysh-option">ohmysh option</h2>
 <pre tabindex="0"><code>https://www.jianshu.com/p/17790d2fc2f6
 https://www.jianshu.com/p/d194d29e488c?open_source=weibo_search
 https://blog.csdn.net/sgzqc/article/details/46627817 # static ip
 https://github.com/AshNobita/i3andpolybarconfig
 </code></pre><hr>
+<h2 id="re">Re:</h2>
+<p><a href="https://blog.csdn.net/duke56/article/details/104011412">https://blog.csdn.net/duke56/article/details/104011412</a></p>
+<p><a href="https://www.wnark.com/archives/162.html">https://www.wnark.com/archives/162.html</a></p>
+<p><a href="https://blog.csdn.net/r8l8q8/article/details/103889972">https://blog.csdn.net/r8l8q8/article/details/103889972</a></p>
 
     </div>
     <div class="post-footer">
