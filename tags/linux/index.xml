@@ -132,7 +132,9 @@ ssize_t senfile(int out_fd,int in_fd,off_t* offset,size_t count); 整个过程�
   查看状态 systemctl status rc-local.service
   先别重启, ps -x配合grep搜索关键字看看进程启动没有
 之后保存好文件重启进行测试 再次查看是否启动
- Re: https://www.cnblogs.com/Deskew/p/13798595.html</description>
+ 举个例子:
+startup.sh
+#!/bin/bash -e cd /root/News-D/ nohup python3 main.</description>
     </item>
     
     <item>
