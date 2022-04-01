@@ -4,7 +4,7 @@
     <title>Timer function // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.90.1" />
+    <meta name="generator" content="Hugo 0.96.0" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -147,9 +147,9 @@ SA_NODEFER，使对信号的屏蔽无效，即在信号处理函数执行期间�
 SA_RESETHAND，信号处理之后重新设置为默认的处理方式
 SA_SIGINFO，使用 sa_sigaction 成员而不是 sa_handler 作为信号处理函数
 sa_restorer一般不使用</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;signal.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">sigaction</span>(<span style="color:#66d9ef">int</span> signum, <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">struct</span> sigaction <span style="color:#f92672">*</span>act, <span style="color:#66d9ef">struct</span> sigaction <span style="color:#f92672">*</span>oldact);
-</code></pre></div><hr>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;signal.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">sigaction</span>(<span style="color:#66d9ef">int</span> signum, <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">struct</span> sigaction <span style="color:#f92672">*</span>act, <span style="color:#66d9ef">struct</span> sigaction <span style="color:#f92672">*</span>oldact);
+</span></span></code></pre></div><hr>
 <p>Re:</p>
 <p><a href="https://mp.weixin.qq.com/s?__biz=MzAxNzU2MzcwMw==&amp;mid=2649274288&amp;idx=4&amp;sn=87a870ca755a02ab8590e4ef64d6d129">定时器-Web服务器项目</a></p>
 

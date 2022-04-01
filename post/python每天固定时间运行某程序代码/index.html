@@ -4,7 +4,7 @@
     <title>Python每天固定时间运行某程序代码 // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.90.1" />
+    <meta name="generator" content="Hugo 0.96.0" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -95,14 +95,14 @@
     <div class="post-content">
       <pre tabindex="0"><code>import time
 while True:
-    time_now = time.strftime(&quot;%H%M&quot;, time.localtime())  # 刷新
-    if time_now == &quot;00:01&quot;: # 设置要执行的时间
+    time_now = time.strftime(&#34;%H%M&#34;, time.localtime())  # 刷新
+    if time_now == &#34;00:01&#34;: # 设置要执行的时间
         # 要执行的代码
         time.sleep(61) # 停止执行61秒，防止反复运行程序。
-    elif time_now == &quot;08:01&quot;: # 设置要执行的时间:
+    elif time_now == &#34;08:01&#34;: # 设置要执行的时间:
         # 要执行的代码
         time.sleep(61) # 停止执行61秒，防止反复运行程序。
-    elif time_now == &quot;16:01&quot;: # 设置要执行的时间:
+    elif time_now == &#34;16:01&#34;: # 设置要执行的时间:
         # 要执行的代码
         time.sleep(61) # 停止执行61秒，防止反复运行程序。
 </code></pre><hr>

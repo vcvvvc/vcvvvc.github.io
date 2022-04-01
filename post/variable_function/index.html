@@ -4,7 +4,7 @@
     <title>Variable function(fun(char *, ...)) and vsnprintf() // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.90.1" />
+    <meta name="generator" content="Hugo 0.96.0" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -125,9 +125,9 @@ int editorSetstatus(const char * fmt, ...)
 int main(int argc, char **argv)
 {
     int len = 20;
-    editorSetstatus(&quot;%d&quot;, len);
+    editorSetstatus(&#34;%d&#34;, len);
 
-    printf(&quot;%s \n&quot;, buffer);
+    printf(&#34;%s \n&#34;, buffer);
 
     return 0;
 }

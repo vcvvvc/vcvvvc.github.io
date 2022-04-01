@@ -4,7 +4,7 @@
     <title>Opepyxl sytle // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.90.1" />
+    <meta name="generator" content="Hugo 0.96.0" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -104,53 +104,53 @@
 </ul>
 <hr>
 <pre tabindex="0"><code>&gt;&gt;&gt; from openpyxl.styles import PatternFill, Border, Side, Alignment, Protection, Font
-&gt;&gt;&gt; font = Font(name='Calibri',
+&gt;&gt;&gt; font = Font(name=&#39;Calibri&#39;,
                  size=11,
                  bold=False,
                  italic=False,
                  vertAlign=None,
-                 underline='none',
+                 underline=&#39;none&#39;,
                  strike=False,
-                 color='FF000000')
+                 color=&#39;FF000000&#39;)
 &gt;&gt;&gt; fill = PatternFill(fill_type=None,
-                 start_color='FFFFFFFF',
-                 end_color='FF000000')
+                 start_color=&#39;FFFFFFFF&#39;,
+                 end_color=&#39;FF000000&#39;)
 &gt;&gt;&gt; border = Border(left=Side(border_style=None,
-                           color='FF000000'),
+                           color=&#39;FF000000&#39;),
                  right=Side(border_style=None,
-                            color='FF000000'),
+                            color=&#39;FF000000&#39;),
                  top=Side(border_style=None,
-                          color='FF000000'),
+                          color=&#39;FF000000&#39;),
                  bottom=Side(border_style=None,
-                             color='FF000000'),
+                             color=&#39;FF000000&#39;),
                  diagonal=Side(border_style=None,
-                               color='FF000000'),
+                               color=&#39;FF000000&#39;),
                  diagonal_direction=0,
                  outline=Side(border_style=None,
-                               color='FF000000'),
+                               color=&#39;FF000000&#39;),
                  vertical=Side(border_style=None,
-                               color='FF000000'),
+                               color=&#39;FF000000&#39;),
                  horizontal=Side(border_style=None,
-                               color='FF000000')
+                               color=&#39;FF000000&#39;)
                 )
-&gt;&gt;&gt; alignment=Alignment(horizontal='general',
-                     vertical='bottom',
+&gt;&gt;&gt; alignment=Alignment(horizontal=&#39;general&#39;,
+                     vertical=&#39;bottom&#39;,
                      text_rotation=0,
                      wrap_text=False,
                      shrink_to_fit=False,
                      indent=0)
-&gt;&gt;&gt; number_format = 'General'
+&gt;&gt;&gt; number_format = &#39;General&#39;
 &gt;&gt;&gt; protection = Protection(locked=True,
                          hidden=False)
 </code></pre><p><strong>以上几种样式（字体、填充、边框、位置和保护）实例一旦被创建实例的属性就不可更改，只能重新创建实例。</strong></p>
 <hr>
 <p><strong>对一个cell进行格式设置：</strong></p>
-<pre tabindex="0"><code>ws[&quot;B5&quot;].font = ft
-ws[&quot;B5&quot;].fill =fill
-ws[&quot;B5&quot;].border = bd
-ws[&quot;B5&quot;].alignment = alignment
-ws[&quot;B5&quot;].number_format = number_format
-ws[&quot;B5&quot;].value =&quot;pynote.net&quot;
+<pre tabindex="0"><code>ws[&#34;B5&#34;].font = ft
+ws[&#34;B5&#34;].fill =fill
+ws[&#34;B5&#34;].border = bd
+ws[&#34;B5&#34;].alignment = alignment
+ws[&#34;B5&#34;].number_format = number_format
+ws[&#34;B5&#34;].value =&#34;pynote.net&#34;
 </code></pre><hr>
 <p><strong>编辑页面设置</strong></p>
 <pre tabindex="0"><code>ws.page_setup.orientation = ws.ORIENTATION_LANDSCAPE

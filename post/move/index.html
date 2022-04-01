@@ -4,7 +4,7 @@
     <title>Cpp11 move // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.90.1" />
+    <meta name="generator" content="Hugo 0.96.0" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -101,21 +101,21 @@
 #include &lt;string&gt;
 int main()
 {
-    std::string str = &quot;Hello&quot;;
+    std::string str = &#34;Hello&#34;;
     std::vector&lt;std::string&gt; v;
     //调用常规的拷贝构造函数，新建字符数组，拷贝数据
     v.push_back(str);
-    std::cout &lt;&lt; &quot;After copy, str is \&quot;&quot; &lt;&lt; str &lt;&lt; &quot;\&quot;\n&quot;;
+    std::cout &lt;&lt; &#34;After copy, str is \&#34;&#34; &lt;&lt; str &lt;&lt; &#34;\&#34;\n&#34;;
     //调用移动构造函数，掏空str，掏空后，最好不要使用str
     v.push_back(std::move(str));
-    std::cout &lt;&lt; &quot;After move, str is \&quot;&quot; &lt;&lt; str &lt;&lt; &quot;\&quot;\n&quot;;
-    std::cout &lt;&lt; &quot;The contents of the vector are \&quot;&quot; &lt;&lt; v[0]
-                                         &lt;&lt; &quot;\&quot;, \&quot;&quot; &lt;&lt; v[1] &lt;&lt; &quot;\&quot;\n&quot;;
+    std::cout &lt;&lt; &#34;After move, str is \&#34;&#34; &lt;&lt; str &lt;&lt; &#34;\&#34;\n&#34;;
+    std::cout &lt;&lt; &#34;The contents of the vector are \&#34;&#34; &lt;&lt; v[0]
+                                         &lt;&lt; &#34;\&#34;, \&#34;&#34; &lt;&lt; v[1] &lt;&lt; &#34;\&#34;\n&#34;;
 }
 </code></pre><p>Cout:</p>
-<pre tabindex="0"><code>After copy, str is &quot;Hello&quot;
-After move, str is &quot;&quot;
-The contents of the vector are &quot;Hello&quot;, &quot;Hello&quot;
+<pre tabindex="0"><code>After copy, str is &#34;Hello&#34;
+After move, str is &#34;&#34;
+The contents of the vector are &#34;Hello&#34;, &#34;Hello&#34;
 </code></pre><hr>
 <h1 id="函数原型">函数原型</h1>
 <pre tabindex="0"><code>template &lt;typename T&gt;
@@ -126,7 +126,7 @@ typename remove_reference&lt;T&gt;::type&amp;&amp; move(T&amp;&amp; t)
 </code></pre><hr>
 <h1 id="原型定义中的原理实现">原型定义中的原理实现:</h1>
 <p><strong>公式一）X&amp; &amp;、X&amp;&amp; &amp;、X&amp; &amp;&amp;都折叠成X&amp;，用于处理左值</strong></p>
-<pre tabindex="0"><code>string s(&quot;hello&quot;);
+<pre tabindex="0"><code>string s(&#34;hello&#34;);
 std::move(s) =&gt; std::move(string&amp; &amp;&amp;) =&gt; 折叠后 std::move(string&amp; )
 此时：T的类型为string&amp;
 typename remove_reference&lt;T&gt;::type为string 
@@ -137,7 +137,7 @@ string&amp;&amp; move(string&amp; t) //t为左值，移动后不能在使用t
     return static_cast&lt;string&amp;&amp;&gt;(t); 
 }
 </code></pre><p><strong>公式二）X&amp;&amp; &amp;&amp;折叠成X&amp;&amp;，用于处理右值</strong></p>
-<pre tabindex="0"><code>std::move(string(&quot;hello&quot;)) =&gt; std::move(string&amp;&amp;)
+<pre tabindex="0"><code>std::move(string(&#34;hello&#34;)) =&gt; std::move(string&amp;&amp;)
 //此时：T的类型为string 
 //     remove_reference&lt;T&gt;::type为string 
 //整个std::move被实例如下
@@ -151,7 +151,7 @@ string&amp;&amp; move(string&amp;&amp; t) //t为右值
 void* p = &amp;d;
 double *dp = static_cast&lt;double*&gt; p; //正确
  
-const char *cp = &quot;hello&quot;;
+const char *cp = &#34;hello&#34;;
 char *q = static_cast&lt;char*&gt;(cp); //错误：static不能去掉const性质
 static_cast&lt;string&gt;(cp); //正确 
 </code></pre><p><strong>③对于remove_reference是通过类模板的部分特例化进行实现的</strong></p>

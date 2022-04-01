@@ -4,7 +4,7 @@
     <title>Use_gdb // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.90.1" />
+    <meta name="generator" content="Hugo 0.96.0" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -164,22 +164,22 @@ For bug reporting instructions, please see:
 </code></pre>
 <p>具体参考<a href="https://sourceware.org/gdb/current/onlinedocs/gdb/Compilation.html#Compilation">gdb手册</a></p>
 <h2 id="调试程序">调试程序</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">//boom.c
-</span><span style="color:#75715e"></span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span>
-<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">fun</span>(<span style="color:#66d9ef">void</span>)
-{
-    printf(<span style="color:#e6db74">&#34;hello</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
-}
-    
-<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
-{
-    fun();
-    sleep(<span style="color:#ae81ff">1000</span>);
-    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
-}
-</code></pre></div><p>1 直接启动:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">//boom.c
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">fun</span>(<span style="color:#66d9ef">void</span>)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    printf(<span style="color:#e6db74">&#34;hello</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    fun();
+</span></span><span style="display:flex;"><span>    sleep(<span style="color:#ae81ff">1000</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>1 直接启动:</p>
 <p>方法1</p>
 <pre><code>$ gdb boom -q
 (gdb) 
@@ -250,18 +250,18 @@ or
 echo &quot;/home/dan/mycore/core.%e.%p.%t&quot; &gt;/proc/sys/kernel/core_pattern
 </code></pre>
 <h2 id="调试coredump文件">调试CoreDump文件</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span> 
-<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
-{
-    <span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> p <span style="color:#f92672">=</span> NULL;
-    printf(<span style="color:#e6db74">&#34;here&#34;</span>);
-    <span style="color:#f92672">*</span>p <span style="color:#f92672">=</span> <span style="color:#ae81ff">7</span>;
-    sleep(<span style="color:#ae81ff">1000</span>);
-    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
-}
-</code></pre></div><p>运行上述程序就会产生core dump 文件，如果修了core dump文件的位置就需要加上绝对地址如:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span> 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> p <span style="color:#f92672">=</span> NULL;
+</span></span><span style="display:flex;"><span>    printf(<span style="color:#e6db74">&#34;here&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">*</span>p <span style="color:#f92672">=</span> <span style="color:#ae81ff">7</span>;
+</span></span><span style="display:flex;"><span>    sleep(<span style="color:#ae81ff">1000</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>运行上述程序就会产生core dump 文件，如果修了core dump文件的位置就需要加上绝对地址如:</p>
 <p>方法1</p>
 <pre><code>$ gdb /home/dan/work/learn_core/build/bin/boom /home/dan/mycore/core.boom.5859.1557305516 -q
 Reading symbols from /home/dan/work/learn_core/build/bin/boom...done.
@@ -330,21 +330,21 @@ You may specify arguments to give to your program, just as with the
 </code></pre>
 <h2 id="list命令">list命令</h2>
 <p>简写为l，查看源代码，例如:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span> 
-<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func</span>()
-{
-    printf(<span style="color:#e6db74">&#34;here&#34;</span>);
-}
-      
-<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
-{
-    <span style="color:#66d9ef">int</span> a <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
-    func();
-    a<span style="color:#f92672">++</span>;
-    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
-}
-</code></pre></div><p>list num 指定行号</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span> 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    printf(<span style="color:#e6db74">&#34;here&#34;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> a <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    func();
+</span></span><span style="display:flex;"><span>    a<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>list num 指定行号</p>
 <pre><code>$ gdb boom -q
 Reading symbols from /home/dan/work/learn_core/build/bin/boom...done.
 (gdb) l 7
@@ -399,21 +399,21 @@ int main()
 list - 向前打印</p>
 <h2 id="start命令">start命令</h2>
 <p>start命令会给main函数的第一个可执行语句打上临时断点，然后运行程序直到该断点，例如:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span> 
-<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func</span>()
-{
-    printf(<span style="color:#e6db74">&#34;here&#34;</span>);
-}
-      
-<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
-{
-    <span style="color:#66d9ef">int</span> a <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
-    func();
-    a<span style="color:#f92672">++</span>;
-    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
-}
-</code></pre></div><pre><code>gdb boom -q
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span> 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    printf(<span style="color:#e6db74">&#34;here&#34;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> a <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    func();
+</span></span><span style="display:flex;"><span>    a<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><pre><code>gdb boom -q
 Reading symbols from /home/dan/work/learn_core/build/bin/boom...done.
 (gdb) start
 Temporary breakpoint 1 at 0x40074a: file /home/dan/work/learn_core/boom.c, line 10.
@@ -428,21 +428,21 @@ Missing separate debuginfos, use: debuginfo-install glibc-2.17-260.el7.x86_64
 </code></pre>
 <h2 id="next命令">next命令</h2>
 <p>简写为n，继续运行到下一个代码行，遇到函数则直接运行函数，例如:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span> 
-<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func</span>()
-{
-    printf(<span style="color:#e6db74">&#34;here&#34;</span>);
-}
-      
-<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
-{
-    <span style="color:#66d9ef">int</span> a <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
-    func();
-    a<span style="color:#f92672">++</span>;
-    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
-}
-</code></pre></div><pre><code>$ gdb boom -q
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span> 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    printf(<span style="color:#e6db74">&#34;here&#34;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> a <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    func();
+</span></span><span style="display:flex;"><span>    a<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><pre><code>$ gdb boom -q
 Reading symbols from /home/dan/work/learn_core/build/bin/boom...done.
 (gdb) start
 Temporary breakpoint 1 at 0x40074a: file /home/dan/work/learn_core/boom.c, line 10.
@@ -484,21 +484,21 @@ Temporary breakpoint 2, main () at /home/dan/work/learn_core/boom.c:10
 </code></pre>
 <h2 id="step命令">step命令</h2>
 <p>简写为s，继续运行到下一个代码行，遇到函数则进入函数，例如:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span> 
-<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func</span>()
-{
-    printf(<span style="color:#e6db74">&#34;here&#34;</span>);
-}
-      
-<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
-{
-    <span style="color:#66d9ef">int</span> a <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
-    func();
-    a<span style="color:#f92672">++</span>;
-    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
-}
-</code></pre></div><pre><code>$ gdb boom -q
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span> 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    printf(<span style="color:#e6db74">&#34;here&#34;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> a <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    func();
+</span></span><span style="display:flex;"><span>    a<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><pre><code>$ gdb boom -q
 Reading symbols from /home/dan/work/learn_core/build/bin/boom...done.
 (gdb) start
 Temporary breakpoint 1 at 0x40074a: file /home/dan/work/learn_core/boom.c, line 10.
@@ -533,21 +533,21 @@ here[Inferior 1 (process 6252) exited normally]
 </code></pre>
 <h2 id="break命令">break命令</h2>
 <p>简写为b，设置断点，程序运行到断点就会暂停挂起，例如:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span> 
-<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func</span>()
-{
-    printf(<span style="color:#e6db74">&#34;here&#34;</span>);
-}
-      
-<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
-{
-    <span style="color:#66d9ef">int</span> a <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
-    func();
-    a<span style="color:#f92672">++</span>;
-    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
-}
-</code></pre></div><pre><code>gdb boom -q
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span> 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    printf(<span style="color:#e6db74">&#34;here&#34;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> a <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    func();
+</span></span><span style="display:flex;"><span>    a<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><pre><code>gdb boom -q
 Reading symbols from /home/dan/work/learn_core/build/bin/boom...done.
 (gdb) list 1,20
 1       #include &lt;stdio.h&gt;
@@ -578,21 +578,21 @@ Missing separate debuginfos, use: debuginfo-install glibc-2.17-260.el7.x86_64
 </code></pre>
 <h2 id="查看断点">查看断点</h2>
 <p>info breakpoints 可以查看全部设置的断点，命令缩写成 i b，例如:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span> 
-<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func</span>()
-{
-    printf(<span style="color:#e6db74">&#34;here&#34;</span>);
-}
-      
-<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
-{
-    <span style="color:#66d9ef">int</span> a <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
-    func();
-    a<span style="color:#f92672">++</span>;
-    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
-}
-</code></pre></div><pre><code>$ gdb boom -q
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span> 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    printf(<span style="color:#e6db74">&#34;here&#34;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> a <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    func();
+</span></span><span style="display:flex;"><span>    a<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><pre><code>$ gdb boom -q
 Reading symbols from /home/dan/work/learn_core/build/bin/boom...done.
 (gdb) list 1,20
 1       #include &lt;stdio.h&gt;
@@ -617,21 +617,21 @@ Num     Type           Disp Enb Address            What
 (gdb) 
 </code></pre>
 <h2 id="删除断点">删除断点</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span> 
-<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func</span>()
-{
-    printf(<span style="color:#e6db74">&#34;here&#34;</span>);
-}
-      
-<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
-{
-    <span style="color:#66d9ef">int</span> a <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
-    func();
-    a<span style="color:#f92672">++</span>;
-    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
-}
-</code></pre></div><pre><code>$ gdb boom -q
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span> 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    printf(<span style="color:#e6db74">&#34;here&#34;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> a <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    func();
+</span></span><span style="display:flex;"><span>    a<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><pre><code>$ gdb boom -q
 Reading symbols from /home/dan/work/learn_core/build/bin/boom...done.
 (gdb) list 1,20
 1       #include &lt;stdio.h&gt;
@@ -660,21 +660,21 @@ No breakpoints or watchpoints.
 </code></pre>
 <h2 id="tbreak命令">tbreak命令</h2>
 <p>设置临时断点，指令简写为tb，该断点一旦触发就会失效例如:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span> 
-<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func</span>()
-{
-    printf(<span style="color:#e6db74">&#34;here&#34;</span>);
-}
-      
-<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
-{
-    <span style="color:#66d9ef">int</span> a <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
-    func();
-    a<span style="color:#f92672">++</span>;
-    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
-}
-</code></pre></div><pre><code>$ gdb boom -q
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span> 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    printf(<span style="color:#e6db74">&#34;here&#34;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> a <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    func();
+</span></span><span style="display:flex;"><span>    a<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><pre><code>$ gdb boom -q
 Reading symbols from /home/dan/work/learn_core/build/bin/boom...done.
 (gdb) tb 5
 Temporary breakpoint 1 at 0x400731: file /home/dan/work/learn_core/boom.c, line 5.
@@ -695,36 +695,36 @@ No breakpoints or watchpoints.
 </code></pre>
 <h2 id="continue命令">continue命令</h2>
 <p>遇到断点可以选择next，step等命令继续运行到下一个代码行，也可以使用continue，继续运行整个程序，例如:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span> 
-<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func3</span>()
-{
-    <span style="color:#66d9ef">int</span> d <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>;
-    printf(<span style="color:#e6db74">&#34;d=%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, d);
-}
-
-<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func2</span>()
-{
-    <span style="color:#66d9ef">int</span> c <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>;
-    printf(<span style="color:#e6db74">&#34;c=%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, c);
-    func3();
-}
- 
-<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func1</span>()
-{
-    <span style="color:#66d9ef">int</span> b <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
-    printf(<span style="color:#e6db74">&#34;b=%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, b);
-    func2();
-}
-
-<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
-{
-    <span style="color:#66d9ef">int</span> a  <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
-    printf(<span style="color:#e6db74">&#34;a=%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, a);
-    func1();
-    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
-}
-</code></pre></div><pre><code>$ gdb boom -q
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span> 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func3</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> d <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>;
+</span></span><span style="display:flex;"><span>    printf(<span style="color:#e6db74">&#34;d=%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, d);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func2</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> c <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>;
+</span></span><span style="display:flex;"><span>    printf(<span style="color:#e6db74">&#34;c=%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, c);
+</span></span><span style="display:flex;"><span>    func3();
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func1</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> b <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>    printf(<span style="color:#e6db74">&#34;b=%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, b);
+</span></span><span style="display:flex;"><span>    func2();
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> a  <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    printf(<span style="color:#e6db74">&#34;a=%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, a);
+</span></span><span style="display:flex;"><span>    func1();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><pre><code>$ gdb boom -q
 Reading symbols from /home/dan/work/learn_core/build/bin/boom...done.
 (gdb) b 5
 Breakpoint 1 at 0x400775: file /home/dan/work/learn_core/boom.c, line 5.
@@ -747,39 +747,39 @@ d=4
 </code></pre>
 <h2 id="backtrace命令">backtrace命令</h2>
 <p>打印函数堆栈帧，回溯整个调用过程，之类简写为bt，例如:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span>
-<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func3</span>()
-{
-    <span style="color:#66d9ef">int</span> d <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>;
-    (<span style="color:#66d9ef">void</span>)(d);
-    <span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> p <span style="color:#f92672">=</span> NULL;
-    <span style="color:#f92672">*</span>p <span style="color:#f92672">=</span> <span style="color:#ae81ff">7</span>;
-}
-
-<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func2</span>()
-{
-    <span style="color:#66d9ef">int</span> c <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>;
-    (<span style="color:#66d9ef">void</span>)(c);
-    func3();
-}
-
-<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func1</span>()
-{
-    <span style="color:#66d9ef">int</span> b <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
-    (<span style="color:#66d9ef">void</span>)(b);
-    func2();
-}
-
-<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
-{
-    <span style="color:#66d9ef">int</span> a  <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
-    (<span style="color:#66d9ef">void</span>)(a);
-    func1();
-    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
-}
-               
-</code></pre></div><pre><code>gdb boom core.boom.4042.1557369051 -q
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func3</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> d <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>;
+</span></span><span style="display:flex;"><span>    (<span style="color:#66d9ef">void</span>)(d);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> p <span style="color:#f92672">=</span> NULL;
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">*</span>p <span style="color:#f92672">=</span> <span style="color:#ae81ff">7</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func2</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> c <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>;
+</span></span><span style="display:flex;"><span>    (<span style="color:#66d9ef">void</span>)(c);
+</span></span><span style="display:flex;"><span>    func3();
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func1</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> b <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>    (<span style="color:#66d9ef">void</span>)(b);
+</span></span><span style="display:flex;"><span>    func2();
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> a  <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    (<span style="color:#66d9ef">void</span>)(a);
+</span></span><span style="display:flex;"><span>    func1();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>               
+</span></span></code></pre></div><pre><code>gdb boom core.boom.4042.1557369051 -q
 Reading symbols from /home/dan/work/learn_core/build/bin/boom...done.
 [New LWP 4042]
 [Thread debugging using libthread_db enabled]
@@ -810,39 +810,39 @@ Missing separate debuginfos, use: debuginfo-install glibc-2.17-260.el7.x86_64
 </code></pre>
 <h2 id="查看当前所处的函数堆栈帧">查看当前所处的函数堆栈帧</h2>
 <p>通过 info frame 可以查看当前所处的函数堆栈帧信息，例如:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span>
-<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func3</span>()
-{
-    <span style="color:#66d9ef">int</span> d <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>;
-    (<span style="color:#66d9ef">void</span>)(d);
-    <span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> p <span style="color:#f92672">=</span> NULL;
-    <span style="color:#f92672">*</span>p <span style="color:#f92672">=</span> <span style="color:#ae81ff">7</span>;
-}
-
-<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func2</span>()
-{
-    <span style="color:#66d9ef">int</span> c <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>;
-    (<span style="color:#66d9ef">void</span>)(c);
-    func3();
-}
-
-<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func1</span>()
-{
-    <span style="color:#66d9ef">int</span> b <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
-    (<span style="color:#66d9ef">void</span>)(b);
-    func2();
-}
-
-<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
-{
-    <span style="color:#66d9ef">int</span> a  <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
-    (<span style="color:#66d9ef">void</span>)(a);
-    func1();
-    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
-}
-               
-</code></pre></div><pre><code>$ gdb boom core.boom.4042.1557369051 -q
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func3</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> d <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>;
+</span></span><span style="display:flex;"><span>    (<span style="color:#66d9ef">void</span>)(d);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> p <span style="color:#f92672">=</span> NULL;
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">*</span>p <span style="color:#f92672">=</span> <span style="color:#ae81ff">7</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func2</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> c <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>;
+</span></span><span style="display:flex;"><span>    (<span style="color:#66d9ef">void</span>)(c);
+</span></span><span style="display:flex;"><span>    func3();
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func1</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> b <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>    (<span style="color:#66d9ef">void</span>)(b);
+</span></span><span style="display:flex;"><span>    func2();
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> a  <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    (<span style="color:#66d9ef">void</span>)(a);
+</span></span><span style="display:flex;"><span>    func1();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>               
+</span></span></code></pre></div><pre><code>$ gdb boom core.boom.4042.1557369051 -q
 Reading symbols from /home/dan/work/learn_core/build/bin/boom...done.
 [New LWP 4042]
 [Thread debugging using libthread_db enabled]
@@ -865,39 +865,39 @@ rbp at 0x7ffddb0d63c0, rip at 0x7ffddb0d63c8
 </code></pre>
 <h2 id="选择函数堆栈帧">选择函数堆栈帧</h2>
 <p>通过frame 可以选择指定的函数堆栈帧，该指令缩写为f，例如:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span>
-<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func3</span>()
-{
-    <span style="color:#66d9ef">int</span> d <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>;
-    (<span style="color:#66d9ef">void</span>)(d);
-    <span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> p <span style="color:#f92672">=</span> NULL;
-    <span style="color:#f92672">*</span>p <span style="color:#f92672">=</span> <span style="color:#ae81ff">7</span>;
-}
-
-<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func2</span>()
-{
-    <span style="color:#66d9ef">int</span> c <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>;
-    (<span style="color:#66d9ef">void</span>)(c);
-    func3();
-}
-
-<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func1</span>()
-{
-    <span style="color:#66d9ef">int</span> b <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
-    (<span style="color:#66d9ef">void</span>)(b);
-    func2();
-}
-
-<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
-{
-    <span style="color:#66d9ef">int</span> a  <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
-    (<span style="color:#66d9ef">void</span>)(a);
-    func1();
-    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
-}
-               
-</code></pre></div><pre><code>$ gdb boom core.boom.4042.1557369051 -q
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func3</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> d <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>;
+</span></span><span style="display:flex;"><span>    (<span style="color:#66d9ef">void</span>)(d);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> p <span style="color:#f92672">=</span> NULL;
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">*</span>p <span style="color:#f92672">=</span> <span style="color:#ae81ff">7</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func2</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> c <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>;
+</span></span><span style="display:flex;"><span>    (<span style="color:#66d9ef">void</span>)(c);
+</span></span><span style="display:flex;"><span>    func3();
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func1</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> b <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>    (<span style="color:#66d9ef">void</span>)(b);
+</span></span><span style="display:flex;"><span>    func2();
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> a  <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    (<span style="color:#66d9ef">void</span>)(a);
+</span></span><span style="display:flex;"><span>    func1();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>               
+</span></span></code></pre></div><pre><code>$ gdb boom core.boom.4042.1557369051 -q
 Reading symbols from /home/dan/work/learn_core/build/bin/boom...done.
 [New LWP 4042]
 [Thread debugging using libthread_db enabled]
@@ -937,39 +937,39 @@ Saved registers:
 </code></pre>
 <h2 id="打印函数局部变量">打印函数局部变量</h2>
 <p>通过info locals 可以打印当前函数堆栈帧内的局部变量，例如:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span>
-<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func3</span>()
-{
-    <span style="color:#66d9ef">int</span> d <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>;
-    (<span style="color:#66d9ef">void</span>)(d);
-    <span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> p <span style="color:#f92672">=</span> NULL;
-    <span style="color:#f92672">*</span>p <span style="color:#f92672">=</span> <span style="color:#ae81ff">7</span>;
-}
-
-<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func2</span>()
-{
-    <span style="color:#66d9ef">int</span> c <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>;
-    (<span style="color:#66d9ef">void</span>)(c);
-    func3();
-}
-
-<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func1</span>()
-{
-    <span style="color:#66d9ef">int</span> b <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
-    (<span style="color:#66d9ef">void</span>)(b);
-    func2();
-}
-
-<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
-{
-    <span style="color:#66d9ef">int</span> a  <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
-    (<span style="color:#66d9ef">void</span>)(a);
-    func1();
-    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
-}
-               
-</code></pre></div><pre><code>$ gdb boom core.boom.4042.1557369051 -q
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func3</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> d <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>;
+</span></span><span style="display:flex;"><span>    (<span style="color:#66d9ef">void</span>)(d);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> p <span style="color:#f92672">=</span> NULL;
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">*</span>p <span style="color:#f92672">=</span> <span style="color:#ae81ff">7</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func2</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> c <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>;
+</span></span><span style="display:flex;"><span>    (<span style="color:#66d9ef">void</span>)(c);
+</span></span><span style="display:flex;"><span>    func3();
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func1</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> b <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>    (<span style="color:#66d9ef">void</span>)(b);
+</span></span><span style="display:flex;"><span>    func2();
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> a  <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    (<span style="color:#66d9ef">void</span>)(a);
+</span></span><span style="display:flex;"><span>    func1();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>               
+</span></span></code></pre></div><pre><code>$ gdb boom core.boom.4042.1557369051 -q
 Reading symbols from /home/dan/work/learn_core/build/bin/boom...done.
 [New LWP 4042]
 [Thread debugging using libthread_db enabled]
@@ -1000,36 +1000,36 @@ c = 3
 </code></pre>
 <h2 id="run命令">run命令</h2>
 <p>简写为 r，直接运行程序直到发生错误或者遇到断点，和start不同的是，不会在第一个可执行点暂停，例如:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span>
-<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func3</span>()
-{
-    <span style="color:#66d9ef">int</span> d <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>;
-    printf(<span style="color:#e6db74">&#34;d=%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, d);
-}
-
-<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func2</span>()
-{
-    <span style="color:#66d9ef">int</span> c <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>;
-    printf(<span style="color:#e6db74">&#34;c=%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, c);
-    func3();
-}
-
-<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func1</span>()
-{
-    <span style="color:#66d9ef">int</span> b <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
-    printf(<span style="color:#e6db74">&#34;b=%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, b);
-    func2();
-}
-
-<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
-{
-    <span style="color:#66d9ef">int</span> a  <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
-    printf(<span style="color:#e6db74">&#34;a=%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, a);
-    func1();
-    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
-}
-</code></pre></div><pre><code>$ gdb boom -q
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func3</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> d <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>;
+</span></span><span style="display:flex;"><span>    printf(<span style="color:#e6db74">&#34;d=%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, d);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func2</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> c <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>;
+</span></span><span style="display:flex;"><span>    printf(<span style="color:#e6db74">&#34;c=%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, c);
+</span></span><span style="display:flex;"><span>    func3();
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func1</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> b <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>    printf(<span style="color:#e6db74">&#34;b=%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, b);
+</span></span><span style="display:flex;"><span>    func2();
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> a  <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    printf(<span style="color:#e6db74">&#34;a=%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, a);
+</span></span><span style="display:flex;"><span>    func1();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><pre><code>$ gdb boom -q
 Reading symbols from /home/dan/work/learn_core/build/bin/boom...done.
 (gdb) r
 Starting program: /home/dan/work/learn_core/build/bin/boom 
@@ -1057,26 +1057,26 @@ Breakpoint 1, func3 () at /home/dan/work/learn_core/boom.c:5
 </code></pre>
 <h2 id="修改变量值">修改变量值</h2>
 <p>利用set 命令可以修改程序变量，利用print 可以打印变量的值，缩写为p，例如:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span>
-<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func1</span>()
-{
-    <span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
-
-    <span style="color:#66d9ef">while</span>(i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">200</span>)
-    {
-        sleep(<span style="color:#ae81ff">1</span>);
-    }
-}
- 
-<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
-{
-    func1();
-    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
-}
- 
-</code></pre></div><pre><code>$ gdb -q
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func1</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span>(i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">200</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        sleep(<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    func1();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span> 
+</span></span></code></pre></div><pre><code>$ gdb -q
 (gdb) file boom
 Reading symbols from /home/dan/work/learn_core/build/bin/boom...done.
 (gdb) b 8
@@ -1113,34 +1113,34 @@ which has no line number information.
 <pre><code>set print elements 0    //不进行限制
 </code></pre>
 <h2 id="查看变量类型">查看变量类型</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span> 
-
-<span style="color:#66d9ef">struct</span> User {
-    <span style="color:#66d9ef">char</span> openid[<span style="color:#ae81ff">15</span>];
-    <span style="color:#66d9ef">int</span>  age;
-};
-
-
-<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func1</span>()
-{
-    <span style="color:#66d9ef">struct</span> User u <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;wx1234567&#34;</span>, <span style="color:#ae81ff">7</span>};
-    printf(<span style="color:#e6db74">&#34;openid = %s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, u.openid);
-    <span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
-
-    <span style="color:#66d9ef">while</span>(i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">200</span>)
-    {
-        sleep(<span style="color:#ae81ff">1</span>);
-    }
-}
-
-<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
-{
-    func1();
-    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
-}
-</code></pre></div><pre><code>$ gdb boom -q
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span> 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> User {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">char</span> openid[<span style="color:#ae81ff">15</span>];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span>  age;
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func1</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">struct</span> User u <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;wx1234567&#34;</span>, <span style="color:#ae81ff">7</span>};
+</span></span><span style="display:flex;"><span>    printf(<span style="color:#e6db74">&#34;openid = %s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, u.openid);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span>(i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">200</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        sleep(<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    func1();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><pre><code>$ gdb boom -q
 Reading symbols from /home/dan/work/learn_core/build/bin/boom...done.
 (gdb) b 17
 Breakpoint 1 at 0x4007b8: file /home/dan/work/learn_core/boom.c, line 17.
@@ -1162,32 +1162,32 @@ type = struct User {
 (gdb) 
 </code></pre>
 <h2 id="查看线程运行">查看线程运行</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;pthread.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span>
-
-<span style="color:#66d9ef">void</span><span style="color:#f92672">*</span> <span style="color:#a6e22e">func</span>(<span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>p_arg)
-{
-    <span style="color:#66d9ef">while</span>(<span style="color:#ae81ff">1</span>)
-    {
-        sleep(<span style="color:#ae81ff">3</span>);
-    }
-}
-
-<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
-{
-    pthread_t t1;
-    pthread_t t2;
-    <span style="color:#66d9ef">char</span> t1n[] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;t1&#34;</span>;
-    <span style="color:#66d9ef">char</span> t2n[] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;t2&#34;</span>;
-
-    pthread_create(<span style="color:#f92672">&amp;</span>t1, NULL, func, t1n);
-    pthread_create(<span style="color:#f92672">&amp;</span>t2, NULL, func, t2n);
-    sleep(<span style="color:#ae81ff">100</span>);
-    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
-}
-</code></pre></div><p>info threads 可以查看全部的线程运行情况，包括线程的id和系统id以及当前栈， info thread ID 可以查看单独的线程的运行情况。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;pthread.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span><span style="color:#f92672">*</span> <span style="color:#a6e22e">func</span>(<span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>p_arg)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span>(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        sleep(<span style="color:#ae81ff">3</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    pthread_t t1;
+</span></span><span style="display:flex;"><span>    pthread_t t2;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">char</span> t1n[] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;t1&#34;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">char</span> t2n[] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;t2&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    pthread_create(<span style="color:#f92672">&amp;</span>t1, NULL, func, t1n);
+</span></span><span style="display:flex;"><span>    pthread_create(<span style="color:#f92672">&amp;</span>t2, NULL, func, t2n);
+</span></span><span style="display:flex;"><span>    sleep(<span style="color:#ae81ff">100</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>info threads 可以查看全部的线程运行情况，包括线程的id和系统id以及当前栈， info thread ID 可以查看单独的线程的运行情况。</p>
 <pre><code>$ gdb boom -q
 Reading symbols from /home/dan/work/learn_core/build/bin/boom...done.
 (gdb) b 23

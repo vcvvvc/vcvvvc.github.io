@@ -4,7 +4,7 @@
     <title>Vim_config // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.90.1" />
+    <meta name="generator" content="Hugo 0.96.0" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -113,37 +113,37 @@ make install
 <h1 id="主题配置">主题配置</h1>
 <p><strong>首先要确认你的终端支持真彩，一般来说，主流的比如iTerm2, Putty, Powershell的最新版本都已经支持了。我们可以运行以下命令检测一下</strong></p>
 <p><code>(echo -e '\e[48:2:1:2:3m\eP$qm\e\\' ; xxd)</code></p>
-<pre tabindex="0"><code>&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
-&quot;&quot;&quot;=&gt;全局配置&lt;=&quot;&quot;&quot;
-&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+<pre tabindex="0"><code>&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;
+&#34;&#34;&#34;=&gt;全局配置&lt;=&#34;&#34;&#34;
+&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;
 
-&quot;关闭vi兼容模式&quot;
+&#34;关闭vi兼容模式&#34;
 
 set nocompatible
 
-&quot;设置历史记录步数&quot;
+&#34;设置历史记录步数&#34;
 
 set history=1000
 
-&quot;开启相关插件&quot;   
+&#34;开启相关插件&#34;   
 
-&quot;侦测文件类型&quot;
+&#34;侦测文件类型&#34;
 
 filetype on
 
-&quot;载入文件类型插件&quot;
+&#34;载入文件类型插件&#34;
 
 filetype plugin on
 
-&quot;为特定文件类型载入相关缩进文件&quot;
+&#34;为特定文件类型载入相关缩进文件&#34;
 
 filetype indent on
 
-&quot;当文件在外部被修改时，自动更新该文件&quot;
+&#34;当文件在外部被修改时，自动更新该文件&#34;
 
 set autoread
 
-&quot;激活鼠标的使用&quot;
+&#34;激活鼠标的使用&#34;
 
 set mouse=a
 
@@ -151,289 +151,289 @@ set selection=exclusive
 
 set selectmode=mouse,key
 
-&quot;保存全局变量&quot;
+&#34;保存全局变量&#34;
 
 set viminfo+=!
 
-&quot;带有如下符号的单词不要被换行分割&quot;
+&#34;带有如下符号的单词不要被换行分割&#34;
 
 set iskeyword+=_,$,@,%,#,-
 
-&quot;通过使用: commands命令，告诉我们文件的哪一行被改变过&quot;
+&#34;通过使用: commands命令，告诉我们文件的哪一行被改变过&#34;
 
 set report=0
 
-&quot;被分割的窗口间显示空白，便于阅读&quot;
+&#34;被分割的窗口间显示空白，便于阅读&#34;
 
 set fillchars=vert:\ ,stl:\ ,stlnc:\
 
-&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;
 
-&quot;&quot;&quot;=&gt;字体和颜色&lt;=&quot;&quot;&quot;
+&#34;&#34;&#34;=&gt;字体和颜色&lt;=&#34;&#34;&#34;
 
-&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;
 
-&quot;自动开启语法高亮&quot;
+&#34;自动开启语法高亮&#34;
 
 syntax enable
 
-&quot;设置字体&quot;
+&#34;设置字体&#34;
 
-&quot;set guifont=dejaVu\ Sans\ MONO\ 10
+&#34;set guifont=dejaVu\ Sans\ MONO\ 10
 
 set guifont=Courier_New:h10:cANSI
 
-&quot;设置颜色&quot;
+&#34;设置颜色&#34;
 
-&quot;colorscheme desert
+&#34;colorscheme desert
 
-&quot;#set t_Co=256 记着注释或者删除这一行&quot;
+&#34;#set t_Co=256 记着注释或者删除这一行&#34;
 
-if has(&quot;termguicolors&quot;)
+if has(&#34;termguicolors&#34;)
 
     set termguicolors
 
 endif
 
-&quot;高亮显示当前行&quot;
+&#34;高亮显示当前行&#34;
 
-&quot;set cursorline    白色条框 不喜欢可以关闭&quot;
+&#34;set cursorline    白色条框 不喜欢可以关闭&#34;
 
 set cursorline  
 
-&quot;hi cursorline guibg=#00ff00&quot;
+&#34;hi cursorline guibg=#00ff00&#34;
 
-&quot;hi CursorColumn guibg=#00ff00&quot;
+&#34;hi CursorColumn guibg=#00ff00&#34;
 
-&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;
 
-&quot;&quot;&quot;=&gt;代码折叠功能&lt;=&quot;&quot;&quot;
+&#34;&#34;&#34;=&gt;代码折叠功能&lt;=&#34;&#34;&#34;
 
-&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;
 
-&quot;激活折叠功能&quot;
+&#34;激活折叠功能&#34;
 
 set foldenable
 
-&quot;set nofen（这个是关闭折叠功能）&quot;
+&#34;set nofen（这个是关闭折叠功能）&#34;
 
-&quot;设置按照语法方式折叠（可简写set fdm=XX）&quot;
+&#34;设置按照语法方式折叠（可简写set fdm=XX）&#34;
 
-&quot;有6种折叠方法：
+&#34;有6种折叠方法：
 
-&quot;manual  手工定义折叠&quot;
+&#34;manual  手工定义折叠&#34;
 
-&quot;indent  更多的缩进表示更高级别的折叠&quot;
+&#34;indent  更多的缩进表示更高级别的折叠&#34;
 
-&quot;expr    用表达式来定义折叠&quot;
+&#34;expr    用表达式来定义折叠&#34;
 
-&quot;syntax  用语法高亮来定义折叠&quot;
+&#34;syntax  用语法高亮来定义折叠&#34;
 
-&quot;diff    对没有更改的文本进行折叠&quot;
+&#34;diff    对没有更改的文本进行折叠&#34;
 
-&quot;marker  对文中的标志进行折叠&quot;
+&#34;marker  对文中的标志进行折叠&#34;
 
 set foldmethod=manual
 
-&quot;set fdl=0（这个是不选用任何折叠方法）&quot;
+&#34;set fdl=0（这个是不选用任何折叠方法）&#34;
 
-&quot;设置折叠区域的宽度&quot;
+&#34;设置折叠区域的宽度&#34;
 
-&quot;如果不为0，则在屏幕左侧显示一个折叠标识列
+&#34;如果不为0，则在屏幕左侧显示一个折叠标识列
 
-&quot;分别用“-”和“+”来表示打开和关闭的折叠
+&#34;分别用“-”和“+”来表示打开和关闭的折叠
 
 set foldcolumn=0
 
-&quot;设置折叠层数为3&quot;
+&#34;设置折叠层数为3&#34;
 
 setlocal foldlevel=3
 
-&quot;设置为自动关闭折叠&quot;
+&#34;设置为自动关闭折叠&#34;
 
 set foldclose=all
 
-&quot;用空格键来代替zo和zc快捷键实现开关折叠&quot;
+&#34;用空格键来代替zo和zc快捷键实现开关折叠&#34;
 
-&quot;zo O-pen a fold (打开折叠)
+&#34;zo O-pen a fold (打开折叠)
 
-&quot;zc C-lose a fold (关闭折叠)
+&#34;zc C-lose a fold (关闭折叠)
 
-&quot;zf F-old creation (创建折叠)
+&#34;zf F-old creation (创建折叠)
 
-&quot;nnoremap &lt;space&gt; @=((foldclosed(line('.')) &lt; 0) ? 'zc' : 'zo')&lt;CR&gt;
+&#34;nnoremap &lt;space&gt; @=((foldclosed(line(&#39;.&#39;)) &lt; 0) ? &#39;zc&#39; : &#39;zo&#39;)&lt;CR&gt;
 
-&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;
 
-&quot;&quot;&quot;=&gt;文字处理&lt;=&quot;&quot;&quot;
+&#34;&#34;&#34;=&gt;文字处理&lt;=&#34;&#34;&#34;
 
-&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;
 
-&quot;使用空格来替换Tab&quot;
+&#34;使用空格来替换Tab&#34;
 
 set expandtab
 
-&quot;设置所有的Tab和缩进为4个空格&quot;
+&#34;设置所有的Tab和缩进为4个空格&#34;
 
 set tabstop=4
 
-&quot;设定&lt;&lt;和&gt;&gt;命令移动时的宽度为4&quot;
+&#34;设定&lt;&lt;和&gt;&gt;命令移动时的宽度为4&#34;
 
 set shiftwidth=4
 
-&quot;使得按退格键时可以一次删除4个空格&quot;
+&#34;使得按退格键时可以一次删除4个空格&#34;
 
 set softtabstop=4
 
 set smarttab
 
-&quot;缩进，自动缩进（继承前一行的缩进）&quot;
+&#34;缩进，自动缩进（继承前一行的缩进）&#34;
 
-&quot;set autoindent 命令打开自动缩进，是下面配置的缩写
+&#34;set autoindent 命令打开自动缩进，是下面配置的缩写
 
-&quot;可使用autoindent命令的简写，即“:set ai”和“:set noai”
+&#34;可使用autoindent命令的简写，即“:set ai”和“:set noai”
 
-&quot;还可以使用“:set ai sw=4”在一个命令中打开缩进并设置缩进级别
+&#34;还可以使用“:set ai sw=4”在一个命令中打开缩进并设置缩进级别
 
 set ai
 
 set cindent
 
-&quot;智能缩进&quot;
+&#34;智能缩进&#34;
 
 set si
 
-&quot;自动换行”
+&#34;自动换行”
 
 set wrap
 
-&quot;设置软宽度&quot;
+&#34;设置软宽度&#34;
 
 set sw=4
 
-&quot;行内替换&quot;
+&#34;行内替换&#34;
 
 set gdefault
 
-&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;
 
-&quot;&quot;&quot;=&gt;Vim 界面&lt;=&quot;&quot;&quot;
+&#34;&#34;&#34;=&gt;Vim 界面&lt;=&#34;&#34;&#34;
 
-&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;
 
-&quot;增强模式中的命令行自动完成操作&quot;
+&#34;增强模式中的命令行自动完成操作&#34;
 
 set wildmenu
 
-&quot;显示标尺&quot;
+&#34;显示标尺&#34;
 
 set ruler
 
-&quot;设置命令行的高度&quot;
+&#34;设置命令行的高度&#34;
 
 set cmdheight=1
 
-&quot;显示行数&quot;
+&#34;显示行数&#34;
 
 set nu
 
-&quot;不要图形按钮&quot;
+&#34;不要图形按钮&#34;
 
 set go=
 
-&quot;在执行宏命令时，不进行显示重绘；在宏命令执行完成后，一次性重绘，以便提高性能&quot;
+&#34;在执行宏命令时，不进行显示重绘；在宏命令执行完成后，一次性重绘，以便提高性能&#34;
 
 set lz
 
-&quot;使回格键（backspace）正常处理indent, eol, start等&quot;
+&#34;使回格键（backspace）正常处理indent, eol, start等&#34;
 
 set backspace=eol,start,indent
 
-&quot;允许空格键和光标键跨越行边界&quot;
+&#34;允许空格键和光标键跨越行边界&#34;
 
 set whichwrap+=&lt;,&gt;,h,l
 
-&quot;设置魔术&quot;
+&#34;设置魔术&#34;
 
 set magic
 
-&quot;关闭遇到错误时的声音提示&quot;
+&#34;关闭遇到错误时的声音提示&#34;
 
-&quot;关闭错误信息响铃&quot;
+&#34;关闭错误信息响铃&#34;
 
 set noerrorbells
 
-&quot;关闭使用可视响铃代替呼叫&quot;
+&#34;关闭使用可视响铃代替呼叫&#34;
 
 set novisualbell
 
-&quot;高亮显示匹配的括号([{和}])&quot;
+&#34;高亮显示匹配的括号([{和}])&#34;
 
 set showmatch
 
-&quot;匹配括号高亮的时间（单位是十分之一秒）&quot;
+&#34;匹配括号高亮的时间（单位是十分之一秒）&#34;
 
 set mat=2
 
-&quot;光标移动到buffer的顶部和底部时保持3行距离&quot;
+&#34;光标移动到buffer的顶部和底部时保持3行距离&#34;
 
 set scrolloff=3
 
-&quot;搜索逐字符高亮&quot;
+&#34;搜索逐字符高亮&#34;
 
 set hlsearch
 
 set incsearch
 
-&quot;搜索时不区分大小写&quot;
+&#34;搜索时不区分大小写&#34;
 
-&quot;还可以使用简写（“:set ic”和“:set noic”）&quot;
+&#34;还可以使用简写（“:set ic”和“:set noic”）&#34;
 
 set ignorecase
 
-&quot;用浅色高亮显示当前行&quot;
+&#34;用浅色高亮显示当前行&#34;
 
 autocmd InsertLeave * se nocul
 
 autocmd InsertEnter * se cul
 
-&quot;输入的命令显示出来，看的清楚&quot;
+&#34;输入的命令显示出来，看的清楚&#34;
 
 set showcmd
 
-&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;
 
-&quot;&quot;&quot;=&gt;编码设置&lt;=&quot;&quot;&quot;
+&#34;&#34;&#34;=&gt;编码设置&lt;=&#34;&#34;&#34;
 
-&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;
 
-&quot;设置编码&quot;
+&#34;设置编码&#34;
 
 set encoding=utf-8
 
 set fencs=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936
 
-&quot;设置文件编码&quot;
+&#34;设置文件编码&#34;
 
 set fileencodings=utf-8,gbk,latin1
 
-&quot;设置终端编码&quot;
+&#34;设置终端编码&#34;
 
 set termencoding=utf-8
 
-&quot;设置语言编码&quot;
+&#34;设置语言编码&#34;
 
 set langmenu=zh_CN.UTF-8
 
 set helplang=cn
 
-&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;
 
-&quot;&quot;&quot;=&gt;其他设置&lt;=&quot;&quot;&quot;
+&#34;&#34;&#34;=&gt;其他设置&lt;=&#34;&#34;&#34;
 
-&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;
 
-&quot;开启新行时使用智能自动缩进&quot;
+&#34;开启新行时使用智能自动缩进&#34;
 
 set smartindent
 
@@ -441,57 +441,57 @@ set cin
 
 set showmatch
 
-&quot;在处理未保存或只读文件的时候，弹出确认&quot;
+&#34;在处理未保存或只读文件的时候，弹出确认&#34;
 
 set confirm
 
-&quot;隐藏工具栏&quot;
+&#34;隐藏工具栏&#34;
 
 set guioptions-=T
 
-&quot;隐藏菜单栏&quot;
+&#34;隐藏菜单栏&#34;
 
 set guioptions-=m
 
-&quot;置空错误铃声的终端代码&quot;
+&#34;置空错误铃声的终端代码&#34;
 
 set vb t_vb=
 
-&quot;显示状态栏（默认值为1，表示无法显示状态栏）&quot;
+&#34;显示状态栏（默认值为1，表示无法显示状态栏）&#34;
 
 set laststatus=2
 
-&quot;状态行显示的内容&quot;
+&#34;状态行显示的内容&#34;
 
-set statusline=%F%m%r%h%w\ [FORMAT=%{&amp;ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\&quot;%d/%m/%y\ -\ %H:%M\&quot;)}
+set statusline=%F%m%r%h%w\ [FORMAT=%{&amp;ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\&#34;%d/%m/%y\ -\ %H:%M\&#34;)}
 
-&quot;粘贴不换行问题的解决方法&quot;
+&#34;粘贴不换行问题的解决方法&#34;
 
 set pastetoggle=&lt;F9&gt;
 
-&quot;设置背景颜色&quot;
+&#34;设置背景颜色&#34;
 
 set background=dark
 
-&quot;文件类型自动检测，代码智能补全&quot;
+&#34;文件类型自动检测，代码智能补全&#34;
 
 set completeopt=longest,preview,menu
 
-&quot;共享剪切板&quot;
+&#34;共享剪切板&#34;
 
 set clipboard+=unnamed
 
-&quot;从不备份&quot;
+&#34;从不备份&#34;
 
 set nobackup
 
 set noswapfile
 
-&quot;自动保存&quot;
+&#34;自动保存&#34;
 
 set autowrite
 
-&quot;显示中文帮助&quot;
+&#34;显示中文帮助&#34;
 
 if version &gt;= 603
 
@@ -501,7 +501,7 @@ if version &gt;= 603
 
 endif
 
-&quot;设置高亮相关项&quot;
+&#34;设置高亮相关项&#34;
 
 highlight Search ctermbg=black ctermfg=white guifg=white guibg=black
 </code></pre>

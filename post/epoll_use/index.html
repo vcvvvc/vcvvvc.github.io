@@ -4,7 +4,7 @@
     <title>epoll use // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.90.1" />
+    <meta name="generator" content="Hugo 0.96.0" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -202,7 +202,7 @@ epoll的设计和实现与select完全不同。epoll通过在Linux内核中申�
 <h1 id="linux内核具体的epoll机制实现思路">Linux内核具体的epoll机制实现思路</h1>
 <p>当某一进程调用epoll_create方法时，Linux内核会创建一个eventpoll结构体，这个结构体中有两个成员与epoll的使用方式密切相关</p>
 <pre tabindex="0"><code>/*
- * This structure is stored inside the &quot;private_data&quot; member of the file
+ * This structure is stored inside the &#34;private_data&#34; member of the file
  * structure and rapresent the main data sructure for the eventpoll
  * interface.
  */
@@ -232,7 +232,7 @@ struct eventpoll {
     struct rb_root rbr;
 
     /*
-     * This is a single linked list that chains all the &quot;struct epitem&quot; that
+     * This is a single linked list that chains all the &#34;struct epitem&#34; that
      * happened while transfering ready events to userspace w/out
      * holding -&gt;lock.
      */
@@ -246,7 +246,7 @@ struct eventpoll {
 <p>在epoll中，对于每一个事件，都会建立一个epitem结构体，如下所示:</p>
 <pre tabindex="0"><code>/*
  * Each file descriptor added to the eventpoll interface will
- * have an entry of this type linked to the &quot;rbr&quot; RB tree.
+ * have an entry of this type linked to the &#34;rbr&#34; RB tree.
  */
 struct epitem {
     /* RB tree node used to link this structure to the eventpoll RB tree */
@@ -258,7 +258,7 @@ struct epitem {
     struct list_head rdllink;
 
     /*
-     * Works together &quot;struct eventpoll&quot;-&gt;ovflist in keeping the
+     * Works together &#34;struct eventpoll&#34;-&gt;ovflist in keeping the
      * single linked chain of items.
      */
     struct epitem *next;
@@ -273,13 +273,13 @@ struct epitem {
     /* List containing poll wait queues */
     struct list_head pwqlist;
 
-    /* The &quot;container&quot; of this item */
+    /* The &#34;container&#34; of this item */
 //指向其所属的eventpoll对象
     struct
 ![Uploading EPOLL_663944.jpg . . .]
 eventpoll *ep;
 
-    /* List header used to link this item to the &quot;struct file&quot; items list */
+    /* List header used to link this item to the &#34;struct file&#34; items list */
     struct list_head fllink;
 
     /* The structure that describe the interested events and the source fd */
@@ -339,7 +339,7 @@ int main(int argc, char **argv)
     while (true) {
         int ret = epoll_wait(epollfd, events, MAX_EVENT_NUMBER, -1);
         if (ret &lt; 0) {
-            std::cout &lt;&lt; &quot;epoll failed &quot; &lt;&lt; std::endl;
+            std::cout &lt;&lt; &#34;epoll failed &#34; &lt;&lt; std::endl;
             break;
         }
 
@@ -390,8 +390,8 @@ void lt(epoll_event *events, int number, int epollfd, int listenfd)
             addfd(epollfd, connfd, false);
         }
         else if (events[i].events &amp; EPOLLIN) {		//只要socket读缓存中还有未读出的数据，就会被触发
-            std::cout &lt;&lt; &quot;event trigger once&quot; &lt;&lt; std::endl;
-            memset(buf, '\0', BUFFER_SIZE);
+            std::cout &lt;&lt; &#34;event trigger once&#34; &lt;&lt; std::endl;
+            memset(buf, &#39;\0&#39;, BUFFER_SIZE);
 
             int ret = recv(sockfd, buf, BUFFER_SIZE-1, 0);
             if (ret &lt;= 0) {
@@ -399,10 +399,10 @@ void lt(epoll_event *events, int number, int epollfd, int listenfd)
                 continue;
             }
 
-            std::cout &lt;&lt; &quot;get: &quot; &lt;&lt; ret &lt;&lt; &quot; bytes of content: &quot; &lt;&lt; buf &lt;&lt; std::endl;
+            std::cout &lt;&lt; &#34;get: &#34; &lt;&lt; ret &lt;&lt; &#34; bytes of content: &#34; &lt;&lt; buf &lt;&lt; std::endl;
         }
         else {
-            std::cout &lt;&lt; &quot;something else happened&quot; &lt;&lt; std::endl;
+            std::cout &lt;&lt; &#34;something else happened&#34; &lt;&lt; std::endl;
         }
     }
 }
@@ -422,18 +422,18 @@ void et(epoll_event *events, int number, int epollfd, int listenfd)
             addfd(epollfd, connfd, true);
         }
         else if (events[i].events &amp; EPOLLIN) {
-            std::cout &lt;&lt; &quot;event trigger once&quot; &lt;&lt; std::endl;
+            std::cout &lt;&lt; &#34;event trigger once&#34; &lt;&lt; std::endl;
             int ret = 0;
 
             //因为ET模式不会重复触发，所以我们要循环读取所有数据
             while (true) {
-                memset(buf, '\0', BUFFER_SIZE);
+                memset(buf, &#39;\0&#39;, BUFFER_SIZE);
 
                 ret = recv(sockfd, buf, BUFFER_SIZE-1, 0);
                 if (ret &lt; 0) {
                     //对于非阻塞I/O，下面的条件成立时表示数据已全部读取完毕
                     if (errno == EAGAIN || errno == EWOULDBLOCK) {
-                        std::cout &lt;&lt; &quot;read later!&quot; &lt;&lt; std::endl;
+                        std::cout &lt;&lt; &#34;read later!&#34; &lt;&lt; std::endl;
                         break;
                     }
 
@@ -444,12 +444,12 @@ void et(epoll_event *events, int number, int epollfd, int listenfd)
                     close(sockfd);
                 }
                 else {
-                    std::cout &lt;&lt; &quot;get &quot; &lt;&lt; ret &lt;&lt; &quot; bytes of content: &quot; &lt;&lt; buf &lt;&lt; std::endl;
+                    std::cout &lt;&lt; &#34;get &#34; &lt;&lt; ret &lt;&lt; &#34; bytes of content: &#34; &lt;&lt; buf &lt;&lt; std::endl;
                 }
             }
         }
         else {
-            std::cout &lt;&lt; &quot;something else happened&quot; &lt;&lt; std::endl;
+            std::cout &lt;&lt; &#34;something else happened&#34; &lt;&lt; std::endl;
         }
     }
 

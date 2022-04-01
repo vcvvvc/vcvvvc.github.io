@@ -4,7 +4,7 @@
     <title>Ubuntu20_install_mysql // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.90.1" />
+    <meta name="generator" content="Hugo 0.96.0" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -117,9 +117,9 @@ bind-address改为0.0.0.0
 
 #设置权限与密码
 use mysql;
-ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '密码'; #使用mysql_native_password修改加密规则
-ALTER USER 'root'@'localhost' IDENTIFIED BY '密码' PASSWORD EXPIRE NEVER; #更新一下用户的密码
-UPDATE user SET host = '%' WHERE user = 'root'; #允许远程访问
+ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED WITH mysql_native_password BY &#39;密码&#39;; #使用mysql_native_password修改加密规则
+ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;密码&#39; PASSWORD EXPIRE NEVER; #更新一下用户的密码
+UPDATE user SET host = &#39;%&#39; WHERE user = &#39;root&#39;; #允许远程访问
 
 #刷新cache中配置 刷新权限
 flush privileges;
@@ -140,8 +140,8 @@ systemctl status mysql.service
 <pre tabindex="0"><code>apt-get install libmysqlclient-dev
 </code></pre><p><strong>修改root密码8.0</strong></p>
 <pre tabindex="0"><code>use mysql; 
-update user set authentication_string='' where user='root';--将字段置为空
-ALTER user 'root'@'localhost' IDENTIFIED BY 'root';--修改密码为root
+update user set authentication_string=&#39;&#39; where user=&#39;root&#39;;--将字段置为空
+ALTER user &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;root&#39;;--修改密码为root
 </code></pre><hr>
 <p>Re:</p>
 <p><a href="https://blog.csdn.net/u010520724/article/details/107444032">https://blog.csdn.net/u010520724/article/details/107444032</a></p>

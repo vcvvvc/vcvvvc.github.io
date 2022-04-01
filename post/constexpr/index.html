@@ -4,7 +4,7 @@
     <title>Constexpr // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.90.1" />
+    <meta name="generator" content="Hugo 0.96.0" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -189,8 +189,8 @@ constexpr struct myType {
 };
 int main()
 {
-    constexpr struct myType mt { &quot;zhangsan&quot;, 10 };
-    cout &lt;&lt; mt.name &lt;&lt; &quot; &quot; &lt;&lt; mt.age &lt;&lt; endl;
+    constexpr struct myType mt { &#34;zhangsan&#34;, 10 };
+    cout &lt;&lt; mt.name &lt;&lt; &#34; &#34; &lt;&lt; mt.age &lt;&lt; endl;
     return 0;
 }
 
@@ -206,8 +206,8 @@ struct myType {
 
 int main()
 {
-    constexpr struct myType mt { &quot;zhangsan&quot;, 10 };
-    cout &lt;&lt; mt.name &lt;&lt; &quot; &quot; &lt;&lt; mt.age &lt;&lt; endl;
+    constexpr struct myType mt { &#34;zhangsan&#34;, 10 };
+    cout &lt;&lt; mt.name &lt;&lt; &#34; &#34; &lt;&lt; mt.age &lt;&lt; endl;
     return 0;
 }
 </code></pre><hr>
@@ -235,10 +235,10 @@ private:
 };
 int main()
 {
-    constexpr struct myType mt { &quot;zhangsan&quot;, 10 };
+    constexpr struct myType mt { &#34;zhangsan&#34;, 10 };
     constexpr const char * name = mt.getname();
     constexpr int age = mt.getage();
-    cout &lt;&lt; name &lt;&lt; &quot; &quot; &lt;&lt; age &lt;&lt; endl;
+    cout &lt;&lt; name &lt;&lt; &#34; &#34; &lt;&lt; age &lt;&lt; endl;
     return 0;
 }
 </code></pre><hr>
@@ -257,10 +257,10 @@ constexpr T dispaly(T t){
 }
 int main()
 {
-    struct myType stu{&quot;zhangsan&quot;,10};
+    struct myType stu{&#34;zhangsan&#34;,10};
 
     struct myType ret = dispaly(stu);
-    cout &lt;&lt; ret.name &lt;&lt; &quot; &quot; &lt;&lt; ret.age &lt;&lt; endl;
+    cout &lt;&lt; ret.name &lt;&lt; &#34; &#34; &lt;&lt; ret.age &lt;&lt; endl;
 
     constexpr int ret1 = dispaly(10);
     cout &lt;&lt; ret1 &lt;&lt; endl;

@@ -26,7 +26,7 @@ https://blog.csdn.net/qq_34892981/article/details/110181452</description>
 sudo yum install docker-ce docker-ce-cli containerd.io -y --allowerasing  更换容器镜像 https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors
 cd /etc/docker
 vim daemon.json
-# url改成自己的加速器地址，亦可使用该地址 { &amp;quot;registry-mirrors&amp;quot;: [&amp;quot;https://k01sfudd.mirror.aliyuncs.com&amp;quot;] } systemctl daemon-reload systemctl restart docker  Re: https://blog.csdn.net/jcmj123456/article/details/117742182
+# url改成自己的加速器地址，亦可使用该地址 { &amp;#34;registry-mirrors&amp;#34;: [&amp;#34;https://k01sfudd.mirror.aliyuncs.com&amp;#34;] } systemctl daemon-reload systemctl restart docker  Re: https://blog.csdn.net/jcmj123456/article/details/117742182
 https://www.jianshu.com/p/6d9e725da273</description>
     </item>
     

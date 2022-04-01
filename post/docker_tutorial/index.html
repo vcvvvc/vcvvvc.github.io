@@ -4,7 +4,7 @@
     <title>Docker use Tutorial // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.90.1" />
+    <meta name="generator" content="Hugo 0.96.0" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -98,8 +98,8 @@
 <h1 id="install-docker">Install docker</h1>
 <pre tabindex="0"><code>apt-get install apt-transport-https ca-certificates software-properties-common curl
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg|sudo apt-key add -
-sudo add-apt-repository &quot;deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu \
-$(lsb_release -cs) stable&quot;
+sudo add-apt-repository &#34;deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu \
+$(lsb_release -cs) stable&#34;
 apt-get update
 apt-get install docker-ce
 docker run hello-world
@@ -120,18 +120,18 @@ docker-compose --version
 # run start
 FROM nginx
 
-# exec: RUN[&quot;./go&quot;, &quot;dev&quot;, &quot;offline&quot;]
-RUN echo 'Nginx image' &gt; /usr/share/nginx/html/index.html
+# exec: RUN[&#34;./go&#34;, &#34;dev&#34;, &#34;offline&#34;]
+RUN echo &#39;Nginx image&#39; &gt; /usr/share/nginx/html/index.html
 
-# '.' is up and down content path
+# &#39;.&#39; is up and down content path
 docker build -t nginx:tesst .
 </code></pre><hr>
 <h1 id="command">Command</h1>
 <p><strong>Copy</strong></p>
-<pre tabindex="0"><code># 'check' file head
+<pre tabindex="0"><code># &#39;check&#39; file head
 COPY check* /testdir/
 
-# 'check?.log' check1.log
+# &#39;check?.log&#39; check1.log
 COPY check?.log /testdir/
 
 # nickdir all files, not dir
@@ -142,8 +142,8 @@ COPY nickdir ./nickdir
 </code></pre><p><strong>ADD</strong></p>
 <pre tabindex="0"><code>ADD url
 </code></pre><p><strong>CMD &amp;&amp; ENTRYPOINT</strong></p>
-<pre tabindex="0"><code>ENTRYPOINT [&quot;nginx&quot;, &quot;-c&quot;] # const
-CMD [&quot;/etc/nginx/nginx.conf&quot;] # variable
+<pre tabindex="0"><code>ENTRYPOINT [&#34;nginx&#34;, &#34;-c&#34;] # const
+CMD [&#34;/etc/nginx/nginx.conf&#34;] # variable
 # run 
 nginx -c /etc/nginx/nginx.conf
 </code></pre><p><strong>ENV</strong></p>
@@ -152,8 +152,8 @@ ENV &lt;key1&gt;=&lt;value1&gt; &lt;key2&gt;=&lt;value2&gt;...
 
 ENV NODE_VERSION 7.2.0
 
-RUN curl -SLO &quot;https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.xz&quot; \
-  &amp;&amp; curl -SLO &quot;https://nodejs.org/dist/v$NODE_VERSION/SHASUMS256.txt.asc&quot;
+RUN curl -SLO &#34;https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.xz&#34; \
+  &amp;&amp; curl -SLO &#34;https://nodejs.org/dist/v$NODE_VERSION/SHASUMS256.txt.asc&#34;
 </code></pre><p><strong>ARG</strong></p>
 <pre tabindex="0"><code>ARG &lt;name&gt;[=&lt;default value&gt;]
 ARG CONT_IMG_VER

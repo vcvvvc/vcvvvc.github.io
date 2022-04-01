@@ -4,7 +4,7 @@
     <title>Ubuntu20 install opencv // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.90.1" />
+    <meta name="generator" content="Hugo 0.96.0" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -120,10 +120,10 @@ make -j4
 make install
 </code></pre><hr>
 <h1 id="set">Set</h1>
-<pre tabindex="0"><code>echo &quot;include /usr/loacal/lib&quot; &gt;&gt; /etc/ld.so.conf
+<pre tabindex="0"><code>echo &#34;include /usr/loacal/lib&#34; &gt;&gt; /etc/ld.so.conf
 ldconfig
-</code></pre><pre tabindex="0"><code>echo &quot;PKG_CONFIG_PATH=\$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig&quot; &gt;&gt; /etc/bash.bashrc
-echo &quot;export PKG_CONFIG_PATH&quot; &gt;&gt; /etc/bash.bashrc
+</code></pre><pre tabindex="0"><code>echo &#34;PKG_CONFIG_PATH=\$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig&#34; &gt;&gt; /etc/bash.bashrc
+echo &#34;export PKG_CONFIG_PATH&#34; &gt;&gt; /etc/bash.bashrc
 </code></pre><hr>
 <h1 id="show-version">Show version</h1>
 <pre tabindex="0"><code>pkg-config --modversion opencv4

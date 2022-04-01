@@ -4,7 +4,7 @@
     <title>Arch Beautify desktop // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.90.1" />
+    <meta name="generator" content="Hugo 0.96.0" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -101,7 +101,7 @@ pacman -S xorg-server xorg-xinit
 </code></pre><hr>
 <h2 id="install-tool">install tool</h2>
 <pre tabindex="0"><code>pacman -S zsh alacritty fctix fcitx-im fcitx-configtool i3 git 
-sh -c &quot;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;
+sh -c &#34;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&#34;
 </code></pre><hr>
 <h2 id="install-ttf">install ttf</h2>
 <pre tabindex="0"><code>pacman -S ttf-liberation
@@ -149,14 +149,14 @@ mod+shift+r 刷新以下
 <h2 id="set-static-ip">set static ip</h2>
 <pre tabindex="0"><code>pacman -S netctl
 - vim /etc/netctl/ens33-static
-Description='ens33'
+Description=&#39;ens33&#39;
 Interface=ens33
 Connection=ethernet
 IP=static
-Address=('192.168.0.14/24')
-#Routes=('192.168.0.0/24 via 192.168.0.1')
-Gateway='192.168.0.1'
-DNS=('192.168.0.1')
+Address=(&#39;192.168.0.14/24&#39;)
+#Routes=(&#39;192.168.0.0/24 via 192.168.0.1&#39;)
+Gateway=&#39;192.168.0.1&#39;
+DNS=(&#39;192.168.0.1&#39;)
 TimeoutUp=300
 TimeoutCarrier=300
 </code></pre><hr>

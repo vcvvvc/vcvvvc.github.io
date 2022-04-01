@@ -24,7 +24,7 @@ https://blog.csdn.net/EternallyAccompany/article/details/108865331</description>
       
       <guid>https://6923403.github.io/post/variable_function/</guid>
       <description>void fun(char * fmt, &amp;hellip;); int vsprintf(char *str, const char *format, va_list arg);
-  Test programming #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;stdarg.h&amp;gt; /* * Re: https://github.com/antirez/kilo/kilo.c * Re: https://www.runoob.com/cprogramming/c-function-vsprintf.html */ char buffer[80]; int editorSetstatus(const char * fmt, ...) { va_list ap; va_start(ap, fmt); int ret; ret = vsnprintf(buffer, sizeof(buffer - 1), fmt, ap); va_end(ap); return (ret); } int main(int argc, char **argv) { int len = 20; editorSetstatus(&amp;quot;%d&amp;quot;, len); printf(&amp;quot;%s \n&amp;quot;, buffer); return 0; }  gcc -Wall -g fun.</description>
+  Test programming #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;stdarg.h&amp;gt; /* * Re: https://github.com/antirez/kilo/kilo.c * Re: https://www.runoob.com/cprogramming/c-function-vsprintf.html */ char buffer[80]; int editorSetstatus(const char * fmt, ...) { va_list ap; va_start(ap, fmt); int ret; ret = vsnprintf(buffer, sizeof(buffer - 1), fmt, ap); va_end(ap); return (ret); } int main(int argc, char **argv) { int len = 20; editorSetstatus(&amp;#34;%d&amp;#34;, len); printf(&amp;#34;%s \n&amp;#34;, buffer); return 0; }  gcc -Wall -g fun.</description>
     </item>
     
   </channel>

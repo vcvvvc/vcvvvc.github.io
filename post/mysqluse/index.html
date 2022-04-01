@@ -4,7 +4,7 @@
     <title>Mysql_use // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.90.1" />
+    <meta name="generator" content="Hugo 0.96.0" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -126,7 +126,7 @@ select city, phone, country from `offices`;
 FROM
     employees
 WHERE
-    jobtitle = 'Sales Rep';
+    jobtitle = &#39;Sales Rep&#39;;
 </code></pre><hr>
 <p><strong>INSERT 创建表</strong></p>
 <pre tabindex="0"><code>CREATE TABLE [IF NOT EXISTS] table_name(
@@ -172,7 +172,7 @@ RENAME TO work_items;
 </code></pre><hr>
 <p><strong>插入数据</strong></p>
 <pre tabindex="0"><code>INSERT INTO tasks(subject,start_date,end_date,description) //插入到tasks表中
-VALUES('Learn MySQL INSERT','2017-07-21','2017-07-22','Start learning..');
+VALUES(&#39;Learn MySQL INSERT&#39;,&#39;2017-07-21&#39;,&#39;2017-07-22&#39;,&#39;Start learning..&#39;);
 </code></pre><p><strong>插入多行</strong></p>
 <pre tabindex="0"><code>INSERT INTO table(column1,column2...)
 VALUES (value1,value2,...),
@@ -181,7 +181,7 @@ VALUES (value1,value2,...),
 </code></pre><p><strong>插入日期出错</strong></p>
 <pre tabindex="0"><code>#https://blog.csdn.net/weixin_50518271/article/details/113761164
 select @@SQL_MODE
-SET @@SQL_MODE = REPLACE(@@SQL_MODE, 'NO_ZERO_DATE', '');
+SET @@SQL_MODE = REPLACE(@@SQL_MODE, &#39;NO_ZERO_DATE&#39;, &#39;&#39;);
 </code></pre><hr>
 <p><strong>复制表结构</strong></p>
 <pre tabindex="0"><code>CREATE TABLE tasks_bak LIKE tasks;
@@ -191,23 +191,23 @@ SELECT * FROM tasks;
 </code></pre><hr>
 <p><strong>MySQL INSERT与ON DUPLICATE KEY UPDATE</strong></p>
 <pre tabindex="0"><code>INSERT INTO tasks(task_id,subject,start_date,end_date,description)
-VALUES (4,'Test ON DUPLICATE KEY UPDATE','2017-01-01','2017-01-02','Next Priority')
+VALUES (4,&#39;Test ON DUPLICATE KEY UPDATE&#39;,&#39;2017-01-01&#39;,&#39;2017-01-02&#39;,&#39;Next Priority&#39;)
 ON DUPLICATE KEY UPDATE
    task_id = task_id + 1,
-   subject = 'Test ON DUPLICATE KEY UPDATE';
+   subject = &#39;Test ON DUPLICATE KEY UPDATE&#39;;
 </code></pre><p><strong>等同于UPDATE语句</strong></p>
 <pre tabindex="0"><code>UPDATE tasks
 SET
     task_id = task_id + 1,
-    subject = 'Test ON DUPLICATE KEY UPDATE'
+    subject = &#39;Test ON DUPLICATE KEY UPDATE&#39;
 WHERE
     task_id = 4;
 </code></pre><hr>
 <p><strong>UPDATE</strong></p>
 <pre tabindex="0"><code>UPDATE employees
 SET
-    lastname = 'NKS',
-    email = 'mary.new@yiibai.com'
+    lastname = &#39;NKS&#39;,
+    email = &#39;mary.new@yiibai.com&#39;
 WHERE
     employeeNumber = 1056;
 </code></pre><p><strong>随机选择一个职位是Sales Rep的员工</strong></p>
@@ -216,7 +216,7 @@ WHERE
 FROM
     employees
 WHERE
-    jobtitle = 'Sales Rep'
+    jobtitle = &#39;Sales Rep&#39;
 ORDER BY RAND()
 LIMIT 1;
 </code></pre><p><strong>需要更新customers表中的销售代表员工编号(employeeNumber)列</strong></p>
@@ -227,7 +227,7 @@ SET
         FROM
             employees
         WHERE
-            jobtitle = 'Sales Rep'
+            jobtitle = &#39;Sales Rep&#39;
         LIMIT 1)
 WHERE
     salesRepEmployeeNumber IS NULL;
@@ -250,7 +250,7 @@ ORDER BY customerName
 LIMIT 10; //10行
 </code></pre><p><strong>删除五个法国客户</strong></p>
 <pre tabindex="0"><code>DELETE FROM customers
-WHERE country = 'France'
+WHERE country = &#39;France&#39;
 ORDER BY creditLimit
 LIMIT 5;
 </code></pre><hr>

@@ -4,7 +4,7 @@
     <title>Socket function // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.90.1" />
+    <meta name="generator" content="Hugo 0.96.0" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -213,14 +213,14 @@ char *ptr = inet_ntop(AF_INET,&amp;foo.sin_addr, str, sizeof(str));      // 代�
     char IPdotdec[20]; // 存放点分十进制IP地址
     struct in_addr s;  // IPv4地址结构体
     // 输入IP地址
-    printf(&quot;Please input IP address: &quot;);
-    scanf(&quot;%s&quot;, &amp;IPdotdec);
+    printf(&#34;Please input IP address: &#34;);
+    scanf(&#34;%s&#34;, &amp;IPdotdec);
     // 转换
     inet_pton(AF_INET, IPdotdec, (void *)&amp;s);
-    printf(&quot;inet_pton: 0x%x\n&quot;, s.s_addr); // 注意得到的字节序
+    printf(&#34;inet_pton: 0x%x\n&#34;, s.s_addr); // 注意得到的字节序
     // 反转换
     inet_ntop(AF_INET, (void *)&amp;s, IPdotdec, 16);
-    printf(&quot;inet_ntop: %s\n&quot;, IPdotdec);
+    printf(&#34;inet_ntop: %s\n&#34;, IPdotdec);
 }
 
 Run:

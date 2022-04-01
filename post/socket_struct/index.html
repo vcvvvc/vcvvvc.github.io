@@ -4,7 +4,7 @@
     <title>Socket struct // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.90.1" />
+    <meta name="generator" content="Hugo 0.96.0" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -124,7 +124,6 @@
 <pre tabindex="0"><code>struct in_addr {
     unsigned long s_addr;
 };
-
 </code></pre><p><strong>这个数据结构是由于历史原因保留下来的，主要用作与以前的格式兼容。</strong></p>
 <p><strong>s_addr按照网络字节顺序存储IP地址</strong></p>
 <p><strong>sin_zero是为了让sockaddr与sockaddr_in两个数据结构保持大小相同而保留的空字节</strong></p>
@@ -133,9 +132,8 @@
 <pre tabindex="0"><code>struct sockaddr_in sa;
 sa.sin_family = AF_INET;
 sa.sin_port = htons(3490); /* short, NBO*/
-sa.sin_addr.s_addr = inet_addr(&quot;132.241.5.10&quot;);
+sa.sin_addr.s_addr = inet_addr(&#34;132.241.5.10&#34;);
 bzero(&amp;(sa.sin_zero), 8);
-
 </code></pre><p><strong>注意：如果sa.sin_addr.s_addr ＝ INADDR_ANY，则不指定IP地址（用于Server程序）</strong></p>
 
     </div>

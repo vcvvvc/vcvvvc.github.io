@@ -12,7 +12,7 @@
       <pubDate>Sat, 18 Dec 2021 17:36:22 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/ubuntu_install_mysql/</guid>
-      <description>安装mysql8.0 apt-get update apt-get install mysql-server  初始化 #初始化 mysql_secure_installation 1. NO 2. 输入密码 3. 其余全部默认 # 检查 systemctl status mysql.service 设置远程访问 #远程 vim /etc/mysql/mysql.conf.d/mysqld.cnf bind-address改为0.0.0.0 #重启 /etc/init.d/mysql restart #设置权限与密码 use mysql; ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED WITH mysql_native_password BY &#39;密码&#39;; #使用mysql_native_password修改加密规则 ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;密码&#39; PASSWORD EXPIRE NEVER; #更新一下用户的密码 UPDATE user SET host = &#39;%&#39; WHERE user = &#39;root&#39;; #允许远程访问 #刷新cache中配置 刷新权限 flush privileges; quit;  状态 #开启 service mysql start # 关闭 service mysql stop # 重启 service mysql restart # 状态 systemctl status mysql.</description>
+      <description>安装mysql8.0 apt-get update apt-get install mysql-server  初始化 #初始化 mysql_secure_installation 1. NO 2. 输入密码 3. 其余全部默认 # 检查 systemctl status mysql.service 设置远程访问 #远程 vim /etc/mysql/mysql.conf.d/mysqld.cnf bind-address改为0.0.0.0 #重启 /etc/init.d/mysql restart #设置权限与密码 use mysql; ALTER USER &amp;#39;root&amp;#39;@&amp;#39;localhost&amp;#39; IDENTIFIED WITH mysql_native_password BY &amp;#39;密码&amp;#39;; #使用mysql_native_password修改加密规则 ALTER USER &amp;#39;root&amp;#39;@&amp;#39;localhost&amp;#39; IDENTIFIED BY &amp;#39;密码&amp;#39; PASSWORD EXPIRE NEVER; #更新一下用户的密码 UPDATE user SET host = &amp;#39;%&amp;#39; WHERE user = &amp;#39;root&amp;#39;; #允许远程访问 #刷新cache中配置 刷新权限 flush privileges; quit;  状态 #开启 service mysql start # 关闭 service mysql stop # 重启 service mysql restart # 状态 systemctl status mysql.</description>
     </item>
     
     <item>
@@ -39,7 +39,7 @@ https://www.cnblogs.com/nickchen121/p/11145123.htm</description>
       
       <guid>https://6923403.github.io/post/pymysql_err_1698/</guid>
       <description>pymysql.err.OperationalError: (1698, “Access denied for user ‘root’@‘localhost’”)
-sudo mysql -u root mysql&amp;gt; USE mysql; mysql&amp;gt; UPDATE user SET plugin=&#39;mysql_native_password&#39; WHERE User=&#39;root&#39;; mysql&amp;gt; FLUSH PRIVILEGES; mysql&amp;gt; exit; service mysql restart </description>
+sudo mysql -u root mysql&amp;gt; USE mysql; mysql&amp;gt; UPDATE user SET plugin=&amp;#39;mysql_native_password&amp;#39; WHERE User=&amp;#39;root&amp;#39;; mysql&amp;gt; FLUSH PRIVILEGES; mysql&amp;gt; exit; service mysql restart </description>
     </item>
     
     <item>
@@ -68,7 +68,7 @@ sudo mysql -u root mysql&amp;gt; USE mysql; mysql&amp;gt; UPDATE user SET plugin
 8.执行下面命令进行安全设置 这个命令会进行设置root密码设置，移除匿名用户，禁止root用户远程连接等
 mysql_secure_installation
 9.设置数据库编码为utf8 sudo vim /etc/my.cnf
-[client] default-character-set=utf8 [mysql] default-character-set=utf8 [mysqld] collation-server = utf8_unicode_ci init-connect=&#39;SET NAMES utf8&#39; character-set-server = utf8 reboot sudo systemctl restart mysqld</description>
+[client] default-character-set=utf8 [mysql] default-character-set=utf8 [mysqld] collation-server = utf8_unicode_ci init-connect=&amp;#39;SET NAMES utf8&amp;#39; character-set-server = utf8 reboot sudo systemctl restart mysqld</description>
     </item>
     
     <item>
@@ -85,7 +85,7 @@ mysql_secure_installation
 use vctest select city, phone, country from `offices`; SELECT语句由以下列表中所述的几个子句组成：
 语句中的SELECT和FROM语句是必须的，其他部分是可选的。
  SELECT之后是逗号分隔列或星号(*)的列表，表示要返回所有列。 FROM指定要查询数据的表或视图。 JOIN根据某些连接条件从其他表中获取数据。 WHERE过滤结果集中的行。 GROUP BY将一组行组合成小分组，并对每个小分组应用聚合函数。 HAVING过滤器基于GROUP BY子句定义的小分组。 ORDER BY指定用于排序的列的列表。 LIMIT限制返回行的数量。  即使WHERE子句出现在语句的末尾，但MySQL会首先使用WHERE子句中的表达式来选择匹配的行。
-SELECT lastname, firstname, jobtitle FROM employees WHERE jobtitle = &#39;Sales Rep&#39;;  INSERT 创建表</description>
+SELECT lastname, firstname, jobtitle FROM employees WHERE jobtitle = &amp;#39;Sales Rep&amp;#39;;  INSERT 创建表</description>
     </item>
     
   </channel>

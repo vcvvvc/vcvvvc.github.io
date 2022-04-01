@@ -4,7 +4,7 @@
     <title>Centos8 install docker // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.90.1" />
+    <meta name="generator" content="Hugo 0.96.0" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -111,7 +111,7 @@ sudo systemctl enable docker
 <p><code>vim daemon.json</code></p>
 <pre tabindex="0"><code># url改成自己的加速器地址，亦可使用该地址
 {
-  &quot;registry-mirrors&quot;: [&quot;https://k01sfudd.mirror.aliyuncs.com&quot;]
+  &#34;registry-mirrors&#34;: [&#34;https://k01sfudd.mirror.aliyuncs.com&#34;]
 }
 </code></pre><pre tabindex="0"><code>systemctl daemon-reload
 systemctl restart docker

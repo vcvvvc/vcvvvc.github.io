@@ -4,7 +4,7 @@
     <title>Pymysqlerr 1698 // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.90.1" />
+    <meta name="generator" content="Hugo 0.96.0" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -98,7 +98,7 @@
 <pre tabindex="0"><code>sudo mysql -u root
 
 mysql&gt; USE mysql;
-mysql&gt; UPDATE user SET plugin='mysql_native_password' WHERE User='root';
+mysql&gt; UPDATE user SET plugin=&#39;mysql_native_password&#39; WHERE User=&#39;root&#39;;
 mysql&gt; FLUSH PRIVILEGES;
 mysql&gt; exit;
 

@@ -5,7 +5,16 @@
     <link>https://6923403.github.io/post/</link>
     <description>Recent content in Posts on Vcvc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 08 Mar 2022 17:47:59 +0800</lastBuildDate><atom:link href="https://6923403.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 01 Apr 2022 22:22:24 +0800</lastBuildDate><atom:link href="https://6923403.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ubuntu20_install_docker</title>
+      <link>https://6923403.github.io/post/ubuntu20_install_docker/</link>
+      <pubDate>Fri, 01 Apr 2022 22:22:24 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/ubuntu20_install_docker/</guid>
+      <description>https://zhuanlan.zhihu.com/p/143156163</description>
+    </item>
+    
     <item>
       <title>2022_03_08_随笔</title>
       <link>https://6923403.github.io/post/2022_03_08_note/</link>
@@ -124,7 +133,7 @@ VR/AR，谷歌+苹果的产品还是个概念，也不知道以后能不能赶�
       <pubDate>Fri, 14 Jan 2022 00:09:51 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/get_domain_ip_cpp/</guid>
-      <description>#https://blog.csdn.net/dosthing/article/details/80383817  std::string ip = &amp;#34;www.baidu.com&amp;#34;; struct hostent stHostent; struct hostent *pstHostent = nullptr; char **pptr = nullptr; char buf[2048] = &amp;#34;\0&amp;#34;; sprintf(buf,&amp;#34;%s&amp;#34;, &amp;#34;ip&amp;#34;); int iError; if((pstHostent = gethostbyname(buf)) == NULL || pstHostent-&amp;gt;h_addr_list == NULL || pstHostent-&amp;gt;h_addr_list[0] == NULL) { std::cout &amp;lt;&amp;lt; &amp;#34;can&amp;#39;t parse the domain&amp;#34; &amp;lt;&amp;lt; std::endl; exit(0); } else { std::cout &amp;lt;&amp;lt; &amp;#34;official hostname: &amp;#34; &amp;lt;&amp;lt; pstHostent-&amp;gt;h_name &amp;lt;&amp;lt; std::endl; for(pptr = pstHostent-&amp;gt;h_aliases; *pptr != NULL; pptr++) std::cout &amp;lt;&amp;lt; &amp;#34;alias: &amp;#34; &amp;lt;&amp;lt; *pptr &amp;lt;&amp;lt; std::endl; switch(pstHostent-&amp;gt;h_addrtype) { case AF_INET: case AF_INET6: pptr = pstHostent-&amp;gt;h_addr_list; for(; *pptr!</description>
+      <description>#https://blog.csdn.net/dosthing/article/details/80383817  std::string ip = &amp;#34;www.baidu.com&amp;#34;; struct hostent stHostent; struct hostent *pstHostent = nullptr; char **pptr = nullptr; char buf[2048] = &amp;#34;\0&amp;#34;; sprintf(buf,&amp;#34;%s&amp;#34;, &amp;#34;ip&amp;#34;); int iError; if((pstHostent = gethostbyname(buf)) == NULL || pstHostent-&amp;gt;h_addr_list == NULL || pstHostent-&amp;gt;h_addr_list[0] == NULL) {  std::cout &amp;lt;&amp;lt; &amp;#34;can&amp;#39;t parse the domain&amp;#34; &amp;lt;&amp;lt; std::endl;  exit(0); } else {  std::cout &amp;lt;&amp;lt; &amp;#34;official hostname: &amp;#34; &amp;lt;&amp;lt; pstHostent-&amp;gt;h_name &amp;lt;&amp;lt; std::endl;  for(pptr = pstHostent-&amp;gt;h_aliases; *pptr != NULL; pptr++)  std::cout &amp;lt;&amp;lt; &amp;#34;alias: &amp;#34; &amp;lt;&amp;lt; *pptr &amp;lt;&amp;lt; std::endl;  switch(pstHostent-&amp;gt;h_addrtype)  {  case AF_INET:  case AF_INET6:  pptr = pstHostent-&amp;gt;h_addr_list;  for(; *pptr!</description>
     </item>
     
     <item>
@@ -264,7 +273,7 @@ MBA智库百科
       <pubDate>Sat, 18 Dec 2021 17:36:22 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/ubuntu_install_mysql/</guid>
-      <description>安装mysql8.0 apt-get update apt-get install mysql-server  初始化 #初始化 mysql_secure_installation 1. NO 2. 输入密码 3. 其余全部默认 # 检查 systemctl status mysql.service 设置远程访问 #远程 vim /etc/mysql/mysql.conf.d/mysqld.cnf bind-address改为0.0.0.0 #重启 /etc/init.d/mysql restart #设置权限与密码 use mysql; ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED WITH mysql_native_password BY &#39;密码&#39;; #使用mysql_native_password修改加密规则 ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;密码&#39; PASSWORD EXPIRE NEVER; #更新一下用户的密码 UPDATE user SET host = &#39;%&#39; WHERE user = &#39;root&#39;; #允许远程访问 #刷新cache中配置 刷新权限 flush privileges; quit;  状态 #开启 service mysql start # 关闭 service mysql stop # 重启 service mysql restart # 状态 systemctl status mysql.</description>
+      <description>安装mysql8.0 apt-get update apt-get install mysql-server  初始化 #初始化 mysql_secure_installation 1. NO 2. 输入密码 3. 其余全部默认 # 检查 systemctl status mysql.service 设置远程访问 #远程 vim /etc/mysql/mysql.conf.d/mysqld.cnf bind-address改为0.0.0.0 #重启 /etc/init.d/mysql restart #设置权限与密码 use mysql; ALTER USER &amp;#39;root&amp;#39;@&amp;#39;localhost&amp;#39; IDENTIFIED WITH mysql_native_password BY &amp;#39;密码&amp;#39;; #使用mysql_native_password修改加密规则 ALTER USER &amp;#39;root&amp;#39;@&amp;#39;localhost&amp;#39; IDENTIFIED BY &amp;#39;密码&amp;#39; PASSWORD EXPIRE NEVER; #更新一下用户的密码 UPDATE user SET host = &amp;#39;%&amp;#39; WHERE user = &amp;#39;root&amp;#39;; #允许远程访问 #刷新cache中配置 刷新权限 flush privileges; quit;  状态 #开启 service mysql start # 关闭 service mysql stop # 重启 service mysql restart # 状态 systemctl status mysql.</description>
     </item>
     
     <item>
@@ -274,7 +283,7 @@ MBA智库百科
       
       <guid>https://6923403.github.io/post/typeid_get_class_name/</guid>
       <description>时间一长，模版跟继承还多容易忘，这样比看代码更效率些。
- template&amp;lt;typename T&amp;gt; TC_LockT&amp;lt;T&amp;gt;::TC_LockT(const T &amp;amp;mutex) { std::cout &amp;lt;&amp;lt; &amp;quot;1class name = &amp;quot; &amp;lt;&amp;lt; typeid(mutex).name() &amp;lt;&amp;lt; std::endl; std::cout &amp;lt;&amp;lt; &amp;quot;2class name = &amp;quot; &amp;lt;&amp;lt; typeid(*this).name() &amp;lt;&amp;lt; std::endl; } </description>
+ template&amp;lt;typename T&amp;gt; TC_LockT&amp;lt;T&amp;gt;::TC_LockT(const T &amp;amp;mutex) { std::cout &amp;lt;&amp;lt; &amp;#34;1class name = &amp;#34; &amp;lt;&amp;lt; typeid(mutex).name() &amp;lt;&amp;lt; std::endl; std::cout &amp;lt;&amp;lt; &amp;#34;2class name = &amp;#34; &amp;lt;&amp;lt; typeid(*this).name() &amp;lt;&amp;lt; std::endl; } </description>
     </item>
     
     <item>
@@ -284,7 +293,7 @@ MBA智库百科
       
       <guid>https://6923403.github.io/post/2007_apple_iphone/</guid>
       <description>过去就像现在, 也是未来。  2021_12_13日——随笔 需要提前想明天的新闻标题了。
-&amp;quot;市值突破3w亿，苹果是否还具有想象力？&amp;quot; “三万亿不追，等九万亿再追吗？” 亲身参与，体验果然不一般。
+&amp;#34;市值突破3w亿，苹果是否还具有想象力？&amp;#34; “三万亿不追，等九万亿再追吗？” 亲身参与，体验果然不一般。
 看好今晚的AAPL, 看好未来的AR。
 2021-12-14日：达到了2.99w亿，然后瞬间砸盘。 机器人都卡着线呢？
  2021_12_11_随笔 以下为11日随笔
@@ -377,7 +386,7 @@ https://bg.qianzhan.com/report/detail/300/200327-592d351b.html</description>
       
       <guid>https://6923403.github.io/post/ubuntu2010_install_vscode/</guid>
       <description>20.10有点下问题，得简单配置下
- 添加到bashrc 或zshrc cd ~ mkdir vscode alias code=&#39;code --user-data-dir $HOME/vscode&#39;  root运行 vim /usr/bin/code # 跟谷歌浏览器一样 添加 --no-sandbox </description>
+ 添加到bashrc 或zshrc cd ~ mkdir vscode alias code=&amp;#39;code --user-data-dir $HOME/vscode&amp;#39;  root运行 vim /usr/bin/code # 跟谷歌浏览器一样 添加 --no-sandbox </description>
     </item>
     
     <item>
@@ -756,7 +765,7 @@ If you want to enable the network disk function, run bypy info on the command li
       <pubDate>Tue, 24 Aug 2021 21:50:24 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/news-m%E5%AE%9A%E6%97%B6%E8%BF%90%E8%A1%8C/</guid>
-      <description>#把原来的main设置为start函数 在末尾添加如下代码即可 #https://blog.csdn.net/ainivip/article/details/106296599 if __name__ == &#39;__main__&#39;: while True: logger = logging.getLogger() logger.setLevel(logging.INFO) log_time = time.strftime(&amp;quot;%Y_%m_%d&amp;quot;, time.localtime()) # 刷新 logfile = &amp;quot;./&amp;quot; + log_time + &amp;quot;.log&amp;quot; fh = logging.FileHandler(logfile,mode=&#39;w&#39;) fh.setLevel(logging.INFO) while True: formatter = logging.Formatter(&amp;quot;%(asctime)s - %(filename)s[line:%(lineno)d] - %(levelname)s: %(message)s&amp;quot;) fh.setFormatter(formatter) logger.addHandler(fh) time_now = time.strftime(&amp;quot;%H&amp;quot;, time.localtime()) # 刷新 if time_now == &amp;quot;21&amp;quot; or time_now == &amp;quot;10&amp;quot;: # 设置要执行的时间 start() logger.info(&amp;quot;sleep(20000) start news_d&amp;quot;) time.sleep(1500) elif time_now == &amp;quot;00&amp;quot;: logger.info(&amp;quot;new day, log end&amp;quot;) time.</description>
+      <description>#把原来的main设置为start函数 在末尾添加如下代码即可 #https://blog.csdn.net/ainivip/article/details/106296599 if __name__ == &amp;#39;__main__&amp;#39;: while True: logger = logging.getLogger() logger.setLevel(logging.INFO) log_time = time.strftime(&amp;#34;%Y_%m_%d&amp;#34;, time.localtime()) # 刷新 logfile = &amp;#34;./&amp;#34; + log_time + &amp;#34;.log&amp;#34; fh = logging.FileHandler(logfile,mode=&amp;#39;w&amp;#39;) fh.setLevel(logging.INFO) while True: formatter = logging.Formatter(&amp;#34;%(asctime)s - %(filename)s[line:%(lineno)d] - %(levelname)s: %(message)s&amp;#34;) fh.setFormatter(formatter) logger.addHandler(fh) time_now = time.strftime(&amp;#34;%H&amp;#34;, time.localtime()) # 刷新 if time_now == &amp;#34;21&amp;#34; or time_now == &amp;#34;10&amp;#34;: # 设置要执行的时间 start() logger.info(&amp;#34;sleep(20000) start news_d&amp;#34;) time.sleep(1500) elif time_now == &amp;#34;00&amp;#34;: logger.info(&amp;#34;new day, log end&amp;#34;) time.</description>
     </item>
     
     <item>
@@ -775,7 +784,7 @@ nohup python3 main.py &amp;amp;  Re: https://help.aliyun.com/document_detail/425
       <pubDate>Sun, 22 Aug 2021 22:01:44 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/python%E6%AF%8F%E5%A4%A9%E5%9B%BA%E5%AE%9A%E6%97%B6%E9%97%B4%E8%BF%90%E8%A1%8C%E6%9F%90%E7%A8%8B%E5%BA%8F%E4%BB%A3%E7%A0%81/</guid>
-      <description>import time while True: time_now = time.strftime(&amp;quot;%H%M&amp;quot;, time.localtime()) # 刷新 if time_now == &amp;quot;00:01&amp;quot;: # 设置要执行的时间 # 要执行的代码 time.sleep(61) # 停止执行61秒，防止反复运行程序。 elif time_now == &amp;quot;08:01&amp;quot;: # 设置要执行的时间: # 要执行的代码 time.sleep(61) # 停止执行61秒，防止反复运行程序。 elif time_now == &amp;quot;16:01&amp;quot;: # 设置要执行的时间: # 要执行的代码 time.sleep(61) # 停止执行61秒，防止反复运行程序。  Re: 原文链接：https://blog.csdn.net/ainivip/article/details/106296599</description>
+      <description>import time while True: time_now = time.strftime(&amp;#34;%H%M&amp;#34;, time.localtime()) # 刷新 if time_now == &amp;#34;00:01&amp;#34;: # 设置要执行的时间 # 要执行的代码 time.sleep(61) # 停止执行61秒，防止反复运行程序。 elif time_now == &amp;#34;08:01&amp;#34;: # 设置要执行的时间: # 要执行的代码 time.sleep(61) # 停止执行61秒，防止反复运行程序。 elif time_now == &amp;#34;16:01&amp;#34;: # 设置要执行的时间: # 要执行的代码 time.sleep(61) # 停止执行61秒，防止反复运行程序。  Re: 原文链接：https://blog.csdn.net/ainivip/article/details/106296599</description>
     </item>
     
     <item>
@@ -830,7 +839,7 @@ http://cncc.bingj.com/cache.aspx?q=类的静态成员变量在另一个类赋值
       <description>macos11.4下 grpc-cpp安装
  lib brew install autoconf automake libtool shtool gflags cmake pkg-config  grpc-cpp git clone https://github.com/grpc/grpc.git git checkout -b v1.38.x # 下载所有子模块 git submodule update --init --recursive  protobuf3 install git clone https://github.com/google/protobuf.git cd protobuf git checkout v3.9.0 sh ./autogen.sh ./configure --prefix=/usr/local/protobuf/ make sudo make install 查看版本
 cd /usr/local/protobuf/bin/ ./protoc --version 将下面指令加入.bash_profiile中之后执行source ~/.bash_profile
-export PATH=$PATH:/usr/local/protobuf/bin/  grpc install cd grpc export MY_INSTALL_DIR=$HOME/.local mkdir -p $MY_INSTALL_DIR export PATH=&amp;quot;$MY_INSTALL_DIR/bin:$PATH&amp;quot; mkdir -p cmake/build pushd cmake/build cmake -DgRPC_INSTALL=ON \ -DgRPC_BUILD_TESTS=OFF \ -DCMAKE_INSTALL_PREFIX=$MY_INSTALL_DIR \ .</description>
+export PATH=$PATH:/usr/local/protobuf/bin/  grpc install cd grpc export MY_INSTALL_DIR=$HOME/.local mkdir -p $MY_INSTALL_DIR export PATH=&amp;#34;$MY_INSTALL_DIR/bin:$PATH&amp;#34; mkdir -p cmake/build pushd cmake/build cmake -DgRPC_INSTALL=ON \ -DgRPC_BUILD_TESTS=OFF \ -DCMAKE_INSTALL_PREFIX=$MY_INSTALL_DIR \ .</description>
     </item>
     
     <item>
@@ -853,7 +862,7 @@ https://blog.csdn.net/qq_34892981/article/details/110181452</description>
 sudo yum install docker-ce docker-ce-cli containerd.io -y --allowerasing  更换容器镜像 https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors
 cd /etc/docker
 vim daemon.json
-# url改成自己的加速器地址，亦可使用该地址 { &amp;quot;registry-mirrors&amp;quot;: [&amp;quot;https://k01sfudd.mirror.aliyuncs.com&amp;quot;] } systemctl daemon-reload systemctl restart docker  Re: https://blog.csdn.net/jcmj123456/article/details/117742182
+# url改成自己的加速器地址，亦可使用该地址 { &amp;#34;registry-mirrors&amp;#34;: [&amp;#34;https://k01sfudd.mirror.aliyuncs.com&amp;#34;] } systemctl daemon-reload systemctl restart docker  Re: https://blog.csdn.net/jcmj123456/article/details/117742182
 https://www.jianshu.com/p/6d9e725da273</description>
     </item>
     
@@ -863,7 +872,7 @@ https://www.jianshu.com/p/6d9e725da273</description>
       <pubDate>Fri, 09 Jul 2021 22:37:33 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/hanchengwang/</guid>
-      <description>几天前聚餐小饮一杯48度蒸馏酒，微醺。回家之, 看书有感，口出惊言: &amp;ldquo;道可道也&amp;hellip;， 生之，养之&amp;hellip;&amp;quot;
+      <description>几天前聚餐小饮一杯48度蒸馏酒，微醺。回家之, 看书有感，口出惊言: &amp;ldquo;道可道也&amp;hellip;， 生之，养之&amp;hellip;&amp;rdquo;
 趁着还有点意识利用以前写过的项目拼凑了一下获取了一部道德经
  https://github.com/6923403/hanchengwang.git   天下皆知美之为美, 恶已; 皆知善为善，斯不善矣。
   项目只需修改参数亦可下载其他古籍， 请自行研究使用
@@ -933,7 +942,7 @@ Client收到报文后，检查ack是否为J+1，ACK是否为1，如果正确则�
       <pubDate>Tue, 01 Jun 2021 15:57:31 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/chrono_use/</guid>
-      <description>时间戳获取 using namespace std::chrono; auto millisec_since_epoch = duration_cast&amp;lt;milliseconds&amp;gt;(system_clock::now().time_since_epoch()).count(); auto msec = duration_cast&amp;lt;microseconds&amp;gt;(system_clock::now().time_since_epoch()).count(); auto sec_since_epoch = duration_cast&amp;lt;seconds&amp;gt;(system_clock::now().time_since_epoch()).count(); std::cout &amp;lt;&amp;lt; &amp;quot;seconds since epoch: &amp;quot; &amp;lt;&amp;lt; sec_since_epoch &amp;lt;&amp;lt; std::endl; std::cout &amp;lt;&amp;lt; &amp;quot;milliseconds since epoch: &amp;quot; &amp;lt;&amp;lt; millisec_since_epoch &amp;lt;&amp;lt; std::endl;  秒seconds since epoch: 1622534342 微妙 milliseconds since epoch: 1622534342050   标准年月日+时间获取 std::time_t now = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now()); char re_time[256] = {0}; std::strftime(re_time, sizeof(re_time), &amp;quot;%Y-%m-%d %X&amp;quot;, std::localtime(&amp;amp;now)); std::cout &amp;lt;&amp;lt; “注册时间 ” &amp;lt;&amp;lt; re_time &amp;lt;&amp;lt; std::endl; 注册时间: 2021-06-01 15:56:42</description>
+      <description>时间戳获取 using namespace std::chrono; auto millisec_since_epoch = duration_cast&amp;lt;milliseconds&amp;gt;(system_clock::now().time_since_epoch()).count(); auto msec = duration_cast&amp;lt;microseconds&amp;gt;(system_clock::now().time_since_epoch()).count(); auto sec_since_epoch = duration_cast&amp;lt;seconds&amp;gt;(system_clock::now().time_since_epoch()).count(); std::cout &amp;lt;&amp;lt; &amp;#34;seconds since epoch: &amp;#34; &amp;lt;&amp;lt; sec_since_epoch &amp;lt;&amp;lt; std::endl; std::cout &amp;lt;&amp;lt; &amp;#34;milliseconds since epoch: &amp;#34; &amp;lt;&amp;lt; millisec_since_epoch &amp;lt;&amp;lt; std::endl;  秒seconds since epoch: 1622534342 微妙 milliseconds since epoch: 1622534342050   标准年月日+时间获取 std::time_t now = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now()); char re_time[256] = {0}; std::strftime(re_time, sizeof(re_time), &amp;#34;%Y-%m-%d %X&amp;#34;, std::localtime(&amp;amp;now)); std::cout &amp;lt;&amp;lt; “注册时间 ” &amp;lt;&amp;lt; re_time &amp;lt;&amp;lt; std::endl; 注册时间: 2021-06-01 15:56:42</description>
     </item>
     
     <item>
@@ -1013,11 +1022,10 @@ sudo add-apt-repository ppa:graphics-drivers/ppa sudo apt-get update #选择自�
       <pubDate>Sat, 24 Apr 2021 20:40:36 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/effective_cpp_2/</guid>
-      <description>条款41:了解隐式接口和编译期多态 template&amp;lt;typename T&amp;gt; void doProcessing (T&amp;amp; w) { if (w.size() &amp;gt; 10 &amp;amp;&amp;amp; w != someNastywidget) { T temp(w); temp.normalize(); temp.swap(w); } }  w必须支持哪一种接口,系由template中执行于w身上的操作来决定。 凡涉及w的任何函数调用,例如operator&amp;gt;和operator!,有可能造成template具现化(instantiated) ,使这些调用得以成功。这样的具现行为发生在编译期。“以不同的template参数具现化function templates&amp;quot;会导致调用不同的函数,这 便是所谓的编译期多态(compile-time polymorphism) 。  显式接口和隐式接口的差异
+      <description>条款41:了解隐式接口和编译期多态 template&amp;lt;typename T&amp;gt; void doProcessing (T&amp;amp; w) {  if (w.size() &amp;gt; 10 &amp;amp;&amp;amp; w != someNastywidget) {  T temp(w);  temp.normalize();  temp.swap(w);  } }  w必须支持哪一种接口,系由template中执行于w身上的操作来决定。 凡涉及w的任何函数调用,例如operator&amp;gt;和operator!,有可能造成template具现化(instantiated) ,使这些调用得以成功。这样的具现行为发生在编译期。“以不同的template参数具现化function templates&amp;quot;会导致调用不同的函数,这 便是所谓的编译期多态(compile-time polymorphism) 。  显式接口和隐式接口的差异
 显式接口由函数的签名式(也就是函数名称、参数类型、返回类型)构成。
  其public接口由一个构造函数、一个析构函数、函数及其参数类型、返回类型、常量性(constnesses)构成。当然也包括编译器产生的copy 构造函数和copy assignment操作符(见条款5) 。  隐式接口就完全不同了。它并不基于函数签名式,而是由有效表达式(valid expressions)组成。
-template&amp;lt;typename T&amp;gt; void doProcessing( T&amp;amp; w) { if (w.size() &amp;gt; 10 &amp;amp;&amp;amp; w != someNastywidget) { ... } }  它必须提供一个名为size的成员函数,该函数返回一个整数值。 它必须支持一个operator!=函数,用来比较两个T对象。这里我们假设 someNastyWidget的类型为T  本文要点
- classes和templates都支持接口(interfaces)和多态(polymorphism) 。 对classes而言接口是显式的(explicit),以函数签名为中心。多态则是通过virtual函数发生于运行期。 对template参数而言,接口是隐式的(implicit) ,奠基于有效表达式。多态则 是通过template具现化和函数重载解析(function overloading resolution)发生于编译期。   条款42: 了解typename的双重意义 template&amp;lt;class T&amp;gt; class widget; //使用&amp;#34;class&amp;#34; template&amp;lt;typename T&amp;gt; class Widget; //使用&amp;#34;typename&amp;#34;  C++并不总是把class和typename视为等价。有时候你一定得使用 typename。  template&amp;lt;typename C&amp;gt; void print2nd(const C&amp;amp; container) { if (container.</description>
+template&amp;lt;typename T&amp;gt; void doProcessing( T&amp;amp; w) {  if (w.size() &amp;gt; 10 &amp;amp;&amp;amp; w != someNastywidget) {  ...  } }  它必须提供一个名为size的成员函数,该函数返回一个整数值。 它必须支持一个operator!</description>
     </item>
     
     <item>
@@ -1041,7 +1049,7 @@ private继承：
 2）子类中由父类继承而来的成员（protected和public）都变为private。
 implemented-in-terms-of也可以由复合实现。在应用域，复合意味着has-a；在实现域，复合意味着is-implemented-in-terms-of。尽可能使用复合实现这种关系，必要时（涉及protected成员或virtual函数时）才使用private继承。
  原文链接：https://blog.csdn.net/kingzone_2008/article/details/10066181   虚继承 C++使用虚拟继承（Virtual Inheritance），解决从不同途径继承来的同名的数据成员在内存中有不同的拷贝造成数据不一致问题，将共同基类设置为虚基类。解决二义性。
-class sum {}; class a : virtual public sum { ... } class b : virtual public sum { ... }; class c:: public a, public b { ... }; </description>
+class sum {}; class a : virtual public sum {  ... }  class b : virtual public sum {  ... };  class c:: public a, public b {  .</description>
     </item>
     
     <item>
@@ -1055,14 +1063,12 @@ class sum {}; class a : virtual public sum { ... } class b : virtual public sum 
  条款02：尽量以 const，enum，inline替换#define 也可以说是 宁可以编译器替换预处理器
 #define 不被视为语言的一部分 当编译出错后你可能很难找到这个错误，从而浪费大量时间
 第二、 值得注意的是class专属常量。为了将常量的作用域（scope）限制于class内，你必须让它成为class的一个成员（member）；而为确保此常量至多只有一份实体，你必须让它成为一个static成员：
-class Gameplayer { private: static const int NumTurns = 5; //常量声明式  int scores[NumTurns]; ... }; 第三、 万一你的编译器（错误地）不允许“static整数型class常量”完成“in class初值设定”，可改用所谓的&amp;quot;the enum hack&amp;quot;补偿做法。其理论基础是：“一个属于枚举类型（enumerated type）的数值可权充ints被使用”
+class Gameplayer { private:  static const int NumTurns = 5; //常量声明式  int scores[NumTurns];  ... }; 第三、 万一你的编译器（错误地）不允许“static整数型class常量”完成“in class初值设定”，可改用所谓的&amp;quot;the enum hack&amp;quot;补偿做法。其理论基础是：“一个属于枚举类型（enumerated type）的数值可权充ints被使用”
 enum hack的行为某方面说比较像#define而不像const
-class Gameplayer { private: enum {NumTurns = 5}; int scores[NumTurns]; ... }; 本文要点
+class Gameplayer { private:  enum {NumTurns = 5};  int scores[NumTurns];  ... }; 本文要点
   对于单纯常量,最好以const对象或enums替换#defines.
   对于形似函数的宏(macros) ,最好改用inline函数替换#defines.
-   条款03: 尽可能使用const 如果关键字const出现在星号左边,表示被指物是常量;如果出现在星号右边,表示指针自身是常量;如果出现在星号两边,表示被指物和指针两者都是常量。
-作用
- 修饰变量，说明该变量不可以被改变； 修饰指针，分为指向常量的指针（pointer to const）和自身是常量的指针（常量指针，const pointer）； 修饰引用，指向常量的引用（reference to const），用于形参类型，即避免了拷贝，又避免了函数对值的修改； 修饰成员函数，说明该成员函数内不能修改成员变量。  char* p1 = greeting; // 指针变量，指向字符数组变量 const char* p2 = greeting; // 指针变量，指向字符数组常量（const 后面是 char，说明指向的字符（char）不可改变） char* const p3 = greeting; // 自身是常量的指针，指向字符数组变量（const 后面是 p3，说明 p3 指针自身不可改变） const char* const p4 = greeting; // 自身是常量的指针，指向字符数组常量  // 函数 void function1(const int Var); // 传递过来的参数在函数内不可变 void function2(const char* Var); // 参数指针所指内容为常量 void function3(char* const Var); // 参数指针为常量 void function4(const int&amp;amp; Var); // 引用参数在函数内为常量  // 函数返回值 const int function5(); // 返回一个常数 const int* function6(); // 返回一个指向常量的指针变量，使用：const int *p = function6(); int* const function7(); // 返回一个指向变量的常指针，使用：int* const p = function7(); const成员函数承诺绝不改变其对象的逻辑状态 (logical state) , non-const成员函数却没有这般承诺。如果在const函数内调用non-const函数,就是冒了这样的风险:你曾经承诺不改动的那个对象被改动了。这就是为什么&amp;quot;const成员函数调用non-const成员函数”是一种错误行为:因为对象有可能因此被改动。</description>
+   条款03: 尽可能使用const 如果关键字const出现在星号左边,表示被指物是常量;如果出现在星号右边,表示指针自身是常量;如果出现在星号两边,表示被指物和指针两者都是常量。</description>
     </item>
     
     <item>
@@ -1090,7 +1096,7 @@ TCP_IP | 计算机网络 https://6923403.github.io/post/computer_network/
 2、optstring: 表示短选项字符串。
 形式如“a:b::cd:“，分别表示程序支持的命令行短选项有-a、-b、-c、-d，冒号含义如下：
  只有一个字符，不带冒号——只表示选项， 如-c  一个字符，后接一个冒号——表示选项后面带一个参数，如-a 100 一个字符，后接两个冒号——表示选项后面带一个可选参数，即参数可有可无，如果带参数，则选项与参数直接不能有空格,形式应该如-b  3、longopts：表示长选项结构体。结构如下：
-struct option { const char *name; int has_arg; int *flag; int val; }; static struct option longOpts[] = { { &amp;quot;daemon&amp;quot;, no_argument, NULL, &#39;D&#39; }, { &amp;quot;dir&amp;quot;, required_argument, NULL, &#39;d&#39; }, { &amp;quot;out&amp;quot;, required_argument, NULL, &#39;o&#39; }, { &amp;quot;log&amp;quot;, required_argument, NULL, &#39;l&#39; }, { &amp;quot;split&amp;quot;, required_argument, NULL, &#39;s&#39; }, { &amp;quot;http-proxy&amp;quot;, required_argument, &amp;amp;lopt, 1 }, { &amp;quot;http-user&amp;quot;, required_argument, &amp;amp;lopt, 2 }, { &amp;quot;http-passwd&amp;quot;, required_argument, &amp;amp;lopt, 3 }, { &amp;quot;http-proxy-user&amp;quot;, required_argument, &amp;amp;lopt, 4 }, { &amp;quot;http-proxy-passwd&amp;quot;, required_argument, &amp;amp;lopt, 5 }, { &amp;quot;http-auth-scheme&amp;quot;, required_argument, &amp;amp;lopt, 6 }, { &amp;quot;version&amp;quot;, no_argument, NULL, &#39;v&#39; }, { &amp;quot;help&amp;quot;, no_argument, NULL, &#39;h&#39; }, { 0, 0, 0, 0 } }; (1)name:表示选项的名称,比如daemon,dir,out等。</description>
+struct option { const char *name; int has_arg; int *flag; int val; }; static struct option longOpts[] = { { &amp;#34;daemon&amp;#34;, no_argument, NULL, &amp;#39;D&amp;#39; }, { &amp;#34;dir&amp;#34;, required_argument, NULL, &amp;#39;d&amp;#39; }, { &amp;#34;out&amp;#34;, required_argument, NULL, &amp;#39;o&amp;#39; }, { &amp;#34;log&amp;#34;, required_argument, NULL, &amp;#39;l&amp;#39; }, { &amp;#34;split&amp;#34;, required_argument, NULL, &amp;#39;s&amp;#39; }, { &amp;#34;http-proxy&amp;#34;, required_argument, &amp;amp;lopt, 1 }, { &amp;#34;http-user&amp;#34;, required_argument, &amp;amp;lopt, 2 }, { &amp;#34;http-passwd&amp;#34;, required_argument, &amp;amp;lopt, 3 }, { &amp;#34;http-proxy-user&amp;#34;, required_argument, &amp;amp;lopt, 4 }, { &amp;#34;http-proxy-passwd&amp;#34;, required_argument, &amp;amp;lopt, 5 }, { &amp;#34;http-auth-scheme&amp;#34;, required_argument, &amp;amp;lopt, 6 }, { &amp;#34;version&amp;#34;, no_argument, NULL, &amp;#39;v&amp;#39; }, { &amp;#34;help&amp;#34;, no_argument, NULL, &amp;#39;h&amp;#39; }, { 0, 0, 0, 0 } }; (1)name:表示选项的名称,比如daemon,dir,out等。</description>
     </item>
     
     <item>
@@ -1254,7 +1260,7 @@ https://github.com/OpenIntelWireless/itlwm/releases/ #AirportItlwm https://5435.
       
       <guid>https://6923403.github.io/post/ubuntu20_install_opencv/</guid>
       <description>Ubuntu20.04.1LTS 2020-01-14-Successful
- lib Install apt-get install -y build-essential pkg-config cmake apt-get install -y libgtk2.0-dev libavcodec-dev libavformat-dev libjpeg-dev libswscale-dev libtiff5-dev  Download github: git clone https://github.com/opencv/opencv.git gitee: git clone https://gitee.com/mirrors/opencv.git  Install cd opencv mkdir build cd build cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D WITH_GTK=ON -D OPENCV_GENERATE_PKGCONFIG=YES .. make -j4 make install  Set echo &amp;quot;include /usr/loacal/lib&amp;quot; &amp;gt;&amp;gt; /etc/ld.so.conf ldconfig echo &amp;quot;PKG_CONFIG_PATH=\$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig&amp;quot; &amp;gt;&amp;gt; /etc/bash.bashrc echo &amp;quot;export PKG_CONFIG_PATH&amp;quot; &amp;gt;&amp;gt; /etc/bash.bashrc  Show version pkg-config --modversion opencv4 pkg-config --cflags opencv4 pkg-config --libs opencv4 </description>
+ lib Install apt-get install -y build-essential pkg-config cmake apt-get install -y libgtk2.0-dev libavcodec-dev libavformat-dev libjpeg-dev libswscale-dev libtiff5-dev  Download github: git clone https://github.com/opencv/opencv.git gitee: git clone https://gitee.com/mirrors/opencv.git  Install cd opencv mkdir build cd build cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D WITH_GTK=ON -D OPENCV_GENERATE_PKGCONFIG=YES .. make -j4 make install  Set echo &amp;#34;include /usr/loacal/lib&amp;#34; &amp;gt;&amp;gt; /etc/ld.so.conf ldconfig echo &amp;#34;PKG_CONFIG_PATH=\$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig&amp;#34; &amp;gt;&amp;gt; /etc/bash.bashrc echo &amp;#34;export PKG_CONFIG_PATH&amp;#34; &amp;gt;&amp;gt; /etc/bash.bashrc  Show version pkg-config --modversion opencv4 pkg-config --cflags opencv4 pkg-config --libs opencv4 </description>
     </item>
     
     <item>
@@ -1274,7 +1280,7 @@ https://github.com/OpenIntelWireless/itlwm/releases/ #AirportItlwm https://5435.
       
       <guid>https://6923403.github.io/post/pymysql_err_1698/</guid>
       <description>pymysql.err.OperationalError: (1698, “Access denied for user ‘root’@‘localhost’”)
-sudo mysql -u root mysql&amp;gt; USE mysql; mysql&amp;gt; UPDATE user SET plugin=&#39;mysql_native_password&#39; WHERE User=&#39;root&#39;; mysql&amp;gt; FLUSH PRIVILEGES; mysql&amp;gt; exit; service mysql restart </description>
+sudo mysql -u root mysql&amp;gt; USE mysql; mysql&amp;gt; UPDATE user SET plugin=&amp;#39;mysql_native_password&amp;#39; WHERE User=&amp;#39;root&amp;#39;; mysql&amp;gt; FLUSH PRIVILEGES; mysql&amp;gt; exit; service mysql restart </description>
     </item>
     
     <item>
@@ -1325,7 +1331,7 @@ https://blog.csdn.net/chpllp/article/details/54381141</description>
       <pubDate>Sun, 15 Nov 2020 19:14:58 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/opepyxl_sytle/</guid>
-      <description>font(字体类)：字号、字体颜色、下划线等 fill(填充类)：颜色等 border(边框类)：设置单元格边框 alignment(位置类)：对齐方式 number_format(格式类)：数据格式 protection(保护类)：写保护   &amp;gt;&amp;gt;&amp;gt; from openpyxl.styles import PatternFill, Border, Side, Alignment, Protection, Font &amp;gt;&amp;gt;&amp;gt; font = Font(name=&#39;Calibri&#39;, size=11, bold=False, italic=False, vertAlign=None, underline=&#39;none&#39;, strike=False, color=&#39;FF000000&#39;) &amp;gt;&amp;gt;&amp;gt; fill = PatternFill(fill_type=None, start_color=&#39;FFFFFFFF&#39;, end_color=&#39;FF000000&#39;) &amp;gt;&amp;gt;&amp;gt; border = Border(left=Side(border_style=None, color=&#39;FF000000&#39;), right=Side(border_style=None, color=&#39;FF000000&#39;), top=Side(border_style=None, color=&#39;FF000000&#39;), bottom=Side(border_style=None, color=&#39;FF000000&#39;), diagonal=Side(border_style=None, color=&#39;FF000000&#39;), diagonal_direction=0, outline=Side(border_style=None, color=&#39;FF000000&#39;), vertical=Side(border_style=None, color=&#39;FF000000&#39;), horizontal=Side(border_style=None, color=&#39;FF000000&#39;) ) &amp;gt;&amp;gt;&amp;gt; alignment=Alignment(horizontal=&#39;general&#39;, vertical=&#39;bottom&#39;, text_rotation=0, wrap_text=False, shrink_to_fit=False, indent=0) &amp;gt;&amp;gt;&amp;gt; number_format = &#39;General&#39; &amp;gt;&amp;gt;&amp;gt; protection = Protection(locked=True, hidden=False) 以上几种样式（字体、填充、边框、位置和保护）实例一旦被创建实例的属性就不可更改，只能重新创建实例。</description>
+      <description>font(字体类)：字号、字体颜色、下划线等 fill(填充类)：颜色等 border(边框类)：设置单元格边框 alignment(位置类)：对齐方式 number_format(格式类)：数据格式 protection(保护类)：写保护   &amp;gt;&amp;gt;&amp;gt; from openpyxl.styles import PatternFill, Border, Side, Alignment, Protection, Font &amp;gt;&amp;gt;&amp;gt; font = Font(name=&amp;#39;Calibri&amp;#39;, size=11, bold=False, italic=False, vertAlign=None, underline=&amp;#39;none&amp;#39;, strike=False, color=&amp;#39;FF000000&amp;#39;) &amp;gt;&amp;gt;&amp;gt; fill = PatternFill(fill_type=None, start_color=&amp;#39;FFFFFFFF&amp;#39;, end_color=&amp;#39;FF000000&amp;#39;) &amp;gt;&amp;gt;&amp;gt; border = Border(left=Side(border_style=None, color=&amp;#39;FF000000&amp;#39;), right=Side(border_style=None, color=&amp;#39;FF000000&amp;#39;), top=Side(border_style=None, color=&amp;#39;FF000000&amp;#39;), bottom=Side(border_style=None, color=&amp;#39;FF000000&amp;#39;), diagonal=Side(border_style=None, color=&amp;#39;FF000000&amp;#39;), diagonal_direction=0, outline=Side(border_style=None, color=&amp;#39;FF000000&amp;#39;), vertical=Side(border_style=None, color=&amp;#39;FF000000&amp;#39;), horizontal=Side(border_style=None, color=&amp;#39;FF000000&amp;#39;) ) &amp;gt;&amp;gt;&amp;gt; alignment=Alignment(horizontal=&amp;#39;general&amp;#39;, vertical=&amp;#39;bottom&amp;#39;, text_rotation=0, wrap_text=False, shrink_to_fit=False, indent=0) &amp;gt;&amp;gt;&amp;gt; number_format = &amp;#39;General&amp;#39; &amp;gt;&amp;gt;&amp;gt; protection = Protection(locked=True, hidden=False) 以上几种样式（字体、填充、边框、位置和保护）实例一旦被创建实例的属性就不可更改，只能重新创建实例。</description>
     </item>
     
     <item>
@@ -1336,7 +1342,7 @@ https://blog.csdn.net/chpllp/article/details/54381141</description>
       <guid>https://6923403.github.io/post/vim_config/</guid>
       <description>编译安装 #https://www.cnblogs.com/JoiT/p/build_from_source_for_linux_vim.html apt install libncurses5-dev libgtk2.0-dev libatk1.0-dev \ libcairo2-dev libx11-dev libxpm-dev libxt-dev apt-get remove --purge vim-tiny vim vim-runtime gvim vim-common vim-gui-common vim-nox ./configure --with-features=huge \ --enable-multibyte \ --enable-gui=gtk3 \ --enable-cscope \ --prefix=/usr/local make make install  主题配置 首先要确认你的终端支持真彩，一般来说，主流的比如iTerm2, Putty, Powershell的最新版本都已经支持了。我们可以运行以下命令检测一下
 (echo -e &#39;\e[48:2:1:2:3m\eP$qm\e\\&#39; ; xxd)
-&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot; &amp;quot;&amp;quot;&amp;quot;=&amp;gt;全局配置&amp;lt;=&amp;quot;&amp;quot;&amp;quot; &amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot; &amp;quot;关闭vi兼容模式&amp;quot; set nocompatible &amp;quot;设置历史记录步数&amp;quot; set history=1000 &amp;quot;开启相关插件&amp;quot; &amp;quot;侦测文件类型&amp;quot; filetype on &amp;quot;载入文件类型插件&amp;quot; filetype plugin on &amp;quot;为特定文件类型载入相关缩进文件&amp;quot; filetype indent on &amp;quot;当文件在外部被修改时，自动更新该文件&amp;quot; set autoread &amp;quot;激活鼠标的使用&amp;quot; set mouse=a set selection=exclusive set selectmode=mouse,key &amp;quot;保存全局变量&amp;quot; set viminfo+=!</description>
+&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34; &amp;#34;&amp;#34;&amp;#34;=&amp;gt;全局配置&amp;lt;=&amp;#34;&amp;#34;&amp;#34; &amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34; &amp;#34;关闭vi兼容模式&amp;#34; set nocompatible &amp;#34;设置历史记录步数&amp;#34; set history=1000 &amp;#34;开启相关插件&amp;#34; &amp;#34;侦测文件类型&amp;#34; filetype on &amp;#34;载入文件类型插件&amp;#34; filetype plugin on &amp;#34;为特定文件类型载入相关缩进文件&amp;#34; filetype indent on &amp;#34;当文件在外部被修改时，自动更新该文件&amp;#34; set autoread &amp;#34;激活鼠标的使用&amp;#34; set mouse=a set selection=exclusive set selectmode=mouse,key &amp;#34;保存全局变量&amp;#34; set viminfo+=!</description>
     </item>
     
     <item>
@@ -1346,7 +1352,7 @@ https://blog.csdn.net/chpllp/article/details/54381141</description>
       
       <guid>https://6923403.github.io/post/cppconst/</guid>
       <description>const 作用
- 修饰变量，变量不可以被改变； 修饰指针，分为指向常量的指针（pointer to const）和自身是常量的指针（常量指针，const pointer）； 修饰引用，指向常量的引用（reference to const），用于形参类型，即避免了拷贝，又避免了函数对值的修改； 修饰成员函数，说明该成员函数内不能修改成员变量。   // 类 class A { private: const int a; // 常对象成员，只能在初始化列表赋值 public: // 构造函数 A() : a(0) { }; A(int x) : a(x) { }; // 初始化列表 // const可用于对重载函数的区分 int getValue(); // 普通成员函数 int getValue() const; // 常成员函数，不得修改类中的任何数据成员的值 }; void function() { // 对象 A b; // 普通对象，可以调用全部成员函数、更新常成员变量 const A a; // 常对象，只能调用常成员函数 const A *p = &amp;amp;a; // 指针变量，指向常对象 const A &amp;amp;q = a; // 指向常对象的引用 // 指针 char greeting[] = &amp;quot;Hello&amp;quot;; char* p1 = greeting; // 指针变量，指向字符数组变量 const char* p2 = greeting; // 指针变量，指向字符数组常量（const 后面是 char，说明指向的字符（char）不可改变） char* const p3 = greeting; // 自身是常量的指针，指向字符数组变量（const 后面是 p3，说明 p3 指针自身不可改变） const char* const p4 = greeting; // 自身是常量的指针，指向字符数组常量 } // 函数 void function1(const int Var); // 传递过来的参数在函数内不可变 void function2(const char* Var); // 参数指针所指内容为常量 void function3(char* const Var); // 参数指针为常量 void function4(const int&amp;amp; Var); // 引用参数在函数内为常量 // 函数返回值 const int function5(); // 返回一个常数 const int* function6(); // 返回一个指向常量的指针变量，使用：const int *p = function6(); int* const function7(); // 返回一个指向变量的常指针，使用：int* const p = function7();  const 的指针与引用  指针  指向常量的指针（pointer to const） 自身是常量的指针（常量指针，const pointer）   引用  指向常量的引用（reference to const） 没有 const reference，因为引用本身就是 const pointer     用法小结 指针</description>
+ 修饰变量，变量不可以被改变； 修饰指针，分为指向常量的指针（pointer to const）和自身是常量的指针（常量指针，const pointer）； 修饰引用，指向常量的引用（reference to const），用于形参类型，即避免了拷贝，又避免了函数对值的修改； 修饰成员函数，说明该成员函数内不能修改成员变量。   // 类 class A { private: const int a; // 常对象成员，只能在初始化列表赋值 public: // 构造函数 A() : a(0) { }; A(int x) : a(x) { }; // 初始化列表 // const可用于对重载函数的区分 int getValue(); // 普通成员函数 int getValue() const; // 常成员函数，不得修改类中的任何数据成员的值 }; void function() { // 对象 A b; // 普通对象，可以调用全部成员函数、更新常成员变量 const A a; // 常对象，只能调用常成员函数 const A *p = &amp;amp;a; // 指针变量，指向常对象 const A &amp;amp;q = a; // 指向常对象的引用 // 指针 char greeting[] = &amp;#34;Hello&amp;#34;; char* p1 = greeting; // 指针变量，指向字符数组变量 const char* p2 = greeting; // 指针变量，指向字符数组常量（const 后面是 char，说明指向的字符（char）不可改变） char* const p3 = greeting; // 自身是常量的指针，指向字符数组变量（const 后面是 p3，说明 p3 指针自身不可改变） const char* const p4 = greeting; // 自身是常量的指针，指向字符数组常量 } // 函数 void function1(const int Var); // 传递过来的参数在函数内不可变 void function2(const char* Var); // 参数指针所指内容为常量 void function3(char* const Var); // 参数指针为常量 void function4(const int&amp;amp; Var); // 引用参数在函数内为常量 // 函数返回值 const int function5(); // 返回一个常数 const int* function6(); // 返回一个指向常量的指针变量，使用：const int *p = function6(); int* const function7(); // 返回一个指向变量的常指针，使用：int* const p = function7();  const 的指针与引用  指针  指向常量的指针（pointer to const） 自身是常量的指针（常量指针，const pointer）   引用  指向常量的引用（reference to const） 没有 const reference，因为引用本身就是 const pointer     用法小结 指针</description>
     </item>
     
     <item>
@@ -1449,7 +1455,7 @@ https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/</descriptio
       <pubDate>Mon, 21 Sep 2020 13:32:22 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/install_redis/</guid>
-      <description>升级GCC yum -y install centos-release-scl yum -y install devtoolset-9-gcc devtoolset-9-gcc-c++ devtoolset-9-binutils scl enable devtoolset-9 bash echo &amp;quot;source /opt/rh/devtoolset-9/enable&amp;quot; &amp;gt;&amp;gt; /etc/profile gcc -v  安装redis wget http://download.redis.io/releases/redis-6.0.8.tar.gz tar -xvf redis-6.0.8/tar/gz cd redis make -j4 make install PREFIX=/usr/local/redis  配置redis cd redis cp redis.conf /usr/local/redis/bin/ vim /usr/local/redis/bin/redis.conf
+      <description>升级GCC yum -y install centos-release-scl yum -y install devtoolset-9-gcc devtoolset-9-gcc-c++ devtoolset-9-binutils scl enable devtoolset-9 bash echo &amp;#34;source /opt/rh/devtoolset-9/enable&amp;#34; &amp;gt;&amp;gt; /etc/profile gcc -v  安装redis wget http://download.redis.io/releases/redis-6.0.8.tar.gz tar -xvf redis-6.0.8/tar/gz cd redis make -j4 make install PREFIX=/usr/local/redis  配置redis cd redis cp redis.conf /usr/local/redis/bin/ vim /usr/local/redis/bin/redis.conf
 daemonize no 改为 daemonize yes  开机自启 vim /etc/systemd/system/redis.service
 [Unit] Description=redis-server After=network.target [Service] Type=forking ExecStart=/usr/local/redis/bin/redis-server /usr/local/redis/bin/redis.conf PrivateTmp=true [Install] WantedBy=multi-user.target systemctl daemon-reload ln -s /usr/local/redis/bin/redis-cli /usr/bin/redis systemctl start redis.</description>
     </item>
@@ -1470,7 +1476,7 @@ daemonize no 改为 daemonize yes  开机自启 vim /etc/systemd/system/redis.se
 8.执行下面命令进行安全设置 这个命令会进行设置root密码设置，移除匿名用户，禁止root用户远程连接等
 mysql_secure_installation
 9.设置数据库编码为utf8 sudo vim /etc/my.cnf
-[client] default-character-set=utf8 [mysql] default-character-set=utf8 [mysqld] collation-server = utf8_unicode_ci init-connect=&#39;SET NAMES utf8&#39; character-set-server = utf8 reboot sudo systemctl restart mysqld</description>
+[client] default-character-set=utf8 [mysql] default-character-set=utf8 [mysqld] collation-server = utf8_unicode_ci init-connect=&amp;#39;SET NAMES utf8&amp;#39; character-set-server = utf8 reboot sudo systemctl restart mysqld</description>
     </item>
     
     <item>
@@ -1487,7 +1493,7 @@ mysql_secure_installation
 use vctest select city, phone, country from `offices`; SELECT语句由以下列表中所述的几个子句组成：
 语句中的SELECT和FROM语句是必须的，其他部分是可选的。
  SELECT之后是逗号分隔列或星号(*)的列表，表示要返回所有列。 FROM指定要查询数据的表或视图。 JOIN根据某些连接条件从其他表中获取数据。 WHERE过滤结果集中的行。 GROUP BY将一组行组合成小分组，并对每个小分组应用聚合函数。 HAVING过滤器基于GROUP BY子句定义的小分组。 ORDER BY指定用于排序的列的列表。 LIMIT限制返回行的数量。  即使WHERE子句出现在语句的末尾，但MySQL会首先使用WHERE子句中的表达式来选择匹配的行。
-SELECT lastname, firstname, jobtitle FROM employees WHERE jobtitle = &#39;Sales Rep&#39;;  INSERT 创建表</description>
+SELECT lastname, firstname, jobtitle FROM employees WHERE jobtitle = &amp;#39;Sales Rep&amp;#39;;  INSERT 创建表</description>
     </item>
     
     <item>
@@ -1588,8 +1594,8 @@ struct sockaddr_in { short int sin_family; /* Address family */ unsigned short i
       <pubDate>Sun, 30 Aug 2020 19:57:05 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/move/</guid>
-      <description>#include &amp;lt;iostream&amp;gt; #include &amp;lt;utility&amp;gt; #include &amp;lt;vector&amp;gt; #include &amp;lt;string&amp;gt; int main() { std::string str = &amp;quot;Hello&amp;quot;; std::vector&amp;lt;std::string&amp;gt; v; //调用常规的拷贝构造函数，新建字符数组，拷贝数据 v.push_back(str); std::cout &amp;lt;&amp;lt; &amp;quot;After copy, str is \&amp;quot;&amp;quot; &amp;lt;&amp;lt; str &amp;lt;&amp;lt; &amp;quot;\&amp;quot;\n&amp;quot;; //调用移动构造函数，掏空str，掏空后，最好不要使用str v.push_back(std::move(str)); std::cout &amp;lt;&amp;lt; &amp;quot;After move, str is \&amp;quot;&amp;quot; &amp;lt;&amp;lt; str &amp;lt;&amp;lt; &amp;quot;\&amp;quot;\n&amp;quot;; std::cout &amp;lt;&amp;lt; &amp;quot;The contents of the vector are \&amp;quot;&amp;quot; &amp;lt;&amp;lt; v[0] &amp;lt;&amp;lt; &amp;quot;\&amp;quot;, \&amp;quot;&amp;quot; &amp;lt;&amp;lt; v[1] &amp;lt;&amp;lt; &amp;quot;\&amp;quot;\n&amp;quot;; } Cout:
-After copy, str is &amp;quot;Hello&amp;quot; After move, str is &amp;quot;&amp;quot; The contents of the vector are &amp;quot;Hello&amp;quot;, &amp;quot;Hello&amp;quot;  函数原型 template &amp;lt;typename T&amp;gt; typename remove_reference&amp;lt;T&amp;gt;::type&amp;amp;&amp;amp; move(T&amp;amp;&amp;amp; t) { return static_cast&amp;lt;typename remove_reference&amp;lt;T&amp;gt;::type&amp;amp;&amp;amp;&amp;gt;(t); }  原型定义中的原理实现: 公式一）X&amp;amp; &amp;amp;、X&amp;amp;&amp;amp; &amp;amp;、X&amp;amp; &amp;amp;&amp;amp;都折叠成X&amp;amp;，用于处理左值</description>
+      <description>#include &amp;lt;iostream&amp;gt; #include &amp;lt;utility&amp;gt; #include &amp;lt;vector&amp;gt; #include &amp;lt;string&amp;gt; int main() { std::string str = &amp;#34;Hello&amp;#34;; std::vector&amp;lt;std::string&amp;gt; v; //调用常规的拷贝构造函数，新建字符数组，拷贝数据 v.push_back(str); std::cout &amp;lt;&amp;lt; &amp;#34;After copy, str is \&amp;#34;&amp;#34; &amp;lt;&amp;lt; str &amp;lt;&amp;lt; &amp;#34;\&amp;#34;\n&amp;#34;; //调用移动构造函数，掏空str，掏空后，最好不要使用str v.push_back(std::move(str)); std::cout &amp;lt;&amp;lt; &amp;#34;After move, str is \&amp;#34;&amp;#34; &amp;lt;&amp;lt; str &amp;lt;&amp;lt; &amp;#34;\&amp;#34;\n&amp;#34;; std::cout &amp;lt;&amp;lt; &amp;#34;The contents of the vector are \&amp;#34;&amp;#34; &amp;lt;&amp;lt; v[0] &amp;lt;&amp;lt; &amp;#34;\&amp;#34;, \&amp;#34;&amp;#34; &amp;lt;&amp;lt; v[1] &amp;lt;&amp;lt; &amp;#34;\&amp;#34;\n&amp;#34;; } Cout:
+After copy, str is &amp;#34;Hello&amp;#34; After move, str is &amp;#34;&amp;#34; The contents of the vector are &amp;#34;Hello&amp;#34;, &amp;#34;Hello&amp;#34;  函数原型 template &amp;lt;typename T&amp;gt; typename remove_reference&amp;lt;T&amp;gt;::type&amp;amp;&amp;amp; move(T&amp;amp;&amp;amp; t) { return static_cast&amp;lt;typename remove_reference&amp;lt;T&amp;gt;::type&amp;amp;&amp;amp;&amp;gt;(t); }  原型定义中的原理实现: 公式一）X&amp;amp; &amp;amp;、X&amp;amp;&amp;amp; &amp;amp;、X&amp;amp; &amp;amp;&amp;amp;都折叠成X&amp;amp;，用于处理左值</description>
     </item>
     
     <item>
@@ -1671,7 +1677,7 @@ https://blog.csdn.net/u010144805/article/details/78579528
       
       <guid>https://6923403.github.io/post/docker_tutorial/</guid>
       <description>2021-5-30 更新 老方法不行了
-Install docker apt-get install apt-transport-https ca-certificates software-properties-common curl curl -fsSL https://download.docker.com/linux/ubuntu/gpg|sudo apt-key add - sudo add-apt-repository &amp;quot;deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu \ $(lsb_release -cs) stable&amp;quot; apt-get update apt-get install docker-ce docker run hello-world # 重启 service docker restart  Compose https://gitee.com/xipushi/dockercompose.git chmod +x docker-compose-Linux-x86_64 mv docker-compose-Linux-x86_64 docker-compose cp /use/local/bin docker-compose --version  Dockerfile # from based nginx # run start FROM nginx # exec: RUN[&amp;quot;./go&amp;quot;, &amp;quot;dev&amp;quot;, &amp;quot;offline&amp;quot;] RUN echo &#39;Nginx image&#39; &amp;gt; /usr/share/nginx/html/index.</description>
+Install docker apt-get install apt-transport-https ca-certificates software-properties-common curl curl -fsSL https://download.docker.com/linux/ubuntu/gpg|sudo apt-key add - sudo add-apt-repository &amp;#34;deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu \ $(lsb_release -cs) stable&amp;#34; apt-get update apt-get install docker-ce docker run hello-world # 重启 service docker restart  Compose https://gitee.com/xipushi/dockercompose.git chmod +x docker-compose-Linux-x86_64 mv docker-compose-Linux-x86_64 docker-compose cp /use/local/bin docker-compose --version  Dockerfile # from based nginx # run start FROM nginx # exec: RUN[&amp;#34;./go&amp;#34;, &amp;#34;dev&amp;#34;, &amp;#34;offline&amp;#34;] RUN echo &amp;#39;Nginx image&amp;#39; &amp;gt; /usr/share/nginx/html/index.</description>
     </item>
     
     <item>
@@ -1743,7 +1749,7 @@ shared_ptr&amp;lt;int&amp;gt; p = make_shared&amp;lt;int&amp;gt;(42); 返回一�
       <pubDate>Thu, 30 Jul 2020 18:04:47 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/arch_desktop/</guid>
-      <description>1. install xorg systemctl enable dhcpcd pacman -S xorg-server xorg-xinit  install tool pacman -S zsh alacritty fctix fcitx-im fcitx-configtool i3 git sh -c &amp;quot;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&amp;quot;  install ttf pacman -S ttf-liberation pacman -S adobe-source-han-sans-cn-fonts pacman -S adobe-source-han-sans-tw-fonts pacman -S adobe-source-han-sans-jp-fonts  add user 这一步随意
+      <description>1. install xorg systemctl enable dhcpcd pacman -S xorg-server xorg-xinit  install tool pacman -S zsh alacritty fctix fcitx-im fcitx-configtool i3 git sh -c &amp;#34;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&amp;#34;  install ttf pacman -S ttf-liberation pacman -S adobe-source-han-sans-cn-fonts pacman -S adobe-source-han-sans-tw-fonts pacman -S adobe-source-han-sans-jp-fonts  add user 这一步随意
 useradd -m -g users -s /bin/zsh xxxx #添加xxxx用户，用户名你自定义 passwd xxxx #为xxxx用户设置密码 vim /etc/sudoers #编辑配置文件 在root ALL = (ALL) ALL下添加xxxx ALL = (ALL) ALL;输入:wq!强制保存退出vim login new user touch .</description>
     </item>
     
@@ -1771,7 +1777,7 @@ timedatectl set-ntp true  2. Partition the disks cfdisk /dev/sda #choose gpt Mov
       
       <guid>https://6923403.github.io/post/hugomarkdown/</guid>
       <description>0. Hugo &amp;amp; Markdown Hugo &amp;amp;&amp;amp; MarkDown
- 1. MarkDown template --- title: &amp;quot;{{ replace .Name &amp;quot;-&amp;quot; &amp;quot; &amp;quot; | title }}&amp;quot; date: {{ .Date }} lastmod: {{ .Date }} draft: false tags: [ ] categories: [ ] comment: true ---  2. Hugo command hugo #build html havn&#39;t draft=true hugo -D #build html and dragt=true hugo server #Start hugo server  3. Other Reference</description>
+ 1. MarkDown template --- title: &amp;#34;{{ replace .Name &amp;#34;-&amp;#34; &amp;#34; &amp;#34; | title }}&amp;#34; date: {{ .Date }} lastmod: {{ .Date }} draft: false tags: [ ] categories: [ ] comment: true ---  2. Hugo command hugo #build html havn&amp;#39;t draft=true hugo -D #build html and dragt=true hugo server #Start hugo server  3. Other Reference</description>
     </item>
     
     <item>
@@ -1781,7 +1787,7 @@ timedatectl set-ntp true  2. Partition the disks cfdisk /dev/sda #choose gpt Mov
       
       <guid>https://6923403.github.io/post/variable_function/</guid>
       <description>void fun(char * fmt, &amp;hellip;); int vsprintf(char *str, const char *format, va_list arg);
-  Test programming #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;stdarg.h&amp;gt; /* * Re: https://github.com/antirez/kilo/kilo.c * Re: https://www.runoob.com/cprogramming/c-function-vsprintf.html */ char buffer[80]; int editorSetstatus(const char * fmt, ...) { va_list ap; va_start(ap, fmt); int ret; ret = vsnprintf(buffer, sizeof(buffer - 1), fmt, ap); va_end(ap); return (ret); } int main(int argc, char **argv) { int len = 20; editorSetstatus(&amp;quot;%d&amp;quot;, len); printf(&amp;quot;%s \n&amp;quot;, buffer); return 0; }  gcc -Wall -g fun.</description>
+  Test programming #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;stdarg.h&amp;gt; /* * Re: https://github.com/antirez/kilo/kilo.c * Re: https://www.runoob.com/cprogramming/c-function-vsprintf.html */ char buffer[80]; int editorSetstatus(const char * fmt, ...) { va_list ap; va_start(ap, fmt); int ret; ret = vsnprintf(buffer, sizeof(buffer - 1), fmt, ap); va_end(ap); return (ret); } int main(int argc, char **argv) { int len = 20; editorSetstatus(&amp;#34;%d&amp;#34;, len); printf(&amp;#34;%s \n&amp;#34;, buffer); return 0; }  gcc -Wall -g fun.</description>
     </item>
     
     <item>
@@ -1791,7 +1797,7 @@ timedatectl set-ntp true  2. Partition the disks cfdisk /dev/sda #choose gpt Mov
       
       <guid>https://6923403.github.io/post/linux_install_boost/</guid>
       <description>Boost C++ is Cpp programming language that provides support for tasks and structures
- Download Source https://dl.bintray.com/boostorg/release/1.73.0/source/boost_1_73_0.tar.gz tar zxvf boost(解压)  Set use GCC cd boost ./bootstrap.sh --with-libraries=all --with-toolset=gcc  Compile &amp;amp; Install boost ./b2 toolset=gcc ./b2 install --prefix=/usr  Test programming #include &amp;lt;boost/thread/thread.hpp&amp;gt; //boost thread #include &amp;lt;iostream&amp;gt; #include &amp;lt;cstdlib&amp;gt; using namespace std; volatile bool isRuning = true; void func1() { static int cnt1 = 0; while(isRuning) { cout &amp;lt;&amp;lt; &amp;quot;func1:&amp;quot; &amp;lt;&amp;lt; cnt1++ &amp;lt;&amp;lt; endl; sleep(1); } } void func2() { static int cnt2 = 0; while(isRuning) { cout &amp;lt;&amp;lt; &amp;quot;\tfunc2:&amp;quot; &amp;lt;&amp;lt; cnt2++ &amp;lt;&amp;lt; endl; sleep(2); } } int main() { boost::thread thread1(&amp;amp;func1); boost::thread thread2(&amp;amp;func2); system(&amp;quot;read&amp;quot;); isRuning = false; thread2.</description>
+ Download Source https://dl.bintray.com/boostorg/release/1.73.0/source/boost_1_73_0.tar.gz tar zxvf boost(解压)  Set use GCC cd boost ./bootstrap.sh --with-libraries=all --with-toolset=gcc  Compile &amp;amp; Install boost ./b2 toolset=gcc ./b2 install --prefix=/usr  Test programming #include &amp;lt;boost/thread/thread.hpp&amp;gt; //boost thread #include &amp;lt;iostream&amp;gt; #include &amp;lt;cstdlib&amp;gt; using namespace std; volatile bool isRuning = true; void func1() { static int cnt1 = 0; while(isRuning) { cout &amp;lt;&amp;lt; &amp;#34;func1:&amp;#34; &amp;lt;&amp;lt; cnt1++ &amp;lt;&amp;lt; endl; sleep(1); } } void func2() { static int cnt2 = 0; while(isRuning) { cout &amp;lt;&amp;lt; &amp;#34;\tfunc2:&amp;#34; &amp;lt;&amp;lt; cnt2++ &amp;lt;&amp;lt; endl; sleep(2); } } int main() { boost::thread thread1(&amp;amp;func1); boost::thread thread2(&amp;amp;func2); system(&amp;#34;read&amp;#34;); isRuning = false; thread2.</description>
     </item>
     
     <item>

@@ -4,7 +4,7 @@
     <title>News M定时运行 // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.90.1" />
+    <meta name="generator" content="Hugo 0.96.0" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -96,32 +96,31 @@
       <pre tabindex="0"><code>#把原来的main设置为start函数 在末尾添加如下代码即可
 
 #https://blog.csdn.net/ainivip/article/details/106296599
-if __name__ == '__main__':
+if __name__ == &#39;__main__&#39;:
     while True:
         logger = logging.getLogger()
         logger.setLevel(logging.INFO)
-        log_time = time.strftime(&quot;%Y_%m_%d&quot;, time.localtime())  # 刷新
-        logfile = &quot;./&quot; + log_time + &quot;.log&quot;
-        fh = logging.FileHandler(logfile,mode='w')
+        log_time = time.strftime(&#34;%Y_%m_%d&#34;, time.localtime())  # 刷新
+        logfile = &#34;./&#34; + log_time + &#34;.log&#34;
+        fh = logging.FileHandler(logfile,mode=&#39;w&#39;)
         fh.setLevel(logging.INFO)
 
         while True:
-            formatter = logging.Formatter(&quot;%(asctime)s - %(filename)s[line:%(lineno)d] - %(levelname)s: %(message)s&quot;)
+            formatter = logging.Formatter(&#34;%(asctime)s - %(filename)s[line:%(lineno)d] - %(levelname)s: %(message)s&#34;)
             fh.setFormatter(formatter)
             logger.addHandler(fh)
-            time_now = time.strftime(&quot;%H&quot;, time.localtime())  # 刷新
-            if time_now == &quot;21&quot; or time_now == &quot;10&quot;: # 设置要执行的时间
+            time_now = time.strftime(&#34;%H&#34;, time.localtime())  # 刷新
+            if time_now == &#34;21&#34; or time_now == &#34;10&#34;: # 设置要执行的时间
                 start()
-                logger.info(&quot;sleep(20000) start news_d&quot;)
+                logger.info(&#34;sleep(20000) start news_d&#34;)
                 time.sleep(1500)
-            elif time_now == &quot;00&quot;:
-                logger.info(&quot;new day, log end&quot;)
+            elif time_now == &#34;00&#34;:
+                logger.info(&#34;new day, log end&#34;)
                 time.sleep(6000)
                 break
             else:
-                logger.info(&quot;wait sleep(600)&quot;)
+                logger.info(&#34;wait sleep(600)&#34;)
                 time.sleep(600)
-
 </code></pre><p><strong>服务器ssh连接<a href="https://6923403.github.io/post/linux_ssh_nohup/">https://6923403.github.io/post/linux_ssh_nohup/</a></strong></p>
 
     </div>

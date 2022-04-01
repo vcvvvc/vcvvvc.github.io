@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="zh-cn">
   <head>
-    <title>个人理解可转债 // Vcvc Blog</title>
+    <title>Ubuntu20_install_docker // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
     <meta name="generator" content="Hugo 0.96.0" />
@@ -67,14 +67,14 @@
       
   <article class="post">
     <header class="post-header">
-      <h1 class ="post-title">个人理解可转债</h1>
+      <h1 class ="post-title">Ubuntu20_install_docker</h1>
       <div class="post-meta">
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
   <title>calendar</title>
   <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
 </svg>
-          Aug 19, 2021
+          Apr 1, 2022
         </div>
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
@@ -88,65 +88,13 @@
   <title>tag</title>
   <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line>
 </svg>
-              <a class="tag" href="https://6923403.github.io/tags/stock/">Stock</a>
+              <a class="tag" href="https://6923403.github.io/tags/linux/">Linux</a>
+              <a class="tag" href="https://6923403.github.io/tags/docker/">Docker</a>
         </div>
       </div>
     </header>
     <div class="post-content">
-      <p><strong>结合了个人理解 可能有差错 可以评论指出</strong></p>
-<p><code>由于最近个人关注的股有一支要发转债, 故来了解下。</code></p>
-<hr>
-<h2 id="什么是可转换债券">什么是可转换债券</h2>
-<p>可转换债券是债券持有人可按照发行时约定的价格将债券转换成公司的普通股票的债券。如果债券持有人不想转换，则可以继续持有债券，直到偿还期满时收取本金和利息，或者在流通市场出售变现。如果持有人看好发债公司股票增值潜力，在宽限期之后可以行使转换权，按照预定转换价格将债券转换成为股票，发债公司不得拒绝。该债券利率一般低于普通公司的债券利率，企业发行可转换债券可以降低筹资成本。可转换债券持有人还享有在一定条件下将债券回售给发行人的权利，发行人在一定条件下拥有强制赎回债券的权利。</p>
-<p>这里自己去查下百科就行了： <a href="https://baike.baidu.com/item/%E5%8F%AF%E8%BD%AC%E6%8D%A2%E5%80%BA%E5%88%B8/397601">https://baike.baidu.com/item/可转换债券/397601</a></p>
-<hr>
-<h2 id="基本概念">基本概念</h2>
-<p><strong>三大特征:</strong></p>
-<ul>
-<li>
-<ol>
-<li>债权性</li>
-</ol>
-</li>
-<li>
-<ol start="2">
-<li>股权性</li>
-</ol>
-</li>
-<li>
-<ol start="3">
-<li>可转换性</li>
-</ol>
-</li>
-</ul>
-<p><strong>可转债有可能赚但不会亏的保底性质</strong></p>
-<p><strong>比如可转债的转股价为10元, 而当前股价为20， 一张债券100块面额根据转股价可转为10股 收益率100%。</strong></p>
-<p><strong>当股价为5元时此时转股亏损50%，正常人都不会转股。选择不转股到期拿回本金和利息，保底性质</strong></p>
-<hr>
-<h2 id="发债前打压股价">发债前打压股价</h2>
-<p><strong>上市公司正股价是由市场决定，但是转股价是在发行前就可以制定的。根据相关规定，转股价为可转债募集说明书公告日前20个交易日公司股票交易均价和前一交易日公司股票交易均价二者之间的较高者。</strong></p>
-<p>所以上市公司发行可转债前打压股价就是为了让转股价更低一点，从而促使投资者转股。如果转股价定得太高，转债上市后正股价低于转股价，那么投资者是不会愿意转股的。</p>
-<p>可转债发布之后，利好消息推高股价。</p>
-<p>转股之后债权变成了股权，企业也不必再支付额外的利息。</p>
-<ul>
-<li>核心就是转股价低于正股价 想方设法让你转股，符合条件的强制赎回。</li>
-</ul>
-<p>有点人家吃肉我喝汤的感觉。</p>
-<hr>
-<h2 id="两个重要条款">两个重要条款</h2>
-<p><strong>可转债有转股价下调条款，强制赎回条款。</strong></p>
-<ul>
-<li>
-<p>转股价向下修正条款: <a href="https://baike.baidu.com/item/%E8%BD%AC%E8%82%A1%E4%BB%B7%E5%90%91%E4%B8%8B%E4%BF%AE%E6%AD%A3%E6%9D%A1%E6%AC%BE/10596894">https://baike.baidu.com/item/转股价向下修正条款/10596894</a></p>
-</li>
-<li>
-<p>赎回条款：<a href="https://wiki.mbalib.com/wiki/%E8%B5%8E%E5%9B%9E%E6%9D%A1%E6%AC%BE">https://wiki.mbalib.com/wiki/赎回条款</a></p>
-</li>
-</ul>
-<hr>
-<p>Re:</p>
-<p><a href="https://zhuanlan.zhihu.com/p/367802793">https://zhuanlan.zhihu.com/p/367802793</a></p>
-<p><a href="https://www.csai.cn/licai/1306470.html">https://www.csai.cn/licai/1306470.html</a></p>
+      <p><a href="https://zhuanlan.zhihu.com/p/143156163">https://zhuanlan.zhihu.com/p/143156163</a></p>
 
     </div>
     <div class="post-footer">

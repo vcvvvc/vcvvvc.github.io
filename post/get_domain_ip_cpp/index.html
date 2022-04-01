@@ -4,7 +4,7 @@
     <title>C&#43;&#43;获取域名IP // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.90.1" />
+    <meta name="generator" content="Hugo 0.96.0" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -95,39 +95,39 @@
       </div>
     </header>
     <div class="post-content">
-      <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#https:</span><span style="color:#75715e">//blog.csdn.net/dosthing/article/details/80383817
-</span><span style="color:#75715e"></span>
-std<span style="color:#f92672">::</span>string ip <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;www.baidu.com&#34;</span>;
-<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">hostent</span> stHostent;
-<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">hostent</span> <span style="color:#f92672">*</span>pstHostent <span style="color:#f92672">=</span> <span style="color:#66d9ef">nullptr</span>;
-<span style="color:#66d9ef">char</span> <span style="color:#f92672">**</span>pptr <span style="color:#f92672">=</span> <span style="color:#66d9ef">nullptr</span>;
-<span style="color:#66d9ef">char</span> buf[<span style="color:#ae81ff">2048</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\0</span><span style="color:#e6db74">&#34;</span>;
-sprintf(buf,<span style="color:#e6db74">&#34;%s&#34;</span>, <span style="color:#e6db74">&#34;ip&#34;</span>);
-<span style="color:#66d9ef">int</span> iError;
-<span style="color:#66d9ef">if</span>((pstHostent <span style="color:#f92672">=</span> gethostbyname(buf)) <span style="color:#f92672">==</span> NULL <span style="color:#f92672">||</span> pstHostent<span style="color:#f92672">-&gt;</span>h_addr_list <span style="color:#f92672">==</span> NULL <span style="color:#f92672">||</span> pstHostent<span style="color:#f92672">-&gt;</span>h_addr_list[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">==</span> NULL)
-{
-    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;can&#39;t parse the domain&#34;</span> <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
-    exit(<span style="color:#ae81ff">0</span>);
-}
-<span style="color:#66d9ef">else</span>
-{
-    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;official hostname: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> pstHostent<span style="color:#f92672">-&gt;</span>h_name <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
-    <span style="color:#66d9ef">for</span>(pptr <span style="color:#f92672">=</span> pstHostent<span style="color:#f92672">-&gt;</span>h_aliases; <span style="color:#f92672">*</span>pptr <span style="color:#f92672">!=</span> NULL; pptr<span style="color:#f92672">++</span>)
-    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;alias: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#f92672">*</span>pptr <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
-    <span style="color:#66d9ef">switch</span>(pstHostent<span style="color:#f92672">-&gt;</span>h_addrtype)
-    {
-    <span style="color:#66d9ef">case</span> AF_INET:
-    <span style="color:#66d9ef">case</span> AF_INET6:
-    pptr <span style="color:#f92672">=</span> pstHostent<span style="color:#f92672">-&gt;</span>h_addr_list;
-    <span style="color:#66d9ef">for</span>(; <span style="color:#f92672">*</span>pptr<span style="color:#f92672">!=</span>NULL; pptr<span style="color:#f92672">++</span>)
-    printf(<span style="color:#e6db74">&#34;address:%s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,inet_ntop(pstHostent<span style="color:#f92672">-&gt;</span>h_addrtype, <span style="color:#f92672">*</span>pptr, buf,<span style="color:#ae81ff">64</span>));
-    printf(<span style="color:#e6db74">&#34;first address: %s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,inet_ntop(pstHostent<span style="color:#f92672">-&gt;</span>h_addrtype, pstHostent<span style="color:#f92672">-&gt;</span>h_addr,buf,<span style="color:#ae81ff">64</span>));
-    <span style="color:#66d9ef">break</span>;
-    <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span>
-    printf(<span style="color:#e6db74">&#34;Unkown address type</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
-}
-}
-</code></pre></div>
+      <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#https:</span><span style="color:#75715e">//blog.csdn.net/dosthing/article/details/80383817
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>std<span style="color:#f92672">::</span>string ip <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;www.baidu.com&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">hostent</span> stHostent;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">hostent</span> <span style="color:#f92672">*</span>pstHostent <span style="color:#f92672">=</span> <span style="color:#66d9ef">nullptr</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">char</span> <span style="color:#f92672">**</span>pptr <span style="color:#f92672">=</span> <span style="color:#66d9ef">nullptr</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">char</span> buf[<span style="color:#ae81ff">2048</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\0</span><span style="color:#e6db74">&#34;</span>;
+</span></span><span style="display:flex;"><span>sprintf(buf,<span style="color:#e6db74">&#34;%s&#34;</span>, <span style="color:#e6db74">&#34;ip&#34;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> iError;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span>((pstHostent <span style="color:#f92672">=</span> gethostbyname(buf)) <span style="color:#f92672">==</span> NULL <span style="color:#f92672">||</span> pstHostent<span style="color:#f92672">-&gt;</span>h_addr_list <span style="color:#f92672">==</span> NULL <span style="color:#f92672">||</span> pstHostent<span style="color:#f92672">-&gt;</span>h_addr_list[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">==</span> NULL)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;can&#39;t parse the domain&#34;</span> <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+</span></span><span style="display:flex;"><span>    exit(<span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;official hostname: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> pstHostent<span style="color:#f92672">-&gt;</span>h_name <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span>(pptr <span style="color:#f92672">=</span> pstHostent<span style="color:#f92672">-&gt;</span>h_aliases; <span style="color:#f92672">*</span>pptr <span style="color:#f92672">!=</span> NULL; pptr<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;alias: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#f92672">*</span>pptr <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">switch</span>(pstHostent<span style="color:#f92672">-&gt;</span>h_addrtype)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> AF_INET:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> AF_INET6:
+</span></span><span style="display:flex;"><span>    pptr <span style="color:#f92672">=</span> pstHostent<span style="color:#f92672">-&gt;</span>h_addr_list;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span>(; <span style="color:#f92672">*</span>pptr<span style="color:#f92672">!=</span>NULL; pptr<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>    printf(<span style="color:#e6db74">&#34;address:%s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,inet_ntop(pstHostent<span style="color:#f92672">-&gt;</span>h_addrtype, <span style="color:#f92672">*</span>pptr, buf,<span style="color:#ae81ff">64</span>));
+</span></span><span style="display:flex;"><span>    printf(<span style="color:#e6db74">&#34;first address: %s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,inet_ntop(pstHostent<span style="color:#f92672">-&gt;</span>h_addrtype, pstHostent<span style="color:#f92672">-&gt;</span>h_addr,buf,<span style="color:#ae81ff">64</span>));
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    printf(<span style="color:#e6db74">&#34;Unkown address type</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
     </div>
     <div class="post-footer">
       

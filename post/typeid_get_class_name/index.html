@@ -4,7 +4,7 @@
     <title>通过typeid()获取类名 // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.90.1" />
+    <meta name="generator" content="Hugo 0.96.0" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vcvc" />
     
@@ -97,8 +97,8 @@
 <pre tabindex="0"><code>    template&lt;typename T&gt;
     TC_LockT&lt;T&gt;::TC_LockT(const T &amp;mutex) 
     {
-        std::cout &lt;&lt; &quot;1class name = &quot; &lt;&lt; typeid(mutex).name() &lt;&lt; std::endl;
-        std::cout &lt;&lt; &quot;2class name = &quot; &lt;&lt; typeid(*this).name() &lt;&lt; std::endl;
+        std::cout &lt;&lt; &#34;1class name = &#34; &lt;&lt; typeid(mutex).name() &lt;&lt; std::endl;
+        std::cout &lt;&lt; &#34;2class name = &#34; &lt;&lt; typeid(*this).name() &lt;&lt; std::endl;
     }
 </code></pre>
     </div>

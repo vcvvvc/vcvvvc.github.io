@@ -5,7 +5,16 @@
     <link>https://6923403.github.io/tags/linux/</link>
     <description>Recent content in Linux on Vcvc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 30 Jan 2022 23:18:03 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 01 Apr 2022 22:22:24 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ubuntu20_install_docker</title>
+      <link>https://6923403.github.io/post/ubuntu20_install_docker/</link>
+      <pubDate>Fri, 01 Apr 2022 22:22:24 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/ubuntu20_install_docker/</guid>
+      <description>https://zhuanlan.zhihu.com/p/143156163</description>
+    </item>
+    
     <item>
       <title>何为协程</title>
       <link>https://6923403.github.io/post/%E4%BD%95%E4%B8%BA%E5%8D%8F%E7%A8%8B/</link>
@@ -33,7 +42,7 @@ https://zhuanlan.zhihu.com/p/337946103</description>
       <pubDate>Fri, 14 Jan 2022 00:09:51 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/get_domain_ip_cpp/</guid>
-      <description>#https://blog.csdn.net/dosthing/article/details/80383817  std::string ip = &amp;#34;www.baidu.com&amp;#34;; struct hostent stHostent; struct hostent *pstHostent = nullptr; char **pptr = nullptr; char buf[2048] = &amp;#34;\0&amp;#34;; sprintf(buf,&amp;#34;%s&amp;#34;, &amp;#34;ip&amp;#34;); int iError; if((pstHostent = gethostbyname(buf)) == NULL || pstHostent-&amp;gt;h_addr_list == NULL || pstHostent-&amp;gt;h_addr_list[0] == NULL) { std::cout &amp;lt;&amp;lt; &amp;#34;can&amp;#39;t parse the domain&amp;#34; &amp;lt;&amp;lt; std::endl; exit(0); } else { std::cout &amp;lt;&amp;lt; &amp;#34;official hostname: &amp;#34; &amp;lt;&amp;lt; pstHostent-&amp;gt;h_name &amp;lt;&amp;lt; std::endl; for(pptr = pstHostent-&amp;gt;h_aliases; *pptr != NULL; pptr++) std::cout &amp;lt;&amp;lt; &amp;#34;alias: &amp;#34; &amp;lt;&amp;lt; *pptr &amp;lt;&amp;lt; std::endl; switch(pstHostent-&amp;gt;h_addrtype) { case AF_INET: case AF_INET6: pptr = pstHostent-&amp;gt;h_addr_list; for(; *pptr!</description>
+      <description>#https://blog.csdn.net/dosthing/article/details/80383817  std::string ip = &amp;#34;www.baidu.com&amp;#34;; struct hostent stHostent; struct hostent *pstHostent = nullptr; char **pptr = nullptr; char buf[2048] = &amp;#34;\0&amp;#34;; sprintf(buf,&amp;#34;%s&amp;#34;, &amp;#34;ip&amp;#34;); int iError; if((pstHostent = gethostbyname(buf)) == NULL || pstHostent-&amp;gt;h_addr_list == NULL || pstHostent-&amp;gt;h_addr_list[0] == NULL) {  std::cout &amp;lt;&amp;lt; &amp;#34;can&amp;#39;t parse the domain&amp;#34; &amp;lt;&amp;lt; std::endl;  exit(0); } else {  std::cout &amp;lt;&amp;lt; &amp;#34;official hostname: &amp;#34; &amp;lt;&amp;lt; pstHostent-&amp;gt;h_name &amp;lt;&amp;lt; std::endl;  for(pptr = pstHostent-&amp;gt;h_aliases; *pptr != NULL; pptr++)  std::cout &amp;lt;&amp;lt; &amp;#34;alias: &amp;#34; &amp;lt;&amp;lt; *pptr &amp;lt;&amp;lt; std::endl;  switch(pstHostent-&amp;gt;h_addrtype)  {  case AF_INET:  case AF_INET6:  pptr = pstHostent-&amp;gt;h_addr_list;  for(; *pptr!</description>
     </item>
     
     <item>
@@ -43,7 +52,7 @@ https://zhuanlan.zhihu.com/p/337946103</description>
       
       <guid>https://6923403.github.io/post/ubuntu2010_install_vscode/</guid>
       <description>20.10有点下问题，得简单配置下
- 添加到bashrc 或zshrc cd ~ mkdir vscode alias code=&#39;code --user-data-dir $HOME/vscode&#39;  root运行 vim /usr/bin/code # 跟谷歌浏览器一样 添加 --no-sandbox </description>
+ 添加到bashrc 或zshrc cd ~ mkdir vscode alias code=&amp;#39;code --user-data-dir $HOME/vscode&amp;#39;  root运行 vim /usr/bin/code # 跟谷歌浏览器一样 添加 --no-sandbox </description>
     </item>
     
     <item>
@@ -192,7 +201,7 @@ TCP_IP | 计算机网络 https://6923403.github.io/post/computer_network/
 2、optstring: 表示短选项字符串。
 形式如“a:b::cd:“，分别表示程序支持的命令行短选项有-a、-b、-c、-d，冒号含义如下：
  只有一个字符，不带冒号——只表示选项， 如-c  一个字符，后接一个冒号——表示选项后面带一个参数，如-a 100 一个字符，后接两个冒号——表示选项后面带一个可选参数，即参数可有可无，如果带参数，则选项与参数直接不能有空格,形式应该如-b  3、longopts：表示长选项结构体。结构如下：
-struct option { const char *name; int has_arg; int *flag; int val; }; static struct option longOpts[] = { { &amp;quot;daemon&amp;quot;, no_argument, NULL, &#39;D&#39; }, { &amp;quot;dir&amp;quot;, required_argument, NULL, &#39;d&#39; }, { &amp;quot;out&amp;quot;, required_argument, NULL, &#39;o&#39; }, { &amp;quot;log&amp;quot;, required_argument, NULL, &#39;l&#39; }, { &amp;quot;split&amp;quot;, required_argument, NULL, &#39;s&#39; }, { &amp;quot;http-proxy&amp;quot;, required_argument, &amp;amp;lopt, 1 }, { &amp;quot;http-user&amp;quot;, required_argument, &amp;amp;lopt, 2 }, { &amp;quot;http-passwd&amp;quot;, required_argument, &amp;amp;lopt, 3 }, { &amp;quot;http-proxy-user&amp;quot;, required_argument, &amp;amp;lopt, 4 }, { &amp;quot;http-proxy-passwd&amp;quot;, required_argument, &amp;amp;lopt, 5 }, { &amp;quot;http-auth-scheme&amp;quot;, required_argument, &amp;amp;lopt, 6 }, { &amp;quot;version&amp;quot;, no_argument, NULL, &#39;v&#39; }, { &amp;quot;help&amp;quot;, no_argument, NULL, &#39;h&#39; }, { 0, 0, 0, 0 } }; (1)name:表示选项的名称,比如daemon,dir,out等。</description>
+struct option { const char *name; int has_arg; int *flag; int val; }; static struct option longOpts[] = { { &amp;#34;daemon&amp;#34;, no_argument, NULL, &amp;#39;D&amp;#39; }, { &amp;#34;dir&amp;#34;, required_argument, NULL, &amp;#39;d&amp;#39; }, { &amp;#34;out&amp;#34;, required_argument, NULL, &amp;#39;o&amp;#39; }, { &amp;#34;log&amp;#34;, required_argument, NULL, &amp;#39;l&amp;#39; }, { &amp;#34;split&amp;#34;, required_argument, NULL, &amp;#39;s&amp;#39; }, { &amp;#34;http-proxy&amp;#34;, required_argument, &amp;amp;lopt, 1 }, { &amp;#34;http-user&amp;#34;, required_argument, &amp;amp;lopt, 2 }, { &amp;#34;http-passwd&amp;#34;, required_argument, &amp;amp;lopt, 3 }, { &amp;#34;http-proxy-user&amp;#34;, required_argument, &amp;amp;lopt, 4 }, { &amp;#34;http-proxy-passwd&amp;#34;, required_argument, &amp;amp;lopt, 5 }, { &amp;#34;http-auth-scheme&amp;#34;, required_argument, &amp;amp;lopt, 6 }, { &amp;#34;version&amp;#34;, no_argument, NULL, &amp;#39;v&amp;#39; }, { &amp;#34;help&amp;#34;, no_argument, NULL, &amp;#39;h&amp;#39; }, { 0, 0, 0, 0 } }; (1)name:表示选项的名称,比如daemon,dir,out等。</description>
     </item>
     
     <item>
@@ -316,7 +325,7 @@ int recv(int sockfd,void *buf,int len,int flags) int send(int sockfd,void *buf,i
       <guid>https://6923403.github.io/post/vim_config/</guid>
       <description>编译安装 #https://www.cnblogs.com/JoiT/p/build_from_source_for_linux_vim.html apt install libncurses5-dev libgtk2.0-dev libatk1.0-dev \ libcairo2-dev libx11-dev libxpm-dev libxt-dev apt-get remove --purge vim-tiny vim vim-runtime gvim vim-common vim-gui-common vim-nox ./configure --with-features=huge \ --enable-multibyte \ --enable-gui=gtk3 \ --enable-cscope \ --prefix=/usr/local make make install  主题配置 首先要确认你的终端支持真彩，一般来说，主流的比如iTerm2, Putty, Powershell的最新版本都已经支持了。我们可以运行以下命令检测一下
 (echo -e &#39;\e[48:2:1:2:3m\eP$qm\e\\&#39; ; xxd)
-&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot; &amp;quot;&amp;quot;&amp;quot;=&amp;gt;全局配置&amp;lt;=&amp;quot;&amp;quot;&amp;quot; &amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot; &amp;quot;关闭vi兼容模式&amp;quot; set nocompatible &amp;quot;设置历史记录步数&amp;quot; set history=1000 &amp;quot;开启相关插件&amp;quot; &amp;quot;侦测文件类型&amp;quot; filetype on &amp;quot;载入文件类型插件&amp;quot; filetype plugin on &amp;quot;为特定文件类型载入相关缩进文件&amp;quot; filetype indent on &amp;quot;当文件在外部被修改时，自动更新该文件&amp;quot; set autoread &amp;quot;激活鼠标的使用&amp;quot; set mouse=a set selection=exclusive set selectmode=mouse,key &amp;quot;保存全局变量&amp;quot; set viminfo+=!</description>
+&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34; &amp;#34;&amp;#34;&amp;#34;=&amp;gt;全局配置&amp;lt;=&amp;#34;&amp;#34;&amp;#34; &amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34; &amp;#34;关闭vi兼容模式&amp;#34; set nocompatible &amp;#34;设置历史记录步数&amp;#34; set history=1000 &amp;#34;开启相关插件&amp;#34; &amp;#34;侦测文件类型&amp;#34; filetype on &amp;#34;载入文件类型插件&amp;#34; filetype plugin on &amp;#34;为特定文件类型载入相关缩进文件&amp;#34; filetype indent on &amp;#34;当文件在外部被修改时，自动更新该文件&amp;#34; set autoread &amp;#34;激活鼠标的使用&amp;#34; set mouse=a set selection=exclusive set selectmode=mouse,key &amp;#34;保存全局变量&amp;#34; set viminfo+=!</description>
     </item>
     
     <item>
@@ -398,7 +407,7 @@ https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/</descriptio
       <pubDate>Mon, 21 Sep 2020 13:32:22 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/install_redis/</guid>
-      <description>升级GCC yum -y install centos-release-scl yum -y install devtoolset-9-gcc devtoolset-9-gcc-c++ devtoolset-9-binutils scl enable devtoolset-9 bash echo &amp;quot;source /opt/rh/devtoolset-9/enable&amp;quot; &amp;gt;&amp;gt; /etc/profile gcc -v  安装redis wget http://download.redis.io/releases/redis-6.0.8.tar.gz tar -xvf redis-6.0.8/tar/gz cd redis make -j4 make install PREFIX=/usr/local/redis  配置redis cd redis cp redis.conf /usr/local/redis/bin/ vim /usr/local/redis/bin/redis.conf
+      <description>升级GCC yum -y install centos-release-scl yum -y install devtoolset-9-gcc devtoolset-9-gcc-c++ devtoolset-9-binutils scl enable devtoolset-9 bash echo &amp;#34;source /opt/rh/devtoolset-9/enable&amp;#34; &amp;gt;&amp;gt; /etc/profile gcc -v  安装redis wget http://download.redis.io/releases/redis-6.0.8.tar.gz tar -xvf redis-6.0.8/tar/gz cd redis make -j4 make install PREFIX=/usr/local/redis  配置redis cd redis cp redis.conf /usr/local/redis/bin/ vim /usr/local/redis/bin/redis.conf
 daemonize no 改为 daemonize yes  开机自启 vim /etc/systemd/system/redis.service
 [Unit] Description=redis-server After=network.target [Service] Type=forking ExecStart=/usr/local/redis/bin/redis-server /usr/local/redis/bin/redis.conf PrivateTmp=true [Install] WantedBy=multi-user.target systemctl daemon-reload ln -s /usr/local/redis/bin/redis-cli /usr/bin/redis systemctl start redis.</description>
     </item>
@@ -419,7 +428,7 @@ daemonize no 改为 daemonize yes  开机自启 vim /etc/systemd/system/redis.se
 8.执行下面命令进行安全设置 这个命令会进行设置root密码设置，移除匿名用户，禁止root用户远程连接等
 mysql_secure_installation
 9.设置数据库编码为utf8 sudo vim /etc/my.cnf
-[client] default-character-set=utf8 [mysql] default-character-set=utf8 [mysqld] collation-server = utf8_unicode_ci init-connect=&#39;SET NAMES utf8&#39; character-set-server = utf8 reboot sudo systemctl restart mysqld</description>
+[client] default-character-set=utf8 [mysql] default-character-set=utf8 [mysqld] collation-server = utf8_unicode_ci init-connect=&amp;#39;SET NAMES utf8&amp;#39; character-set-server = utf8 reboot sudo systemctl restart mysqld</description>
     </item>
     
     <item>
@@ -436,7 +445,7 @@ mysql_secure_installation
 use vctest select city, phone, country from `offices`; SELECT语句由以下列表中所述的几个子句组成：
 语句中的SELECT和FROM语句是必须的，其他部分是可选的。
  SELECT之后是逗号分隔列或星号(*)的列表，表示要返回所有列。 FROM指定要查询数据的表或视图。 JOIN根据某些连接条件从其他表中获取数据。 WHERE过滤结果集中的行。 GROUP BY将一组行组合成小分组，并对每个小分组应用聚合函数。 HAVING过滤器基于GROUP BY子句定义的小分组。 ORDER BY指定用于排序的列的列表。 LIMIT限制返回行的数量。  即使WHERE子句出现在语句的末尾，但MySQL会首先使用WHERE子句中的表达式来选择匹配的行。
-SELECT lastname, firstname, jobtitle FROM employees WHERE jobtitle = &#39;Sales Rep&#39;;  INSERT 创建表</description>
+SELECT lastname, firstname, jobtitle FROM employees WHERE jobtitle = &amp;#39;Sales Rep&amp;#39;;  INSERT 创建表</description>
     </item>
     
     <item>
@@ -543,7 +552,7 @@ https://blog.csdn.net/u010144805/article/details/78579528
       
       <guid>https://6923403.github.io/post/docker_tutorial/</guid>
       <description>2021-5-30 更新 老方法不行了
-Install docker apt-get install apt-transport-https ca-certificates software-properties-common curl curl -fsSL https://download.docker.com/linux/ubuntu/gpg|sudo apt-key add - sudo add-apt-repository &amp;quot;deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu \ $(lsb_release -cs) stable&amp;quot; apt-get update apt-get install docker-ce docker run hello-world # 重启 service docker restart  Compose https://gitee.com/xipushi/dockercompose.git chmod +x docker-compose-Linux-x86_64 mv docker-compose-Linux-x86_64 docker-compose cp /use/local/bin docker-compose --version  Dockerfile # from based nginx # run start FROM nginx # exec: RUN[&amp;quot;./go&amp;quot;, &amp;quot;dev&amp;quot;, &amp;quot;offline&amp;quot;] RUN echo &#39;Nginx image&#39; &amp;gt; /usr/share/nginx/html/index.</description>
+Install docker apt-get install apt-transport-https ca-certificates software-properties-common curl curl -fsSL https://download.docker.com/linux/ubuntu/gpg|sudo apt-key add - sudo add-apt-repository &amp;#34;deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu \ $(lsb_release -cs) stable&amp;#34; apt-get update apt-get install docker-ce docker run hello-world # 重启 service docker restart  Compose https://gitee.com/xipushi/dockercompose.git chmod +x docker-compose-Linux-x86_64 mv docker-compose-Linux-x86_64 docker-compose cp /use/local/bin docker-compose --version  Dockerfile # from based nginx # run start FROM nginx # exec: RUN[&amp;#34;./go&amp;#34;, &amp;#34;dev&amp;#34;, &amp;#34;offline&amp;#34;] RUN echo &amp;#39;Nginx image&amp;#39; &amp;gt; /usr/share/nginx/html/index.</description>
     </item>
     
     <item>
@@ -570,7 +579,7 @@ Install docker apt-get install apt-transport-https ca-certificates software-prop
       <pubDate>Thu, 30 Jul 2020 18:04:47 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/arch_desktop/</guid>
-      <description>1. install xorg systemctl enable dhcpcd pacman -S xorg-server xorg-xinit  install tool pacman -S zsh alacritty fctix fcitx-im fcitx-configtool i3 git sh -c &amp;quot;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&amp;quot;  install ttf pacman -S ttf-liberation pacman -S adobe-source-han-sans-cn-fonts pacman -S adobe-source-han-sans-tw-fonts pacman -S adobe-source-han-sans-jp-fonts  add user 这一步随意
+      <description>1. install xorg systemctl enable dhcpcd pacman -S xorg-server xorg-xinit  install tool pacman -S zsh alacritty fctix fcitx-im fcitx-configtool i3 git sh -c &amp;#34;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&amp;#34;  install ttf pacman -S ttf-liberation pacman -S adobe-source-han-sans-cn-fonts pacman -S adobe-source-han-sans-tw-fonts pacman -S adobe-source-han-sans-jp-fonts  add user 这一步随意
 useradd -m -g users -s /bin/zsh xxxx #添加xxxx用户，用户名你自定义 passwd xxxx #为xxxx用户设置密码 vim /etc/sudoers #编辑配置文件 在root ALL = (ALL) ALL下添加xxxx ALL = (ALL) ALL;输入:wq!强制保存退出vim login new user touch .</description>
     </item>
     
@@ -598,7 +607,7 @@ timedatectl set-ntp true  2. Partition the disks cfdisk /dev/sda #choose gpt Mov
       
       <guid>https://6923403.github.io/post/linux_install_boost/</guid>
       <description>Boost C++ is Cpp programming language that provides support for tasks and structures
- Download Source https://dl.bintray.com/boostorg/release/1.73.0/source/boost_1_73_0.tar.gz tar zxvf boost(解压)  Set use GCC cd boost ./bootstrap.sh --with-libraries=all --with-toolset=gcc  Compile &amp;amp; Install boost ./b2 toolset=gcc ./b2 install --prefix=/usr  Test programming #include &amp;lt;boost/thread/thread.hpp&amp;gt; //boost thread #include &amp;lt;iostream&amp;gt; #include &amp;lt;cstdlib&amp;gt; using namespace std; volatile bool isRuning = true; void func1() { static int cnt1 = 0; while(isRuning) { cout &amp;lt;&amp;lt; &amp;quot;func1:&amp;quot; &amp;lt;&amp;lt; cnt1++ &amp;lt;&amp;lt; endl; sleep(1); } } void func2() { static int cnt2 = 0; while(isRuning) { cout &amp;lt;&amp;lt; &amp;quot;\tfunc2:&amp;quot; &amp;lt;&amp;lt; cnt2++ &amp;lt;&amp;lt; endl; sleep(2); } } int main() { boost::thread thread1(&amp;amp;func1); boost::thread thread2(&amp;amp;func2); system(&amp;quot;read&amp;quot;); isRuning = false; thread2.</description>
+ Download Source https://dl.bintray.com/boostorg/release/1.73.0/source/boost_1_73_0.tar.gz tar zxvf boost(解压)  Set use GCC cd boost ./bootstrap.sh --with-libraries=all --with-toolset=gcc  Compile &amp;amp; Install boost ./b2 toolset=gcc ./b2 install --prefix=/usr  Test programming #include &amp;lt;boost/thread/thread.hpp&amp;gt; //boost thread #include &amp;lt;iostream&amp;gt; #include &amp;lt;cstdlib&amp;gt; using namespace std; volatile bool isRuning = true; void func1() { static int cnt1 = 0; while(isRuning) { cout &amp;lt;&amp;lt; &amp;#34;func1:&amp;#34; &amp;lt;&amp;lt; cnt1++ &amp;lt;&amp;lt; endl; sleep(1); } } void func2() { static int cnt2 = 0; while(isRuning) { cout &amp;lt;&amp;lt; &amp;#34;\tfunc2:&amp;#34; &amp;lt;&amp;lt; cnt2++ &amp;lt;&amp;lt; endl; sleep(2); } } int main() { boost::thread thread1(&amp;amp;func1); boost::thread thread2(&amp;amp;func2); system(&amp;#34;read&amp;#34;); isRuning = false; thread2.</description>
     </item>
     
     <item>
