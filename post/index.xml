@@ -5,7 +5,18 @@
     <link>https://6923403.github.io/post/</link>
     <description>Recent content in Posts on Vcvc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 05 Apr 2022 00:48:48 +0800</lastBuildDate><atom:link href="https://6923403.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 09 Apr 2022 23:03:33 +0800</lastBuildDate><atom:link href="https://6923403.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Geth_私聊创建并链接钱包</title>
+      <link>https://6923403.github.io/post/geth_use/</link>
+      <pubDate>Sat, 09 Apr 2022 23:03:33 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/geth_use/</guid>
+      <description>1. 下载安装geth https://geth.ethereum.org/
+ 2. 创建私有链 创建创世块配置文件 genesis.json
+{  &amp;#34;config&amp;#34;: {  &amp;#34;chainId&amp;#34;: 15,  &amp;#34;homesteadBlock&amp;#34;: 0,  &amp;#34;eip155Block&amp;#34;: 0,  &amp;#34;eip158Block&amp;#34;: 0  },  &amp;#34;coinbase&amp;#34; : &amp;#34;0x0000000000000000000000000000000000000000&amp;#34;,  &amp;#34;difficulty&amp;#34; : &amp;#34;0x40000&amp;#34;,  &amp;#34;extraData&amp;#34; : &amp;#34;&amp;#34;,  &amp;#34;gasLimit&amp;#34; : &amp;#34;0xffffffff&amp;#34;,  &amp;#34;nonce&amp;#34; : &amp;#34;0x0000000000000042&amp;#34;,  &amp;#34;mixhash&amp;#34; : &amp;#34;0x0000000000000000000000000000000000000000000000000000000000000000&amp;#34;,  &amp;#34;parentHash&amp;#34; : &amp;#34;0x0000000000000000000000000000000000000000000000000000000000000000&amp;#34;,  &amp;#34;timestamp&amp;#34; : &amp;#34;0x00&amp;#34;,  &amp;#34;alloc&amp;#34;: { } }  3. 初始化 geth --datadir genesis-block init genesis.</description>
+    </item>
+    
     <item>
       <title>NFT_NFR</title>
       <link>https://6923403.github.io/post/nft_nfr/</link>
