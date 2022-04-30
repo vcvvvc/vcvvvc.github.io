@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Block_Chain on Vcvc Blog</title>
+    <link>https://6923403.github.io/tags/block_chain/</link>
+    <description>Recent content in Block_Chain on Vcvc Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 30 Apr 2022 16:20:01 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/block_chain/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About_ERC</title>
+      <link>https://6923403.github.io/post/about_erc/</link>
+      <pubDate>Sat, 30 Apr 2022 16:20:01 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/about_erc/</guid>
+      <description>ERC ERC全称“Ethereum Request for Comment&amp;quot;，翻译过来即Ethereum版的意见征求稿，用以记录以太坊上应用级的各种开发标准和协议(application-level standards and conventions)。
+EIP(Ethereum Improvement Proposals以太坊升级提案)是为以太坊潜在新功能或流程提出建议的标准。 EIP 包含提议改进的技术规范，并作为社区的“真相来源”。 在 EIP 的过程中，将会讨论和制定以太坊的网络升级和应用标准。
+以太坊EIP 的标准序列包括 Core（核心改进）、Networking（网络层改进）、Interface（接口改进）、ERC（应用层意见征集）。
+EIP分为三种类型:
+1. 标准轨道EIP(A Standards Track EIP)
+2. 元EIP(A Meta EIP)
+3. 信息EIP(An Informational EIP)
+ ERC-20 ERC-20 提供了一个同质化代币的标准，换句话说，每个代币与另一个代币（在类型和价值上）完全相同。 例如，一个 ERC-20 代币就像 ETH 一样，意味着一个代币会并永远会与其他代币一样。
+ ERC-721 非同质化代币（NFT）用于以唯一的方式标识某人或者某物。 此类型的代币可以被完美地用于出售下列物品的平台：收藏品、密钥、彩票、音乐会座位编号、体育比赛等。 这种类型的代币有着惊人的潜力，因此它需要一个适当的标准。ERC-721 就是为解决这个问题而来！
+ 其他  什么叫做代币？  代币可以在以太坊中表示任何东西：
+ 在线平台中的信誉积分 游戏中一个角色的技能 彩票卷 金融资产类似于公司股份的资产 像美元一样的法定货币 一盎司黄金 &amp;hellip;  ICO（是Initial Coin Offering缩写），首次币发行，源自股票市场的首次公开发行（IPO）概念，是区块链项目首次发行代币，募集比特币、以太坊等通用数字货币的行为。   Re： https://zhuanlan.zhihu.com/p/80029720</description>
+    </item>
+    
+  </channel>
+</rss>
