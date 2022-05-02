@@ -38,7 +38,7 @@
     </item>
     
     <item>
-      <title>以太坊_ETH</title>
+      <title>了解以太坊_Ethereum</title>
       <link>https://6923403.github.io/post/eth/</link>
       <pubDate>Fri, 31 Dec 2021 00:17:17 +0800</pubDate>
       
@@ -51,11 +51,11 @@ Blockchain &amp;amp; BTC
 以太坊白皮书中英对照：https://zhuanlan.zhihu.com/p/33779523
 以太坊白皮书简体中文：https://github.com/ethereum/wiki/wiki/%5B%E4%B8%AD%E6%96%87%5D-%E4%BB%A5%E5%A4%AA%E5%9D%8A%E7%99%BD%E7%9A%AE%E4%B9%A6
  以太币 以太坊区块链上的代币称为以太币（Ether），代码为ETH，可在许多加密货币的外汇市场上交易，它也是以太坊上用来支付交易手续费和运算服务的介质
-  工作量证明 (POW)
- 工作量证明是一个为矿工设置挖矿难度和规则的基础性算法。 挖矿就是“工作”本身。 挖矿是向区块链中添加有效区块。    权益证明机制(POS)
- 权益证明是一种区块链网络达成共识的共识机制。     DEFI 去中心化金融 (DEcentralized FInance）。
-  CeFi = Centralized Finance 中心化金融（传统金融）
-  DEFI - The Future Of Finance Explained: https://www.</description>
+  工作量证明 (POW, Proof of work)
+ 工作量证明是一个为矿工设置挖矿难度和规则的基础性算法。 挖矿就是“工作”本身。 挖矿是向区块链中添加有效区块。    权益证明机制(POS, Proof of stake)
+ 权益证明是一种区块链网络达成共识的共识机制。(彩票)    其他
+  权威证明(POA, Proof of authority)
+ 由投票机制的“许可区块链共识”     DEFI 去中心化金融 (DEcentralized FInance）。</description>
     </item>
     
   </channel>

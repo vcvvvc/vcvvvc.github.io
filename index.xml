@@ -20,9 +20,11 @@ EIP分为三种类型:
 2. 元EIP(A Meta EIP)
 3. 信息EIP(An Informational EIP)
  ERC-20 ERC-20 提供了一个同质化代币的标准，换句话说，每个代币与另一个代币（在类型和价值上）完全相同。 例如，一个 ERC-20 代币就像 ETH 一样，意味着一个代币会并永远会与其他代币一样。
- ERC-721 非同质化代币（NFT）用于以唯一的方式标识某人或者某物。 此类型的代币可以被完美地用于出售下列物品的平台：收藏品、密钥、彩票、音乐会座位编号、体育比赛等。 这种类型的代币有着惊人的潜力，因此它需要一个适当的标准。ERC-721 就是为解决这个问题而来！
- 其他  什么叫做代币？  代币可以在以太坊中表示任何东西：
- 在线平台中的信誉积分 游戏中一个角色的技能 彩票卷 金融资产类似于公司股份的资产 像美元一样的法定货币 一盎司黄金 &amp;hellip;  ICO（是Initial Coin Offering缩写），首次币发行，源自股票市场的首次公开发行（IPO）概念，是区块链项目首次发行代币，募集比特币、以太坊等通用数字货币的行为。   Re： https://zhuanlan.zhihu.com/p/80029720</description>
+它用于以太坊区块链上的所有智能合约以实现代币，并提供所有基于以太坊的代币必须遵循的规则列表。
+六个基本的编码功能是：
+ 总供给 余额 津贴 转移 批准 从转移   ERC-721 ERC-721 非同质化代币标准
+非同质化代币（NFT）用于以唯一的方式标识某人或者某物。 此类型的代币可以被完美地用于出售下列物品的平台：收藏品、密钥、彩票、音乐会座位编号、体育比赛等。 这种类型的代币有着惊人的潜力，因此它需要一个适当的标准。ERC-721 就是为解决这个问题而来！
+所有 NFTs 都有一个 uint256 变量，名为 tokenId，所以对于任何 ERC-721 合约，这对值contract address, tokenId 必须是全局唯一的。 也就是说，dApp 可以有一个“转换器”，该转换器使用 tokenId 输入和输出一些非常有趣的事物的图像， 例如武器、技能或非常可爱的猫咪！</description>
     </item>
     
     <item>
@@ -224,7 +226,7 @@ AAPL是我的第一重仓。
     </item>
     
     <item>
-      <title>以太坊_ETH</title>
+      <title>了解以太坊_Ethereum</title>
       <link>https://6923403.github.io/post/eth/</link>
       <pubDate>Fri, 31 Dec 2021 00:17:17 +0800</pubDate>
       
@@ -237,11 +239,11 @@ Blockchain &amp;amp; BTC
 以太坊白皮书中英对照：https://zhuanlan.zhihu.com/p/33779523
 以太坊白皮书简体中文：https://github.com/ethereum/wiki/wiki/%5B%E4%B8%AD%E6%96%87%5D-%E4%BB%A5%E5%A4%AA%E5%9D%8A%E7%99%BD%E7%9A%AE%E4%B9%A6
  以太币 以太坊区块链上的代币称为以太币（Ether），代码为ETH，可在许多加密货币的外汇市场上交易，它也是以太坊上用来支付交易手续费和运算服务的介质
-  工作量证明 (POW)
- 工作量证明是一个为矿工设置挖矿难度和规则的基础性算法。 挖矿就是“工作”本身。 挖矿是向区块链中添加有效区块。    权益证明机制(POS)
- 权益证明是一种区块链网络达成共识的共识机制。     DEFI 去中心化金融 (DEcentralized FInance）。
-  CeFi = Centralized Finance 中心化金融（传统金融）
-  DEFI - The Future Of Finance Explained: https://www.</description>
+  工作量证明 (POW, Proof of work)
+ 工作量证明是一个为矿工设置挖矿难度和规则的基础性算法。 挖矿就是“工作”本身。 挖矿是向区块链中添加有效区块。    权益证明机制(POS, Proof of stake)
+ 权益证明是一种区块链网络达成共识的共识机制。(彩票)    其他
+  权威证明(POA, Proof of authority)
+ 由投票机制的“许可区块链共识”     DEFI 去中心化金融 (DEcentralized FInance）。</description>
     </item>
     
     <item>
@@ -2009,15 +2011,12 @@ cd ffmpeg/ ./configure sudo make -j4 sudo make install  3. Check ffmpeg -version
       
       <guid>https://6923403.github.io/about/</guid>
       <description>关注AR(Augmented reality) 当下看好AR并看多VR, 期待MR
-元宇宙是目前最具有这种特性的一个总结性概念。概念中穿插各个学科的智慧，各类技术的组合应用，虚拟与现实的结合、产业与技术的结合。
+Metaverse是目前最具有这种特性的一个总结性概念。概念中包含各类技术的组合应用，虚拟与现实的结合、产业与技术的结合。
 We are at the beginning of the next chapter for the internet.
-   古籍、哲学、历史 + XR
-  经济、金融、投资 + XR
-  娱乐、影视、游戏 + XR
-  教育 + 设计 + 历史 + 艺术 + 哲学 + 娱乐 + &amp;hellip; + XR
-  &amp;hellip;&amp;hellip;
-  News-M是根据 经济 + 新闻 + 投资 + XR的需求组合制作的，提取财经新闻标题、链接进行聚合归类写入表格，省去了平时搜索网站、打开网页、查看标题、打开网页、关闭网页、继续查看下一条的繁复步骤, 以往早起看新闻得用一个小时，现在10分钟内即可。
-News-D(未公开项目)根据 经济 + 新闻 + 数据 + 图表 + XR制作, 这个项目工作量非常大,由于数据分析这块我还在学，之后我想充分利用这些数据来做点东西, 像现在的萝卜投研</description>
+ 其他 易: https://6923403.github.io/yi
+随: 随 https://6923403.github.io/vcvc/index.html
+ ab 我写博文往往以叙述的方式，站在第三方视角，尽量让别人也可以看懂，不然以后的自己也看不懂那写了干嘛。
+ 本博客采用GitHub page + hugo搭建 | 主题: m10c</description>
     </item>
     
   </channel>
