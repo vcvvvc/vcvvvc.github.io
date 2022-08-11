@@ -5,7 +5,37 @@
     <link>https://6923403.github.io/tags/linux/</link>
     <description>Recent content in Linux on Vcvc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 09 Apr 2022 23:03:33 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 29 Jul 2022 00:12:53 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>并行、并发、异步、同步</title>
+      <link>https://6923403.github.io/post/async_thread/</link>
+      <pubDate>Fri, 29 Jul 2022 00:12:53 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/async_thread/</guid>
+      <description>并发和并行 并发
+通过一种算法将 CPU 资源合理地分配给多个任务，当一个任务执行 I/O 操作时，CPU 可以转而执行其它的任务，等到 I/O 操作完成以后，或者新的任务遇到 I/O 操作时，CPU 再回到原来的任务继续执行。
+并行
+多核 CPU 的每个核心都可以独立地执行一个任务，而且多个核心之间不会相互干扰。在不同核心上执行的多个任务，是真正地同时运行，这种状态就叫做并行。
+并发+并行
+每个核心并发执行两个任务，两个核心并行的话就能执行四个任务。当然也可以一个核心执行一个任务，另一个核心并发执行三个任务，这跟操作系统的分配方式，以及每个任务的工作状态有关系。
+ 异步跟同步 图为同步/异步
+同步等待上一步执行完成后才会执行下一步。
+异步系统当中的解决方案是开启一个额外的线程进行处理。
+第一个线程获取第一个文件，第二个线程获取第二个文件，第二个线程并不需要等待第一个线程执行完毕再执行。当两个线程都获得到对应的结果之后，再重新同步处理合并结果的操作。
+同步执行
+异步
+setTimeout(function cbFn(){ console.log(&amp;#39;learnInPro&amp;#39;); }, 1000); console.log(&amp;#39;sync things&amp;#39;); setTimeout就是一个异步任务，当JS引擎顺序执行到setTimeout的时候发现他是个异步任务，则会把这个任务挂起，继续执行后面的代码。直到1000ms后，回调函数cbFn才会执行，这就是异步，在执行到setTimeout的时候，JS并不会傻呵呵的等着1000ms执行cbFn回调函数，而是继续执行了后面的代码。
+  异步不会造成阻塞
+  异步可以启用额外的线程去执行任务。
+  异步并不会缩短任务的时间
+   Re: http://c.biancheng.net/view/9486.html
+https://cloud.tencent.com/developer/article/1795692
+https://blog.csdn.net/qq_43533974/article/details/110058714
+https://www.zhihu.com/question/33515481
+https://blog.csdn.net/li123128/article/details/80650256
+https://www.cnblogs.com/IT-CPC/p/10898871.html</description>
+    </item>
+    
     <item>
       <title>Geth_私链创建并链接钱包</title>
       <link>https://6923403.github.io/post/geth_use/</link>
