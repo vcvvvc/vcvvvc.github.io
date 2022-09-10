@@ -2098,9 +2098,9 @@ cd ffmpeg/ ./configure sudo make -j4 sudo make install  3. Check ffmpeg -version
       <description>关注AR(Augmented reality) 当下看好AR并看多VR, 期待MR
 Metaverse是目前最具有这种特性的一个总结性概念。概念中包含各类技术的组合应用，虚拟与现实的结合、产业与技术的结合。
 We are at the beginning of the next chapter for the internet.
+ 21年末-22年在玩数字藏品。
  其他 易: https://6923403.github.io/yi
 随: 随 https://6923403.github.io/vcvc/index.html
- ab 我写博文往往以叙述的方式，站在第三方视角，尽量让别人也可以看懂，不然以后的自己也看不懂那写了干嘛。
  本博客采用GitHub page + hugo搭建 | 主题: m10c</description>
     </item>
     
