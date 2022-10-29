@@ -59,7 +59,8 @@ Paycom</description>
       <guid>https://6923403.github.io/post/eth/</guid>
       <description>前言 谈到ETH就需要先了解区块链跟BTC，单独写了一篇：
 Blockchain &amp;amp; BTC
- ETH https://ethereum.org/
+&amp;ndash;yi-
+ETH https://ethereum.org/
 以太坊（Ethereum）是一个去中心化的开源的有智能合约功能的公共区块链平台。 以太币（ETH 或 Ξ）是以太坊的原生加密货币。截止 2021 年 12 月，以太币是市值第二高的加密货币，仅次于比特币。以太坊是使用最多的区块链。 以太坊的特点包括下列：
  智能合约（smart contract）：存储在区块链上的程序，由各节点执行，需要执行程序的人支付手续费给节点的矿工或权益人。[6] 分布式应用程序：以太坊上的分布式应用程序不会停机，也不能被关掉。 代币（tokens）：智能合约可以创造代币供分布式应用程序使用。分布式应用程序的代币化让用户、投资者以及管理者的利益一致。代币也可以用来进行首次代币发行。 叔块（uncle block）：将因为速度较慢而未及时被收入母链的较短区块链并入，以提升交易量。使用的是有向无环图的相关技术。[6] 权益证明（proof-of-stake）：相较于工作量证明更有效率，可节省大量在挖矿时浪费的电脑资源，并避免特殊应用集成电路造成网络中心化。平行运作中，预计2022年与主链合并。 燃料（gas）：由交易手续费的概念扩展，在执行各种运算（computation）时需计算燃料消耗量，并缴交燃料费，包括发送以太币或者其他代币也被视为一种运算动作。 分片（sharding）：减少每个节点所需纪录的资料量，并透过平行运算提升效率。预计于2022年实现。  以太坊白皮书原版：https://ethereum.org/zh/whitepaper/#further-reading
 以太坊白皮书中英对照：https://zhuanlan.zhihu.com/p/33779523
@@ -93,16 +94,6 @@ https://cn.investing.com/news/stock-market-news/article-2072927
   云游戏 斗鱼云游戏、虎牙云游戏、腾讯START都体验了。 网速足够与真机无异。
  云安全 安全服务边缘 (SSE)
  云数据 边缘计算 单点登录 okta, workos</description>
-    </item>
-    
-    <item>
-      <title>恐慌与贪婪指数</title>
-      <link>https://6923403.github.io/post/fear-and-greed/</link>
-      <pubDate>Wed, 29 Dec 2021 14:31:41 +0800</pubDate>
-      
-      <guid>https://6923403.github.io/post/fear-and-greed/</guid>
-      <description>未填的坑4
-Fear and Greed </description>
     </item>
     
     <item>
