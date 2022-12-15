@@ -5,7 +5,17 @@
     <link>https://6923403.github.io/tags/cpp/</link>
     <description>Recent content in CPP on Vcvc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 30 Jan 2022 23:18:03 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/cpp/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 15 Dec 2022 14:07:46 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/cpp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>C&#43;&#43;标准网络库/对比</title>
+      <link>https://6923403.github.io/post/c&#43;&#43;%E6%A0%87%E5%87%86%E7%BD%91%E7%BB%9C%E5%BA%93/</link>
+      <pubDate>Thu, 15 Dec 2022 14:07:46 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/c&#43;&#43;%E6%A0%87%E5%87%86%E7%BD%91%E7%BB%9C%E5%BA%93/</guid>
+      <description>https://zhuanlan.zhihu.com/p/357075167
+ 各编程语言HTTP请求对比  c: libcurl c#: RestSharp go: net/http java: OKHttp php: HttpRequest python: requests ruby: net/http nodejs: http  c/c++网络库对比  libevent libev libuv libhv asio 畅怀未来  </description>
+    </item>
+    
     <item>
       <title>何为协程</title>
       <link>https://6923403.github.io/post/%E4%BD%95%E4%B8%BA%E5%8D%8F%E7%A8%8B/</link>
@@ -214,7 +224,7 @@ class Gameplayer { private:  enum {NumTurns = 5};  int scores[NumTurns];  ... };
       <pubDate>Sun, 04 Apr 2021 18:21:09 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/server_sum/</guid>
-      <description>socket struct整理  https://6923403.github.io/post/socket_struct/  socket编程需要的头文件整理  https://6923403.github.io/post/socket_file/  socket function  https://6923403.github.io/post/socket/  I/O复用  https://6923403.github.io/post//io多路复用  sem function  https://6923403.github.io/post/sem/  server io actor  https://6923403.github.io/post/server_actor/  timer function  https://6923403.github.io/post/timer_function/   Linux Pthread 线程创建与使用 https://6923403.github.io/post/pthread/
+      <description>c++标准网络库对比  https://6923403.github.io/post/c++标准网络库/  socket struct整理  https://6923403.github.io/post/socket_struct/  socket编程需要的头文件整理  https://6923403.github.io/post/socket_file/  socket function  https://6923403.github.io/post/socket/  I/O复用  https://6923403.github.io/post//io多路复用  sem function  https://6923403.github.io/post/sem/  server io actor  https://6923403.github.io/post/server_actor/  timer function  https://6923403.github.io/post/timer_function/   Linux Pthread 线程创建与使用 https://6923403.github.io/post/pthread/
 C++11 thread https://6923403.github.io/post/cppthread/
  Unp note https://6923403.github.io/post/unp_note/
 TCP_IP | 计算机网络 https://6923403.github.io/post/computer_network/

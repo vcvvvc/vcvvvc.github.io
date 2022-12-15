@@ -27,7 +27,7 @@ uint32_t htonl(uint32_t hostlong); //将主机的无符号长整型数转换成�
       <pubDate>Sun, 04 Apr 2021 18:21:09 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/server_sum/</guid>
-      <description>socket struct整理  https://6923403.github.io/post/socket_struct/  socket编程需要的头文件整理  https://6923403.github.io/post/socket_file/  socket function  https://6923403.github.io/post/socket/  I/O复用  https://6923403.github.io/post//io多路复用  sem function  https://6923403.github.io/post/sem/  server io actor  https://6923403.github.io/post/server_actor/  timer function  https://6923403.github.io/post/timer_function/   Linux Pthread 线程创建与使用 https://6923403.github.io/post/pthread/
+      <description>c++标准网络库对比  https://6923403.github.io/post/c++标准网络库/  socket struct整理  https://6923403.github.io/post/socket_struct/  socket编程需要的头文件整理  https://6923403.github.io/post/socket_file/  socket function  https://6923403.github.io/post/socket/  I/O复用  https://6923403.github.io/post//io多路复用  sem function  https://6923403.github.io/post/sem/  server io actor  https://6923403.github.io/post/server_actor/  timer function  https://6923403.github.io/post/timer_function/   Linux Pthread 线程创建与使用 https://6923403.github.io/post/pthread/
 C++11 thread https://6923403.github.io/post/cppthread/
  Unp note https://6923403.github.io/post/unp_note/
 TCP_IP | 计算机网络 https://6923403.github.io/post/computer_network/
