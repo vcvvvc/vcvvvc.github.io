@@ -13,7 +13,7 @@
       
       <guid>https://6923403.github.io/post/c&#43;&#43;%E6%A0%87%E5%87%86%E7%BD%91%E7%BB%9C%E5%BA%93/</guid>
       <description>https://zhuanlan.zhihu.com/p/357075167
- 各编程语言HTTP请求对比  c: libcurl c#: RestSharp go: net/http java: OKHttp php: HttpRequest python: requests ruby: net/http nodejs: http  c/c++网络库对比  libevent libev libuv libhv asio 畅怀未来  </description>
+ 各编程语言HTTP请求对比  c: libcurl c#: RestSharp go: net/http java: OKHttp php: HttpRequest python: requests ruby: net/http nodejs: http  c/c++网络库对比  libevent libev libuv libhv asio  </description>
     </item>
     
     <item>
