@@ -12,7 +12,7 @@
       <pubDate>Sat, 01 Aug 2020 21:31:50 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/shell_commans/</guid>
-      <description>./start.sh 1 2 3 4 num: $# = 4 PID: $$ = 24133 sname: $0 = start.sh first: $1 = 1 secont: $2 = 2 $@ = 1234 #value list $* = 1234 #value   $* 1 2 3 4  </description>
+      <description>./start.sh 1 2 3 4 num: $# = 4 PID: $$ = 24133 sname: $0 = start.sh first: $1 = 1 secont: $2 = 2 $@ = 1234 #value list $* = 1234 #value $* 1 2 3 4 </description>
     </item>
     
   </channel>

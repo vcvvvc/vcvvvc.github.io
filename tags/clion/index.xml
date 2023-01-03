@@ -12,16 +12,17 @@
       <pubDate>Mon, 22 Feb 2021 22:10:27 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/clion_remote_debug/</guid>
-      <description>环境  Macos Clion2020.3.2 Server: ubuntu18   设置 1. 首先添加一个ssh
+      <description>环境 Macos Clion2020.3.2 Server: ubuntu18 设置 1. 首先添加一个ssh
 2. 部署服务器上传文件
 选择SFTP协议
 3. 设置本地与远程文件路径
 4. 上传文件
 5. 设置自动上传
- 环境配置 安装环境
+环境配置 安装环境
 Centos # cmake yum install cmake -y # gcc &amp;amp; gdb yum install gcc-c++ -y yum install gdb -y #gdbserver yum install gdb-gdbserver -y Ubuntu apt-get install cmake apt-get install gcc apt-get install g++ apt-get install gdb apt-get install gdbserver gdbserver配置
 target remote中格式是: tcp:ip:port
- 远程调试 编译程序 -g 或者cmkae</description>
+远程调试 编译程序 -g 或者cmkae
+cmake .. -DCMAKE_BUILD_TYPE=Debug make #注意这个10234是端口 跟上图中设置的对应 gdbserver :10234 .</description>
     </item>
     
   </channel>

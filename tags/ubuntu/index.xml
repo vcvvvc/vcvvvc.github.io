@@ -12,7 +12,7 @@
       <pubDate>Sat, 18 Dec 2021 17:36:22 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/ubuntu_install_mysql/</guid>
-      <description>安装mysql8.0 apt-get update apt-get install mysql-server  设置远程访问 #远程 vim /etc/mysql/mysql.conf.d/mysqld.cnf bind-address改为0.0.0.0 #重启 /etc/init.d/mysql restart #设置权限与密码 use mysql; ALTER USER &amp;#39;root&amp;#39;@&amp;#39;localhost&amp;#39; IDENTIFIED WITH mysql_native_password BY &amp;#39;密码&amp;#39;; #使用mysql_native_password修改加密规则 ALTER USER &amp;#39;root&amp;#39;@&amp;#39;localhost&amp;#39; IDENTIFIED BY &amp;#39;密码&amp;#39; PASSWORD EXPIRE NEVER; #更新一下用户的密码 UPDATE user SET host = &amp;#39;%&amp;#39; WHERE user = &amp;#39;root&amp;#39;; #允许远程访问 #刷新cache中配置 刷新权限 flush privileges; quit;  初始化 #初始化 mysql_secure_installation 1. NO 2. 输入密码 3. 其余全部默认 # 检查 systemctl status mysql.service  状态 #开启 service mysql start # 关闭 service mysql stop # 重启 service mysql restart # 状态 systemctl status mysql.</description>
+      <description>安装mysql8.0 apt-get update apt-get install mysql-server 设置远程访问 #远程 vim /etc/mysql/mysql.conf.d/mysqld.cnf bind-address改为0.0.0.0 #重启 /etc/init.d/mysql restart #设置权限与密码 use mysql; ALTER USER &amp;#39;root&amp;#39;@&amp;#39;localhost&amp;#39; IDENTIFIED WITH mysql_native_password BY &amp;#39;密码&amp;#39;; #使用mysql_native_password修改加密规则 ALTER USER &amp;#39;root&amp;#39;@&amp;#39;localhost&amp;#39; IDENTIFIED BY &amp;#39;密码&amp;#39; PASSWORD EXPIRE NEVER; #更新一下用户的密码 UPDATE user SET host = &amp;#39;%&amp;#39; WHERE user = &amp;#39;root&amp;#39;; #允许远程访问 #刷新cache中配置 刷新权限 flush privileges; quit; 初始化 #初始化 mysql_secure_installation 1. NO 2. 输入密码 3. 其余全部默认 # 检查 systemctl status mysql.service 状态 #开启 service mysql start # 关闭 service mysql stop # 重启 service mysql restart # 状态 systemctl status mysql.</description>
     </item>
     
     <item>
@@ -22,7 +22,7 @@
       
       <guid>https://6923403.github.io/post/ubuntu2010_install_vscode/</guid>
       <description>20.10有点下问题，得简单配置下
- 添加到bashrc 或zshrc cd ~ mkdir vscode alias code=&amp;#39;code --user-data-dir $HOME/vscode&amp;#39;  root运行 vim /usr/bin/code # 跟谷歌浏览器一样 添加 --no-sandbox </description>
+添加到bashrc 或zshrc cd ~ mkdir vscode alias code=&amp;#39;code --user-data-dir $HOME/vscode&amp;#39; root运行 vim /usr/bin/code # 跟谷歌浏览器一样 添加 --no-sandbox </description>
     </item>
     
     <item>
@@ -32,17 +32,18 @@
       
       <guid>https://6923403.github.io/post/install_nvidia/</guid>
       <description>2021-05-06更新 完善一下
-  网上教程坑特别多 这个步骤是我自己装好总结的
-  电脑dell
-  显卡1650
-   1. 去残留 sudo apt-get remove --purge nvidia*  2. 添加规则 vim /etc/modprobe.d/blacklist.conf
-blacklist nouveau options nouveau modeset=0  3. 验证是否成功 重启 重启之后输入命令
+网上教程坑特别多 这个步骤是我自己装好总结的
+电脑dell
+显卡1650
+1. 去残留 sudo apt-get remove --purge nvidia* 2. 添加规则 vim /etc/modprobe.d/blacklist.conf
+blacklist nouveau options nouveau modeset=0 3. 验证是否成功 重启 重启之后输入命令
 sudo update-initramfs -u lsmod | grep nouveau 如果没有返回信息代表成功
 有信息的话 先检查下步骤2 再重启, 也可忽视 我这边见过一次有返回
- 4.选择合适的版本   1.输入命令: ubuntu-drivers devices
-  2.官网：Nvidia Official website
-  选择合适的版本来进行安装
-sudo add-apt-repository ppa:graphics-drivers/ppa sudo apt-get update #选择自己的版本 例如我这边安装440 sudo apt-get install nvidia-driver-440  5.</description>
+4.选择合适的版本 1.输入命令: ubuntu-drivers devices
+2.官网：Nvidia Official website
+选择合适的版本来进行安装
+sudo add-apt-repository ppa:graphics-drivers/ppa sudo apt-get update #选择自己的版本 例如我这边安装440 sudo apt-get install nvidia-driver-440 5.选择驱动应用 ubuntu配置点击 软件和更新 ==&amp;gt; 附件驱动 然后选择合适版本的驱动
+Open warehouse =&amp;gt; additional drivers =&amp;gt; choose you drivers .</description>
     </item>
     
     <item>
@@ -52,7 +53,7 @@ sudo add-apt-repository ppa:graphics-drivers/ppa sudo apt-get update #选择自�
       
       <guid>https://6923403.github.io/post/ubuntu20_install_opencv/</guid>
       <description>Ubuntu20.04.1LTS 2020-01-14-Successful
- lib Install apt-get install -y build-essential pkg-config cmake apt-get install -y libgtk2.0-dev libavcodec-dev libavformat-dev libjpeg-dev libswscale-dev libtiff5-dev  Download github: git clone https://github.com/opencv/opencv.git gitee: git clone https://gitee.com/mirrors/opencv.git  Install cd opencv mkdir build cd build cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D WITH_GTK=ON -D OPENCV_GENERATE_PKGCONFIG=YES .. make -j4 make install  Set echo &amp;#34;include /usr/loacal/lib&amp;#34; &amp;gt;&amp;gt; /etc/ld.so.conf ldconfig echo &amp;#34;PKG_CONFIG_PATH=\$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig&amp;#34; &amp;gt;&amp;gt; /etc/bash.bashrc echo &amp;#34;export PKG_CONFIG_PATH&amp;#34; &amp;gt;&amp;gt; /etc/bash.bashrc  Show version pkg-config --modversion opencv4 pkg-config --cflags opencv4 pkg-config --libs opencv4 </description>
+lib Install apt-get install -y build-essential pkg-config cmake apt-get install -y libgtk2.0-dev libavcodec-dev libavformat-dev libjpeg-dev libswscale-dev libtiff5-dev Download github: git clone https://github.com/opencv/opencv.git gitee: git clone https://gitee.com/mirrors/opencv.git Install cd opencv mkdir build cd build cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D WITH_GTK=ON -D OPENCV_GENERATE_PKGCONFIG=YES .. make -j4 make install Set echo &amp;#34;include /usr/loacal/lib&amp;#34; &amp;gt;&amp;gt; /etc/ld.so.conf ldconfig echo &amp;#34;PKG_CONFIG_PATH=\$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig&amp;#34; &amp;gt;&amp;gt; /etc/bash.bashrc echo &amp;#34;export PKG_CONFIG_PATH&amp;#34; &amp;gt;&amp;gt; /etc/bash.bashrc Show version pkg-config --modversion opencv4 pkg-config --cflags opencv4 pkg-config --libs opencv4 </description>
     </item>
     
     <item>
@@ -64,7 +65,7 @@ sudo add-apt-repository ppa:graphics-drivers/ppa sudo apt-get update #选择自�
       <description>字体 因为wine对HiDPI不会默认适配dpi值。解决方案:
 注意WINEPREFIX这个环境变量指向你的deepin wine容器目录，比如TIM在~/.deepinwine/Deepin-TIM，微信在~/.deepinwine/Deepin-WeChat 执行以下命令
 WINEPREFIX=~/.deepinwine/Deepin-QQ deepin-wine winecfg WINEPREFIX=~/.deepinwine/Deepin-WeChat deepin-wine winecfg 打开wine设置页面，在显示选项卡中调整屏幕分辨率的dpi值即可。比如想实现win 10的150% DPI只需要将96改到144即可，125%放大则对应120。手工调整下合适的DPI就可以了
- 对于中文乱码是空格的情况，安装中文字体解决
+对于中文乱码是空格的情况，安装中文字体解决
 sudo apt-get install fonts-droid-fallback ttf-wqy-zenhei ttf-wqy-microhei fonts-arphic-ukai fonts-arphic-uming </description>
     </item>
     
@@ -74,12 +75,12 @@ sudo apt-get install fonts-droid-fallback ttf-wqy-zenhei ttf-wqy-microhei fonts-
       <pubDate>Mon, 27 Jul 2020 17:41:31 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/ffmpeg_install/</guid>
-      <description>Start Download FFmpeg  Install tool 1. install yasm
-sudo apt-get install yasm  if not installed yasm, os will output &amp;ldquo;nasm/yasm not found or too old. Use &amp;ndash;disable-x86asm for a crippled build.&amp;rdquo;
- 2. install SDL2
+      <description>Start Download FFmpeg Install tool 1. install yasm
+sudo apt-get install yasm if not installed yasm, os will output &amp;ldquo;nasm/yasm not found or too old. Use &amp;ndash;disable-x86asm for a crippled build.&amp;rdquo;
+2. install SDL2
 SDL2-2.0.12(stable)
-tar -xvf SDL2-2.0.12.tar.gz cd SDL2-2.0.12 ./configure sudo make -j4 sudo make install  Install FFmpeg 1. git clone https://git.ffmpeg.org/ffmpeg.git ffmpeg
-cd ffmpeg/ ./configure sudo make -j4 sudo make install  3. Check ffmpeg -version ffplay -version </description>
+tar -xvf SDL2-2.0.12.tar.gz cd SDL2-2.0.12 ./configure sudo make -j4 sudo make install Install FFmpeg 1. git clone https://git.ffmpeg.org/ffmpeg.git ffmpeg
+cd ffmpeg/ ./configure sudo make -j4 sudo make install 3. Check ffmpeg -version ffplay -version </description>
     </item>
     
   </channel>

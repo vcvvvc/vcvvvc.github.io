@@ -13,7 +13,7 @@
       
       <guid>https://6923403.github.io/post/hugomarkdown/</guid>
       <description>0. Hugo &amp;amp; Markdown Hugo &amp;amp;&amp;amp; MarkDown
- 1. MarkDown template --- title: &amp;#34;{{ replace .Name &amp;#34;-&amp;#34; &amp;#34; &amp;#34; | title }}&amp;#34; date: {{ .Date }} lastmod: {{ .Date }} draft: false tags: [ ] categories: [ ] comment: true ---  2. Hugo command hugo #build html havn&amp;#39;t draft=true hugo -D #build html and dragt=true hugo server #Start hugo server  3. Other Reference</description>
+1. MarkDown template --- title: &amp;#34;{{ replace .Name &amp;#34;-&amp;#34; &amp;#34; &amp;#34; | title }}&amp;#34; date: {{ .Date }} lastmod: {{ .Date }} draft: false tags: [ ] categories: [ ] comment: true --- 2. Hugo command hugo #build html havn&amp;#39;t draft=true hugo -D #build html and dragt=true hugo server #Start hugo server 3. Other Reference</description>
     </item>
     
   </channel>

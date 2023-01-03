@@ -12,7 +12,7 @@
       <pubDate>Fri, 14 Aug 2020 16:16:33 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/constexpr/</guid>
-      <description>0.Array int url[10]; //true int url[6 + 4] //true int len = 10; int url[len] //flase  1.Constexpr #include &amp;lt;iostream&amp;gt; using namespace std; int main() { /* * If have not constexpr, CPP throw error */ constexpr int num = 1 + 2 + 3; int url[num] = {1,2,3,4,5,6}; couts&amp;lt;&amp;lt; url[1] &amp;lt;&amp;lt; endl; return 0; }  2.Only have one &amp;lsquo;return&amp;rsquo; # Error constexpr int display(int x) { int ret = 1 + 2 + x; return ret; } # True constexpr int display(int x) { return 1 + 2 + x; }  3.</description>
+      <description>0.Array int url[10]; //true int url[6 + 4] //true int len = 10; int url[len] //flase 1.Constexpr #include &amp;lt;iostream&amp;gt; using namespace std; int main() { /* * If have not constexpr, CPP throw error */ constexpr int num = 1 + 2 + 3; int url[num] = {1,2,3,4,5,6}; couts&amp;lt;&amp;lt; url[1] &amp;lt;&amp;lt; endl; return 0; } 2.Only have one &amp;lsquo;return&amp;rsquo; # Error constexpr int display(int x) { int ret = 1 + 2 + x; return ret; } # True constexpr int display(int x) { return 1 + 2 + x; } 3.</description>
     </item>
     
   </channel>

@@ -12,7 +12,7 @@
       <pubDate>Thu, 30 Jul 2020 18:04:47 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/arch_desktop/</guid>
-      <description>1. install xorg systemctl enable dhcpcd pacman -S xorg-server xorg-xinit  install tool pacman -S zsh alacritty fctix fcitx-im fcitx-configtool i3 git sh -c &amp;#34;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&amp;#34;  install ttf pacman -S ttf-liberation pacman -S adobe-source-han-sans-cn-fonts pacman -S adobe-source-han-sans-tw-fonts pacman -S adobe-source-han-sans-jp-fonts  add user 这一步随意
+      <description>1. install xorg systemctl enable dhcpcd pacman -S xorg-server xorg-xinit install tool pacman -S zsh alacritty fctix fcitx-im fcitx-configtool i3 git sh -c &amp;#34;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&amp;#34; install ttf pacman -S ttf-liberation pacman -S adobe-source-han-sans-cn-fonts pacman -S adobe-source-han-sans-tw-fonts pacman -S adobe-source-han-sans-jp-fonts add user 这一步随意
 useradd -m -g users -s /bin/zsh xxxx #添加xxxx用户，用户名你自定义 passwd xxxx #为xxxx用户设置密码 vim /etc/sudoers #编辑配置文件 在root ALL = (ALL) ALL下添加xxxx ALL = (ALL) ALL;输入:wq!强制保存退出vim login new user touch .</description>
     </item>
     
@@ -24,13 +24,13 @@ useradd -m -g users -s /bin/zsh xxxx #添加xxxx用户，用户名你自定义 p
       <guid>https://6923403.github.io/post/arch_install/</guid>
       <description>0. Ready work Test environment: Vmware15.5.6pro arch-2020-07.iso 准备最新景象
 选择UEFI引导
- 1. Start ls /sys/firmware/efi/efivars 这条命令检测是否在EFI模式下
+1. Start ls /sys/firmware/efi/efivars 这条命令检测是否在EFI模式下
 禁用 reflector
 systemctl stop reflector.service
 检查网络, ping qq.com
- Archwiki: Note: The installation image has systemd-networkd.service, systemd-resolved.service and iwd.service enabled by default. That will not be the case for the installed system.
- Update systime
-timedatectl set-ntp true  2. Partition the disks cfdisk /dev/sda #choose gpt Move to Write , enter, yes, last Quit .</description>
+Archwiki: Note: The installation image has systemd-networkd.service, systemd-resolved.service and iwd.service enabled by default. That will not be the case for the installed system.
+Update systime
+timedatectl set-ntp true 2. Partition the disks cfdisk /dev/sda #choose gpt Move to Write , enter, yes, last Quit . 3. Format the partitions 3.</description>
     </item>
     
   </channel>

@@ -13,7 +13,7 @@
       
       <guid>https://6923403.github.io/post/c&#43;&#43;%E6%A0%87%E5%87%86%E7%BD%91%E7%BB%9C%E5%BA%93/</guid>
       <description>https://zhuanlan.zhihu.com/p/357075167
- 各编程语言HTTP请求对比  c: libcurl c#: RestSharp go: net/http java: OKHttp php: HttpRequest python: requests ruby: net/http nodejs: http  c/c++网络库对比  libevent libev libuv libhv asio  </description>
+各编程语言HTTP请求对比 c: libcurl c#: RestSharp go: net/http java: OKHttp php: HttpRequest python: requests ruby: net/http nodejs: http c/c++网络库对比 libevent libev libuv libhv asio </description>
     </item>
     
     <item>
@@ -25,14 +25,15 @@
       <description>Cookie HTTP 是无状态协议，它不对之前发生过的请求和响应的状态进行管理。
 HTTP Cookie（也叫 Web Cookie 或浏览器 Cookie） 是服务器发送到用户浏览器并保存在本地的一小块数据，它会在浏览器下次向同一服务器再发起请求时被携带并发送到服务器上。通常，它用于告知服务端两个请求是否来自同一浏览器，如保持用户的登录状态。Cookie 使基于无状态的 HTTP 协议记录稳定的状态信息成为了可能。
 Cookie 主要用于以下三个方面：
-  会话状态管理（如用户登录状态、购物车、游戏分数或其它需要记录的信息）
-  个性化设置（如用户自定义设置、主题等）
-  浏览器行为跟踪（如跟踪分析用户行为等）
-   创建 Cookie 当服务器收到 HTTP 请求时，服务器可以在响应头里面添加一个 Set-Cookie 选项。浏览器收到响应后通常会保存下 Cookie，之后对该服务器每一次请求中都通过 Cookie 请求头部将 Cookie 信息发送给服务器。另外，Cookie 的过期时间、域、路径、有效期、适用站点都可以根据需要来指定。
- 定义 Cookie 的生命周期 Cookie 的生命周期可以通过两种方式定义：
-  会话期: Cookie 是最简单的 Cookie：浏览器关闭之后它会被自动删除，也就是说它仅在会话期内有效。会话期 Cookie 不需要指定过期时间（Expires）或者有效期（Max-Age）。需要注意的是，有些浏览器提供了会话恢复功能，这种情况下即使关闭了浏览器，会话期 Cookie 也会被保留下来，就好像浏览器从来没有关闭一样，这会导致 Cookie 的生命周期无限期延长。
-  持久性: Cookie 的生命周期取决于过期时间（Expires）或有效期（Max-Age）指定的一段时间。
-   Cookie 的作用域 Domain 和 Path 标识定义了 Cookie 的作用域：即允许 Cookie 应该发送给哪些 URL。</description>
+会话状态管理（如用户登录状态、购物车、游戏分数或其它需要记录的信息）
+个性化设置（如用户自定义设置、主题等）
+浏览器行为跟踪（如跟踪分析用户行为等）
+创建 Cookie 当服务器收到 HTTP 请求时，服务器可以在响应头里面添加一个 Set-Cookie 选项。浏览器收到响应后通常会保存下 Cookie，之后对该服务器每一次请求中都通过 Cookie 请求头部将 Cookie 信息发送给服务器。另外，Cookie 的过期时间、域、路径、有效期、适用站点都可以根据需要来指定。
+定义 Cookie 的生命周期 Cookie 的生命周期可以通过两种方式定义：
+会话期: Cookie 是最简单的 Cookie：浏览器关闭之后它会被自动删除，也就是说它仅在会话期内有效。会话期 Cookie 不需要指定过期时间（Expires）或者有效期（Max-Age）。需要注意的是，有些浏览器提供了会话恢复功能，这种情况下即使关闭了浏览器，会话期 Cookie 也会被保留下来，就好像浏览器从来没有关闭一样，这会导致 Cookie 的生命周期无限期延长。
+持久性: Cookie 的生命周期取决于过期时间（Expires）或有效期（Max-Age）指定的一段时间。
+Cookie 的作用域 Domain 和 Path 标识定义了 Cookie 的作用域：即允许 Cookie 应该发送给哪些 URL。
+Re: https://developer.mozilla.org/zh-CN/docs/web/http/cookies</description>
     </item>
     
     <item>
@@ -41,14 +42,17 @@ Cookie 主要用于以下三个方面：
       <pubDate>Wed, 23 Feb 2022 17:47:16 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/tcp_udp%E9%A6%96%E9%83%A8/</guid>
-      <description>TCP   tcp报文首部的前20个字节是固定的，后面有4n字节是需要根据需要增加的选项，因此tcp首部的最小长度是20字节。
-  源端口、目标端口： 计算机上的进程要和其他进程通信是要通过计算机端口的，而一个计算机端口某个时刻只能被一个进程占用，所以通过指定源端口和目标端口，就可以知道是哪两个进程需要通信。源端口、目标端口是用16位表示的，可推算计算机的端口个数为2^16个。
-  序号：表示本报文段所发送数据的第一个字节的编号。在TCP连接中所传送的字节流的每一个字节都会按顺序编号。由于序列号由32位表示，所以每2^32个字节，就会出现序列号回绕，再次从 0 开始。
- 序号增加到最大值的时候，下一个序号又回到了 0. 也就是说 TCP 协议可对 4GB 的数据进行编号，在一般情况下可保证当序号重复使用时，旧序号的数据早已经通过网络到达终点或者丢失了。    确认号：表示接收方期望收到发送方下一个报文段的第一个字节数据的编号。也就是告诉发送发：我希望你（指发送方）下次发送的数据的第一个字节数据的编号是这个确认号。也就是告诉发送方：我希望你（指发送方）下次发送给我的TCP报文段的序列号字段的值是这个确认号。
-  数据偏移: 占4位，它指出TCP报文段的数据起始处距离TCP报文段的起始处有多远。这个字段实际上是指出TCP报文段的首部长度。由于首部中还有长度不确定的选项字段，因此数据偏移字段是必要的。 但应注意，“数据偏移”的单位是32位字（即以4字节的字为计算单位）。由于4位二进制数能表示的最大十进制数字是15，因此数据偏移的最大值是60字节，这也是TCP首部的最大字节（即选项长度不能超过40字节）。
-  保留: 占 0.5 个字节 (4 位)。 保留为今后使用，但目前应置为 0。
-  控制位: 占 1 个字节 （8位）
- CWR（Congestion Window Reduced） ECE（ECN-Echo） URG（Urgent Flag）  该位为1时，表示包中有需要紧急处理的数据。对于需要紧急处理 的数据，会在后面的紧急指针中再进行解释。   ACK（Acknowledgement Flag）  该位为1时，确认应答的字段变为有效。TCP规定除了最初建立连 接时的SYN包之外该位必须设置为1。   PSH（Push Flag）  该位为1时，表示需要将受到的数据立刻传给上层应用协议。PSH 为0时，则不需要立即传而是先进行缓存。   RST（Reset Flag）  该位为1时表示TCP连接中出现异常必须强制断开连接。   SYN（Synchronize Flag）  用于建立连接。SYN为1表示希望建立连接，并在其序列号的字段 进行序列号初始值的设定   FIN（Fin Flag）  该位为1时，表示今后不会再有数据发送，希望断开连接。当通信 结束希望断开连接时，通信双方的主机之间就可以相互交换FIN位置为1 的TCP段。      窗口大小（Window Size）</description>
+      <description>TCP tcp报文首部的前20个字节是固定的，后面有4n字节是需要根据需要增加的选项，因此tcp首部的最小长度是20字节。
+源端口、目标端口： 计算机上的进程要和其他进程通信是要通过计算机端口的，而一个计算机端口某个时刻只能被一个进程占用，所以通过指定源端口和目标端口，就可以知道是哪两个进程需要通信。源端口、目标端口是用16位表示的，可推算计算机的端口个数为2^16个。
+序号：表示本报文段所发送数据的第一个字节的编号。在TCP连接中所传送的字节流的每一个字节都会按顺序编号。由于序列号由32位表示，所以每2^32个字节，就会出现序列号回绕，再次从 0 开始。
+序号增加到最大值的时候，下一个序号又回到了 0. 也就是说 TCP 协议可对 4GB 的数据进行编号，在一般情况下可保证当序号重复使用时，旧序号的数据早已经通过网络到达终点或者丢失了。 确认号：表示接收方期望收到发送方下一个报文段的第一个字节数据的编号。也就是告诉发送发：我希望你（指发送方）下次发送的数据的第一个字节数据的编号是这个确认号。也就是告诉发送方：我希望你（指发送方）下次发送给我的TCP报文段的序列号字段的值是这个确认号。
+数据偏移: 占4位，它指出TCP报文段的数据起始处距离TCP报文段的起始处有多远。这个字段实际上是指出TCP报文段的首部长度。由于首部中还有长度不确定的选项字段，因此数据偏移字段是必要的。 但应注意，“数据偏移”的单位是32位字（即以4字节的字为计算单位）。由于4位二进制数能表示的最大十进制数字是15，因此数据偏移的最大值是60字节，这也是TCP首部的最大字节（即选项长度不能超过40字节）。
+保留: 占 0.5 个字节 (4 位)。 保留为今后使用，但目前应置为 0。
+控制位: 占 1 个字节 （8位）
+CWR（Congestion Window Reduced） ECE（ECN-Echo） URG（Urgent Flag） 该位为1时，表示包中有需要紧急处理的数据。对于需要紧急处理 的数据，会在后面的紧急指针中再进行解释。 ACK（Acknowledgement Flag） 该位为1时，确认应答的字段变为有效。TCP规定除了最初建立连 接时的SYN包之外该位必须设置为1。 PSH（Push Flag） 该位为1时，表示需要将受到的数据立刻传给上层应用协议。PSH 为0时，则不需要立即传而是先进行缓存。 RST（Reset Flag） 该位为1时表示TCP连接中出现异常必须强制断开连接。 SYN（Synchronize Flag） 用于建立连接。SYN为1表示希望建立连接，并在其序列号的字段 进行序列号初始值的设定 FIN（Fin Flag） 该位为1时，表示今后不会再有数据发送，希望断开连接。当通信 结束希望断开连接时，通信双方的主机之间就可以相互交换FIN位置为1 的TCP段。 窗口大小（Window Size）
+该字段长为16位。用于通知从相同TCP首部的确认应答号所指位置 开始能够接收的数据大小（8位字节）。 校验和（Checksum）
+紧急指针（Urgent Pointer）
+该字段长为16位。只有在URG控制位为1时有效。该字段的数值表 示本报文段中紧急数据的指针。正确来讲，从数据部分的首位到紧急指 针所指示的位置为止为紧急数据。因此也可以说紧急指针指出了紧急数 据的末尾在报文段中的位置。 选项（Options）</description>
     </item>
     
     <item>
@@ -57,20 +61,33 @@ Cookie 主要用于以下三个方面：
       <pubDate>Tue, 15 Feb 2022 20:36:44 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/ip%E9%A6%96%E9%83%A8/</guid>
-      <description>IPv4首部   版本：由4比特构成，表示标识IP首部的版本号。IPv4的版本号即为4，因此在这个字段上的值也为“4”。
-  首部长度(（IHL：Internet Header Length）)：由4比特构成，表明IP首部的大小，单位为4字节（32比特）。对于没有可选项的IP包，首部长度则设置为“5”。也就是说，当没有可选项时，IP首部的长度为20字节（4*5=20）。
-  区别服务（TOS：Type Of Service）: 由8比特构成，用来表明服务质量。每一个的具体含义如表所示。
-   DSCP（Differential Services Codepoint，差分服务代码点）是TOS（Type Of Services）的一部分。现在统称为DiffSer，用来进行质量控制。  如果3-5位的值为0,0~2位则被称作类别选择代码点。这样就可以向TOS的优先度那样提供8中类型的质量控级别。对于每一种级别所采取的措施则由提供DiffServ的运营管理者制定。为了与TOS保持一致，值越大优先度也越高。如果第五位为1，表示实验或本地使用的意思。
- ECN(Ecplicit Congestion Notification，显示拥塞通告)用来报告网络拥塞情况，由两个比特构成。  第6位的ECT 用以通告上传TCP层协议是否处理ECN。当路由器在转发ECN为1的包的过程中，如果出现网络拥塞的情况，就将CE位设置为1。
-  总长度（Total Length）： 表示IP首部与数据部分合起来的字节数。该字段长16比特。因此IP包的最大长度为65535=2^16字节。目前还不存在能够传输最大长度为65535字节的IP包的数据链路。不过，由于有IP分片处理，从IP的上一层的角度看，不论底层采用何种数据链路，都可以认为能够以IP的最大包长传输数据。
-  标识（ID：Identification）：由16比特构成，用于分片重组。同一个分片的标识值相同，不同分片的标识值不同。通常，每发送一个IP包，它的值也逐渐递增。此外，即使IP相同，如果目标地址、源地址或协议不同的话，也会被认为是不同的分片。
-  标志：由3比特构成，标识包被分片的相关信息。每一个的具体含义如图：
-    片位移（FO：Fragment Offset）：由13比特构成，用来标识被分片的每一个分段相当于原始数据的位置。第一个分片对应的值为0.由于FO域占13位，因此最多可以表示8192（=2^13）个相对位置。单位为8字节，因此最大可表示原始数据8*8192=65536字节的位置。
-  生存时间（TTL：Time To Live）：由8比特构成，它最初的意思是以秒为单位记录当前包在网络上应该生存的期限。然而，在实际中它是指可以中转多少个路由器的意思。每经过一个路由器，TTL会减1，直到变成0则丢弃该包。
-  协议（Protocol）：由8比特构成，表示IP首部的下一个首部隶属于哪个协议。目前使用的协议部分如图：
-    首部校验和（Header Checksum）：由16比特（2个字节）构成，也叫IP首部校验和。该字段只校验数据报的首部，不校验数据部分。它主要用来确保IP数据报不被破坏。校验和的计算过程，首先要将校验和的所有位置设置为0，然后以16比特为单位划分IP首部，并用1补数计算所有16位字的和。最后将所得到这个和的1补数赋给首部校验和字段。
-  源地址（Source Address）：由32比特构成，表示发送端IP地址。
-  目标地址（Destination Address）：由32比特构成，表示接收端IP地址。</description>
+      <description>IPv4首部 版本：由4比特构成，表示标识IP首部的版本号。IPv4的版本号即为4，因此在这个字段上的值也为“4”。
+首部长度(（IHL：Internet Header Length）)：由4比特构成，表明IP首部的大小，单位为4字节（32比特）。对于没有可选项的IP包，首部长度则设置为“5”。也就是说，当没有可选项时，IP首部的长度为20字节（4*5=20）。
+区别服务（TOS：Type Of Service）: 由8比特构成，用来表明服务质量。每一个的具体含义如表所示。
+DSCP（Differential Services Codepoint，差分服务代码点）是TOS（Type Of Services）的一部分。现在统称为DiffSer，用来进行质量控制。 如果3-5位的值为0,0~2位则被称作类别选择代码点。这样就可以向TOS的优先度那样提供8中类型的质量控级别。对于每一种级别所采取的措施则由提供DiffServ的运营管理者制定。为了与TOS保持一致，值越大优先度也越高。如果第五位为1，表示实验或本地使用的意思。
+ECN(Ecplicit Congestion Notification，显示拥塞通告)用来报告网络拥塞情况，由两个比特构成。 第6位的ECT 用以通告上传TCP层协议是否处理ECN。当路由器在转发ECN为1的包的过程中，如果出现网络拥塞的情况，就将CE位设置为1。
+总长度（Total Length）： 表示IP首部与数据部分合起来的字节数。该字段长16比特。因此IP包的最大长度为65535=2^16字节。目前还不存在能够传输最大长度为65535字节的IP包的数据链路。不过，由于有IP分片处理，从IP的上一层的角度看，不论底层采用何种数据链路，都可以认为能够以IP的最大包长传输数据。
+标识（ID：Identification）：由16比特构成，用于分片重组。同一个分片的标识值相同，不同分片的标识值不同。通常，每发送一个IP包，它的值也逐渐递增。此外，即使IP相同，如果目标地址、源地址或协议不同的话，也会被认为是不同的分片。
+标志：由3比特构成，标识包被分片的相关信息。每一个的具体含义如图：
+片位移（FO：Fragment Offset）：由13比特构成，用来标识被分片的每一个分段相当于原始数据的位置。第一个分片对应的值为0.由于FO域占13位，因此最多可以表示8192（=2^13）个相对位置。单位为8字节，因此最大可表示原始数据8*8192=65536字节的位置。
+生存时间（TTL：Time To Live）：由8比特构成，它最初的意思是以秒为单位记录当前包在网络上应该生存的期限。然而，在实际中它是指可以中转多少个路由器的意思。每经过一个路由器，TTL会减1，直到变成0则丢弃该包。
+协议（Protocol）：由8比特构成，表示IP首部的下一个首部隶属于哪个协议。目前使用的协议部分如图：
+首部校验和（Header Checksum）：由16比特（2个字节）构成，也叫IP首部校验和。该字段只校验数据报的首部，不校验数据部分。它主要用来确保IP数据报不被破坏。校验和的计算过程，首先要将校验和的所有位置设置为0，然后以16比特为单位划分IP首部，并用1补数计算所有16位字的和。最后将所得到这个和的1补数赋给首部校验和字段。
+源地址（Source Address）：由32比特构成，表示发送端IP地址。
+目标地址（Destination Address）：由32比特构成，表示接收端IP地址。
+可选项（Options）：长度可变，通常只在进行实验或诊断时使用。该字段包含如下几点信息：安全级别，源路径，路径记录，时间戳
+填充（Padding）：也称作填充物。在有可选项的情况下，首部长度可能不是32比特的整数倍。为此，通过向字段填充0，调整为32比特的整数倍。
+数据：存入数据。将IP上层协议的首部也作为数据进行处理。
+IPv6首部 IPv6为了减轻路由器的负担，省略了首部校验和字段。因此路由器不再需要计算校验和，从而提高了包的转发效率。
+此外，分片处理所用的识别码成为可选项。为了让64位CPU的计算机处理起来更方便，IPv6的首部及可选项都由8字节构成。
+版本：和IPv4 一样，由4比特构成。IPv6其版本号为6，因此在这个字段上的值为“6”。
+通信量类（Traffic Class）：相当于IPv4的TOS（Type Of Service）字段，也由8比特构成。有TOS在IPv4中几乎没有什么建树，未能成为卓有成效的技术，本来计划在IPv6中删掉这个字段，不过出于今后研究的考虑还是保留了该字段。
+流标号（Flow Label）：由20比特构成，准备用于服务质量（Qos：Quality Of Service）控制。使用这个字段提供怎样的服务已经成为未来研究的课题。不适用Qos时每一位可以全部设置为0。 在进行服务质量控制的时，将流标号设置为一个随机数，然后利用一种可以设置流的协议RSVP（Resource Reservation Protocol ）在路由器上进行Qos设置。当某个包在发送途中需要Qos时，需要附上RSVP预想的流标号。路由器接收到这样的IP包后现先将流标号作为查找关键字，迅速从服务质量控制信息中查找并做相应处理。此外，只有流标号、源地址以及目标地址三项完全一致时，才被认为是一个流。
+有效荷载长度（Payload Length）：有效荷载长度是指包的数据部分。IPv4的TL(Total Length)是指包含首部在内的所有长度。然而IPv6中的这个Playload Length不包括首部，只表示数据部分的长度。由于IPv6的可选项是指连接IPv6首部的数据，只有当有可选项时，此处包含可选项数据的所有长度就是Playload Length。
+下一个首部（Next Header）：相当于IPv4中的协议字段。由8比特构成。通常表示IP的上一层协议是TCP或UDP。不过在有IPv6扩展首部的情况下，该字段表示后面第一个扩展首部的协议类。
+跳数限制（Hop Limit）：由8比特构成。与IPv4中的TTL意思相同。为了强调“可通过路由器个数”这个概念，才将名字改为“Hop Limit”。数据每经过一次路由器就减1，减到0则丢弃数据。
+源地址（Source Address）：由128比特构成，表示发送端IP地址。
+目标地址（Destination Address）：由128比特构成，表示接收端IP地址。</description>
     </item>
     
     <item>
@@ -79,7 +96,7 @@ Cookie 主要用于以下三个方面：
       <pubDate>Fri, 14 Jan 2022 00:09:51 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/get_domain_ip_cpp/</guid>
-      <description>#https://blog.csdn.net/dosthing/article/details/80383817  std::string ip = &amp;#34;www.baidu.com&amp;#34;; struct hostent stHostent; struct hostent *pstHostent = nullptr; char **pptr = nullptr; char buf[2048] = &amp;#34;\0&amp;#34;; sprintf(buf,&amp;#34;%s&amp;#34;, &amp;#34;ip&amp;#34;); int iError; if((pstHostent = gethostbyname(buf)) == NULL || pstHostent-&amp;gt;h_addr_list == NULL || pstHostent-&amp;gt;h_addr_list[0] == NULL) {  std::cout &amp;lt;&amp;lt; &amp;#34;can&amp;#39;t parse the domain&amp;#34; &amp;lt;&amp;lt; std::endl;  exit(0); } else {  std::cout &amp;lt;&amp;lt; &amp;#34;official hostname: &amp;#34; &amp;lt;&amp;lt; pstHostent-&amp;gt;h_name &amp;lt;&amp;lt; std::endl;  for(pptr = pstHostent-&amp;gt;h_aliases; *pptr != NULL; pptr++)  std::cout &amp;lt;&amp;lt; &amp;#34;alias: &amp;#34; &amp;lt;&amp;lt; *pptr &amp;lt;&amp;lt; std::endl;  switch(pstHostent-&amp;gt;h_addrtype)  {  case AF_INET:  case AF_INET6:  pptr = pstHostent-&amp;gt;h_addr_list;  for(; *pptr!</description>
+      <description>#https://blog.csdn.net/dosthing/article/details/80383817 std::string ip = &amp;#34;www.baidu.com&amp;#34;; struct hostent stHostent; struct hostent *pstHostent = nullptr; char **pptr = nullptr; char buf[2048] = &amp;#34;\0&amp;#34;; sprintf(buf,&amp;#34;%s&amp;#34;, &amp;#34;ip&amp;#34;); int iError; if((pstHostent = gethostbyname(buf)) == NULL || pstHostent-&amp;gt;h_addr_list == NULL || pstHostent-&amp;gt;h_addr_list[0] == NULL) { std::cout &amp;lt;&amp;lt; &amp;#34;can&amp;#39;t parse the domain&amp;#34; &amp;lt;&amp;lt; std::endl; exit(0); } else { std::cout &amp;lt;&amp;lt; &amp;#34;official hostname: &amp;#34; &amp;lt;&amp;lt; pstHostent-&amp;gt;h_name &amp;lt;&amp;lt; std::endl; for(pptr = pstHostent-&amp;gt;h_aliases; *pptr != NULL; pptr++) std::cout &amp;lt;&amp;lt; &amp;#34;alias: &amp;#34; &amp;lt;&amp;lt; *pptr &amp;lt;&amp;lt; std::endl; switch(pstHostent-&amp;gt;h_addrtype) { case AF_INET: case AF_INET6: pptr = pstHostent-&amp;gt;h_addr_list; for(; *pptr!</description>
     </item>
     
     <item>
@@ -89,12 +106,12 @@ Cookie 主要用于以下三个方面：
       
       <guid>https://6923403.github.io/post/ip%E8%BD%AC%E6%8D%A2%E5%87%BD%E6%95%B0/</guid>
       <description>主机字节序（大端） 和 网络字节序（小端)
-  大端: 0x12 | 0x32 | 0x56
-  小端: 0x56 | 0x34 | 0x12
-  Host to Network long/short
+大端: 0x12 | 0x32 | 0x56
+小端: 0x56 | 0x34 | 0x12
+Host to Network long/short
 Network to Host long/short
 uint32_t htonl(uint32_t hostlong); //将主机的无符号长整型数转换成网络字节序 uint16_t htons(uint16_t hostshort); //将主机的无符号短整形数转换成网络字节序 uint32_t ntohl(uint32_t netlong); //将一个无符号长整型数从网络字节序转换为主机字节序 uint16_t ntohs(uint16_t netshort); //将一个无符号短整形数从网络字节序转换为主机字节序 https://github.com/6923403/CPP_Test/tree/master/test/hostto
- #把ip地址转化为用于网络传输的二进制数值(32位) in_addr_t inet_addr(const char *cp); #少用了 int inet_aton(const char * cp, struct in_addr *inp); #将网络传输的二进制数值转化为成点分十进制的ip地址 char* inet_ntoa(struct in_addr in); #这两个函数是随IPv6出现的函数，对于IPv4地址和IPv6地址都适用，函数中p和n分别代表表达（presentation)和数值（numeric)。 地址的表达格式通常是ASCII字符串，数值格式则是存放到套接字地址结构的二进制值。 int inet_pton(int family, const char *strptr, void *addrptr); const char * inet_ntop(int family, const void *addrptr, char *strptr, size_t len);  Re: https://www.</description>
+#把ip地址转化为用于网络传输的二进制数值(32位) in_addr_t inet_addr(const char *cp); #少用了 int inet_aton(const char * cp, struct in_addr *inp); #将网络传输的二进制数值转化为成点分十进制的ip地址 char* inet_ntoa(struct in_addr in); #这两个函数是随IPv6出现的函数，对于IPv4地址和IPv6地址都适用，函数中p和n分别代表表达（presentation)和数值（numeric)。 地址的表达格式通常是ASCII字符串，数值格式则是存放到套接字地址结构的二进制值。 int inet_pton(int family, const char *strptr, void *addrptr); const char * inet_ntop(int family, const void *addrptr, char *strptr, size_t len); Re: https://www.</description>
     </item>
     
     <item>
@@ -104,11 +121,11 @@ uint32_t htonl(uint32_t hostlong); //将主机的无符号长整型数转换成�
       
       <guid>https://6923403.github.io/post/io%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</guid>
       <description>I/O模型 https://6923403.github.io/post/server_actor/
- I/O多路复用 Select、Poll、Epoll, 多路是指？多个业务方（句柄）并发下来的 IO 。 复用是指？复用这一个后台处理程序。
- Select select()函数主要解决的是accept()函数阻塞问题，而没有解决recv()和send()函数阻塞问题
-#include &amp;lt;sys/select.h&amp;gt; int select(int nfds, fd_set *readset, fd_set *writeset, fd_set *exceptset,struct timeval *timeout);   nfds参数指定被监听的文件描述符的总数。
-  readfds, writefds和exceptfds参数分别指向可读、可写和异常等事件对应的文件描述符集合。
-  #include &amp;lt;sys/select.h&amp;gt; int FD_ZERO(int fd, fd_set *fdset); //一个 fd_set类型变量的所有位都设为 0 int FD_CLR(int fd, fd_set *fdset); //清除某个位时可以使用 int FD_SET(int fd, fd_set *fd_set); //设置变量的某个位置位 int FD_ISSET(int fd, fd_set *fdset); //测试某个位是否被置位  timeout参数用来设置select函数的超时时间  struct timeval{ long tv_sec; /*秒 */ long tv_usec; /*微秒 */ } select示例代码: select.</description>
+I/O多路复用 Select、Poll、Epoll, 多路是指？多个业务方（句柄）并发下来的 IO 。 复用是指？复用这一个后台处理程序。
+Select select()函数主要解决的是accept()函数阻塞问题，而没有解决recv()和send()函数阻塞问题
+#include &amp;lt;sys/select.h&amp;gt; int select(int nfds, fd_set *readset, fd_set *writeset, fd_set *exceptset,struct timeval *timeout); nfds参数指定被监听的文件描述符的总数。
+readfds, writefds和exceptfds参数分别指向可读、可写和异常等事件对应的文件描述符集合。
+#include &amp;lt;sys/select.h&amp;gt; int FD_ZERO(int fd, fd_set *fdset); //一个 fd_set类型变量的所有位都设为 0 int FD_CLR(int fd, fd_set *fdset); //清除某个位时可以使用 int FD_SET(int fd, fd_set *fd_set); //设置变量的某个位置位 int FD_ISSET(int fd, fd_set *fdset); //测试某个位是否被置位 timeout参数用来设置select函数的超时时间 struct timeval{ long tv_sec; /*秒 */ long tv_usec; /*微秒 */ } select示例代码: select.cpp Poll #include &amp;lt;poll.</description>
     </item>
     
     <item>
@@ -117,11 +134,11 @@ uint32_t htonl(uint32_t hostlong); //将主机的无符号长整型数转换成�
       <pubDate>Sun, 04 Apr 2021 18:21:09 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/server_sum/</guid>
-      <description>c++标准网络库对比  https://6923403.github.io/post/c++标准网络库/  socket struct整理  https://6923403.github.io/post/socket_struct/  socket编程需要的头文件整理  https://6923403.github.io/post/socket_file/  socket function  https://6923403.github.io/post/socket/  I/O复用  https://6923403.github.io/post//io多路复用  sem function  https://6923403.github.io/post/sem/  server io actor  https://6923403.github.io/post/server_actor/  timer function  https://6923403.github.io/post/timer_function/   Linux Pthread 线程创建与使用 https://6923403.github.io/post/pthread/
+      <description>c++标准网络库对比 https://6923403.github.io/post/c++标准网络库/ socket struct整理 https://6923403.github.io/post/socket_struct/ socket编程需要的头文件整理 https://6923403.github.io/post/socket_file/ socket function https://6923403.github.io/post/socket/ I/O复用 https://6923403.github.io/post//io多路复用 sem function https://6923403.github.io/post/sem/ server io actor https://6923403.github.io/post/server_actor/ timer function https://6923403.github.io/post/timer_function/ Linux Pthread 线程创建与使用 https://6923403.github.io/post/pthread/
 C++11 thread https://6923403.github.io/post/cppthread/
- Unp note https://6923403.github.io/post/unp_note/
+Unp note https://6923403.github.io/post/unp_note/
 TCP_IP | 计算机网络 https://6923403.github.io/post/computer_network/
- exception class 异常类 https://6923403.github.io/post/cpp_exception/</description>
+exception class 异常类 https://6923403.github.io/post/cpp_exception/</description>
     </item>
     
     <item>
@@ -130,11 +147,15 @@ TCP_IP | 计算机网络 https://6923403.github.io/post/computer_network/
       <pubDate>Thu, 25 Feb 2021 14:28:11 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/tcp_ip/</guid>
-      <description>计算机体系结构 各层作用及协议    分层 作用 协议     物理层 通过媒介传输比特，确定机械及电气规范（比特 Bit） RJ45、CLOCK、IEEE802.3（中继器，集线器）   数据链路层 将比特组装成帧和点到点的传递（帧 Frame） PPP、FR、HDLC、VLAN、MAC（网桥，交换机）   网络层 负责数据包从源到宿的传递和网际互连（包 Packet） IP、ICMP、ARP、RARP、OSPF、IPX、RIP、IGRP（路由器）   运输层 提供端到端的可靠报文传递和错误恢复（ 段Segment） TCP、UDP、SPX   会话层 建立、管理和终止会话（会话协议数据单元 SPDU） NFS、SQL、NETBIOS、RPC   表示层 对数据进行翻译、加密和压缩（表示协议数据单元 PPDU） JPEG、MPEG、ASII   应用层 允许访问OSI环境的手段（应用协议数据单元 APDU） FTP、DNS、Telnet、SMTP、HTTP、WWW、NFS     封装  链路层 链路层主要有三个目的：
- 为IP模块发送和接收IP数据报； 为ARP模块发送ARP请求和接收ARP应答； 为RARP发送RARP请求和接收RARP应答。  PPP（点到点协议）是为在同等单元之间传输数据包这样的简单链路设计的链路层协议。
+      <description>计算机体系结构 各层作用及协议 分层 作用 协议 物理层 通过媒介传输比特，确定机械及电气规范（比特 Bit） RJ45、CLOCK、IEEE802.3（中继器，集线器） 数据链路层 将比特组装成帧和点到点的传递（帧 Frame） PPP、FR、HDLC、VLAN、MAC（网桥，交换机） 网络层 负责数据包从源到宿的传递和网际互连（包 Packet） IP、ICMP、ARP、RARP、OSPF、IPX、RIP、IGRP（路由器） 运输层 提供端到端的可靠报文传递和错误恢复（ 段Segment） TCP、UDP、SPX 会话层 建立、管理和终止会话（会话协议数据单元 SPDU） NFS、SQL、NETBIOS、RPC 表示层 对数据进行翻译、加密和压缩（表示协议数据单元 PPDU） JPEG、MPEG、ASII 应用层 允许访问OSI环境的手段（应用协议数据单元 APDU） FTP、DNS、Telnet、SMTP、HTTP、WWW、NFS 封装 链路层 链路层主要有三个目的：
+为IP模块发送和接收IP数据报； 为ARP模块发送ARP请求和接收ARP应答； 为RARP发送RARP请求和接收RARP应答。 PPP（点到点协议）是为在同等单元之间传输数据包这样的简单链路设计的链路层协议。
 环回接口
 re: mtu
- 网络层  IP（Internet Protocol，网际协议）是为计算机网络相互连接进行通信而设计的协议。 ARP（Address Resolution Protocol，地址解析协议） ICMP（Internet Control Message Protocol，网际控制报文协议） IGMP（Internet Group Management Protocol，网际组管理协议）  IP是TCP/IP协议族中最为核心的协议。所有的TCP、UDP、ICMP及IGMP数据都以IP数据报格式传输</description>
+网络层 IP（Internet Protocol，网际协议）是为计算机网络相互连接进行通信而设计的协议。 ARP（Address Resolution Protocol，地址解析协议） ICMP（Internet Control Message Protocol，网际控制报文协议） IGMP（Internet Group Management Protocol，网际组管理协议） IP是TCP/IP协议族中最为核心的协议。所有的TCP、UDP、ICMP及IGMP数据都以IP数据报格式传输
+不可靠（unreliable）的意思是它不能保证IP数据报能成功地到达目的地。IP仅提供最好的传输服务。
+无连接（connectionless）这个术语的意思是IP并不维护任何关于后续数据报的状态信息。每个数据报的处理是相互独立的。
+IP 地址分类:
+IP 地址 ::= {&amp;lt;网络号&amp;gt;,&amp;lt;主机号&amp;gt;} IP地址类别 网络号 网络范围 主机号 IP地址范围 A 类 8bit，第一位固定为0 0——127 24bit 1.</description>
     </item>
     
     <item>
@@ -144,11 +165,11 @@ re: mtu
       
       <guid>https://6923403.github.io/post/timer_function/</guid>
       <description>非活跃，是指客户端（这里是浏览器）与服务器端建立连接后，长时间不交换数据，一直占用服务器端的文件描述符，导致连接资源的浪费。
-  定时事件，是指固定一段时间之后触发某段代码，由该段代码处理一个事件，如从内核事件表删除事件，并关闭文件描述符，释放连接资源。
-  定时器，是指利用结构体或其他形式，将多种定时事件进行封装起来。具体的，这里只涉及一种定时事件，即定期检测非活跃连接，这里将该定时事件与连接资源封装为一个结构体定时器。
-  定时器容器，是指使用某种容器类数据结构，将上述多个定时器组合起来，便于对定时事件统一管理。具体的，项目中使用升序链表将所有定时器串联组织起来。
-   Linux下提供了三种定时的方法:
- socket选项SO_RECVTIMEO和SO_SNDTIMEO SIGALRM信号 I/O复用系统调用的超时参数   Socket选项 struct timeval timeout; timeout.tv_sec = time; timeout.tv_usec = 0; socklen_t time_len = sizeof(timeout); ret = setsockopt(sockfd, SOL_SOCKET, SO_SNDTIMEO, &amp;amp;timeout, time_len); //发送数据超时 用返回值errno判断是否达到指定时间 (errno == SO_SNDTIMEO)  SIGALRM信号 sigaction结构体
+定时事件，是指固定一段时间之后触发某段代码，由该段代码处理一个事件，如从内核事件表删除事件，并关闭文件描述符，释放连接资源。
+定时器，是指利用结构体或其他形式，将多种定时事件进行封装起来。具体的，这里只涉及一种定时事件，即定期检测非活跃连接，这里将该定时事件与连接资源封装为一个结构体定时器。
+定时器容器，是指使用某种容器类数据结构，将上述多个定时器组合起来，便于对定时事件统一管理。具体的，项目中使用升序链表将所有定时器串联组织起来。
+Linux下提供了三种定时的方法:
+socket选项SO_RECVTIMEO和SO_SNDTIMEO SIGALRM信号 I/O复用系统调用的超时参数 Socket选项 struct timeval timeout; timeout.tv_sec = time; timeout.tv_usec = 0; socklen_t time_len = sizeof(timeout); ret = setsockopt(sockfd, SOL_SOCKET, SO_SNDTIMEO, &amp;amp;timeout, time_len); //发送数据超时 用返回值errno判断是否达到指定时间 (errno == SO_SNDTIMEO) SIGALRM信号 sigaction结构体
 struct sigaction { void (*sa_handler)(int); void (*sa_sigaction)(int, siginfo_t *, void *); sigset_t sa_mask; int sa_flags; void (*sa_restorer)(void); } sa_handler是一个函数指针，指向信号处理函数 sa_sigaction同样是信号处理函数，有三个参数，可以获得关于信号更详细的信息 sa_mask用来指定在信号处理函数执行期间需要被屏蔽的信号 sa_flags用于指定信号处理的行为 SA_RESTART，使被信号打断的系统调用自动重新发起 SA_NOCLDSTOP，使父进程在它的子进程暂停或继续运行时不会收到 SIGCHLD 信号 SA_NOCLDWAIT，使父进程在它的子进程退出时不会收到 SIGCHLD 信号，这时子进程如果退出也不会成为僵尸进程 SA_NODEFER，使对信号的屏蔽无效，即在信号处理函数执行期间仍能发出这个信号 SA_RESETHAND，信号处理之后重新设置为默认的处理方式 SA_SIGINFO，使用 sa_sigaction 成员而不是 sa_handler 作为信号处理函数 sa_restorer一般不使用</description>
     </item>
     
@@ -159,12 +180,12 @@ struct sigaction { void (*sa_handler)(int); void (*sa_sigaction)(int, siginfo_t 
       
       <guid>https://6923403.github.io/post/server_actor/</guid>
       <description>同步IO模型通常用于实现Reactor模式, 异步IO模型则用于实现Proactor模式。
- Reactor Reactor模式要求主线程（I/O处理单元，下同）只负责监听文件描述上是否有事件发生，有的话就立即将该事件通知工作线程（逻辑单元，下同）。除此之外，主线程不做任何其他实质性的工作。读写数据，接受新的连接，以及处理客户请求均在工作线程中完成。
+Reactor Reactor模式要求主线程（I/O处理单元，下同）只负责监听文件描述上是否有事件发生，有的话就立即将该事件通知工作线程（逻辑单元，下同）。除此之外，主线程不做任何其他实质性的工作。读写数据，接受新的连接，以及处理客户请求均在工作线程中完成。
 Reactor工作流程∶
- 主线程往 epoll内核事件表中注册 socket 上的读就绪事件。 主线程调用epoll_wait 等待socket上有数据可读。 当socket上有数据可读时，epoll_wait 通知主线程。主线程则将socket可读事件放入请求队列。 睡眠在请求队列上的某个工作线程被唤醒，它从socket读取数据，并处理客户请求，然后往 epoll 内核事件表中注册该 socket 上的写就绪事件。 主线程调用epoll_wait 等待socket可写。 当socket可写时，epoll_wait 通知主线程。主线程将socket可写事件放入请求队列。 睡眠在请求队列上的某个工作线程被唤醒，它往socket上写入服务器处理客户请求的结果。   Procactor 将多有I/O操作都交给主线程和内核来处理, 工作线程仅负责业务逻辑
+主线程往 epoll内核事件表中注册 socket 上的读就绪事件。 主线程调用epoll_wait 等待socket上有数据可读。 当socket上有数据可读时，epoll_wait 通知主线程。主线程则将socket可读事件放入请求队列。 睡眠在请求队列上的某个工作线程被唤醒，它从socket读取数据，并处理客户请求，然后往 epoll 内核事件表中注册该 socket 上的写就绪事件。 主线程调用epoll_wait 等待socket可写。 当socket可写时，epoll_wait 通知主线程。主线程将socket可写事件放入请求队列。 睡眠在请求队列上的某个工作线程被唤醒，它往socket上写入服务器处理客户请求的结果。 Procactor 将多有I/O操作都交给主线程和内核来处理, 工作线程仅负责业务逻辑
 Proactor工作流程∶
- 主线程调用aio_read 函数向内核注册 socket 上的读完成事件，并告诉内核用户读缓冲区的位置，以及读操作完成时如何通知应用程序（这里以信号为例，详情请参考sigevent的 man 手册）。 主线程继续处理其他逻辑。 当socket上的数据被读入用户缓冲区后，内核将向应用程序发送一个信号，以通知应用程序数据已经可用。 应用程序预先定义好的信号处理函数选择一个工作线程来处理客户请求。工作线程处理完客户请求之后，调用 aio_write 函数向内核注册 socket 上的写完成事件，并告诉内核用户写缓冲区的位置，以及写操作完成时如何通知应用程序（仍然以信号为例）。 主线程继续处理其他逻辑。 当用户缓冲区的数据被写人 socket 之后，内核将向应用程序发送一个信号，以通知应用程序数据已经发送完毕。 应用程序预先定义好的信号处理函数选择一个工作线程来做善后处理，比如决定是否关闭 socket。   模拟Proactor 使用同步I/O模型（仍然以epoll_wait为例）模拟出的Proactor模式的工作流程∶
- 主线程往 epoll 内核事件表中注册 socket 上的读就绪事件。 主线程调用 epoll_wait 等待 socket上有数据可读。 当 socket 上有数据可读时，epoll_wait通知主线程。主线程从socket循环读取数据，直到没有更多数据可读，然后将读取到的数据封装成一个请求对象并插入请求队列。 睡眠在请求队列上的某个工作线程被唤醒，它获得请求对象并处理客户请求，然后往 epoll 内核事件表中注册 socket上的写就绪事件。 主线程调用 epoll_wait 等待 socket 可写。 当 socket 可写时，epoll wait 通知主线程。主线程往 socket 上写人服务器处理客户请求的结果。    半同步/半异步 在I/O模型中，&amp;ldquo;同步&amp;quot;和&amp;quot;异步&amp;quot;区分的是内核向应用程序通知的是何种 I/O 事件（是就绪事件还是完成事件），以及该由谁来完成I/O读写（是应用程序还是内核）。在并发模式中，&amp;ldquo;同步&amp;quot;指的是程序完全按照代码序列的顺序执行∶&amp;quot;异步&amp;quot;指的是程序的执行需要由系统事件来驱动。常见的系统事件包括中断、信号等。</description>
+主线程调用aio_read 函数向内核注册 socket 上的读完成事件，并告诉内核用户读缓冲区的位置，以及读操作完成时如何通知应用程序（这里以信号为例，详情请参考sigevent的 man 手册）。 主线程继续处理其他逻辑。 当socket上的数据被读入用户缓冲区后，内核将向应用程序发送一个信号，以通知应用程序数据已经可用。 应用程序预先定义好的信号处理函数选择一个工作线程来处理客户请求。工作线程处理完客户请求之后，调用 aio_write 函数向内核注册 socket 上的写完成事件，并告诉内核用户写缓冲区的位置，以及写操作完成时如何通知应用程序（仍然以信号为例）。 主线程继续处理其他逻辑。 当用户缓冲区的数据被写人 socket 之后，内核将向应用程序发送一个信号，以通知应用程序数据已经发送完毕。 应用程序预先定义好的信号处理函数选择一个工作线程来做善后处理，比如决定是否关闭 socket。 模拟Proactor 使用同步I/O模型（仍然以epoll_wait为例）模拟出的Proactor模式的工作流程∶
+主线程往 epoll 内核事件表中注册 socket 上的读就绪事件。 主线程调用 epoll_wait 等待 socket上有数据可读。 当 socket 上有数据可读时，epoll_wait通知主线程。主线程从socket循环读取数据，直到没有更多数据可读，然后将读取到的数据封装成一个请求对象并插入请求队列。 睡眠在请求队列上的某个工作线程被唤醒，它获得请求对象并处理客户请求，然后往 epoll 内核事件表中注册 socket上的写就绪事件。 主线程调用 epoll_wait 等待 socket 可写。 当 socket 可写时，epoll wait 通知主线程。主线程往 socket 上写人服务器处理客户请求的结果。 半同步/半异步 在I/O模型中，&amp;ldquo;同步&amp;quot;和&amp;quot;异步&amp;quot;区分的是内核向应用程序通知的是何种 I/O 事件（是就绪事件还是完成事件），以及该由谁来完成I/O读写（是应用程序还是内核）。在并发模式中，&amp;ldquo;同步&amp;quot;指的是程序完全按照代码序列的顺序执行∶&amp;quot;异步&amp;quot;指的是程序的执行需要由系统事件来驱动。常见的系统事件包括中断、信号等。</description>
     </item>
     
     <item>
@@ -174,7 +195,7 @@ Proactor工作流程∶
       
       <guid>https://6923403.github.io/post/unp_note/</guid>
       <description>基本流程图 示范代码: https://github.com/6923403/CPP_Test/tree/master/server/socket/practice/8_socket
- TCP UDP 客户角度 服务器角度  套接字选项   config_init connect_mysql init_socket setsockopt linger  </description>
+TCP UDP 客户角度 服务器角度 套接字选项 config_init connect_mysql init_socket setsockopt linger </description>
     </item>
     
     <item>
@@ -186,12 +207,16 @@ Proactor工作流程∶
       <description>ssize_t write(int fd, const void*buf,size_t nbytes);
 write函数将buf中的nbytes字节内容写入文件描述符fd.
 成功时返回写的字节数.失败时返回-1. 并设置errno变量. 在网络程序中,当我们向套接字文件描述符写时有两可能. 1)write的返回值大于0,表示写了部分或者是全部的数据. 这样我们用一个while循环来不停的写入，但是循环过程中的buf参数和nbyte参数得由我们来更新。也就是说，网络写函数是不负责将全部数据写完之后在返回的。 2)返回的值小于0,此时出现了错误.我们要根据错误类型来处理. 如果错误为EINTR表示在写的时候出现了中断错误. 如果为EPIPE表示网络连接出现了问题(对方已经关闭了连接).
- ssize_t read(int fd,void *buf,size_t nbyte)
+ssize_t read(int fd,void *buf,size_t nbyte)
 read函数是负责从fd中读取内容.
 当读成功 时,read返回实际所读的字节数,如果返回的值是0 表示已经读到文件的结束了,小于0表示出现了错误.如果错误为EINTR说明读是由中断引起 的, 如果是ECONNREST表示网络连接出了问题. 和上面一样,我们也写一个自己的读函数.
- recv和send函数提供了和read和write差不多的功能.不过它们提供了第四个参数来控制读写操作.
+recv和send函数提供了和read和write差不多的功能.不过它们提供了第四个参数来控制读写操作.
 int recv(int sockfd,void *buf,int len,int flags) int send(int sockfd,void *buf,int len,int flags) 前面的三个参数和read, write一样,第四个参数可以是0或者是以下的组合
-   标题 内容     MSG_DONTROUTE 不查找表   MSG_OOB 接受或者发送带外数据   MSG_PEEK 查看数据,并不从系统缓冲区移走数据   MSG_WAITALL 等待所有数据    MSG_DONTROUTE:是 send函数使用的标志.</description>
+标题 内容 MSG_DONTROUTE 不查找表 MSG_OOB 接受或者发送带外数据 MSG_PEEK 查看数据,并不从系统缓冲区移走数据 MSG_WAITALL 等待所有数据 MSG_DONTROUTE:是 send函数使用的标志.这个标志告诉IP.目的主机在本地网络上面,没有必要查找表.这个标志一般用网络诊断和路由程序里面. MSG_OOB:表示可以接收和发送带外的数据.关于带外数据我们以后会解释的.
+MSG_PEEK:是recv函数的使用标志, 表示只是从系统缓冲区中读取内容,而不清除系统缓冲区的内容.这样下次读的时候,仍然是一样的内容.一般在有多个进程读写数据时可以使用这个标志.
+MSG_WAITALL 是recv函数的使用标志,表示等到所有的信息到达时才返回.使用这个标志的时候recv回一直阻塞,直到指定的条件满足,或者是发生了错误. 1)当读到了指定的字节时,函数正常返回.返回值等于len 2)当读到了文件的结尾时,函数正常返回.返回值小于len 3)当操作发生错误时,返回-1,且设置错误为相应的错误号(errno)
+Re:
+https://blog.csdn.net/petershina/article/details/7946615</description>
     </item>
     
     <item>
@@ -201,26 +226,29 @@ int recv(int sockfd,void *buf,int len,int flags) int send(int sockfd,void *buf,i
       
       <guid>https://6923403.github.io/post/socket_file/</guid>
       <description>socket编程中需要用到的头文件
-  sys/types.h：数据类型定义
-  sys/socket.h：提供socket函数及数据结构
-  netinet/in.h：定义数据结构sockaddr_in
-  arpa/inet.h：提供IP地址转换函数
-  netdb.h：提供设置及获取域名的函数
-  sys/ioctl.h：提供对I/O控制的函数
-  sys/poll.h：提供socket等待测试机制的函数
-   其他在网络程序中常见的头文件
-  unistd.h：提供通用的文件、目录、程序及进程操作的函数
-  errno.h：提供错误号errno的定义，用于错误处理
-  fcntl.h：提供对文件控制的函数
-  time.h：提供有关时间的函数
-  crypt.h：提供使用DES加密算法的加密函数
-  pwd.h：提供对/etc/passwd文件访问的函数
-  shadow.h：提供对/etc/shadow文件访问的函数
-  pthread.h：提供多线程操作的函数
-  signal.h：提供对信号操作的函数
-  sys/wait.h、sys/ipc.h、sys/shm.h：提供进程等待、进程间通讯（IPC）及共享内存的函数
-   建议：在编写网络程序时，可以直接使用下面这段头文件代码
-#include &amp;lt;unistd.h&amp;gt; #include &amp;lt;sys/types.h&amp;gt; #include &amp;lt;sys/socket.h&amp;gt; #include &amp;lt;netdb.h&amp;gt; #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;stdlib.</description>
+sys/types.h：数据类型定义
+sys/socket.h：提供socket函数及数据结构
+netinet/in.h：定义数据结构sockaddr_in
+arpa/inet.h：提供IP地址转换函数
+netdb.h：提供设置及获取域名的函数
+sys/ioctl.h：提供对I/O控制的函数
+sys/poll.h：提供socket等待测试机制的函数
+其他在网络程序中常见的头文件
+unistd.h：提供通用的文件、目录、程序及进程操作的函数
+errno.h：提供错误号errno的定义，用于错误处理
+fcntl.h：提供对文件控制的函数
+time.h：提供有关时间的函数
+crypt.h：提供使用DES加密算法的加密函数
+pwd.h：提供对/etc/passwd文件访问的函数
+shadow.h：提供对/etc/shadow文件访问的函数
+pthread.h：提供多线程操作的函数
+signal.h：提供对信号操作的函数
+sys/wait.h、sys/ipc.h、sys/shm.h：提供进程等待、进程间通讯（IPC）及共享内存的函数
+建议：在编写网络程序时，可以直接使用下面这段头文件代码
+#include &amp;lt;unistd.h&amp;gt; #include &amp;lt;sys/types.h&amp;gt; #include &amp;lt;sys/socket.h&amp;gt; #include &amp;lt;netdb.h&amp;gt; #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;stdlib.h&amp;gt; #include &amp;lt;string.h&amp;gt; #include &amp;lt;ctype.h&amp;gt; #include &amp;lt;errno.h&amp;gt; #include &amp;lt;malloc.h&amp;gt; #include &amp;lt;netinet/in.h&amp;gt; #include &amp;lt;arpa/inet.h&amp;gt; #include &amp;lt;sys/ioctl.h&amp;gt; #include &amp;lt;stdarg.h&amp;gt; #include &amp;lt;fcntl.h&amp;gt; #include &amp;lt;fcntl.h&amp;gt; 涉及到用户权限及密码验证问题时加入如下语句：
+#include &amp;lt;shadow.h&amp;gt; #include &amp;lt;crypt.h&amp;gt; #include &amp;lt;pwd.h&amp;gt; 需要注意的是，应该在编译时链接加密算法库，即增加编译选项：-lcrypt
+涉及到文件及时间操作加入如下语句
+#include &amp;lt;sys/time.h&amp;gt; #include &amp;lt;utime.h&amp;gt; #include &amp;lt;time.h&amp;gt; #include &amp;lt;sys/stat.h&amp;gt; #include &amp;lt;sys/file.</description>
     </item>
     
     <item>
@@ -232,10 +260,10 @@ int recv(int sockfd,void *buf,int len,int flags) int send(int sockfd,void *buf,i
       <description>简介 #include &amp;lt;sys/epoll.h&amp;gt;
 epoll与select
 Epoll 没有最大并发连接的限制，上限是最大可以打开文件的数目 效率提升，epoll对于句柄事件的选择不是遍历的，是事件响应的，就是句柄上事件来就马上选择出来，不需要遍历整个句柄链表，因此效率非常高，内核将句柄用红黑树保存的，IO效率不随FD数目增加而线性下降。 内存拷贝， select让内核把 FD 消息通知给用户空间的时候使用了内存拷贝的方式，开销较大，但是Epoll 在这点上使用了共享内存的方式，这个内存拷贝也省略了。 相比于select，epoll最大的好处在于它不会随着监听fd数目的增长而降低效率。因为在内核中的select实现中，它是采用轮询来处理的，轮询的fd数目越多，自然耗时越多。 并且，在linux/posix_types.h头文件有这样的声明： #define __FD_SETSIZE 1024 表示select最多同时监听1024个fd，当然，可以通过修改头文件再重编译内核来扩大这个数目，但这似乎并不治本。 epoll是Linux内核为处理大批量文件描述符而作了改进的poll，是Linux下多路复用IO接口select/poll的增强版本，它能显著提高程序在大量并发连接中只有少量活跃的情况下的系统CPU利用率。原因就是获取事件的时候，它无须遍历整个被侦听的描述符集，只要遍历那些被内核IO事件异步唤醒而加入Ready队列的描述符集合就行了。
- 触发模式 epoll除了提供select/poll那种IO事件的水平触发（Level Triggered）外，还提供了边缘触发（Edge Triggered），这就使得用户空间程序有可能缓存IO状态，减少epoll_wait/epoll_pwait的调用，提高应用程序效率。
- 水平触发（LT）：默认工作模式，即当epoll_wait检测到某描述符事件就绪并通知应用程序时，应用程序可以不立即处理该事件；下次调用epoll_wait时，会再次通知此事件  //LevelTriggered(LT) //缺省工作方式，即默认的工作方式,支持blocksocket和no_blocksocket，错误率比较小。
- 边缘触发（ET）： 当epoll_wait检测到某描述符事件就绪并通知应用程序时，应用程序必须立即处理该事件。如果不处理，下次调用epoll_wait时，不会再次通知此事件。（直到你做了某些操作导致该描述符变成未就绪状态了，也就是说边缘触发只在状态由未就绪变为就绪时只通知一次）。  //Edge Triggered(ET) //高速工作方式，错误率比较大，只支持no_block socket (非阻塞socket)
-假设现在对方发送了2k的数据，而我们先读取了1k，然后这时调用了epoll_wait，如果是边沿触发ET，那么这个fd变成就绪状态就会从epoll 队列移除， 则epoll_wait 会一直阻塞，忽略尚未读取的1k数据; 而如果是水平触发LT，那么epoll_wait 还会检测到可读事件而返回，我们可以继续读取剩下的1k 数据。 总结: LT模式可能触发的次数更多, 一旦触发的次数多, 也就意味着效率会下降; 但这样也不能就说LT模式就比ET模式效率更低 因为ET的使用对编程人员提出了更高更精细的要求,一旦使用者编程水平不够, 那ET模式还不如LT模式。 ET模式仅当状态发生变化的时候才获得通知,这里所谓的状态的变化并不包括缓冲区中还有未处理的数据, 也就是说,如果要采用ET模式,需要一直read/write直到出错为止,很多人反映为什么采用ET模式只接收了一部分数据就再也得不到通知了,大多因为这样; 而LT模式是只要有数据没有处理就会一直通知下去的.  1. 创建一个epoll的句柄 int epoll_create(int size); 创建一个epoll的句柄，size用来告诉内核这个监听的数目一共有多大。
+触发模式 epoll除了提供select/poll那种IO事件的水平触发（Level Triggered）外，还提供了边缘触发（Edge Triggered），这就使得用户空间程序有可能缓存IO状态，减少epoll_wait/epoll_pwait的调用，提高应用程序效率。
+水平触发（LT）：默认工作模式，即当epoll_wait检测到某描述符事件就绪并通知应用程序时，应用程序可以不立即处理该事件；下次调用epoll_wait时，会再次通知此事件 //LevelTriggered(LT) //缺省工作方式，即默认的工作方式,支持blocksocket和no_blocksocket，错误率比较小。
+边缘触发（ET）： 当epoll_wait检测到某描述符事件就绪并通知应用程序时，应用程序必须立即处理该事件。如果不处理，下次调用epoll_wait时，不会再次通知此事件。（直到你做了某些操作导致该描述符变成未就绪状态了，也就是说边缘触发只在状态由未就绪变为就绪时只通知一次）。 //Edge Triggered(ET) //高速工作方式，错误率比较大，只支持no_block socket (非阻塞socket)
+假设现在对方发送了2k的数据，而我们先读取了1k，然后这时调用了epoll_wait，如果是边沿触发ET，那么这个fd变成就绪状态就会从epoll 队列移除， 则epoll_wait 会一直阻塞，忽略尚未读取的1k数据; 而如果是水平触发LT，那么epoll_wait 还会检测到可读事件而返回，我们可以继续读取剩下的1k 数据。 总结: LT模式可能触发的次数更多, 一旦触发的次数多, 也就意味着效率会下降; 但这样也不能就说LT模式就比ET模式效率更低 因为ET的使用对编程人员提出了更高更精细的要求,一旦使用者编程水平不够, 那ET模式还不如LT模式。 ET模式仅当状态发生变化的时候才获得通知,这里所谓的状态的变化并不包括缓冲区中还有未处理的数据, 也就是说,如果要采用ET模式,需要一直read/write直到出错为止,很多人反映为什么采用ET模式只接收了一部分数据就再也得不到通知了,大多因为这样; 而LT模式是只要有数据没有处理就会一直通知下去的. 1. 创建一个epoll的句柄 int epoll_create(int size); 创建一个epoll的句柄，size用来告诉内核这个监听的数目一共有多大。
 这个参数不同于select()中的第一个参数，给出最大监听的fd+1的值。需要注意的是，当创建好epoll句柄后，它就是会占用一个fd值，在linux下如果查看/proc/进程id/fd/，是能够看到这个fd的，所以在使用完epoll后，必须调用close()关闭，否则可能导致fd被耗尽。
 2. 将被监听的描述符添加到epoll句柄或从epool句柄中删除或者对监听事件进行修改 int epoll_ctl(int epfd, int op, int fd, struct epoll_event *event); //op为注册事件 epoll的事件注册函数，它不同与select()是在监听事件时告诉内核要监听什么类型的事件，而是在这里先注册要监听的事件类型。</description>
     </item>
@@ -248,13 +276,13 @@ Epoll 没有最大并发连接的限制，上限是最大可以打开文件的�
       <guid>https://6923403.github.io/post/socket/</guid>
       <description>setsockopt
 获取或者设置与某个套接字关联的选 项。选项可能存在于多层协议中，它们总会出现在最上面的套接字层。当操作套接字选项时， 选项位于的层和选项的名称必须给出。为了操作套接字层的选项，应该 将层的值指定为SOL_SOCKET。为了操作其它层的选项，控制选 项的合适协议号必须给出。例如，为了表示一个选项由TCP协议解析，层应该设定为协议 号TCP。 SO_LINGER选项
-struct linger { int l_onoff; int l_linger; };  l_onoff = 0, 数据保持发送完成后立即返回 l_onoff = 1, l_linger = 0, 立即放回 放弃发送, 发送rst 自身立即复位 l_onoff = 1, l_linger = 1, 阻塞到超时或数据发送完成, 保持尝试发送,超时后立即结束  SO_REUSEADDR选项
+struct linger { int l_onoff; int l_linger; }; l_onoff = 0, 数据保持发送完成后立即返回 l_onoff = 1, l_linger = 0, 立即放回 放弃发送, 发送rst 自身立即复位 l_onoff = 1, l_linger = 1, 阻塞到超时或数据发送完成, 保持尝试发送,超时后立即结束 SO_REUSEADDR选项
 改变了通配绑定时处理源地址冲突的处理方式, 让端口释放后立即就可以被再次使用
- 允许启动一个监听服务器并捆绑其众所周知端口，即使以前建立的将此端口用做他们的本地端口的连接仍存在 允许在同一端口上启动同一服务器的多个实例，只要每个实例捆绑一个不同的本地IP地址即可 允许单个进程捆绑同一端口到多个套接口上，只要每个捆绑指定不同的本地IP地址即可。一般不用于tco服务器 允许完全重复的捆绑  Re:
+允许启动一个监听服务器并捆绑其众所周知端口，即使以前建立的将此端口用做他们的本地端口的连接仍存在 允许在同一端口上启动同一服务器的多个实例，只要每个实例捆绑一个不同的本地IP地址即可 允许单个进程捆绑同一端口到多个套接口上，只要每个捆绑指定不同的本地IP地址即可。一般不用于tco服务器 允许完全重复的捆绑 Re:
 https://www.cnblogs.com/my_life/articles/5174585.html
 https://www.jianshu.com/p/141aa1c41f15
 https://blog.csdn.net/u010144805/article/details/78579528
- int fcntl(int fd, int cmd); int fcntl(int fd, int cmd, long arg); int fcntl(int fd, int cmd, struct flock *lock); fcntl函数有5种功能：</description>
+int fcntl(int fd, int cmd); int fcntl(int fd, int cmd, long arg); int fcntl(int fd, int cmd, struct flock *lock); fcntl函数有5种功能：</description>
     </item>
     
   </channel>

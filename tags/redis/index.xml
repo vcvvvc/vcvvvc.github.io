@@ -22,9 +22,9 @@ https://blog.csdn.net/qq_34892981/article/details/110181452</description>
       <pubDate>Mon, 21 Sep 2020 13:32:22 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/install_redis/</guid>
-      <description>升级GCC yum -y install centos-release-scl yum -y install devtoolset-9-gcc devtoolset-9-gcc-c++ devtoolset-9-binutils scl enable devtoolset-9 bash echo &amp;#34;source /opt/rh/devtoolset-9/enable&amp;#34; &amp;gt;&amp;gt; /etc/profile gcc -v  安装redis wget http://download.redis.io/releases/redis-6.0.8.tar.gz tar -xvf redis-6.0.8/tar/gz cd redis make -j4 make install PREFIX=/usr/local/redis  配置redis cd redis cp redis.conf /usr/local/redis/bin/ vim /usr/local/redis/bin/redis.conf
-daemonize no 改为 daemonize yes  开机自启 vim /etc/systemd/system/redis.service
-[Unit] Description=redis-server After=network.target [Service] Type=forking ExecStart=/usr/local/redis/bin/redis-server /usr/local/redis/bin/redis.conf PrivateTmp=true [Install] WantedBy=multi-user.target systemctl daemon-reload ln -s /usr/local/redis/bin/redis-cli /usr/bin/redis systemctl start redis.</description>
+      <description>升级GCC yum -y install centos-release-scl yum -y install devtoolset-9-gcc devtoolset-9-gcc-c++ devtoolset-9-binutils scl enable devtoolset-9 bash echo &amp;#34;source /opt/rh/devtoolset-9/enable&amp;#34; &amp;gt;&amp;gt; /etc/profile gcc -v 安装redis wget http://download.redis.io/releases/redis-6.0.8.tar.gz tar -xvf redis-6.0.8/tar/gz cd redis make -j4 make install PREFIX=/usr/local/redis 配置redis cd redis cp redis.conf /usr/local/redis/bin/ vim /usr/local/redis/bin/redis.conf
+daemonize no 改为 daemonize yes 开机自启 vim /etc/systemd/system/redis.service
+[Unit] Description=redis-server After=network.target [Service] Type=forking ExecStart=/usr/local/redis/bin/redis-server /usr/local/redis/bin/redis.conf PrivateTmp=true [Install] WantedBy=multi-user.target systemctl daemon-reload ln -s /usr/local/redis/bin/redis-cli /usr/bin/redis systemctl start redis.service systemctl enable redis.</description>
     </item>
     
   </channel>

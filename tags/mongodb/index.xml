@@ -13,7 +13,7 @@
       
       <guid>https://6923403.github.io/post/install_mongodb/</guid>
       <description>Configure the package management system (yum) vim /etc/yum.repos.d/mongodb-org-4.4.repo
-[mongodb-org-4.4] name=MongoDB Repository baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.4/x86_64/ gpgcheck=1 enabled=1 gpgkey=https://www.mongodb.org/static/pgp/server-4.4.asc  Install Mongodb sudo yum install -y mongodb-org  Directory Paths sudo mkdir -p /var/lib/mongo sudo mkdir -p /var/log/mongodb sudo chown -R mongod:mongod /var/lib/mongo sudo chown -R mongod:mongod /var/log/mongodb Start mongodb sudo systemctl start mongod sudo systemctl status mongod sudo systemctl enable mongod mongo //use  Re:
+[mongodb-org-4.4] name=MongoDB Repository baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.4/x86_64/ gpgcheck=1 enabled=1 gpgkey=https://www.mongodb.org/static/pgp/server-4.4.asc Install Mongodb sudo yum install -y mongodb-org Directory Paths sudo mkdir -p /var/lib/mongo sudo mkdir -p /var/log/mongodb sudo chown -R mongod:mongod /var/lib/mongo sudo chown -R mongod:mongod /var/log/mongodb Start mongodb sudo systemctl start mongod sudo systemctl status mongod sudo systemctl enable mongod mongo //use Re:
 https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/</description>
     </item>
     

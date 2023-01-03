@@ -14,9 +14,9 @@
       <guid>https://6923403.github.io/post/brew_ffmpeg_install/</guid>
       <description>2021-09-07 发帖时间为安装时间 有些包下载较慢可以挂vpn
 ffmpeg 完全安装 解决brew install ffmpeg会报错
- install brew tap homebrew-ffmpeg/ffmpeg brew options homebrew-ffmpeg/ffmpeg/ffmpeg brew install ffmpeg --HEAD ffmpeg -version 安装过程如果缺库 https://formulae.brew.sh/formula/ffmpeg 到这个链接查
- 现在这步好像不需要了
-#完全安装 brew install homebrew-ffmpeg/ffmpeg/ffmpeg --with-chromaprint --with-fdk-aac --with-game-music-emu --with-libbluray --with-libbs2b --with-libcaca --with-libgsm --with-libmodplug --with-librsvg --with-libsoxr --with-libssh --with-libvidstab --with-libvmaf --with-libxml2 --with-opencore-amr --with-openh264 --with-openjpeg --with-openssl --with-rav1e --with-rtmpdump --with-rubberband --with-speex --with-srt --with-tesseract --with-two-lame --with-webp --with-xvid --with-zeromq --with-zimg  Re: http://www.manks.top/ffmpeg-install-mac.html
+install brew tap homebrew-ffmpeg/ffmpeg brew options homebrew-ffmpeg/ffmpeg/ffmpeg brew install ffmpeg --HEAD ffmpeg -version 安装过程如果缺库 https://formulae.brew.sh/formula/ffmpeg 到这个链接查
+现在这步好像不需要了
+#完全安装 brew install homebrew-ffmpeg/ffmpeg/ffmpeg --with-chromaprint --with-fdk-aac --with-game-music-emu --with-libbluray --with-libbs2b --with-libcaca --with-libgsm --with-libmodplug --with-librsvg --with-libsoxr --with-libssh --with-libvidstab --with-libvmaf --with-libxml2 --with-opencore-amr --with-openh264 --with-openjpeg --with-openssl --with-rav1e --with-rtmpdump --with-rubberband --with-speex --with-srt --with-tesseract --with-two-lame --with-webp --with-xvid --with-zeromq --with-zimg Re: http://www.manks.top/ffmpeg-install-mac.html
 https://www.jianshu.com/p/85fffceddf04
 https://zhuanlan.zhihu.com/p/90099862</description>
     </item>

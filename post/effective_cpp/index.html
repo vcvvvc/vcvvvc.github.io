@@ -4,7 +4,7 @@
     <title>Effective C&#43;&#43; 总结 // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.96.0" />
+    <meta name="generator" content="Hugo 0.109.0">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vc" />
     
@@ -734,7 +734,7 @@ Lock ml2 (ml1); //将ml1复制到m12身上。这会发生什么事?
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#做法B: n个构造函数+n个析构函数
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#方法B:定义于循环内
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>n; <span style="color:#f92672">++</span>i) {
-</span></span><span style="display:flex;"><span>    widget <span style="color:#a6e22e">w</span>(<span style="color:#f92672">//</span><span style="color:#960050;background-color:#1e0010">取决于</span>i的某个值);
+</span></span><span style="display:flex;"><span>    widget <span style="color:#a6e22e">w</span>(<span style="color:#f92672">//</span><span style="color:#960050;background-color:#1e0010">取决于</span>i<span style="color:#960050;background-color:#1e0010">的某个值</span>);
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><ul>
 <li>你知道赋值成本比“构造+析构”成本低</li>
@@ -1501,8 +1501,8 @@ private:
 <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 <script>
     const gitalk = new Gitalk({
-        clientID: '3c8e006198f93b6ae711',
-        clientSecret: 'e69616cfe693a760a8aa198999d53d5d57cea02c',
+        clientID: 'eda9cb0107ff09b88cee',
+        clientSecret: '9b7dc762c965b089356ed874e9b8eedd21f4d4a1',
         repo: '6923403.github.io',
         owner: '6923403',
         admin: ['6923403'],

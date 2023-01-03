@@ -12,12 +12,12 @@
       <pubDate>Mon, 27 Jul 2020 17:41:31 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/ffmpeg_install/</guid>
-      <description>Start Download FFmpeg  Install tool 1. install yasm
-sudo apt-get install yasm  if not installed yasm, os will output &amp;ldquo;nasm/yasm not found or too old. Use &amp;ndash;disable-x86asm for a crippled build.&amp;rdquo;
- 2. install SDL2
+      <description>Start Download FFmpeg Install tool 1. install yasm
+sudo apt-get install yasm if not installed yasm, os will output &amp;ldquo;nasm/yasm not found or too old. Use &amp;ndash;disable-x86asm for a crippled build.&amp;rdquo;
+2. install SDL2
 SDL2-2.0.12(stable)
-tar -xvf SDL2-2.0.12.tar.gz cd SDL2-2.0.12 ./configure sudo make -j4 sudo make install  Install FFmpeg 1. git clone https://git.ffmpeg.org/ffmpeg.git ffmpeg
-cd ffmpeg/ ./configure sudo make -j4 sudo make install  3. Check ffmpeg -version ffplay -version </description>
+tar -xvf SDL2-2.0.12.tar.gz cd SDL2-2.0.12 ./configure sudo make -j4 sudo make install Install FFmpeg 1. git clone https://git.ffmpeg.org/ffmpeg.git ffmpeg
+cd ffmpeg/ ./configure sudo make -j4 sudo make install 3. Check ffmpeg -version ffplay -version </description>
     </item>
     
   </channel>
