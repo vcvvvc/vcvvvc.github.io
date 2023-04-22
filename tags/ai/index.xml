@@ -12,7 +12,7 @@
       <pubDate>Sun, 12 Mar 2023 20:59:29 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/chrome_use_newbing/</guid>
-      <description>安装Head Editor插件
+      <description>失效了。。换回edge了 安装Head Editor插件
 访问原版必应时(规则：^http(s?)://(.).bing.com/(.))，将出口IP(x-forwarded-for)自动改为外网IP，如谷歌的DNS服务器8.8.8.8。
 规则类型：修改请求头 匹配类型：正则表达式 匹配规则：^http(s?)://(.*).bing\.com/(.*) 执行类型 头名称：x-forwarded-for 头内容：8.8.8.8 访问原版必应时(规则：^http(s?)://(.).bing.com/(.))，将客户代理(user-agent，即UA)改为Edge浏览器UA —— Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.41 规则类型：修改请求头 匹配类型：正则表达式 匹配规则：^http(s?)://(.*).bing\.com/(.*) 执行类型 头名称：user-agent 头内容：Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.41 https://cloud.tencent.com/developer/article/2235566 https://blog.csdn.net/AI_Fanatic/article/details/129053010</description>
     </item>
