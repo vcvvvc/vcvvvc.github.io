@@ -5,7 +5,19 @@
     <link>https://6923403.github.io/tags/epoll/</link>
     <description>Recent content in Epoll on Vcvc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 10 Oct 2021 10:00:00 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/epoll/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 29 May 2023 20:54:49 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/epoll/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SO_REUSEPORT与SO_REUSEADDR</title>
+      <link>https://6923403.github.io/post/so_reuseport%E4%B8%8Eso_reuseaddr/</link>
+      <pubDate>Mon, 29 May 2023 20:54:49 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/so_reuseport%E4%B8%8Eso_reuseaddr/</guid>
+      <description>SO_REUSEPORT端口重用 int opt_val = 1; setsockopt(sockfd, SOL_SOCKET, SO_REUSEPORT, &amp;amp;opt_val, sizeof(opt_val)) SO_REUSEPORT是允许多个socket绑定到同一个ip+port上 每一个线程拥有自己的服务器套接字, 在服务器套接字上没有了锁的竞争 内核层面实现负载均衡 SO_REUSEADDR是地址重用 Re: https://blog.csdn.net/c359719435/article/details/51721902
+https://www.cnblogs.com/schips/p/12553321.html
+https://zhuanlan.zhihu.com/p/378892166
+https://pureage.info/2015/12/22/thundering-herd.html</description>
+    </item>
+    
     <item>
       <title>I/O多路复用</title>
       <link>https://6923403.github.io/post/io%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</link>

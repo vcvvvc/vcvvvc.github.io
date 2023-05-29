@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="zh-cn">
   <head>
-    <title>Server sum // Vcvc Blog</title>
+    <title>SO_REUSEPORT与SO_REUSEADDR // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
     <meta name="generator" content="Hugo 0.109.0">
@@ -71,14 +71,14 @@
       
   <article class="post">
     <header class="post-header">
-      <h1 class ="post-title">Server sum</h1>
+      <h1 class ="post-title">SO_REUSEPORT与SO_REUSEADDR</h1>
       <div class="post-meta">
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
   <title>calendar</title>
   <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
 </svg>
-          Apr 4, 2021
+          May 29, 2023
         </div>
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
@@ -92,63 +92,29 @@
   <title>tag</title>
   <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line>
 </svg>
-              <a class="tag" href="https://6923403.github.io/tags/socket/">Socket</a>
-              <a class="tag" href="https://6923403.github.io/tags/cpp/">CPP</a>
+              <a class="tag" href="https://6923403.github.io/tags/epoll/">Epoll</a>
               <a class="tag" href="https://6923403.github.io/tags/linux/">Linux</a>
-              <a class="tag" href="https://6923403.github.io/tags/server/">Server</a>
+              <a class="tag" href="https://6923403.github.io/tags/socket/">Socket</a>
         </div>
       </div>
     </header>
     <div class="post-content">
-      <h2 id="c标准网络库对比">c++标准网络库对比</h2>
-<ul>
-<li><a href="../../post/c++%E6%A0%87%E5%87%86%E7%BD%91%E7%BB%9C%E5%BA%93/">https://6923403.github.io/post/c++标准网络库/</a></li>
-</ul>
-<h2 id="socket-struct整理">socket struct整理</h2>
-<ul>
-<li><a href="../../post/socket_struct/">https://6923403.github.io/post/socket_struct/</a></li>
-</ul>
-<h2 id="socket编程需要的头文件整理">socket编程需要的头文件整理</h2>
-<ul>
-<li><a href="../../post/socket_file/">https://6923403.github.io/post/socket_file/</a></li>
-</ul>
-<h2 id="socket-function">socket function</h2>
-<ul>
-<li><a href="../../post/socket/">https://6923403.github.io/post/socket/</a></li>
-</ul>
-<h2 id="io复用">I/O复用</h2>
-<ul>
-<li><a href="../../post//io%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/">https://6923403.github.io/post//io多路复用</a></li>
-</ul>
-<h2 id="sem-function">sem function</h2>
-<ul>
-<li><a href="../../post/sem/">https://6923403.github.io/post/sem/</a></li>
-</ul>
-<h2 id="server-io-actor">server io actor</h2>
-<ul>
-<li><a href="../../post/server_actor/">https://6923403.github.io/post/server_actor/</a></li>
-</ul>
-<h2 id="timer-function">timer function</h2>
-<ul>
-<li><a href="../../post/timer_function/">https://6923403.github.io/post/timer_function/</a></li>
+      <h2 id="so_reuseport端口重用">SO_REUSEPORT端口重用</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> opt_val <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>setsockopt(sockfd, SOL_SOCKET, SO_REUSEPORT, <span style="color:#f92672">&amp;</span>opt_val, <span style="color:#66d9ef">sizeof</span>(opt_val))
+</span></span></code></pre></div><ul>
+<li>SO_REUSEPORT是允许多个socket绑定到同一个ip+port上</li>
+<li>每一个线程拥有自己的服务器套接字, 在服务器套接字上没有了锁的竞争</li>
+<li>内核层面实现负载均衡</li>
 </ul>
 <hr>
-<h2 id="linux-pthread-线程创建与使用">Linux Pthread 线程创建与使用</h2>
-<p><a href="../../post/pthread/">https://6923403.github.io/post/pthread/</a></p>
-<h2 id="c11-thread">C++11 thread</h2>
-<p><a href="../../post/cppthread/">https://6923403.github.io/post/cppthread/</a></p>
+<h2 id="so_reuseaddr是地址重用">SO_REUSEADDR是地址重用</h2>
 <hr>
-<h2 id="unp-note">Unp note</h2>
-<p><a href="../../post/unp_note/">https://6923403.github.io/post/unp_note/</a></p>
-<h2 id="tcp_ip">TCP_IP</h2>
-<p><a href="../../post/computer_network/">https://6923403.github.io/post/computer_network/</a></p>
-<h2 id="so_reuseport与so_reuseaddr">SO_REUSEPORT与SO_REUSEADDR</h2>
-<p><a href="../../post/computer_network/">https://6923403.github.io/post/computer_network/</a></p>
-<h2 id="time_wait与so_linger">TIME_WAIT与SO_LINGER</h2>
-<p><a href="../../post/computer_network/">https://6923403.github.io/post/computer_network/</a></p>
-<hr>
-<h3 id="exception-class-异常类">exception class 异常类</h3>
-<p><a href="../../post/cpp_exception/">https://6923403.github.io/post/cpp_exception/</a></p>
+<h2 id="re">Re:</h2>
+<p><a href="https://blog.csdn.net/c359719435/article/details/51721902">https://blog.csdn.net/c359719435/article/details/51721902</a></p>
+<p><a href="https://www.cnblogs.com/schips/p/12553321.html">https://www.cnblogs.com/schips/p/12553321.html</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/378892166">https://zhuanlan.zhihu.com/p/378892166</a></p>
+<p><a href="https://pureage.info/2015/12/22/thundering-herd.html">https://pureage.info/2015/12/22/thundering-herd.html</a></p>
 
     </div>
     <div class="post-footer">

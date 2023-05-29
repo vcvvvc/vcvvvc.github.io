@@ -5,7 +5,34 @@
     <link>https://6923403.github.io/tags/socket/</link>
     <description>Recent content in Socket on Vcvc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 21 Nov 2021 22:08:01 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/socket/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 29 May 2023 21:13:27 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/socket/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>TIME_WAIT与SO_LINGER</title>
+      <link>https://6923403.github.io/post/time_wait%E4%B8%8Eso_linger/</link>
+      <pubDate>Mon, 29 May 2023 21:13:27 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/time_wait%E4%B8%8Eso_linger/</guid>
+      <description>TIME_WAIT 主动关闭方在收到被动关闭方的FIN包后并返回ACK后，会进入TIME_WAIT状态，TIME_WAIT状态又称2MSL状态，每个TCP连接都必须有一个最大报文段生存时间MSL，在网络传输中超过这个时间的报文段将被丢弃。当TCP连接发起一个主动关闭，并发出最后一个ACK时，必须在TIME_WAIT状态停留两倍MSL时间，在2MSL等待期间，定义这个连接的插口(客户端IP地址和端口号，服务器IP地址和端口号的四元组)将不能再被使用。
+主动发起关闭连接的一方，才会有 TIME-WAIT 状态。 需要TIME-WAIT状态，主要是两个原因：
+防止历史连接中的数据，被后面相同四元组的连接错误的接收； 序列号，是 TCP 一个头部字段，标识了 TCP 发送端到 TCP 接收端的数据流的一个字节，因为 TCP 是面向字节流的可靠协议，为了保证消息的顺序性和可靠性，TCP 为每个传输方向上的每个字节都赋予了一个编号，以便于传输成功后确认、丢失后重传以及在接收端保证不会乱序。序列号是一个 32 位的无符号数，因此在到达 4G 之后再循环回到 0。
+初始序列号，在 TCP 建立连接的时候，客户端和服务端都会各自生成一个初始序列号，它是基于时钟生成的一个随机数，来保证每个连接都拥有不同的初始序列号。初始化序列号可被视为一个 32 位的计数器，该计数器的数值每 4 微秒加 1，循环一次需要 4.55 小时。
+序列号和初始化序列号并不是无限递增的，会发生回绕为初始值的情况，这意味着无法根据序列号来判断新老数据。
+- tcp协议头中有seq和ack_seq两个字段，分别代表序列号和确认号。tcp协议通过序列号标识发送的报文段。seq的类型是__u32，当超过__u32的最大值时，会回绕到0。 - 一个tcp流的初始序列号（ISN）并不是从0开始的，而是采用一定的随机算法产生的，因此ISN可能很大（比如(2^32-10)），因此同一个tcp流的seq号可能会回绕到0。而我们tcp对于丢包和乱序等问题的判断都是依赖于序列号大小比较的。此时就出现了所谓的tcp序列号回绕（sequence wraparound）问题。 保证「被动关闭连接」的一方，能被正确的关闭； Re: https://zhuanlan.zhihu.com/p/99943313
+https://xiaolincoding.com/network/3_tcp/tcp_interview.html#为什么需要-time-wait-状态</description>
+    </item>
+    
+    <item>
+      <title>SO_REUSEPORT与SO_REUSEADDR</title>
+      <link>https://6923403.github.io/post/so_reuseport%E4%B8%8Eso_reuseaddr/</link>
+      <pubDate>Mon, 29 May 2023 20:54:49 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/so_reuseport%E4%B8%8Eso_reuseaddr/</guid>
+      <description>SO_REUSEPORT端口重用 int opt_val = 1; setsockopt(sockfd, SOL_SOCKET, SO_REUSEPORT, &amp;amp;opt_val, sizeof(opt_val)) SO_REUSEPORT是允许多个socket绑定到同一个ip+port上 每一个线程拥有自己的服务器套接字, 在服务器套接字上没有了锁的竞争 内核层面实现负载均衡 SO_REUSEADDR是地址重用 Re: https://blog.csdn.net/c359719435/article/details/51721902
+https://www.cnblogs.com/schips/p/12553321.html
+https://zhuanlan.zhihu.com/p/378892166
+https://pureage.info/2015/12/22/thundering-herd.html</description>
+    </item>
+    
     <item>
       <title>ip转换函数</title>
       <link>https://6923403.github.io/post/ip%E8%BD%AC%E6%8D%A2%E5%87%BD%E6%95%B0/</link>
@@ -30,7 +57,9 @@ uint32_t htonl(uint32_t hostlong); //将主机的无符号长整型数转换成�
       <description>c++标准网络库对比 https://6923403.github.io/post/c++标准网络库/ socket struct整理 https://6923403.github.io/post/socket_struct/ socket编程需要的头文件整理 https://6923403.github.io/post/socket_file/ socket function https://6923403.github.io/post/socket/ I/O复用 https://6923403.github.io/post//io多路复用 sem function https://6923403.github.io/post/sem/ server io actor https://6923403.github.io/post/server_actor/ timer function https://6923403.github.io/post/timer_function/ Linux Pthread 线程创建与使用 https://6923403.github.io/post/pthread/
 C++11 thread https://6923403.github.io/post/cppthread/
 Unp note https://6923403.github.io/post/unp_note/
-TCP_IP | 计算机网络 https://6923403.github.io/post/computer_network/
+TCP_IP https://6923403.github.io/post/computer_network/
+SO_REUSEPORT与SO_REUSEADDR https://6923403.github.io/post/computer_network/
+TIME_WAIT与SO_LINGER https://6923403.github.io/post/computer_network/
 exception class 异常类 https://6923403.github.io/post/cpp_exception/</description>
     </item>
     

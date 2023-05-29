@@ -5,7 +5,34 @@
     <link>https://6923403.github.io/tags/</link>
     <description>Recent content in Tags on Vcvc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 11 Apr 2023 18:07:17 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 29 May 2023 21:13:27 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux</title>
+      <link>https://6923403.github.io/tags/linux/</link>
+      <pubDate>Mon, 29 May 2023 21:13:27 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Socket</title>
+      <link>https://6923403.github.io/tags/socket/</link>
+      <pubDate>Mon, 29 May 2023 21:13:27 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/tags/socket/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Epoll</title>
+      <link>https://6923403.github.io/tags/epoll/</link>
+      <pubDate>Mon, 29 May 2023 20:54:49 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/tags/epoll/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>CPP</title>
       <link>https://6923403.github.io/tags/cpp/</link>
@@ -75,15 +102,6 @@
       <pubDate>Mon, 26 Sep 2022 23:43:27 +0800</pubDate>
       
       <guid>https://6923403.github.io/tags/blockchain/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Linux</title>
-      <link>https://6923403.github.io/tags/linux/</link>
-      <pubDate>Fri, 29 Jul 2022 00:12:53 +0800</pubDate>
-      
-      <guid>https://6923403.github.io/tags/linux/</guid>
       <description></description>
     </item>
     
@@ -169,15 +187,6 @@
     </item>
     
     <item>
-      <title>Socket</title>
-      <link>https://6923403.github.io/tags/socket/</link>
-      <pubDate>Sun, 21 Nov 2021 22:08:01 +0800</pubDate>
-      
-      <guid>https://6923403.github.io/tags/socket/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Metaverse</title>
       <link>https://6923403.github.io/tags/metaverse/</link>
       <pubDate>Fri, 22 Oct 2021 22:59:25 +0800</pubDate>
@@ -192,15 +201,6 @@
       <pubDate>Fri, 15 Oct 2021 22:57:45 +0800</pubDate>
       
       <guid>https://6923403.github.io/tags/%E6%98%93/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Epoll</title>
-      <link>https://6923403.github.io/tags/epoll/</link>
-      <pubDate>Sun, 10 Oct 2021 10:00:00 +0800</pubDate>
-      
-      <guid>https://6923403.github.io/tags/epoll/</guid>
       <description></description>
     </item>
     

@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="zh-cn">
   <head>
-    <title>Server sum // Vcvc Blog</title>
+    <title>TIME_WAIT与SO_LINGER // Vcvc Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
     <meta name="generator" content="Hugo 0.109.0">
@@ -71,14 +71,14 @@
       
   <article class="post">
     <header class="post-header">
-      <h1 class ="post-title">Server sum</h1>
+      <h1 class ="post-title">TIME_WAIT与SO_LINGER</h1>
       <div class="post-meta">
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
   <title>calendar</title>
   <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
 </svg>
-          Apr 4, 2021
+          May 29, 2023
         </div>
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
@@ -92,63 +92,33 @@
   <title>tag</title>
   <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line>
 </svg>
-              <a class="tag" href="https://6923403.github.io/tags/socket/">Socket</a>
-              <a class="tag" href="https://6923403.github.io/tags/cpp/">CPP</a>
               <a class="tag" href="https://6923403.github.io/tags/linux/">Linux</a>
-              <a class="tag" href="https://6923403.github.io/tags/server/">Server</a>
+              <a class="tag" href="https://6923403.github.io/tags/socket/">Socket</a>
         </div>
       </div>
     </header>
     <div class="post-content">
-      <h2 id="c标准网络库对比">c++标准网络库对比</h2>
+      <h2 id="time_wait">TIME_WAIT</h2>
+<p><strong>主动关闭方在收到被动关闭方的FIN包后并返回ACK后，会进入TIME_WAIT状态，TIME_WAIT状态又称2MSL状态，每个TCP连接都必须有一个最大报文段生存时间MSL，在网络传输中超过这个时间的报文段将被丢弃。当TCP连接发起一个主动关闭，并发出最后一个ACK时，必须在TIME_WAIT状态停留两倍MSL时间，在2MSL等待期间，定义这个连接的插口(客户端IP地址和端口号，服务器IP地址和端口号的四元组)将不能再被使用。</strong></p>
+<p>主动发起关闭连接的一方，才会有 TIME-WAIT 状态。
+需要TIME-WAIT状态，主要是两个原因：</p>
 <ul>
-<li><a href="../../post/c++%E6%A0%87%E5%87%86%E7%BD%91%E7%BB%9C%E5%BA%93/">https://6923403.github.io/post/c++标准网络库/</a></li>
+<li>防止历史连接中的数据，被后面相同四元组的连接错误的接收；</li>
 </ul>
-<h2 id="socket-struct整理">socket struct整理</h2>
+<p>序列号，是 TCP 一个头部字段，标识了 TCP 发送端到 TCP 接收端的数据流的一个字节，因为 TCP 是面向字节流的可靠协议，为了保证消息的顺序性和可靠性，TCP 为每个传输方向上的每个字节都赋予了一个编号，以便于传输成功后确认、丢失后重传以及在接收端保证不会乱序。序列号是一个 32 位的无符号数，因此在到达 4G 之后再循环回到 0。</p>
+<p>初始序列号，在 TCP 建立连接的时候，客户端和服务端都会各自生成一个初始序列号，它是基于时钟生成的一个随机数，来保证每个连接都拥有不同的初始序列号。初始化序列号可被视为一个 32 位的计数器，该计数器的数值每 4 微秒加 1，循环一次需要 4.55 小时。</p>
+<p><strong>序列号和初始化序列号并不是无限递增的，会发生回绕为初始值的情况，这意味着无法根据序列号来判断新老数据。</strong></p>
+<pre><code>- tcp协议头中有seq和ack_seq两个字段，分别代表序列号和确认号。tcp协议通过序列号标识发送的报文段。seq的类型是__u32，当超过__u32的最大值时，会回绕到0。
+
+- 一个tcp流的初始序列号（ISN）并不是从0开始的，而是采用一定的随机算法产生的，因此ISN可能很大（比如(2^32-10)），因此同一个tcp流的seq号可能会回绕到0。而我们tcp对于丢包和乱序等问题的判断都是依赖于序列号大小比较的。此时就出现了所谓的tcp序列号回绕（sequence wraparound）问题。
+</code></pre>
 <ul>
-<li><a href="../../post/socket_struct/">https://6923403.github.io/post/socket_struct/</a></li>
-</ul>
-<h2 id="socket编程需要的头文件整理">socket编程需要的头文件整理</h2>
-<ul>
-<li><a href="../../post/socket_file/">https://6923403.github.io/post/socket_file/</a></li>
-</ul>
-<h2 id="socket-function">socket function</h2>
-<ul>
-<li><a href="../../post/socket/">https://6923403.github.io/post/socket/</a></li>
-</ul>
-<h2 id="io复用">I/O复用</h2>
-<ul>
-<li><a href="../../post//io%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/">https://6923403.github.io/post//io多路复用</a></li>
-</ul>
-<h2 id="sem-function">sem function</h2>
-<ul>
-<li><a href="../../post/sem/">https://6923403.github.io/post/sem/</a></li>
-</ul>
-<h2 id="server-io-actor">server io actor</h2>
-<ul>
-<li><a href="../../post/server_actor/">https://6923403.github.io/post/server_actor/</a></li>
-</ul>
-<h2 id="timer-function">timer function</h2>
-<ul>
-<li><a href="../../post/timer_function/">https://6923403.github.io/post/timer_function/</a></li>
+<li>保证「被动关闭连接」的一方，能被正确的关闭；</li>
 </ul>
 <hr>
-<h2 id="linux-pthread-线程创建与使用">Linux Pthread 线程创建与使用</h2>
-<p><a href="../../post/pthread/">https://6923403.github.io/post/pthread/</a></p>
-<h2 id="c11-thread">C++11 thread</h2>
-<p><a href="../../post/cppthread/">https://6923403.github.io/post/cppthread/</a></p>
-<hr>
-<h2 id="unp-note">Unp note</h2>
-<p><a href="../../post/unp_note/">https://6923403.github.io/post/unp_note/</a></p>
-<h2 id="tcp_ip">TCP_IP</h2>
-<p><a href="../../post/computer_network/">https://6923403.github.io/post/computer_network/</a></p>
-<h2 id="so_reuseport与so_reuseaddr">SO_REUSEPORT与SO_REUSEADDR</h2>
-<p><a href="../../post/computer_network/">https://6923403.github.io/post/computer_network/</a></p>
-<h2 id="time_wait与so_linger">TIME_WAIT与SO_LINGER</h2>
-<p><a href="../../post/computer_network/">https://6923403.github.io/post/computer_network/</a></p>
-<hr>
-<h3 id="exception-class-异常类">exception class 异常类</h3>
-<p><a href="../../post/cpp_exception/">https://6923403.github.io/post/cpp_exception/</a></p>
+<h2 id="re">Re:</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/99943313">https://zhuanlan.zhihu.com/p/99943313</a></p>
+<p><a href="https://xiaolincoding.com/network/3_tcp/tcp_interview.html#">https://xiaolincoding.com/network/3_tcp/tcp_interview.html#</a>为什么需要-time-wait-状态</p>
 
     </div>
     <div class="post-footer">
