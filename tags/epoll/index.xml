@@ -12,10 +12,17 @@
       <pubDate>Mon, 29 May 2023 20:54:49 +0800</pubDate>
       
       <guid>https://6923403.github.io/post/so_reuseport%E4%B8%8Eso_reuseaddr/</guid>
-      <description>SO_REUSEPORT端口重用 int opt_val = 1; setsockopt(sockfd, SOL_SOCKET, SO_REUSEPORT, &amp;amp;opt_val, sizeof(opt_val)) SO_REUSEPORT是允许多个socket绑定到同一个ip+port上 每一个线程拥有自己的服务器套接字, 在服务器套接字上没有了锁的竞争 内核层面实现负载均衡 SO_REUSEADDR是地址重用 Re: https://blog.csdn.net/c359719435/article/details/51721902
-https://www.cnblogs.com/schips/p/12553321.html
-https://zhuanlan.zhihu.com/p/378892166
-https://pureage.info/2015/12/22/thundering-herd.html</description>
+      <description>SO_REUSEPORT端口重用 int opt_val = 1; setsockopt(sockfd, SOL_SOCKET, SO_REUSEPORT, &amp;amp;opt_val, sizeof(opt_val)) SO_REUSEPORT是允许多个socket绑定到同一个ip+port上
+每一个线程拥有自己的服务器套接字, 在服务器套接字上没有了锁的竞争
+内核层面实现负载均衡
+SO_REUSEPORT在以下场景下有用： 当服务器需要使用多个进程或线程来监听相同的端口，而不想遇到惊群现象或资源竞争时，可以设置SO_REUSEPORT选项，以便实现网络连接的负载均衡。
+当服务器需要使用UDP协议来接收多播数据报时，可以设置SO_REUSEPORT选项，以便让每个进程或线程接收到不同的数据报，提高效率和性能。
+EPOLL惊群问题
+SO_REUSEADDR是地址重用 int opt_val = 1; setsockopt(sockfd, SOL_SOCKET, SO_REUSEADDR, &amp;amp;opt_val, sizeof(opt_val)) SO_REUSEADDR可以解决服务器主动关闭连接后，需要等待2MSL时间才能重新绑定相同的端口的问题。如果不设置这个选项，服务器在关闭连接后，会进入TIME_WAIT状态，此时再次启动服务器，就会绑定失败，报：Address already in use。如果设置了这个选项，服务器就可以立即重启并绑定相同的端口
+SO_REUSEADDR可以解决服务器使用通配符IP地址（0.0.0.0）监听端口后，无法再绑定具体的IP地址到相同的端口的问题。如果不设置这个选项，当一个socket绑定到0.0.0.0:port后，其他socket就无法绑定到192.168.0.1:port等具体的IP地址上。如果设置了这个选项，就可以允许多个socket绑定到相同的端口，只要它们使用不同的本地IP地址
+SO_REUSEADDR在以下场景下有用： 当服务器需要频繁地启动和关闭，而不想等待2MSL时间才能重新绑定相同的端口时，可以设置SO_REUSEADDR选项，以便快速重启。
+当服务器需要使用通配符IP地址（0.0.0.0）监听端口，同时又想绑定其他具体的IP地址到相同的端口时，可以设置SO_REUSEADDR选项，以便支持多个IP地址的监听。
+Epoll惊群 #include &amp;lt;sys/types.h&amp;gt; #include &amp;lt;sys/socket.h&amp;gt; #include &amp;lt;sys/epoll.h&amp;gt; #include &amp;lt;netdb.h&amp;gt; #include &amp;lt;string.h&amp;gt; #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;unistd.h&amp;gt; #include &amp;lt;fcntl.h&amp;gt; #include &amp;lt;stdlib.h&amp;gt; #include &amp;lt;errno.h&amp;gt; #include &amp;lt;sys/wait.h&amp;gt; #define PROCESS_NUM 10 static int create_and_bind (char *port) { int fd = socket(PF_INET, SOCK_STREAM, 0); struct sockaddr_in serveraddr; serveraddr.</description>
     </item>
     
     <item>

@@ -85,7 +85,7 @@
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          1 min read
+          3 min read
         </div>
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
@@ -103,18 +103,199 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> opt_val <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
 </span></span><span style="display:flex;"><span>setsockopt(sockfd, SOL_SOCKET, SO_REUSEPORT, <span style="color:#f92672">&amp;</span>opt_val, <span style="color:#66d9ef">sizeof</span>(opt_val))
 </span></span></code></pre></div><ul>
-<li>SO_REUSEPORT是允许多个socket绑定到同一个ip+port上</li>
-<li>每一个线程拥有自己的服务器套接字, 在服务器套接字上没有了锁的竞争</li>
-<li>内核层面实现负载均衡</li>
+<li>
+<p>SO_REUSEPORT是允许多个socket绑定到同一个ip+port上</p>
+</li>
+<li>
+<p>每一个线程拥有自己的服务器套接字, 在服务器套接字上没有了锁的竞争</p>
+</li>
+<li>
+<p>内核层面实现负载均衡</p>
+</li>
 </ul>
+<h4 id="so_reuseport在以下场景下有用">SO_REUSEPORT在以下场景下有用：</h4>
+<ol>
+<li>
+<p>当服务器需要使用多个进程或线程来监听相同的端口，而不想遇到惊群现象或资源竞争时，可以设置SO_REUSEPORT选项，以便实现网络连接的负载均衡。</p>
+</li>
+<li>
+<p>当服务器需要使用UDP协议来接收多播数据报时，可以设置SO_REUSEPORT选项，以便让每个进程或线程接收到不同的数据报，提高效率和性能。</p>
+</li>
+<li>
+<p>EPOLL惊群问题</p>
+</li>
+</ol>
 <hr>
 <h2 id="so_reuseaddr是地址重用">SO_REUSEADDR是地址重用</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> opt_val <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>setsockopt(sockfd, SOL_SOCKET, SO_REUSEADDR, <span style="color:#f92672">&amp;</span>opt_val, <span style="color:#66d9ef">sizeof</span>(opt_val))
+</span></span></code></pre></div><ul>
+<li>
+<p>SO_REUSEADDR可以解决服务器主动关闭连接后，需要等待2MSL时间才能重新绑定相同的端口的问题。如果不设置这个选项，服务器在关闭连接后，会进入TIME_WAIT状态，此时再次启动服务器，就会绑定失败，报：Address already in use。如果设置了这个选项，服务器就可以立即重启并绑定相同的端口</p>
+</li>
+<li>
+<p>SO_REUSEADDR可以解决服务器使用通配符IP地址（0.0.0.0）监听端口后，无法再绑定具体的IP地址到相同的端口的问题。如果不设置这个选项，当一个socket绑定到0.0.0.0:port后，其他socket就无法绑定到192.168.0.1:port等具体的IP地址上。如果设置了这个选项，就可以允许多个socket绑定到相同的端口，只要它们使用不同的本地IP地址</p>
+</li>
+</ul>
+<h4 id="so_reuseaddr在以下场景下有用">SO_REUSEADDR在以下场景下有用：</h4>
+<ol>
+<li>
+<p>当服务器需要频繁地启动和关闭，而不想等待2MSL时间才能重新绑定相同的端口时，可以设置SO_REUSEADDR选项，以便快速重启。</p>
+</li>
+<li>
+<p>当服务器需要使用通配符IP地址（0.0.0.0）监听端口，同时又想绑定其他具体的IP地址到相同的端口时，可以设置SO_REUSEADDR选项，以便支持多个IP地址的监听。</p>
+</li>
+</ol>
 <hr>
+<h3 id="epoll惊群">Epoll惊群</h3>
+<p><img src="/img/epoll_use/jingqun.png" alt="jingqun"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/types.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/socket.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/epoll.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;netdb.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;fcntl.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;errno.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/wait.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define PROCESS_NUM 10
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">create_and_bind</span> (<span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>port)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> fd <span style="color:#f92672">=</span> socket(PF_INET, SOCK_STREAM, <span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">sockaddr_in</span> serveraddr;
+</span></span><span style="display:flex;"><span>    serveraddr.sin_family <span style="color:#f92672">=</span> AF_INET;
+</span></span><span style="display:flex;"><span>    serveraddr.sin_addr.s_addr <span style="color:#f92672">=</span> htonl(INADDR_ANY);
+</span></span><span style="display:flex;"><span>    serveraddr.sin_port <span style="color:#f92672">=</span> htons(atoi(port));
+</span></span><span style="display:flex;"><span>    bind(fd, (<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">sockaddr</span><span style="color:#f92672">*</span>)<span style="color:#f92672">&amp;</span>serveraddr, <span style="color:#66d9ef">sizeof</span>(serveraddr));
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> fd;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">make_socket_non_blocking</span> (<span style="color:#66d9ef">int</span> sfd)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> flags, s;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    flags <span style="color:#f92672">=</span> fcntl (sfd, F_GETFL, <span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (flags <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        perror (<span style="color:#e6db74">&#34;fcntl&#34;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    flags <span style="color:#f92672">|=</span> O_NONBLOCK;
+</span></span><span style="display:flex;"><span>    s <span style="color:#f92672">=</span> fcntl (sfd, F_SETFL, flags);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (s <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        perror (<span style="color:#e6db74">&#34;fcntl&#34;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#define MAXEVENTS 64
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> (<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>argv[])
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> sfd, s;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> efd;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">epoll_event</span> event;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">epoll_event</span> <span style="color:#f92672">*</span>events;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    sfd <span style="color:#f92672">=</span> create_and_bind(<span style="color:#e6db74">&#34;8001&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (sfd <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>        abort ();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    s <span style="color:#f92672">=</span> make_socket_non_blocking (sfd);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (s <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>        abort ();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    s <span style="color:#f92672">=</span> listen(sfd, SOMAXCONN);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (s <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        perror (<span style="color:#e6db74">&#34;listen&#34;</span>);
+</span></span><span style="display:flex;"><span>        abort ();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    efd <span style="color:#f92672">=</span> epoll_create(MAXEVENTS);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (efd <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        perror(<span style="color:#e6db74">&#34;epoll_create&#34;</span>);
+</span></span><span style="display:flex;"><span>        abort();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    event.data.fd <span style="color:#f92672">=</span> sfd;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//event.events = EPOLLIN | EPOLLET;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    event.events <span style="color:#f92672">=</span> EPOLLIN;
+</span></span><span style="display:flex;"><span>    s <span style="color:#f92672">=</span> epoll_ctl(efd, EPOLL_CTL_ADD, sfd, <span style="color:#f92672">&amp;</span>event);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (s <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        perror(<span style="color:#e6db74">&#34;epoll_ctl&#34;</span>);
+</span></span><span style="display:flex;"><span>        abort();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/* Buffer where events are returned */</span>
+</span></span><span style="display:flex;"><span>    events <span style="color:#f92672">=</span> calloc(MAXEVENTS, <span style="color:#66d9ef">sizeof</span> event);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> k;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span>(k <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; k <span style="color:#f92672">&lt;</span> PROCESS_NUM; k<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> pid <span style="color:#f92672">=</span> fork();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span>(pid <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">/* The event loop */</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">while</span> (<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">int</span> n, i;
+</span></span><span style="display:flex;"><span>                n <span style="color:#f92672">=</span> epoll_wait(efd, events, MAXEVENTS, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>                printf(<span style="color:#e6db74">&#34;process %d return from epoll_wait!</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, getpid());
+</span></span><span style="display:flex;"><span>             <span style="color:#66d9ef">for</span> (i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> n; i<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>                {
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">if</span> ((events[i].events <span style="color:#f92672">&amp;</span> EPOLLERR) <span style="color:#f92672">||</span> (events[i].events <span style="color:#f92672">&amp;</span> EPOLLHUP) <span style="color:#f92672">||</span> (<span style="color:#f92672">!</span>(events[i].events <span style="color:#f92672">&amp;</span> EPOLLIN)))
+</span></span><span style="display:flex;"><span>                    {
+</span></span><span style="display:flex;"><span>                        <span style="color:#75715e">/* An error has occured on this fd, or the socket is not ready for reading (why were we notified then?) */</span>
+</span></span><span style="display:flex;"><span>                        fprintf (stderr, <span style="color:#e6db74">&#34;epoll error</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>                        close (events[i].data.fd);
+</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">continue</span>;
+</span></span><span style="display:flex;"><span>                    }
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (sfd <span style="color:#f92672">==</span> events[i].data.fd)
+</span></span><span style="display:flex;"><span>                    {
+</span></span><span style="display:flex;"><span>                        <span style="color:#75715e">/* We have a notification on the listening socket, which means one or more incoming connections. */</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">sockaddr</span> in_addr;
+</span></span><span style="display:flex;"><span>                        socklen_t in_len;
+</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">int</span> infd;
+</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">char</span> hbuf[NI_MAXHOST], sbuf[NI_MAXSERV];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                        in_len <span style="color:#f92672">=</span> <span style="color:#66d9ef">sizeof</span> in_addr;
+</span></span><span style="display:flex;"><span>                        infd <span style="color:#f92672">=</span> accept(sfd, <span style="color:#f92672">&amp;</span>in_addr, <span style="color:#f92672">&amp;</span>in_len);
+</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">if</span> (infd <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>                        {
+</span></span><span style="display:flex;"><span>                            printf(<span style="color:#e6db74">&#34;process %d accept failed!</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, getpid());
+</span></span><span style="display:flex;"><span>                            <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>                        }
+</span></span><span style="display:flex;"><span>                        printf(<span style="color:#e6db74">&#34;process %d accept successed!</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, getpid());
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#75715e">/* Make the incoming socket non-blocking and add it to the list of fds to monitor. */</span>
+</span></span><span style="display:flex;"><span>                        close(infd);
+</span></span><span style="display:flex;"><span>                    }
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> status;
+</span></span><span style="display:flex;"><span>    wait(<span style="color:#f92672">&amp;</span>status);
+</span></span><span style="display:flex;"><span>    free (events);
+</span></span><span style="display:flex;"><span>    close (sfd);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> EXIT_SUCCESS;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><hr>
 <h2 id="re">Re:</h2>
 <p><a href="https://blog.csdn.net/c359719435/article/details/51721902">https://blog.csdn.net/c359719435/article/details/51721902</a></p>
 <p><a href="https://www.cnblogs.com/schips/p/12553321.html">https://www.cnblogs.com/schips/p/12553321.html</a></p>
 <p><a href="https://zhuanlan.zhihu.com/p/378892166">https://zhuanlan.zhihu.com/p/378892166</a></p>
 <p><a href="https://pureage.info/2015/12/22/thundering-herd.html">https://pureage.info/2015/12/22/thundering-herd.html</a></p>
+<p><a href="https://juejin.cn/post/6964714985364652039">https://juejin.cn/post/6964714985364652039</a></p>
 
     </div>
     <div class="post-footer">

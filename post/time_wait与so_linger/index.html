@@ -103,22 +103,93 @@
 <p>主动发起关闭连接的一方，才会有 TIME-WAIT 状态。
 需要TIME-WAIT状态，主要是两个原因：</p>
 <ul>
-<li>防止历史连接中的数据，被后面相同四元组的连接错误的接收；</li>
+<li>
+<p>防止历史连接中的数据，被后面相同四元组的连接错误的接收；</p>
+</li>
+<li>
+<p>保证「被动关闭连接」的一方，能被正确的关闭；</p>
+</li>
 </ul>
+<hr>
 <p>序列号，是 TCP 一个头部字段，标识了 TCP 发送端到 TCP 接收端的数据流的一个字节，因为 TCP 是面向字节流的可靠协议，为了保证消息的顺序性和可靠性，TCP 为每个传输方向上的每个字节都赋予了一个编号，以便于传输成功后确认、丢失后重传以及在接收端保证不会乱序。序列号是一个 32 位的无符号数，因此在到达 4G 之后再循环回到 0。</p>
 <p>初始序列号，在 TCP 建立连接的时候，客户端和服务端都会各自生成一个初始序列号，它是基于时钟生成的一个随机数，来保证每个连接都拥有不同的初始序列号。初始化序列号可被视为一个 32 位的计数器，该计数器的数值每 4 微秒加 1，循环一次需要 4.55 小时。</p>
 <p><strong>序列号和初始化序列号并不是无限递增的，会发生回绕为初始值的情况，这意味着无法根据序列号来判断新老数据。</strong></p>
-<pre><code>- tcp协议头中有seq和ack_seq两个字段，分别代表序列号和确认号。tcp协议通过序列号标识发送的报文段。seq的类型是__u32，当超过__u32的最大值时，会回绕到0。
-
-- 一个tcp流的初始序列号（ISN）并不是从0开始的，而是采用一定的随机算法产生的，因此ISN可能很大（比如(2^32-10)），因此同一个tcp流的seq号可能会回绕到0。而我们tcp对于丢包和乱序等问题的判断都是依赖于序列号大小比较的。此时就出现了所谓的tcp序列号回绕（sequence wraparound）问题。
-</code></pre>
+<p>tcp协议头中有seq和ack_seq两个字段，分别代表序列号和确认号。tcp协议通过序列号标识发送的报文段。seq的类型是__u32，当超过__u32的最大值时，会回绕到0。</p>
+<p>一个tcp流的初始序列号（ISN）并不是从0开始的，而是采用一定的随机算法产生的，因此ISN可能很大（比如(2^32-10)），因此同一个tcp流的seq号可能会回绕到0。而我们tcp对于丢包和乱序等问题的判断都是依赖于序列号大小比较的。此时就出现了所谓的tcp序列号回绕（sequence wraparound）问题。</p>
+<ol>
+<li>
+<p>TCP 设计了 TIME_WAIT 状态，状态会持续 2MSL 时长，这个时间足以让两个方向上的数据包都被丢弃，使得原来连接的数据包在网络中都自然消失，再出现的数据包一定都是新建立连接所产生的。</p>
+</li>
+<li>
+<p>是等待足够的时间以确保最后的 ACK 能让被动关闭方接收，从而帮助其正常关闭。</p>
+</li>
+</ol>
+<hr>
+<h4 id="time-wait状态过多危害">TIME-WAIT状态过多危害</h4>
 <ul>
-<li>保证「被动关闭连接」的一方，能被正确的关闭；</li>
+<li>第一是占用系统资源，比如文件描述符、内存资源、CPU 资源、线程资源等；</li>
+<li>第二是占用端口资源，端口资源也是有限的，一般可以开启的端口为 32768～61000，也可以通过 net.ipv4.ip_local_port_range参数指定范围。</li>
 </ul>
+<h4 id="出现过多的原因">出现过多的原因</h4>
+<ul>
+<li>
+<p>HTTP 没有使用长连接</p>
+</li>
+<li>
+<p>HTTP 长连接超时</p>
+</li>
+<li>
+<p>HTTP 长连接的请求数量达到上限</p>
+</li>
+</ul>
+<hr>
+<h2 id="so_linger">SO_LINGER</h2>
+<p><strong>SO_LINGER选项的作用是等待发送缓冲区中的数据发送完成，但是并不保证发送缓冲区中的数据一定被对端接收（对端宕机或线路问题），只是说会等待一段时间让这个过程完成。</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">linger</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> l_onoff; <span style="color:#75715e">//0=off, nonzero=on(开关)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">int</span> l_linger; <span style="color:#75715e">//linger time(延迟时间)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><table>
+<thead>
+<tr>
+<th style="text-align:center">l_onoff</th>
+<th style="text-align:center">l_linger</th>
+<th style="text-align:center">closesocket</th>
+<th style="text-align:center">发送队列</th>
+<th style="text-align:center">底层行为</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center">立即返回</td>
+<td style="text-align:center">保持直到发送完成</td>
+<td style="text-align:center">系统接管套接字并保证将数据发送至对端。（就是正常的close）</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">立即返回</td>
+<td style="text-align:center">立即放弃</td>
+<td style="text-align:center">直接发送RST包，自身立即复位，不用经过2MSL状态。对端收到复位错误号。</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">阻塞直到l_linger时间超时或数据发送完成。</td>
+<td style="text-align:center">在超时时间段内保持尝试发送，若超时则立即放弃。</td>
+<td style="text-align:center">设置超时时间，若超时未完成数据发送，则立即返回按linger = 0的行为关闭</td>
+</tr>
+</tbody>
+</table>
 <hr>
 <h2 id="re">Re:</h2>
 <p><a href="https://zhuanlan.zhihu.com/p/99943313">https://zhuanlan.zhihu.com/p/99943313</a></p>
+<p><a href="https://blog.csdn.net/xiaokaige198747/article/details/75389113">https://blog.csdn.net/xiaokaige198747/article/details/75389113</a></p>
+<p><a href="https://blog.csdn.net/songchuwang1868/article/details/90369445">https://blog.csdn.net/songchuwang1868/article/details/90369445</a></p>
 <p><a href="https://xiaolincoding.com/network/3_tcp/tcp_interview.html#">https://xiaolincoding.com/network/3_tcp/tcp_interview.html#</a>为什么需要-time-wait-状态</p>
+<p><a href="https://www.cnblogs.com/kex1n/p/7401042.html">https://www.cnblogs.com/kex1n/p/7401042.html</a></p>
 
     </div>
     <div class="post-footer">
