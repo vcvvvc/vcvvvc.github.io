@@ -5,6 +5,7 @@
     <link>https://6923403.github.io/tags/linux/</link>
     <description>Recent content in Linux on Vcvc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
     <lastBuildDate>Mon, 29 May 2023 21:13:27 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>TIME_WAIT与SO_LINGER</title>
@@ -274,9 +275,7 @@ Open warehouse =&amp;gt; additional drivers =&amp;gt; choose you drivers .</desc
       <description>c++标准网络库对比 https://6923403.github.io/post/c++标准网络库/ socket struct整理 https://6923403.github.io/post/socket_struct/ socket编程需要的头文件整理 https://6923403.github.io/post/socket_file/ socket function https://6923403.github.io/post/socket/ I/O复用 https://6923403.github.io/post//io多路复用 sem function https://6923403.github.io/post/sem/ server io actor https://6923403.github.io/post/server_actor/ timer function https://6923403.github.io/post/timer_function/ Linux Pthread 线程创建与使用 https://6923403.github.io/post/pthread/
 C++11 thread https://6923403.github.io/post/cppthread/
 Unp note https://6923403.github.io/post/unp_note/
-TCP_IP https://6923403.github.io/post/computer_network/
-SO_REUSEPORT与SO_REUSEADDR https://6923403.github.io/post/computer_network/
-TIME_WAIT与SO_LINGER https://6923403.github.io/post/computer_network/
+TCP_IP | 计算机网络 https://6923403.github.io/post/computer_network/
 exception class 异常类 https://6923403.github.io/post/cpp_exception/</description>
     </item>
     

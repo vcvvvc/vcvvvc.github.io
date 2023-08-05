@@ -5,7 +5,18 @@
     <link>https://6923403.github.io/post/</link>
     <description>Recent content in Posts on Vcvc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 29 May 2023 21:13:27 +0800</lastBuildDate><atom:link href="https://6923403.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <lastBuildDate>Thu, 03 Aug 2023 13:10:09 +0800</lastBuildDate><atom:link href="https://6923403.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Erc721合约，mintNFT</title>
+      <link>https://6923403.github.io/post/erc721sol/</link>
+      <pubDate>Thu, 03 Aug 2023 13:10:09 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/erc721sol/</guid>
+      <description>Pindata, nft-png, sol, python
+Re: </description>
+    </item>
+    
     <item>
       <title>TIME_WAIT与SO_LINGER</title>
       <link>https://6923403.github.io/post/time_wait%E4%B8%8Eso_linger/</link>
@@ -159,6 +170,28 @@ https://zhidao.baidu.com/question/347338299.html</description>
     </item>
     
     <item>
+      <title>2022_10_20_随笔</title>
+      <link>https://6923403.github.io/post/2022_10_20_note/</link>
+      <pubDate>Thu, 20 Oct 2022 14:26:25 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/2022_10_20_note/</guid>
+      <description>10-20， 复盘。
+我麻了，6位数利润已经亏损完了，忙活一年等于白忙活了。
+之前我只经历过两次牛市，第一次经历过这种熊市,
+每一次的反弹对应着更猛烈的下跌，只有主力资金进场扭转市场信心之时熊市才真的到底了。
+牛市末期因为想博一个反弹，吃一个高点，导致不但没有吃到高点，反而盈利大幅缩减，犹豫到现在盈利已经几乎没有。
+熊市复盘1 最近找了很多帖子来看，确实好难。
+https://zhuanlan.zhihu.com/p/573877089
+https://zhuanlan.zhihu.com/p/40111898
+https://zhuanlan.zhihu.com/p/374052107
+https://www.zhihu.com/question/314639684
+http://www.jiulanqiu.com/post/158497.html
+https://www.zhihu.com/question/520674415
+https://www.zhihu.com/question/466979474/answer/2029080436
+https://www.zhihu.com/question/306680061/answer/557998768</description>
+    </item>
+    
+    <item>
       <title>以太坊白皮书_zh_随时更新</title>
       <link>https://6923403.github.io/post/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E7%99%BD%E7%9A%AE%E4%B9%A6/</link>
       <pubDate>Mon, 26 Sep 2022 23:43:27 +0800</pubDate>
@@ -172,6 +205,50 @@ _虽然已经过数年，但由于本文仍然可提供有用的参考并能够�
 工作量证明机制是该领域的一项突破，因为它同时解决了两个问题。 首先，它提供了一种简单且比较有效的共识算法，让网络中的节点能够全体对比特币账本状态的一组规范更新达成一致。 其次，它提供了一种允许自由进入共识过程的机制，解决了决定谁来影响共识的政治问题，同时防止了女巫攻击。 为此，在工作量证明中，将正式的参与壁垒（例如要求在特定清单上注册成为唯一实体）替换成经济壁垒，即共识投票过程中单个节点的权重与该节点的算力成正比。 此后，还提出了另一种称为权益证明的方法，节点权重与其货币持有量而非计算资源成正比；针对这两种方法相对优点的讨论不在本文范围内，但应该注意，这两种方法都可以作为加密货币的支柱。
 比特币是一个状态转换系统 从技术角度讲，诸如比特币等加密货币账本可视作一种状态转换系统，该系统有一个“状态”，由全部现存比特币的所有权状态和一个“状态转换函数”组成，状态转换函数以状态和交易为输入并输出新状态作为结果。 例如，在标准的银行系统中，状态就是一个资产负债表，一笔交易是一个从 A 帐户向 B 帐户转账$X的请求，状态转换函数将从A帐户中减去$X，向 B 帐户增加$X。 如果A帐户的余额在第一步中小于$X，状态转换函数就会返回错误提示。 所以，可以如此定义：
 APPLY(S,TX) -&amp;gt; S&amp;#39; or ERROR 上面提到的银行系统中，状态转换函数如下：</description>
+    </item>
+    
+    <item>
+      <title>2022_09_22_随笔</title>
+      <link>https://6923403.github.io/post/2022_09_22_note/</link>
+      <pubDate>Thu, 22 Sep 2022 21:36:19 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/2022_09_22_note/</guid>
+      <description>9-22， 某数藏平台复盘。
+没这么无语过，平台完全漠视了用户的体验，毫不在意用户情绪，导致了今日的踩踏， 幸好目前局面已经稳定。
+平台背景国资搭边，实际缴纳300w+，前期项目规划清晰，运营能力、社群活跃度max。
+平台7月与机构合作谈崩，机构跑路砸盘，平台社群用户全盘接招，完美接下（社群活跃玩家高共识）。
+真的不明白为什么后面莫名其妙的摆烂了，天天水水公告，新来的客服划划水、聊聊天。老客服，运营仅仅是偶尔出现。
+7月份换策划月底正式交接，8月份横盘，9月份阴跌。
+新策划以及平台解释为等风来，熬过这个寒冬等春天。
+行业确实有周期性，从繁荣到衰退到后来的谷底，再由复苏到繁荣。
+但是他这个怂的太早了。 衰退期没有留住该留下的人，导致大量新用户套现离场，老用户跟风砸盘。
+目前真正的进入寒冬，平台运营并没有做到位，玩家高共识到共识瓦解，大量老用户失望离去.
+客服以及运营没有及时出现稳住这个局面，寒冬期需要多沟通，需要重视用户体验，安抚情绪。 以及平台应该明白客服需要做什么，运营又需要做什么。
+参考国外项目一般明牌自己最近在做的事，以及未来时间里打算做的事。
+寒冬期需要用户与项目方同心协力，而不是项目方对用户体验、情绪完全的漠视。 项目方+用户应该是朋友，投资人的关系，而不是敌人。
+此外背刺玩家的平台活该寒冬, 直接清退重开得了，挣扎啥呢。</description>
+    </item>
+    
+    <item>
+      <title>2022_09_10_随笔</title>
+      <link>https://6923403.github.io/post/2022_09_10_note/</link>
+      <pubDate>Sat, 10 Sep 2022 22:58:03 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/2022_09_10_note/</guid>
+      <description>中秋佳节，复盘。 写在探底回升时，目前平台异动，预估平台或新机构进场。
+平台/机构合作拉升，与机构协议谈崩，机构砸盘出货，横盘调整。
+无新主力进场，持续阴跌。
+市场探底，平台表态，市场异动，护盘或新机构进场。
+截图起始时间：6月30日
+机构撤退开始：7月3日(10.29日-改正撤退发生在7月2日)
+横盘震荡：7月6日-8月3日
+阴跌时间：8月4日-9月8日
+探底反弹：9月10日
+合作谈崩是大户跟我讲的。 因为当时不止一家机构，平台给出的解释为机构恶意做空。
+市场异动主要原因是平台明确的表态，暗示会引入新的资金进场拉升。 以及近期的触底反弹，平台单品拉升翻倍等(10月29日补充 g了。)
+Re:
+K线地址:
+https://nfrshipan.club/#/pages/indexDetail/indexDetail?GoodsId=%E7%94%9F%E7%81%B5%E4%B9%8B%E7%9C%BC%EF%BC%9A%E5%B8%9D%E4%BC%81%E9%B9%85%20the%20cubeyishu&amp;amp;platform=yishu</description>
     </item>
     
     <item>
@@ -222,6 +299,20 @@ Cookie 主要用于以下三个方面：
 持久性: Cookie 的生命周期取决于过期时间（Expires）或有效期（Max-Age）指定的一段时间。
 Cookie 的作用域 Domain 和 Path 标识定义了 Cookie 的作用域：即允许 Cookie 应该发送给哪些 URL。
 Re: https://developer.mozilla.org/zh-CN/docs/web/http/cookies</description>
+    </item>
+    
+    <item>
+      <title>2022_07_19_随笔</title>
+      <link>https://6923403.github.io/post/2022_07_19_note/</link>
+      <pubDate>Tue, 19 Jul 2022 15:36:56 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/2022_07_19_note/</guid>
+      <description>两个半月没更新了，最近好忙。
+1月份的接触，3月份的投入，如今国内数藏市场随着市场明朗，一切好起来了。
+https://6923403.github.io/post/2022_03_08_note/
+最近上海市政府发布的《上海市数字经济发展“十四五”规划》明确表示
+支持龙头企业探索 NFT(非同质化代币) 交易平台建设,研究推动 NFT等资产数字化、数字IP全球化流 通、数字确权保护等相关业态在上海先行先试.
+数字藏品市场的趋势一直在变，从以前的一张图片开始炒作到现在逐渐与实体或者生态的结合，来逐步探索元宇宙这个方向。</description>
     </item>
     
     <item>
@@ -468,6 +559,36 @@ https://cn.investing.com/news/stock-market-news/article-2072927
 云安全 安全服务边缘 (SSE)
 云数据 边缘计算 单点登录 okta, workos
 术语缩写: IaaS (Infrastructure as a Service：基础设施即服务） PaaS (Platform as a Service：平台即服务） SaaS (Software as a Service：软件即服务) BaaS（Backend as a Service：后台即服务） DaaS（Date as a Server：数据即服务） CaaS (Communications as a Service：基础设施即服务） MaaS（M2M（Machine to Machine) As A Service：物联网服务） TaaS （everyThing as a Service：泛在服务) Reference: https://zh.</description>
+    </item>
+    
+    <item>
+      <title>企业估值</title>
+      <link>https://6923403.github.io/post/business-valuation/</link>
+      <pubDate>Wed, 22 Dec 2021 15:23:02 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/business-valuation/</guid>
+      <description>未填的坑3
+基本分析 财务报表 企业护城河 影响因素 企业估值 市盈率 投资策略 价值投资 成长投资 事件驱动投资 技术分析 限时限额加码止盈投资法 基本面分析 https://zh.wikipedia.org/wiki/Category:%E5%9F%BA%E6%9C%AC%E9%9D%A2%E5%88%86%E6%9E%90
+基本面分析是一种证券或股票估价的方法，利用财务分析和经济学上的研究来评估企业价值或预测证券（如股票或债券等）价值的走势。这些被分析的基本资料可以包含一家公司的财务报表和非财务上的信息，如商品需求增长性的预测、企业比较、新制度的影响分析或人口的改变。它通常和所谓的技术分析相对，技术分析在研究证券价值的趋势时，并不使用到市场本身以外的因素来做预测。
+投资者使用基本分析来检验一家公司的财务状况、其内部运作和其产业市场，用以来了解这家公司的稳定性和增长潜力。被检验的项目可能包括有发放股息、公司管理资金方法、公司的负债值和公司收支增长。一个利用基本分析的人会看基本分析的结果来决定要操作多头或空头。
+基本面分析的目标可能有：
+对公司股票进行估值，并预测未来价格趋势。 预测公司未来表现。 评价公司管理体系，为内部商业决策做支持。 计算违约风险。 企业估值 资产估值: 维基百科
+Reference:
+http://abcexchange.io/terms/b/business-valuation.asp
+聊聊“市盈率”那点事
+东财-股民学校
+MBA智库百科
+投资策略</description>
+    </item>
+    
+    <item>
+      <title>市盈率</title>
+      <link>https://6923403.github.io/post/per/</link>
+      <pubDate>Wed, 22 Dec 2021 15:21:45 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/per/</guid>
+      <description>未填的坑2
+市盈率 ＝ ∑(收盘价×发行数量)/∑(每股收益×发行数量) </description>
     </item>
     
     <item>
@@ -1109,9 +1230,7 @@ class Gameplayer { private: enum {NumTurns = 5}; int scores[NumTurns]; ... }; �
       <description>c++标准网络库对比 https://6923403.github.io/post/c++标准网络库/ socket struct整理 https://6923403.github.io/post/socket_struct/ socket编程需要的头文件整理 https://6923403.github.io/post/socket_file/ socket function https://6923403.github.io/post/socket/ I/O复用 https://6923403.github.io/post//io多路复用 sem function https://6923403.github.io/post/sem/ server io actor https://6923403.github.io/post/server_actor/ timer function https://6923403.github.io/post/timer_function/ Linux Pthread 线程创建与使用 https://6923403.github.io/post/pthread/
 C++11 thread https://6923403.github.io/post/cppthread/
 Unp note https://6923403.github.io/post/unp_note/
-TCP_IP https://6923403.github.io/post/computer_network/
-SO_REUSEPORT与SO_REUSEADDR https://6923403.github.io/post/computer_network/
-TIME_WAIT与SO_LINGER https://6923403.github.io/post/computer_network/
+TCP_IP | 计算机网络 https://6923403.github.io/post/computer_network/
 exception class 异常类 https://6923403.github.io/post/cpp_exception/</description>
     </item>
     
