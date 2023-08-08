@@ -6,34 +6,7 @@
     <description>Recent content in Tags on Vcvc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 03 Aug 2023 13:10:09 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Blockchain</title>
-      <link>https://6923403.github.io/tags/blockchain/</link>
-      <pubDate>Thu, 03 Aug 2023 13:10:09 +0800</pubDate>
-      
-      <guid>https://6923403.github.io/tags/blockchain/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Contract</title>
-      <link>https://6923403.github.io/tags/contract/</link>
-      <pubDate>Thu, 03 Aug 2023 13:10:09 +0800</pubDate>
-      
-      <guid>https://6923403.github.io/tags/contract/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>NFT</title>
-      <link>https://6923403.github.io/tags/nft/</link>
-      <pubDate>Thu, 03 Aug 2023 13:10:09 +0800</pubDate>
-      
-      <guid>https://6923403.github.io/tags/nft/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Mon, 29 May 2023 21:13:27 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linux</title>
       <link>https://6923403.github.io/tags/linux/</link>
@@ -130,6 +103,24 @@
       <pubDate>Thu, 20 Oct 2022 14:26:25 +0800</pubDate>
       
       <guid>https://6923403.github.io/tags/note/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Blockchain</title>
+      <link>https://6923403.github.io/tags/blockchain/</link>
+      <pubDate>Mon, 26 Sep 2022 23:43:27 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/tags/blockchain/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>NFT</title>
+      <link>https://6923403.github.io/tags/nft/</link>
+      <pubDate>Thu, 22 Sep 2022 21:36:19 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/tags/nft/</guid>
       <description></description>
     </item>
     
