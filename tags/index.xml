@@ -6,7 +6,43 @@
     <description>Recent content in Tags on Vcvc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 20 Aug 2023 17:01:22 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 22 Aug 2023 18:07:06 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Blockchain</title>
+      <link>https://6923403.github.io/tags/blockchain/</link>
+      <pubDate>Tue, 22 Aug 2023 18:07:06 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/tags/blockchain/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ethereum</title>
+      <link>https://6923403.github.io/tags/ethereum/</link>
+      <pubDate>Tue, 22 Aug 2023 18:07:06 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/tags/ethereum/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Smart Contract</title>
+      <link>https://6923403.github.io/tags/smart-contract/</link>
+      <pubDate>Tue, 22 Aug 2023 18:07:06 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/tags/smart-contract/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Solidity</title>
+      <link>https://6923403.github.io/tags/solidity/</link>
+      <pubDate>Tue, 22 Aug 2023 18:07:06 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/tags/solidity/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>CPP</title>
       <link>https://6923403.github.io/tags/cpp/</link>
@@ -103,15 +139,6 @@
       <pubDate>Thu, 20 Oct 2022 14:26:25 +0800</pubDate>
       
       <guid>https://6923403.github.io/tags/note/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Blockchain</title>
-      <link>https://6923403.github.io/tags/blockchain/</link>
-      <pubDate>Mon, 26 Sep 2022 23:43:27 +0800</pubDate>
-      
-      <guid>https://6923403.github.io/tags/blockchain/</guid>
       <description></description>
     </item>
     
