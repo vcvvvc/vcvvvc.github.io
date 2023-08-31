@@ -6,7 +6,28 @@
     <description>Recent content on Vcvc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 22 Aug 2023 18:07:06 +0800</lastBuildDate><atom:link href="https://6923403.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 31 Aug 2023 16:26:16 +0800</lastBuildDate><atom:link href="https://6923403.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>证券型代币 Security Token Offering</title>
+      <link>https://6923403.github.io/post/sto/</link>
+      <pubDate>Thu, 31 Aug 2023 16:26:16 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/sto/</guid>
+      <description>来源币安：https://academy.binance.com/zh/articles/a-beginners-guide-to-security-tokens
+什么是证券型代币(Security Token Offering-STO) 证券型代币是一种发布在区块链上的代币，代表部分外部企业或资产的股份。可由企业或政府等实体发布，与股票、债券等同类产品作用相同。
+为什么使用证券型代币？ 透明 结算快 运行时间长 交易单位可分割 证券型代币与效用代币的区别有哪些？ 证券型代币和效用代币有诸多相似之处。严格来说，两种代币的发行方式完全相同。都由智能合约管理，可送至区块链地址，在交易平台交易或通过点对点交易。 他们的不同之处主要在于经济和管理支柱。他们可在首次代币发行(ICO)或在首次交易所发行(IEO)发行，让创业公司或初创项目众筹他们生态系统的发展。 用户通过提供资金获得这些数字代币，从而参与项目网络（可立即参与，也可以后参与）。这些代币赋予持有者投票权，或作为特定协议的货币购买产品或服务。
+效用代币本质上没有价值。如果一个项目发展得很成功，投资者不会像传统证券那样获得部分利润。代币的作用和忠诚度积分有些相似。它们可用于购买产品（或出售），但在交易过程中不提供代币发售公司的权益。
+因此，其价格经常会受到投机的影响。许多投资者会购买代币，希望其价值会随着生态系统的发展得以升值。如果项目失败，缺乏对持有者的保护措施。 虽然证券型代币的分发事宜参照证券通证发行(STO)，其发布方式与效用代币却有相似之处。但从投资角度来看，两种类型代币代表着截然不同的金融工具。
+即使证券型代币发布在区块链上，但仍属于证券。因此受到严格监管以保护投资者，并防止诈骗行为的发生。在这方面，证券通证发行(STO)比首次代币发行(ICO)更接近首次公开募股(IPO)。 一般情况下，投资者购买证券型代币时会买入股票、债券或衍生性金融商品。他们的代币起到投资合同的效用并确保对链下资产拥有所有权。
+代币为何证券化? 事实上，区块链产业缺乏在法律层面进行一些急需的澄清。全球的监管者仍在追赶新的金融科技潮流。仍有发行者相信自己能够发行效用代币，以后一定能成为证券交易委员会(SEC)批准的证券。 或许试图判断一笔交易能否成为“投资合同”最著名的标准是豪威测试。简而言之，它旨在确定个人投资普通企业能否期待获得与倡导者（或第三方）同样的收益。
+早在区块链技术出现之前，这项测试源于美国法院。因此，很难将其运用到大量新型代币中。尽管如此，这项测试对于尝试将数字资产分类的监管者而言仍然是一个很受欢迎的工具。 当然，每个司法管辖区会采用不同框架，但许多区域遵从相似的逻辑。
+证券型代币和可编程金融 考虑到当前的市场规模，代币化能彻底改变传统金融领域。这一领域的投资者和机构从成熟的数字方式到金融工具中获益颇多。
+在过去的几年中，中心化数据库生态系统产生了大量摩擦。机构需要想办法优化经营流程，管理与自身系统不兼容的外部数据。缺乏全行业标准增加了企业的成本，大大延迟了结算时间。
+区块链是一个共享数据库，任何用户或企业都能够轻松互动。过去由机构服务器处理的功能，现在外包给其他同行使用的账本。通过代币化证券，我们能够将其嵌入到共同操作的网络中，完成迅速结算并与全球兼容。
+自此，自动操作能够处理原本会很耗时的流程。例如，身份认证(KYC)/反洗钱(AML)合规，在设定好的固定期限内对投资进行锁仓，以及许多由运行在区块链上的代码处理的其他功能。
+如需详细了解这一主题，敬请阅读《区块链技术如何影响银行业》这篇文章。</description>
+    </item>
+    
     <item>
       <title>Proxy_Solidity</title>
       <link>https://6923403.github.io/post/proxy_sol/</link>
@@ -2008,7 +2029,7 @@ cd ffmpeg/ ./configure sudo make -j4 sudo make install 3. Check ffmpeg -version 
       <guid>https://6923403.github.io/about/</guid>
       <description>随: https://6923403.github.io/vcvc/sui.html
 第一篇: https://6923403.github.io/vcvc/index.html
-本博客采用GitHub page + hugo搭建 | 主题: m10c</description>
+本博客采用GitHub page + Hugo搭建 | 主题: m10c</description>
     </item>
     
   </channel>
