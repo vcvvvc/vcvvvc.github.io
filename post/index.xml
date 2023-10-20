@@ -50,41 +50,6 @@ Proxy 是一种智能合约的设计模式，它可以实现合约的可升级�
     </item>
     
     <item>
-      <title>Effective C&#43;&#43; 总结</title>
-      <link>https://6923403.github.io/post/effective_cpp/</link>
-      <pubDate>Sun, 20 Aug 2023 17:01:22 +0800</pubDate>
-      
-      <guid>https://6923403.github.io/post/effective_cpp/</guid>
-      <description>2021年整理， 2023年更新一下
-条款01: 将C++视为一个语言联邦 C++已经是个多重范型编程语言 (multiparadigm programming language）
-同时支持过程形式（procedural）、面向对象形式（object-oriented）、函数形式（functional）、泛型形式（generic）、元编程形式（metaprogramming）的语言。
-条款02：尽量以 const，enum，inline替换#define 也可以说是 宁可以编译器替换预处理器
-#define 不被视为语言的一部分 当编译出错后你可能很难找到这个错误，从而浪费大量时间
-第二、 值得注意的是class专属常量。为了将常量的作用域（scope）限制于class内，你必须让它成为class的一个成员（member）；而为确保此常量至多只有一份实体，你必须让它成为一个static成员：
-class Gameplayer { private: static const int NumTurns = 5; //常量声明式 int scores[NumTurns]; ... }; 第三、 万一你的编译器（错误地）不允许“static整数型class常量”完成“in class初值设定”，可改用所谓的&amp;quot;the enum hack&amp;quot;补偿做法。其理论基础是：“一个属于枚举类型（enumerated type）的数值可权充ints被使用”
-enum hack的行为某方面说比较像#define而不像const
-class Gameplayer { private: enum {NumTurns = 5}; int scores[NumTurns]; ... }; 本文要点
-对于单纯常量,最好以const对象或enums替换#defines.
-对于形似函数的宏(macros) ,最好改用inline函数替换#defines.
-条款03: 尽可能使用const 如果关键字const出现在星号左边,表示被指物是常量;如果出现在星号右边,表示指针自身是常量;如果出现在星号两边,表示被指物和指针两者都是常量。
-作用
-修饰变量，说明该变量不可以被改变； 修饰指针，分为指向常量的指针（pointer to const）和自身是常量的指针（常量指针，const pointer）； 修饰引用，指向常量的引用（reference to const），用于形参类型，即避免了拷贝，又避免了函数对值的修改； 修饰成员函数，说明该成员函数内不能修改成员变量。 char* p1 = greeting; // 指针变量，指向字符数组变量 const char* p2 = greeting; // 指针变量，指向字符数组常量（const 后面是 char，说明指向的字符（char）不可改变） char* const p3 = greeting; // 自身是常量的指针，指向字符数组变量（const 后面是 p3，说明 p3 指针自身不可改变） const char* const p4 = greeting; // 自身是常量的指针，指向字符数组常量 // 函数 void function1(const int Var); // 传递过来的参数在函数内不可变 void function2(const char* Var); // 参数指针所指内容为常量 void function3(char* const Var); // 参数指针为常量 void function4(const int&amp;amp; Var); // 引用参数在函数内为常量 // 函数返回值 const int function5(); // 返回一个常数 const int* function6(); // 返回一个指向常量的指针变量，使用：const int *p = function6(); int* const function7(); // 返回一个指向变量的常指针，使用：int* const p = function7(); const成员函数承诺绝不改变其对象的逻辑状态 (logical state) , non-const成员函数却没有这般承诺。如果在const函数内调用non-const函数,就是冒了这样的风险:你曾经承诺不改动的那个对象被改动了。这就是为什么&amp;quot;const成员函数调用non-const成员函数”是一种错误行为:因为对象有可能因此被改动。</description>
-    </item>
-    
-    <item>
-      <title>Effective C&#43;&#43; 下</title>
-      <link>https://6923403.github.io/post/effective_cpp_2/</link>
-      <pubDate>Sun, 20 Aug 2023 17:00:36 +0800</pubDate>
-      
-      <guid>https://6923403.github.io/post/effective_cpp_2/</guid>
-      <description>条款41:了解隐式接口和编译期多态 template&amp;lt;typename T&amp;gt; void doProcessing (T&amp;amp; w) { if (w.size() &amp;gt; 10 &amp;amp;&amp;amp; w != someNastywidget) { T temp(w); temp.normalize(); temp.swap(w); } } w必须支持哪一种接口,系由template中执行于w身上的操作来决定。 凡涉及w的任何函数调用,例如operator&amp;gt;和operator!,有可能造成template具现化(instantiated) ,使这些调用得以成功。这样的具现行为发生在编译期。“以不同的template参数具现化function templates&amp;quot;会导致调用不同的函数,这 便是所谓的编译期多态(compile-time polymorphism) 。 显式接口和隐式接口的差异
-显式接口由函数的签名式(也就是函数名称、参数类型、返回类型)构成。
-其public接口由一个构造函数、一个析构函数、函数及其参数类型、返回类型、常量性(constnesses)构成。当然也包括编译器产生的copy 构造函数和copy assignment操作符(见条款5) 。 隐式接口就完全不同了。它并不基于函数签名式,而是由有效表达式(valid expressions)组成。
-template&amp;lt;typename T&amp;gt; void doProcessing( T&amp;amp; w) { if (w.size() &amp;gt; 10 &amp;amp;&amp;amp; w != someNastywidget) { ... } } 它必须提供一个名为size的成员函数,该函数返回一个整数值。 它必须支持一个operator!=函数,用来比较两个T对象。这里我们假设 someNastyWidget的类型为T 本文要点
-classes和templates都支持接口(interfaces)和多态(polymorphism) 。 对classes而言接口是显式的(explicit),以函数签名为中心。多态则是通过virtual函数发生于运行期。 对template参数而言,接口是隐式的(implicit) ,奠基于有效表达式。多态则 是通过template具现化和函数重载解析(function overloading resolution)发生于编译期。 条款42: 了解typename的双重意义 template&amp;lt;class T&amp;gt; class widget; //使用&amp;#34;class&amp;#34; template&amp;lt;typename T&amp;gt; class Widget; //使用&amp;#34;typename&amp;#34; C++并不总是把class和typename视为等价。有时候你一定得使用 typename。 template&amp;lt;typename C&amp;gt; void print2nd(const C&amp;amp; container) { if (container.</description>
-    </item>
-    
-    <item>
       <title>TIME_WAIT与SO_LINGER</title>
       <link>https://6923403.github.io/post/time_wait%E4%B8%8Eso_linger/</link>
       <pubDate>Mon, 29 May 2023 21:13:27 +0800</pubDate>
@@ -250,6 +215,41 @@ _虽然已经过数年，但由于本文仍然可提供有用的参考并能够�
 工作量证明机制是该领域的一项突破，因为它同时解决了两个问题。 首先，它提供了一种简单且比较有效的共识算法，让网络中的节点能够全体对比特币账本状态的一组规范更新达成一致。 其次，它提供了一种允许自由进入共识过程的机制，解决了决定谁来影响共识的政治问题，同时防止了女巫攻击。 为此，在工作量证明中，将正式的参与壁垒（例如要求在特定清单上注册成为唯一实体）替换成经济壁垒，即共识投票过程中单个节点的权重与该节点的算力成正比。 此后，还提出了另一种称为权益证明的方法，节点权重与其货币持有量而非计算资源成正比；针对这两种方法相对优点的讨论不在本文范围内，但应该注意，这两种方法都可以作为加密货币的支柱。
 比特币是一个状态转换系统 从技术角度讲，诸如比特币等加密货币账本可视作一种状态转换系统，该系统有一个“状态”，由全部现存比特币的所有权状态和一个“状态转换函数”组成，状态转换函数以状态和交易为输入并输出新状态作为结果。 例如，在标准的银行系统中，状态就是一个资产负债表，一笔交易是一个从 A 帐户向 B 帐户转账$X的请求，状态转换函数将从A帐户中减去$X，向 B 帐户增加$X。 如果A帐户的余额在第一步中小于$X，状态转换函数就会返回错误提示。 所以，可以如此定义：
 APPLY(S,TX) -&amp;gt; S&amp;#39; or ERROR 上面提到的银行系统中，状态转换函数如下：</description>
+    </item>
+    
+    <item>
+      <title>Effective C&#43;&#43; 总结</title>
+      <link>https://6923403.github.io/post/effective_cpp/</link>
+      <pubDate>Sat, 20 Aug 2022 17:01:22 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/effective_cpp/</guid>
+      <description>2021年整理， 2023年更新一下
+条款01: 将C++视为一个语言联邦 C++已经是个多重范型编程语言 (multiparadigm programming language）
+同时支持过程形式（procedural）、面向对象形式（object-oriented）、函数形式（functional）、泛型形式（generic）、元编程形式（metaprogramming）的语言。
+条款02：尽量以 const，enum，inline替换#define 也可以说是 宁可以编译器替换预处理器
+#define 不被视为语言的一部分 当编译出错后你可能很难找到这个错误，从而浪费大量时间
+第二、 值得注意的是class专属常量。为了将常量的作用域（scope）限制于class内，你必须让它成为class的一个成员（member）；而为确保此常量至多只有一份实体，你必须让它成为一个static成员：
+class Gameplayer { private: static const int NumTurns = 5; //常量声明式 int scores[NumTurns]; ... }; 第三、 万一你的编译器（错误地）不允许“static整数型class常量”完成“in class初值设定”，可改用所谓的&amp;quot;the enum hack&amp;quot;补偿做法。其理论基础是：“一个属于枚举类型（enumerated type）的数值可权充ints被使用”
+enum hack的行为某方面说比较像#define而不像const
+class Gameplayer { private: enum {NumTurns = 5}; int scores[NumTurns]; ... }; 本文要点
+对于单纯常量,最好以const对象或enums替换#defines.
+对于形似函数的宏(macros) ,最好改用inline函数替换#defines.
+条款03: 尽可能使用const 如果关键字const出现在星号左边,表示被指物是常量;如果出现在星号右边,表示指针自身是常量;如果出现在星号两边,表示被指物和指针两者都是常量。
+作用
+修饰变量，说明该变量不可以被改变； 修饰指针，分为指向常量的指针（pointer to const）和自身是常量的指针（常量指针，const pointer）； 修饰引用，指向常量的引用（reference to const），用于形参类型，即避免了拷贝，又避免了函数对值的修改； 修饰成员函数，说明该成员函数内不能修改成员变量。 char* p1 = greeting; // 指针变量，指向字符数组变量 const char* p2 = greeting; // 指针变量，指向字符数组常量（const 后面是 char，说明指向的字符（char）不可改变） char* const p3 = greeting; // 自身是常量的指针，指向字符数组变量（const 后面是 p3，说明 p3 指针自身不可改变） const char* const p4 = greeting; // 自身是常量的指针，指向字符数组常量 // 函数 void function1(const int Var); // 传递过来的参数在函数内不可变 void function2(const char* Var); // 参数指针所指内容为常量 void function3(char* const Var); // 参数指针为常量 void function4(const int&amp;amp; Var); // 引用参数在函数内为常量 // 函数返回值 const int function5(); // 返回一个常数 const int* function6(); // 返回一个指向常量的指针变量，使用：const int *p = function6(); int* const function7(); // 返回一个指向变量的常指针，使用：int* const p = function7(); const成员函数承诺绝不改变其对象的逻辑状态 (logical state) , non-const成员函数却没有这般承诺。如果在const函数内调用non-const函数,就是冒了这样的风险:你曾经承诺不改动的那个对象被改动了。这就是为什么&amp;quot;const成员函数调用non-const成员函数”是一种错误行为:因为对象有可能因此被改动。</description>
+    </item>
+    
+    <item>
+      <title>Effective C&#43;&#43; 下</title>
+      <link>https://6923403.github.io/post/effective_cpp_2/</link>
+      <pubDate>Sat, 20 Aug 2022 17:00:36 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/effective_cpp_2/</guid>
+      <description>条款41:了解隐式接口和编译期多态 template&amp;lt;typename T&amp;gt; void doProcessing (T&amp;amp; w) { if (w.size() &amp;gt; 10 &amp;amp;&amp;amp; w != someNastywidget) { T temp(w); temp.normalize(); temp.swap(w); } } w必须支持哪一种接口,系由template中执行于w身上的操作来决定。 凡涉及w的任何函数调用,例如operator&amp;gt;和operator!,有可能造成template具现化(instantiated) ,使这些调用得以成功。这样的具现行为发生在编译期。“以不同的template参数具现化function templates&amp;quot;会导致调用不同的函数,这 便是所谓的编译期多态(compile-time polymorphism) 。 显式接口和隐式接口的差异
+显式接口由函数的签名式(也就是函数名称、参数类型、返回类型)构成。
+其public接口由一个构造函数、一个析构函数、函数及其参数类型、返回类型、常量性(constnesses)构成。当然也包括编译器产生的copy 构造函数和copy assignment操作符(见条款5) 。 隐式接口就完全不同了。它并不基于函数签名式,而是由有效表达式(valid expressions)组成。
+template&amp;lt;typename T&amp;gt; void doProcessing( T&amp;amp; w) { if (w.size() &amp;gt; 10 &amp;amp;&amp;amp; w != someNastywidget) { ... } } 它必须提供一个名为size的成员函数,该函数返回一个整数值。 它必须支持一个operator!=函数,用来比较两个T对象。这里我们假设 someNastyWidget的类型为T 本文要点
+classes和templates都支持接口(interfaces)和多态(polymorphism) 。 对classes而言接口是显式的(explicit),以函数签名为中心。多态则是通过virtual函数发生于运行期。 对template参数而言,接口是隐式的(implicit) ,奠基于有效表达式。多态则 是通过template具现化和函数重载解析(function overloading resolution)发生于编译期。 条款42: 了解typename的双重意义 template&amp;lt;class T&amp;gt; class widget; //使用&amp;#34;class&amp;#34; template&amp;lt;typename T&amp;gt; class Widget; //使用&amp;#34;typename&amp;#34; C++并不总是把class和typename视为等价。有时候你一定得使用 typename。 template&amp;lt;typename C&amp;gt; void print2nd(const C&amp;amp; container) { if (container.</description>
     </item>
     
     <item>
