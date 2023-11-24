@@ -15,7 +15,7 @@
       <guid>https://6923403.github.io/post/defi_doubler/</guid>
       <description>Doubler: A crypto asset appreciation tool based on the martingale strategy
 📚What is Doubler?
-Doubler is a Defi tool, which is a &amp;ldquo;Buff&amp;rdquo; public product for crypto assets. The product is inspired by the concept of &amp;ldquo;martingale&amp;rdquo;, a traditional martingale strategy that requires a large amount of money to support the continuous growth of the betting amount. Doubler solves this problem by crowdfunding and incentivizing a portion of the profits. Doubler is a very creative and forward-looking DEFI tool that forms a mutually beneficial relationship between users through crowdfunding and incentives, allowing users to share risks and rewards, and increase user confidence in participating in crypto asset investment.</description>
+Doubler is a very creative and forward-looking DEFI tool that forms a mutually beneficial relationship between users through crowdfunding and incentives, allowing users to share risks and rewards, and increase user confidence in participating in crypto asset investment. If you hold BTC but don&amp;rsquo;t want to sell it, but worry about the losses caused by the decline, just join Doubler.</description>
     </item>
     
     <item>
@@ -437,20 +437,6 @@ https://zhuanlan.zhihu.com/p/337946103</description>
       
       <guid>https://6923403.github.io/post/get_domain_ip_cpp/</guid>
       <description>#https://blog.csdn.net/dosthing/article/details/80383817 std::string ip = &amp;#34;www.baidu.com&amp;#34;; struct hostent stHostent; struct hostent *pstHostent = nullptr; char **pptr = nullptr; char buf[2048] = &amp;#34;\0&amp;#34;; sprintf(buf,&amp;#34;%s&amp;#34;, &amp;#34;ip&amp;#34;); int iError; if((pstHostent = gethostbyname(buf)) == NULL || pstHostent-&amp;gt;h_addr_list == NULL || pstHostent-&amp;gt;h_addr_list[0] == NULL) { std::cout &amp;lt;&amp;lt; &amp;#34;can&amp;#39;t parse the domain&amp;#34; &amp;lt;&amp;lt; std::endl; exit(0); } else { std::cout &amp;lt;&amp;lt; &amp;#34;official hostname: &amp;#34; &amp;lt;&amp;lt; pstHostent-&amp;gt;h_name &amp;lt;&amp;lt; std::endl; for(pptr = pstHostent-&amp;gt;h_aliases; *pptr != NULL; pptr++) std::cout &amp;lt;&amp;lt; &amp;#34;alias: &amp;#34; &amp;lt;&amp;lt; *pptr &amp;lt;&amp;lt; std::endl; switch(pstHostent-&amp;gt;h_addrtype) { case AF_INET: case AF_INET6: pptr = pstHostent-&amp;gt;h_addr_list; for(; *pptr!</description>
-    </item>
-    
-    <item>
-      <title>Us_stock_best_company</title>
-      <link>https://6923403.github.io/post/us_stock_best_company/</link>
-      <pubDate>Thu, 13 Jan 2022 01:20:52 +0800</pubDate>
-      
-      <guid>https://6923403.github.io/post/us_stock_best_company/</guid>
-      <description>okta
-Equinix https://www.equinix.com/solutions/cloud-services
-Arista Networks
-Epam Systems
-ServiceNow
-Paycom</description>
     </item>
     
     <item>
