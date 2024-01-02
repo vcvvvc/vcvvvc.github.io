@@ -87,7 +87,7 @@
 </svg>
           
           
-          4 mins read
+          7 mins read
           
         </div>
         <div>
@@ -107,23 +107,31 @@
 <p>Nostr平台用的Taproot-assets 协议主要用于发行和转移可替代的代币，如稳定币，<strong>而 RGB 协议是一种通用的智能合约系统，可以执行更复杂的多类别的智能合约，如 NFT、DeFi、DAO 等。</strong></p>
 <p>所以不打算再研究Taproot-assets了，直接进入RGB, 同时我持有$PPRGB。</p>
 <hr>
-<ol>
-<li>
-<p>首先去官网安装好rust，已经安装的升级到最新版本。</p>
-</li>
-<li>
-<p>openssl<br>
-<code>sudo apt-get install pkg-config libssl-dev</code></p>
-</li>
-<li>
-<p><a href="https://github.com/RGB-WG/rgb/tree/v0.11.0-beta.2">https://github.com/RGB-WG/rgb/tree/v0.11.0-beta.2</a></p>
-</li>
-</ol>
+<ul>
+<li>首先去官网安装好rust，已经安装的升级到最新版本。</li>
+</ul>
+<h3 id="httpsgithubcomrgb-wg"><a href="https://github.com/RGB-WG/">https://github.com/RGB-WG/</a></h3>
+<h4 id="tag-v010-stable">tag v0.10 stable</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo apt update
 </span></span><span style="display:flex;"><span>sudo apt install -y build-essential cmake
 </span></span><span style="display:flex;"><span>cd RGB
-</span></span><span style="display:flex;"><span>cargo build --all-features
+</span></span><span style="display:flex;"><span>cargo install --path . --all-features <span style="color:#75715e">#v0.10 stable</span>
 </span></span></code></pre></div><hr>
+<p>下载 <a href="https://sparrowwallet.com/">Sparrow Bitcoin Wallet</a></p>
+<p>菜单栏有个重启启用测试网，然后启用测试网之后创建两个钱包，获取tpub</p>
+<ul>
+<li>only key-spent only taproot wallets are supported(script type taproot)</li>
+</ul>
+<p>之后去https://bitcoinfaucet.uo1.net/ 领水，用tb1q地址</p>
+<hr>
+<hr>
+<p>openssl版本问题</p>
+<p><code>sudo apt-get install pkg-config libssl-dev</code></p>
+<hr>
+<h2 id="re">Re:</h2>
+<p><a href="https://blackpaper.rgb.tech/">https://blackpaper.rgb.tech/</a></p>
+<p><a href="https://rgb.tech/install/#cmd">https://rgb.tech/install/#cmd</a></p>
+<p><a href="https://github.com/oneforalone/rgb20-usdt">https://github.com/oneforalone/rgb20-usdt</a></p>
 
     </div>
     <div class="post-footer">

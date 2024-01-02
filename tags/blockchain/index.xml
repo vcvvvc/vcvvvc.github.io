@@ -17,11 +17,14 @@
 https://github.com/RGB-WG/rgb
 Nostr平台用的Taproot-assets 协议主要用于发行和转移可替代的代币，如稳定币，而 RGB 协议是一种通用的智能合约系统，可以执行更复杂的多类别的智能合约，如 NFT、DeFi、DAO 等。
 所以不打算再研究Taproot-assets了，直接进入RGB, 同时我持有$PPRGB。
-首先去官网安装好rust，已经安装的升级到最新版本。
-openssl
+首先去官网安装好rust，已经安装的升级到最新版本。 https://github.com/RGB-WG/ tag v0.10 stable sudo apt update sudo apt install -y build-essential cmake cd RGB cargo install --path . --all-features #v0.10 stable 下载 Sparrow Bitcoin Wallet
+菜单栏有个重启启用测试网，然后启用测试网之后创建两个钱包，获取tpub
+only key-spent only taproot wallets are supported(script type taproot) 之后去https://bitcoinfaucet.uo1.net/ 领水，用tb1q地址
+openssl版本问题
 sudo apt-get install pkg-config libssl-dev
-https://github.com/RGB-WG/rgb/tree/v0.11.0-beta.2
-sudo apt update sudo apt install -y build-essential cmake cd RGB cargo build --all-features </description>
+Re: https://blackpaper.rgb.tech/
+https://rgb.tech/install/#cmd
+https://github.com/oneforalone/rgb20-usdt</description>
     </item>
     
     <item>
