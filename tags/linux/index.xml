@@ -72,12 +72,7 @@ setTimeout(function cbFn(){ console.log(&amp;#39;learnInPro&amp;#39;); }, 1000);
 异步不会造成阻塞
 异步可以启用额外的线程去执行任务。
 异步并不会缩短任务的时间
-Re: http://c.biancheng.net/view/9486.html
-https://cloud.tencent.com/developer/article/1795692
-https://blog.csdn.net/qq_43533974/article/details/110058714
-https://www.zhihu.com/question/33515481
-https://blog.csdn.net/li123128/article/details/80650256
-https://www.cnblogs.com/IT-CPC/p/10898871.html</description>
+python异步 import asyncio # 定义异步函数 async def print_after(delay, message): # 异步等待 await asyncio.sleep(delay) # 打印消息 print(message) # 获取事件循环 loop = asyncio.get_event_loop() # 创建任务列表 tasks = [ loop.create_task(print_after(1, &amp;#39;Hello&amp;#39;)), loop.create_task(print_after(2, &amp;#39;World&amp;#39;)), ] # 在事件循环中执行任务 loop.</description>
     </item>
     
     <item>

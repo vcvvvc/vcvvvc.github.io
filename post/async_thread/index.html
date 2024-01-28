@@ -87,7 +87,7 @@
 </svg>
           
           
-          5 mins read
+          22 mins read
           
         </div>
         <div>
@@ -139,6 +139,83 @@ console.log(&#39;sync things&#39;);
 </li>
 </ul>
 <hr>
+<h2 id="python异步">python异步</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> asyncio
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 定义异步函数</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">print_after</span>(delay, message):
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 异步等待</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">await</span> asyncio<span style="color:#f92672">.</span>sleep(delay)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 打印消息</span>
+</span></span><span style="display:flex;"><span>    print(message)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 获取事件循环</span>
+</span></span><span style="display:flex;"><span>loop <span style="color:#f92672">=</span> asyncio<span style="color:#f92672">.</span>get_event_loop()
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 创建任务列表</span>
+</span></span><span style="display:flex;"><span>tasks <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>    loop<span style="color:#f92672">.</span>create_task(print_after(<span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;Hello&#39;</span>)),
+</span></span><span style="display:flex;"><span>    loop<span style="color:#f92672">.</span>create_task(print_after(<span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;World&#39;</span>)),
+</span></span><span style="display:flex;"><span>]
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 在事件循环中执行任务</span>
+</span></span><span style="display:flex;"><span>loop<span style="color:#f92672">.</span>run_until_complete(asyncio<span style="color:#f92672">.</span>wait(tasks))
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 关闭事件循环</span>
+</span></span><span style="display:flex;"><span>loop<span style="color:#f92672">.</span>close()
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># 多线程实现</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> threading
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> time
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 定义一个函数，这个函数将在一个新的线程中运行</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">print_numbers</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">10</span>):
+</span></span><span style="display:flex;"><span>        time<span style="color:#f92672">.</span>sleep(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>        print(i)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 定义另一个函数，这个函数也将在一个新的线程中运行</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">print_letters</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> letter <span style="color:#f92672">in</span> <span style="color:#e6db74">&#39;abcdefghij&#39;</span>:
+</span></span><span style="display:flex;"><span>        time<span style="color:#f92672">.</span>sleep(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>        print(letter)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 创建两个线程</span>
+</span></span><span style="display:flex;"><span>t1 <span style="color:#f92672">=</span> threading<span style="color:#f92672">.</span>Thread(target<span style="color:#f92672">=</span>print_numbers)
+</span></span><span style="display:flex;"><span>t2 <span style="color:#f92672">=</span> threading<span style="color:#f92672">.</span>Thread(target<span style="color:#f92672">=</span>print_letters)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 启动线程</span>
+</span></span><span style="display:flex;"><span>t1<span style="color:#f92672">.</span>start()
+</span></span><span style="display:flex;"><span>t2<span style="color:#f92672">.</span>start()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 等待线程完成</span>
+</span></span><span style="display:flex;"><span>t1<span style="color:#f92672">.</span>join()
+</span></span><span style="display:flex;"><span>t2<span style="color:#f92672">.</span>join()
+</span></span></code></pre></div><pre tabindex="0"><code class="language-异步并行" data-lang="异步并行">from concurrent.futures import ThreadPoolExecutor
+import time
+
+def task(n):
+    time.sleep(n)
+    return n
+
+# 创建一个线程池
+with ThreadPoolExecutor(max_workers=4) as executor:
+    # 提交任务到线程池
+    futures = [executor.submit(task, n) for n in range(1, 5)]
+    # 获取任务结果
+    for future in futures:
+        print(future.result())
+
+## 2
+from multiprocessing import Pool
+
+def task(n):
+    return n * n
+
+# 创建一个进程池
+with Pool(processes=4) as pool:
+    # 映射任务到进程池
+    results = pool.map(task, range(1, 5))
+    # 输出结果
+    for result in results:
+        print(result)
+</code></pre><hr>
 <h2 id="re">Re:</h2>
 <p><a href="http://c.biancheng.net/view/9486.html">http://c.biancheng.net/view/9486.html</a></p>
 <p><a href="https://cloud.tencent.com/developer/article/1795692">https://cloud.tencent.com/developer/article/1795692</a></p>
