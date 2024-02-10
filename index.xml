@@ -6,7 +6,27 @@
     <description>Recent content on Vcvc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 25 Jan 2024 19:26:12 +0800</lastBuildDate><atom:link href="https://6923403.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 10 Feb 2024 15:08:37 +0800</lastBuildDate><atom:link href="https://6923403.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>理解RESTful</title>
+      <link>https://6923403.github.io/post/restful/</link>
+      <pubDate>Sat, 10 Feb 2024 15:08:37 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/restful/</guid>
+      <description>REST &amp;ndash; REpresentational State Transfer 全称是Resource Representational State Transfer：
+通俗来讲就是：资源在网络中以某种表现形式进行状态转移。
+分解开来：
+Resource：资源，即数据（前面说过网络的核心）。比如 newsfeed，friends等；
+Representational：某种表现形式，比如用JSON，XML，JPEG等；
+State Transfer：状态变化。通过HTTP动词实现。
+用beego写的web server理解RESTful
+Reference 怎样用通俗的语言解释REST，以及RESTful？
+https://www.zhihu.com/question/28557115
+https://www.zhihu.com/question/28557115/answer/48094438
+https://www.runoob.com/w3cnote/restful-architecture.html
+https://www.ruanyifeng.com/blog/2011/09/restful.html</description>
+    </item>
+    
     <item>
       <title>加密领域做市商公司粗略统计</title>
       <link>https://6923403.github.io/post/crypto_market_maker/</link>
