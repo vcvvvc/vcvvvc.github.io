@@ -6,7 +6,21 @@
     <description>Recent content in Blockchain on Vcvc Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 25 Jan 2024 19:26:12 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/blockchain/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 10 Feb 2024 23:51:46 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/blockchain/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ethereum Extended Reading</title>
+      <link>https://6923403.github.io/post/ethereum-extended-reading/</link>
+      <pubDate>Sat, 10 Feb 2024 23:51:46 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/ethereum-extended-reading/</guid>
+      <description>以太坊延伸阅读
+Atoms, Institutions, Blockchains - 原子、机构、区块链(opens in a new tab) - 为什么区块链很重要？ https://stark.mirror.xyz/n2UpRqwdf7yjuiPKVICPpGoUNeDhlWxGqjulrlpyYi0
+内核(opens in a new tab) 以太坊的梦想 - Ethereal Dreamers https://www.kernel.community/en/learn/module-1/dreamers/
+The ethereum project: learning to dream with open minds 以太坊项目：学会以开放的心态去梦想
+https://blog.ethereum.org/2014/07/14/the-ethereum-project
+精通以太坊 </description>
+    </item>
+    
     <item>
       <title>加密领域做市商公司粗略统计</title>
       <link>https://6923403.github.io/post/crypto_market_maker/</link>
