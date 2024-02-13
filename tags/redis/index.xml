@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Redis on Vcvc Blog</title>
+    <title>Redis on Vc</title>
     <link>https://6923403.github.io/tags/redis/</link>
-    <description>Recent content in Redis on Vcvc Blog</description>
+    <description>Recent content in Redis on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Mon, 12 Jul 2021 13:28:17 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/redis/index.xml" rel="self" type="application/rss+xml" />
