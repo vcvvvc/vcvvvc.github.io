@@ -229,5 +229,15 @@ https://cn.investing.com/news/stock-market-news/article-2072927
 术语缩写: IaaS (Infrastructure as a Service：基础设施即服务） PaaS (Platform as a Service：平台即服务） SaaS (Software as a Service：软件即服务) BaaS（Backend as a Service：后台即服务） DaaS（Date as a Server：数据即服务） CaaS (Communications as a Service：基础设施即服务） MaaS（M2M（Machine to Machine) As A Service：物联网服务） TaaS （everyThing as a Service：泛在服务) Reference: https://zh.</description>
     </item>
     
+    <item>
+      <title>比特币白皮书_zh</title>
+      <link>https://6923403.github.io/post/%E6%AF%94%E7%89%B9%E5%B8%81%E7%99%BD%E7%9A%AE%E4%B9%A6_zh/</link>
+      <pubDate>Fri, 31 Oct 2008 00:00:00 +0800</pubDate>
+      
+      <guid>https://6923403.github.io/post/%E6%AF%94%E7%89%B9%E5%B8%81%E7%99%BD%E7%9A%AE%E4%B9%A6_zh/</guid>
+      <description>比特币：一种点对点的电子现金系统 ​	作者：中本聪
+Abstract. A purely peer-to-peer version of electronic cash would allow online payments to be sent directly from one party to another without going through a financial institution. Digital signatures provide part of the solution, but the main benefits are lost if a trusted third party is still required to prevent double-spending. We propose a solution to the double-spending problem using a peer-to-peer network. The network timestamps transactions by hashing them into an ongoing chain of hash-based proof-of-work, forming a record that cannot be changed without redoing the proof-of-work.</description>
+    </item>
+    
   </channel>
 </rss>
