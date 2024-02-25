@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Epoll on Vc</title>
-    <link>https://6923403.github.io/tags/epoll/</link>
+    <link>https://vcvvvc.github.io/tags/epoll/</link>
     <description>Recent content in Epoll on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 29 May 2023 20:54:49 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/epoll/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 29 May 2023 20:54:49 +0800</lastBuildDate><atom:link href="https://vcvvvc.github.io/tags/epoll/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>SO_REUSEPORT与SO_REUSEADDR</title>
-      <link>https://6923403.github.io/post/so_reuseport%E4%B8%8Eso_reuseaddr/</link>
+      <link>https://vcvvvc.github.io/post/so_reuseport%E4%B8%8Eso_reuseaddr/</link>
       <pubDate>Mon, 29 May 2023 20:54:49 +0800</pubDate>
       
-      <guid>https://6923403.github.io/post/so_reuseport%E4%B8%8Eso_reuseaddr/</guid>
+      <guid>https://vcvvvc.github.io/post/so_reuseport%E4%B8%8Eso_reuseaddr/</guid>
       <description>SO_REUSEPORT端口重用 int opt_val = 1; setsockopt(sockfd, SOL_SOCKET, SO_REUSEPORT, &amp;amp;opt_val, sizeof(opt_val)) SO_REUSEPORT是允许多个socket绑定到同一个ip+port上
 每一个线程拥有自己的服务器套接字, 在服务器套接字上没有了锁的竞争
 内核层面实现负载均衡
@@ -28,11 +28,11 @@ Epoll惊群 #include &amp;lt;sys/types.h&amp;gt; #include &amp;lt;sys/socket.h&a
     
     <item>
       <title>I/O多路复用</title>
-      <link>https://6923403.github.io/post/io%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</link>
+      <link>https://vcvvvc.github.io/post/io%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</link>
       <pubDate>Sun, 10 Oct 2021 10:00:00 +0800</pubDate>
       
-      <guid>https://6923403.github.io/post/io%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</guid>
-      <description>I/O模型 https://6923403.github.io/post/server_actor/
+      <guid>https://vcvvvc.github.io/post/io%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</guid>
+      <description>I/O模型 https://vcvvvc.github.io/post/server_actor/
 I/O多路复用 Select、Poll、Epoll, 多路是指？多个业务方（句柄）并发下来的 IO 。 复用是指？复用这一个后台处理程序。
 Select select()函数主要解决的是accept()函数阻塞问题，而没有解决recv()和send()函数阻塞问题
 #include &amp;lt;sys/select.h&amp;gt; int select(int nfds, fd_set *readset, fd_set *writeset, fd_set *exceptset,struct timeval *timeout); nfds参数指定被监听的文件描述符的总数。
@@ -42,10 +42,10 @@ readfds, writefds和exceptfds参数分别指向可读、可写和异常等事件
     
     <item>
       <title>epoll use</title>
-      <link>https://6923403.github.io/post/epoll_use/</link>
+      <link>https://vcvvvc.github.io/post/epoll_use/</link>
       <pubDate>Thu, 27 Aug 2020 12:09:01 +0800</pubDate>
       
-      <guid>https://6923403.github.io/post/epoll_use/</guid>
+      <guid>https://vcvvvc.github.io/post/epoll_use/</guid>
       <description>简介 #include &amp;lt;sys/epoll.h&amp;gt;
 epoll与select
 Epoll 没有最大并发连接的限制，上限是最大可以打开文件的数目 效率提升，epoll对于句柄事件的选择不是遍历的，是事件响应的，就是句柄上事件来就马上选择出来，不需要遍历整个句柄链表，因此效率非常高，内核将句柄用红黑树保存的，IO效率不随FD数目增加而线性下降。 内存拷贝， select让内核把 FD 消息通知给用户空间的时候使用了内存拷贝的方式，开销较大，但是Epoll 在这点上使用了共享内存的方式，这个内存拷贝也省略了。 相比于select，epoll最大的好处在于它不会随着监听fd数目的增长而降低效率。因为在内核中的select实现中，它是采用轮询来处理的，轮询的fd数目越多，自然耗时越多。 并且，在linux/posix_types.h头文件有这样的声明： #define __FD_SETSIZE 1024 表示select最多同时监听1024个fd，当然，可以通过修改头文件再重编译内核来扩大这个数目，但这似乎并不治本。 epoll是Linux内核为处理大批量文件描述符而作了改进的poll，是Linux下多路复用IO接口select/poll的增强版本，它能显著提高程序在大量并发连接中只有少量活跃的情况下的系统CPU利用率。原因就是获取事件的时候，它无须遍历整个被侦听的描述符集，只要遍历那些被内核IO事件异步唤醒而加入Ready队列的描述符集合就行了。

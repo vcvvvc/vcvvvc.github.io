@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Opencv on Vc</title>
-    <link>https://6923403.github.io/tags/opencv/</link>
+    <link>https://vcvvvc.github.io/tags/opencv/</link>
     <description>Recent content in Opencv on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 14 Jan 2021 22:02:25 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/opencv/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 14 Jan 2021 22:02:25 +0800</lastBuildDate><atom:link href="https://vcvvvc.github.io/tags/opencv/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ubuntu20 install opencv</title>
-      <link>https://6923403.github.io/post/ubuntu20_install_opencv/</link>
+      <link>https://vcvvvc.github.io/post/ubuntu20_install_opencv/</link>
       <pubDate>Thu, 14 Jan 2021 22:02:25 +0800</pubDate>
       
-      <guid>https://6923403.github.io/post/ubuntu20_install_opencv/</guid>
+      <guid>https://vcvvvc.github.io/post/ubuntu20_install_opencv/</guid>
       <description>Ubuntu20.04.1LTS 2020-01-14-Successful
 lib Install apt-get install -y build-essential pkg-config cmake apt-get install -y libgtk2.0-dev libavcodec-dev libavformat-dev libjpeg-dev libswscale-dev libtiff5-dev Download github: git clone https://github.com/opencv/opencv.git gitee: git clone https://gitee.com/mirrors/opencv.git Install cd opencv mkdir build cd build cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D WITH_GTK=ON -D OPENCV_GENERATE_PKGCONFIG=YES .. make -j4 make install Set echo &amp;#34;include /usr/loacal/lib&amp;#34; &amp;gt;&amp;gt; /etc/ld.so.conf ldconfig echo &amp;#34;PKG_CONFIG_PATH=\$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig&amp;#34; &amp;gt;&amp;gt; /etc/bash.bashrc echo &amp;#34;export PKG_CONFIG_PATH&amp;#34; &amp;gt;&amp;gt; /etc/bash.bashrc Show version pkg-config --modversion opencv4 pkg-config --cflags opencv4 pkg-config --libs opencv4 </description>
     </item>

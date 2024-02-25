@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Vim on Vc</title>
-    <link>https://6923403.github.io/tags/vim/</link>
+    <link>https://vcvvvc.github.io/tags/vim/</link>
     <description>Recent content in Vim on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 13 Oct 2020 18:12:48 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/vim/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 13 Oct 2020 18:12:48 +0800</lastBuildDate><atom:link href="https://vcvvvc.github.io/tags/vim/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Vim_config</title>
-      <link>https://6923403.github.io/post/vim_config/</link>
+      <link>https://vcvvvc.github.io/post/vim_config/</link>
       <pubDate>Tue, 13 Oct 2020 18:12:48 +0800</pubDate>
       
-      <guid>https://6923403.github.io/post/vim_config/</guid>
+      <guid>https://vcvvvc.github.io/post/vim_config/</guid>
       <description>编译安装 #https://www.cnblogs.com/JoiT/p/build_from_source_for_linux_vim.html apt install libncurses5-dev libgtk2.0-dev libatk1.0-dev \ libcairo2-dev libx11-dev libxpm-dev libxt-dev apt-get remove --purge vim-tiny vim vim-runtime gvim vim-common vim-gui-common vim-nox ./configure --with-features=huge \ --enable-multibyte \ --enable-gui=gtk3 \ --enable-cscope \ --prefix=/usr/local make make install 主题配置 首先要确认你的终端支持真彩，一般来说，主流的比如iTerm2, Putty, Powershell的最新版本都已经支持了。我们可以运行以下命令检测一下
 (echo -e &#39;\e[48:2:1:2:3m\eP$qm\e\\&#39; ; xxd)
 &amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34; &amp;#34;&amp;#34;&amp;#34;=&amp;gt;全局配置&amp;lt;=&amp;#34;&amp;#34;&amp;#34; &amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34; &amp;#34;关闭vi兼容模式&amp;#34; set nocompatible &amp;#34;设置历史记录步数&amp;#34; set history=1000 &amp;#34;开启相关插件&amp;#34; &amp;#34;侦测文件类型&amp;#34; filetype on &amp;#34;载入文件类型插件&amp;#34; filetype plugin on &amp;#34;为特定文件类型载入相关缩进文件&amp;#34; filetype indent on &amp;#34;当文件在外部被修改时，自动更新该文件&amp;#34; set autoread &amp;#34;激活鼠标的使用&amp;#34; set mouse=a set selection=exclusive set selectmode=mouse,key &amp;#34;保存全局变量&amp;#34; set viminfo+=!</description>

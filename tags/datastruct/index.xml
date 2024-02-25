@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>DataStruct on Vc</title>
-    <link>https://6923403.github.io/tags/datastruct/</link>
+    <link>https://vcvvvc.github.io/tags/datastruct/</link>
     <description>Recent content in DataStruct on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 18 Aug 2020 14:40:25 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/datastruct/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 18 Aug 2020 14:40:25 +0800</lastBuildDate><atom:link href="https://vcvvvc.github.io/tags/datastruct/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Binary Tree</title>
-      <link>https://6923403.github.io/post/binary_tree/</link>
+      <link>https://vcvvvc.github.io/post/binary_tree/</link>
       <pubDate>Tue, 18 Aug 2020 14:40:25 +0800</pubDate>
       
-      <guid>https://6923403.github.io/post/binary_tree/</guid>
+      <guid>https://vcvvvc.github.io/post/binary_tree/</guid>
       <description>性质1:在二叉树的第i层上至多有2 i-1 个结点(i≥1)。
 性质2:深度为k的二叉树至多有2 k -1个结点(k≥1)。
 性质3:对任何一棵二叉树T,如果其终端结点数为n 0 ,度为2的结点数 为n 2 ,则n 0 =n 2 +1。

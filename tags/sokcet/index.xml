@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Sokcet on Vc</title>
-    <link>https://6923403.github.io/tags/sokcet/</link>
+    <link>https://vcvvvc.github.io/tags/sokcet/</link>
     <description>Recent content in Sokcet on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 13 Sep 2020 17:03:43 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/sokcet/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 13 Sep 2020 17:03:43 +0800</lastBuildDate><atom:link href="https://vcvvvc.github.io/tags/sokcet/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Socket struct</title>
-      <link>https://6923403.github.io/post/socket_struct/</link>
+      <link>https://vcvvvc.github.io/post/socket_struct/</link>
       <pubDate>Sun, 13 Sep 2020 17:03:43 +0800</pubDate>
       
-      <guid>https://6923403.github.io/post/socket_struct/</guid>
+      <guid>https://vcvvvc.github.io/post/socket_struct/</guid>
       <description>struct sockaddr { unsigned short sa_family; /* address family, AF_xxx */ char sa_data[14]; /* 14 bytes of protocol address */ }; 此数据结构用做bind、connect、recvfrom、sendto等函数的参数，指明地址信息。
 但一般编程中并不直接针对此数据结构操作，而是使用另一个与sockaddr等价的数据结构sockaddr_in（在netinet/in.h中定义）：
 struct sockaddr_in { short int sin_family; /* Address family */ unsigned short int sin_port; /* Port number */ struct in_addr sin_addr; /* Internet address */ unsigned char sin_zero[8]; /* Same size as struct sockaddr */ }; 在编程中大多数是使用sockaddr_in这个结构来设置/获取地址信息

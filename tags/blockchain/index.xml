@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blockchain on Vc</title>
-    <link>https://6923403.github.io/tags/blockchain/</link>
+    <link>https://vcvvvc.github.io/tags/blockchain/</link>
     <description>Recent content in Blockchain on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 10 Feb 2024 23:51:46 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/blockchain/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 10 Feb 2024 23:51:46 +0800</lastBuildDate><atom:link href="https://vcvvvc.github.io/tags/blockchain/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ethereum Extended Reading</title>
-      <link>https://6923403.github.io/post/ethereum-extended-reading/</link>
+      <link>https://vcvvvc.github.io/post/ethereum-extended-reading/</link>
       <pubDate>Sat, 10 Feb 2024 23:51:46 +0800</pubDate>
       
-      <guid>https://6923403.github.io/post/ethereum-extended-reading/</guid>
+      <guid>https://vcvvvc.github.io/post/ethereum-extended-reading/</guid>
       <description>以太坊延伸阅读
 Atoms, Institutions, Blockchains - 原子、机构、区块链(opens in a new tab) - 为什么区块链很重要？ https://stark.mirror.xyz/n2UpRqwdf7yjuiPKVICPpGoUNeDhlWxGqjulrlpyYi0
 内核(opens in a new tab) 以太坊的梦想 - Ethereal Dreamers https://www.kernel.community/en/learn/module-1/dreamers/
@@ -23,10 +23,10 @@ https://blog.ethereum.org/2014/07/14/the-ethereum-project
     
     <item>
       <title>加密领域做市商公司粗略统计</title>
-      <link>https://6923403.github.io/post/crypto_market_maker/</link>
+      <link>https://vcvvvc.github.io/post/crypto_market_maker/</link>
       <pubDate>Thu, 25 Jan 2024 19:26:12 +0800</pubDate>
       
-      <guid>https://6923403.github.io/post/crypto_market_maker/</guid>
+      <guid>https://vcvvvc.github.io/post/crypto_market_maker/</guid>
       <description>BING AI整理，可能有出入
 Virtu Financial：一家总部位于美国的金融科技公司，为全球多个资产类别提供高频交易和市场做市服务，拥有先进的技术平台和算法，每天处理超过200亿美元的交易量2。
 Jane Street：一家总部位于美国的量化交易公司，为全球的股票、期货、期权、债券、外汇、ETF等市场提供流动性，使用自主开发的软件和系统进行高频交易，每天的交易额超过1000亿美元3。
@@ -52,10 +52,10 @@ https://foresightnews.pro/article/detail/29574</description>
     
     <item>
       <title>Build_RGB_V0.11.0-beta</title>
-      <link>https://6923403.github.io/post/build_rgbv0_11_beta/</link>
+      <link>https://vcvvvc.github.io/post/build_rgbv0_11_beta/</link>
       <pubDate>Thu, 28 Dec 2023 01:29:45 +0800</pubDate>
       
-      <guid>https://6923403.github.io/post/build_rgbv0_11_beta/</guid>
+      <guid>https://vcvvvc.github.io/post/build_rgbv0_11_beta/</guid>
       <description>又学习新东西了， BTC RGB协议
 https://github.com/RGB-WG/rgb
 Nostr平台用的Taproot-assets 协议主要用于发行和转移可替代的代币，如稳定币，而 RGB 协议是一种通用的智能合约系统，可以执行更复杂的多类别的智能合约，如 NFT、DeFi、DAO 等。
@@ -72,10 +72,10 @@ https://github.com/oneforalone/rgb20-usdt</description>
     
     <item>
       <title>市场常用技术指标</title>
-      <link>https://6923403.github.io/post/%E5%B8%82%E5%9C%BA%E5%B8%B8%E7%94%A8%E6%8A%80%E6%9C%AF%E6%8C%87%E6%A0%87/</link>
+      <link>https://vcvvvc.github.io/post/%E5%B8%82%E5%9C%BA%E5%B8%B8%E7%94%A8%E6%8A%80%E6%9C%AF%E6%8C%87%E6%A0%87/</link>
       <pubDate>Fri, 24 Nov 2023 22:53:01 +0800</pubDate>
       
-      <guid>https://6923403.github.io/post/%E5%B8%82%E5%9C%BA%E5%B8%B8%E7%94%A8%E6%8A%80%E6%9C%AF%E6%8C%87%E6%A0%87/</guid>
+      <guid>https://vcvvvc.github.io/post/%E5%B8%82%E5%9C%BA%E5%B8%B8%E7%94%A8%E6%8A%80%E6%9C%AF%E6%8C%87%E6%A0%87/</guid>
       <description>技术指标不可全信，但是配合Doubler使用，无需担心判断出错
 Bing Ai回答
 KDJ KDJ图形是一种用于分析股票或期货市场的技术指标，它由三条曲线组成：K线、D线和J线。KDJ图形可以反映市场的趋势、强弱、超买超卖和拐点等信息，从而帮助投资者判断买卖时机。下面是一些关于KDJ图形的基本知识：
@@ -87,10 +87,10 @@ KDJ图形的取值范围是0到100，其中50是多空均衡线，80以上是超
     
     <item>
       <title>Doubler基础教程</title>
-      <link>https://6923403.github.io/post/defi_doubler/</link>
+      <link>https://vcvvvc.github.io/post/defi_doubler/</link>
       <pubDate>Sun, 17 Sep 2023 21:56:19 +0800</pubDate>
       
-      <guid>https://6923403.github.io/post/defi_doubler/</guid>
+      <guid>https://vcvvvc.github.io/post/defi_doubler/</guid>
       <description>Doubler: A crypto asset appreciation tool based on the martingale strategy
 📚What is Doubler?
 Doubler is a very creative and forward-looking DEFI tool that forms a mutually beneficial relationship between users through crowdfunding and incentives, allowing users to share risks and rewards, and increase user confidence in participating in crypto asset investment. If you hold BTC but don&amp;rsquo;t want to sell it, but worry about the losses caused by the decline, just join Doubler.</description>
@@ -98,10 +98,10 @@ Doubler is a very creative and forward-looking DEFI tool that forms a mutually b
     
     <item>
       <title>证券型代币 Security Token Offering</title>
-      <link>https://6923403.github.io/post/sto/</link>
+      <link>https://vcvvvc.github.io/post/sto/</link>
       <pubDate>Thu, 31 Aug 2023 16:26:16 +0800</pubDate>
       
-      <guid>https://6923403.github.io/post/sto/</guid>
+      <guid>https://vcvvvc.github.io/post/sto/</guid>
       <description>来源币安：https://academy.binance.com/zh/articles/a-beginners-guide-to-security-tokens
 什么是证券型代币(Security Token Offering-STO) 证券型代币是一种发布在区块链上的代币，代表部分外部企业或资产的股份。可由企业或政府等实体发布，与股票、债券等同类产品作用相同。
 为什么使用证券型代币？ 透明 结算快 运行时间长 交易单位可分割 证券型代币与效用代币的区别有哪些？ 证券型代币和效用代币有诸多相似之处。严格来说，两种代币的发行方式完全相同。都由智能合约管理，可送至区块链地址，在交易平台交易或通过点对点交易。 他们的不同之处主要在于经济和管理支柱。他们可在首次代币发行(ICO)或在首次交易所发行(IEO)发行，让创业公司或初创项目众筹他们生态系统的发展。 用户通过提供资金获得这些数字代币，从而参与项目网络（可立即参与，也可以后参与）。这些代币赋予持有者投票权，或作为特定协议的货币购买产品或服务。
@@ -119,20 +119,20 @@ Doubler is a very creative and forward-looking DEFI tool that forms a mutually b
     
     <item>
       <title>Proxy_Solidity</title>
-      <link>https://6923403.github.io/post/proxy_sol/</link>
+      <link>https://vcvvvc.github.io/post/proxy_sol/</link>
       <pubDate>Tue, 22 Aug 2023 18:07:06 +0800</pubDate>
       
-      <guid>https://6923403.github.io/post/proxy_sol/</guid>
+      <guid>https://vcvvvc.github.io/post/proxy_sol/</guid>
       <description>可升级智能合约
 Proxy 是一种智能合约的设计模式，它可以实现合约的可升级性。Proxy 合约是一个简单的合约，它只负责将收到的调用请求转发给另一个逻辑合约，而不执行任何自己的逻辑。这样，当需要升级合约时，只需要部署一个新的逻辑合约，并在 Proxy 合约中更新其地址，就可以保持 Proxy 合约的地址不变，同时使用新的逻辑。Proxy 合约通常使用 delegatecall 操作码来实现调用转发，这样可以保留 Proxy 合约的存储和上下文，而执行逻辑合约的代码。</description>
     </item>
     
     <item>
       <title>以太坊白皮书_zh_随时更新</title>
-      <link>https://6923403.github.io/post/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E7%99%BD%E7%9A%AE%E4%B9%A6/</link>
+      <link>https://vcvvvc.github.io/post/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E7%99%BD%E7%9A%AE%E4%B9%A6/</link>
       <pubDate>Mon, 26 Sep 2022 23:43:27 +0800</pubDate>
       
-      <guid>https://6923403.github.io/post/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E7%99%BD%E7%9A%AE%E4%B9%A6/</guid>
+      <guid>https://vcvvvc.github.io/post/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E7%99%BD%E7%9A%AE%E4%B9%A6/</guid>
       <description>以太坊白皮书 这篇介绍性文章最初由以太坊创始人 Vitalik Buterin 在 2014 年发表，而以太坊在 2015 年发布。 值得一提的是，和其他社区驱动的开源软件项目一样，以太坊自发布以来一直不断发展。
 _虽然已经过数年，但由于本文仍然可提供有用的参考并能够准确表述以太坊及其愿景，我们仍然在维护它。 若想了解以太坊的最新进展以及如何更改以太坊协议，我们推荐您阅读本指南。
 以 PDF 格式打开以太坊白皮书
@@ -145,10 +145,10 @@ APPLY(S,TX) -&amp;gt; S&amp;#39; or ERROR 上面提到的银行系统中，状�
     
     <item>
       <title>Geth_私链创建并链接钱包</title>
-      <link>https://6923403.github.io/post/geth_use/</link>
+      <link>https://vcvvvc.github.io/post/geth_use/</link>
       <pubDate>Sat, 09 Apr 2022 23:03:33 +0800</pubDate>
       
-      <guid>https://6923403.github.io/post/geth_use/</guid>
+      <guid>https://vcvvvc.github.io/post/geth_use/</guid>
       <description>1. 下载安装geth https://geth.ethereum.org/
 2. 创建私有链 创建创世块配置文件 genesis.json
 { &amp;#34;config&amp;#34;: { &amp;#34;chainId&amp;#34;: 15, &amp;#34;homesteadBlock&amp;#34;: 0, &amp;#34;eip155Block&amp;#34;: 0, &amp;#34;eip158Block&amp;#34;: 0, &amp;#34;eip150Block&amp;#34;: 0 }, &amp;#34;coinbase&amp;#34; : &amp;#34;0x0000000000000000000000000000000000000000&amp;#34;, &amp;#34;difficulty&amp;#34; : &amp;#34;0x40000&amp;#34;, &amp;#34;extraData&amp;#34; : &amp;#34;&amp;#34;, &amp;#34;gasLimit&amp;#34; : &amp;#34;0xffffffff&amp;#34;, &amp;#34;nonce&amp;#34; : &amp;#34;0x0000000000000042&amp;#34;, &amp;#34;mixhash&amp;#34; : &amp;#34;0x0000000000000000000000000000000000000000000000000000000000000000&amp;#34;, &amp;#34;parentHash&amp;#34; : &amp;#34;0x0000000000000000000000000000000000000000000000000000000000000000&amp;#34;, &amp;#34;timestamp&amp;#34; : &amp;#34;0x00&amp;#34;, &amp;#34;alloc&amp;#34;: { } } 3. 初始化 geth --datadir genesis-block init genesis.json 启动节点
@@ -158,10 +158,10 @@ my=eth.accounts[0] eth.</description>
     
     <item>
       <title>区块链｜Blockchain</title>
-      <link>https://6923403.github.io/post/blockchain/</link>
+      <link>https://vcvvvc.github.io/post/blockchain/</link>
       <pubDate>Fri, 31 Dec 2021 22:54:32 +0800</pubDate>
       
-      <guid>https://6923403.github.io/post/blockchain/</guid>
+      <guid>https://vcvvvc.github.io/post/blockchain/</guid>
       <description>区块链的确是个很好的想法。
 区块链（Blockchain） 网上有说是账本，有说数据库的，我先不下定义。
 起源是2008年中本聪比特币白皮书提出。区块链有望令诸多行业收益，不过目前让机构拿来玩起了资本游戏。
@@ -182,10 +182,10 @@ BaaS是一种帮助用户创建、管理和维护企业级区块链网络及应�
     
     <item>
       <title>了解以太坊_Ethereum</title>
-      <link>https://6923403.github.io/post/eth/</link>
+      <link>https://vcvvvc.github.io/post/eth/</link>
       <pubDate>Fri, 31 Dec 2021 00:17:17 +0800</pubDate>
       
-      <guid>https://6923403.github.io/post/eth/</guid>
+      <guid>https://vcvvvc.github.io/post/eth/</guid>
       <description>前言 谈到ETH就需要先了解区块链跟BTC，单独写了一篇：
 Blockchain &amp;amp; BTC
 &amp;ndash;yi-
@@ -207,10 +207,10 @@ What is DEFI? Decentralized Finance Explained: https://www.</description>
     
     <item>
       <title>云服务</title>
-      <link>https://6923403.github.io/post/cloud/</link>
+      <link>https://vcvvvc.github.io/post/cloud/</link>
       <pubDate>Fri, 31 Dec 2021 00:10:24 +0800</pubDate>
       
-      <guid>https://6923403.github.io/post/cloud/</guid>
+      <guid>https://vcvvvc.github.io/post/cloud/</guid>
       <description>2021留下的坑 今天看到这篇预测想起来了， 来回填一下。
 https://cn.investing.com/news/stock-market-news/article-2072927
 云计算 2006年3月，亚马逊推出弹性计算云服务。
@@ -231,10 +231,10 @@ https://cn.investing.com/news/stock-market-news/article-2072927
     
     <item>
       <title>比特币白皮书_zh</title>
-      <link>https://6923403.github.io/post/%E6%AF%94%E7%89%B9%E5%B8%81%E7%99%BD%E7%9A%AE%E4%B9%A6_zh/</link>
+      <link>https://vcvvvc.github.io/post/%E6%AF%94%E7%89%B9%E5%B8%81%E7%99%BD%E7%9A%AE%E4%B9%A6_zh/</link>
       <pubDate>Fri, 31 Oct 2008 00:00:00 +0800</pubDate>
       
-      <guid>https://6923403.github.io/post/%E6%AF%94%E7%89%B9%E5%B8%81%E7%99%BD%E7%9A%AE%E4%B9%A6_zh/</guid>
+      <guid>https://vcvvvc.github.io/post/%E6%AF%94%E7%89%B9%E5%B8%81%E7%99%BD%E7%9A%AE%E4%B9%A6_zh/</guid>
       <description>比特币：一种点对点的电子现金系统 ​	作者：中本聪
 Abstract. A purely peer-to-peer version of electronic cash would allow online payments to be sent directly from one party to another without going through a financial institution. Digital signatures provide part of the solution, but the main benefits are lost if a trusted third party is still required to prevent double-spending. We propose a solution to the double-spending problem using a peer-to-peer network. The network timestamps transactions by hashing them into an ongoing chain of hash-based proof-of-work, forming a record that cannot be changed without redoing the proof-of-work.</description>
     </item>

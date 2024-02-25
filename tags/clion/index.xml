@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Clion on Vc</title>
-    <link>https://6923403.github.io/tags/clion/</link>
+    <link>https://vcvvvc.github.io/tags/clion/</link>
     <description>Recent content in Clion on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 22 Feb 2021 22:10:27 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/clion/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 22 Feb 2021 22:10:27 +0800</lastBuildDate><atom:link href="https://vcvvvc.github.io/tags/clion/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Clion_remote_debug</title>
-      <link>https://6923403.github.io/post/clion_remote_debug/</link>
+      <link>https://vcvvvc.github.io/post/clion_remote_debug/</link>
       <pubDate>Mon, 22 Feb 2021 22:10:27 +0800</pubDate>
       
-      <guid>https://6923403.github.io/post/clion_remote_debug/</guid>
+      <guid>https://vcvvvc.github.io/post/clion_remote_debug/</guid>
       <description>环境 Macos Clion2020.3.2 Server: ubuntu18 设置 1. 首先添加一个ssh
 2. 部署服务器上传文件
 选择SFTP协议

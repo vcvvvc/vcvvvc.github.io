@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pthread on Vc</title>
-    <link>https://6923403.github.io/tags/pthread/</link>
+    <link>https://vcvvvc.github.io/tags/pthread/</link>
     <description>Recent content in Pthread on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 27 Sep 2020 17:53:48 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/pthread/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 27 Sep 2020 17:53:48 +0800</lastBuildDate><atom:link href="https://vcvvvc.github.io/tags/pthread/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linux Pthread</title>
-      <link>https://6923403.github.io/post/pthread/</link>
+      <link>https://vcvvvc.github.io/post/pthread/</link>
       <pubDate>Sun, 27 Sep 2020 17:53:48 +0800</pubDate>
       
-      <guid>https://6923403.github.io/post/pthread/</guid>
+      <guid>https://vcvvvc.github.io/post/pthread/</guid>
       <description>int pthread_cond_init(pthread_cond_t *cond, pthread_condattr_t *cond_attr)
 其中cond是一个指向结构pthread_cond_t的指针，cond_attr是一个指向结构pthread_condattr_t的指针。结构 pthread_condattr_t是条件变量的属性结构，和互斥锁一样我们可以用它来设置条件变量是进程内可用还是进程间可用， 默认值是PTHREAD_ PROCESS_PRIVATE，即此条件变量被同一进程内的各个线程使用。
 注意初始化条件变量只有未被使用时才能重新初始化或被释放。释放一个条件变量的函数为pthread_cond_destroy（pthread_cond_t cond）。

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>thread on Vc</title>
-    <link>https://6923403.github.io/tags/thread/</link>
+    <link>https://vcvvvc.github.io/tags/thread/</link>
     <description>Recent content in thread on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 17 Nov 2020 16:13:32 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/thread/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 17 Nov 2020 16:13:32 +0800</lastBuildDate><atom:link href="https://vcvvvc.github.io/tags/thread/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Python thread parameter transfer</title>
-      <link>https://6923403.github.io/post/python_thread_mis/</link>
+      <link>https://vcvvvc.github.io/post/python_thread_mis/</link>
       <pubDate>Tue, 17 Nov 2020 16:13:32 +0800</pubDate>
       
-      <guid>https://6923403.github.io/post/python_thread_mis/</guid>
+      <guid>https://vcvvvc.github.io/post/python_thread_mis/</guid>
       <description>import threading import time def worker(): print “worker” time.sleep(1) return for i in xrange(5): t = threading.Thread(target=worker) t.start() 这段代码就使用了多线程，但是没法传递参数，而实际使用多线程，往往是需要传递参数的，这么写实现传递参数的多线程：
 import threading import time def worker(number): print “worker” time.sleep(number) return for i in xrange(5): t = threading.Thread(target=worker,args=(i,)) t.start() 第一个参数是线程函数变量，第二个参数args是一个数组变量参数，如果只传递一个值，就只需要i, 如果需要传递多个参数，那么还可以继续传递下去其他的参数，其中的逗号不能少，元组中只包含一个元素时，需要在元素后面添加逗号。
 Re:
@@ -21,10 +21,10 @@ https://blog.csdn.net/chpllp/article/details/54381141</description>
     
     <item>
       <title>CPP11_thread</title>
-      <link>https://6923403.github.io/post/cppthread/</link>
+      <link>https://vcvvvc.github.io/post/cppthread/</link>
       <pubDate>Sat, 29 Aug 2020 11:44:31 +0800</pubDate>
       
-      <guid>https://6923403.github.io/post/cppthread/</guid>
+      <guid>https://vcvvvc.github.io/post/cppthread/</guid>
       <description>create_thread Ex 1.导入#include&amp;mdash;用于创建线程
 2.导入#include&amp;ndash;用于时间延时 获取时间之类的
 定义一个线程对象t1，这就自动创建了一个线程，参数就是你要线程去执行的函数，t1是变量名字 随便取

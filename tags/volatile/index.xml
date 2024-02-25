@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Volatile on Vc</title>
-    <link>https://6923403.github.io/tags/volatile/</link>
+    <link>https://vcvvvc.github.io/tags/volatile/</link>
     <description>Recent content in Volatile on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 13 Sep 2020 18:12:48 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/volatile/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 13 Sep 2020 18:12:48 +0800</lastBuildDate><atom:link href="https://vcvvvc.github.io/tags/volatile/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About function: Volatile</title>
-      <link>https://6923403.github.io/post/volatile/</link>
+      <link>https://vcvvvc.github.io/post/volatile/</link>
       <pubDate>Sun, 13 Sep 2020 18:12:48 +0800</pubDate>
       
-      <guid>https://6923403.github.io/post/volatile/</guid>
+      <guid>https://vcvvvc.github.io/post/volatile/</guid>
       <description>https://zhuanlan.zhihu.com/p/33074506
 https://www.runoob.com/w3cnote/c-volatile-keyword.html</description>
     </item>

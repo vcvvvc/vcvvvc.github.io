@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Mysql on Vc</title>
-    <link>https://6923403.github.io/tags/mysql/</link>
+    <link>https://vcvvvc.github.io/tags/mysql/</link>
     <description>Recent content in Mysql on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 18 Dec 2021 17:36:22 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 18 Dec 2021 17:36:22 +0800</lastBuildDate><atom:link href="https://vcvvvc.github.io/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ubuntu20_install_mysql</title>
-      <link>https://6923403.github.io/post/ubuntu_install_mysql/</link>
+      <link>https://vcvvvc.github.io/post/ubuntu_install_mysql/</link>
       <pubDate>Sat, 18 Dec 2021 17:36:22 +0800</pubDate>
       
-      <guid>https://6923403.github.io/post/ubuntu_install_mysql/</guid>
+      <guid>https://vcvvvc.github.io/post/ubuntu_install_mysql/</guid>
       <description>安装mysql8.0 apt-get update apt-get install mysql-server 设置远程访问 #远程 vim /etc/mysql/mysql.conf.d/mysqld.cnf bind-address改为0.0.0.0 #重启 /etc/init.d/mysql restart #设置权限与密码 use mysql; ALTER USER &amp;#39;root&amp;#39;@&amp;#39;localhost&amp;#39; IDENTIFIED WITH mysql_native_password BY &amp;#39;密码&amp;#39;; #使用mysql_native_password修改加密规则 ALTER USER &amp;#39;root&amp;#39;@&amp;#39;localhost&amp;#39; IDENTIFIED BY &amp;#39;密码&amp;#39; PASSWORD EXPIRE NEVER; #更新一下用户的密码 UPDATE user SET host = &amp;#39;%&amp;#39; WHERE user = &amp;#39;root&amp;#39;; #允许远程访问 #刷新cache中配置 刷新权限 flush privileges; quit; 初始化 #初始化 mysql_secure_installation 1. NO 2. 输入密码 3. 其余全部默认 # 检查 systemctl status mysql.service 状态 #开启 service mysql start # 关闭 service mysql stop # 重启 service mysql restart # 状态 systemctl status mysql.</description>
     </item>
     
     <item>
       <title>Mac install mysql_8.0</title>
-      <link>https://6923403.github.io/post/mac_install_mysql/</link>
+      <link>https://vcvvvc.github.io/post/mac_install_mysql/</link>
       <pubDate>Mon, 18 Jan 2021 17:20:58 +0800</pubDate>
       
-      <guid>https://6923403.github.io/post/mac_install_mysql/</guid>
+      <guid>https://vcvvvc.github.io/post/mac_install_mysql/</guid>
       <description>Downloads mysql 社区版官网下载: https://dev.mysql.com/downloads/mysql/
 Start 下载之后安装一路点继续 设置完root密码
 安装完成后 需要开启/关闭Mysql 系统偏好设置-Mysql图标
@@ -35,20 +35,20 @@ https://www.cnblogs.com/nickchen121/p/11145123.htm</description>
     
     <item>
       <title>Pymysqlerr 1698</title>
-      <link>https://6923403.github.io/post/pymysql_err_1698/</link>
+      <link>https://vcvvvc.github.io/post/pymysql_err_1698/</link>
       <pubDate>Mon, 30 Nov 2020 16:24:28 +0800</pubDate>
       
-      <guid>https://6923403.github.io/post/pymysql_err_1698/</guid>
+      <guid>https://vcvvvc.github.io/post/pymysql_err_1698/</guid>
       <description>pymysql.err.OperationalError: (1698, “Access denied for user ‘root’@‘localhost’”)
 sudo mysql -u root mysql&amp;gt; USE mysql; mysql&amp;gt; UPDATE user SET plugin=&amp;#39;mysql_native_password&amp;#39; WHERE User=&amp;#39;root&amp;#39;; mysql&amp;gt; FLUSH PRIVILEGES; mysql&amp;gt; exit; service mysql restart </description>
     </item>
     
     <item>
       <title>CPP_Mysql_use</title>
-      <link>https://6923403.github.io/post/mysql_use/</link>
+      <link>https://vcvvvc.github.io/post/mysql_use/</link>
       <pubDate>Fri, 25 Sep 2020 16:40:02 +0800</pubDate>
       
-      <guid>https://6923403.github.io/post/mysql_use/</guid>
+      <guid>https://vcvvvc.github.io/post/mysql_use/</guid>
       <description>Mysql ex mysql_init() 获取或初始化MYSQL结构 mysql_real_connect() 连接到MySQL服务器。 mysql_query() 执行指定为“以Null终结的字符串”的SQL查询 mysql_use_result() 初始化逐行的结果集检索 mysql_field_count() 返回上次执行语句的结果集的列数 mysql_fetch_row() 从结果集中获取下一行 mysql_num_fields() 返回结果集中的字段数 class MyDB { public: MyDB(); ~MyDB(); bool initDB(string host, string user, string pwd, string db_name); bool exeSQL(string sql); private: MYSQL *connection; MYSQL_RES *result; MYSQL_ROW row; }; 基本步骤
 使用mysql_init()初始化连接 使用mysql_real_connect()建立一个到mysql数据库的连接 使用mysql_query()执行查询语句 result = mysql_use_result(conn)获取结果集 mysql_field_count(conn)获取查询的列数，mysql_num_fields(result)获取结果集的字段数 通过mysql_fetch_row(result)不断获取下一行，然后循环输出 释放结果集所占内存mysql_free_result(result) mysql_close(conn)关闭连接 Re:
 https://blog.csdn.net/lisonglisonglisong/article/details/25071793</description>
@@ -56,10 +56,10 @@ https://blog.csdn.net/lisonglisonglisong/article/details/25071793</description>
     
     <item>
       <title>Centos7 Install mysql</title>
-      <link>https://6923403.github.io/post/install_mysql/</link>
+      <link>https://vcvvvc.github.io/post/install_mysql/</link>
       <pubDate>Sun, 20 Sep 2020 22:36:44 +0800</pubDate>
       
-      <guid>https://6923403.github.io/post/install_mysql/</guid>
+      <guid>https://vcvvvc.github.io/post/install_mysql/</guid>
       <description>1.添加Mysql5.7仓库 sudo rpm -ivh https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm
 2.确认Mysql仓库成功添加 sudo yum repolist all | grep mysql | grep enabled
 3.安装Mysql5.7 sudo yum -y install mysql-community-server
@@ -75,10 +75,10 @@ mysql_secure_installation
     
     <item>
       <title>Mysql_use</title>
-      <link>https://6923403.github.io/post/mysqluse/</link>
+      <link>https://vcvvvc.github.io/post/mysqluse/</link>
       <pubDate>Sat, 19 Sep 2020 12:08:34 +0800</pubDate>
       
-      <guid>https://6923403.github.io/post/mysqluse/</guid>
+      <guid>https://vcvvvc.github.io/post/mysqluse/</guid>
       <description>创建数据库 CREATE DATABASE IF NOT EXISTS vctest DEFAULT CHARSET utf8 COLLATE utf8_general_ci; 2. CREATE DATABASE IF NOT EXISTS mytestdb;
 删除数据库 drop database test1; 2. DROP DATABASE IF EXISTS mytestdb;
 查看All DB show databases;

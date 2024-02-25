@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Wine on Vc</title>
-    <link>https://6923403.github.io/tags/wine/</link>
+    <link>https://vcvvvc.github.io/tags/wine/</link>
     <description>Recent content in Wine on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 24 Nov 2020 16:50:16 +0800</lastBuildDate><atom:link href="https://6923403.github.io/tags/wine/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 24 Nov 2020 16:50:16 +0800</lastBuildDate><atom:link href="https://vcvvvc.github.io/tags/wine/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ubuntu tim_wechat</title>
-      <link>https://6923403.github.io/post/ubuntu_tim_wechat/</link>
+      <link>https://vcvvvc.github.io/post/ubuntu_tim_wechat/</link>
       <pubDate>Tue, 24 Nov 2020 16:50:16 +0800</pubDate>
       
-      <guid>https://6923403.github.io/post/ubuntu_tim_wechat/</guid>
+      <guid>https://vcvvvc.github.io/post/ubuntu_tim_wechat/</guid>
       <description>字体 因为wine对HiDPI不会默认适配dpi值。解决方案:
 注意WINEPREFIX这个环境变量指向你的deepin wine容器目录，比如TIM在~/.deepinwine/Deepin-TIM，微信在~/.deepinwine/Deepin-WeChat 执行以下命令
 WINEPREFIX=~/.deepinwine/Deepin-QQ deepin-wine winecfg WINEPREFIX=~/.deepinwine/Deepin-WeChat deepin-wine winecfg 打开wine设置页面，在显示选项卡中调整屏幕分辨率的dpi值即可。比如想实现win 10的150% DPI只需要将96改到144即可，125%放大则对应120。手工调整下合适的DPI就可以了

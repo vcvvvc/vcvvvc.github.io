@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>TCP/IP on Vc</title>
-    <link>https://6923403.github.io/tags/tcp/ip/</link>
+    <link>https://vcvvvc.github.io/tags/tcp/ip/</link>
     <description>Recent content in TCP/IP on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language><atom:link href="https://6923403.github.io/tags/tcp/ip/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language><atom:link href="https://vcvvvc.github.io/tags/tcp/ip/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>TCP/UDP首部</title>
-      <link>https://6923403.github.io/post/tcp_udp%E9%A6%96%E9%83%A8/</link>
+      <link>https://vcvvvc.github.io/post/tcp_udp%E9%A6%96%E9%83%A8/</link>
       <pubDate>Wed, 23 Feb 2022 17:47:16 +0800</pubDate>
       
-      <guid>https://6923403.github.io/post/tcp_udp%E9%A6%96%E9%83%A8/</guid>
+      <guid>https://vcvvvc.github.io/post/tcp_udp%E9%A6%96%E9%83%A8/</guid>
       <description>TCP tcp报文首部的前20个字节是固定的，后面有4n字节是需要根据需要增加的选项，因此tcp首部的最小长度是20字节。
 源端口、目标端口： 计算机上的进程要和其他进程通信是要通过计算机端口的，而一个计算机端口某个时刻只能被一个进程占用，所以通过指定源端口和目标端口，就可以知道是哪两个进程需要通信。源端口、目标端口是用16位表示的，可推算计算机的端口个数为2^16个。
 序号：表示本报文段所发送数据的第一个字节的编号。在TCP连接中所传送的字节流的每一个字节都会按顺序编号。由于序列号由32位表示，所以每2^32个字节，就会出现序列号回绕，再次从 0 开始。
@@ -27,10 +27,10 @@ CWR（Congestion Window Reduced） ECE（ECN-Echo） URG（Urgent Flag） 该位
     
     <item>
       <title>TCP/UDP首部</title>
-      <link>https://6923403.github.io/post/tcp_udp%E9%A6%96%E9%83%A8/</link>
+      <link>https://vcvvvc.github.io/post/tcp_udp%E9%A6%96%E9%83%A8/</link>
       <pubDate>Wed, 23 Feb 2022 17:47:16 +0800</pubDate>
       
-      <guid>https://6923403.github.io/post/tcp_udp%E9%A6%96%E9%83%A8/</guid>
+      <guid>https://vcvvvc.github.io/post/tcp_udp%E9%A6%96%E9%83%A8/</guid>
       <description>TCP tcp报文首部的前20个字节是固定的，后面有4n字节是需要根据需要增加的选项，因此tcp首部的最小长度是20字节。
 源端口、目标端口： 计算机上的进程要和其他进程通信是要通过计算机端口的，而一个计算机端口某个时刻只能被一个进程占用，所以通过指定源端口和目标端口，就可以知道是哪两个进程需要通信。源端口、目标端口是用16位表示的，可推算计算机的端口个数为2^16个。
 序号：表示本报文段所发送数据的第一个字节的编号。在TCP连接中所传送的字节流的每一个字节都会按顺序编号。由于序列号由32位表示，所以每2^32个字节，就会出现序列号回绕，再次从 0 开始。
@@ -46,10 +46,10 @@ CWR（Congestion Window Reduced） ECE（ECN-Echo） URG（Urgent Flag） 该位
     
     <item>
       <title>IPv4/v6首部</title>
-      <link>https://6923403.github.io/post/ip%E9%A6%96%E9%83%A8/</link>
+      <link>https://vcvvvc.github.io/post/ip%E9%A6%96%E9%83%A8/</link>
       <pubDate>Tue, 15 Feb 2022 20:36:44 +0800</pubDate>
       
-      <guid>https://6923403.github.io/post/ip%E9%A6%96%E9%83%A8/</guid>
+      <guid>https://vcvvvc.github.io/post/ip%E9%A6%96%E9%83%A8/</guid>
       <description>IPv4首部 版本：由4比特构成，表示标识IP首部的版本号。IPv4的版本号即为4，因此在这个字段上的值也为“4”。
 首部长度(（IHL：Internet Header Length）)：由4比特构成，表明IP首部的大小，单位为4字节（32比特）。对于没有可选项的IP包，首部长度则设置为“5”。也就是说，当没有可选项时，IP首部的长度为20字节（4*5=20）。
 区别服务（TOS：Type Of Service）: 由8比特构成，用来表明服务质量。每一个的具体含义如表所示。
@@ -81,10 +81,10 @@ IPv6首部 IPv6为了减轻路由器的负担，省略了首部校验和字段�
     
     <item>
       <title>IPv4/v6首部</title>
-      <link>https://6923403.github.io/post/ip%E9%A6%96%E9%83%A8/</link>
+      <link>https://vcvvvc.github.io/post/ip%E9%A6%96%E9%83%A8/</link>
       <pubDate>Tue, 15 Feb 2022 20:36:44 +0800</pubDate>
       
-      <guid>https://6923403.github.io/post/ip%E9%A6%96%E9%83%A8/</guid>
+      <guid>https://vcvvvc.github.io/post/ip%E9%A6%96%E9%83%A8/</guid>
       <description>IPv4首部 版本：由4比特构成，表示标识IP首部的版本号。IPv4的版本号即为4，因此在这个字段上的值也为“4”。
 首部长度(（IHL：Internet Header Length）)：由4比特构成，表明IP首部的大小，单位为4字节（32比特）。对于没有可选项的IP包，首部长度则设置为“5”。也就是说，当没有可选项时，IP首部的长度为20字节（4*5=20）。
 区别服务（TOS：Type Of Service）: 由8比特构成，用来表明服务质量。每一个的具体含义如表所示。
@@ -116,21 +116,21 @@ IPv6首部 IPv6为了减轻路由器的负担，省略了首部校验和字段�
     
     <item>
       <title>Unp_Note</title>
-      <link>https://6923403.github.io/post/unp_note/</link>
+      <link>https://vcvvvc.github.io/post/unp_note/</link>
       <pubDate>Mon, 11 Jan 2021 22:40:43 +0800</pubDate>
       
-      <guid>https://6923403.github.io/post/unp_note/</guid>
-      <description>基本流程图 示范代码: https://github.com/6923403/CPP_Test/tree/master/server/socket/practice/8_socket
+      <guid>https://vcvvvc.github.io/post/unp_note/</guid>
+      <description>基本流程图 示范代码: https://github.com/vcvvvc/CPP_Test/tree/master/server/socket/practice/8_socket
 TCP UDP 客户角度 服务器角度 套接字选项 config_init connect_mysql init_socket setsockopt linger </description>
     </item>
     
     <item>
       <title>Unp_Note</title>
-      <link>https://6923403.github.io/post/unp_note/</link>
+      <link>https://vcvvvc.github.io/post/unp_note/</link>
       <pubDate>Mon, 11 Jan 2021 22:40:43 +0800</pubDate>
       
-      <guid>https://6923403.github.io/post/unp_note/</guid>
-      <description>基本流程图 示范代码: https://github.com/6923403/CPP_Test/tree/master/server/socket/practice/8_socket
+      <guid>https://vcvvvc.github.io/post/unp_note/</guid>
+      <description>基本流程图 示范代码: https://github.com/vcvvvc/CPP_Test/tree/master/server/socket/practice/8_socket
 TCP UDP 客户角度 服务器角度 套接字选项 config_init connect_mysql init_socket setsockopt linger </description>
     </item>
     
