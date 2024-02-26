@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Kindle on Vc</title>
-    <link>https://vcvvvc.github.io/tags/kindle/</link>
+    <link>/tags/kindle/</link>
     <description>Recent content in Kindle on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 09 May 2021 23:34:49 +0800</lastBuildDate><atom:link href="https://vcvvvc.github.io/tags/kindle/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 09 May 2021 23:34:49 +0800</lastBuildDate><atom:link href="/tags/kindle/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kindle 防止自动更新</title>
-      <link>https://vcvvvc.github.io/post/kindle_%E5%8E%BB%E6%9B%B4%E6%96%B0/</link>
+      <link>/post/kindle_%E5%8E%BB%E6%9B%B4%E6%96%B0/</link>
       <pubDate>Sun, 09 May 2021 23:34:49 +0800</pubDate>
       
-      <guid>https://vcvvvc.github.io/post/kindle_%E5%8E%BB%E6%9B%B4%E6%96%B0/</guid>
+      <guid>/post/kindle_%E5%8E%BB%E6%9B%B4%E6%96%B0/</guid>
       <description>本来想等着越狱来着 没想到还会自动更新。。
 去更新 创建了个zip再改名为update.bin.tmp.partial
 chmod a=r update.bin.tmp.partial 查看文件权限 ls -ld update.bin.tmp.partial -rw-r--r-- 1 root root 208 5月 10 2021 update.bin.tmp.partial 当亚马逊向你的 Kindle 推送更新固件时，会在 Kindle 根目录创建一个名为 update.bin.tmp.partial 的临时文件（该临时文件其实就是未下载完成的新固件文件，即便网络不稳定，它也会不断续传直至下载完毕），但是如果 Kindle 根目录有同名文件，它就无法创建了，从而达到阻止 Kindle 固件自动更新的目的。

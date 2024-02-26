@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tutorial on Vc</title>
-    <link>https://vcvvvc.github.io/tags/tutorial/</link>
+    <link>/tags/tutorial/</link>
     <description>Recent content in Tutorial on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 27 Aug 2021 16:40:00 +0800</lastBuildDate><atom:link href="https://vcvvvc.github.io/tags/tutorial/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 27 Aug 2021 16:40:00 +0800</lastBuildDate><atom:link href="/tags/tutorial/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>News-M Tutorial</title>
-      <link>https://vcvvvc.github.io/post/news_wps/</link>
+      <link>/post/news_wps/</link>
       <pubDate>Fri, 27 Aug 2021 16:40:00 +0800</pubDate>
       
-      <guid>https://vcvvvc.github.io/post/news_wps/</guid>
+      <guid>/post/news_wps/</guid>
       <description>https://github.com/VcSpace/News-M.git 闻讯——获取主流财经新闻网站新闻信息获取, 将数据聚合、归类并写入表格中 。
 News-M &amp;ndash;News Spider, Crawling news from mainstream financial news websites, categorize and write data into tables .
 目的 时间与精力是有限的 为了节省查阅信息的时间成本故此创作News-M用来快捷提取有效信息, 节约时间, 放松精力。

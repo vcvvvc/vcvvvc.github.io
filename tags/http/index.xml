@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Http on Vc</title>
-    <link>https://vcvvvc.github.io/tags/http/</link>
+    <link>/tags/http/</link>
     <description>Recent content in Http on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 10 Feb 2024 15:08:37 +0800</lastBuildDate><atom:link href="https://vcvvvc.github.io/tags/http/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 10 Feb 2024 15:08:37 +0800</lastBuildDate><atom:link href="/tags/http/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>理解RESTful</title>
-      <link>https://vcvvvc.github.io/post/restful/</link>
+      <link>/post/restful/</link>
       <pubDate>Sat, 10 Feb 2024 15:08:37 +0800</pubDate>
       
-      <guid>https://vcvvvc.github.io/post/restful/</guid>
+      <guid>/post/restful/</guid>
       <description>REST &amp;ndash; REpresentational State Transfer 全称是Resource Representational State Transfer：
 通俗来讲就是：资源在网络中以某种表现形式进行状态转移。
 分解开来：
@@ -29,10 +29,10 @@ https://www.ruanyifeng.com/blog/2011/09/restful.html</description>
     
     <item>
       <title>Computer_network</title>
-      <link>https://vcvvvc.github.io/post/computer_network/</link>
+      <link>/post/computer_network/</link>
       <pubDate>Thu, 06 May 2021 10:09:44 +0800</pubDate>
       
-      <guid>https://vcvvvc.github.io/post/computer_network/</guid>
+      <guid>/post/computer_network/</guid>
       <description>计算机网络 应用层 HTTP HTTP（HyperText Transfer Protocol，超文本传输协议）是一种用于分布式、协作式和超媒体信息系统的应用层协议。HTTP 是万维网的数据通信的基础。
 Cookie
 HTTP 是一种不保存状态，即无状态（stateless）协议。 Cookie 会根据从服务器端发送的响应报文内的一个叫做 Set-Cookie 的 首部字段信息，通知客户端保存 Cookie。 请求方法

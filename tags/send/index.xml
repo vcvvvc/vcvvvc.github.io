@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Send on Vc</title>
-    <link>https://vcvvvc.github.io/tags/send/</link>
+    <link>/tags/send/</link>
     <description>Recent content in Send on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 21 Nov 2020 14:59:41 +0800</lastBuildDate><atom:link href="https://vcvvvc.github.io/tags/send/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 21 Nov 2020 14:59:41 +0800</lastBuildDate><atom:link href="/tags/send/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Socket write_send</title>
-      <link>https://vcvvvc.github.io/post/socket_write_send/</link>
+      <link>/post/socket_write_send/</link>
       <pubDate>Sat, 21 Nov 2020 14:59:41 +0800</pubDate>
       
-      <guid>https://vcvvvc.github.io/post/socket_write_send/</guid>
+      <guid>/post/socket_write_send/</guid>
       <description>ssize_t write(int fd, const void*buf,size_t nbytes);
 write函数将buf中的nbytes字节内容写入文件描述符fd.
 成功时返回写的字节数.失败时返回-1. 并设置errno变量. 在网络程序中,当我们向套接字文件描述符写时有两可能. 1)write的返回值大于0,表示写了部分或者是全部的数据. 这样我们用一个while循环来不停的写入，但是循环过程中的buf参数和nbyte参数得由我们来更新。也就是说，网络写函数是不负责将全部数据写完之后在返回的。 2)返回的值小于0,此时出现了错误.我们要根据错误类型来处理. 如果错误为EINTR表示在写的时候出现了中断错误. 如果为EPIPE表示网络连接出现了问题(对方已经关闭了连接).

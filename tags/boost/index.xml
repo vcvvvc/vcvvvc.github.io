@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Boost on Vc</title>
-    <link>https://vcvvvc.github.io/tags/boost/</link>
+    <link>/tags/boost/</link>
     <description>Recent content in Boost on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 28 Jul 2020 13:09:01 +0800</lastBuildDate><atom:link href="https://vcvvvc.github.io/tags/boost/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 28 Jul 2020 13:09:01 +0800</lastBuildDate><atom:link href="/tags/boost/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linux install Boost c&#43;&#43;</title>
-      <link>https://vcvvvc.github.io/post/linux_install_boost/</link>
+      <link>/post/linux_install_boost/</link>
       <pubDate>Tue, 28 Jul 2020 13:09:01 +0800</pubDate>
       
-      <guid>https://vcvvvc.github.io/post/linux_install_boost/</guid>
+      <guid>/post/linux_install_boost/</guid>
       <description>Boost C++ is Cpp programming language that provides support for tasks and structures
 Download Source https://dl.bintray.com/boostorg/release/1.73.0/source/boost_1_73_0.tar.gz tar zxvf boost(解压) Set use GCC cd boost ./bootstrap.sh --with-libraries=all --with-toolset=gcc Compile &amp;amp; Install boost ./b2 toolset=gcc ./b2 install --prefix=/usr Test programming #include &amp;lt;boost/thread/thread.hpp&amp;gt; //boost thread #include &amp;lt;iostream&amp;gt; #include &amp;lt;cstdlib&amp;gt; using namespace std; volatile bool isRuning = true; void func1() { static int cnt1 = 0; while(isRuning) { cout &amp;lt;&amp;lt; &amp;#34;func1:&amp;#34; &amp;lt;&amp;lt; cnt1++ &amp;lt;&amp;lt; endl; sleep(1); } } void func2() { static int cnt2 = 0; while(isRuning) { cout &amp;lt;&amp;lt; &amp;#34;\tfunc2:&amp;#34; &amp;lt;&amp;lt; cnt2++ &amp;lt;&amp;lt; endl; sleep(2); } } int main() { boost::thread thread1(&amp;amp;func1); boost::thread thread2(&amp;amp;func2); system(&amp;#34;read&amp;#34;); isRuning = false; thread2.</description>
     </item>

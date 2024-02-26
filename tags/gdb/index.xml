@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>GDB on Vc</title>
-    <link>https://vcvvvc.github.io/tags/gdb/</link>
+    <link>/tags/gdb/</link>
     <description>Recent content in GDB on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 17 Feb 2021 23:02:08 +0800</lastBuildDate><atom:link href="https://vcvvvc.github.io/tags/gdb/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 17 Feb 2021 23:02:08 +0800</lastBuildDate><atom:link href="/tags/gdb/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Use_gdb</title>
-      <link>https://vcvvvc.github.io/post/use_gdb/</link>
+      <link>/post/use_gdb/</link>
       <pubDate>Wed, 17 Feb 2021 23:02:08 +0800</pubDate>
       
-      <guid>https://vcvvvc.github.io/post/use_gdb/</guid>
+      <guid>/post/use_gdb/</guid>
       <description>GDB 教程 转载自：https://github.com/DAN-AND-DNA/learn-gdb-by-example-for-c.git
 内容 原理 启动gdb 退出gdb 为gdb进行编译 调试程序 CoreDump简单概念 产生CoreDump文件 调试CoreDump文件 help命令 list命令 start命令 next命令 step命令 break命令 查看断点 删除断点 tbreak命令 continue命令 backtrace命令 查看当前所处的函数堆栈帧 选择函数堆栈帧 打印函数局部变量 run命令 修改变量值 查看变量类型 查看线程运行 启动图像界面 原理 断点功能一般是通过gdb捕获特定的内核信号来实现的，然后定位目标程序停止的地址来判断断点是否成功触发。大致的流程为， 首先gdb fork()出来一个子进程，该子进程启动目标程序(通过ptrace() 和 exec())， 父进程捕获该子进程的所有的信号(通过ptrace() 和 wait())，当子进程收到信号时，子进程就会被挂起，直到父进程通知其继续运行(通过ptrace())
 启动gdb 1 常规启动，非常多的提示信息:

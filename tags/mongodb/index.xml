@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Mongodb on Vc</title>
-    <link>https://vcvvvc.github.io/tags/mongodb/</link>
+    <link>/tags/mongodb/</link>
     <description>Recent content in Mongodb on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 21 Sep 2020 13:44:35 +0800</lastBuildDate><atom:link href="https://vcvvvc.github.io/tags/mongodb/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 21 Sep 2020 13:44:35 +0800</lastBuildDate><atom:link href="/tags/mongodb/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Centos7 Install mongodb</title>
-      <link>https://vcvvvc.github.io/post/install_mongodb/</link>
+      <link>/post/install_mongodb/</link>
       <pubDate>Mon, 21 Sep 2020 13:44:35 +0800</pubDate>
       
-      <guid>https://vcvvvc.github.io/post/install_mongodb/</guid>
+      <guid>/post/install_mongodb/</guid>
       <description>Configure the package management system (yum) vim /etc/yum.repos.d/mongodb-org-4.4.repo
 [mongodb-org-4.4] name=MongoDB Repository baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.4/x86_64/ gpgcheck=1 enabled=1 gpgkey=https://www.mongodb.org/static/pgp/server-4.4.asc Install Mongodb sudo yum install -y mongodb-org Directory Paths sudo mkdir -p /var/lib/mongo sudo mkdir -p /var/log/mongodb sudo chown -R mongod:mongod /var/lib/mongo sudo chown -R mongod:mongod /var/log/mongodb Start mongodb sudo systemctl start mongod sudo systemctl status mongod sudo systemctl enable mongod mongo //use Re:
 https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/</description>

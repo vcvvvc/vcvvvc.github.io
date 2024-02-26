@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>数据结构 on Vc</title>
-    <link>https://vcvvvc.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
+    <link>/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
     <description>Recent content in 数据结构 on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 19 May 2021 22:48:49 +0800</lastBuildDate><atom:link href="https://vcvvvc.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 19 May 2021 22:48:49 +0800</lastBuildDate><atom:link href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>B_Tree</title>
-      <link>https://vcvvvc.github.io/post/b_tree/</link>
+      <link>/post/b_tree/</link>
       <pubDate>Wed, 19 May 2021 22:48:49 +0800</pubDate>
       
-      <guid>https://vcvvvc.github.io/post/b_tree/</guid>
+      <guid>/post/b_tree/</guid>
       <description>主角得拿出来文字记录下。 一个m阶的B树具有如下属性:
 每个节点最多有m-1个关键字（可以存有的键值对）。 根节点最少可以只有1个关键字。 非根节点至少有m/2个关键字。 每个节点中的关键字都按照从小到大的顺序排列，每个关键字的左子树中的所有关键字都小于它，而右子树中的所有关键字都大于它。 所有叶子节点都位于同一层，或者说根节点到每个叶子节点的长度都相同。 每个节点都存有索引和数据，也就是对应的key和value。 在含有n个关键字的B树上查找时，从根结点到关键字结点的 路径上涉及的结点数不超过log |m/2| ((n+1)/2)+1。
 不错的讲解

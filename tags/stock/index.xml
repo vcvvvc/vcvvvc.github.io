@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Stock on Vc</title>
-    <link>https://vcvvvc.github.io/tags/stock/</link>
+    <link>/tags/stock/</link>
     <description>Recent content in Stock on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 10 Jan 2023 23:36:08 +0800</lastBuildDate><atom:link href="https://vcvvvc.github.io/tags/stock/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 10 Jan 2023 23:36:08 +0800</lastBuildDate><atom:link href="/tags/stock/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>2023经济会议</title>
-      <link>https://vcvvvc.github.io/post/2023%E7%BB%8F%E6%B5%8E%E4%BC%9A%E8%AE%AE/</link>
+      <link>/post/2023%E7%BB%8F%E6%B5%8E%E4%BC%9A%E8%AE%AE/</link>
       <pubDate>Tue, 10 Jan 2023 23:36:08 +0800</pubDate>
       
-      <guid>https://vcvvvc.github.io/post/2023%E7%BB%8F%E6%B5%8E%E4%BC%9A%E8%AE%AE/</guid>
+      <guid>/post/2023%E7%BB%8F%E6%B5%8E%E4%BC%9A%E8%AE%AE/</guid>
       <description>会议要点如下：
 第一，总基调：全力拼经济。2023年经济工作的重点是“突出做好稳增长、稳就业、稳物价工作”，“推动经济运行整体好转”，“大力提振市场信心”，“加大宏观政策调控力度”，“优化调整疫情防控政策”。可以考虑将2023年经济增速目标定在5%以上，释放把发展放在首要任务、提振各界信心的信号。
 第二，积极的财政政策要加力提效。明确提出“保持必要的财政支出强度，优化组合赤字、专项债、贴息等工具”。预计2023年将提高赤字率，扩大地方专项债和特别国债的发行规模，稳增长、扩内需、保民生。
@@ -38,10 +38,10 @@ https://view.inews.qq.com/a/20221217A00J1Y00?uid=</description>
     
     <item>
       <title>区块链｜Blockchain</title>
-      <link>https://vcvvvc.github.io/post/blockchain/</link>
+      <link>/post/blockchain/</link>
       <pubDate>Fri, 31 Dec 2021 22:54:32 +0800</pubDate>
       
-      <guid>https://vcvvvc.github.io/post/blockchain/</guid>
+      <guid>/post/blockchain/</guid>
       <description>区块链的确是个很好的想法。
 区块链（Blockchain） 网上有说是账本，有说数据库的，我先不下定义。
 起源是2008年中本聪比特币白皮书提出。区块链有望令诸多行业收益，不过目前让机构拿来玩起了资本游戏。
@@ -62,10 +62,10 @@ BaaS是一种帮助用户创建、管理和维护企业级区块链网络及应�
     
     <item>
       <title>了解以太坊_Ethereum</title>
-      <link>https://vcvvvc.github.io/post/eth/</link>
+      <link>/post/eth/</link>
       <pubDate>Fri, 31 Dec 2021 00:17:17 +0800</pubDate>
       
-      <guid>https://vcvvvc.github.io/post/eth/</guid>
+      <guid>/post/eth/</guid>
       <description>前言 谈到ETH就需要先了解区块链跟BTC，单独写了一篇：
 Blockchain &amp;amp; BTC
 &amp;ndash;yi-
@@ -87,10 +87,10 @@ What is DEFI? Decentralized Finance Explained: https://www.</description>
     
     <item>
       <title>云服务</title>
-      <link>https://vcvvvc.github.io/post/cloud/</link>
+      <link>/post/cloud/</link>
       <pubDate>Fri, 31 Dec 2021 00:10:24 +0800</pubDate>
       
-      <guid>https://vcvvvc.github.io/post/cloud/</guid>
+      <guid>/post/cloud/</guid>
       <description>2021留下的坑 今天看到这篇预测想起来了， 来回填一下。
 https://cn.investing.com/news/stock-market-news/article-2072927
 云计算 2006年3月，亚马逊推出弹性计算云服务。
@@ -111,10 +111,10 @@ https://cn.investing.com/news/stock-market-news/article-2072927
     
     <item>
       <title>企业估值</title>
-      <link>https://vcvvvc.github.io/post/business-valuation/</link>
+      <link>/post/business-valuation/</link>
       <pubDate>Wed, 22 Dec 2021 15:23:02 +0800</pubDate>
       
-      <guid>https://vcvvvc.github.io/post/business-valuation/</guid>
+      <guid>/post/business-valuation/</guid>
       <description>未填的坑3
 基本分析 财务报表 企业护城河 影响因素 企业估值 市盈率 投资策略 价值投资 成长投资 事件驱动投资 技术分析 限时限额加码止盈投资法 基本面分析 https://zh.wikipedia.org/wiki/Category:%E5%9F%BA%E6%9C%AC%E9%9D%A2%E5%88%86%E6%9E%90
 基本面分析是一种证券或股票估价的方法，利用财务分析和经济学上的研究来评估企业价值或预测证券（如股票或债券等）价值的走势。这些被分析的基本资料可以包含一家公司的财务报表和非财务上的信息，如商品需求增长性的预测、企业比较、新制度的影响分析或人口的改变。它通常和所谓的技术分析相对，技术分析在研究证券价值的趋势时，并不使用到市场本身以外的因素来做预测。
@@ -131,20 +131,20 @@ MBA智库百科
     
     <item>
       <title>市盈率</title>
-      <link>https://vcvvvc.github.io/post/per/</link>
+      <link>/post/per/</link>
       <pubDate>Wed, 22 Dec 2021 15:21:45 +0800</pubDate>
       
-      <guid>https://vcvvvc.github.io/post/per/</guid>
+      <guid>/post/per/</guid>
       <description>未填的坑2
 市盈率 ＝ ∑(收盘价×发行数量)/∑(每股收益×发行数量) </description>
     </item>
     
     <item>
       <title>氦气概念</title>
-      <link>https://vcvvvc.github.io/post/%E6%B0%A6%E6%B0%94%E6%A6%82%E5%BF%B5/</link>
+      <link>/post/%E6%B0%A6%E6%B0%94%E6%A6%82%E5%BF%B5/</link>
       <pubDate>Wed, 08 Dec 2021 00:01:52 +0800</pubDate>
       
-      <guid>https://vcvvvc.github.io/post/%E6%B0%A6%E6%B0%94%E6%A6%82%E5%BF%B5/</guid>
+      <guid>/post/%E6%B0%A6%E6%B0%94%E6%A6%82%E5%BF%B5/</guid>
       <description>2021-12-08: 氦气短缺的背后
 百科 百度百科：https://baike.baidu.com/item/氦气/8572782
 氦气，是一种稀有气体，英文名为Helium，元素符号为He，原子序数2。 [1] 为无色无味的惰性气体，化学性质不活泼，一般状态下很难和其它物质发生反应。 德国林德 氦寡头垄断企业
@@ -167,10 +167,10 @@ https://bg.qianzhan.com/report/detail/300/200327-592d351b.html</description>
     
     <item>
       <title>Wifi6与Wifi6e</title>
-      <link>https://vcvvvc.github.io/post/wifi6_6e/</link>
+      <link>/post/wifi6_6e/</link>
       <pubDate>Wed, 01 Dec 2021 11:24:45 +0800</pubDate>
       
-      <guid>https://vcvvvc.github.io/post/wifi6_6e/</guid>
+      <guid>/post/wifi6_6e/</guid>
       <description>2021-12-01： 写在市场Wi-Fi6概念未爆发前。
 以下非科普，只做了一些整理
 发展历程 WI-FI 6 维基百科：https://zh.wikipedia.org/wiki/IEEE_802.11ax
@@ -204,10 +204,10 @@ https://zhuanlan.zhihu.com/p/270389108</description>
     
     <item>
       <title>利率、国债、股市</title>
-      <link>https://vcvvvc.github.io/post/%E5%A4%AE%E8%A1%8C%E5%88%A9%E7%8E%87_%E5%9B%BD%E5%80%BA%E5%85%B3%E7%B3%BB/</link>
+      <link>/post/%E5%A4%AE%E8%A1%8C%E5%88%A9%E7%8E%87_%E5%9B%BD%E5%80%BA%E5%85%B3%E7%B3%BB/</link>
       <pubDate>Fri, 26 Nov 2021 21:36:16 +0800</pubDate>
       
-      <guid>https://vcvvvc.github.io/post/%E5%A4%AE%E8%A1%8C%E5%88%A9%E7%8E%87_%E5%9B%BD%E5%80%BA%E5%85%B3%E7%B3%BB/</guid>
+      <guid>/post/%E5%A4%AE%E8%A1%8C%E5%88%A9%E7%8E%87_%E5%9B%BD%E5%80%BA%E5%85%B3%E7%B3%BB/</guid>
       <description>国债 百度百科-国债：https://baike.baidu.com/item/国债/801020
 国债（national debt; government loan），又称国家公债，是国家以其信用为基础，按照债的一般原则，通过向社会筹集资金所形成的债权债务关系。国债是由国家发行的债券，是中央政府为筹集财政资金而发行的一种政府债券，是中央政府向投资者出具的、承诺在一定时期支付利息和到期偿还本金的债权债务凭证，由于国债的发行主体是国家，所以它具有最高的信用，被公认为是最安全的投资工具。
 简单说就是,政府借老百姓钱, 写张欠条,欠债要还钱，国债一到期, 政府就得连本带息还给老百姓。 利率 百度百科-利率：https://baike.baidu.com/item/利率
@@ -230,10 +230,10 @@ https://zhuanlan.zhihu.com/p/353299450</description>
     
     <item>
       <title>股权投资之区分融资轮</title>
-      <link>https://vcvvvc.github.io/post/%E5%8C%BA%E5%88%86%E8%9E%8D%E8%B5%84%E8%BD%AE/</link>
+      <link>/post/%E5%8C%BA%E5%88%86%E8%9E%8D%E8%B5%84%E8%BD%AE/</link>
       <pubDate>Sun, 21 Nov 2021 00:50:08 +0800</pubDate>
       
-      <guid>https://vcvvvc.github.io/post/%E5%8C%BA%E5%88%86%E8%9E%8D%E8%B5%84%E8%BD%AE/</guid>
+      <guid>/post/%E5%8C%BA%E5%88%86%E8%9E%8D%E8%B5%84%E8%BD%AE/</guid>
       <description>可转债之后第二篇,何为种子轮、天使轮、PreA轮、A轮、B轮、C轮
 种子轮 https://baike.baidu.com/item/种子轮/22415260 种子轮即种子融资，是指最早阶段进行的融资方式。虽然大多数初创企业都依靠创始人自己的或其直系亲属和朋友的资金，一些企业还是会寻求第三方的“种子融资”，这是一种最早期阶段进行的融资方式。 其特点是创业者已经有了创业的方向、思路，但是还没有成形的核心团队、没有产品原型。
 此时主要是依靠自身或者经典F4（Founders/其他创始人、Family/家人、Friends/朋友、Fools/傻子）
@@ -258,10 +258,10 @@ https://zhuanlan.zhihu.com/p/352456135</description>
     
     <item>
       <title>个人理解可转债</title>
-      <link>https://vcvvvc.github.io/post/%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3%E5%8F%AF%E8%BD%AC%E5%80%BA/</link>
+      <link>/post/%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3%E5%8F%AF%E8%BD%AC%E5%80%BA/</link>
       <pubDate>Thu, 19 Aug 2021 21:35:40 +0800</pubDate>
       
-      <guid>https://vcvvvc.github.io/post/%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3%E5%8F%AF%E8%BD%AC%E5%80%BA/</guid>
+      <guid>/post/%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3%E5%8F%AF%E8%BD%AC%E5%80%BA/</guid>
       <description>结合了个人理解 可能有差错 可以评论指出
 由于最近个人关注的股有一支要发转债, 故来了解下。
 什么是可转换债券 可转换债券是债券持有人可按照发行时约定的价格将债券转换成公司的普通股票的债券。如果债券持有人不想转换，则可以继续持有债券，直到偿还期满时收取本金和利息，或者在流通市场出售变现。如果持有人看好发债公司股票增值潜力，在宽限期之后可以行使转换权，按照预定转换价格将债券转换成为股票，发债公司不得拒绝。该债券利率一般低于普通公司的债券利率，企业发行可转换债券可以降低筹资成本。可转换债券持有人还享有在一定条件下将债券回售给发行人的权利，发行人在一定条件下拥有强制赎回债券的权利。

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>GCC on Vc</title>
-    <link>https://vcvvvc.github.io/tags/gcc/</link>
+    <link>/tags/gcc/</link>
     <description>Recent content in GCC on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 02 Dec 2021 11:08:36 +0800</lastBuildDate><atom:link href="https://vcvvvc.github.io/tags/gcc/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 Dec 2021 11:08:36 +0800</lastBuildDate><atom:link href="/tags/gcc/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ubuntu20.4 install gcc11.2.0</title>
-      <link>https://vcvvvc.github.io/post/ubuntu20_install_gcc11/</link>
+      <link>/post/ubuntu20_install_gcc11/</link>
       <pubDate>Thu, 02 Dec 2021 11:08:36 +0800</pubDate>
       
-      <guid>https://vcvvvc.github.io/post/ubuntu20_install_gcc11/</guid>
+      <guid>/post/ubuntu20_install_gcc11/</guid>
       <description>编译安装 make时间比较长。
 #直接存sh里 wget https://mirrors.ustc.edu.cn/gnu/gcc/gcc-11.2.0/gcc-11.2.0.tar.gz tar -zxvf gcc-11.2.0.tar.gz cd gcc-11.2.0 ./contrib/download_prerequisites mkdir build cd build ../configure configure -v --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --prefix=/usr/local/gcc-11.2 --enable-checking=release --enable-languages=c,c++ --disable-multilib --program-suffix=-11.2 make -j4 make install 设置默认gcc ln -s /usr/local/gcc-11.2/bin/g++-11.2 /usr/bin/g++-11.2 ln -s /usr/local/gcc-11.2/bin/gcc-11.2 /usr/bin/gcc-11.2 update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-11.2 100 update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-11.2 100 #选择版本 就一个选项的不会提供选择 update-alternatives --config gcc update-alternatives --config g++ gcc -v g++ -v Re: https://blog.csdn.net/wbvalid/article/details/119945557
 https://blog.csdn.net/EternallyAccompany/article/details/108865331</description>
@@ -20,10 +20,10 @@ https://blog.csdn.net/EternallyAccompany/article/details/108865331</description>
     
     <item>
       <title>Variable function(fun(char *, ...)) and vsnprintf()</title>
-      <link>https://vcvvvc.github.io/post/variable_function/</link>
+      <link>/post/variable_function/</link>
       <pubDate>Tue, 28 Jul 2020 14:44:30 +0800</pubDate>
       
-      <guid>https://vcvvvc.github.io/post/variable_function/</guid>
+      <guid>/post/variable_function/</guid>
       <description>void fun(char * fmt, &amp;hellip;); int vsprintf(char *str, const char *format, va_list arg);
 Test programming #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;stdarg.h&amp;gt; /* * Re: https://github.com/antirez/kilo/kilo.c * Re: https://www.runoob.com/cprogramming/c-function-vsprintf.html */ char buffer[80]; int editorSetstatus(const char * fmt, ...) { va_list ap; va_start(ap, fmt); int ret; ret = vsnprintf(buffer, sizeof(buffer - 1), fmt, ap); va_end(ap); return (ret); } int main(int argc, char **argv) { int len = 20; editorSetstatus(&amp;#34;%d&amp;#34;, len); printf(&amp;#34;%s \n&amp;#34;, buffer); return 0; } gcc -Wall -g fun.</description>
     </item>

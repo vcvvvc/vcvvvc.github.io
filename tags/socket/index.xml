@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Socket on Vc</title>
-    <link>https://vcvvvc.github.io/tags/socket/</link>
+    <link>/tags/socket/</link>
     <description>Recent content in Socket on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 29 May 2023 21:13:27 +0800</lastBuildDate><atom:link href="https://vcvvvc.github.io/tags/socket/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 29 May 2023 21:13:27 +0800</lastBuildDate><atom:link href="/tags/socket/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>TIME_WAIT与SO_LINGER</title>
-      <link>https://vcvvvc.github.io/post/time_wait%E4%B8%8Eso_linger/</link>
+      <link>/post/time_wait%E4%B8%8Eso_linger/</link>
       <pubDate>Mon, 29 May 2023 21:13:27 +0800</pubDate>
       
-      <guid>https://vcvvvc.github.io/post/time_wait%E4%B8%8Eso_linger/</guid>
+      <guid>/post/time_wait%E4%B8%8Eso_linger/</guid>
       <description>TIME_WAIT 主动关闭方在收到被动关闭方的FIN包后并返回ACK后，会进入TIME_WAIT状态，TIME_WAIT状态又称2MSL状态，每个TCP连接都必须有一个最大报文段生存时间MSL，在网络传输中超过这个时间的报文段将被丢弃。当TCP连接发起一个主动关闭，并发出最后一个ACK时，必须在TIME_WAIT状态停留两倍MSL时间，在2MSL等待期间，定义这个连接的插口(客户端IP地址和端口号，服务器IP地址和端口号的四元组)将不能再被使用。
 主动发起关闭连接的一方，才会有 TIME-WAIT 状态。 需要TIME-WAIT状态，主要是两个原因：
 防止历史连接中的数据，被后面相同四元组的连接错误的接收；
@@ -33,10 +33,10 @@ struct linger { int l_onoff; //0=off, nonzero=on(开关) int l_linger; //linger 
     
     <item>
       <title>SO_REUSEPORT与SO_REUSEADDR</title>
-      <link>https://vcvvvc.github.io/post/so_reuseport%E4%B8%8Eso_reuseaddr/</link>
+      <link>/post/so_reuseport%E4%B8%8Eso_reuseaddr/</link>
       <pubDate>Mon, 29 May 2023 20:54:49 +0800</pubDate>
       
-      <guid>https://vcvvvc.github.io/post/so_reuseport%E4%B8%8Eso_reuseaddr/</guid>
+      <guid>/post/so_reuseport%E4%B8%8Eso_reuseaddr/</guid>
       <description>SO_REUSEPORT端口重用 int opt_val = 1; setsockopt(sockfd, SOL_SOCKET, SO_REUSEPORT, &amp;amp;opt_val, sizeof(opt_val)) SO_REUSEPORT是允许多个socket绑定到同一个ip+port上
 每一个线程拥有自己的服务器套接字, 在服务器套接字上没有了锁的竞争
 内核层面实现负载均衡
@@ -52,10 +52,10 @@ Epoll惊群 #include &amp;lt;sys/types.h&amp;gt; #include &amp;lt;sys/socket.h&a
     
     <item>
       <title>ip转换函数</title>
-      <link>https://vcvvvc.github.io/post/ip%E8%BD%AC%E6%8D%A2%E5%87%BD%E6%95%B0/</link>
+      <link>/post/ip%E8%BD%AC%E6%8D%A2%E5%87%BD%E6%95%B0/</link>
       <pubDate>Sun, 21 Nov 2021 22:08:01 +0800</pubDate>
       
-      <guid>https://vcvvvc.github.io/post/ip%E8%BD%AC%E6%8D%A2%E5%87%BD%E6%95%B0/</guid>
+      <guid>/post/ip%E8%BD%AC%E6%8D%A2%E5%87%BD%E6%95%B0/</guid>
       <description>主机字节序（大端） 和 网络字节序（小端)
 大端: 0x12 | 0x32 | 0x56
 小端: 0x56 | 0x34 | 0x12
@@ -67,10 +67,10 @@ uint32_t htonl(uint32_t hostlong); //将主机的无符号长整型数转换成�
     
     <item>
       <title>Server sum</title>
-      <link>https://vcvvvc.github.io/post/server_sum/</link>
+      <link>/post/server_sum/</link>
       <pubDate>Sun, 04 Apr 2021 18:21:09 +0800</pubDate>
       
-      <guid>https://vcvvvc.github.io/post/server_sum/</guid>
+      <guid>/post/server_sum/</guid>
       <description>c++标准网络库对比 https://vcvvvc.github.io/post/c++标准网络库/ socket struct整理 https://vcvvvc.github.io/post/socket_struct/ socket编程需要的头文件整理 https://vcvvvc.github.io/post/socket_file/ socket function https://vcvvvc.github.io/post/socket/ I/O复用 https://vcvvvc.github.io/post//io多路复用 sem function https://vcvvvc.github.io/post/sem/ server io actor https://vcvvvc.github.io/post/server_actor/ timer function https://vcvvvc.github.io/post/timer_function/ Linux Pthread 线程创建与使用 https://vcvvvc.github.io/post/pthread/
 C++11 thread https://vcvvvc.github.io/post/cppthread/
 Unp note https://vcvvvc.github.io/post/unp_note/
@@ -80,10 +80,10 @@ exception class 异常类 https://vcvvvc.github.io/post/cpp_exception/</descript
     
     <item>
       <title>Tcp_ip</title>
-      <link>https://vcvvvc.github.io/post/tcp_ip/</link>
+      <link>/post/tcp_ip/</link>
       <pubDate>Thu, 25 Feb 2021 14:28:11 +0800</pubDate>
       
-      <guid>https://vcvvvc.github.io/post/tcp_ip/</guid>
+      <guid>/post/tcp_ip/</guid>
       <description>计算机体系结构 各层作用及协议 分层 作用 协议 物理层 通过媒介传输比特，确定机械及电气规范（比特 Bit） RJ45、CLOCK、IEEE802.3（中继器，集线器） 数据链路层 将比特组装成帧和点到点的传递（帧 Frame） PPP、FR、HDLC、VLAN、MAC（网桥，交换机） 网络层 负责数据包从源到宿的传递和网际互连（包 Packet） IP、ICMP、ARP、RARP、OSPF、IPX、RIP、IGRP（路由器） 运输层 提供端到端的可靠报文传递和错误恢复（ 段Segment） TCP、UDP、SPX 会话层 建立、管理和终止会话（会话协议数据单元 SPDU） NFS、SQL、NETBIOS、RPC 表示层 对数据进行翻译、加密和压缩（表示协议数据单元 PPDU） JPEG、MPEG、ASII 应用层 允许访问OSI环境的手段（应用协议数据单元 APDU） FTP、DNS、Telnet、SMTP、HTTP、WWW、NFS 封装 链路层 链路层主要有三个目的：
 为IP模块发送和接收IP数据报； 为ARP模块发送ARP请求和接收ARP应答； 为RARP发送RARP请求和接收RARP应答。 PPP（点到点协议）是为在同等单元之间传输数据包这样的简单链路设计的链路层协议。
 环回接口
@@ -97,10 +97,10 @@ IP 地址 ::= {&amp;lt;网络号&amp;gt;,&amp;lt;主机号&amp;gt;} IP地址类�
     
     <item>
       <title>Socket write_send</title>
-      <link>https://vcvvvc.github.io/post/socket_write_send/</link>
+      <link>/post/socket_write_send/</link>
       <pubDate>Sat, 21 Nov 2020 14:59:41 +0800</pubDate>
       
-      <guid>https://vcvvvc.github.io/post/socket_write_send/</guid>
+      <guid>/post/socket_write_send/</guid>
       <description>ssize_t write(int fd, const void*buf,size_t nbytes);
 write函数将buf中的nbytes字节内容写入文件描述符fd.
 成功时返回写的字节数.失败时返回-1. 并设置errno变量. 在网络程序中,当我们向套接字文件描述符写时有两可能. 1)write的返回值大于0,表示写了部分或者是全部的数据. 这样我们用一个while循环来不停的写入，但是循环过程中的buf参数和nbyte参数得由我们来更新。也就是说，网络写函数是不负责将全部数据写完之后在返回的。 2)返回的值小于0,此时出现了错误.我们要根据错误类型来处理. 如果错误为EINTR表示在写的时候出现了中断错误. 如果为EPIPE表示网络连接出现了问题(对方已经关闭了连接).
@@ -118,10 +118,10 @@ https://blog.csdn.net/petershina/article/details/7946615</description>
     
     <item>
       <title>Socket file</title>
-      <link>https://vcvvvc.github.io/post/socket_file/</link>
+      <link>/post/socket_file/</link>
       <pubDate>Sun, 13 Sep 2020 16:43:04 +0800</pubDate>
       
-      <guid>https://vcvvvc.github.io/post/socket_file/</guid>
+      <guid>/post/socket_file/</guid>
       <description>socket编程中需要用到的头文件
 sys/types.h：数据类型定义
 sys/socket.h：提供socket函数及数据结构
@@ -150,10 +150,10 @@ sys/wait.h、sys/ipc.h、sys/shm.h：提供进程等待、进程间通讯（IPC�
     
     <item>
       <title>epoll use</title>
-      <link>https://vcvvvc.github.io/post/epoll_use/</link>
+      <link>/post/epoll_use/</link>
       <pubDate>Thu, 27 Aug 2020 12:09:01 +0800</pubDate>
       
-      <guid>https://vcvvvc.github.io/post/epoll_use/</guid>
+      <guid>/post/epoll_use/</guid>
       <description>简介 #include &amp;lt;sys/epoll.h&amp;gt;
 epoll与select
 Epoll 没有最大并发连接的限制，上限是最大可以打开文件的数目 效率提升，epoll对于句柄事件的选择不是遍历的，是事件响应的，就是句柄上事件来就马上选择出来，不需要遍历整个句柄链表，因此效率非常高，内核将句柄用红黑树保存的，IO效率不随FD数目增加而线性下降。 内存拷贝， select让内核把 FD 消息通知给用户空间的时候使用了内存拷贝的方式，开销较大，但是Epoll 在这点上使用了共享内存的方式，这个内存拷贝也省略了。 相比于select，epoll最大的好处在于它不会随着监听fd数目的增长而降低效率。因为在内核中的select实现中，它是采用轮询来处理的，轮询的fd数目越多，自然耗时越多。 并且，在linux/posix_types.h头文件有这样的声明： #define __FD_SETSIZE 1024 表示select最多同时监听1024个fd，当然，可以通过修改头文件再重编译内核来扩大这个数目，但这似乎并不治本。 epoll是Linux内核为处理大批量文件描述符而作了改进的poll，是Linux下多路复用IO接口select/poll的增强版本，它能显著提高程序在大量并发连接中只有少量活跃的情况下的系统CPU利用率。原因就是获取事件的时候，它无须遍历整个被侦听的描述符集，只要遍历那些被内核IO事件异步唤醒而加入Ready队列的描述符集合就行了。
@@ -167,10 +167,10 @@ Epoll 没有最大并发连接的限制，上限是最大可以打开文件的�
     
     <item>
       <title>Socket function</title>
-      <link>https://vcvvvc.github.io/post/socket/</link>
+      <link>/post/socket/</link>
       <pubDate>Wed, 26 Aug 2020 22:47:24 +0800</pubDate>
       
-      <guid>https://vcvvvc.github.io/post/socket/</guid>
+      <guid>/post/socket/</guid>
       <description>setsockopt
 获取或者设置与某个套接字关联的选 项。选项可能存在于多层协议中，它们总会出现在最上面的套接字层。当操作套接字选项时， 选项位于的层和选项的名称必须给出。为了操作套接字层的选项，应该 将层的值指定为SOL_SOCKET。为了操作其它层的选项，控制选 项的合适协议号必须给出。例如，为了表示一个选项由TCP协议解析，层应该设定为协议 号TCP。 SO_LINGER选项
 struct linger { int l_onoff; int l_linger; }; l_onoff = 0, 数据保持发送完成后立即返回 l_onoff = 1, l_linger = 0, 立即放回 放弃发送, 发送rst 自身立即复位 l_onoff = 1, l_linger = 1, 阻塞到超时或数据发送完成, 保持尝试发送,超时后立即结束 SO_REUSEADDR选项

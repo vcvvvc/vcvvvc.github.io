@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Backtrace on Vc</title>
-    <link>https://vcvvvc.github.io/tags/backtrace/</link>
+    <link>/tags/backtrace/</link>
     <description>Recent content in Backtrace on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 02 Sep 2020 14:10:18 +0800</lastBuildDate><atom:link href="https://vcvvvc.github.io/tags/backtrace/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 02 Sep 2020 14:10:18 +0800</lastBuildDate><atom:link href="/tags/backtrace/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linux cpp put Backtrace</title>
-      <link>https://vcvvvc.github.io/post/backtrace/</link>
+      <link>/post/backtrace/</link>
       <pubDate>Wed, 02 Sep 2020 14:10:18 +0800</pubDate>
       
-      <guid>https://vcvvvc.github.io/post/backtrace/</guid>
+      <guid>/post/backtrace/</guid>
       <description>获取Backtrace #include &amp;lt;execinfo.h&amp;gt; /* Store up to SIZE return address of the current program state in ARRAY and return the exact number of values stored. */ int backtrace(void **array, int size); /* Return names of functions from the backtrace list in ARRAY in a newly malloc()ed memory block. */ char **backtrace_symbols(void *const *array, int size); /* This function is similar to backtrace_symbols() but it writes the result immediately to a file.</description>
     </item>
     

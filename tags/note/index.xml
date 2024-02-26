@@ -2,27 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Note on Vc</title>
-    <link>https://vcvvvc.github.io/tags/note/</link>
+    <link>/tags/note/</link>
     <description>Recent content in Note on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 05 Apr 2022 00:48:48 +0800</lastBuildDate><atom:link href="https://vcvvvc.github.io/tags/note/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 05 Apr 2022 00:48:48 +0800</lastBuildDate><atom:link href="/tags/note/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>NFT_NFR</title>
-      <link>https://vcvvvc.github.io/post/nft_nfr/</link>
+      <link>/post/nft_nfr/</link>
       <pubDate>Tue, 05 Apr 2022 00:48:48 +0800</pubDate>
       
-      <guid>https://vcvvvc.github.io/post/nft_nfr/</guid>
+      <guid>/post/nft_nfr/</guid>
       <description>Non-Fungible Rights, 不可替代权利
 Non-fungible Token, 不可替代代币</description>
     </item>
     
     <item>
       <title>企业估值</title>
-      <link>https://vcvvvc.github.io/post/business-valuation/</link>
+      <link>/post/business-valuation/</link>
       <pubDate>Wed, 22 Dec 2021 15:23:02 +0800</pubDate>
       
-      <guid>https://vcvvvc.github.io/post/business-valuation/</guid>
+      <guid>/post/business-valuation/</guid>
       <description>未填的坑3
 基本分析 财务报表 企业护城河 影响因素 企业估值 市盈率 投资策略 价值投资 成长投资 事件驱动投资 技术分析 限时限额加码止盈投资法 基本面分析 https://zh.wikipedia.org/wiki/Category:%E5%9F%BA%E6%9C%AC%E9%9D%A2%E5%88%86%E6%9E%90
 基本面分析是一种证券或股票估价的方法，利用财务分析和经济学上的研究来评估企业价值或预测证券（如股票或债券等）价值的走势。这些被分析的基本资料可以包含一家公司的财务报表和非财务上的信息，如商品需求增长性的预测、企业比较、新制度的影响分析或人口的改变。它通常和所谓的技术分析相对，技术分析在研究证券价值的趋势时，并不使用到市场本身以外的因素来做预测。
@@ -39,20 +39,20 @@ MBA智库百科
     
     <item>
       <title>市盈率</title>
-      <link>https://vcvvvc.github.io/post/per/</link>
+      <link>/post/per/</link>
       <pubDate>Wed, 22 Dec 2021 15:21:45 +0800</pubDate>
       
-      <guid>https://vcvvvc.github.io/post/per/</guid>
+      <guid>/post/per/</guid>
       <description>未填的坑2
 市盈率 ＝ ∑(收盘价×发行数量)/∑(每股收益×发行数量) </description>
     </item>
     
     <item>
       <title>氦气概念</title>
-      <link>https://vcvvvc.github.io/post/%E6%B0%A6%E6%B0%94%E6%A6%82%E5%BF%B5/</link>
+      <link>/post/%E6%B0%A6%E6%B0%94%E6%A6%82%E5%BF%B5/</link>
       <pubDate>Wed, 08 Dec 2021 00:01:52 +0800</pubDate>
       
-      <guid>https://vcvvvc.github.io/post/%E6%B0%A6%E6%B0%94%E6%A6%82%E5%BF%B5/</guid>
+      <guid>/post/%E6%B0%A6%E6%B0%94%E6%A6%82%E5%BF%B5/</guid>
       <description>2021-12-08: 氦气短缺的背后
 百科 百度百科：https://baike.baidu.com/item/氦气/8572782
 氦气，是一种稀有气体，英文名为Helium，元素符号为He，原子序数2。 [1] 为无色无味的惰性气体，化学性质不活泼，一般状态下很难和其它物质发生反应。 德国林德 氦寡头垄断企业
@@ -75,10 +75,10 @@ https://bg.qianzhan.com/report/detail/300/200327-592d351b.html</description>
     
     <item>
       <title>Wifi6与Wifi6e</title>
-      <link>https://vcvvvc.github.io/post/wifi6_6e/</link>
+      <link>/post/wifi6_6e/</link>
       <pubDate>Wed, 01 Dec 2021 11:24:45 +0800</pubDate>
       
-      <guid>https://vcvvvc.github.io/post/wifi6_6e/</guid>
+      <guid>/post/wifi6_6e/</guid>
       <description>2021-12-01： 写在市场Wi-Fi6概念未爆发前。
 以下非科普，只做了一些整理
 发展历程 WI-FI 6 维基百科：https://zh.wikipedia.org/wiki/IEEE_802.11ax

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>markdown on Vc</title>
-    <link>https://vcvvvc.github.io/tags/markdown/</link>
+    <link>/tags/markdown/</link>
     <description>Recent content in markdown on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 29 Jul 2020 18:27:35 +0800</lastBuildDate><atom:link href="https://vcvvvc.github.io/tags/markdown/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 29 Jul 2020 18:27:35 +0800</lastBuildDate><atom:link href="/tags/markdown/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hugo &amp; Markdown</title>
-      <link>https://vcvvvc.github.io/post/hugomarkdown/</link>
+      <link>/post/hugomarkdown/</link>
       <pubDate>Wed, 29 Jul 2020 18:27:35 +0800</pubDate>
       
-      <guid>https://vcvvvc.github.io/post/hugomarkdown/</guid>
+      <guid>/post/hugomarkdown/</guid>
       <description>0. Hugo &amp;amp; Markdown Hugo &amp;amp;&amp;amp; MarkDown
 1. MarkDown template --- title: &amp;#34;{{ replace .Name &amp;#34;-&amp;#34; &amp;#34; &amp;#34; | title }}&amp;#34; date: {{ .Date }} lastmod: {{ .Date }} draft: false tags: [ ] categories: [ ] comment: true --- 2. Hugo command hugo #build html havn&amp;#39;t draft=true hugo -D #build html and dragt=true hugo server #Start hugo server 3. Other Reference</description>
     </item>

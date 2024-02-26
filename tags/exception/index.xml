@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>exception on Vc</title>
-    <link>https://vcvvvc.github.io/tags/exception/</link>
+    <link>/tags/exception/</link>
     <description>Recent content in exception on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 13 Sep 2020 15:13:08 +0800</lastBuildDate><atom:link href="https://vcvvvc.github.io/tags/exception/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 13 Sep 2020 15:13:08 +0800</lastBuildDate><atom:link href="/tags/exception/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cpp exception class</title>
-      <link>https://vcvvvc.github.io/post/cpp_exception/</link>
+      <link>/post/cpp_exception/</link>
       <pubDate>Sun, 13 Sep 2020 15:13:08 +0800</pubDate>
       
-      <guid>https://vcvvvc.github.io/post/cpp_exception/</guid>
+      <guid>/post/cpp_exception/</guid>
       <description>class exception{ public: exception () throw(); //构造函数 exception (const exception&amp;amp;) throw(); //拷贝构造函数 exception&amp;amp; operator= (const exception&amp;amp;) throw(); //运算符重载 virtual ~exception() throw(); //虚析构函数 virtual const char* what() const throw(); //虚函数 } what() 函数返回一个能识别异常的字符串，正如它的名字“what”一样，可以粗略地告诉你这是什么异常。
 exception 类的继承层次: exception 类 直接派生类
 exceptopn explain login_error logic error runtime_error 运行时错误 bad_alloc 使用 new 或 new[] 分配内存失败时抛出的异常 bad_typeid 使用 typeid 操作一个 NULL 指针，而且该指针是带有虚函数的类，这时抛出 bad_typeid 异常 bad_cast 使用 dynamic_cast 转换失败时抛出的异常 ios_base::failure io 过程中出现的异常 bad_exception 这是个特殊的异常，如果函数的异常列表里声明了 bad_exception 异常，当函数内部抛出了异常列表中没有的异常时，如果调用的 unexpected() 函数中抛出了异常，不论什么类型，都会被替换为 bad_exception 类型 logic_error 的派生类</description>

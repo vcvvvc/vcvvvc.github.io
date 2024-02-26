@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Crypto on Vc</title>
-    <link>https://vcvvvc.github.io/tags/crypto/</link>
+    <link>/tags/crypto/</link>
     <description>Recent content in Crypto on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 25 Jan 2024 19:26:12 +0800</lastBuildDate><atom:link href="https://vcvvvc.github.io/tags/crypto/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 25 Jan 2024 19:26:12 +0800</lastBuildDate><atom:link href="/tags/crypto/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>加密领域做市商公司粗略统计</title>
-      <link>https://vcvvvc.github.io/post/crypto_market_maker/</link>
+      <link>/post/crypto_market_maker/</link>
       <pubDate>Thu, 25 Jan 2024 19:26:12 +0800</pubDate>
       
-      <guid>https://vcvvvc.github.io/post/crypto_market_maker/</guid>
+      <guid>/post/crypto_market_maker/</guid>
       <description>BING AI整理，可能有出入
 Virtu Financial：一家总部位于美国的金融科技公司，为全球多个资产类别提供高频交易和市场做市服务，拥有先进的技术平台和算法，每天处理超过200亿美元的交易量2。
 Jane Street：一家总部位于美国的量化交易公司，为全球的股票、期货、期权、债券、外汇、ETF等市场提供流动性，使用自主开发的软件和系统进行高频交易，每天的交易额超过1000亿美元3。

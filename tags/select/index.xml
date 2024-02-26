@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Select on Vc</title>
-    <link>https://vcvvvc.github.io/tags/select/</link>
+    <link>/tags/select/</link>
     <description>Recent content in Select on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 10 Oct 2021 10:00:00 +0800</lastBuildDate><atom:link href="https://vcvvvc.github.io/tags/select/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 Oct 2021 10:00:00 +0800</lastBuildDate><atom:link href="/tags/select/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>I/O多路复用</title>
-      <link>https://vcvvvc.github.io/post/io%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</link>
+      <link>/post/io%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</link>
       <pubDate>Sun, 10 Oct 2021 10:00:00 +0800</pubDate>
       
-      <guid>https://vcvvvc.github.io/post/io%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</guid>
+      <guid>/post/io%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</guid>
       <description>I/O模型 https://vcvvvc.github.io/post/server_actor/
 I/O多路复用 Select、Poll、Epoll, 多路是指？多个业务方（句柄）并发下来的 IO 。 复用是指？复用这一个后台处理程序。
 Select select()函数主要解决的是accept()函数阻塞问题，而没有解决recv()和send()函数阻塞问题
