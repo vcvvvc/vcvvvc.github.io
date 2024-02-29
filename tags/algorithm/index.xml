@@ -2,27 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Algorithm on Vc</title>
-    <link>/tags/algorithm/</link>
+    <link>https://vcvvvc.github.io/tags/algorithm/</link>
     <description>Recent content in Algorithm on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 04 Oct 2020 16:09:26 +0800</lastBuildDate><atom:link href="/tags/algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 04 Oct 2020 16:09:26 +0800</lastBuildDate><atom:link href="https://vcvvvc.github.io/tags/algorithm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Algorithm x^n</title>
-      <link>/post/recursion/</link>
+      <link>https://vcvvvc.github.io/post/recursion/</link>
       <pubDate>Sun, 04 Oct 2020 16:09:26 +0800</pubDate>
       
-      <guid>/post/recursion/</guid>
+      <guid>https://vcvvvc.github.io/post/recursion/</guid>
       <description>O(1)常数阶 &amp;lt; O(logn)对数阶 &amp;lt; O(n)线性阶 &amp;lt; O(n^2)平方阶 &amp;lt; O(n^3)(立方阶) &amp;lt; O(2^n) (指数阶)
 For O(n) int function1(int x, int n) { int result = 1; // 注意 任何数的0次方等于1 for (int i = 0; i &amp;lt; n; i++) { result = result * x; } return result; } Recursion O(n) int function2(int x, int n) { if (n == 0) { return 1; // return 1 同样是因为0次方是等于1的 } return function2(x, n - 1) * x; } Recursion2 O(n) int function3(int x, int n) { if (n == 0) { return 1; } if (n % 2 == 1) { return function3(x, n/2) * function3(x, n/2)*x; } return function3(x, n/2) * function3(x, n/2); } Recursion3 O(logn) int function4(int x, int n) { if (n == 0) { return 1; } int t = function4(x, n/2);// 这里相对于function3，是把这个递归操作抽取出来 if (n % 2 == 1) { return t*t*x; } return t*t; } </description>
     </item>
     
     <item>
       <title>Binary Tree</title>
-      <link>/post/binary_tree/</link>
+      <link>https://vcvvvc.github.io/post/binary_tree/</link>
       <pubDate>Tue, 18 Aug 2020 14:40:25 +0800</pubDate>
       
-      <guid>/post/binary_tree/</guid>
+      <guid>https://vcvvvc.github.io/post/binary_tree/</guid>
       <description>性质1:在二叉树的第i层上至多有2 i-1 个结点(i≥1)。
 性质2:深度为k的二叉树至多有2 k -1个结点(k≥1)。
 性质3:对任何一棵二叉树T,如果其终端结点数为n 0 ,度为2的结点数 为n 2 ,则n 0 =n 2 +1。

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>shell on Vc</title>
-    <link>/tags/shell/</link>
+    <link>https://vcvvvc.github.io/tags/shell/</link>
     <description>Recent content in shell on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 01 Aug 2020 21:31:50 +0800</lastBuildDate><atom:link href="/tags/shell/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 01 Aug 2020 21:31:50 +0800</lastBuildDate><atom:link href="https://vcvvvc.github.io/tags/shell/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Shell_command($!, $@...)</title>
-      <link>/post/shell_commans/</link>
+      <link>https://vcvvvc.github.io/post/shell_commans/</link>
       <pubDate>Sat, 01 Aug 2020 21:31:50 +0800</pubDate>
       
-      <guid>/post/shell_commans/</guid>
+      <guid>https://vcvvvc.github.io/post/shell_commans/</guid>
       <description>./start.sh 1 2 3 4 num: $# = 4 PID: $$ = 24133 sname: $0 = start.sh first: $1 = 1 secont: $2 = 2 $@ = 1234 #value list $* = 1234 #value $* 1 2 3 4 </description>
     </item>
     

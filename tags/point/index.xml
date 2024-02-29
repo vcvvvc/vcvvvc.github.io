@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>point on Vc</title>
-    <link>/tags/point/</link>
+    <link>https://vcvvvc.github.io/tags/point/</link>
     <description>Recent content in point on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 17 Aug 2020 15:10:13 +0800</lastBuildDate><atom:link href="/tags/point/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 17 Aug 2020 15:10:13 +0800</lastBuildDate><atom:link href="https://vcvvvc.github.io/tags/point/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>C&#43;&#43; auto ponit</title>
-      <link>/post/cpp_auto_ponit/</link>
+      <link>https://vcvvvc.github.io/post/cpp_auto_ponit/</link>
       <pubDate>Mon, 17 Aug 2020 15:10:13 +0800</pubDate>
       
-      <guid>/post/cpp_auto_ponit/</guid>
+      <guid>https://vcvvvc.github.io/post/cpp_auto_ponit/</guid>
       <description>Class shared_ptr 实现共享式拥有（shared ownership）概念。多个智能指针指向相同对象，该对象和其相关资源会在 “最后一个 reference 被销毁” 时被释放。为了在结构较复杂的情景中执行上述工作，标准库提供 weak_ptr、bad_weak_ptr 和 enable_shared_from_this 等辅助类。 Class unique_ptr 实现独占式拥有（exclusive ownership）或严格拥有（strict ownership）概念，保证同一时间内只有一个智能指针可以指向该对象。你可以移交拥有权。它对于避免内存泄漏（resource leak）——如 new 后忘记 delete ——特别有用。 1.shared_ptr shared_ptr&amp;lt;T&amp;gt; sp
 多个智能指针可以共享同一个对象，对象的最末一个拥有着有责任销毁对象，并清理与该对象相关的所有资源。
 支持定制型删除器（custom deleter），可防范 Cross-DLL 问题（对象在动态链接库（DLL）中被 new 创建，却在另一个 DLL 内被 delete 销毁）、自动解除互斥锁 3. make_shared make_shared&amp;lt;T&amp;gt;(args)

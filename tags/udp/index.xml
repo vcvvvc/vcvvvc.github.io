@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>UDP on Vc</title>
-    <link>/tags/udp/</link>
+    <link>https://vcvvvc.github.io/tags/udp/</link>
     <description>Recent content in UDP on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 25 Feb 2021 14:28:11 +0800</lastBuildDate><atom:link href="/tags/udp/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 25 Feb 2021 14:28:11 +0800</lastBuildDate><atom:link href="https://vcvvvc.github.io/tags/udp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Tcp_ip</title>
-      <link>/post/tcp_ip/</link>
+      <link>https://vcvvvc.github.io/post/tcp_ip/</link>
       <pubDate>Thu, 25 Feb 2021 14:28:11 +0800</pubDate>
       
-      <guid>/post/tcp_ip/</guid>
+      <guid>https://vcvvvc.github.io/post/tcp_ip/</guid>
       <description>计算机体系结构 各层作用及协议 分层 作用 协议 物理层 通过媒介传输比特，确定机械及电气规范（比特 Bit） RJ45、CLOCK、IEEE802.3（中继器，集线器） 数据链路层 将比特组装成帧和点到点的传递（帧 Frame） PPP、FR、HDLC、VLAN、MAC（网桥，交换机） 网络层 负责数据包从源到宿的传递和网际互连（包 Packet） IP、ICMP、ARP、RARP、OSPF、IPX、RIP、IGRP（路由器） 运输层 提供端到端的可靠报文传递和错误恢复（ 段Segment） TCP、UDP、SPX 会话层 建立、管理和终止会话（会话协议数据单元 SPDU） NFS、SQL、NETBIOS、RPC 表示层 对数据进行翻译、加密和压缩（表示协议数据单元 PPDU） JPEG、MPEG、ASII 应用层 允许访问OSI环境的手段（应用协议数据单元 APDU） FTP、DNS、Telnet、SMTP、HTTP、WWW、NFS 封装 链路层 链路层主要有三个目的：
 为IP模块发送和接收IP数据报； 为ARP模块发送ARP请求和接收ARP应答； 为RARP发送RARP请求和接收RARP应答。 PPP（点到点协议）是为在同等单元之间传输数据包这样的简单链路设计的链路层协议。
 环回接口

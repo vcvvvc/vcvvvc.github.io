@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>FFmpeg on Vc</title>
-    <link>/tags/ffmpeg/</link>
+    <link>https://vcvvvc.github.io/tags/ffmpeg/</link>
     <description>Recent content in FFmpeg on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 27 Jul 2020 17:41:31 +0800</lastBuildDate><atom:link href="/tags/ffmpeg/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 27 Jul 2020 17:41:31 +0800</lastBuildDate><atom:link href="https://vcvvvc.github.io/tags/ffmpeg/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ubuntu20 install FFmpeg</title>
-      <link>/post/ffmpeg_install/</link>
+      <link>https://vcvvvc.github.io/post/ffmpeg_install/</link>
       <pubDate>Mon, 27 Jul 2020 17:41:31 +0800</pubDate>
       
-      <guid>/post/ffmpeg_install/</guid>
+      <guid>https://vcvvvc.github.io/post/ffmpeg_install/</guid>
       <description>Start Download FFmpeg Install tool 1. install yasm
 sudo apt-get install yasm if not installed yasm, os will output &amp;ldquo;nasm/yasm not found or too old. Use &amp;ndash;disable-x86asm for a crippled build.&amp;rdquo;
 2. install SDL2

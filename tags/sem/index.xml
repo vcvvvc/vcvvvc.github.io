@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Sem on Vc</title>
-    <link>/tags/sem/</link>
+    <link>https://vcvvvc.github.io/tags/sem/</link>
     <description>Recent content in Sem on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 23 Jan 2021 20:45:54 +0800</lastBuildDate><atom:link href="/tags/sem/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 23 Jan 2021 20:45:54 +0800</lastBuildDate><atom:link href="https://vcvvvc.github.io/tags/sem/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linux Sem</title>
-      <link>/post/sem/</link>
+      <link>https://vcvvvc.github.io/post/sem/</link>
       <pubDate>Sat, 23 Jan 2021 20:45:54 +0800</pubDate>
       
-      <guid>/post/sem/</guid>
+      <guid>https://vcvvvc.github.io/post/sem/</guid>
       <description>信号量是一种特殊的变量，它只能取自然数值并且只支持两种操作：等待(P)和信号(V).假设有信号量SV，对其的P、V操作如下：
 P，如果SV的值大于0，则将其减一；若SV的值为0，则挂起执行 V，如果有其他进行因为等待SV而挂起，则唤醒；若没有，则将SV值加一 int sem_init(sem_t *sem, int pshared, unsigned int value)
 初始化m_sem value为指定信号量的初始值

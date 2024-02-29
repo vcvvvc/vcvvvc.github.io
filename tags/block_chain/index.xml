@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Block_Chain on Vc</title>
-    <link>/tags/block_chain/</link>
+    <link>https://vcvvvc.github.io/tags/block_chain/</link>
     <description>Recent content in Block_Chain on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 30 Apr 2022 16:20:01 +0800</lastBuildDate><atom:link href="/tags/block_chain/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 30 Apr 2022 16:20:01 +0800</lastBuildDate><atom:link href="https://vcvvvc.github.io/tags/block_chain/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About_ERC</title>
-      <link>/post/about_erc/</link>
+      <link>https://vcvvvc.github.io/post/about_erc/</link>
       <pubDate>Sat, 30 Apr 2022 16:20:01 +0800</pubDate>
       
-      <guid>/post/about_erc/</guid>
+      <guid>https://vcvvvc.github.io/post/about_erc/</guid>
       <description>ERC ERC全称“Ethereum Request for Comment&amp;quot;，翻译过来即Ethereum版的意见征求稿，用以记录以太坊上应用级的各种开发标准和协议(application-level standards and conventions)。
 EIP(Ethereum Improvement Proposals以太坊升级提案)是为以太坊潜在新功能或流程提出建议的标准。 EIP 包含提议改进的技术规范，并作为社区的“真相来源”。 在 EIP 的过程中，将会讨论和制定以太坊的网络升级和应用标准。
 以太坊EIP 的标准序列包括 Core（核心改进）、Networking（网络层改进）、Interface（接口改进）、ERC（应用层意见征集）。

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>function on Vc</title>
-    <link>/tags/function/</link>
+    <link>https://vcvvvc.github.io/tags/function/</link>
     <description>Recent content in function on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 14 Aug 2020 16:16:33 +0800</lastBuildDate><atom:link href="/tags/function/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 14 Aug 2020 16:16:33 +0800</lastBuildDate><atom:link href="https://vcvvvc.github.io/tags/function/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Constexpr</title>
-      <link>/post/constexpr/</link>
+      <link>https://vcvvvc.github.io/post/constexpr/</link>
       <pubDate>Fri, 14 Aug 2020 16:16:33 +0800</pubDate>
       
-      <guid>/post/constexpr/</guid>
+      <guid>https://vcvvvc.github.io/post/constexpr/</guid>
       <description>0.Array int url[10]; //true int url[6 + 4] //true int len = 10; int url[len] //flase 1.Constexpr #include &amp;lt;iostream&amp;gt; using namespace std; int main() { /* * If have not constexpr, CPP throw error */ constexpr int num = 1 + 2 + 3; int url[num] = {1,2,3,4,5,6}; couts&amp;lt;&amp;lt; url[1] &amp;lt;&amp;lt; endl; return 0; } 2.Only have one &amp;lsquo;return&amp;rsquo; # Error constexpr int display(int x) { int ret = 1 + 2 + x; return ret; } # True constexpr int display(int x) { return 1 + 2 + x; } 3.</description>
     </item>
     

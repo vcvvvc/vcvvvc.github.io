@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>DeFi on Vc</title>
-    <link>/tags/defi/</link>
+    <link>https://vcvvvc.github.io/tags/defi/</link>
     <description>Recent content in DeFi on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 17 Sep 2023 21:56:19 +0800</lastBuildDate><atom:link href="/tags/defi/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 17 Sep 2023 21:56:19 +0800</lastBuildDate><atom:link href="https://vcvvvc.github.io/tags/defi/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Doubler基础教程</title>
-      <link>/post/defi_doubler/</link>
+      <link>https://vcvvvc.github.io/post/defi_doubler/</link>
       <pubDate>Sun, 17 Sep 2023 21:56:19 +0800</pubDate>
       
-      <guid>/post/defi_doubler/</guid>
+      <guid>https://vcvvvc.github.io/post/defi_doubler/</guid>
       <description>Doubler: A crypto asset appreciation tool based on the martingale strategy
 📚What is Doubler?
 Doubler is a very creative and forward-looking DEFI tool that forms a mutually beneficial relationship between users through crowdfunding and incentives, allowing users to share risks and rewards, and increase user confidence in participating in crypto asset investment. If you hold BTC but don&amp;rsquo;t want to sell it, but worry about the losses caused by the decline, just join Doubler.</description>

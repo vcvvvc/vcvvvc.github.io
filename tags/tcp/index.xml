@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>TCP on Vc</title>
-    <link>/tags/tcp/</link>
+    <link>https://vcvvvc.github.io/tags/tcp/</link>
     <description>Recent content in TCP on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 23 Feb 2022 17:47:16 +0800</lastBuildDate><atom:link href="/tags/tcp/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 23 Feb 2022 17:47:16 +0800</lastBuildDate><atom:link href="https://vcvvvc.github.io/tags/tcp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>TCP_三次握手与四次挥手</title>
-      <link>/post/tcp_%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B_%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/</link>
+      <link>https://vcvvvc.github.io/post/tcp_%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B_%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/</link>
       <pubDate>Sun, 20 Jun 2021 18:12:03 +0800</pubDate>
       
-      <guid>/post/tcp_%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B_%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/</guid>
+      <guid>https://vcvvvc.github.io/post/tcp_%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B_%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/</guid>
       <description>三次握手 第一次握手:
 (客户端发送一个TCP的SYN标志位置1的包指明客户打算连接的服务器的端口，以及初始序号X,保存在包头的序列号(Sequence Number)字段里。)
 Client端将SYN置为1，表示希望与Server端建立连接；序号seq初始化为J，并将该数据包发送给Server端，Client进入SYN_SENT状态，等待Server确认。服务器发回确认包(ACK)应答。即SYN标志位和ACK标志位均为1同时，将确认序号(Acknowledgement Number)设置为客户的I S N加1以.即X+1。
@@ -52,10 +52,10 @@ https://zhuanlan.zhihu.com/p/138272238</description>
     
     <item>
       <title>Computer_network</title>
-      <link>/post/computer_network/</link>
+      <link>https://vcvvvc.github.io/post/computer_network/</link>
       <pubDate>Thu, 06 May 2021 10:09:44 +0800</pubDate>
       
-      <guid>/post/computer_network/</guid>
+      <guid>https://vcvvvc.github.io/post/computer_network/</guid>
       <description>计算机网络 应用层 HTTP HTTP（HyperText Transfer Protocol，超文本传输协议）是一种用于分布式、协作式和超媒体信息系统的应用层协议。HTTP 是万维网的数据通信的基础。
 Cookie
 HTTP 是一种不保存状态，即无状态（stateless）协议。 Cookie 会根据从服务器端发送的响应报文内的一个叫做 Set-Cookie 的 首部字段信息，通知客户端保存 Cookie。 请求方法
@@ -78,10 +78,10 @@ OPTIONS
     
     <item>
       <title>Tcp_ip</title>
-      <link>/post/tcp_ip/</link>
+      <link>https://vcvvvc.github.io/post/tcp_ip/</link>
       <pubDate>Thu, 25 Feb 2021 14:28:11 +0800</pubDate>
       
-      <guid>/post/tcp_ip/</guid>
+      <guid>https://vcvvvc.github.io/post/tcp_ip/</guid>
       <description>计算机体系结构 各层作用及协议 分层 作用 协议 物理层 通过媒介传输比特，确定机械及电气规范（比特 Bit） RJ45、CLOCK、IEEE802.3（中继器，集线器） 数据链路层 将比特组装成帧和点到点的传递（帧 Frame） PPP、FR、HDLC、VLAN、MAC（网桥，交换机） 网络层 负责数据包从源到宿的传递和网际互连（包 Packet） IP、ICMP、ARP、RARP、OSPF、IPX、RIP、IGRP（路由器） 运输层 提供端到端的可靠报文传递和错误恢复（ 段Segment） TCP、UDP、SPX 会话层 建立、管理和终止会话（会话协议数据单元 SPDU） NFS、SQL、NETBIOS、RPC 表示层 对数据进行翻译、加密和压缩（表示协议数据单元 PPDU） JPEG、MPEG、ASII 应用层 允许访问OSI环境的手段（应用协议数据单元 APDU） FTP、DNS、Telnet、SMTP、HTTP、WWW、NFS 封装 链路层 链路层主要有三个目的：
 为IP模块发送和接收IP数据报； 为ARP模块发送ARP请求和接收ARP应答； 为RARP发送RARP请求和接收RARP应答。 PPP（点到点协议）是为在同等单元之间传输数据包这样的简单链路设计的链路层协议。
 环回接口
@@ -95,10 +95,10 @@ IP 地址 ::= {&amp;lt;网络号&amp;gt;,&amp;lt;主机号&amp;gt;} IP地址类�
     
     <item>
       <title>C/S_B/S 架构</title>
-      <link>/post/cs_bs/</link>
+      <link>https://vcvvvc.github.io/post/cs_bs/</link>
       <pubDate>Mon, 05 Oct 2020 16:14:49 +0800</pubDate>
       
-      <guid>/post/cs_bs/</guid>
+      <guid>https://vcvvvc.github.io/post/cs_bs/</guid>
       <description>什么是C/S和B/S架构？
 C/S架构 软件（即客户机/服务器模式）分为客户机和服务器两层：第一层是在客户机系统上结合了表示与业务逻辑，第二层是通过网络结合了数据库服务器。 简单的说就是第一层是用户表示层，第二层是数据库层。 客户端和服务器直接相连，这两个组成部分都承担着重要的角色。
 B/S架构 第一层是浏览器（即客户端）只有简单的输入输出功能，处理极少部分的事务逻辑。由于客户不需要安装客户端，只要有浏览器就能上网浏览，所以它面向的是大范围的用户，所以界面设计得比较简单，通用。

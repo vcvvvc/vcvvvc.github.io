@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Reactor on Vc</title>
-    <link>/tags/reactor/</link>
+    <link>https://vcvvvc.github.io/tags/reactor/</link>
     <description>Recent content in Reactor on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 31 Jan 2021 22:19:30 +0800</lastBuildDate><atom:link href="/tags/reactor/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 31 Jan 2021 22:19:30 +0800</lastBuildDate><atom:link href="https://vcvvvc.github.io/tags/reactor/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Server actor</title>
-      <link>/post/server_actor/</link>
+      <link>https://vcvvvc.github.io/post/server_actor/</link>
       <pubDate>Sun, 31 Jan 2021 22:19:30 +0800</pubDate>
       
-      <guid>/post/server_actor/</guid>
+      <guid>https://vcvvvc.github.io/post/server_actor/</guid>
       <description>同步IO模型通常用于实现Reactor模式, 异步IO模型则用于实现Proactor模式。
 Reactor Reactor模式要求主线程（I/O处理单元，下同）只负责监听文件描述上是否有事件发生，有的话就立即将该事件通知工作线程（逻辑单元，下同）。除此之外，主线程不做任何其他实质性的工作。读写数据，接受新的连接，以及处理客户请求均在工作线程中完成。
 Reactor工作流程∶
