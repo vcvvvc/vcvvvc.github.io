@@ -1,23 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>grpc on Vc</title>
+    <title>Grpc on Vc</title>
     <link>https://vcvvvc.github.io/tags/grpc/</link>
-    <description>Recent content in grpc on Vc</description>
+    <description>Recent content in Grpc on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 22 Jul 2021 00:13:51 +0800</lastBuildDate><atom:link href="https://vcvvvc.github.io/tags/grpc/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 22 Jul 2021 00:13:51 +0800</lastBuildDate>
+    <atom:link href="https://vcvvvc.github.io/tags/grpc/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>grpc install</title>
       <link>https://vcvvvc.github.io/post/grpc_install/</link>
       <pubDate>Thu, 22 Jul 2021 00:13:51 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/grpc_install/</guid>
-      <description>macos11.4下 grpc-cpp安装
-lib brew install autoconf automake libtool shtool gflags cmake pkg-config grpc-cpp git clone https://github.com/grpc/grpc.git git checkout -b v1.38.x # 下载所有子模块 git submodule update --init --recursive protobuf3 install git clone https://github.com/google/protobuf.git cd protobuf git checkout v3.9.0 sh ./autogen.sh ./configure --prefix=/usr/local/protobuf/ make sudo make install 查看版本
-cd /usr/local/protobuf/bin/ ./protoc --version 将下面指令加入.bash_profiile中之后执行source ~/.bash_profile
-export PATH=$PATH:/usr/local/protobuf/bin/ grpc install cd grpc export MY_INSTALL_DIR=$HOME/.local mkdir -p $MY_INSTALL_DIR export PATH=&amp;#34;$MY_INSTALL_DIR/bin:$PATH&amp;#34; mkdir -p cmake/build pushd cmake/build cmake -DgRPC_INSTALL=ON \ -DgRPC_BUILD_TESTS=OFF \ -DCMAKE_INSTALL_PREFIX=$MY_INSTALL_DIR \ .</description>
+      <description>macos11.4下 grpc-cpp安装&#xA;lib brew install autoconf automake libtool shtool gflags cmake pkg-config grpc-cpp git clone https://github.com/grpc/grpc.git git checkout -b v1.38.x # 下载所有子模块 git submodule update --init --recursive protobuf3 install git clone https://github.com/google/protobuf.git cd protobuf git checkout v3.9.0 sh ./autogen.sh ./configure --prefix=/usr/local/protobuf/ make sudo make install 查看版本&#xA;cd /usr/local/protobuf/bin/ ./protoc --version 将下面指令加入.bash_profiile中之后执行source ~/.bash_profile&#xA;export PATH=$PATH:/usr/local/protobuf/bin/ grpc install cd grpc export MY_INSTALL_DIR=$HOME/.local mkdir -p $MY_INSTALL_DIR export PATH=&amp;#34;$MY_INSTALL_DIR/bin:$PATH&amp;#34; mkdir -p cmake/build pushd cmake/build cmake -DgRPC_INSTALL=ON \ -DgRPC_BUILD_TESTS=OFF \ -DCMAKE_INSTALL_PREFIX=$MY_INSTALL_DIR \ .</description>
     </item>
-    
   </channel>
 </rss>

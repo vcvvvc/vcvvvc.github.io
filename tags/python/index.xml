@@ -6,108 +6,63 @@
     <description>Recent content in Python on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 30 Jan 2022 23:18:03 +0800</lastBuildDate><atom:link href="https://vcvvvc.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 30 Jan 2022 23:18:03 +0800</lastBuildDate>
+    <atom:link href="https://vcvvvc.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>何为协程</title>
       <link>https://vcvvvc.github.io/post/%E4%BD%95%E4%B8%BA%E5%8D%8F%E7%A8%8B/</link>
       <pubDate>Sun, 30 Jan 2022 23:18:03 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/%E4%BD%95%E4%B8%BA%E5%8D%8F%E7%A8%8B/</guid>
-      <description>什么是协程 进程-&amp;gt;线程-&amp;gt;协程
-Re:
-https://baike.baidu.com/item/协程/8652240
-https://cloud.tencent.com/developer/article/1916705
-https://zhuanlan.zhihu.com/p/172471249
-https://www.zhihu.com/question/32218874/answers/updated
-https://zhuanlan.zhihu.com/p/70256971
-https://docs.python.org/zh-cn/3/library/asyncio-task.html
-Unity: https://developer.unity.cn/projects/61c80ba3edbc2a244ffbcf25
-https://www.nowcoder.com/discuss/821457
-http://c.biancheng.net/view/5214.html
-https://zhuanlan.zhihu.com/p/59178345
-https://zhuanlan.zhihu.com/p/337946103</description>
+      <description>什么是协程 进程-&amp;gt;线程-&amp;gt;协程&#xA;Re:&#xA;https://baike.baidu.com/item/协程/8652240&#xA;https://cloud.tencent.com/developer/article/1916705&#xA;https://zhuanlan.zhihu.com/p/172471249&#xA;https://www.zhihu.com/question/32218874/answers/updated&#xA;https://zhuanlan.zhihu.com/p/70256971&#xA;https://docs.python.org/zh-cn/3/library/asyncio-task.html&#xA;Unity: https://developer.unity.cn/projects/61c80ba3edbc2a244ffbcf25&#xA;https://www.nowcoder.com/discuss/821457&#xA;http://c.biancheng.net/view/5214.html&#xA;https://zhuanlan.zhihu.com/p/59178345&#xA;https://zhuanlan.zhihu.com/p/337946103</description>
     </item>
-    
     <item>
       <title>News-M Tutorial</title>
       <link>https://vcvvvc.github.io/post/news_wps/</link>
       <pubDate>Fri, 27 Aug 2021 16:40:00 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/news_wps/</guid>
-      <description>https://github.com/VcSpace/News-M.git 闻讯——获取主流财经新闻网站新闻信息获取, 将数据聚合、归类并写入表格中 。
-News-M &amp;ndash;News Spider, Crawling news from mainstream financial news websites, categorize and write data into tables .
-目的 时间与精力是有限的 为了节省查阅信息的时间成本故此创作News-M用来快捷提取有效信息, 节约时间, 放松精力。
-Time and energy are limited. In order to save the time cost of consulting information, news-m is created to quickly extract effective information, save time and relax energy.
-运行程序 #Run pip install -r requirements.txt python3 main.py 如果你想启用网盘功能 在命令行运行bypy info获取token, 在main.py将bd_flag改为True
-If you want to enable the network disk function, run bypy info on the command line to get the token, and BD will be displayed in main.</description>
+      <description>https://github.com/VcSpace/News-M.git 闻讯——获取主流财经新闻网站新闻信息获取, 将数据聚合、归类并写入表格中 。&#xA;News-M &amp;ndash;News Spider, Crawling news from mainstream financial news websites, categorize and write data into tables .&#xA;目的 时间与精力是有限的 为了节省查阅信息的时间成本故此创作News-M用来快捷提取有效信息, 节约时间, 放松精力。&#xA;Time and energy are limited. In order to save the time cost of consulting information, news-m is created to quickly extract effective information, save time and relax energy.&#xA;运行程序 #Run pip install -r requirements.txt python3 main.py 如果你想启用网盘功能 在命令行运行bypy info获取token, 在main.py将bd_flag改为True&#xA;If you want to enable the network disk function, run bypy info on the command line to get the token, and BD will be displayed in main.</description>
     </item>
-    
     <item>
       <title>News M定时运行</title>
       <link>https://vcvvvc.github.io/post/news-m%E5%AE%9A%E6%97%B6%E8%BF%90%E8%A1%8C/</link>
       <pubDate>Tue, 24 Aug 2021 21:50:24 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/news-m%E5%AE%9A%E6%97%B6%E8%BF%90%E8%A1%8C/</guid>
       <description>#把原来的main设置为start函数 在末尾添加如下代码即可 #https://blog.csdn.net/ainivip/article/details/106296599 if __name__ == &amp;#39;__main__&amp;#39;: while True: logger = logging.getLogger() logger.setLevel(logging.INFO) log_time = time.strftime(&amp;#34;%Y_%m_%d&amp;#34;, time.localtime()) # 刷新 logfile = &amp;#34;./&amp;#34; + log_time + &amp;#34;.log&amp;#34; fh = logging.FileHandler(logfile,mode=&amp;#39;w&amp;#39;) fh.setLevel(logging.INFO) while True: formatter = logging.Formatter(&amp;#34;%(asctime)s - %(filename)s[line:%(lineno)d] - %(levelname)s: %(message)s&amp;#34;) fh.setFormatter(formatter) logger.addHandler(fh) time_now = time.strftime(&amp;#34;%H&amp;#34;, time.localtime()) # 刷新 if time_now == &amp;#34;21&amp;#34; or time_now == &amp;#34;10&amp;#34;: # 设置要执行的时间 start() logger.info(&amp;#34;sleep(20000) start news_d&amp;#34;) time.sleep(1500) elif time_now == &amp;#34;00&amp;#34;: logger.info(&amp;#34;new day, log end&amp;#34;) time.</description>
     </item>
-    
     <item>
       <title>Python每天固定时间运行某程序代码</title>
       <link>https://vcvvvc.github.io/post/python%E6%AF%8F%E5%A4%A9%E5%9B%BA%E5%AE%9A%E6%97%B6%E9%97%B4%E8%BF%90%E8%A1%8C%E6%9F%90%E7%A8%8B%E5%BA%8F%E4%BB%A3%E7%A0%81/</link>
       <pubDate>Sun, 22 Aug 2021 22:01:44 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/python%E6%AF%8F%E5%A4%A9%E5%9B%BA%E5%AE%9A%E6%97%B6%E9%97%B4%E8%BF%90%E8%A1%8C%E6%9F%90%E7%A8%8B%E5%BA%8F%E4%BB%A3%E7%A0%81/</guid>
       <description>import time while True: time_now = time.strftime(&amp;#34;%H%M&amp;#34;, time.localtime()) # 刷新 if time_now == &amp;#34;00:01&amp;#34;: # 设置要执行的时间 # 要执行的代码 time.sleep(61) # 停止执行61秒，防止反复运行程序。 elif time_now == &amp;#34;08:01&amp;#34;: # 设置要执行的时间: # 要执行的代码 time.sleep(61) # 停止执行61秒，防止反复运行程序。 elif time_now == &amp;#34;16:01&amp;#34;: # 设置要执行的时间: # 要执行的代码 time.sleep(61) # 停止执行61秒，防止反复运行程序。 Re: 原文链接：https://blog.csdn.net/ainivip/article/details/106296599</description>
     </item>
-    
     <item>
       <title>汉程网</title>
       <link>https://vcvvvc.github.io/post/hanchengwang/</link>
       <pubDate>Fri, 09 Jul 2021 22:37:33 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/hanchengwang/</guid>
-      <description>几天前聚餐小饮一杯48度蒸馏酒，微醺。回家之, 看书有感，口出惊言: &amp;ldquo;道可道也&amp;hellip;， 生之，养之&amp;hellip;&amp;rdquo;
-趁着还有点意识利用以前写过的项目拼凑了一下获取了一部道德经
-https://github.com/vcvvvc/hanchengwang.git 天下皆知美之为美, 恶已; 皆知善为善，斯不善矣。
-项目只需修改参数亦可下载其他古籍， 请自行研究使用
-项目提供本人制作的道德经成品mobi\word版本, 已内置目录
-项目提供本人制作的成品mobi\word版本, 已内置目录
-这是一个公益性网站 请不要修改sleep时间避免给服务器过大压力, 能使用成品就不要再次爬取
-这是一个公益性网站 请不要修改sleep时间避免给服务器过大压力, 能使用成品就不要再次爬取
-这是一个公益性网站 请不要修改sleep时间避免给服务器过大压力, 能使用成品就不要再次爬取
-程序支持跨平台, 但仅测试了mac</description>
+      <description>几天前聚餐小饮一杯48度蒸馏酒，微醺。回家之, 看书有感，口出惊言: &amp;ldquo;道可道也&amp;hellip;， 生之，养之&amp;hellip;&amp;rdquo;&#xA;趁着还有点意识利用以前写过的项目拼凑了一下获取了一部道德经&#xA;https://github.com/vcvvvc/hanchengwang.git 天下皆知美之为美, 恶已; 皆知善为善，斯不善矣。&#xA;项目只需修改参数亦可下载其他古籍， 请自行研究使用&#xA;项目提供本人制作的道德经成品mobi\word版本, 已内置目录&#xA;项目提供本人制作的成品mobi\word版本, 已内置目录&#xA;这是一个公益性网站 请不要修改sleep时间避免给服务器过大压力, 能使用成品就不要再次爬取&#xA;这是一个公益性网站 请不要修改sleep时间避免给服务器过大压力, 能使用成品就不要再次爬取&#xA;这是一个公益性网站 请不要修改sleep时间避免给服务器过大压力, 能使用成品就不要再次爬取&#xA;程序支持跨平台, 但仅测试了mac</description>
     </item>
-    
     <item>
       <title>Pymysqlerr 1698</title>
       <link>https://vcvvvc.github.io/post/pymysql_err_1698/</link>
       <pubDate>Mon, 30 Nov 2020 16:24:28 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/pymysql_err_1698/</guid>
-      <description>pymysql.err.OperationalError: (1698, “Access denied for user ‘root’@‘localhost’”)
-sudo mysql -u root mysql&amp;gt; USE mysql; mysql&amp;gt; UPDATE user SET plugin=&amp;#39;mysql_native_password&amp;#39; WHERE User=&amp;#39;root&amp;#39;; mysql&amp;gt; FLUSH PRIVILEGES; mysql&amp;gt; exit; service mysql restart </description>
+      <description>pymysql.err.OperationalError: (1698, “Access denied for user ‘root’@‘localhost’”)&#xA;sudo mysql -u root mysql&amp;gt; USE mysql; mysql&amp;gt; UPDATE user SET plugin=&amp;#39;mysql_native_password&amp;#39; WHERE User=&amp;#39;root&amp;#39;; mysql&amp;gt; FLUSH PRIVILEGES; mysql&amp;gt; exit; service mysql restart </description>
     </item>
-    
     <item>
       <title>Python thread parameter transfer</title>
       <link>https://vcvvvc.github.io/post/python_thread_mis/</link>
       <pubDate>Tue, 17 Nov 2020 16:13:32 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/python_thread_mis/</guid>
-      <description>import threading import time def worker(): print “worker” time.sleep(1) return for i in xrange(5): t = threading.Thread(target=worker) t.start() 这段代码就使用了多线程，但是没法传递参数，而实际使用多线程，往往是需要传递参数的，这么写实现传递参数的多线程：
-import threading import time def worker(number): print “worker” time.sleep(number) return for i in xrange(5): t = threading.Thread(target=worker,args=(i,)) t.start() 第一个参数是线程函数变量，第二个参数args是一个数组变量参数，如果只传递一个值，就只需要i, 如果需要传递多个参数，那么还可以继续传递下去其他的参数，其中的逗号不能少，元组中只包含一个元素时，需要在元素后面添加逗号。
-Re:
-https://blog.csdn.net/chpllp/article/details/54381141</description>
+      <description>import threading import time def worker(): print “worker” time.sleep(1) return for i in xrange(5): t = threading.Thread(target=worker) t.start() 这段代码就使用了多线程，但是没法传递参数，而实际使用多线程，往往是需要传递参数的，这么写实现传递参数的多线程：&#xA;import threading import time def worker(number): print “worker” time.sleep(number) return for i in xrange(5): t = threading.Thread(target=worker,args=(i,)) t.start() 第一个参数是线程函数变量，第二个参数args是一个数组变量参数，如果只传递一个值，就只需要i, 如果需要传递多个参数，那么还可以继续传递下去其他的参数，其中的逗号不能少，元组中只包含一个元素时，需要在元素后面添加逗号。&#xA;Re:&#xA;https://blog.csdn.net/chpllp/article/details/54381141</description>
     </item>
-    
     <item>
       <title>Opepyxl sytle</title>
       <link>https://vcvvvc.github.io/post/opepyxl_sytle/</link>
       <pubDate>Sun, 15 Nov 2020 19:14:58 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/opepyxl_sytle/</guid>
       <description>font(字体类)：字号、字体颜色、下划线等 fill(填充类)：颜色等 border(边框类)：设置单元格边框 alignment(位置类)：对齐方式 number_format(格式类)：数据格式 protection(保护类)：写保护 &amp;gt;&amp;gt;&amp;gt; from openpyxl.styles import PatternFill, Border, Side, Alignment, Protection, Font &amp;gt;&amp;gt;&amp;gt; font = Font(name=&amp;#39;Calibri&amp;#39;, size=11, bold=False, italic=False, vertAlign=None, underline=&amp;#39;none&amp;#39;, strike=False, color=&amp;#39;FF000000&amp;#39;) &amp;gt;&amp;gt;&amp;gt; fill = PatternFill(fill_type=None, start_color=&amp;#39;FFFFFFFF&amp;#39;, end_color=&amp;#39;FF000000&amp;#39;) &amp;gt;&amp;gt;&amp;gt; border = Border(left=Side(border_style=None, color=&amp;#39;FF000000&amp;#39;), right=Side(border_style=None, color=&amp;#39;FF000000&amp;#39;), top=Side(border_style=None, color=&amp;#39;FF000000&amp;#39;), bottom=Side(border_style=None, color=&amp;#39;FF000000&amp;#39;), diagonal=Side(border_style=None, color=&amp;#39;FF000000&amp;#39;), diagonal_direction=0, outline=Side(border_style=None, color=&amp;#39;FF000000&amp;#39;), vertical=Side(border_style=None, color=&amp;#39;FF000000&amp;#39;), horizontal=Side(border_style=None, color=&amp;#39;FF000000&amp;#39;) ) &amp;gt;&amp;gt;&amp;gt; alignment=Alignment(horizontal=&amp;#39;general&amp;#39;, vertical=&amp;#39;bottom&amp;#39;, text_rotation=0, wrap_text=False, shrink_to_fit=False, indent=0) &amp;gt;&amp;gt;&amp;gt; number_format = &amp;#39;General&amp;#39; &amp;gt;&amp;gt;&amp;gt; protection = Protection(locked=True, hidden=False) 以上几种样式（字体、填充、边框、位置和保护）实例一旦被创建实例的属性就不可更改，只能重新创建实例。</description>
     </item>
-    
   </channel>
 </rss>

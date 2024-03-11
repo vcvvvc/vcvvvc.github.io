@@ -6,20 +6,14 @@
     <description>Recent content in FFmpeg on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 27 Jul 2020 17:41:31 +0800</lastBuildDate><atom:link href="https://vcvvvc.github.io/tags/ffmpeg/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 27 Jul 2020 17:41:31 +0800</lastBuildDate>
+    <atom:link href="https://vcvvvc.github.io/tags/ffmpeg/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ubuntu20 install FFmpeg</title>
       <link>https://vcvvvc.github.io/post/ffmpeg_install/</link>
       <pubDate>Mon, 27 Jul 2020 17:41:31 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/ffmpeg_install/</guid>
-      <description>Start Download FFmpeg Install tool 1. install yasm
-sudo apt-get install yasm if not installed yasm, os will output &amp;ldquo;nasm/yasm not found or too old. Use &amp;ndash;disable-x86asm for a crippled build.&amp;rdquo;
-2. install SDL2
-SDL2-2.0.12(stable)
-tar -xvf SDL2-2.0.12.tar.gz cd SDL2-2.0.12 ./configure sudo make -j4 sudo make install Install FFmpeg 1. git clone https://git.ffmpeg.org/ffmpeg.git ffmpeg
-cd ffmpeg/ ./configure sudo make -j4 sudo make install 3. Check ffmpeg -version ffplay -version </description>
+      <description>Start Download FFmpeg Install tool 1. install yasm&#xA;sudo apt-get install yasm if not installed yasm, os will output &amp;ldquo;nasm/yasm not found or too old. Use &amp;ndash;disable-x86asm for a crippled build.&amp;rdquo;&#xA;2. install SDL2&#xA;SDL2-2.0.12(stable)&#xA;tar -xvf SDL2-2.0.12.tar.gz cd SDL2-2.0.12 ./configure sudo make -j4 sudo make install Install FFmpeg 1. git clone https://git.ffmpeg.org/ffmpeg.git ffmpeg&#xA;cd ffmpeg/ ./configure sudo make -j4 sudo make install 3. Check ffmpeg -version ffplay -version </description>
     </item>
-    
   </channel>
 </rss>

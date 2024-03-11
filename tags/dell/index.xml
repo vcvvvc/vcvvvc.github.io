@@ -6,31 +6,14 @@
     <description>Recent content in Dell on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 17 Jan 2021 13:19:24 +0800</lastBuildDate><atom:link href="https://vcvvvc.github.io/tags/dell/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 17 Jan 2021 13:19:24 +0800</lastBuildDate>
+    <atom:link href="https://vcvvvc.github.io/tags/dell/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Dell7590 install macos</title>
       <link>https://vcvvvc.github.io/post/dell7590_install_macos/</link>
       <pubDate>Sun, 17 Jan 2021 13:19:24 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/dell7590_install_macos/</guid>
-      <description>2021-12-13更新 系统为big sur 11.4
-接近完美 可以用intel网卡连接wifi 速度还不错
-已知麦克风、隔空投送不能用
-镜像下载 搜素：黑果小兵
-big sur用11.4
-重要前提 如果你没有网线，并且没有其他PC设备联网 你需要提前下载这些
-https://github.com/OpenIntelWireless/itlwm/releases/ #AirportItlwm https://5435.lanzouo.com/isRfBxjxq4f #四叶草+occ Start //OC git clone https://github.com/Pinming/Dell-Inspiron-7590-Hackintosh-Opencore //Diskgenius 官网自行下载最新版 //balennaEther 官网自行下载最新版 1. 先把Dell-Inspiron-7590-Hackintosh-Opencore重命名为OC
-2. 打开OC文件夹 根据屏幕改名1080P的屏幕使用config-1080p.plist需改名成config.plist 如果你是4K屏 不需要修改
-3. balennaEther烧录dmg镜像文件到U盘
-4. 打开Diskgenius 进入U盘的ESP分区文件夹 删除Clover文件夹 然后将OC文件夹拖入
-5. 打开U盘ESP分区中的EFI 将Diskgenius程序文件夹拖进去 备用 以免出问题
-提前准备好安装空间建议300g 至少200g
-6. 用Diskgenius分ESP区 建议400m
-7. 双系统需要保存好windows efi
-安装 1. 重启F2 关闭Secure Boot安全启动 检查磁盘模式为ACHI 百度搜
-2. 进入Boot Sequence &amp;lsquo;add option&amp;rsquo; 添加一个引导 选择启动文件为自己的U盘EFI(找到EFI/OC/OpenCore.efi这个文件)
-3. 重启F12 选择刚才新建的启动项 选择Install mac big sur</description>
+      <description>2021-12-13更新 系统为big sur 11.4&#xA;接近完美 可以用intel网卡连接wifi 速度还不错&#xA;已知麦克风、隔空投送不能用&#xA;镜像下载 搜素：黑果小兵&#xA;big sur用11.4&#xA;重要前提 如果你没有网线，并且没有其他PC设备联网 你需要提前下载这些&#xA;https://github.com/OpenIntelWireless/itlwm/releases/ #AirportItlwm https://5435.lanzouo.com/isRfBxjxq4f #四叶草+occ Start //OC git clone https://github.com/Pinming/Dell-Inspiron-7590-Hackintosh-Opencore //Diskgenius 官网自行下载最新版 //balennaEther 官网自行下载最新版 1. 先把Dell-Inspiron-7590-Hackintosh-Opencore重命名为OC&#xA;2. 打开OC文件夹 根据屏幕改名1080P的屏幕使用config-1080p.plist需改名成config.plist 如果你是4K屏 不需要修改&#xA;3. balennaEther烧录dmg镜像文件到U盘&#xA;4. 打开Diskgenius 进入U盘的ESP分区文件夹 删除Clover文件夹 然后将OC文件夹拖入&#xA;5. 打开U盘ESP分区中的EFI 将Diskgenius程序文件夹拖进去 备用 以免出问题&#xA;提前准备好安装空间建议300g 至少200g&#xA;6. 用Diskgenius分ESP区 建议400m&#xA;7. 双系统需要保存好windows efi&#xA;安装 1. 重启F2 关闭Secure Boot安全启动 检查磁盘模式为ACHI 百度搜&#xA;2. 进入Boot Sequence &amp;lsquo;add option&amp;rsquo; 添加一个引导 选择启动文件为自己的U盘EFI(找到EFI/OC/OpenCore.efi这个文件)&#xA;3. 重启F12 选择刚才新建的启动项 选择Install mac big sur</description>
     </item>
-    
   </channel>
 </rss>

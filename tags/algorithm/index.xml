@@ -6,42 +6,21 @@
     <description>Recent content in Algorithm on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 04 Oct 2020 16:09:26 +0800</lastBuildDate><atom:link href="https://vcvvvc.github.io/tags/algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 04 Oct 2020 16:09:26 +0800</lastBuildDate>
+    <atom:link href="https://vcvvvc.github.io/tags/algorithm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Algorithm x^n</title>
       <link>https://vcvvvc.github.io/post/recursion/</link>
       <pubDate>Sun, 04 Oct 2020 16:09:26 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/recursion/</guid>
-      <description>O(1)常数阶 &amp;lt; O(logn)对数阶 &amp;lt; O(n)线性阶 &amp;lt; O(n^2)平方阶 &amp;lt; O(n^3)(立方阶) &amp;lt; O(2^n) (指数阶)
-For O(n) int function1(int x, int n) { int result = 1; // 注意 任何数的0次方等于1 for (int i = 0; i &amp;lt; n; i++) { result = result * x; } return result; } Recursion O(n) int function2(int x, int n) { if (n == 0) { return 1; // return 1 同样是因为0次方是等于1的 } return function2(x, n - 1) * x; } Recursion2 O(n) int function3(int x, int n) { if (n == 0) { return 1; } if (n % 2 == 1) { return function3(x, n/2) * function3(x, n/2)*x; } return function3(x, n/2) * function3(x, n/2); } Recursion3 O(logn) int function4(int x, int n) { if (n == 0) { return 1; } int t = function4(x, n/2);// 这里相对于function3，是把这个递归操作抽取出来 if (n % 2 == 1) { return t*t*x; } return t*t; } </description>
+      <description>O(1)常数阶 &amp;lt; O(logn)对数阶 &amp;lt; O(n)线性阶 &amp;lt; O(n^2)平方阶 &amp;lt; O(n^3)(立方阶) &amp;lt; O(2^n) (指数阶)&#xA;For O(n) int function1(int x, int n) { int result = 1; // 注意 任何数的0次方等于1 for (int i = 0; i &amp;lt; n; i++) { result = result * x; } return result; } Recursion O(n) int function2(int x, int n) { if (n == 0) { return 1; // return 1 同样是因为0次方是等于1的 } return function2(x, n - 1) * x; } Recursion2 O(n) int function3(int x, int n) { if (n == 0) { return 1; } if (n % 2 == 1) { return function3(x, n/2) * function3(x, n/2)*x; } return function3(x, n/2) * function3(x, n/2); } Recursion3 O(logn) int function4(int x, int n) { if (n == 0) { return 1; } int t = function4(x, n/2);// 这里相对于function3，是把这个递归操作抽取出来 if (n % 2 == 1) { return t*t*x; } return t*t; } </description>
     </item>
-    
     <item>
       <title>Binary Tree</title>
       <link>https://vcvvvc.github.io/post/binary_tree/</link>
       <pubDate>Tue, 18 Aug 2020 14:40:25 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/binary_tree/</guid>
-      <description>性质1:在二叉树的第i层上至多有2 i-1 个结点(i≥1)。
-性质2:深度为k的二叉树至多有2 k -1个结点(k≥1)。
-性质3:对任何一棵二叉树T,如果其终端结点数为n 0 ,度为2的结点数 为n 2 ,则n 0 =n 2 +1。
-性质4:具有n个结点的完全二叉树的深度为|log 2 n+1|(|x|表示不大于x 的最大整数)。
-性质5:如果对一棵有n个结点的完全二叉树(其深度为)的结点按层序 编号(从第1层到第层,每层从左到右),对任一结点i(1≤i≤n)有:
-1.如果i=1,则结点i是二叉树的根,无双亲;如果i&amp;gt;1,则其双亲是结 点。
-2.如果2i&amp;gt;n,则结点i无左孩子(结点i为叶子结点);否则其左孩子是 结点2i。
-3.如果2i+1&amp;gt;n,则结点i无右孩子;否则其右孩子是结点2i+1。
-树转换为二叉树 将树转换为二叉树的步骤如下
-1.加线。在所有兄弟结点之间加一条连 线。
-2.去线。对树中每个结点,只保留它与第一个孩子结点的连线,删 除它与其他孩子结点之间的连线。
-3.层次调整。以树的根结点为轴心, 将整棵树顺时针旋转一定的角度,使之结构层次分明。注意第一个孩子 是二叉树结点的左孩子,兄弟转换过来的孩子是结点的右孩子
-森林转换为二叉树 森林是由若干棵树组成的,所以完全可以理解为,森林中的每一棵树都是兄弟,可以按照兄弟的处理办法来操作 .
-1.把每个树转换为二叉树。 2.第一棵二叉树不动,从第二棵二叉树开始,依次把后一棵 二叉树的根结点作为前一棵二叉树的根结点的右孩子,用线连接起来。 当所有的二叉树连接起来后就得到了由森林转换来的二叉树。 二叉树转换为树 二叉树转换为树是树转换为二叉树的逆过程,也就是反过来做而已。
-1.加线。若某结点的左孩子结点存在,则将 这个左孩子的右孩子结点、右孩子的右孩子结点、右孩子的右孩子的右 孩子结点&amp;hellip;&amp;hellip;哈,反正就是左孩子的n个右孩子结点都作为此结点的孩 子。将该结点与这些右孩子结点用线连接起来。 2.去线。删除原二叉树中所有结点与其右孩子结点的连线。 3.层次调整。使之结构层次分明。 二叉树转换为森林 判断一棵二叉树能够转换成一棵树还是森林,标准很简单,那就是只要 看这棵二叉树的根结点有没有右孩子,有就是森林,没有就是一棵树。
-1.从根结点开始,若右孩子存在,则把与右孩子结点的连线删除,再查看分离后的二叉树,若右孩子存在,则连线删除&amp;hellip;&amp;hellip;,直到所有右孩子连线都删除为止,得到分离的二 叉树。 2.再将每棵分离后的二叉树转换为树即可。 树与森林的遍历 树的遍历分为两种方式。
-1.一种是先根遍历树,即先访问树的根结点, 然后依次先根遍历根的每棵子树。 2.另一种是后根遍历,即先依次后根 遍历每棵子树,然后再访问根结点。比如图tree6/7中右下方的树,它的 先根遍历序列为ABEFCDG,后根遍历序列为EFBCGDA。 森林的遍历也分为两种方式:
-1.前序遍历:先访问森林中第一棵树的根 结点,然后再依次先根遍历根的每棵子树,再依次用同样方式遍历除去 第一棵树的剩余树构成的森林。比如图6-11-5下面三棵树的森林,前序 遍历序列的结果就是ABCDEFGHJI。 2.</description>
+      <description>性质1:在二叉树的第i层上至多有2 i-1 个结点(i≥1)。&#xA;性质2:深度为k的二叉树至多有2 k -1个结点(k≥1)。&#xA;性质3:对任何一棵二叉树T,如果其终端结点数为n 0 ,度为2的结点数 为n 2 ,则n 0 =n 2 +1。&#xA;性质4:具有n个结点的完全二叉树的深度为|log 2 n+1|(|x|表示不大于x 的最大整数)。&#xA;性质5:如果对一棵有n个结点的完全二叉树(其深度为)的结点按层序 编号(从第1层到第层,每层从左到右),对任一结点i(1≤i≤n)有:&#xA;1.如果i=1,则结点i是二叉树的根,无双亲;如果i&amp;gt;1,则其双亲是结 点。&#xA;2.如果2i&amp;gt;n,则结点i无左孩子(结点i为叶子结点);否则其左孩子是 结点2i。&#xA;3.如果2i+1&amp;gt;n,则结点i无右孩子;否则其右孩子是结点2i+1。&#xA;树转换为二叉树 将树转换为二叉树的步骤如下&#xA;1.加线。在所有兄弟结点之间加一条连 线。&#xA;2.去线。对树中每个结点,只保留它与第一个孩子结点的连线,删 除它与其他孩子结点之间的连线。&#xA;3.层次调整。以树的根结点为轴心, 将整棵树顺时针旋转一定的角度,使之结构层次分明。注意第一个孩子 是二叉树结点的左孩子,兄弟转换过来的孩子是结点的右孩子&#xA;森林转换为二叉树 森林是由若干棵树组成的,所以完全可以理解为,森林中的每一棵树都是兄弟,可以按照兄弟的处理办法来操作 .&#xA;1.把每个树转换为二叉树。 2.第一棵二叉树不动,从第二棵二叉树开始,依次把后一棵 二叉树的根结点作为前一棵二叉树的根结点的右孩子,用线连接起来。 当所有的二叉树连接起来后就得到了由森林转换来的二叉树。 二叉树转换为树 二叉树转换为树是树转换为二叉树的逆过程,也就是反过来做而已。&#xA;1.加线。若某结点的左孩子结点存在,则将 这个左孩子的右孩子结点、右孩子的右孩子结点、右孩子的右孩子的右 孩子结点&amp;hellip;&amp;hellip;哈,反正就是左孩子的n个右孩子结点都作为此结点的孩 子。将该结点与这些右孩子结点用线连接起来。 2.去线。删除原二叉树中所有结点与其右孩子结点的连线。 3.层次调整。使之结构层次分明。 二叉树转换为森林 判断一棵二叉树能够转换成一棵树还是森林,标准很简单,那就是只要 看这棵二叉树的根结点有没有右孩子,有就是森林,没有就是一棵树。&#xA;1.从根结点开始,若右孩子存在,则把与右孩子结点的连线删除,再查看分离后的二叉树,若右孩子存在,则连线删除&amp;hellip;&amp;hellip;,直到所有右孩子连线都删除为止,得到分离的二 叉树。 2.再将每棵分离后的二叉树转换为树即可。 树与森林的遍历 树的遍历分为两种方式。&#xA;1.一种是先根遍历树,即先访问树的根结点, 然后依次先根遍历根的每棵子树。 2.另一种是后根遍历,即先依次后根 遍历每棵子树,然后再访问根结点。比如图tree6/7中右下方的树,它的 先根遍历序列为ABEFCDG,后根遍历序列为EFBCGDA。 森林的遍历也分为两种方式:&#xA;1.前序遍历:先访问森林中第一棵树的根 结点,然后再依次先根遍历根的每棵子树,再依次用同样方式遍历除去 第一棵树的剩余树构成的森林。比如图6-11-5下面三棵树的森林,前序 遍历序列的结果就是ABCDEFGHJI。 2.</description>
     </item>
-    
   </channel>
 </rss>

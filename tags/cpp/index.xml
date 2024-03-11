@@ -6,613 +6,294 @@
     <description>Recent content in CPP on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 11 Apr 2023 18:07:17 +0800</lastBuildDate><atom:link href="https://vcvvvc.github.io/tags/cpp/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 11 Apr 2023 18:07:17 +0800</lastBuildDate>
+    <atom:link href="https://vcvvvc.github.io/tags/cpp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>STL容器总结</title>
       <link>https://vcvvvc.github.io/post/stl%E5%AE%B9%E5%99%A8%E6%80%BB%E7%BB%93/</link>
       <pubDate>Tue, 11 Apr 2023 18:07:17 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/stl%E5%AE%B9%E5%99%A8%E6%80%BB%E7%BB%93/</guid>
-      <description>Re: https://www.cnblogs.com/zjy4869/p/15501384.html
-https://www.cnblogs.com/zjy4869/p/15501448.html
-https://blog.51cto.com/u_15717393/5471961
-https://zinglix.xyz/2018/09/20/STL-container/</description>
+      <description>Re: https://www.cnblogs.com/zjy4869/p/15501384.html&#xA;https://www.cnblogs.com/zjy4869/p/15501448.html&#xA;https://blog.51cto.com/u_15717393/5471961&#xA;https://zinglix.xyz/2018/09/20/STL-container/</description>
     </item>
-    
     <item>
       <title>C&#43;&#43;标准网络库/对比</title>
       <link>https://vcvvvc.github.io/post/c&#43;&#43;%E6%A0%87%E5%87%86%E7%BD%91%E7%BB%9C%E5%BA%93/</link>
       <pubDate>Thu, 15 Dec 2022 14:07:46 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/c&#43;&#43;%E6%A0%87%E5%87%86%E7%BD%91%E7%BB%9C%E5%BA%93/</guid>
-      <description>https://zhuanlan.zhihu.com/p/357075167
-各编程语言HTTP请求对比 c: libcurl c#: RestSharp go: net/http java: OKHttp php: HttpRequest python: requests ruby: net/http nodejs: http c/c++网络库对比 libevent libev libuv libhv asio </description>
+      <description>https://zhuanlan.zhihu.com/p/357075167&#xA;各编程语言HTTP请求对比 c: libcurl c#: RestSharp go: net/http java: OKHttp php: HttpRequest python: requests ruby: net/http nodejs: http c/c++网络库对比 libevent libev libuv libhv asio </description>
     </item>
-    
     <item>
       <title>Effective C&#43;&#43; 总结</title>
       <link>https://vcvvvc.github.io/post/effective_cpp/</link>
       <pubDate>Sat, 20 Aug 2022 17:01:22 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/effective_cpp/</guid>
-      <description>2021年整理， 2023年更新一下
-条款01: 将C++视为一个语言联邦 C++已经是个多重范型编程语言 (multiparadigm programming language）
-同时支持过程形式（procedural）、面向对象形式（object-oriented）、函数形式（functional）、泛型形式（generic）、元编程形式（metaprogramming）的语言。
-条款02：尽量以 const，enum，inline替换#define 也可以说是 宁可以编译器替换预处理器
-#define 不被视为语言的一部分 当编译出错后你可能很难找到这个错误，从而浪费大量时间
-第二、 值得注意的是class专属常量。为了将常量的作用域（scope）限制于class内，你必须让它成为class的一个成员（member）；而为确保此常量至多只有一份实体，你必须让它成为一个static成员：
-class Gameplayer { private: static const int NumTurns = 5; //常量声明式 int scores[NumTurns]; ... }; 第三、 万一你的编译器（错误地）不允许“static整数型class常量”完成“in class初值设定”，可改用所谓的&amp;quot;the enum hack&amp;quot;补偿做法。其理论基础是：“一个属于枚举类型（enumerated type）的数值可权充ints被使用”
-enum hack的行为某方面说比较像#define而不像const
-class Gameplayer { private: enum {NumTurns = 5}; int scores[NumTurns]; ... }; 本文要点
-对于单纯常量,最好以const对象或enums替换#defines.
-对于形似函数的宏(macros) ,最好改用inline函数替换#defines.
-条款03: 尽可能使用const 如果关键字const出现在星号左边,表示被指物是常量;如果出现在星号右边,表示指针自身是常量;如果出现在星号两边,表示被指物和指针两者都是常量。
-作用
-修饰变量，说明该变量不可以被改变； 修饰指针，分为指向常量的指针（pointer to const）和自身是常量的指针（常量指针，const pointer）； 修饰引用，指向常量的引用（reference to const），用于形参类型，即避免了拷贝，又避免了函数对值的修改； 修饰成员函数，说明该成员函数内不能修改成员变量。 char* p1 = greeting; // 指针变量，指向字符数组变量 const char* p2 = greeting; // 指针变量，指向字符数组常量（const 后面是 char，说明指向的字符（char）不可改变） char* const p3 = greeting; // 自身是常量的指针，指向字符数组变量（const 后面是 p3，说明 p3 指针自身不可改变） const char* const p4 = greeting; // 自身是常量的指针，指向字符数组常量 // 函数 void function1(const int Var); // 传递过来的参数在函数内不可变 void function2(const char* Var); // 参数指针所指内容为常量 void function3(char* const Var); // 参数指针为常量 void function4(const int&amp;amp; Var); // 引用参数在函数内为常量 // 函数返回值 const int function5(); // 返回一个常数 const int* function6(); // 返回一个指向常量的指针变量，使用：const int *p = function6(); int* const function7(); // 返回一个指向变量的常指针，使用：int* const p = function7(); const成员函数承诺绝不改变其对象的逻辑状态 (logical state) , non-const成员函数却没有这般承诺。如果在const函数内调用non-const函数,就是冒了这样的风险:你曾经承诺不改动的那个对象被改动了。这就是为什么&amp;quot;const成员函数调用non-const成员函数”是一种错误行为:因为对象有可能因此被改动。</description>
+      <description>2021年整理， 2023年更新一下&#xA;条款01: 将C++视为一个语言联邦 C++已经是个多重范型编程语言 (multiparadigm programming language）&#xA;同时支持过程形式（procedural）、面向对象形式（object-oriented）、函数形式（functional）、泛型形式（generic）、元编程形式（metaprogramming）的语言。&#xA;条款02：尽量以 const，enum，inline替换#define 也可以说是 宁可以编译器替换预处理器&#xA;#define 不被视为语言的一部分 当编译出错后你可能很难找到这个错误，从而浪费大量时间&#xA;第二、 值得注意的是class专属常量。为了将常量的作用域（scope）限制于class内，你必须让它成为class的一个成员（member）；而为确保此常量至多只有一份实体，你必须让它成为一个static成员：&#xA;class Gameplayer { private: static const int NumTurns = 5; //常量声明式 int scores[NumTurns]; ... }; 第三、 万一你的编译器（错误地）不允许“static整数型class常量”完成“in class初值设定”，可改用所谓的&amp;quot;the enum hack&amp;quot;补偿做法。其理论基础是：“一个属于枚举类型（enumerated type）的数值可权充ints被使用”&#xA;enum hack的行为某方面说比较像#define而不像const&#xA;class Gameplayer { private: enum {NumTurns = 5}; int scores[NumTurns]; ... }; 本文要点&#xA;对于单纯常量,最好以const对象或enums替换#defines.&#xA;对于形似函数的宏(macros) ,最好改用inline函数替换#defines.&#xA;条款03: 尽可能使用const 如果关键字const出现在星号左边,表示被指物是常量;如果出现在星号右边,表示指针自身是常量;如果出现在星号两边,表示被指物和指针两者都是常量。&#xA;作用&#xA;修饰变量，说明该变量不可以被改变； 修饰指针，分为指向常量的指针（pointer to const）和自身是常量的指针（常量指针，const pointer）； 修饰引用，指向常量的引用（reference to const），用于形参类型，即避免了拷贝，又避免了函数对值的修改； 修饰成员函数，说明该成员函数内不能修改成员变量。 char* p1 = greeting; // 指针变量，指向字符数组变量 const char* p2 = greeting; // 指针变量，指向字符数组常量（const 后面是 char，说明指向的字符（char）不可改变） char* const p3 = greeting; // 自身是常量的指针，指向字符数组变量（const 后面是 p3，说明 p3 指针自身不可改变） const char* const p4 = greeting; // 自身是常量的指针，指向字符数组常量 // 函数 void function1(const int Var); // 传递过来的参数在函数内不可变 void function2(const char* Var); // 参数指针所指内容为常量 void function3(char* const Var); // 参数指针为常量 void function4(const int&amp;amp; Var); // 引用参数在函数内为常量 // 函数返回值 const int function5(); // 返回一个常数 const int* function6(); // 返回一个指向常量的指针变量，使用：const int *p = function6(); int* const function7(); // 返回一个指向变量的常指针，使用：int* const p = function7(); const成员函数承诺绝不改变其对象的逻辑状态 (logical state) , non-const成员函数却没有这般承诺。如果在const函数内调用non-const函数,就是冒了这样的风险:你曾经承诺不改动的那个对象被改动了。这就是为什么&amp;quot;const成员函数调用non-const成员函数”是一种错误行为:因为对象有可能因此被改动。</description>
     </item>
-    
     <item>
       <title>Effective C&#43;&#43; 下</title>
       <link>https://vcvvvc.github.io/post/effective_cpp_2/</link>
       <pubDate>Sat, 20 Aug 2022 17:00:36 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/effective_cpp_2/</guid>
-      <description>条款41:了解隐式接口和编译期多态 template&amp;lt;typename T&amp;gt; void doProcessing (T&amp;amp; w) { if (w.size() &amp;gt; 10 &amp;amp;&amp;amp; w != someNastywidget) { T temp(w); temp.normalize(); temp.swap(w); } } w必须支持哪一种接口,系由template中执行于w身上的操作来决定。 凡涉及w的任何函数调用,例如operator&amp;gt;和operator!,有可能造成template具现化(instantiated) ,使这些调用得以成功。这样的具现行为发生在编译期。“以不同的template参数具现化function templates&amp;quot;会导致调用不同的函数,这 便是所谓的编译期多态(compile-time polymorphism) 。 显式接口和隐式接口的差异
-显式接口由函数的签名式(也就是函数名称、参数类型、返回类型)构成。
-其public接口由一个构造函数、一个析构函数、函数及其参数类型、返回类型、常量性(constnesses)构成。当然也包括编译器产生的copy 构造函数和copy assignment操作符(见条款5) 。 隐式接口就完全不同了。它并不基于函数签名式,而是由有效表达式(valid expressions)组成。
-template&amp;lt;typename T&amp;gt; void doProcessing( T&amp;amp; w) { if (w.size() &amp;gt; 10 &amp;amp;&amp;amp; w != someNastywidget) { ... } } 它必须提供一个名为size的成员函数,该函数返回一个整数值。 它必须支持一个operator!=函数,用来比较两个T对象。这里我们假设 someNastyWidget的类型为T 本文要点
-classes和templates都支持接口(interfaces)和多态(polymorphism) 。 对classes而言接口是显式的(explicit),以函数签名为中心。多态则是通过virtual函数发生于运行期。 对template参数而言,接口是隐式的(implicit) ,奠基于有效表达式。多态则 是通过template具现化和函数重载解析(function overloading resolution)发生于编译期。 条款42: 了解typename的双重意义 template&amp;lt;class T&amp;gt; class widget; //使用&amp;#34;class&amp;#34; template&amp;lt;typename T&amp;gt; class Widget; //使用&amp;#34;typename&amp;#34; C++并不总是把class和typename视为等价。有时候你一定得使用 typename。 template&amp;lt;typename C&amp;gt; void print2nd(const C&amp;amp; container) { if (container.</description>
+      <description>条款41:了解隐式接口和编译期多态 template&amp;lt;typename T&amp;gt; void doProcessing (T&amp;amp; w) { if (w.size() &amp;gt; 10 &amp;amp;&amp;amp; w != someNastywidget) { T temp(w); temp.normalize(); temp.swap(w); } } w必须支持哪一种接口,系由template中执行于w身上的操作来决定。 凡涉及w的任何函数调用,例如operator&amp;gt;和operator!,有可能造成template具现化(instantiated) ,使这些调用得以成功。这样的具现行为发生在编译期。“以不同的template参数具现化function templates&amp;quot;会导致调用不同的函数,这 便是所谓的编译期多态(compile-time polymorphism) 。 显式接口和隐式接口的差异&#xA;显式接口由函数的签名式(也就是函数名称、参数类型、返回类型)构成。&#xA;其public接口由一个构造函数、一个析构函数、函数及其参数类型、返回类型、常量性(constnesses)构成。当然也包括编译器产生的copy 构造函数和copy assignment操作符(见条款5) 。 隐式接口就完全不同了。它并不基于函数签名式,而是由有效表达式(valid expressions)组成。&#xA;template&amp;lt;typename T&amp;gt; void doProcessing( T&amp;amp; w) { if (w.size() &amp;gt; 10 &amp;amp;&amp;amp; w != someNastywidget) { ... } } 它必须提供一个名为size的成员函数,该函数返回一个整数值。 它必须支持一个operator!=函数,用来比较两个T对象。这里我们假设 someNastyWidget的类型为T 本文要点&#xA;classes和templates都支持接口(interfaces)和多态(polymorphism) 。 对classes而言接口是显式的(explicit),以函数签名为中心。多态则是通过virtual函数发生于运行期。 对template参数而言,接口是隐式的(implicit) ,奠基于有效表达式。多态则 是通过template具现化和函数重载解析(function overloading resolution)发生于编译期。 条款42: 了解typename的双重意义 template&amp;lt;class T&amp;gt; class widget; //使用&amp;#34;class&amp;#34; template&amp;lt;typename T&amp;gt; class Widget; //使用&amp;#34;typename&amp;#34; C++并不总是把class和typename视为等价。有时候你一定得使用 typename。 template&amp;lt;typename C&amp;gt; void print2nd(const C&amp;amp; container) { if (container.</description>
     </item>
-    
     <item>
       <title>何为协程</title>
       <link>https://vcvvvc.github.io/post/%E4%BD%95%E4%B8%BA%E5%8D%8F%E7%A8%8B/</link>
       <pubDate>Sun, 30 Jan 2022 23:18:03 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/%E4%BD%95%E4%B8%BA%E5%8D%8F%E7%A8%8B/</guid>
-      <description>什么是协程 进程-&amp;gt;线程-&amp;gt;协程
-Re:
-https://baike.baidu.com/item/协程/8652240
-https://cloud.tencent.com/developer/article/1916705
-https://zhuanlan.zhihu.com/p/172471249
-https://www.zhihu.com/question/32218874/answers/updated
-https://zhuanlan.zhihu.com/p/70256971
-https://docs.python.org/zh-cn/3/library/asyncio-task.html
-Unity: https://developer.unity.cn/projects/61c80ba3edbc2a244ffbcf25
-https://www.nowcoder.com/discuss/821457
-http://c.biancheng.net/view/5214.html
-https://zhuanlan.zhihu.com/p/59178345
-https://zhuanlan.zhihu.com/p/337946103</description>
+      <description>什么是协程 进程-&amp;gt;线程-&amp;gt;协程&#xA;Re:&#xA;https://baike.baidu.com/item/协程/8652240&#xA;https://cloud.tencent.com/developer/article/1916705&#xA;https://zhuanlan.zhihu.com/p/172471249&#xA;https://www.zhihu.com/question/32218874/answers/updated&#xA;https://zhuanlan.zhihu.com/p/70256971&#xA;https://docs.python.org/zh-cn/3/library/asyncio-task.html&#xA;Unity: https://developer.unity.cn/projects/61c80ba3edbc2a244ffbcf25&#xA;https://www.nowcoder.com/discuss/821457&#xA;http://c.biancheng.net/view/5214.html&#xA;https://zhuanlan.zhihu.com/p/59178345&#xA;https://zhuanlan.zhihu.com/p/337946103</description>
     </item>
-    
     <item>
       <title>C&#43;&#43;获取域名IP</title>
       <link>https://vcvvvc.github.io/post/get_domain_ip_cpp/</link>
       <pubDate>Fri, 14 Jan 2022 00:09:51 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/get_domain_ip_cpp/</guid>
       <description>#https://blog.csdn.net/dosthing/article/details/80383817 std::string ip = &amp;#34;www.baidu.com&amp;#34;; struct hostent stHostent; struct hostent *pstHostent = nullptr; char **pptr = nullptr; char buf[2048] = &amp;#34;\0&amp;#34;; sprintf(buf,&amp;#34;%s&amp;#34;, &amp;#34;ip&amp;#34;); int iError; if((pstHostent = gethostbyname(buf)) == NULL || pstHostent-&amp;gt;h_addr_list == NULL || pstHostent-&amp;gt;h_addr_list[0] == NULL) { std::cout &amp;lt;&amp;lt; &amp;#34;can&amp;#39;t parse the domain&amp;#34; &amp;lt;&amp;lt; std::endl; exit(0); } else { std::cout &amp;lt;&amp;lt; &amp;#34;official hostname: &amp;#34; &amp;lt;&amp;lt; pstHostent-&amp;gt;h_name &amp;lt;&amp;lt; std::endl; for(pptr = pstHostent-&amp;gt;h_aliases; *pptr != NULL; pptr++) std::cout &amp;lt;&amp;lt; &amp;#34;alias: &amp;#34; &amp;lt;&amp;lt; *pptr &amp;lt;&amp;lt; std::endl; switch(pstHostent-&amp;gt;h_addrtype) { case AF_INET: case AF_INET6: pptr = pstHostent-&amp;gt;h_addr_list; for(; *pptr!</description>
     </item>
-    
     <item>
       <title>通过typeid()获取类名</title>
       <link>https://vcvvvc.github.io/post/typeid_get_class_name/</link>
       <pubDate>Wed, 15 Dec 2021 19:39:23 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/typeid_get_class_name/</guid>
-      <description>时间一长，模版跟继承还多容易忘，这样比看代码更效率些。
-template&amp;lt;typename T&amp;gt; TC_LockT&amp;lt;T&amp;gt;::TC_LockT(const T &amp;amp;mutex) { std::cout &amp;lt;&amp;lt; &amp;#34;1class name = &amp;#34; &amp;lt;&amp;lt; typeid(mutex).name() &amp;lt;&amp;lt; std::endl; std::cout &amp;lt;&amp;lt; &amp;#34;2class name = &amp;#34; &amp;lt;&amp;lt; typeid(*this).name() &amp;lt;&amp;lt; std::endl; } </description>
+      <description>时间一长，模版跟继承还多容易忘，这样比看代码更效率些。&#xA;template&amp;lt;typename T&amp;gt; TC_LockT&amp;lt;T&amp;gt;::TC_LockT(const T &amp;amp;mutex) { std::cout &amp;lt;&amp;lt; &amp;#34;1class name = &amp;#34; &amp;lt;&amp;lt; typeid(mutex).name() &amp;lt;&amp;lt; std::endl; std::cout &amp;lt;&amp;lt; &amp;#34;2class name = &amp;#34; &amp;lt;&amp;lt; typeid(*this).name() &amp;lt;&amp;lt; std::endl; } </description>
     </item>
-    
     <item>
       <title>readv_writev</title>
       <link>https://vcvvvc.github.io/post/readv_writev/</link>
       <pubDate>Fri, 26 Nov 2021 20:31:17 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/readv_writev/</guid>
-      <description>readv和writev函数用于在一次函数调用中读、写多个非连续缓冲区。有时也将这两个函数称为散布读（scatter read）和聚集写（gather write）。
-#include &amp;lt;sys/uio.h&amp;gt; ssize_t readv(int filedes, const struct iovec *iov, int iovcnt); #散布读 ssize_t writev(int filedes, const struct iovec *iov, int iovcnt); #聚集写 其中的iovec
-#include &amp;lt;sys/uio.h&amp;gt; struct iovec { ptr_t iov_base; /* Starting address */ size_t iov_len; /* Length in bytes */ }; 代码：https://github.com/vcvvvc/CPP_Test/tree/master/test/writev
-Re: https://www.cnblogs.com/nufangrensheng/p/3559304.html
-https://www.cnblogs.com/youngerchina/p/5624567.html</description>
+      <description>readv和writev函数用于在一次函数调用中读、写多个非连续缓冲区。有时也将这两个函数称为散布读（scatter read）和聚集写（gather write）。&#xA;#include &amp;lt;sys/uio.h&amp;gt; ssize_t readv(int filedes, const struct iovec *iov, int iovcnt); #散布读 ssize_t writev(int filedes, const struct iovec *iov, int iovcnt); #聚集写 其中的iovec&#xA;#include &amp;lt;sys/uio.h&amp;gt; struct iovec { ptr_t iov_base; /* Starting address */ size_t iov_len; /* Length in bytes */ }; 代码：https://github.com/vcvvvc/CPP_Test/tree/master/test/writev&#xA;Re: https://www.cnblogs.com/nufangrensheng/p/3559304.html&#xA;https://www.cnblogs.com/youngerchina/p/5624567.html</description>
     </item>
-    
     <item>
       <title>ip转换函数</title>
       <link>https://vcvvvc.github.io/post/ip%E8%BD%AC%E6%8D%A2%E5%87%BD%E6%95%B0/</link>
       <pubDate>Sun, 21 Nov 2021 22:08:01 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/ip%E8%BD%AC%E6%8D%A2%E5%87%BD%E6%95%B0/</guid>
-      <description>主机字节序（大端） 和 网络字节序（小端)
-大端: 0x12 | 0x32 | 0x56
-小端: 0x56 | 0x34 | 0x12
-Host to Network long/short
-Network to Host long/short
-uint32_t htonl(uint32_t hostlong); //将主机的无符号长整型数转换成网络字节序 uint16_t htons(uint16_t hostshort); //将主机的无符号短整形数转换成网络字节序 uint32_t ntohl(uint32_t netlong); //将一个无符号长整型数从网络字节序转换为主机字节序 uint16_t ntohs(uint16_t netshort); //将一个无符号短整形数从网络字节序转换为主机字节序 https://github.com/vcvvvc/CPP_Test/tree/master/test/hostto
-#把ip地址转化为用于网络传输的二进制数值(32位) in_addr_t inet_addr(const char *cp); #少用了 int inet_aton(const char * cp, struct in_addr *inp); #将网络传输的二进制数值转化为成点分十进制的ip地址 char* inet_ntoa(struct in_addr in); #这两个函数是随IPv6出现的函数，对于IPv4地址和IPv6地址都适用，函数中p和n分别代表表达（presentation)和数值（numeric)。 地址的表达格式通常是ASCII字符串，数值格式则是存放到套接字地址结构的二进制值。 int inet_pton(int family, const char *strptr, void *addrptr); const char * inet_ntop(int family, const void *addrptr, char *strptr, size_t len); Re: https://www.</description>
+      <description>主机字节序（大端） 和 网络字节序（小端)&#xA;大端: 0x12 | 0x32 | 0x56&#xA;小端: 0x56 | 0x34 | 0x12&#xA;Host to Network long/short&#xA;Network to Host long/short&#xA;uint32_t htonl(uint32_t hostlong); //将主机的无符号长整型数转换成网络字节序 uint16_t htons(uint16_t hostshort); //将主机的无符号短整形数转换成网络字节序 uint32_t ntohl(uint32_t netlong); //将一个无符号长整型数从网络字节序转换为主机字节序 uint16_t ntohs(uint16_t netshort); //将一个无符号短整形数从网络字节序转换为主机字节序 https://github.com/vcvvvc/CPP_Test/tree/master/test/hostto&#xA;#把ip地址转化为用于网络传输的二进制数值(32位) in_addr_t inet_addr(const char *cp); #少用了 int inet_aton(const char * cp, struct in_addr *inp); #将网络传输的二进制数值转化为成点分十进制的ip地址 char* inet_ntoa(struct in_addr in); #这两个函数是随IPv6出现的函数，对于IPv4地址和IPv6地址都适用，函数中p和n分别代表表达（presentation)和数值（numeric)。 地址的表达格式通常是ASCII字符串，数值格式则是存放到套接字地址结构的二进制值。 int inet_pton(int family, const char *strptr, void *addrptr); const char * inet_ntop(int family, const void *addrptr, char *strptr, size_t len); Re: https://www.</description>
     </item>
-    
     <item>
       <title>Cpp内存管理</title>
       <link>https://vcvvvc.github.io/post/cpp%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/</link>
       <pubDate>Sun, 31 Oct 2021 21:51:37 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/cpp%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/</guid>
-      <description>Re: 收集 总结的真不错
-https://www.cnblogs.com/findumars/p/5929831.html</description>
+      <description>Re: 收集 总结的真不错&#xA;https://www.cnblogs.com/findumars/p/5929831.html</description>
     </item>
-    
     <item>
       <title>总结mmap(零拷贝)</title>
       <link>https://vcvvvc.github.io/post/use_mmap/</link>
       <pubDate>Mon, 04 Oct 2021 21:10:09 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/use_mmap/</guid>
-      <description>总结分析传统io, mmap, sendfile
-传统IO 通过read()把数据从硬盘读取到内核缓冲区，再复制到用户缓冲区；然后再通过write()写入到socket缓冲区，最后写入目标。
-整个过程发生了4次用户态和内核态的上下文切换和4次拷贝
-用户进程通过read()方法向操作系统发起调用，此时上下文从用户态转向内核态 DMA控制器把数据从硬盘中拷贝到读缓冲区 CPU把读缓冲区数据拷贝到应用缓冲区，上下文从内核态转为用户态，read()返回 用户进程通过write()方法发起调用，上下文从用户态转为内核态 CPU将应用缓冲区中数据拷贝到socket缓冲区 DMA控制器把数据从socket缓冲区拷贝到网卡，上下文从内核态切换回用户态，write()返回 mmap #用来将某个文件内容映射到内存中，对该内存区域的存取即是直接对该文件内容的读写。 void *mmap(void *start, size_t length, int prot, int flags, int fd, off_t offsize); 调用 mmap() 系统调用对文件进行映射后，用户对映射后的内存进行读写实际上是对文件缓存的读写，所以减少了一次系统调用，从而加速了对文件读写的效率。
-整个过程发生了4次用户态和内核态的上下文切换和3次拷贝，具体流程如下：
-用户进程通过mmap()方法向操作系统发起调用，上下文从用户态转向内核态 DMA控制器把数据从硬盘中拷贝到读缓冲区 上下文从内核态转为用户态，mmap调用返回 用户进程通过write()方法发起调用，上下文从用户态转为内核态 CPU将读缓冲区中数据拷贝到socket缓冲区 DMA控制器把数据从socket缓冲区拷贝到网卡，上下文从内核态切换回用户态，write()返回 munmap int munmap(void *addr, size_t len); munmap()用来取消参数start 所指的映射内存起始地址，参数length 则是欲取消的内存大小。当进程结束或利用exec 相关函数来执行其他程序时，映射内存会自动解除，但关闭对应的文件描述词时不会解除映射。
-Sendfile sendfile函数在两个文件描述符之间传递数据（完全在内核中操作），从而避免了内核缓冲区和用户缓冲区之间的数据拷贝，效率很高，被称为零拷贝。
-ssize_t senfile(int out_fd,int in_fd,off_t* offset,size_t count); 整个过程发生了2次用户态和内核态的上下文切换和3次拷贝
-用户进程通过sendfile()方法向操作系统发起调用，上下文从用户态转向内核态 DMA控制器把数据从硬盘中拷贝到读缓冲区 CPU将读缓冲区中数据拷贝到socket缓冲区 DMA控制器把数据从socket缓冲区拷贝到网卡，上下文从内核态切换回用户态，sendfile调用返回 sendfile+DMA Scatter/Gather 它将读缓冲区中的数据描述信息&amp;ndash;内存地址和偏移量记录到socket缓冲区，由 DMA 根据这些将数据从读缓冲区拷贝到网卡，相比之前版本减少了一次CPU拷贝的过程
-整个过程发生了2次用户态和内核态的上下文切换和2次拷贝，其中更重要的是完全没有CPU拷贝
-用户进程通过sendfile()方法向操作系统发起调用，上下文从用户态转向内核态 DMA控制器利用scatter把数据从硬盘中拷贝到读缓冲区离散存储 CPU把读缓冲区中的文件描述符和数据长度发送到socket缓冲区 DMA控制器根据文件描述符和数据长度，使用scatter/gather把数据从内核缓冲区拷贝到网卡 sendfile()调用返回，上下文从内核态切换回用户态 Re: https://zhuanlan.</description>
+      <description>总结分析传统io, mmap, sendfile&#xA;传统IO 通过read()把数据从硬盘读取到内核缓冲区，再复制到用户缓冲区；然后再通过write()写入到socket缓冲区，最后写入目标。&#xA;整个过程发生了4次用户态和内核态的上下文切换和4次拷贝&#xA;用户进程通过read()方法向操作系统发起调用，此时上下文从用户态转向内核态 DMA控制器把数据从硬盘中拷贝到读缓冲区 CPU把读缓冲区数据拷贝到应用缓冲区，上下文从内核态转为用户态，read()返回 用户进程通过write()方法发起调用，上下文从用户态转为内核态 CPU将应用缓冲区中数据拷贝到socket缓冲区 DMA控制器把数据从socket缓冲区拷贝到网卡，上下文从内核态切换回用户态，write()返回 mmap #用来将某个文件内容映射到内存中，对该内存区域的存取即是直接对该文件内容的读写。 void *mmap(void *start, size_t length, int prot, int flags, int fd, off_t offsize); 调用 mmap() 系统调用对文件进行映射后，用户对映射后的内存进行读写实际上是对文件缓存的读写，所以减少了一次系统调用，从而加速了对文件读写的效率。&#xA;整个过程发生了4次用户态和内核态的上下文切换和3次拷贝，具体流程如下：&#xA;用户进程通过mmap()方法向操作系统发起调用，上下文从用户态转向内核态 DMA控制器把数据从硬盘中拷贝到读缓冲区 上下文从内核态转为用户态，mmap调用返回 用户进程通过write()方法发起调用，上下文从用户态转为内核态 CPU将读缓冲区中数据拷贝到socket缓冲区 DMA控制器把数据从socket缓冲区拷贝到网卡，上下文从内核态切换回用户态，write()返回 munmap int munmap(void *addr, size_t len); munmap()用来取消参数start 所指的映射内存起始地址，参数length 则是欲取消的内存大小。当进程结束或利用exec 相关函数来执行其他程序时，映射内存会自动解除，但关闭对应的文件描述词时不会解除映射。&#xA;Sendfile sendfile函数在两个文件描述符之间传递数据（完全在内核中操作），从而避免了内核缓冲区和用户缓冲区之间的数据拷贝，效率很高，被称为零拷贝。&#xA;ssize_t senfile(int out_fd,int in_fd,off_t* offset,size_t count); 整个过程发生了2次用户态和内核态的上下文切换和3次拷贝&#xA;用户进程通过sendfile()方法向操作系统发起调用，上下文从用户态转向内核态 DMA控制器把数据从硬盘中拷贝到读缓冲区 CPU将读缓冲区中数据拷贝到socket缓冲区 DMA控制器把数据从socket缓冲区拷贝到网卡，上下文从内核态切换回用户态，sendfile调用返回 sendfile+DMA Scatter/Gather 它将读缓冲区中的数据描述信息&amp;ndash;内存地址和偏移量记录到socket缓冲区，由 DMA 根据这些将数据从读缓冲区拷贝到网卡，相比之前版本减少了一次CPU拷贝的过程&#xA;整个过程发生了2次用户态和内核态的上下文切换和2次拷贝，其中更重要的是完全没有CPU拷贝&#xA;用户进程通过sendfile()方法向操作系统发起调用，上下文从用户态转向内核态 DMA控制器利用scatter把数据从硬盘中拷贝到读缓冲区离散存储 CPU把读缓冲区中的文件描述符和数据长度发送到socket缓冲区 DMA控制器根据文件描述符和数据长度，使用scatter/gather把数据从内核缓冲区拷贝到网卡 sendfile()调用返回，上下文从内核态切换回用户态 Re: https://zhuanlan.</description>
     </item>
-    
     <item>
       <title>类静态成员初始化、赋值</title>
       <link>https://vcvvvc.github.io/post/%E7%B1%BB%E9%9D%99%E6%80%81%E6%88%90%E5%91%98%E5%88%9D%E5%A7%8B%E5%8C%96/</link>
       <pubDate>Wed, 18 Aug 2021 19:29:15 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/%E7%B1%BB%E9%9D%99%E6%80%81%E6%88%90%E5%91%98%E5%88%9D%E5%A7%8B%E5%8C%96/</guid>
-      <description>类静态成员类外初始化与在另一个类成员函数赋值
-为什么类的静态成员要在类外初始化 因为静态成员属于整个类，而不属于某个对象，如果在类内初始化，会导致每个对象都包含该静态成员，这是矛盾的。
-C++的静态成员是需要初始化的（实际上需要分配一个内存，不一定需要赋值），初始化是赋一个初始值，而定义是分配内存。静态成员变量在类中仅仅是声明，没有定义，所以要在类的外面定义。 静态成员是单独存储的，并不是对象的组成部分。如果在类的内部进行定义，在建立多个对象时会多次声明和定义该变量的存储位置。在名字空间和作用于相同的情况下会导致重名的问题。
-静态常量成员可以在类内初始化 类的静态成员变量在另一个类赋值 //头文件代码 a.h class SPostMsgToMain { public: //存储消息线程的指针 static CWinThread* m_pThread; }; //a.cpp SPostMsgToMain::m_pThread=NULL; //此处为静态成员的定义。该定义要写在实现文件里面，不能写在头文件里面 //thread.cpp QueryThread::QueryThread(void) { SPostMsgToMain::m_pThread = this; } Re:
-https://blog.csdn.net/sevenjoin/article/details/81772792
-https://blog.csdn.net/lvquanye9483/article/details/81946116
-下面是09年已经删除的帖子，这是bing保存的快照:
-http://cncc.bingj.com/cache.aspx?q=类的静态成员变量在另一个类赋值</description>
+      <description>类静态成员类外初始化与在另一个类成员函数赋值&#xA;为什么类的静态成员要在类外初始化 因为静态成员属于整个类，而不属于某个对象，如果在类内初始化，会导致每个对象都包含该静态成员，这是矛盾的。&#xA;C++的静态成员是需要初始化的（实际上需要分配一个内存，不一定需要赋值），初始化是赋一个初始值，而定义是分配内存。静态成员变量在类中仅仅是声明，没有定义，所以要在类的外面定义。 静态成员是单独存储的，并不是对象的组成部分。如果在类的内部进行定义，在建立多个对象时会多次声明和定义该变量的存储位置。在名字空间和作用于相同的情况下会导致重名的问题。&#xA;静态常量成员可以在类内初始化 类的静态成员变量在另一个类赋值 //头文件代码 a.h class SPostMsgToMain { public: //存储消息线程的指针 static CWinThread* m_pThread; }; //a.cpp SPostMsgToMain::m_pThread=NULL; //此处为静态成员的定义。该定义要写在实现文件里面，不能写在头文件里面 //thread.cpp QueryThread::QueryThread(void) { SPostMsgToMain::m_pThread = this; } Re:&#xA;https://blog.csdn.net/sevenjoin/article/details/81772792&#xA;https://blog.csdn.net/lvquanye9483/article/details/81946116&#xA;下面是09年已经删除的帖子，这是bing保存的快照:&#xA;http://cncc.bingj.com/cache.aspx?q=类的静态成员变量在另一个类赋值</description>
     </item>
-    
     <item>
       <title>Cpp_stl</title>
       <link>https://vcvvvc.github.io/post/cpp_stl/</link>
       <pubDate>Sat, 12 Jun 2021 14:26:45 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/cpp_stl/</guid>
-      <description>空间配置器 容器类型 标准STL序列容器: vector,string、 deque和list. 标准STL关联容器: set, multiset. map和multimap. 非标准序列容器slist和rope, slist是一个单向链表, rope本质上是一“重型&amp;quot; string 非标准的关联容器hash-set, hash-multiset. hash-map和hash-multimap 标准的非STL容器,包括数组、bitset. valarray、 stack, queue和priority_queue. Vector template &amp;lt;class T, class Alloc=alloc&amp;gt; class vector{ private: //vector的嵌套型别定义 typedef T value_type; typedef value_type* pointer; typedef value_type* iterator; typedef value_type&amp;amp; reference; typedef size_t size_type; typedef ptrdiff_t difference_type; protect: // simple_alloc是SGI STL默认的空间配置器 typedef simple_alloc&amp;lt;value_type, Alloc&amp;gt; data_allocator; iterator start;	// 表示目前使用空间的头 iterator finish;	// 表示目前使用空间的尾 iterator end_of_storage;	// 表示目前可用空间的尾 }; vector提供的接口：包括得到vector的属性接口、vector的操作接口以及构造函数：</description>
+      <description>空间配置器 容器类型 标准STL序列容器: vector,string、 deque和list. 标准STL关联容器: set, multiset. map和multimap. 非标准序列容器slist和rope, slist是一个单向链表, rope本质上是一“重型&amp;quot; string 非标准的关联容器hash-set, hash-multiset. hash-map和hash-multimap 标准的非STL容器,包括数组、bitset. valarray、 stack, queue和priority_queue. Vector template &amp;lt;class T, class Alloc=alloc&amp;gt; class vector{ private: //vector的嵌套型别定义 typedef T value_type; typedef value_type* pointer; typedef value_type* iterator; typedef value_type&amp;amp; reference; typedef size_t size_type; typedef ptrdiff_t difference_type; protect: // simple_alloc是SGI STL默认的空间配置器 typedef simple_alloc&amp;lt;value_type, Alloc&amp;gt; data_allocator; iterator start;&#x9;// 表示目前使用空间的头 iterator finish;&#x9;// 表示目前使用空间的尾 iterator end_of_storage;&#x9;// 表示目前可用空间的尾 }; vector提供的接口：包括得到vector的属性接口、vector的操作接口以及构造函数：</description>
     </item>
-    
     <item>
       <title>Chrono_use</title>
       <link>https://vcvvvc.github.io/post/chrono_use/</link>
       <pubDate>Tue, 01 Jun 2021 15:57:31 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/chrono_use/</guid>
       <description>时间戳获取 using namespace std::chrono; auto millisec_since_epoch = duration_cast&amp;lt;milliseconds&amp;gt;(system_clock::now().time_since_epoch()).count(); auto msec = duration_cast&amp;lt;microseconds&amp;gt;(system_clock::now().time_since_epoch()).count(); auto sec_since_epoch = duration_cast&amp;lt;seconds&amp;gt;(system_clock::now().time_since_epoch()).count(); std::cout &amp;lt;&amp;lt; &amp;#34;seconds since epoch: &amp;#34; &amp;lt;&amp;lt; sec_since_epoch &amp;lt;&amp;lt; std::endl; std::cout &amp;lt;&amp;lt; &amp;#34;milliseconds since epoch: &amp;#34; &amp;lt;&amp;lt; millisec_since_epoch &amp;lt;&amp;lt; std::endl; 秒seconds since epoch: 1622534342 微妙 milliseconds since epoch: 1622534342050 标准年月日+时间获取 std::time_t now = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now()); char re_time[256] = {0}; std::strftime(re_time, sizeof(re_time), &amp;#34;%Y-%m-%d %X&amp;#34;, std::localtime(&amp;amp;now)); std::cout &amp;lt;&amp;lt; “注册时间 ” &amp;lt;&amp;lt; re_time &amp;lt;&amp;lt; std::endl; 注册时间: 2021-06-01 15:56:42</description>
     </item>
-    
     <item>
       <title>B_Tree</title>
       <link>https://vcvvvc.github.io/post/b_tree/</link>
       <pubDate>Wed, 19 May 2021 22:48:49 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/b_tree/</guid>
-      <description>主角得拿出来文字记录下。 一个m阶的B树具有如下属性:
-每个节点最多有m-1个关键字（可以存有的键值对）。 根节点最少可以只有1个关键字。 非根节点至少有m/2个关键字。 每个节点中的关键字都按照从小到大的顺序排列，每个关键字的左子树中的所有关键字都小于它，而右子树中的所有关键字都大于它。 所有叶子节点都位于同一层，或者说根节点到每个叶子节点的长度都相同。 每个节点都存有索引和数据，也就是对应的key和value。 在含有n个关键字的B树上查找时，从根结点到关键字结点的 路径上涉及的结点数不超过log |m/2| ((n+1)/2)+1。
-不错的讲解
-https://www.yiibai.com/data_structure/b-tree.html https://blog.nowcoder.net/n/ef07c1ad8f8346078eeab66518152bf0 https://blog.csdn.net/alzzw/article/details/97633941 一棵m阶的B+树和m阶的B树的差异在于:
-有n棵子树的结点中包含有n个关键字； 所有的叶子结点包含全部关键字的信息，及指向含这些关键字记录 的指针，叶子结点本身依关键字的大小自小而大顺序链接； 所有分支结点可以看成是索引，结点中仅含有其子树中的最大（或 最小）关键字。 实现
-https://blog.csdn.net/liu1064782986/article/details/7982290
-2-3树是这样的一棵多路查找树：其中的每一个结点都具有两个孩（我们称它为2结点）或三个孩子（我们称它为3结点）。
-一个2结点包含一个元素和两个孩子（或没有孩子），且与二叉排序树类似，左子树包含的元素小于该元素，右子树包含的元素大于该元素。
-这个2结点要么没有孩子，要有就有两个，不能只有一个孩子。
-一个3结点包含一小一大两个元素和三个孩子（或没有孩子），一个3结点要么没有孩子，要么具有3个孩子。</description>
+      <description>主角得拿出来文字记录下。 一个m阶的B树具有如下属性:&#xA;每个节点最多有m-1个关键字（可以存有的键值对）。 根节点最少可以只有1个关键字。 非根节点至少有m/2个关键字。 每个节点中的关键字都按照从小到大的顺序排列，每个关键字的左子树中的所有关键字都小于它，而右子树中的所有关键字都大于它。 所有叶子节点都位于同一层，或者说根节点到每个叶子节点的长度都相同。 每个节点都存有索引和数据，也就是对应的key和value。 在含有n个关键字的B树上查找时，从根结点到关键字结点的 路径上涉及的结点数不超过log |m/2| ((n+1)/2)+1。&#xA;不错的讲解&#xA;https://www.yiibai.com/data_structure/b-tree.html https://blog.nowcoder.net/n/ef07c1ad8f8346078eeab66518152bf0 https://blog.csdn.net/alzzw/article/details/97633941 一棵m阶的B+树和m阶的B树的差异在于:&#xA;有n棵子树的结点中包含有n个关键字； 所有的叶子结点包含全部关键字的信息，及指向含这些关键字记录 的指针，叶子结点本身依关键字的大小自小而大顺序链接； 所有分支结点可以看成是索引，结点中仅含有其子树中的最大（或 最小）关键字。 实现&#xA;https://blog.csdn.net/liu1064782986/article/details/7982290&#xA;2-3树是这样的一棵多路查找树：其中的每一个结点都具有两个孩（我们称它为2结点）或三个孩子（我们称它为3结点）。&#xA;一个2结点包含一个元素和两个孩子（或没有孩子），且与二叉排序树类似，左子树包含的元素小于该元素，右子树包含的元素大于该元素。&#xA;这个2结点要么没有孩子，要有就有两个，不能只有一个孩子。&#xA;一个3结点包含一小一大两个元素和三个孩子（或没有孩子），一个3结点要么没有孩子，要么具有3个孩子。</description>
     </item>
-    
     <item>
       <title>cpp_class权限 继承</title>
       <link>https://vcvvvc.github.io/post/cpp_class_%E6%9D%83%E9%99%90_%E7%BB%A7%E6%89%BF/</link>
       <pubDate>Fri, 23 Apr 2021 14:01:54 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/cpp_class_%E6%9D%83%E9%99%90_%E7%BB%A7%E6%89%BF/</guid>
-      <description>补充实例： cpp_class继承: https://vcvvvc.github.io/post/cpp_inherit
-1. private, public, protected 访问标号的访问范围
-private：只能由1.该类中的函数、2.其友元函数访问。 不能被任何其他访问，该类的对象也不能访问。
-protected：可以被1.该类中的函数、2.子类的函数、3.其友元函数访问。 但不能被该类的对象访问。
-public：可以被1.该类中的函数、2.子类的函数、3.其友元函数访问，也可以由4.该类的对象访问。
-注：友元函数包括3种：设为友元的普通的非成员函数；设为友元的其他类的成员函数；设为友元类中的所有成员函数。
-2 类被继承后方法属性变化
-private 属性不能够被继承。 使用private继承， 父类的protected和public属性在子类中变为private； 使用protected继承，父类的protected和public属性在子类中变为protected； 使用public继承， 父类的protected和public属性不发生改变;
-3 private继承和public继承的适用情况
-C++将public继承视为is-a关系。private继承则并不意味着is-a关系，private继承意味着implemented-in-terms-of（根据某物实现出）。private继承意味着只有实现部分被继承，接口部分被略去。private继承在软件设计层面上没有意义，其意义只在于软件实现层面。
-private继承：
-1）编译器不会自动将一个子类对象转换为一个父类对象，而public继承会；
-2）子类中由父类继承而来的成员（protected和public）都变为private。
-implemented-in-terms-of也可以由复合实现。在应用域，复合意味着has-a；在实现域，复合意味着is-implemented-in-terms-of。尽可能使用复合实现这种关系，必要时（涉及protected成员或virtual函数时）才使用private继承。
-原文链接：https://blog.csdn.net/kingzone_2008/article/details/10066181 虚继承 C++使用虚拟继承（Virtual Inheritance），解决从不同途径继承来的同名的数据成员在内存中有不同的拷贝造成数据不一致问题，将共同基类设置为虚基类。解决二义性。
-class sum {}; class a : virtual public sum { ... } class b : virtual public sum { ... }; class c:: public a, public b { ... }; </description>
+      <description>补充实例： cpp_class继承: https://vcvvvc.github.io/post/cpp_inherit&#xA;1. private, public, protected 访问标号的访问范围&#xA;private：只能由1.该类中的函数、2.其友元函数访问。 不能被任何其他访问，该类的对象也不能访问。&#xA;protected：可以被1.该类中的函数、2.子类的函数、3.其友元函数访问。 但不能被该类的对象访问。&#xA;public：可以被1.该类中的函数、2.子类的函数、3.其友元函数访问，也可以由4.该类的对象访问。&#xA;注：友元函数包括3种：设为友元的普通的非成员函数；设为友元的其他类的成员函数；设为友元类中的所有成员函数。&#xA;2 类被继承后方法属性变化&#xA;private 属性不能够被继承。 使用private继承， 父类的protected和public属性在子类中变为private； 使用protected继承，父类的protected和public属性在子类中变为protected； 使用public继承， 父类的protected和public属性不发生改变;&#xA;3 private继承和public继承的适用情况&#xA;C++将public继承视为is-a关系。private继承则并不意味着is-a关系，private继承意味着implemented-in-terms-of（根据某物实现出）。private继承意味着只有实现部分被继承，接口部分被略去。private继承在软件设计层面上没有意义，其意义只在于软件实现层面。&#xA;private继承：&#xA;1）编译器不会自动将一个子类对象转换为一个父类对象，而public继承会；&#xA;2）子类中由父类继承而来的成员（protected和public）都变为private。&#xA;implemented-in-terms-of也可以由复合实现。在应用域，复合意味着has-a；在实现域，复合意味着is-implemented-in-terms-of。尽可能使用复合实现这种关系，必要时（涉及protected成员或virtual函数时）才使用private继承。&#xA;原文链接：https://blog.csdn.net/kingzone_2008/article/details/10066181 虚继承 C++使用虚拟继承（Virtual Inheritance），解决从不同途径继承来的同名的数据成员在内存中有不同的拷贝造成数据不一致问题，将共同基类设置为虚基类。解决二义性。&#xA;class sum {}; class a : virtual public sum { ... } class b : virtual public sum { ... }; class c:: public a, public b { ... }; </description>
     </item>
-    
     <item>
       <title>Server sum</title>
       <link>https://vcvvvc.github.io/post/server_sum/</link>
       <pubDate>Sun, 04 Apr 2021 18:21:09 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/server_sum/</guid>
-      <description>c++标准网络库对比 https://vcvvvc.github.io/post/c++标准网络库/ socket struct整理 https://vcvvvc.github.io/post/socket_struct/ socket编程需要的头文件整理 https://vcvvvc.github.io/post/socket_file/ socket function https://vcvvvc.github.io/post/socket/ I/O复用 https://vcvvvc.github.io/post//io多路复用 sem function https://vcvvvc.github.io/post/sem/ server io actor https://vcvvvc.github.io/post/server_actor/ timer function https://vcvvvc.github.io/post/timer_function/ Linux Pthread 线程创建与使用 https://vcvvvc.github.io/post/pthread/
-C++11 thread https://vcvvvc.github.io/post/cppthread/
-Unp note https://vcvvvc.github.io/post/unp_note/
-TCP_IP | 计算机网络 https://vcvvvc.github.io/post/computer_network/
-exception class 异常类 https://vcvvvc.github.io/post/cpp_exception/</description>
+      <description>c++标准网络库对比 https://vcvvvc.github.io/post/c++标准网络库/ socket struct整理 https://vcvvvc.github.io/post/socket_struct/ socket编程需要的头文件整理 https://vcvvvc.github.io/post/socket_file/ socket function https://vcvvvc.github.io/post/socket/ I/O复用 https://vcvvvc.github.io/post//io多路复用 sem function https://vcvvvc.github.io/post/sem/ server io actor https://vcvvvc.github.io/post/server_actor/ timer function https://vcvvvc.github.io/post/timer_function/ Linux Pthread 线程创建与使用 https://vcvvvc.github.io/post/pthread/&#xA;C++11 thread https://vcvvvc.github.io/post/cppthread/&#xA;Unp note https://vcvvvc.github.io/post/unp_note/&#xA;TCP_IP | 计算机网络 https://vcvvvc.github.io/post/computer_network/&#xA;exception class 异常类 https://vcvvvc.github.io/post/cpp_exception/</description>
     </item>
-    
     <item>
       <title>getopt_long</title>
       <link>https://vcvvvc.github.io/post/getopt_long/</link>
       <pubDate>Sun, 14 Mar 2021 14:26:33 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/getopt_long/</guid>
-      <description>2021-5-31更新
-#include &amp;lt;unistd.h&amp;gt; extern char *optarg; extern int optind, opterr, optopt; #include &amp;lt;getopt.h&amp;gt; int getopt(int argc, char * const argv[],const char *optstring); int getopt_long(int argc, char * const argv[], const char *optstring, const struct option *longopts, int *longindex); int getopt_long_only(int argc, char * const argv[], const char *optstring, const struct option *longopts, int *longindex); 参数以及返回值介绍（以上三个函数都适用）：
-1、argc和argv和main函数的两个参数一致。
-2、optstring: 表示短选项字符串。
-形式如“a:b::cd:“，分别表示程序支持的命令行短选项有-a、-b、-c、-d，冒号含义如下：
-只有一个字符，不带冒号——只表示选项， 如-c 一个字符，后接一个冒号——表示选项后面带一个参数，如-a 100 一个字符，后接两个冒号——表示选项后面带一个可选参数，即参数可有可无，如果带参数，则选项与参数直接不能有空格,形式应该如-b 3、longopts：表示长选项结构体。结构如下：
-struct option { const char *name; int has_arg; int *flag; int val; }; static struct option longOpts[] = { { &amp;#34;daemon&amp;#34;, no_argument, NULL, &amp;#39;D&amp;#39; }, { &amp;#34;dir&amp;#34;, required_argument, NULL, &amp;#39;d&amp;#39; }, { &amp;#34;out&amp;#34;, required_argument, NULL, &amp;#39;o&amp;#39; }, { &amp;#34;log&amp;#34;, required_argument, NULL, &amp;#39;l&amp;#39; }, { &amp;#34;split&amp;#34;, required_argument, NULL, &amp;#39;s&amp;#39; }, { &amp;#34;http-proxy&amp;#34;, required_argument, &amp;amp;lopt, 1 }, { &amp;#34;http-user&amp;#34;, required_argument, &amp;amp;lopt, 2 }, { &amp;#34;http-passwd&amp;#34;, required_argument, &amp;amp;lopt, 3 }, { &amp;#34;http-proxy-user&amp;#34;, required_argument, &amp;amp;lopt, 4 }, { &amp;#34;http-proxy-passwd&amp;#34;, required_argument, &amp;amp;lopt, 5 }, { &amp;#34;http-auth-scheme&amp;#34;, required_argument, &amp;amp;lopt, 6 }, { &amp;#34;version&amp;#34;, no_argument, NULL, &amp;#39;v&amp;#39; }, { &amp;#34;help&amp;#34;, no_argument, NULL, &amp;#39;h&amp;#39; }, { 0, 0, 0, 0 } }; (1)name:表示选项的名称,比如daemon,dir,out等。</description>
+      <description>2021-5-31更新&#xA;#include &amp;lt;unistd.h&amp;gt; extern char *optarg; extern int optind, opterr, optopt; #include &amp;lt;getopt.h&amp;gt; int getopt(int argc, char * const argv[],const char *optstring); int getopt_long(int argc, char * const argv[], const char *optstring, const struct option *longopts, int *longindex); int getopt_long_only(int argc, char * const argv[], const char *optstring, const struct option *longopts, int *longindex); 参数以及返回值介绍（以上三个函数都适用）：&#xA;1、argc和argv和main函数的两个参数一致。&#xA;2、optstring: 表示短选项字符串。&#xA;形式如“a:b::cd:“，分别表示程序支持的命令行短选项有-a、-b、-c、-d，冒号含义如下：&#xA;只有一个字符，不带冒号——只表示选项， 如-c 一个字符，后接一个冒号——表示选项后面带一个参数，如-a 100 一个字符，后接两个冒号——表示选项后面带一个可选参数，即参数可有可无，如果带参数，则选项与参数直接不能有空格,形式应该如-b 3、longopts：表示长选项结构体。结构如下：&#xA;struct option { const char *name; int has_arg; int *flag; int val; }; static struct option longOpts[] = { { &amp;#34;daemon&amp;#34;, no_argument, NULL, &amp;#39;D&amp;#39; }, { &amp;#34;dir&amp;#34;, required_argument, NULL, &amp;#39;d&amp;#39; }, { &amp;#34;out&amp;#34;, required_argument, NULL, &amp;#39;o&amp;#39; }, { &amp;#34;log&amp;#34;, required_argument, NULL, &amp;#39;l&amp;#39; }, { &amp;#34;split&amp;#34;, required_argument, NULL, &amp;#39;s&amp;#39; }, { &amp;#34;http-proxy&amp;#34;, required_argument, &amp;amp;lopt, 1 }, { &amp;#34;http-user&amp;#34;, required_argument, &amp;amp;lopt, 2 }, { &amp;#34;http-passwd&amp;#34;, required_argument, &amp;amp;lopt, 3 }, { &amp;#34;http-proxy-user&amp;#34;, required_argument, &amp;amp;lopt, 4 }, { &amp;#34;http-proxy-passwd&amp;#34;, required_argument, &amp;amp;lopt, 5 }, { &amp;#34;http-auth-scheme&amp;#34;, required_argument, &amp;amp;lopt, 6 }, { &amp;#34;version&amp;#34;, no_argument, NULL, &amp;#39;v&amp;#39; }, { &amp;#34;help&amp;#34;, no_argument, NULL, &amp;#39;h&amp;#39; }, { 0, 0, 0, 0 } }; (1)name:表示选项的名称,比如daemon,dir,out等。</description>
     </item>
-    
     <item>
       <title>Use_gdb</title>
       <link>https://vcvvvc.github.io/post/use_gdb/</link>
       <pubDate>Wed, 17 Feb 2021 23:02:08 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/use_gdb/</guid>
-      <description>GDB 教程 转载自：https://github.com/DAN-AND-DNA/learn-gdb-by-example-for-c.git
-内容 原理 启动gdb 退出gdb 为gdb进行编译 调试程序 CoreDump简单概念 产生CoreDump文件 调试CoreDump文件 help命令 list命令 start命令 next命令 step命令 break命令 查看断点 删除断点 tbreak命令 continue命令 backtrace命令 查看当前所处的函数堆栈帧 选择函数堆栈帧 打印函数局部变量 run命令 修改变量值 查看变量类型 查看线程运行 启动图像界面 原理 断点功能一般是通过gdb捕获特定的内核信号来实现的，然后定位目标程序停止的地址来判断断点是否成功触发。大致的流程为， 首先gdb fork()出来一个子进程，该子进程启动目标程序(通过ptrace() 和 exec())， 父进程捕获该子进程的所有的信号(通过ptrace() 和 wait())，当子进程收到信号时，子进程就会被挂起，直到父进程通知其继续运行(通过ptrace())
-启动gdb 1 常规启动，非常多的提示信息:
-$ gdb GNU gdb (GDB) Red Hat Enterprise Linux 7.6.1-114.el7 Copyright (C) 2013 Free Software Foundation, Inc. License GPLv3+: GNU GPL version 3 or later &amp;lt;http://gnu.org/licenses/gpl.html&amp;gt; This is free software: you are free to change and redistribute it.</description>
+      <description>GDB 教程 转载自：https://github.com/DAN-AND-DNA/learn-gdb-by-example-for-c.git&#xA;内容 原理 启动gdb 退出gdb 为gdb进行编译 调试程序 CoreDump简单概念 产生CoreDump文件 调试CoreDump文件 help命令 list命令 start命令 next命令 step命令 break命令 查看断点 删除断点 tbreak命令 continue命令 backtrace命令 查看当前所处的函数堆栈帧 选择函数堆栈帧 打印函数局部变量 run命令 修改变量值 查看变量类型 查看线程运行 启动图像界面 原理 断点功能一般是通过gdb捕获特定的内核信号来实现的，然后定位目标程序停止的地址来判断断点是否成功触发。大致的流程为， 首先gdb fork()出来一个子进程，该子进程启动目标程序(通过ptrace() 和 exec())， 父进程捕获该子进程的所有的信号(通过ptrace() 和 wait())，当子进程收到信号时，子进程就会被挂起，直到父进程通知其继续运行(通过ptrace())&#xA;启动gdb 1 常规启动，非常多的提示信息:&#xA;$ gdb GNU gdb (GDB) Red Hat Enterprise Linux 7.6.1-114.el7 Copyright (C) 2013 Free Software Foundation, Inc. License GPLv3+: GNU GPL version 3 or later &amp;lt;http://gnu.org/licenses/gpl.html&amp;gt; This is free software: you are free to change and redistribute it.</description>
     </item>
-    
     <item>
       <title>Unp_Note</title>
       <link>https://vcvvvc.github.io/post/unp_note/</link>
       <pubDate>Mon, 11 Jan 2021 22:40:43 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/unp_note/</guid>
-      <description>基本流程图 示范代码: https://github.com/vcvvvc/CPP_Test/tree/master/server/socket/practice/8_socket
-TCP UDP 客户角度 服务器角度 套接字选项 config_init connect_mysql init_socket setsockopt linger </description>
+      <description>基本流程图 示范代码: https://github.com/vcvvvc/CPP_Test/tree/master/server/socket/practice/8_socket&#xA;TCP UDP 客户角度 服务器角度 套接字选项 config_init connect_mysql init_socket setsockopt linger </description>
     </item>
-    
     <item>
       <title>Vim_config</title>
       <link>https://vcvvvc.github.io/post/vim_config/</link>
       <pubDate>Tue, 13 Oct 2020 18:12:48 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/vim_config/</guid>
-      <description>编译安装 #https://www.cnblogs.com/JoiT/p/build_from_source_for_linux_vim.html apt install libncurses5-dev libgtk2.0-dev libatk1.0-dev \ libcairo2-dev libx11-dev libxpm-dev libxt-dev apt-get remove --purge vim-tiny vim vim-runtime gvim vim-common vim-gui-common vim-nox ./configure --with-features=huge \ --enable-multibyte \ --enable-gui=gtk3 \ --enable-cscope \ --prefix=/usr/local make make install 主题配置 首先要确认你的终端支持真彩，一般来说，主流的比如iTerm2, Putty, Powershell的最新版本都已经支持了。我们可以运行以下命令检测一下
-(echo -e &#39;\e[48:2:1:2:3m\eP$qm\e\\&#39; ; xxd)
-&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34; &amp;#34;&amp;#34;&amp;#34;=&amp;gt;全局配置&amp;lt;=&amp;#34;&amp;#34;&amp;#34; &amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34; &amp;#34;关闭vi兼容模式&amp;#34; set nocompatible &amp;#34;设置历史记录步数&amp;#34; set history=1000 &amp;#34;开启相关插件&amp;#34; &amp;#34;侦测文件类型&amp;#34; filetype on &amp;#34;载入文件类型插件&amp;#34; filetype plugin on &amp;#34;为特定文件类型载入相关缩进文件&amp;#34; filetype indent on &amp;#34;当文件在外部被修改时，自动更新该文件&amp;#34; set autoread &amp;#34;激活鼠标的使用&amp;#34; set mouse=a set selection=exclusive set selectmode=mouse,key &amp;#34;保存全局变量&amp;#34; set viminfo+=!</description>
+      <description>编译安装 #https://www.cnblogs.com/JoiT/p/build_from_source_for_linux_vim.html apt install libncurses5-dev libgtk2.0-dev libatk1.0-dev \ libcairo2-dev libx11-dev libxpm-dev libxt-dev apt-get remove --purge vim-tiny vim vim-runtime gvim vim-common vim-gui-common vim-nox ./configure --with-features=huge \ --enable-multibyte \ --enable-gui=gtk3 \ --enable-cscope \ --prefix=/usr/local make make install 主题配置 首先要确认你的终端支持真彩，一般来说，主流的比如iTerm2, Putty, Powershell的最新版本都已经支持了。我们可以运行以下命令检测一下&#xA;(echo -e &#39;\e[48:2:1:2:3m\eP$qm\e\\&#39; ; xxd)&#xA;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34; &amp;#34;&amp;#34;&amp;#34;=&amp;gt;全局配置&amp;lt;=&amp;#34;&amp;#34;&amp;#34; &amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34; &amp;#34;关闭vi兼容模式&amp;#34; set nocompatible &amp;#34;设置历史记录步数&amp;#34; set history=1000 &amp;#34;开启相关插件&amp;#34; &amp;#34;侦测文件类型&amp;#34; filetype on &amp;#34;载入文件类型插件&amp;#34; filetype plugin on &amp;#34;为特定文件类型载入相关缩进文件&amp;#34; filetype indent on &amp;#34;当文件在外部被修改时，自动更新该文件&amp;#34; set autoread &amp;#34;激活鼠标的使用&amp;#34; set mouse=a set selection=exclusive set selectmode=mouse,key &amp;#34;保存全局变量&amp;#34; set viminfo+=!</description>
     </item>
-    
     <item>
       <title>CPP_Const</title>
       <link>https://vcvvvc.github.io/post/cppconst/</link>
       <pubDate>Tue, 06 Oct 2020 15:03:40 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/cppconst/</guid>
-      <description>const 作用
-修饰变量，变量不可以被改变； 修饰指针，分为指向常量的指针（pointer to const）和自身是常量的指针（常量指针，const pointer）； 修饰引用，指向常量的引用（reference to const），用于形参类型，即避免了拷贝，又避免了函数对值的修改； 修饰成员函数，说明该成员函数内不能修改成员变量。 // 类 class A { private: const int a; // 常对象成员，只能在初始化列表赋值 public: // 构造函数 A() : a(0) { }; A(int x) : a(x) { }; // 初始化列表 // const可用于对重载函数的区分 int getValue(); // 普通成员函数 int getValue() const; // 常成员函数，不得修改类中的任何数据成员的值 }; void function() { // 对象 A b; // 普通对象，可以调用全部成员函数、更新常成员变量 const A a; // 常对象，只能调用常成员函数 const A *p = &amp;amp;a; // 指针变量，指向常对象 const A &amp;amp;q = a; // 指向常对象的引用 // 指针 char greeting[] = &amp;#34;Hello&amp;#34;; char* p1 = greeting; // 指针变量，指向字符数组变量 const char* p2 = greeting; // 指针变量，指向字符数组常量（const 后面是 char，说明指向的字符（char）不可改变） char* const p3 = greeting; // 自身是常量的指针，指向字符数组变量（const 后面是 p3，说明 p3 指针自身不可改变） const char* const p4 = greeting; // 自身是常量的指针，指向字符数组常量 } // 函数 void function1(const int Var); // 传递过来的参数在函数内不可变 void function2(const char* Var); // 参数指针所指内容为常量 void function3(char* const Var); // 参数指针为常量 void function4(const int&amp;amp; Var); // 引用参数在函数内为常量 // 函数返回值 const int function5(); // 返回一个常数 const int* function6(); // 返回一个指向常量的指针变量，使用：const int *p = function6(); int* const function7(); // 返回一个指向变量的常指针，使用：int* const p = function7(); const 的指针与引用 指针 指向常量的指针（pointer to const） 自身是常量的指针（常量指针，const pointer） 引用 指向常量的引用（reference to const） 没有 const reference，因为引用本身就是 const pointer 用法小结 指针</description>
+      <description>const 作用&#xA;修饰变量，变量不可以被改变； 修饰指针，分为指向常量的指针（pointer to const）和自身是常量的指针（常量指针，const pointer）； 修饰引用，指向常量的引用（reference to const），用于形参类型，即避免了拷贝，又避免了函数对值的修改； 修饰成员函数，说明该成员函数内不能修改成员变量。 // 类 class A { private: const int a; // 常对象成员，只能在初始化列表赋值 public: // 构造函数 A() : a(0) { }; A(int x) : a(x) { }; // 初始化列表 // const可用于对重载函数的区分 int getValue(); // 普通成员函数 int getValue() const; // 常成员函数，不得修改类中的任何数据成员的值 }; void function() { // 对象 A b; // 普通对象，可以调用全部成员函数、更新常成员变量 const A a; // 常对象，只能调用常成员函数 const A *p = &amp;amp;a; // 指针变量，指向常对象 const A &amp;amp;q = a; // 指向常对象的引用 // 指针 char greeting[] = &amp;#34;Hello&amp;#34;; char* p1 = greeting; // 指针变量，指向字符数组变量 const char* p2 = greeting; // 指针变量，指向字符数组常量（const 后面是 char，说明指向的字符（char）不可改变） char* const p3 = greeting; // 自身是常量的指针，指向字符数组变量（const 后面是 p3，说明 p3 指针自身不可改变） const char* const p4 = greeting; // 自身是常量的指针，指向字符数组常量 } // 函数 void function1(const int Var); // 传递过来的参数在函数内不可变 void function2(const char* Var); // 参数指针所指内容为常量 void function3(char* const Var); // 参数指针为常量 void function4(const int&amp;amp; Var); // 引用参数在函数内为常量 // 函数返回值 const int function5(); // 返回一个常数 const int* function6(); // 返回一个指向常量的指针变量，使用：const int *p = function6(); int* const function7(); // 返回一个指向变量的常指针，使用：int* const p = function7(); const 的指针与引用 指针 指向常量的指针（pointer to const） 自身是常量的指针（常量指针，const pointer） 引用 指向常量的引用（reference to const） 没有 const reference，因为引用本身就是 const pointer 用法小结 指针</description>
     </item>
-    
     <item>
       <title>Algorithm x^n</title>
       <link>https://vcvvvc.github.io/post/recursion/</link>
       <pubDate>Sun, 04 Oct 2020 16:09:26 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/recursion/</guid>
-      <description>O(1)常数阶 &amp;lt; O(logn)对数阶 &amp;lt; O(n)线性阶 &amp;lt; O(n^2)平方阶 &amp;lt; O(n^3)(立方阶) &amp;lt; O(2^n) (指数阶)
-For O(n) int function1(int x, int n) { int result = 1; // 注意 任何数的0次方等于1 for (int i = 0; i &amp;lt; n; i++) { result = result * x; } return result; } Recursion O(n) int function2(int x, int n) { if (n == 0) { return 1; // return 1 同样是因为0次方是等于1的 } return function2(x, n - 1) * x; } Recursion2 O(n) int function3(int x, int n) { if (n == 0) { return 1; } if (n % 2 == 1) { return function3(x, n/2) * function3(x, n/2)*x; } return function3(x, n/2) * function3(x, n/2); } Recursion3 O(logn) int function4(int x, int n) { if (n == 0) { return 1; } int t = function4(x, n/2);// 这里相对于function3，是把这个递归操作抽取出来 if (n % 2 == 1) { return t*t*x; } return t*t; } </description>
+      <description>O(1)常数阶 &amp;lt; O(logn)对数阶 &amp;lt; O(n)线性阶 &amp;lt; O(n^2)平方阶 &amp;lt; O(n^3)(立方阶) &amp;lt; O(2^n) (指数阶)&#xA;For O(n) int function1(int x, int n) { int result = 1; // 注意 任何数的0次方等于1 for (int i = 0; i &amp;lt; n; i++) { result = result * x; } return result; } Recursion O(n) int function2(int x, int n) { if (n == 0) { return 1; // return 1 同样是因为0次方是等于1的 } return function2(x, n - 1) * x; } Recursion2 O(n) int function3(int x, int n) { if (n == 0) { return 1; } if (n % 2 == 1) { return function3(x, n/2) * function3(x, n/2)*x; } return function3(x, n/2) * function3(x, n/2); } Recursion3 O(logn) int function4(int x, int n) { if (n == 0) { return 1; } int t = function4(x, n/2);// 这里相对于function3，是把这个递归操作抽取出来 if (n % 2 == 1) { return t*t*x; } return t*t; } </description>
     </item>
-    
     <item>
       <title>Linux Pthread</title>
       <link>https://vcvvvc.github.io/post/pthread/</link>
       <pubDate>Sun, 27 Sep 2020 17:53:48 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/pthread/</guid>
-      <description>int pthread_cond_init(pthread_cond_t *cond, pthread_condattr_t *cond_attr)
-其中cond是一个指向结构pthread_cond_t的指针，cond_attr是一个指向结构pthread_condattr_t的指针。结构 pthread_condattr_t是条件变量的属性结构，和互斥锁一样我们可以用它来设置条件变量是进程内可用还是进程间可用， 默认值是PTHREAD_ PROCESS_PRIVATE，即此条件变量被同一进程内的各个线程使用。
-注意初始化条件变量只有未被使用时才能重新初始化或被释放。释放一个条件变量的函数为pthread_cond_destroy（pthread_cond_t cond）。
-也可以静态的初始化条件变量
-pthread_cond_t my_condition = PTHREAD_COND_INITIALIZER; pthread_mutex_init(pthread_mutex_t * mutex, const pthread_mutexattr_t *attr); // 初始化锁变量mutex。 // attr为锁属性，NULL值为默认属性。 pthread_mutex_lock(pthread_mutex_t *mutex); // 加锁（阻塞操作） pthread_mutex_trylock(pthread_mutex_t *mutex); // 试图加锁（不阻塞操作） // 当互斥锁空闲时将占有该锁；否则立即返回 // 但是与2不一样的是当锁已经在使用的时候，返回为EBUSY，而不是挂起等待。 pthread_mutex_unlock(pthread_mutex_t *mutex); 释放锁 pthread_mutex_destroy(pthread_mutex_t *mutex); 销毁一个不再需要的互斥量，释放系统资源。 pthread_cond_wait() / pthread_cond_timedwait -----等待条件变量，挂起线程，区别是后者，会有timeout时间， 如果到了timeout,线程自动解除阻塞，这个时间和 time()系统调用相同意义的。以1970年时间算起。 pthread_cond_signal ----激活等待列表中的线程， pthread_cond_broadcast() -------激活所有等待线程列表中最先入队的线程 条件变量
-条件变量是利用线程间共享的全局变量进行同步的一种机制，主要包括两个动作：
-1）一个线程等待&amp;quot;条件变量的条件成立&amp;quot;而挂起； 2）另一个线程使&amp;quot;条件成立&amp;quot;（给出条件成立信号）。 为了防止竞争，条件变量的使用总是和一个互斥锁结合在一起。
-注意：
-1）上面这几个函数都是原子操作，可以为理解为一条指令，不会被其他程序打断
-2）上面这个几个函数，必须配合使用。
-3）pthread_cond_wait，先会解除当前线程的互斥锁，然后挂线线程，等待条件变量满足条件。一旦条件变量满足条件，则会给线程上锁，继续执行pthread_cond_wait
-返回值:
-pthread_mutex_lock() 和 pthread_mutex_unlock() 返回0，否则返回一个错误的提示码
-pthread_mutex_trylock() 在成功获得了一个mutex的锁后返回0，否则返回一个错误提示码错误</description>
+      <description>int pthread_cond_init(pthread_cond_t *cond, pthread_condattr_t *cond_attr)&#xA;其中cond是一个指向结构pthread_cond_t的指针，cond_attr是一个指向结构pthread_condattr_t的指针。结构 pthread_condattr_t是条件变量的属性结构，和互斥锁一样我们可以用它来设置条件变量是进程内可用还是进程间可用， 默认值是PTHREAD_ PROCESS_PRIVATE，即此条件变量被同一进程内的各个线程使用。&#xA;注意初始化条件变量只有未被使用时才能重新初始化或被释放。释放一个条件变量的函数为pthread_cond_destroy（pthread_cond_t cond）。&#xA;也可以静态的初始化条件变量&#xA;pthread_cond_t my_condition = PTHREAD_COND_INITIALIZER; pthread_mutex_init(pthread_mutex_t * mutex, const pthread_mutexattr_t *attr); // 初始化锁变量mutex。 // attr为锁属性，NULL值为默认属性。 pthread_mutex_lock(pthread_mutex_t *mutex); // 加锁（阻塞操作） pthread_mutex_trylock(pthread_mutex_t *mutex); // 试图加锁（不阻塞操作） // 当互斥锁空闲时将占有该锁；否则立即返回 // 但是与2不一样的是当锁已经在使用的时候，返回为EBUSY，而不是挂起等待。 pthread_mutex_unlock(pthread_mutex_t *mutex); 释放锁 pthread_mutex_destroy(pthread_mutex_t *mutex); 销毁一个不再需要的互斥量，释放系统资源。 pthread_cond_wait() / pthread_cond_timedwait -----等待条件变量，挂起线程，区别是后者，会有timeout时间， 如果到了timeout,线程自动解除阻塞，这个时间和 time()系统调用相同意义的。以1970年时间算起。 pthread_cond_signal ----激活等待列表中的线程， pthread_cond_broadcast() -------激活所有等待线程列表中最先入队的线程 条件变量&#xA;条件变量是利用线程间共享的全局变量进行同步的一种机制，主要包括两个动作：&#xA;1）一个线程等待&amp;quot;条件变量的条件成立&amp;quot;而挂起； 2）另一个线程使&amp;quot;条件成立&amp;quot;（给出条件成立信号）。 为了防止竞争，条件变量的使用总是和一个互斥锁结合在一起。&#xA;注意：&#xA;1）上面这几个函数都是原子操作，可以为理解为一条指令，不会被其他程序打断&#xA;2）上面这个几个函数，必须配合使用。&#xA;3）pthread_cond_wait，先会解除当前线程的互斥锁，然后挂线线程，等待条件变量满足条件。一旦条件变量满足条件，则会给线程上锁，继续执行pthread_cond_wait&#xA;返回值:&#xA;pthread_mutex_lock() 和 pthread_mutex_unlock() 返回0，否则返回一个错误的提示码&#xA;pthread_mutex_trylock() 在成功获得了一个mutex的锁后返回0，否则返回一个错误提示码错误</description>
     </item>
-    
     <item>
       <title>Cpp_inherit</title>
       <link>https://vcvvvc.github.io/post/cpp_inherit/</link>
       <pubDate>Fri, 25 Sep 2020 17:44:01 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/cpp_inherit/</guid>
-      <description>class derived-class: access-specifier base-class
-class Shape { public: void setWidth(int w) { width = w; } void setHeight(int h) { height = h; } protected: int width; int height; }; // 派生类 class Rectangle: public Shape { public: int getArea() { return (width * height); } }; Rectangle rect; rect.setWidth(3); rect.setHeight(5); #rect result = 15 cout &amp;lt;&amp;lt; rect.getArea() &amp;lt;&amp;lt; endl; 访问控制和继承
-访问 public protected private 同一个类 yes yes yes 派生类 yes yes no 外部的类 yes no no 公有继承（public）：当一个类派生自公有基类时，基类的公有成员也是派生类的公有成员，基类的保护成员也是派生类的保护成员，基类的私有成员不能直接被派生类访问，但是可以通过调用基类的公有和保护成员来访问。 保护继承（protected）： 当一个类派生自保护基类时，基类的公有和保护成员将成为派生类的保护成员。 私有继承（private）：当一个类派生自私有基类时，基类的公有和保护成员将成为派生类的私有成员。 </description>
+      <description>class derived-class: access-specifier base-class&#xA;class Shape { public: void setWidth(int w) { width = w; } void setHeight(int h) { height = h; } protected: int width; int height; }; // 派生类 class Rectangle: public Shape { public: int getArea() { return (width * height); } }; Rectangle rect; rect.setWidth(3); rect.setHeight(5); #rect result = 15 cout &amp;lt;&amp;lt; rect.getArea() &amp;lt;&amp;lt; endl; 访问控制和继承&#xA;访问 public protected private 同一个类 yes yes yes 派生类 yes yes no 外部的类 yes no no 公有继承（public）：当一个类派生自公有基类时，基类的公有成员也是派生类的公有成员，基类的保护成员也是派生类的保护成员，基类的私有成员不能直接被派生类访问，但是可以通过调用基类的公有和保护成员来访问。 保护继承（protected）： 当一个类派生自保护基类时，基类的公有和保护成员将成为派生类的保护成员。 私有继承（private）：当一个类派生自私有基类时，基类的公有和保护成员将成为派生类的私有成员。 </description>
     </item>
-    
     <item>
       <title>CPP_Mysql_use</title>
       <link>https://vcvvvc.github.io/post/mysql_use/</link>
       <pubDate>Fri, 25 Sep 2020 16:40:02 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/mysql_use/</guid>
-      <description>Mysql ex mysql_init() 获取或初始化MYSQL结构 mysql_real_connect() 连接到MySQL服务器。 mysql_query() 执行指定为“以Null终结的字符串”的SQL查询 mysql_use_result() 初始化逐行的结果集检索 mysql_field_count() 返回上次执行语句的结果集的列数 mysql_fetch_row() 从结果集中获取下一行 mysql_num_fields() 返回结果集中的字段数 class MyDB { public: MyDB(); ~MyDB(); bool initDB(string host, string user, string pwd, string db_name); bool exeSQL(string sql); private: MYSQL *connection; MYSQL_RES *result; MYSQL_ROW row; }; 基本步骤
-使用mysql_init()初始化连接 使用mysql_real_connect()建立一个到mysql数据库的连接 使用mysql_query()执行查询语句 result = mysql_use_result(conn)获取结果集 mysql_field_count(conn)获取查询的列数，mysql_num_fields(result)获取结果集的字段数 通过mysql_fetch_row(result)不断获取下一行，然后循环输出 释放结果集所占内存mysql_free_result(result) mysql_close(conn)关闭连接 Re:
-https://blog.csdn.net/lisonglisonglisong/article/details/25071793</description>
+      <description>Mysql ex mysql_init() 获取或初始化MYSQL结构 mysql_real_connect() 连接到MySQL服务器。 mysql_query() 执行指定为“以Null终结的字符串”的SQL查询 mysql_use_result() 初始化逐行的结果集检索 mysql_field_count() 返回上次执行语句的结果集的列数 mysql_fetch_row() 从结果集中获取下一行 mysql_num_fields() 返回结果集中的字段数 class MyDB { public: MyDB(); ~MyDB(); bool initDB(string host, string user, string pwd, string db_name); bool exeSQL(string sql); private: MYSQL *connection; MYSQL_RES *result; MYSQL_ROW row; }; 基本步骤&#xA;使用mysql_init()初始化连接 使用mysql_real_connect()建立一个到mysql数据库的连接 使用mysql_query()执行查询语句 result = mysql_use_result(conn)获取结果集 mysql_field_count(conn)获取查询的列数，mysql_num_fields(result)获取结果集的字段数 通过mysql_fetch_row(result)不断获取下一行，然后循环输出 释放结果集所占内存mysql_free_result(result) mysql_close(conn)关闭连接 Re:&#xA;https://blog.csdn.net/lisonglisonglisong/article/details/25071793</description>
     </item>
-    
     <item>
       <title>Left_Right</title>
       <link>https://vcvvvc.github.io/post/leftright/</link>
       <pubDate>Thu, 17 Sep 2020 21:49:43 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/leftright/</guid>
-      <description>形参（形式参数）
-在函数定义中出现的参数可以看做是一个占位符，它没有数据，只能等到函数被调用时接收传递进来的数据，所以称为形式参数，简称形参。
-实参（实际参数）
-函数被调用时给出的参数包含了实实在在的数据，会被函数内部的代码使用，所以称为实际参数，简称实参。
-形参和实参的功能是传递数据，发生函数调用时，实参的值会传递给形参。
-Re: http://c.biancheng.net/view/1853.html 左值和右值
-http://c.biancheng.net/view/1510.html
-常量和变量
-https://www.runoob.com/cprogramming/c-variables.html
-https://www.runoob.com/cprogramming/c-constants.html
-http://c.biancheng.net/cpp/html/19.html</description>
+      <description>形参（形式参数）&#xA;在函数定义中出现的参数可以看做是一个占位符，它没有数据，只能等到函数被调用时接收传递进来的数据，所以称为形式参数，简称形参。&#xA;实参（实际参数）&#xA;函数被调用时给出的参数包含了实实在在的数据，会被函数内部的代码使用，所以称为实际参数，简称实参。&#xA;形参和实参的功能是传递数据，发生函数调用时，实参的值会传递给形参。&#xA;Re: http://c.biancheng.net/view/1853.html 左值和右值&#xA;http://c.biancheng.net/view/1510.html&#xA;常量和变量&#xA;https://www.runoob.com/cprogramming/c-variables.html&#xA;https://www.runoob.com/cprogramming/c-constants.html&#xA;http://c.biancheng.net/cpp/html/19.html</description>
     </item>
-    
     <item>
       <title>About function: Volatile</title>
       <link>https://vcvvvc.github.io/post/volatile/</link>
       <pubDate>Sun, 13 Sep 2020 18:12:48 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/volatile/</guid>
-      <description>https://zhuanlan.zhihu.com/p/33074506
-https://www.runoob.com/w3cnote/c-volatile-keyword.html</description>
+      <description>https://zhuanlan.zhihu.com/p/33074506&#xA;https://www.runoob.com/w3cnote/c-volatile-keyword.html</description>
     </item>
-    
     <item>
       <title>Socket struct</title>
       <link>https://vcvvvc.github.io/post/socket_struct/</link>
       <pubDate>Sun, 13 Sep 2020 17:03:43 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/socket_struct/</guid>
-      <description>struct sockaddr { unsigned short sa_family; /* address family, AF_xxx */ char sa_data[14]; /* 14 bytes of protocol address */ }; 此数据结构用做bind、connect、recvfrom、sendto等函数的参数，指明地址信息。
-但一般编程中并不直接针对此数据结构操作，而是使用另一个与sockaddr等价的数据结构sockaddr_in（在netinet/in.h中定义）：
-struct sockaddr_in { short int sin_family; /* Address family */ unsigned short int sin_port; /* Port number */ struct in_addr sin_addr; /* Internet address */ unsigned char sin_zero[8]; /* Same size as struct sockaddr */ }; 在编程中大多数是使用sockaddr_in这个结构来设置/获取地址信息
-sin_family指代协议族，在socket编程中只能是AF_INET
-sin_port存储端口号（使用网络字节顺序）
-sin_addr存储IP地址，使用in_addr这个数据结构
-struct in_addr { unsigned long s_addr; }; 这个数据结构是由于历史原因保留下来的，主要用作与以前的格式兼容。</description>
+      <description>struct sockaddr { unsigned short sa_family; /* address family, AF_xxx */ char sa_data[14]; /* 14 bytes of protocol address */ }; 此数据结构用做bind、connect、recvfrom、sendto等函数的参数，指明地址信息。&#xA;但一般编程中并不直接针对此数据结构操作，而是使用另一个与sockaddr等价的数据结构sockaddr_in（在netinet/in.h中定义）：&#xA;struct sockaddr_in { short int sin_family; /* Address family */ unsigned short int sin_port; /* Port number */ struct in_addr sin_addr; /* Internet address */ unsigned char sin_zero[8]; /* Same size as struct sockaddr */ }; 在编程中大多数是使用sockaddr_in这个结构来设置/获取地址信息&#xA;sin_family指代协议族，在socket编程中只能是AF_INET&#xA;sin_port存储端口号（使用网络字节顺序）&#xA;sin_addr存储IP地址，使用in_addr这个数据结构&#xA;struct in_addr { unsigned long s_addr; }; 这个数据结构是由于历史原因保留下来的，主要用作与以前的格式兼容。</description>
     </item>
-    
     <item>
       <title>Socket file</title>
       <link>https://vcvvvc.github.io/post/socket_file/</link>
       <pubDate>Sun, 13 Sep 2020 16:43:04 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/socket_file/</guid>
-      <description>socket编程中需要用到的头文件
-sys/types.h：数据类型定义
-sys/socket.h：提供socket函数及数据结构
-netinet/in.h：定义数据结构sockaddr_in
-arpa/inet.h：提供IP地址转换函数
-netdb.h：提供设置及获取域名的函数
-sys/ioctl.h：提供对I/O控制的函数
-sys/poll.h：提供socket等待测试机制的函数
-其他在网络程序中常见的头文件
-unistd.h：提供通用的文件、目录、程序及进程操作的函数
-errno.h：提供错误号errno的定义，用于错误处理
-fcntl.h：提供对文件控制的函数
-time.h：提供有关时间的函数
-crypt.h：提供使用DES加密算法的加密函数
-pwd.h：提供对/etc/passwd文件访问的函数
-shadow.h：提供对/etc/shadow文件访问的函数
-pthread.h：提供多线程操作的函数
-signal.h：提供对信号操作的函数
-sys/wait.h、sys/ipc.h、sys/shm.h：提供进程等待、进程间通讯（IPC）及共享内存的函数
-建议：在编写网络程序时，可以直接使用下面这段头文件代码
-#include &amp;lt;unistd.h&amp;gt; #include &amp;lt;sys/types.h&amp;gt; #include &amp;lt;sys/socket.h&amp;gt; #include &amp;lt;netdb.h&amp;gt; #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;stdlib.h&amp;gt; #include &amp;lt;string.h&amp;gt; #include &amp;lt;ctype.h&amp;gt; #include &amp;lt;errno.h&amp;gt; #include &amp;lt;malloc.h&amp;gt; #include &amp;lt;netinet/in.h&amp;gt; #include &amp;lt;arpa/inet.h&amp;gt; #include &amp;lt;sys/ioctl.h&amp;gt; #include &amp;lt;stdarg.h&amp;gt; #include &amp;lt;fcntl.h&amp;gt; #include &amp;lt;fcntl.h&amp;gt; 涉及到用户权限及密码验证问题时加入如下语句：
-#include &amp;lt;shadow.h&amp;gt; #include &amp;lt;crypt.h&amp;gt; #include &amp;lt;pwd.h&amp;gt; 需要注意的是，应该在编译时链接加密算法库，即增加编译选项：-lcrypt
-涉及到文件及时间操作加入如下语句
-#include &amp;lt;sys/time.h&amp;gt; #include &amp;lt;utime.h&amp;gt; #include &amp;lt;time.h&amp;gt; #include &amp;lt;sys/stat.h&amp;gt; #include &amp;lt;sys/file.</description>
+      <description>socket编程中需要用到的头文件&#xA;sys/types.h：数据类型定义&#xA;sys/socket.h：提供socket函数及数据结构&#xA;netinet/in.h：定义数据结构sockaddr_in&#xA;arpa/inet.h：提供IP地址转换函数&#xA;netdb.h：提供设置及获取域名的函数&#xA;sys/ioctl.h：提供对I/O控制的函数&#xA;sys/poll.h：提供socket等待测试机制的函数&#xA;其他在网络程序中常见的头文件&#xA;unistd.h：提供通用的文件、目录、程序及进程操作的函数&#xA;errno.h：提供错误号errno的定义，用于错误处理&#xA;fcntl.h：提供对文件控制的函数&#xA;time.h：提供有关时间的函数&#xA;crypt.h：提供使用DES加密算法的加密函数&#xA;pwd.h：提供对/etc/passwd文件访问的函数&#xA;shadow.h：提供对/etc/shadow文件访问的函数&#xA;pthread.h：提供多线程操作的函数&#xA;signal.h：提供对信号操作的函数&#xA;sys/wait.h、sys/ipc.h、sys/shm.h：提供进程等待、进程间通讯（IPC）及共享内存的函数&#xA;建议：在编写网络程序时，可以直接使用下面这段头文件代码&#xA;#include &amp;lt;unistd.h&amp;gt; #include &amp;lt;sys/types.h&amp;gt; #include &amp;lt;sys/socket.h&amp;gt; #include &amp;lt;netdb.h&amp;gt; #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;stdlib.h&amp;gt; #include &amp;lt;string.h&amp;gt; #include &amp;lt;ctype.h&amp;gt; #include &amp;lt;errno.h&amp;gt; #include &amp;lt;malloc.h&amp;gt; #include &amp;lt;netinet/in.h&amp;gt; #include &amp;lt;arpa/inet.h&amp;gt; #include &amp;lt;sys/ioctl.h&amp;gt; #include &amp;lt;stdarg.h&amp;gt; #include &amp;lt;fcntl.h&amp;gt; #include &amp;lt;fcntl.h&amp;gt; 涉及到用户权限及密码验证问题时加入如下语句：&#xA;#include &amp;lt;shadow.h&amp;gt; #include &amp;lt;crypt.h&amp;gt; #include &amp;lt;pwd.h&amp;gt; 需要注意的是，应该在编译时链接加密算法库，即增加编译选项：-lcrypt&#xA;涉及到文件及时间操作加入如下语句&#xA;#include &amp;lt;sys/time.h&amp;gt; #include &amp;lt;utime.h&amp;gt; #include &amp;lt;time.h&amp;gt; #include &amp;lt;sys/stat.h&amp;gt; #include &amp;lt;sys/file.</description>
     </item>
-    
     <item>
       <title>Cpp exception class</title>
       <link>https://vcvvvc.github.io/post/cpp_exception/</link>
       <pubDate>Sun, 13 Sep 2020 15:13:08 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/cpp_exception/</guid>
-      <description>class exception{ public: exception () throw(); //构造函数 exception (const exception&amp;amp;) throw(); //拷贝构造函数 exception&amp;amp; operator= (const exception&amp;amp;) throw(); //运算符重载 virtual ~exception() throw(); //虚析构函数 virtual const char* what() const throw(); //虚函数 } what() 函数返回一个能识别异常的字符串，正如它的名字“what”一样，可以粗略地告诉你这是什么异常。
-exception 类的继承层次: exception 类 直接派生类
-exceptopn explain login_error logic error runtime_error 运行时错误 bad_alloc 使用 new 或 new[] 分配内存失败时抛出的异常 bad_typeid 使用 typeid 操作一个 NULL 指针，而且该指针是带有虚函数的类，这时抛出 bad_typeid 异常 bad_cast 使用 dynamic_cast 转换失败时抛出的异常 ios_base::failure io 过程中出现的异常 bad_exception 这是个特殊的异常，如果函数的异常列表里声明了 bad_exception 异常，当函数内部抛出了异常列表中没有的异常时，如果调用的 unexpected() 函数中抛出了异常，不论什么类型，都会被替换为 bad_exception 类型 logic_error 的派生类</description>
+      <description>class exception{ public: exception () throw(); //构造函数 exception (const exception&amp;amp;) throw(); //拷贝构造函数 exception&amp;amp; operator= (const exception&amp;amp;) throw(); //运算符重载 virtual ~exception() throw(); //虚析构函数 virtual const char* what() const throw(); //虚函数 } what() 函数返回一个能识别异常的字符串，正如它的名字“what”一样，可以粗略地告诉你这是什么异常。&#xA;exception 类的继承层次: exception 类 直接派生类&#xA;exceptopn explain login_error logic error runtime_error 运行时错误 bad_alloc 使用 new 或 new[] 分配内存失败时抛出的异常 bad_typeid 使用 typeid 操作一个 NULL 指针，而且该指针是带有虚函数的类，这时抛出 bad_typeid 异常 bad_cast 使用 dynamic_cast 转换失败时抛出的异常 ios_base::failure io 过程中出现的异常 bad_exception 这是个特殊的异常，如果函数的异常列表里声明了 bad_exception 异常，当函数内部抛出了异常列表中没有的异常时，如果调用的 unexpected() 函数中抛出了异常，不论什么类型，都会被替换为 bad_exception 类型 logic_error 的派生类</description>
     </item>
-    
     <item>
       <title>Linux cpp put Backtrace</title>
       <link>https://vcvvvc.github.io/post/backtrace/</link>
       <pubDate>Wed, 02 Sep 2020 14:10:18 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/backtrace/</guid>
       <description>获取Backtrace #include &amp;lt;execinfo.h&amp;gt; /* Store up to SIZE return address of the current program state in ARRAY and return the exact number of values stored. */ int backtrace(void **array, int size); /* Return names of functions from the backtrace list in ARRAY in a newly malloc()ed memory block. */ char **backtrace_symbols(void *const *array, int size); /* This function is similar to backtrace_symbols() but it writes the result immediately to a file.</description>
     </item>
-    
     <item>
       <title>Cpp11 move</title>
       <link>https://vcvvvc.github.io/post/move/</link>
       <pubDate>Sun, 30 Aug 2020 19:57:05 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/move/</guid>
-      <description>#include &amp;lt;iostream&amp;gt; #include &amp;lt;utility&amp;gt; #include &amp;lt;vector&amp;gt; #include &amp;lt;string&amp;gt; int main() { std::string str = &amp;#34;Hello&amp;#34;; std::vector&amp;lt;std::string&amp;gt; v; //调用常规的拷贝构造函数，新建字符数组，拷贝数据 v.push_back(str); std::cout &amp;lt;&amp;lt; &amp;#34;After copy, str is \&amp;#34;&amp;#34; &amp;lt;&amp;lt; str &amp;lt;&amp;lt; &amp;#34;\&amp;#34;\n&amp;#34;; //调用移动构造函数，掏空str，掏空后，最好不要使用str v.push_back(std::move(str)); std::cout &amp;lt;&amp;lt; &amp;#34;After move, str is \&amp;#34;&amp;#34; &amp;lt;&amp;lt; str &amp;lt;&amp;lt; &amp;#34;\&amp;#34;\n&amp;#34;; std::cout &amp;lt;&amp;lt; &amp;#34;The contents of the vector are \&amp;#34;&amp;#34; &amp;lt;&amp;lt; v[0] &amp;lt;&amp;lt; &amp;#34;\&amp;#34;, \&amp;#34;&amp;#34; &amp;lt;&amp;lt; v[1] &amp;lt;&amp;lt; &amp;#34;\&amp;#34;\n&amp;#34;; } Cout:
-After copy, str is &amp;#34;Hello&amp;#34; After move, str is &amp;#34;&amp;#34; The contents of the vector are &amp;#34;Hello&amp;#34;, &amp;#34;Hello&amp;#34; 函数原型 template &amp;lt;typename T&amp;gt; typename remove_reference&amp;lt;T&amp;gt;::type&amp;amp;&amp;amp; move(T&amp;amp;&amp;amp; t) { return static_cast&amp;lt;typename remove_reference&amp;lt;T&amp;gt;::type&amp;amp;&amp;amp;&amp;gt;(t); } 原型定义中的原理实现: 公式一）X&amp;amp; &amp;amp;、X&amp;amp;&amp;amp; &amp;amp;、X&amp;amp; &amp;amp;&amp;amp;都折叠成X&amp;amp;，用于处理左值</description>
+      <description>#include &amp;lt;iostream&amp;gt; #include &amp;lt;utility&amp;gt; #include &amp;lt;vector&amp;gt; #include &amp;lt;string&amp;gt; int main() { std::string str = &amp;#34;Hello&amp;#34;; std::vector&amp;lt;std::string&amp;gt; v; //调用常规的拷贝构造函数，新建字符数组，拷贝数据 v.push_back(str); std::cout &amp;lt;&amp;lt; &amp;#34;After copy, str is \&amp;#34;&amp;#34; &amp;lt;&amp;lt; str &amp;lt;&amp;lt; &amp;#34;\&amp;#34;\n&amp;#34;; //调用移动构造函数，掏空str，掏空后，最好不要使用str v.push_back(std::move(str)); std::cout &amp;lt;&amp;lt; &amp;#34;After move, str is \&amp;#34;&amp;#34; &amp;lt;&amp;lt; str &amp;lt;&amp;lt; &amp;#34;\&amp;#34;\n&amp;#34;; std::cout &amp;lt;&amp;lt; &amp;#34;The contents of the vector are \&amp;#34;&amp;#34; &amp;lt;&amp;lt; v[0] &amp;lt;&amp;lt; &amp;#34;\&amp;#34;, \&amp;#34;&amp;#34; &amp;lt;&amp;lt; v[1] &amp;lt;&amp;lt; &amp;#34;\&amp;#34;\n&amp;#34;; } Cout:&#xA;After copy, str is &amp;#34;Hello&amp;#34; After move, str is &amp;#34;&amp;#34; The contents of the vector are &amp;#34;Hello&amp;#34;, &amp;#34;Hello&amp;#34; 函数原型 template &amp;lt;typename T&amp;gt; typename remove_reference&amp;lt;T&amp;gt;::type&amp;amp;&amp;amp; move(T&amp;amp;&amp;amp; t) { return static_cast&amp;lt;typename remove_reference&amp;lt;T&amp;gt;::type&amp;amp;&amp;amp;&amp;gt;(t); } 原型定义中的原理实现: 公式一）X&amp;amp; &amp;amp;、X&amp;amp;&amp;amp; &amp;amp;、X&amp;amp; &amp;amp;&amp;amp;都折叠成X&amp;amp;，用于处理左值</description>
     </item>
-    
     <item>
       <title>CPP11_thread</title>
       <link>https://vcvvvc.github.io/post/cppthread/</link>
       <pubDate>Sat, 29 Aug 2020 11:44:31 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/cppthread/</guid>
-      <description>create_thread Ex 1.导入#include&amp;mdash;用于创建线程
-2.导入#include&amp;ndash;用于时间延时 获取时间之类的
-定义一个线程对象t1，这就自动创建了一个线程，参数就是你要线程去执行的函数，t1是变量名字 随便取
-std::thread t1(func);
-下面这里返回一个毫秒级别的时间间隔参数值，间隔10毫秒
-std::chrono::milliseconds(10) this_thread::sleep_for（）就是让此线程休眠，可以传入休眠的时间 this_thread::sleep_for(std::chrono::milliseconds(10));让本线程休眠10毫秒 thread4
-join()就是阻塞线程 阻塞的目的就是让Main主线程等待一下创建的线程，免得我函数还在跑，程序就直接结束了。 detach()将线程与线程对象分离 thread5
-c++11还提供了一个lock_guard类，它利用了RAII机制可以保证安全释放mutex。
-在std::lock_guard对象构造时，传入的mutex对象(即它所管理的mutex对象)会被当前线程锁住。
-在lock_guard对象被析构时，它所管理的mutex对象会自动解锁，不需要程序员手动调用lock和unlock对mutex进行上锁和解锁操作。
-lock_guard对象并不负责管理mutex对象的生命周期，lock_guard对象只是简化了mutex对象的上锁和解锁操作，方便线程对互斥量上锁，即在某个lock_guard对象的生命周期内，它所管理的锁对象会一直保持上锁状态；
-而lock_guard的生命周期结束之后，它所管理的锁对象会被解锁。程序员可以非常方便地使用lock_guard，而不用担心异常安全问题。
-thread6
-c++11还提供了std::unique_lock
-类 unique_lock 是通用互斥包装器，允许延迟锁定、锁定的有时限尝试、递归锁定、所有权转移和与条件变量一同使用。 unique_lock比lock_guard使用更加灵活，功能更加强大。 使用unique_lock需要付出更多的时间、性能成本。 thread7
-互斥量很像的条件变量的知识
-条件变量std::condition_variable的使用 std::condition_variable 是为了解决死锁而生的。 当互斥操作不够用而引入的。
-比如，线程可能需要等待某个条件为真才能继续执行，而一个忙等待循环中可能会导致所有其他线程都无法进入临界区使得条件为真时，就会发生死锁。所以，condition_variable实例被创建出现主要就是用于唤醒等待线程从而避免死锁。
-std::condition_variable:
-notify_one()用于唤醒一个线程； notify_all() 则是通知所有线程。 C++11中的std::condition_variable就像Linux下使用pthread_cond_wait和pthread_cond_signal一样，可以让线程休眠，直到被唤醒，现在在从新执行。线程等待在多线程编程中使用非常频繁，经常需要等待一些异步执行的条件的返回结果。
-thread8
-原子变量的使用
-在新标准C++11，引入了原子操作的概念，原子操作更接近内核，并通过这个新的头文件提供了多种原子操作数据类型.
-例如，atomic_bool,atomic_int等等，如果我们在多个线程中对这些类型的共享资源进行操作，编译器将保证这些操作都是原子性的，也就是说，确保任意时刻只有一个线程对这个资源进行访问，编译器将保证，多个线程访问这个共享资源的正确性。从而避免了锁的使用，提高了效率。
-thread9
-future与promise的使用
-在c++11中增加的线程库很方便的让我们去使用线程，但是因为做出了一些改变，我们并不能像往常一样直接使用thread.join()获取线程函数的返回值了，而我们有时候又确实要利用线程函数的返回值。
-thread库提供了future用来访问异步操作的结果，因为一个异步操作的结果往往不能立即获取，只能在未来的某个时候从某个地方获取，这个异步操作的结果是一个未来的期待值，所以被称为future .
-future和promise的作用是在不同线程之间传递数据。
-假设线程1需要线程2的数据，那么组合使用方式如下:
-线程1初始化一个promise对象和一个future对象，promise传递给线程2，相当于线程2对线程1的一个承诺；future相当于一个接受一个承诺，用来获取未来线程2传递的值
-线程2获取到promise后，需要对这个promise传递有关的数据，之后线程1的future就可以获取数据了。
-如果线程1想要获取数据，而线程2未给出数据，则线程1阻塞，直到线程2的数据到达
-thread10
-future与package_task的使用
-std::packaged_task包装一个可调用的对象，并且允许异步获取该可调用对象产生的结果。
-std::packaged_task将其包装的可调用对象的执行结果传递给一个std::future对象，与std::promise某种程度上是很像的，promise保存一个共享状态的值，而package_task保存的是一个函数。
-thread11
-线程异步操作函数async的用法
-std::async比std::packaged_task，std::promise中，std::thread更高一层，它可以直接用来创建异步的task，异步的结果也保存在future中。完成后，外面再通过future.get/wait来获取这个未来的结果，强烈推荐使用async，我们不需要关注异步任务的结果，只要等待任务完成获取值就行了。
-现在来看看std::async的原型async(std::launch::async | std::launch::deferred, f, args...)，第一个参数是线程的创建策略，有两种策略，默认的策略是立即创建线程：
-std::launch::async 在调用async就开始创建线程。 std::launch::deferred 延迟加载方式创建线程。调用async时不创建线程，直到调用了future的get或者wait时才创建线程。 第二个参数是线程函数，第三个参数是线程函数的参数。</description>
+      <description>create_thread Ex 1.导入#include&amp;mdash;用于创建线程&#xA;2.导入#include&amp;ndash;用于时间延时 获取时间之类的&#xA;定义一个线程对象t1，这就自动创建了一个线程，参数就是你要线程去执行的函数，t1是变量名字 随便取&#xA;std::thread t1(func);&#xA;下面这里返回一个毫秒级别的时间间隔参数值，间隔10毫秒&#xA;std::chrono::milliseconds(10) this_thread::sleep_for（）就是让此线程休眠，可以传入休眠的时间 this_thread::sleep_for(std::chrono::milliseconds(10));让本线程休眠10毫秒 thread4&#xA;join()就是阻塞线程 阻塞的目的就是让Main主线程等待一下创建的线程，免得我函数还在跑，程序就直接结束了。 detach()将线程与线程对象分离 thread5&#xA;c++11还提供了一个lock_guard类，它利用了RAII机制可以保证安全释放mutex。&#xA;在std::lock_guard对象构造时，传入的mutex对象(即它所管理的mutex对象)会被当前线程锁住。&#xA;在lock_guard对象被析构时，它所管理的mutex对象会自动解锁，不需要程序员手动调用lock和unlock对mutex进行上锁和解锁操作。&#xA;lock_guard对象并不负责管理mutex对象的生命周期，lock_guard对象只是简化了mutex对象的上锁和解锁操作，方便线程对互斥量上锁，即在某个lock_guard对象的生命周期内，它所管理的锁对象会一直保持上锁状态；&#xA;而lock_guard的生命周期结束之后，它所管理的锁对象会被解锁。程序员可以非常方便地使用lock_guard，而不用担心异常安全问题。&#xA;thread6&#xA;c++11还提供了std::unique_lock&#xA;类 unique_lock 是通用互斥包装器，允许延迟锁定、锁定的有时限尝试、递归锁定、所有权转移和与条件变量一同使用。 unique_lock比lock_guard使用更加灵活，功能更加强大。 使用unique_lock需要付出更多的时间、性能成本。 thread7&#xA;互斥量很像的条件变量的知识&#xA;条件变量std::condition_variable的使用 std::condition_variable 是为了解决死锁而生的。 当互斥操作不够用而引入的。&#xA;比如，线程可能需要等待某个条件为真才能继续执行，而一个忙等待循环中可能会导致所有其他线程都无法进入临界区使得条件为真时，就会发生死锁。所以，condition_variable实例被创建出现主要就是用于唤醒等待线程从而避免死锁。&#xA;std::condition_variable:&#xA;notify_one()用于唤醒一个线程； notify_all() 则是通知所有线程。 C++11中的std::condition_variable就像Linux下使用pthread_cond_wait和pthread_cond_signal一样，可以让线程休眠，直到被唤醒，现在在从新执行。线程等待在多线程编程中使用非常频繁，经常需要等待一些异步执行的条件的返回结果。&#xA;thread8&#xA;原子变量的使用&#xA;在新标准C++11，引入了原子操作的概念，原子操作更接近内核，并通过这个新的头文件提供了多种原子操作数据类型.&#xA;例如，atomic_bool,atomic_int等等，如果我们在多个线程中对这些类型的共享资源进行操作，编译器将保证这些操作都是原子性的，也就是说，确保任意时刻只有一个线程对这个资源进行访问，编译器将保证，多个线程访问这个共享资源的正确性。从而避免了锁的使用，提高了效率。&#xA;thread9&#xA;future与promise的使用&#xA;在c++11中增加的线程库很方便的让我们去使用线程，但是因为做出了一些改变，我们并不能像往常一样直接使用thread.join()获取线程函数的返回值了，而我们有时候又确实要利用线程函数的返回值。&#xA;thread库提供了future用来访问异步操作的结果，因为一个异步操作的结果往往不能立即获取，只能在未来的某个时候从某个地方获取，这个异步操作的结果是一个未来的期待值，所以被称为future .&#xA;future和promise的作用是在不同线程之间传递数据。&#xA;假设线程1需要线程2的数据，那么组合使用方式如下:&#xA;线程1初始化一个promise对象和一个future对象，promise传递给线程2，相当于线程2对线程1的一个承诺；future相当于一个接受一个承诺，用来获取未来线程2传递的值&#xA;线程2获取到promise后，需要对这个promise传递有关的数据，之后线程1的future就可以获取数据了。&#xA;如果线程1想要获取数据，而线程2未给出数据，则线程1阻塞，直到线程2的数据到达&#xA;thread10&#xA;future与package_task的使用&#xA;std::packaged_task包装一个可调用的对象，并且允许异步获取该可调用对象产生的结果。&#xA;std::packaged_task将其包装的可调用对象的执行结果传递给一个std::future对象，与std::promise某种程度上是很像的，promise保存一个共享状态的值，而package_task保存的是一个函数。&#xA;thread11&#xA;线程异步操作函数async的用法&#xA;std::async比std::packaged_task，std::promise中，std::thread更高一层，它可以直接用来创建异步的task，异步的结果也保存在future中。完成后，外面再通过future.get/wait来获取这个未来的结果，强烈推荐使用async，我们不需要关注异步任务的结果，只要等待任务完成获取值就行了。&#xA;现在来看看std::async的原型async(std::launch::async | std::launch::deferred, f, args...)，第一个参数是线程的创建策略，有两种策略，默认的策略是立即创建线程：&#xA;std::launch::async 在调用async就开始创建线程。 std::launch::deferred 延迟加载方式创建线程。调用async时不创建线程，直到调用了future的get或者wait时才创建线程。 第二个参数是线程函数，第三个参数是线程函数的参数。</description>
     </item>
-    
     <item>
       <title>Socket function</title>
       <link>https://vcvvvc.github.io/post/socket/</link>
       <pubDate>Wed, 26 Aug 2020 22:47:24 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/socket/</guid>
-      <description>setsockopt
-获取或者设置与某个套接字关联的选 项。选项可能存在于多层协议中，它们总会出现在最上面的套接字层。当操作套接字选项时， 选项位于的层和选项的名称必须给出。为了操作套接字层的选项，应该 将层的值指定为SOL_SOCKET。为了操作其它层的选项，控制选 项的合适协议号必须给出。例如，为了表示一个选项由TCP协议解析，层应该设定为协议 号TCP。 SO_LINGER选项
-struct linger { int l_onoff; int l_linger; }; l_onoff = 0, 数据保持发送完成后立即返回 l_onoff = 1, l_linger = 0, 立即放回 放弃发送, 发送rst 自身立即复位 l_onoff = 1, l_linger = 1, 阻塞到超时或数据发送完成, 保持尝试发送,超时后立即结束 SO_REUSEADDR选项
-改变了通配绑定时处理源地址冲突的处理方式, 让端口释放后立即就可以被再次使用
-允许启动一个监听服务器并捆绑其众所周知端口，即使以前建立的将此端口用做他们的本地端口的连接仍存在 允许在同一端口上启动同一服务器的多个实例，只要每个实例捆绑一个不同的本地IP地址即可 允许单个进程捆绑同一端口到多个套接口上，只要每个捆绑指定不同的本地IP地址即可。一般不用于tco服务器 允许完全重复的捆绑 Re:
-https://www.cnblogs.com/my_life/articles/5174585.html
-https://www.jianshu.com/p/141aa1c41f15
-https://blog.csdn.net/u010144805/article/details/78579528
-int fcntl(int fd, int cmd); int fcntl(int fd, int cmd, long arg); int fcntl(int fd, int cmd, struct flock *lock); fcntl函数有5种功能：</description>
+      <description>setsockopt&#xA;获取或者设置与某个套接字关联的选 项。选项可能存在于多层协议中，它们总会出现在最上面的套接字层。当操作套接字选项时， 选项位于的层和选项的名称必须给出。为了操作套接字层的选项，应该 将层的值指定为SOL_SOCKET。为了操作其它层的选项，控制选 项的合适协议号必须给出。例如，为了表示一个选项由TCP协议解析，层应该设定为协议 号TCP。 SO_LINGER选项&#xA;struct linger { int l_onoff; int l_linger; }; l_onoff = 0, 数据保持发送完成后立即返回 l_onoff = 1, l_linger = 0, 立即放回 放弃发送, 发送rst 自身立即复位 l_onoff = 1, l_linger = 1, 阻塞到超时或数据发送完成, 保持尝试发送,超时后立即结束 SO_REUSEADDR选项&#xA;改变了通配绑定时处理源地址冲突的处理方式, 让端口释放后立即就可以被再次使用&#xA;允许启动一个监听服务器并捆绑其众所周知端口，即使以前建立的将此端口用做他们的本地端口的连接仍存在 允许在同一端口上启动同一服务器的多个实例，只要每个实例捆绑一个不同的本地IP地址即可 允许单个进程捆绑同一端口到多个套接口上，只要每个捆绑指定不同的本地IP地址即可。一般不用于tco服务器 允许完全重复的捆绑 Re:&#xA;https://www.cnblogs.com/my_life/articles/5174585.html&#xA;https://www.jianshu.com/p/141aa1c41f15&#xA;https://blog.csdn.net/u010144805/article/details/78579528&#xA;int fcntl(int fd, int cmd); int fcntl(int fd, int cmd, long arg); int fcntl(int fd, int cmd, struct flock *lock); fcntl函数有5种功能：</description>
     </item>
-    
     <item>
       <title>Makefile template</title>
       <link>https://vcvvvc.github.io/post/makefile_template/</link>
       <pubDate>Wed, 19 Aug 2020 10:21:09 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/makefile_template/</guid>
       <description>V1 ############ 交叉编译 CROSS_COMPILE=aarch64-himix100-linux- CC=$(CROSS_COMPILE)g++ # 当前路径 PWD := $(shell pwd) #库 LIB += -lpthread -lsqlite3 #参数 CFLAG= -D_GNU_SOURCE -D__USE_XOPEN -g #.cpp源文件 SRCS=$(wildcard ./src/*.cpp) #头文件 INC=-I$(PWD)/include #中间文件 OBJS=$(SRCS:.cpp=.o) #二进制文件 BIN=maincpp #start，表示开始执行 start:$(OBJS) $(CC) -o $(BIN) $(OBJS) $(CFLAG) $(LIB) .cpp.o: $(CC) $(INC) -o $@ -c $&amp;lt; $(CFLAB) $(LIB) .PHONY : clean clean: rm -f ${BIN} ./src/*.o V2 # Makefile cc=gcc LDFLAGS=-lncurses SRCS := $(wildcard *.c) TARGET := $(SRCS:%.c=%) $(TARGET):$(SRCS) $(cc) $(LDFLAGS) $(SRCS) -o $(TARGET) clean: rm $(TARGET) Reference: Makefile 文件 -只有include和src文件夹</description>
     </item>
-    
     <item>
       <title>Binary Tree</title>
       <link>https://vcvvvc.github.io/post/binary_tree/</link>
       <pubDate>Tue, 18 Aug 2020 14:40:25 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/binary_tree/</guid>
-      <description>性质1:在二叉树的第i层上至多有2 i-1 个结点(i≥1)。
-性质2:深度为k的二叉树至多有2 k -1个结点(k≥1)。
-性质3:对任何一棵二叉树T,如果其终端结点数为n 0 ,度为2的结点数 为n 2 ,则n 0 =n 2 +1。
-性质4:具有n个结点的完全二叉树的深度为|log 2 n+1|(|x|表示不大于x 的最大整数)。
-性质5:如果对一棵有n个结点的完全二叉树(其深度为)的结点按层序 编号(从第1层到第层,每层从左到右),对任一结点i(1≤i≤n)有:
-1.如果i=1,则结点i是二叉树的根,无双亲;如果i&amp;gt;1,则其双亲是结 点。
-2.如果2i&amp;gt;n,则结点i无左孩子(结点i为叶子结点);否则其左孩子是 结点2i。
-3.如果2i+1&amp;gt;n,则结点i无右孩子;否则其右孩子是结点2i+1。
-树转换为二叉树 将树转换为二叉树的步骤如下
-1.加线。在所有兄弟结点之间加一条连 线。
-2.去线。对树中每个结点,只保留它与第一个孩子结点的连线,删 除它与其他孩子结点之间的连线。
-3.层次调整。以树的根结点为轴心, 将整棵树顺时针旋转一定的角度,使之结构层次分明。注意第一个孩子 是二叉树结点的左孩子,兄弟转换过来的孩子是结点的右孩子
-森林转换为二叉树 森林是由若干棵树组成的,所以完全可以理解为,森林中的每一棵树都是兄弟,可以按照兄弟的处理办法来操作 .
-1.把每个树转换为二叉树。 2.第一棵二叉树不动,从第二棵二叉树开始,依次把后一棵 二叉树的根结点作为前一棵二叉树的根结点的右孩子,用线连接起来。 当所有的二叉树连接起来后就得到了由森林转换来的二叉树。 二叉树转换为树 二叉树转换为树是树转换为二叉树的逆过程,也就是反过来做而已。
-1.加线。若某结点的左孩子结点存在,则将 这个左孩子的右孩子结点、右孩子的右孩子结点、右孩子的右孩子的右 孩子结点&amp;hellip;&amp;hellip;哈,反正就是左孩子的n个右孩子结点都作为此结点的孩 子。将该结点与这些右孩子结点用线连接起来。 2.去线。删除原二叉树中所有结点与其右孩子结点的连线。 3.层次调整。使之结构层次分明。 二叉树转换为森林 判断一棵二叉树能够转换成一棵树还是森林,标准很简单,那就是只要 看这棵二叉树的根结点有没有右孩子,有就是森林,没有就是一棵树。
-1.从根结点开始,若右孩子存在,则把与右孩子结点的连线删除,再查看分离后的二叉树,若右孩子存在,则连线删除&amp;hellip;&amp;hellip;,直到所有右孩子连线都删除为止,得到分离的二 叉树。 2.再将每棵分离后的二叉树转换为树即可。 树与森林的遍历 树的遍历分为两种方式。
-1.一种是先根遍历树,即先访问树的根结点, 然后依次先根遍历根的每棵子树。 2.另一种是后根遍历,即先依次后根 遍历每棵子树,然后再访问根结点。比如图tree6/7中右下方的树,它的 先根遍历序列为ABEFCDG,后根遍历序列为EFBCGDA。 森林的遍历也分为两种方式:
-1.前序遍历:先访问森林中第一棵树的根 结点,然后再依次先根遍历根的每棵子树,再依次用同样方式遍历除去 第一棵树的剩余树构成的森林。比如图6-11-5下面三棵树的森林,前序 遍历序列的结果就是ABCDEFGHJI。 2.</description>
+      <description>性质1:在二叉树的第i层上至多有2 i-1 个结点(i≥1)。&#xA;性质2:深度为k的二叉树至多有2 k -1个结点(k≥1)。&#xA;性质3:对任何一棵二叉树T,如果其终端结点数为n 0 ,度为2的结点数 为n 2 ,则n 0 =n 2 +1。&#xA;性质4:具有n个结点的完全二叉树的深度为|log 2 n+1|(|x|表示不大于x 的最大整数)。&#xA;性质5:如果对一棵有n个结点的完全二叉树(其深度为)的结点按层序 编号(从第1层到第层,每层从左到右),对任一结点i(1≤i≤n)有:&#xA;1.如果i=1,则结点i是二叉树的根,无双亲;如果i&amp;gt;1,则其双亲是结 点。&#xA;2.如果2i&amp;gt;n,则结点i无左孩子(结点i为叶子结点);否则其左孩子是 结点2i。&#xA;3.如果2i+1&amp;gt;n,则结点i无右孩子;否则其右孩子是结点2i+1。&#xA;树转换为二叉树 将树转换为二叉树的步骤如下&#xA;1.加线。在所有兄弟结点之间加一条连 线。&#xA;2.去线。对树中每个结点,只保留它与第一个孩子结点的连线,删 除它与其他孩子结点之间的连线。&#xA;3.层次调整。以树的根结点为轴心, 将整棵树顺时针旋转一定的角度,使之结构层次分明。注意第一个孩子 是二叉树结点的左孩子,兄弟转换过来的孩子是结点的右孩子&#xA;森林转换为二叉树 森林是由若干棵树组成的,所以完全可以理解为,森林中的每一棵树都是兄弟,可以按照兄弟的处理办法来操作 .&#xA;1.把每个树转换为二叉树。 2.第一棵二叉树不动,从第二棵二叉树开始,依次把后一棵 二叉树的根结点作为前一棵二叉树的根结点的右孩子,用线连接起来。 当所有的二叉树连接起来后就得到了由森林转换来的二叉树。 二叉树转换为树 二叉树转换为树是树转换为二叉树的逆过程,也就是反过来做而已。&#xA;1.加线。若某结点的左孩子结点存在,则将 这个左孩子的右孩子结点、右孩子的右孩子结点、右孩子的右孩子的右 孩子结点&amp;hellip;&amp;hellip;哈,反正就是左孩子的n个右孩子结点都作为此结点的孩 子。将该结点与这些右孩子结点用线连接起来。 2.去线。删除原二叉树中所有结点与其右孩子结点的连线。 3.层次调整。使之结构层次分明。 二叉树转换为森林 判断一棵二叉树能够转换成一棵树还是森林,标准很简单,那就是只要 看这棵二叉树的根结点有没有右孩子,有就是森林,没有就是一棵树。&#xA;1.从根结点开始,若右孩子存在,则把与右孩子结点的连线删除,再查看分离后的二叉树,若右孩子存在,则连线删除&amp;hellip;&amp;hellip;,直到所有右孩子连线都删除为止,得到分离的二 叉树。 2.再将每棵分离后的二叉树转换为树即可。 树与森林的遍历 树的遍历分为两种方式。&#xA;1.一种是先根遍历树,即先访问树的根结点, 然后依次先根遍历根的每棵子树。 2.另一种是后根遍历,即先依次后根 遍历每棵子树,然后再访问根结点。比如图tree6/7中右下方的树,它的 先根遍历序列为ABEFCDG,后根遍历序列为EFBCGDA。 森林的遍历也分为两种方式:&#xA;1.前序遍历:先访问森林中第一棵树的根 结点,然后再依次先根遍历根的每棵子树,再依次用同样方式遍历除去 第一棵树的剩余树构成的森林。比如图6-11-5下面三棵树的森林,前序 遍历序列的结果就是ABCDEFGHJI。 2.</description>
     </item>
-    
     <item>
       <title>C&#43;&#43; auto ponit</title>
       <link>https://vcvvvc.github.io/post/cpp_auto_ponit/</link>
       <pubDate>Mon, 17 Aug 2020 15:10:13 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/cpp_auto_ponit/</guid>
-      <description>Class shared_ptr 实现共享式拥有（shared ownership）概念。多个智能指针指向相同对象，该对象和其相关资源会在 “最后一个 reference 被销毁” 时被释放。为了在结构较复杂的情景中执行上述工作，标准库提供 weak_ptr、bad_weak_ptr 和 enable_shared_from_this 等辅助类。 Class unique_ptr 实现独占式拥有（exclusive ownership）或严格拥有（strict ownership）概念，保证同一时间内只有一个智能指针可以指向该对象。你可以移交拥有权。它对于避免内存泄漏（resource leak）——如 new 后忘记 delete ——特别有用。 1.shared_ptr shared_ptr&amp;lt;T&amp;gt; sp
-多个智能指针可以共享同一个对象，对象的最末一个拥有着有责任销毁对象，并清理与该对象相关的所有资源。
-支持定制型删除器（custom deleter），可防范 Cross-DLL 问题（对象在动态链接库（DLL）中被 new 创建，却在另一个 DLL 内被 delete 销毁）、自动解除互斥锁 3. make_shared make_shared&amp;lt;T&amp;gt;(args)
-shared_ptr&amp;lt;int&amp;gt; p = make_shared&amp;lt;int&amp;gt;(42); 返回一个shared_ptr, 指向一个动态分配的类型为T的对象。使用args初始化此对象
-3.weak_ptr weak_ptr 允许你共享但不拥有某对象，一旦最末一个拥有该对象的智能指针失去了所有权，任何 weak_ptr 都会自动成空（empty）。因此，在 default 和 copy 构造函数之外，weak_ptr 只提供 “接受一个 shared_ptr” 的构造函数。
-可打破环状引用（cycles of references，两个其实已经没有被使用的对象彼此互指，使之看似还在 “被使用” 的状态）的问题 4.unique_ptr unique_ptr&amp;lt;T&amp;gt; up
-unique_ptr 是 C++11 才开始提供的类型，是一种在异常时可以帮助避免资源泄漏的智能指针。采用独占式拥有，意味着可以确保一个对象和其相应的资源同一时间只被一个 pointer 拥有。一旦拥有着被销毁或编程 empty，或开始拥有另一个对象，先前拥有的那个对象就会被销毁，其任何相应资源亦会被释放。</description>
+      <description>Class shared_ptr 实现共享式拥有（shared ownership）概念。多个智能指针指向相同对象，该对象和其相关资源会在 “最后一个 reference 被销毁” 时被释放。为了在结构较复杂的情景中执行上述工作，标准库提供 weak_ptr、bad_weak_ptr 和 enable_shared_from_this 等辅助类。 Class unique_ptr 实现独占式拥有（exclusive ownership）或严格拥有（strict ownership）概念，保证同一时间内只有一个智能指针可以指向该对象。你可以移交拥有权。它对于避免内存泄漏（resource leak）——如 new 后忘记 delete ——特别有用。 1.shared_ptr shared_ptr&amp;lt;T&amp;gt; sp&#xA;多个智能指针可以共享同一个对象，对象的最末一个拥有着有责任销毁对象，并清理与该对象相关的所有资源。&#xA;支持定制型删除器（custom deleter），可防范 Cross-DLL 问题（对象在动态链接库（DLL）中被 new 创建，却在另一个 DLL 内被 delete 销毁）、自动解除互斥锁 3. make_shared make_shared&amp;lt;T&amp;gt;(args)&#xA;shared_ptr&amp;lt;int&amp;gt; p = make_shared&amp;lt;int&amp;gt;(42); 返回一个shared_ptr, 指向一个动态分配的类型为T的对象。使用args初始化此对象&#xA;3.weak_ptr weak_ptr 允许你共享但不拥有某对象，一旦最末一个拥有该对象的智能指针失去了所有权，任何 weak_ptr 都会自动成空（empty）。因此，在 default 和 copy 构造函数之外，weak_ptr 只提供 “接受一个 shared_ptr” 的构造函数。&#xA;可打破环状引用（cycles of references，两个其实已经没有被使用的对象彼此互指，使之看似还在 “被使用” 的状态）的问题 4.unique_ptr unique_ptr&amp;lt;T&amp;gt; up&#xA;unique_ptr 是 C++11 才开始提供的类型，是一种在异常时可以帮助避免资源泄漏的智能指针。采用独占式拥有，意味着可以确保一个对象和其相应的资源同一时间只被一个 pointer 拥有。一旦拥有着被销毁或编程 empty，或开始拥有另一个对象，先前拥有的那个对象就会被销毁，其任何相应资源亦会被释放。</description>
     </item>
-    
     <item>
       <title>Constexpr</title>
       <link>https://vcvvvc.github.io/post/constexpr/</link>
       <pubDate>Fri, 14 Aug 2020 16:16:33 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/constexpr/</guid>
       <description>0.Array int url[10]; //true int url[6 + 4] //true int len = 10; int url[len] //flase 1.Constexpr #include &amp;lt;iostream&amp;gt; using namespace std; int main() { /* * If have not constexpr, CPP throw error */ constexpr int num = 1 + 2 + 3; int url[num] = {1,2,3,4,5,6}; couts&amp;lt;&amp;lt; url[1] &amp;lt;&amp;lt; endl; return 0; } 2.Only have one &amp;lsquo;return&amp;rsquo; # Error constexpr int display(int x) { int ret = 1 + 2 + x; return ret; } # True constexpr int display(int x) { return 1 + 2 + x; } 3.</description>
     </item>
-    
     <item>
       <title>Variable function(fun(char *, ...)) and vsnprintf()</title>
       <link>https://vcvvvc.github.io/post/variable_function/</link>
       <pubDate>Tue, 28 Jul 2020 14:44:30 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/variable_function/</guid>
-      <description>void fun(char * fmt, &amp;hellip;); int vsprintf(char *str, const char *format, va_list arg);
-Test programming #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;stdarg.h&amp;gt; /* * Re: https://github.com/antirez/kilo/kilo.c * Re: https://www.runoob.com/cprogramming/c-function-vsprintf.html */ char buffer[80]; int editorSetstatus(const char * fmt, ...) { va_list ap; va_start(ap, fmt); int ret; ret = vsnprintf(buffer, sizeof(buffer - 1), fmt, ap); va_end(ap); return (ret); } int main(int argc, char **argv) { int len = 20; editorSetstatus(&amp;#34;%d&amp;#34;, len); printf(&amp;#34;%s \n&amp;#34;, buffer); return 0; } gcc -Wall -g fun.</description>
+      <description>void fun(char * fmt, &amp;hellip;); int vsprintf(char *str, const char *format, va_list arg);&#xA;Test programming #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;stdarg.h&amp;gt; /* * Re: https://github.com/antirez/kilo/kilo.c * Re: https://www.runoob.com/cprogramming/c-function-vsprintf.html */ char buffer[80]; int editorSetstatus(const char * fmt, ...) { va_list ap; va_start(ap, fmt); int ret; ret = vsnprintf(buffer, sizeof(buffer - 1), fmt, ap); va_end(ap); return (ret); } int main(int argc, char **argv) { int len = 20; editorSetstatus(&amp;#34;%d&amp;#34;, len); printf(&amp;#34;%s \n&amp;#34;, buffer); return 0; } gcc -Wall -g fun.</description>
     </item>
-    
     <item>
       <title>Linux install Boost c&#43;&#43;</title>
       <link>https://vcvvvc.github.io/post/linux_install_boost/</link>
       <pubDate>Tue, 28 Jul 2020 13:09:01 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/linux_install_boost/</guid>
-      <description>Boost C++ is Cpp programming language that provides support for tasks and structures
-Download Source https://dl.bintray.com/boostorg/release/1.73.0/source/boost_1_73_0.tar.gz tar zxvf boost(解压) Set use GCC cd boost ./bootstrap.sh --with-libraries=all --with-toolset=gcc Compile &amp;amp; Install boost ./b2 toolset=gcc ./b2 install --prefix=/usr Test programming #include &amp;lt;boost/thread/thread.hpp&amp;gt; //boost thread #include &amp;lt;iostream&amp;gt; #include &amp;lt;cstdlib&amp;gt; using namespace std; volatile bool isRuning = true; void func1() { static int cnt1 = 0; while(isRuning) { cout &amp;lt;&amp;lt; &amp;#34;func1:&amp;#34; &amp;lt;&amp;lt; cnt1++ &amp;lt;&amp;lt; endl; sleep(1); } } void func2() { static int cnt2 = 0; while(isRuning) { cout &amp;lt;&amp;lt; &amp;#34;\tfunc2:&amp;#34; &amp;lt;&amp;lt; cnt2++ &amp;lt;&amp;lt; endl; sleep(2); } } int main() { boost::thread thread1(&amp;amp;func1); boost::thread thread2(&amp;amp;func2); system(&amp;#34;read&amp;#34;); isRuning = false; thread2.</description>
+      <description>Boost C++ is Cpp programming language that provides support for tasks and structures&#xA;Download Source https://dl.bintray.com/boostorg/release/1.73.0/source/boost_1_73_0.tar.gz tar zxvf boost(解压) Set use GCC cd boost ./bootstrap.sh --with-libraries=all --with-toolset=gcc Compile &amp;amp; Install boost ./b2 toolset=gcc ./b2 install --prefix=/usr Test programming #include &amp;lt;boost/thread/thread.hpp&amp;gt; //boost thread #include &amp;lt;iostream&amp;gt; #include &amp;lt;cstdlib&amp;gt; using namespace std; volatile bool isRuning = true; void func1() { static int cnt1 = 0; while(isRuning) { cout &amp;lt;&amp;lt; &amp;#34;func1:&amp;#34; &amp;lt;&amp;lt; cnt1++ &amp;lt;&amp;lt; endl; sleep(1); } } void func2() { static int cnt2 = 0; while(isRuning) { cout &amp;lt;&amp;lt; &amp;#34;\tfunc2:&amp;#34; &amp;lt;&amp;lt; cnt2++ &amp;lt;&amp;lt; endl; sleep(2); } } int main() { boost::thread thread1(&amp;amp;func1); boost::thread thread2(&amp;amp;func2); system(&amp;#34;read&amp;#34;); isRuning = false; thread2.</description>
     </item>
-    
   </channel>
 </rss>

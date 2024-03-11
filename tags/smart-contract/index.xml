@@ -6,16 +6,21 @@
     <description>Recent content in Smart Contract on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 22 Aug 2023 18:07:06 +0800</lastBuildDate><atom:link href="https://vcvvvc.github.io/tags/smart-contract/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 11 Mar 2024 20:41:44 +0800</lastBuildDate>
+    <atom:link href="https://vcvvvc.github.io/tags/smart-contract/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fix_hardhat_verify_timeout</title>
+      <link>https://vcvvvc.github.io/post/fix_hardhat_verify_timeout/</link>
+      <pubDate>Mon, 11 Mar 2024 20:41:44 +0800</pubDate>
+      <guid>https://vcvvvc.github.io/post/fix_hardhat_verify_timeout/</guid>
+      <description>修复hardhat发布合约代码出错的问题 hardhat-verify found one or more errors during the verification process:&#xA;Etherscan: An unexpected error occurred during the verification process. Please report this issue to the Hardhat team. Error Details: Connect Timeout Error&#xA;npm install &amp;ndash;save-dev undici&#xA;在 hardhat.config.js 中添加以下代码：&#xA;const { ProxyAgent, setGlobalDispatcher } = require(&amp;#34;undici&amp;#34;); const proxyAgent = new ProxyAgent(&amp;#34;http://127.0.0.1:7890&amp;#34;); setGlobalDispatcher(proxyAgent); Reference: https://github.com/smartcontractkit/full-blockchain-solidity-course-js/discussions/2247#discussioncomment-5496669</description>
+    </item>
     <item>
       <title>Proxy_Solidity</title>
       <link>https://vcvvvc.github.io/post/proxy_sol/</link>
       <pubDate>Tue, 22 Aug 2023 18:07:06 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/proxy_sol/</guid>
-      <description>可升级智能合约
-Proxy 是一种智能合约的设计模式，它可以实现合约的可升级性。Proxy 合约是一个简单的合约，它只负责将收到的调用请求转发给另一个逻辑合约，而不执行任何自己的逻辑。这样，当需要升级合约时，只需要部署一个新的逻辑合约，并在 Proxy 合约中更新其地址，就可以保持 Proxy 合约的地址不变，同时使用新的逻辑。Proxy 合约通常使用 delegatecall 操作码来实现调用转发，这样可以保留 Proxy 合约的存储和上下文，而执行逻辑合约的代码。</description>
+      <description>可升级智能合约&#xA;Proxy 是一种智能合约的设计模式，它可以实现合约的可升级性。Proxy 合约是一个简单的合约，它只负责将收到的调用请求转发给另一个逻辑合约，而不执行任何自己的逻辑。这样，当需要升级合约时，只需要部署一个新的逻辑合约，并在 Proxy 合约中更新其地址，就可以保持 Proxy 合约的地址不变，同时使用新的逻辑。Proxy 合约通常使用 delegatecall 操作码来实现调用转发，这样可以保留 Proxy 合约的存储和上下文，而执行逻辑合约的代码。</description>
     </item>
-    
   </channel>
 </rss>

@@ -6,181 +6,70 @@
     <description>Recent content in Socket on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 29 May 2023 21:13:27 +0800</lastBuildDate><atom:link href="https://vcvvvc.github.io/tags/socket/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 29 May 2023 21:13:27 +0800</lastBuildDate>
+    <atom:link href="https://vcvvvc.github.io/tags/socket/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>TIME_WAIT与SO_LINGER</title>
       <link>https://vcvvvc.github.io/post/time_wait%E4%B8%8Eso_linger/</link>
       <pubDate>Mon, 29 May 2023 21:13:27 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/time_wait%E4%B8%8Eso_linger/</guid>
-      <description>TIME_WAIT 主动关闭方在收到被动关闭方的FIN包后并返回ACK后，会进入TIME_WAIT状态，TIME_WAIT状态又称2MSL状态，每个TCP连接都必须有一个最大报文段生存时间MSL，在网络传输中超过这个时间的报文段将被丢弃。当TCP连接发起一个主动关闭，并发出最后一个ACK时，必须在TIME_WAIT状态停留两倍MSL时间，在2MSL等待期间，定义这个连接的插口(客户端IP地址和端口号，服务器IP地址和端口号的四元组)将不能再被使用。
-主动发起关闭连接的一方，才会有 TIME-WAIT 状态。 需要TIME-WAIT状态，主要是两个原因：
-防止历史连接中的数据，被后面相同四元组的连接错误的接收；
-保证「被动关闭连接」的一方，能被正确的关闭；
-序列号，是 TCP 一个头部字段，标识了 TCP 发送端到 TCP 接收端的数据流的一个字节，因为 TCP 是面向字节流的可靠协议，为了保证消息的顺序性和可靠性，TCP 为每个传输方向上的每个字节都赋予了一个编号，以便于传输成功后确认、丢失后重传以及在接收端保证不会乱序。序列号是一个 32 位的无符号数，因此在到达 4G 之后再循环回到 0。
-初始序列号，在 TCP 建立连接的时候，客户端和服务端都会各自生成一个初始序列号，它是基于时钟生成的一个随机数，来保证每个连接都拥有不同的初始序列号。初始化序列号可被视为一个 32 位的计数器，该计数器的数值每 4 微秒加 1，循环一次需要 4.55 小时。
-序列号和初始化序列号并不是无限递增的，会发生回绕为初始值的情况，这意味着无法根据序列号来判断新老数据。
-tcp协议头中有seq和ack_seq两个字段，分别代表序列号和确认号。tcp协议通过序列号标识发送的报文段。seq的类型是__u32，当超过__u32的最大值时，会回绕到0。
-一个tcp流的初始序列号（ISN）并不是从0开始的，而是采用一定的随机算法产生的，因此ISN可能很大（比如(2^32-10)），因此同一个tcp流的seq号可能会回绕到0。而我们tcp对于丢包和乱序等问题的判断都是依赖于序列号大小比较的。此时就出现了所谓的tcp序列号回绕（sequence wraparound）问题。
-TCP 设计了 TIME_WAIT 状态，状态会持续 2MSL 时长，这个时间足以让两个方向上的数据包都被丢弃，使得原来连接的数据包在网络中都自然消失，再出现的数据包一定都是新建立连接所产生的。
-是等待足够的时间以确保最后的 ACK 能让被动关闭方接收，从而帮助其正常关闭。
-TIME-WAIT状态过多危害 第一是占用系统资源，比如文件描述符、内存资源、CPU 资源、线程资源等； 第二是占用端口资源，端口资源也是有限的，一般可以开启的端口为 32768～61000，也可以通过 net.ipv4.ip_local_port_range参数指定范围。 出现过多的原因 HTTP 没有使用长连接
-HTTP 长连接超时
-HTTP 长连接的请求数量达到上限
-SO_LINGER SO_LINGER选项的作用是等待发送缓冲区中的数据发送完成，但是并不保证发送缓冲区中的数据一定被对端接收（对端宕机或线路问题），只是说会等待一段时间让这个过程完成。
-struct linger { int l_onoff; //0=off, nonzero=on(开关) int l_linger; //linger time(延迟时间) } l_onoff l_linger closesocket 发送队列 底层行为 0 关闭 立即返回 保持直到发送完成 系统接管套接字并保证将数据发送至对端。（就是正常的close） 1 0 立即返回 立即放弃 直接发送RST包，自身立即复位，不用经过2MSL状态。对端收到复位错误号。 1 1 阻塞直到l_linger时间超时或数据发送完成。 在超时时间段内保持尝试发送，若超时则立即放弃。 设置超时时间，若超时未完成数据发送，则立即返回按linger = 0的行为关闭 Re: https://zhuanlan.</description>
+      <description>TIME_WAIT 主动关闭方在收到被动关闭方的FIN包后并返回ACK后，会进入TIME_WAIT状态，TIME_WAIT状态又称2MSL状态，每个TCP连接都必须有一个最大报文段生存时间MSL，在网络传输中超过这个时间的报文段将被丢弃。当TCP连接发起一个主动关闭，并发出最后一个ACK时，必须在TIME_WAIT状态停留两倍MSL时间，在2MSL等待期间，定义这个连接的插口(客户端IP地址和端口号，服务器IP地址和端口号的四元组)将不能再被使用。&#xA;主动发起关闭连接的一方，才会有 TIME-WAIT 状态。 需要TIME-WAIT状态，主要是两个原因：&#xA;防止历史连接中的数据，被后面相同四元组的连接错误的接收；&#xA;保证「被动关闭连接」的一方，能被正确的关闭；&#xA;序列号，是 TCP 一个头部字段，标识了 TCP 发送端到 TCP 接收端的数据流的一个字节，因为 TCP 是面向字节流的可靠协议，为了保证消息的顺序性和可靠性，TCP 为每个传输方向上的每个字节都赋予了一个编号，以便于传输成功后确认、丢失后重传以及在接收端保证不会乱序。序列号是一个 32 位的无符号数，因此在到达 4G 之后再循环回到 0。&#xA;初始序列号，在 TCP 建立连接的时候，客户端和服务端都会各自生成一个初始序列号，它是基于时钟生成的一个随机数，来保证每个连接都拥有不同的初始序列号。初始化序列号可被视为一个 32 位的计数器，该计数器的数值每 4 微秒加 1，循环一次需要 4.55 小时。&#xA;序列号和初始化序列号并不是无限递增的，会发生回绕为初始值的情况，这意味着无法根据序列号来判断新老数据。&#xA;tcp协议头中有seq和ack_seq两个字段，分别代表序列号和确认号。tcp协议通过序列号标识发送的报文段。seq的类型是__u32，当超过__u32的最大值时，会回绕到0。&#xA;一个tcp流的初始序列号（ISN）并不是从0开始的，而是采用一定的随机算法产生的，因此ISN可能很大（比如(2^32-10)），因此同一个tcp流的seq号可能会回绕到0。而我们tcp对于丢包和乱序等问题的判断都是依赖于序列号大小比较的。此时就出现了所谓的tcp序列号回绕（sequence wraparound）问题。&#xA;TCP 设计了 TIME_WAIT 状态，状态会持续 2MSL 时长，这个时间足以让两个方向上的数据包都被丢弃，使得原来连接的数据包在网络中都自然消失，再出现的数据包一定都是新建立连接所产生的。&#xA;是等待足够的时间以确保最后的 ACK 能让被动关闭方接收，从而帮助其正常关闭。&#xA;TIME-WAIT状态过多危害 第一是占用系统资源，比如文件描述符、内存资源、CPU 资源、线程资源等； 第二是占用端口资源，端口资源也是有限的，一般可以开启的端口为 32768～61000，也可以通过 net.ipv4.ip_local_port_range参数指定范围。 出现过多的原因 HTTP 没有使用长连接&#xA;HTTP 长连接超时&#xA;HTTP 长连接的请求数量达到上限&#xA;SO_LINGER SO_LINGER选项的作用是等待发送缓冲区中的数据发送完成，但是并不保证发送缓冲区中的数据一定被对端接收（对端宕机或线路问题），只是说会等待一段时间让这个过程完成。&#xA;struct linger { int l_onoff; //0=off, nonzero=on(开关) int l_linger; //linger time(延迟时间) } l_onoff l_linger closesocket 发送队列 底层行为 0 关闭 立即返回 保持直到发送完成 系统接管套接字并保证将数据发送至对端。（就是正常的close） 1 0 立即返回 立即放弃 直接发送RST包，自身立即复位，不用经过2MSL状态。对端收到复位错误号。 1 1 阻塞直到l_linger时间超时或数据发送完成。 在超时时间段内保持尝试发送，若超时则立即放弃。 设置超时时间，若超时未完成数据发送，则立即返回按linger = 0的行为关闭 Re: https://zhuanlan.</description>
     </item>
-    
     <item>
       <title>SO_REUSEPORT与SO_REUSEADDR</title>
       <link>https://vcvvvc.github.io/post/so_reuseport%E4%B8%8Eso_reuseaddr/</link>
       <pubDate>Mon, 29 May 2023 20:54:49 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/so_reuseport%E4%B8%8Eso_reuseaddr/</guid>
-      <description>SO_REUSEPORT端口重用 int opt_val = 1; setsockopt(sockfd, SOL_SOCKET, SO_REUSEPORT, &amp;amp;opt_val, sizeof(opt_val)) SO_REUSEPORT是允许多个socket绑定到同一个ip+port上
-每一个线程拥有自己的服务器套接字, 在服务器套接字上没有了锁的竞争
-内核层面实现负载均衡
-SO_REUSEPORT在以下场景下有用： 当服务器需要使用多个进程或线程来监听相同的端口，而不想遇到惊群现象或资源竞争时，可以设置SO_REUSEPORT选项，以便实现网络连接的负载均衡。
-当服务器需要使用UDP协议来接收多播数据报时，可以设置SO_REUSEPORT选项，以便让每个进程或线程接收到不同的数据报，提高效率和性能。
-EPOLL惊群问题
-SO_REUSEADDR是地址重用 int opt_val = 1; setsockopt(sockfd, SOL_SOCKET, SO_REUSEADDR, &amp;amp;opt_val, sizeof(opt_val)) SO_REUSEADDR可以解决服务器主动关闭连接后，需要等待2MSL时间才能重新绑定相同的端口的问题。如果不设置这个选项，服务器在关闭连接后，会进入TIME_WAIT状态，此时再次启动服务器，就会绑定失败，报：Address already in use。如果设置了这个选项，服务器就可以立即重启并绑定相同的端口
-SO_REUSEADDR可以解决服务器使用通配符IP地址（0.0.0.0）监听端口后，无法再绑定具体的IP地址到相同的端口的问题。如果不设置这个选项，当一个socket绑定到0.0.0.0:port后，其他socket就无法绑定到192.168.0.1:port等具体的IP地址上。如果设置了这个选项，就可以允许多个socket绑定到相同的端口，只要它们使用不同的本地IP地址
-SO_REUSEADDR在以下场景下有用： 当服务器需要频繁地启动和关闭，而不想等待2MSL时间才能重新绑定相同的端口时，可以设置SO_REUSEADDR选项，以便快速重启。
-当服务器需要使用通配符IP地址（0.0.0.0）监听端口，同时又想绑定其他具体的IP地址到相同的端口时，可以设置SO_REUSEADDR选项，以便支持多个IP地址的监听。
-Epoll惊群 #include &amp;lt;sys/types.h&amp;gt; #include &amp;lt;sys/socket.h&amp;gt; #include &amp;lt;sys/epoll.h&amp;gt; #include &amp;lt;netdb.h&amp;gt; #include &amp;lt;string.h&amp;gt; #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;unistd.h&amp;gt; #include &amp;lt;fcntl.h&amp;gt; #include &amp;lt;stdlib.h&amp;gt; #include &amp;lt;errno.h&amp;gt; #include &amp;lt;sys/wait.h&amp;gt; #define PROCESS_NUM 10 static int create_and_bind (char *port) { int fd = socket(PF_INET, SOCK_STREAM, 0); struct sockaddr_in serveraddr; serveraddr.</description>
+      <description>SO_REUSEPORT端口重用 int opt_val = 1; setsockopt(sockfd, SOL_SOCKET, SO_REUSEPORT, &amp;amp;opt_val, sizeof(opt_val)) SO_REUSEPORT是允许多个socket绑定到同一个ip+port上&#xA;每一个线程拥有自己的服务器套接字, 在服务器套接字上没有了锁的竞争&#xA;内核层面实现负载均衡&#xA;SO_REUSEPORT在以下场景下有用： 当服务器需要使用多个进程或线程来监听相同的端口，而不想遇到惊群现象或资源竞争时，可以设置SO_REUSEPORT选项，以便实现网络连接的负载均衡。&#xA;当服务器需要使用UDP协议来接收多播数据报时，可以设置SO_REUSEPORT选项，以便让每个进程或线程接收到不同的数据报，提高效率和性能。&#xA;EPOLL惊群问题&#xA;SO_REUSEADDR是地址重用 int opt_val = 1; setsockopt(sockfd, SOL_SOCKET, SO_REUSEADDR, &amp;amp;opt_val, sizeof(opt_val)) SO_REUSEADDR可以解决服务器主动关闭连接后，需要等待2MSL时间才能重新绑定相同的端口的问题。如果不设置这个选项，服务器在关闭连接后，会进入TIME_WAIT状态，此时再次启动服务器，就会绑定失败，报：Address already in use。如果设置了这个选项，服务器就可以立即重启并绑定相同的端口&#xA;SO_REUSEADDR可以解决服务器使用通配符IP地址（0.0.0.0）监听端口后，无法再绑定具体的IP地址到相同的端口的问题。如果不设置这个选项，当一个socket绑定到0.0.0.0:port后，其他socket就无法绑定到192.168.0.1:port等具体的IP地址上。如果设置了这个选项，就可以允许多个socket绑定到相同的端口，只要它们使用不同的本地IP地址&#xA;SO_REUSEADDR在以下场景下有用： 当服务器需要频繁地启动和关闭，而不想等待2MSL时间才能重新绑定相同的端口时，可以设置SO_REUSEADDR选项，以便快速重启。&#xA;当服务器需要使用通配符IP地址（0.0.0.0）监听端口，同时又想绑定其他具体的IP地址到相同的端口时，可以设置SO_REUSEADDR选项，以便支持多个IP地址的监听。&#xA;Epoll惊群 #include &amp;lt;sys/types.h&amp;gt; #include &amp;lt;sys/socket.h&amp;gt; #include &amp;lt;sys/epoll.h&amp;gt; #include &amp;lt;netdb.h&amp;gt; #include &amp;lt;string.h&amp;gt; #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;unistd.h&amp;gt; #include &amp;lt;fcntl.h&amp;gt; #include &amp;lt;stdlib.h&amp;gt; #include &amp;lt;errno.h&amp;gt; #include &amp;lt;sys/wait.h&amp;gt; #define PROCESS_NUM 10 static int create_and_bind (char *port) { int fd = socket(PF_INET, SOCK_STREAM, 0); struct sockaddr_in serveraddr; serveraddr.</description>
     </item>
-    
     <item>
       <title>ip转换函数</title>
       <link>https://vcvvvc.github.io/post/ip%E8%BD%AC%E6%8D%A2%E5%87%BD%E6%95%B0/</link>
       <pubDate>Sun, 21 Nov 2021 22:08:01 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/ip%E8%BD%AC%E6%8D%A2%E5%87%BD%E6%95%B0/</guid>
-      <description>主机字节序（大端） 和 网络字节序（小端)
-大端: 0x12 | 0x32 | 0x56
-小端: 0x56 | 0x34 | 0x12
-Host to Network long/short
-Network to Host long/short
-uint32_t htonl(uint32_t hostlong); //将主机的无符号长整型数转换成网络字节序 uint16_t htons(uint16_t hostshort); //将主机的无符号短整形数转换成网络字节序 uint32_t ntohl(uint32_t netlong); //将一个无符号长整型数从网络字节序转换为主机字节序 uint16_t ntohs(uint16_t netshort); //将一个无符号短整形数从网络字节序转换为主机字节序 https://github.com/vcvvvc/CPP_Test/tree/master/test/hostto
-#把ip地址转化为用于网络传输的二进制数值(32位) in_addr_t inet_addr(const char *cp); #少用了 int inet_aton(const char * cp, struct in_addr *inp); #将网络传输的二进制数值转化为成点分十进制的ip地址 char* inet_ntoa(struct in_addr in); #这两个函数是随IPv6出现的函数，对于IPv4地址和IPv6地址都适用，函数中p和n分别代表表达（presentation)和数值（numeric)。 地址的表达格式通常是ASCII字符串，数值格式则是存放到套接字地址结构的二进制值。 int inet_pton(int family, const char *strptr, void *addrptr); const char * inet_ntop(int family, const void *addrptr, char *strptr, size_t len); Re: https://www.</description>
+      <description>主机字节序（大端） 和 网络字节序（小端)&#xA;大端: 0x12 | 0x32 | 0x56&#xA;小端: 0x56 | 0x34 | 0x12&#xA;Host to Network long/short&#xA;Network to Host long/short&#xA;uint32_t htonl(uint32_t hostlong); //将主机的无符号长整型数转换成网络字节序 uint16_t htons(uint16_t hostshort); //将主机的无符号短整形数转换成网络字节序 uint32_t ntohl(uint32_t netlong); //将一个无符号长整型数从网络字节序转换为主机字节序 uint16_t ntohs(uint16_t netshort); //将一个无符号短整形数从网络字节序转换为主机字节序 https://github.com/vcvvvc/CPP_Test/tree/master/test/hostto&#xA;#把ip地址转化为用于网络传输的二进制数值(32位) in_addr_t inet_addr(const char *cp); #少用了 int inet_aton(const char * cp, struct in_addr *inp); #将网络传输的二进制数值转化为成点分十进制的ip地址 char* inet_ntoa(struct in_addr in); #这两个函数是随IPv6出现的函数，对于IPv4地址和IPv6地址都适用，函数中p和n分别代表表达（presentation)和数值（numeric)。 地址的表达格式通常是ASCII字符串，数值格式则是存放到套接字地址结构的二进制值。 int inet_pton(int family, const char *strptr, void *addrptr); const char * inet_ntop(int family, const void *addrptr, char *strptr, size_t len); Re: https://www.</description>
     </item>
-    
     <item>
       <title>Server sum</title>
       <link>https://vcvvvc.github.io/post/server_sum/</link>
       <pubDate>Sun, 04 Apr 2021 18:21:09 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/server_sum/</guid>
-      <description>c++标准网络库对比 https://vcvvvc.github.io/post/c++标准网络库/ socket struct整理 https://vcvvvc.github.io/post/socket_struct/ socket编程需要的头文件整理 https://vcvvvc.github.io/post/socket_file/ socket function https://vcvvvc.github.io/post/socket/ I/O复用 https://vcvvvc.github.io/post//io多路复用 sem function https://vcvvvc.github.io/post/sem/ server io actor https://vcvvvc.github.io/post/server_actor/ timer function https://vcvvvc.github.io/post/timer_function/ Linux Pthread 线程创建与使用 https://vcvvvc.github.io/post/pthread/
-C++11 thread https://vcvvvc.github.io/post/cppthread/
-Unp note https://vcvvvc.github.io/post/unp_note/
-TCP_IP | 计算机网络 https://vcvvvc.github.io/post/computer_network/
-exception class 异常类 https://vcvvvc.github.io/post/cpp_exception/</description>
+      <description>c++标准网络库对比 https://vcvvvc.github.io/post/c++标准网络库/ socket struct整理 https://vcvvvc.github.io/post/socket_struct/ socket编程需要的头文件整理 https://vcvvvc.github.io/post/socket_file/ socket function https://vcvvvc.github.io/post/socket/ I/O复用 https://vcvvvc.github.io/post//io多路复用 sem function https://vcvvvc.github.io/post/sem/ server io actor https://vcvvvc.github.io/post/server_actor/ timer function https://vcvvvc.github.io/post/timer_function/ Linux Pthread 线程创建与使用 https://vcvvvc.github.io/post/pthread/&#xA;C++11 thread https://vcvvvc.github.io/post/cppthread/&#xA;Unp note https://vcvvvc.github.io/post/unp_note/&#xA;TCP_IP | 计算机网络 https://vcvvvc.github.io/post/computer_network/&#xA;exception class 异常类 https://vcvvvc.github.io/post/cpp_exception/</description>
     </item>
-    
     <item>
       <title>Tcp_ip</title>
       <link>https://vcvvvc.github.io/post/tcp_ip/</link>
       <pubDate>Thu, 25 Feb 2021 14:28:11 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/tcp_ip/</guid>
-      <description>计算机体系结构 各层作用及协议 分层 作用 协议 物理层 通过媒介传输比特，确定机械及电气规范（比特 Bit） RJ45、CLOCK、IEEE802.3（中继器，集线器） 数据链路层 将比特组装成帧和点到点的传递（帧 Frame） PPP、FR、HDLC、VLAN、MAC（网桥，交换机） 网络层 负责数据包从源到宿的传递和网际互连（包 Packet） IP、ICMP、ARP、RARP、OSPF、IPX、RIP、IGRP（路由器） 运输层 提供端到端的可靠报文传递和错误恢复（ 段Segment） TCP、UDP、SPX 会话层 建立、管理和终止会话（会话协议数据单元 SPDU） NFS、SQL、NETBIOS、RPC 表示层 对数据进行翻译、加密和压缩（表示协议数据单元 PPDU） JPEG、MPEG、ASII 应用层 允许访问OSI环境的手段（应用协议数据单元 APDU） FTP、DNS、Telnet、SMTP、HTTP、WWW、NFS 封装 链路层 链路层主要有三个目的：
-为IP模块发送和接收IP数据报； 为ARP模块发送ARP请求和接收ARP应答； 为RARP发送RARP请求和接收RARP应答。 PPP（点到点协议）是为在同等单元之间传输数据包这样的简单链路设计的链路层协议。
-环回接口
-re: mtu
-网络层 IP（Internet Protocol，网际协议）是为计算机网络相互连接进行通信而设计的协议。 ARP（Address Resolution Protocol，地址解析协议） ICMP（Internet Control Message Protocol，网际控制报文协议） IGMP（Internet Group Management Protocol，网际组管理协议） IP是TCP/IP协议族中最为核心的协议。所有的TCP、UDP、ICMP及IGMP数据都以IP数据报格式传输
-不可靠（unreliable）的意思是它不能保证IP数据报能成功地到达目的地。IP仅提供最好的传输服务。
-无连接（connectionless）这个术语的意思是IP并不维护任何关于后续数据报的状态信息。每个数据报的处理是相互独立的。
-IP 地址分类:
-IP 地址 ::= {&amp;lt;网络号&amp;gt;,&amp;lt;主机号&amp;gt;} IP地址类别 网络号 网络范围 主机号 IP地址范围 A 类 8bit，第一位固定为0 0——127 24bit 1.</description>
+      <description>计算机体系结构 各层作用及协议 分层 作用 协议 物理层 通过媒介传输比特，确定机械及电气规范（比特 Bit） RJ45、CLOCK、IEEE802.3（中继器，集线器） 数据链路层 将比特组装成帧和点到点的传递（帧 Frame） PPP、FR、HDLC、VLAN、MAC（网桥，交换机） 网络层 负责数据包从源到宿的传递和网际互连（包 Packet） IP、ICMP、ARP、RARP、OSPF、IPX、RIP、IGRP（路由器） 运输层 提供端到端的可靠报文传递和错误恢复（ 段Segment） TCP、UDP、SPX 会话层 建立、管理和终止会话（会话协议数据单元 SPDU） NFS、SQL、NETBIOS、RPC 表示层 对数据进行翻译、加密和压缩（表示协议数据单元 PPDU） JPEG、MPEG、ASII 应用层 允许访问OSI环境的手段（应用协议数据单元 APDU） FTP、DNS、Telnet、SMTP、HTTP、WWW、NFS 封装 链路层 链路层主要有三个目的：&#xA;为IP模块发送和接收IP数据报； 为ARP模块发送ARP请求和接收ARP应答； 为RARP发送RARP请求和接收RARP应答。 PPP（点到点协议）是为在同等单元之间传输数据包这样的简单链路设计的链路层协议。&#xA;环回接口&#xA;re: mtu&#xA;网络层 IP（Internet Protocol，网际协议）是为计算机网络相互连接进行通信而设计的协议。 ARP（Address Resolution Protocol，地址解析协议） ICMP（Internet Control Message Protocol，网际控制报文协议） IGMP（Internet Group Management Protocol，网际组管理协议） IP是TCP/IP协议族中最为核心的协议。所有的TCP、UDP、ICMP及IGMP数据都以IP数据报格式传输&#xA;不可靠（unreliable）的意思是它不能保证IP数据报能成功地到达目的地。IP仅提供最好的传输服务。&#xA;无连接（connectionless）这个术语的意思是IP并不维护任何关于后续数据报的状态信息。每个数据报的处理是相互独立的。&#xA;IP 地址分类:&#xA;IP 地址 ::= {&amp;lt;网络号&amp;gt;,&amp;lt;主机号&amp;gt;} IP地址类别 网络号 网络范围 主机号 IP地址范围 A 类 8bit，第一位固定为0 0——127 24bit 1.</description>
     </item>
-    
     <item>
       <title>Socket write_send</title>
       <link>https://vcvvvc.github.io/post/socket_write_send/</link>
       <pubDate>Sat, 21 Nov 2020 14:59:41 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/socket_write_send/</guid>
-      <description>ssize_t write(int fd, const void*buf,size_t nbytes);
-write函数将buf中的nbytes字节内容写入文件描述符fd.
-成功时返回写的字节数.失败时返回-1. 并设置errno变量. 在网络程序中,当我们向套接字文件描述符写时有两可能. 1)write的返回值大于0,表示写了部分或者是全部的数据. 这样我们用一个while循环来不停的写入，但是循环过程中的buf参数和nbyte参数得由我们来更新。也就是说，网络写函数是不负责将全部数据写完之后在返回的。 2)返回的值小于0,此时出现了错误.我们要根据错误类型来处理. 如果错误为EINTR表示在写的时候出现了中断错误. 如果为EPIPE表示网络连接出现了问题(对方已经关闭了连接).
-ssize_t read(int fd,void *buf,size_t nbyte)
-read函数是负责从fd中读取内容.
-当读成功 时,read返回实际所读的字节数,如果返回的值是0 表示已经读到文件的结束了,小于0表示出现了错误.如果错误为EINTR说明读是由中断引起 的, 如果是ECONNREST表示网络连接出了问题. 和上面一样,我们也写一个自己的读函数.
-recv和send函数提供了和read和write差不多的功能.不过它们提供了第四个参数来控制读写操作.
-int recv(int sockfd,void *buf,int len,int flags) int send(int sockfd,void *buf,int len,int flags) 前面的三个参数和read, write一样,第四个参数可以是0或者是以下的组合
-标题 内容 MSG_DONTROUTE 不查找表 MSG_OOB 接受或者发送带外数据 MSG_PEEK 查看数据,并不从系统缓冲区移走数据 MSG_WAITALL 等待所有数据 MSG_DONTROUTE:是 send函数使用的标志.这个标志告诉IP.目的主机在本地网络上面,没有必要查找表.这个标志一般用网络诊断和路由程序里面. MSG_OOB:表示可以接收和发送带外的数据.关于带外数据我们以后会解释的.
-MSG_PEEK:是recv函数的使用标志, 表示只是从系统缓冲区中读取内容,而不清除系统缓冲区的内容.这样下次读的时候,仍然是一样的内容.一般在有多个进程读写数据时可以使用这个标志.
-MSG_WAITALL 是recv函数的使用标志,表示等到所有的信息到达时才返回.使用这个标志的时候recv回一直阻塞,直到指定的条件满足,或者是发生了错误. 1)当读到了指定的字节时,函数正常返回.返回值等于len 2)当读到了文件的结尾时,函数正常返回.返回值小于len 3)当操作发生错误时,返回-1,且设置错误为相应的错误号(errno)
-Re:
-https://blog.csdn.net/petershina/article/details/7946615</description>
+      <description>ssize_t write(int fd, const void*buf,size_t nbytes);&#xA;write函数将buf中的nbytes字节内容写入文件描述符fd.&#xA;成功时返回写的字节数.失败时返回-1. 并设置errno变量. 在网络程序中,当我们向套接字文件描述符写时有两可能. 1)write的返回值大于0,表示写了部分或者是全部的数据. 这样我们用一个while循环来不停的写入，但是循环过程中的buf参数和nbyte参数得由我们来更新。也就是说，网络写函数是不负责将全部数据写完之后在返回的。 2)返回的值小于0,此时出现了错误.我们要根据错误类型来处理. 如果错误为EINTR表示在写的时候出现了中断错误. 如果为EPIPE表示网络连接出现了问题(对方已经关闭了连接).&#xA;ssize_t read(int fd,void *buf,size_t nbyte)&#xA;read函数是负责从fd中读取内容.&#xA;当读成功 时,read返回实际所读的字节数,如果返回的值是0 表示已经读到文件的结束了,小于0表示出现了错误.如果错误为EINTR说明读是由中断引起 的, 如果是ECONNREST表示网络连接出了问题. 和上面一样,我们也写一个自己的读函数.&#xA;recv和send函数提供了和read和write差不多的功能.不过它们提供了第四个参数来控制读写操作.&#xA;int recv(int sockfd,void *buf,int len,int flags) int send(int sockfd,void *buf,int len,int flags) 前面的三个参数和read, write一样,第四个参数可以是0或者是以下的组合&#xA;标题 内容 MSG_DONTROUTE 不查找表 MSG_OOB 接受或者发送带外数据 MSG_PEEK 查看数据,并不从系统缓冲区移走数据 MSG_WAITALL 等待所有数据 MSG_DONTROUTE:是 send函数使用的标志.这个标志告诉IP.目的主机在本地网络上面,没有必要查找表.这个标志一般用网络诊断和路由程序里面. MSG_OOB:表示可以接收和发送带外的数据.关于带外数据我们以后会解释的.&#xA;MSG_PEEK:是recv函数的使用标志, 表示只是从系统缓冲区中读取内容,而不清除系统缓冲区的内容.这样下次读的时候,仍然是一样的内容.一般在有多个进程读写数据时可以使用这个标志.&#xA;MSG_WAITALL 是recv函数的使用标志,表示等到所有的信息到达时才返回.使用这个标志的时候recv回一直阻塞,直到指定的条件满足,或者是发生了错误. 1)当读到了指定的字节时,函数正常返回.返回值等于len 2)当读到了文件的结尾时,函数正常返回.返回值小于len 3)当操作发生错误时,返回-1,且设置错误为相应的错误号(errno)&#xA;Re:&#xA;https://blog.csdn.net/petershina/article/details/7946615</description>
     </item>
-    
     <item>
       <title>Socket file</title>
       <link>https://vcvvvc.github.io/post/socket_file/</link>
       <pubDate>Sun, 13 Sep 2020 16:43:04 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/socket_file/</guid>
-      <description>socket编程中需要用到的头文件
-sys/types.h：数据类型定义
-sys/socket.h：提供socket函数及数据结构
-netinet/in.h：定义数据结构sockaddr_in
-arpa/inet.h：提供IP地址转换函数
-netdb.h：提供设置及获取域名的函数
-sys/ioctl.h：提供对I/O控制的函数
-sys/poll.h：提供socket等待测试机制的函数
-其他在网络程序中常见的头文件
-unistd.h：提供通用的文件、目录、程序及进程操作的函数
-errno.h：提供错误号errno的定义，用于错误处理
-fcntl.h：提供对文件控制的函数
-time.h：提供有关时间的函数
-crypt.h：提供使用DES加密算法的加密函数
-pwd.h：提供对/etc/passwd文件访问的函数
-shadow.h：提供对/etc/shadow文件访问的函数
-pthread.h：提供多线程操作的函数
-signal.h：提供对信号操作的函数
-sys/wait.h、sys/ipc.h、sys/shm.h：提供进程等待、进程间通讯（IPC）及共享内存的函数
-建议：在编写网络程序时，可以直接使用下面这段头文件代码
-#include &amp;lt;unistd.h&amp;gt; #include &amp;lt;sys/types.h&amp;gt; #include &amp;lt;sys/socket.h&amp;gt; #include &amp;lt;netdb.h&amp;gt; #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;stdlib.h&amp;gt; #include &amp;lt;string.h&amp;gt; #include &amp;lt;ctype.h&amp;gt; #include &amp;lt;errno.h&amp;gt; #include &amp;lt;malloc.h&amp;gt; #include &amp;lt;netinet/in.h&amp;gt; #include &amp;lt;arpa/inet.h&amp;gt; #include &amp;lt;sys/ioctl.h&amp;gt; #include &amp;lt;stdarg.h&amp;gt; #include &amp;lt;fcntl.h&amp;gt; #include &amp;lt;fcntl.h&amp;gt; 涉及到用户权限及密码验证问题时加入如下语句：
-#include &amp;lt;shadow.h&amp;gt; #include &amp;lt;crypt.h&amp;gt; #include &amp;lt;pwd.h&amp;gt; 需要注意的是，应该在编译时链接加密算法库，即增加编译选项：-lcrypt
-涉及到文件及时间操作加入如下语句
-#include &amp;lt;sys/time.h&amp;gt; #include &amp;lt;utime.h&amp;gt; #include &amp;lt;time.h&amp;gt; #include &amp;lt;sys/stat.h&amp;gt; #include &amp;lt;sys/file.</description>
+      <description>socket编程中需要用到的头文件&#xA;sys/types.h：数据类型定义&#xA;sys/socket.h：提供socket函数及数据结构&#xA;netinet/in.h：定义数据结构sockaddr_in&#xA;arpa/inet.h：提供IP地址转换函数&#xA;netdb.h：提供设置及获取域名的函数&#xA;sys/ioctl.h：提供对I/O控制的函数&#xA;sys/poll.h：提供socket等待测试机制的函数&#xA;其他在网络程序中常见的头文件&#xA;unistd.h：提供通用的文件、目录、程序及进程操作的函数&#xA;errno.h：提供错误号errno的定义，用于错误处理&#xA;fcntl.h：提供对文件控制的函数&#xA;time.h：提供有关时间的函数&#xA;crypt.h：提供使用DES加密算法的加密函数&#xA;pwd.h：提供对/etc/passwd文件访问的函数&#xA;shadow.h：提供对/etc/shadow文件访问的函数&#xA;pthread.h：提供多线程操作的函数&#xA;signal.h：提供对信号操作的函数&#xA;sys/wait.h、sys/ipc.h、sys/shm.h：提供进程等待、进程间通讯（IPC）及共享内存的函数&#xA;建议：在编写网络程序时，可以直接使用下面这段头文件代码&#xA;#include &amp;lt;unistd.h&amp;gt; #include &amp;lt;sys/types.h&amp;gt; #include &amp;lt;sys/socket.h&amp;gt; #include &amp;lt;netdb.h&amp;gt; #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;stdlib.h&amp;gt; #include &amp;lt;string.h&amp;gt; #include &amp;lt;ctype.h&amp;gt; #include &amp;lt;errno.h&amp;gt; #include &amp;lt;malloc.h&amp;gt; #include &amp;lt;netinet/in.h&amp;gt; #include &amp;lt;arpa/inet.h&amp;gt; #include &amp;lt;sys/ioctl.h&amp;gt; #include &amp;lt;stdarg.h&amp;gt; #include &amp;lt;fcntl.h&amp;gt; #include &amp;lt;fcntl.h&amp;gt; 涉及到用户权限及密码验证问题时加入如下语句：&#xA;#include &amp;lt;shadow.h&amp;gt; #include &amp;lt;crypt.h&amp;gt; #include &amp;lt;pwd.h&amp;gt; 需要注意的是，应该在编译时链接加密算法库，即增加编译选项：-lcrypt&#xA;涉及到文件及时间操作加入如下语句&#xA;#include &amp;lt;sys/time.h&amp;gt; #include &amp;lt;utime.h&amp;gt; #include &amp;lt;time.h&amp;gt; #include &amp;lt;sys/stat.h&amp;gt; #include &amp;lt;sys/file.</description>
     </item>
-    
     <item>
       <title>epoll use</title>
       <link>https://vcvvvc.github.io/post/epoll_use/</link>
       <pubDate>Thu, 27 Aug 2020 12:09:01 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/epoll_use/</guid>
-      <description>简介 #include &amp;lt;sys/epoll.h&amp;gt;
-epoll与select
-Epoll 没有最大并发连接的限制，上限是最大可以打开文件的数目 效率提升，epoll对于句柄事件的选择不是遍历的，是事件响应的，就是句柄上事件来就马上选择出来，不需要遍历整个句柄链表，因此效率非常高，内核将句柄用红黑树保存的，IO效率不随FD数目增加而线性下降。 内存拷贝， select让内核把 FD 消息通知给用户空间的时候使用了内存拷贝的方式，开销较大，但是Epoll 在这点上使用了共享内存的方式，这个内存拷贝也省略了。 相比于select，epoll最大的好处在于它不会随着监听fd数目的增长而降低效率。因为在内核中的select实现中，它是采用轮询来处理的，轮询的fd数目越多，自然耗时越多。 并且，在linux/posix_types.h头文件有这样的声明： #define __FD_SETSIZE 1024 表示select最多同时监听1024个fd，当然，可以通过修改头文件再重编译内核来扩大这个数目，但这似乎并不治本。 epoll是Linux内核为处理大批量文件描述符而作了改进的poll，是Linux下多路复用IO接口select/poll的增强版本，它能显著提高程序在大量并发连接中只有少量活跃的情况下的系统CPU利用率。原因就是获取事件的时候，它无须遍历整个被侦听的描述符集，只要遍历那些被内核IO事件异步唤醒而加入Ready队列的描述符集合就行了。
-触发模式 epoll除了提供select/poll那种IO事件的水平触发（Level Triggered）外，还提供了边缘触发（Edge Triggered），这就使得用户空间程序有可能缓存IO状态，减少epoll_wait/epoll_pwait的调用，提高应用程序效率。
-水平触发（LT）：默认工作模式，即当epoll_wait检测到某描述符事件就绪并通知应用程序时，应用程序可以不立即处理该事件；下次调用epoll_wait时，会再次通知此事件 //LevelTriggered(LT) //缺省工作方式，即默认的工作方式,支持blocksocket和no_blocksocket，错误率比较小。
-边缘触发（ET）： 当epoll_wait检测到某描述符事件就绪并通知应用程序时，应用程序必须立即处理该事件。如果不处理，下次调用epoll_wait时，不会再次通知此事件。（直到你做了某些操作导致该描述符变成未就绪状态了，也就是说边缘触发只在状态由未就绪变为就绪时只通知一次）。 //Edge Triggered(ET) //高速工作方式，错误率比较大，只支持no_block socket (非阻塞socket)
-假设现在对方发送了2k的数据，而我们先读取了1k，然后这时调用了epoll_wait，如果是边沿触发ET，那么这个fd变成就绪状态就会从epoll 队列移除， 则epoll_wait 会一直阻塞，忽略尚未读取的1k数据; 而如果是水平触发LT，那么epoll_wait 还会检测到可读事件而返回，我们可以继续读取剩下的1k 数据。 总结: LT模式可能触发的次数更多, 一旦触发的次数多, 也就意味着效率会下降; 但这样也不能就说LT模式就比ET模式效率更低 因为ET的使用对编程人员提出了更高更精细的要求,一旦使用者编程水平不够, 那ET模式还不如LT模式。 ET模式仅当状态发生变化的时候才获得通知,这里所谓的状态的变化并不包括缓冲区中还有未处理的数据, 也就是说,如果要采用ET模式,需要一直read/write直到出错为止,很多人反映为什么采用ET模式只接收了一部分数据就再也得不到通知了,大多因为这样; 而LT模式是只要有数据没有处理就会一直通知下去的. 1. 创建一个epoll的句柄 int epoll_create(int size); 创建一个epoll的句柄，size用来告诉内核这个监听的数目一共有多大。
-这个参数不同于select()中的第一个参数，给出最大监听的fd+1的值。需要注意的是，当创建好epoll句柄后，它就是会占用一个fd值，在linux下如果查看/proc/进程id/fd/，是能够看到这个fd的，所以在使用完epoll后，必须调用close()关闭，否则可能导致fd被耗尽。
-2. 将被监听的描述符添加到epoll句柄或从epool句柄中删除或者对监听事件进行修改 int epoll_ctl(int epfd, int op, int fd, struct epoll_event *event); //op为注册事件 epoll的事件注册函数，它不同与select()是在监听事件时告诉内核要监听什么类型的事件，而是在这里先注册要监听的事件类型。</description>
+      <description>简介 #include &amp;lt;sys/epoll.h&amp;gt;&#xA;epoll与select&#xA;Epoll 没有最大并发连接的限制，上限是最大可以打开文件的数目 效率提升，epoll对于句柄事件的选择不是遍历的，是事件响应的，就是句柄上事件来就马上选择出来，不需要遍历整个句柄链表，因此效率非常高，内核将句柄用红黑树保存的，IO效率不随FD数目增加而线性下降。 内存拷贝， select让内核把 FD 消息通知给用户空间的时候使用了内存拷贝的方式，开销较大，但是Epoll 在这点上使用了共享内存的方式，这个内存拷贝也省略了。 相比于select，epoll最大的好处在于它不会随着监听fd数目的增长而降低效率。因为在内核中的select实现中，它是采用轮询来处理的，轮询的fd数目越多，自然耗时越多。 并且，在linux/posix_types.h头文件有这样的声明： #define __FD_SETSIZE 1024 表示select最多同时监听1024个fd，当然，可以通过修改头文件再重编译内核来扩大这个数目，但这似乎并不治本。 epoll是Linux内核为处理大批量文件描述符而作了改进的poll，是Linux下多路复用IO接口select/poll的增强版本，它能显著提高程序在大量并发连接中只有少量活跃的情况下的系统CPU利用率。原因就是获取事件的时候，它无须遍历整个被侦听的描述符集，只要遍历那些被内核IO事件异步唤醒而加入Ready队列的描述符集合就行了。&#xA;触发模式 epoll除了提供select/poll那种IO事件的水平触发（Level Triggered）外，还提供了边缘触发（Edge Triggered），这就使得用户空间程序有可能缓存IO状态，减少epoll_wait/epoll_pwait的调用，提高应用程序效率。&#xA;水平触发（LT）：默认工作模式，即当epoll_wait检测到某描述符事件就绪并通知应用程序时，应用程序可以不立即处理该事件；下次调用epoll_wait时，会再次通知此事件 //LevelTriggered(LT) //缺省工作方式，即默认的工作方式,支持blocksocket和no_blocksocket，错误率比较小。&#xA;边缘触发（ET）： 当epoll_wait检测到某描述符事件就绪并通知应用程序时，应用程序必须立即处理该事件。如果不处理，下次调用epoll_wait时，不会再次通知此事件。（直到你做了某些操作导致该描述符变成未就绪状态了，也就是说边缘触发只在状态由未就绪变为就绪时只通知一次）。 //Edge Triggered(ET) //高速工作方式，错误率比较大，只支持no_block socket (非阻塞socket)&#xA;假设现在对方发送了2k的数据，而我们先读取了1k，然后这时调用了epoll_wait，如果是边沿触发ET，那么这个fd变成就绪状态就会从epoll 队列移除， 则epoll_wait 会一直阻塞，忽略尚未读取的1k数据; 而如果是水平触发LT，那么epoll_wait 还会检测到可读事件而返回，我们可以继续读取剩下的1k 数据。 总结: LT模式可能触发的次数更多, 一旦触发的次数多, 也就意味着效率会下降; 但这样也不能就说LT模式就比ET模式效率更低 因为ET的使用对编程人员提出了更高更精细的要求,一旦使用者编程水平不够, 那ET模式还不如LT模式。 ET模式仅当状态发生变化的时候才获得通知,这里所谓的状态的变化并不包括缓冲区中还有未处理的数据, 也就是说,如果要采用ET模式,需要一直read/write直到出错为止,很多人反映为什么采用ET模式只接收了一部分数据就再也得不到通知了,大多因为这样; 而LT模式是只要有数据没有处理就会一直通知下去的. 1. 创建一个epoll的句柄 int epoll_create(int size); 创建一个epoll的句柄，size用来告诉内核这个监听的数目一共有多大。&#xA;这个参数不同于select()中的第一个参数，给出最大监听的fd+1的值。需要注意的是，当创建好epoll句柄后，它就是会占用一个fd值，在linux下如果查看/proc/进程id/fd/，是能够看到这个fd的，所以在使用完epoll后，必须调用close()关闭，否则可能导致fd被耗尽。&#xA;2. 将被监听的描述符添加到epoll句柄或从epool句柄中删除或者对监听事件进行修改 int epoll_ctl(int epfd, int op, int fd, struct epoll_event *event); //op为注册事件 epoll的事件注册函数，它不同与select()是在监听事件时告诉内核要监听什么类型的事件，而是在这里先注册要监听的事件类型。</description>
     </item>
-    
     <item>
       <title>Socket function</title>
       <link>https://vcvvvc.github.io/post/socket/</link>
       <pubDate>Wed, 26 Aug 2020 22:47:24 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/socket/</guid>
-      <description>setsockopt
-获取或者设置与某个套接字关联的选 项。选项可能存在于多层协议中，它们总会出现在最上面的套接字层。当操作套接字选项时， 选项位于的层和选项的名称必须给出。为了操作套接字层的选项，应该 将层的值指定为SOL_SOCKET。为了操作其它层的选项，控制选 项的合适协议号必须给出。例如，为了表示一个选项由TCP协议解析，层应该设定为协议 号TCP。 SO_LINGER选项
-struct linger { int l_onoff; int l_linger; }; l_onoff = 0, 数据保持发送完成后立即返回 l_onoff = 1, l_linger = 0, 立即放回 放弃发送, 发送rst 自身立即复位 l_onoff = 1, l_linger = 1, 阻塞到超时或数据发送完成, 保持尝试发送,超时后立即结束 SO_REUSEADDR选项
-改变了通配绑定时处理源地址冲突的处理方式, 让端口释放后立即就可以被再次使用
-允许启动一个监听服务器并捆绑其众所周知端口，即使以前建立的将此端口用做他们的本地端口的连接仍存在 允许在同一端口上启动同一服务器的多个实例，只要每个实例捆绑一个不同的本地IP地址即可 允许单个进程捆绑同一端口到多个套接口上，只要每个捆绑指定不同的本地IP地址即可。一般不用于tco服务器 允许完全重复的捆绑 Re:
-https://www.cnblogs.com/my_life/articles/5174585.html
-https://www.jianshu.com/p/141aa1c41f15
-https://blog.csdn.net/u010144805/article/details/78579528
-int fcntl(int fd, int cmd); int fcntl(int fd, int cmd, long arg); int fcntl(int fd, int cmd, struct flock *lock); fcntl函数有5种功能：</description>
+      <description>setsockopt&#xA;获取或者设置与某个套接字关联的选 项。选项可能存在于多层协议中，它们总会出现在最上面的套接字层。当操作套接字选项时， 选项位于的层和选项的名称必须给出。为了操作套接字层的选项，应该 将层的值指定为SOL_SOCKET。为了操作其它层的选项，控制选 项的合适协议号必须给出。例如，为了表示一个选项由TCP协议解析，层应该设定为协议 号TCP。 SO_LINGER选项&#xA;struct linger { int l_onoff; int l_linger; }; l_onoff = 0, 数据保持发送完成后立即返回 l_onoff = 1, l_linger = 0, 立即放回 放弃发送, 发送rst 自身立即复位 l_onoff = 1, l_linger = 1, 阻塞到超时或数据发送完成, 保持尝试发送,超时后立即结束 SO_REUSEADDR选项&#xA;改变了通配绑定时处理源地址冲突的处理方式, 让端口释放后立即就可以被再次使用&#xA;允许启动一个监听服务器并捆绑其众所周知端口，即使以前建立的将此端口用做他们的本地端口的连接仍存在 允许在同一端口上启动同一服务器的多个实例，只要每个实例捆绑一个不同的本地IP地址即可 允许单个进程捆绑同一端口到多个套接口上，只要每个捆绑指定不同的本地IP地址即可。一般不用于tco服务器 允许完全重复的捆绑 Re:&#xA;https://www.cnblogs.com/my_life/articles/5174585.html&#xA;https://www.jianshu.com/p/141aa1c41f15&#xA;https://blog.csdn.net/u010144805/article/details/78579528&#xA;int fcntl(int fd, int cmd); int fcntl(int fd, int cmd, long arg); int fcntl(int fd, int cmd, struct flock *lock); fcntl函数有5种功能：</description>
     </item>
-    
   </channel>
 </rss>

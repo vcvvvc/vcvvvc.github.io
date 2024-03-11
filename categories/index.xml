@@ -5,6 +5,7 @@
     <link>https://vcvvvc.github.io/categories/</link>
     <description>Recent content in Categories on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language><atom:link href="https://vcvvvc.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <atom:link href="https://vcvvvc.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

@@ -4,7 +4,7 @@
     <title>Server actor // Vc</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.115.4">
+    <meta name="generator" content="Hugo 0.123.7">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vc" />
     
@@ -17,7 +17,7 @@
   </head>
   <body>
     <header class="app-header">
-      <a href="https://vcvvvc.github.io"><img class="app-header-avatar" src="/avatar.jpg" alt="Vc" /></a>
+      <a href="https://vcvvvc.github.io/"><img class="app-header-avatar" src="/avatar.jpg" alt="Vc" /></a>
       <span class="app-header-title">Vc</span>
 
       <nav class="app-header-menu">
@@ -149,7 +149,7 @@
 </ul>
 <hr>
 <h1 id="半同步半异步">半同步/半异步</h1>
-<p><strong>在I/O模型中，&ldquo;同步&quot;和&quot;异步&quot;区分的是内核向应用程序通知的是何种 I/O 事件（是就绪事件还是完成事件），以及该由谁来完成I/O读写（是应用程序还是内核）。在并发模式中，&ldquo;同步&quot;指的是程序完全按照代码序列的顺序执行∶&quot;异步&quot;指的是程序的执行需要由系统事件来驱动。常见的系统事件包括中断、信号等。</strong></p>
+<p><strong>在I/O模型中，&ldquo;同步&quot;和&quot;异步&quot;区分的是内核向应用程序通知的是何种 I/O 事件（是就绪事件还是完成事件），以及该由谁来完成I/O读写（是应用程序还是内核）。在并发模式中，&ldquo;同步&quot;指的是程序完全按照代码序列的顺序执行∶&ldquo;异步&quot;指的是程序的执行需要由系统事件来驱动。常见的系统事件包括中断、信号等。</strong></p>
 <p><img src="/img/io_actor/syn_asn.png" alt="a&amp;s"></p>
 <h3 id="工作流程">工作流程</h3>
 <p><strong>异步线程用于处理 I/O事件，相当于图8-4中的I/O处理单元。异步线程监听到客户请求后，就将其封装成请求对象并插入请求队列中。请求队列将通知某个工作在同步模式的工作线程来读取并处理该请求对象。</strong></p>

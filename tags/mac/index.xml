@@ -6,62 +6,28 @@
     <description>Recent content in Mac on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 18 Jan 2021 17:20:58 +0800</lastBuildDate><atom:link href="https://vcvvvc.github.io/tags/mac/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 18 Jan 2021 17:20:58 +0800</lastBuildDate>
+    <atom:link href="https://vcvvvc.github.io/tags/mac/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mac install mysql_8.0</title>
       <link>https://vcvvvc.github.io/post/mac_install_mysql/</link>
       <pubDate>Mon, 18 Jan 2021 17:20:58 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/mac_install_mysql/</guid>
-      <description>Downloads mysql 社区版官网下载: https://dev.mysql.com/downloads/mysql/
-Start 下载之后安装一路点继续 设置完root密码
-安装完成后 需要开启/关闭Mysql 系统偏好设置-Mysql图标
-停止MySQL服务 sudo mysql.server stop 重启MySQL服务 sudo mysql.server restart 查看MySQL服务状态 sudo mysql.server status Connect Mysql 终端输入 vim ~/.bash_profile
-PATH=$PATH:/usr/local/mysql/bin PATH=$PATH:/usr/local/mysql/support-files 再执行 source ~/.bash_profile
-Login mysql -u root -p 输入密码之后成功进入mysql
-mysql&amp;gt; select version();查看MySQL版本
-Reference: https://www.jianshu.com/p/07a9826898c0
-https://www.cnblogs.com/nickchen121/p/11145123.htm</description>
+      <description>Downloads mysql 社区版官网下载: https://dev.mysql.com/downloads/mysql/&#xA;Start 下载之后安装一路点继续 设置完root密码&#xA;安装完成后 需要开启/关闭Mysql 系统偏好设置-Mysql图标&#xA;停止MySQL服务 sudo mysql.server stop 重启MySQL服务 sudo mysql.server restart 查看MySQL服务状态 sudo mysql.server status Connect Mysql 终端输入 vim ~/.bash_profile&#xA;PATH=$PATH:/usr/local/mysql/bin PATH=$PATH:/usr/local/mysql/support-files 再执行 source ~/.bash_profile&#xA;Login mysql -u root -p 输入密码之后成功进入mysql&#xA;mysql&amp;gt; select version();查看MySQL版本&#xA;Reference: https://www.jianshu.com/p/07a9826898c0&#xA;https://www.cnblogs.com/nickchen121/p/11145123.htm</description>
     </item>
-    
     <item>
       <title>Dell7590 install macos</title>
       <link>https://vcvvvc.github.io/post/dell7590_install_macos/</link>
       <pubDate>Sun, 17 Jan 2021 13:19:24 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/dell7590_install_macos/</guid>
-      <description>2021-12-13更新 系统为big sur 11.4
-接近完美 可以用intel网卡连接wifi 速度还不错
-已知麦克风、隔空投送不能用
-镜像下载 搜素：黑果小兵
-big sur用11.4
-重要前提 如果你没有网线，并且没有其他PC设备联网 你需要提前下载这些
-https://github.com/OpenIntelWireless/itlwm/releases/ #AirportItlwm https://5435.lanzouo.com/isRfBxjxq4f #四叶草+occ Start //OC git clone https://github.com/Pinming/Dell-Inspiron-7590-Hackintosh-Opencore //Diskgenius 官网自行下载最新版 //balennaEther 官网自行下载最新版 1. 先把Dell-Inspiron-7590-Hackintosh-Opencore重命名为OC
-2. 打开OC文件夹 根据屏幕改名1080P的屏幕使用config-1080p.plist需改名成config.plist 如果你是4K屏 不需要修改
-3. balennaEther烧录dmg镜像文件到U盘
-4. 打开Diskgenius 进入U盘的ESP分区文件夹 删除Clover文件夹 然后将OC文件夹拖入
-5. 打开U盘ESP分区中的EFI 将Diskgenius程序文件夹拖进去 备用 以免出问题
-提前准备好安装空间建议300g 至少200g
-6. 用Diskgenius分ESP区 建议400m
-7. 双系统需要保存好windows efi
-安装 1. 重启F2 关闭Secure Boot安全启动 检查磁盘模式为ACHI 百度搜
-2. 进入Boot Sequence &amp;lsquo;add option&amp;rsquo; 添加一个引导 选择启动文件为自己的U盘EFI(找到EFI/OC/OpenCore.efi这个文件)
-3. 重启F12 选择刚才新建的启动项 选择Install mac big sur</description>
+      <description>2021-12-13更新 系统为big sur 11.4&#xA;接近完美 可以用intel网卡连接wifi 速度还不错&#xA;已知麦克风、隔空投送不能用&#xA;镜像下载 搜素：黑果小兵&#xA;big sur用11.4&#xA;重要前提 如果你没有网线，并且没有其他PC设备联网 你需要提前下载这些&#xA;https://github.com/OpenIntelWireless/itlwm/releases/ #AirportItlwm https://5435.lanzouo.com/isRfBxjxq4f #四叶草+occ Start //OC git clone https://github.com/Pinming/Dell-Inspiron-7590-Hackintosh-Opencore //Diskgenius 官网自行下载最新版 //balennaEther 官网自行下载最新版 1. 先把Dell-Inspiron-7590-Hackintosh-Opencore重命名为OC&#xA;2. 打开OC文件夹 根据屏幕改名1080P的屏幕使用config-1080p.plist需改名成config.plist 如果你是4K屏 不需要修改&#xA;3. balennaEther烧录dmg镜像文件到U盘&#xA;4. 打开Diskgenius 进入U盘的ESP分区文件夹 删除Clover文件夹 然后将OC文件夹拖入&#xA;5. 打开U盘ESP分区中的EFI 将Diskgenius程序文件夹拖进去 备用 以免出问题&#xA;提前准备好安装空间建议300g 至少200g&#xA;6. 用Diskgenius分ESP区 建议400m&#xA;7. 双系统需要保存好windows efi&#xA;安装 1. 重启F2 关闭Secure Boot安全启动 检查磁盘模式为ACHI 百度搜&#xA;2. 进入Boot Sequence &amp;lsquo;add option&amp;rsquo; 添加一个引导 选择启动文件为自己的U盘EFI(找到EFI/OC/OpenCore.efi这个文件)&#xA;3. 重启F12 选择刚才新建的启动项 选择Install mac big sur</description>
     </item>
-    
     <item>
       <title>vmware16pro unlock install macos</title>
       <link>https://vcvvvc.github.io/post/vmware_install_macos/</link>
       <pubDate>Fri, 15 Jan 2021 20:37:54 +0800</pubDate>
-      
       <guid>https://vcvvvc.github.io/post/vmware_install_macos/</guid>
-      <description>unlocker git clone https://github.com/paolo-projects/auto-unlocker.git
-Download cdr https://www.mfpud.com/topics/3888/
-Tutorial https://www.mfpud.com/topics/612/
-进入之后先选择磁盘工具 抹掉磁盘 安装即可
-Other 安装VMware Tools，参照https://www.lovyou.top/post/52.html
-调整MacOS屏幕分辨率参考https://blog.csdn.net/icarus666/article/details/79529766</description>
+      <description>unlocker git clone https://github.com/paolo-projects/auto-unlocker.git&#xA;Download cdr https://www.mfpud.com/topics/3888/&#xA;Tutorial https://www.mfpud.com/topics/612/&#xA;进入之后先选择磁盘工具 抹掉磁盘 安装即可&#xA;Other 安装VMware Tools，参照https://www.lovyou.top/post/52.html&#xA;调整MacOS屏幕分辨率参考https://blog.csdn.net/icarus666/article/details/79529766</description>
     </item>
-    
   </channel>
 </rss>
