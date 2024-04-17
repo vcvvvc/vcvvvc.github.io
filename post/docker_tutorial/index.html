@@ -90,7 +90,7 @@
 </svg>
           
           
-          9 mins read
+          12 mins read
           
         </div>
         <div>
@@ -104,7 +104,7 @@
       </div>
     </header>
     <div class="post-content">
-      <h1 id="install-docker-ubuntu">Install docker ubuntu</h1>
+      <h2 id="install-docker-on-ubuntu">Install docker on Ubuntu</h2>
 <pre tabindex="0"><code># Add Docker&#39;s official GPG key:
 sudo apt-get update
 sudo apt-get install ca-certificates curl
@@ -125,7 +125,13 @@ sudo docker run hello-world
 # 重启
 service docker restart
 </code></pre><hr>
+<h2 id="install-postgresql">Install PostgreSQL</h2>
+<pre tabindex="0"><code>docker pull postgres
+docker run --name mypsql -e POSTGRES_PASSWORD=my_password -d -p 5432:5432 -v /path/to/data:/var/lib/postgresql/data postgres
+docker exec -it mypsql psql -U postgres
+</code></pre><hr>
 <p><a href="https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository">https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository</a></p>
+<p><a href="https://hub.docker.com/_/postgres/">https://hub.docker.com/_/postgres/</a></p>
 
     </div>
     <div class="post-footer">
