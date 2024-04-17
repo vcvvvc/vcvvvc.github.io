@@ -6,8 +6,15 @@
     <description>Recent content in Docker on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 01 Apr 2022 22:22:24 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 17 Apr 2024 16:42:04 +0800</lastBuildDate>
     <atom:link href="https://vcvvvc.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker use Tutorial</title>
+      <link>https://vcvvvc.github.io/post/docker_tutorial/</link>
+      <pubDate>Wed, 17 Apr 2024 16:42:04 +0800</pubDate>
+      <guid>https://vcvvvc.github.io/post/docker_tutorial/</guid>
+      <description>Install docker ubuntu # Add Docker&amp;#39;s official GPG key: sudo apt-get update sudo apt-get install ca-certificates curl sudo install -m 0755 -d /etc/apt/keyrings sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc sudo chmod a+r /etc/apt/keyrings/docker.asc # Add the repository to Apt sources: echo \ &amp;#34;deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \ $(. /etc/os-release &amp;amp;&amp;amp; echo &amp;#34;$VERSION_CODENAME&amp;#34;) stable&amp;#34; | \ sudo tee /etc/apt/sources.list.d/docker.list &amp;gt; /dev/null sudo apt-get update sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin sudo docker run hello-world # 重启 service docker restart https://docs.</description>
+    </item>
     <item>
       <title>Ubuntu20_install_docker</title>
       <link>https://vcvvvc.github.io/post/ubuntu20_install_docker/</link>
@@ -21,13 +28,6 @@
       <pubDate>Mon, 12 Jul 2021 12:25:06 +0800</pubDate>
       <guid>https://vcvvvc.github.io/post/centos8_install_docker/</guid>
       <description>yum update -y sudo yum install -y yum-utils device-mapper-persistent-data lvm2 sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo sudo yum install docker-ce docker-ce-cli containerd.io -y sudo yum install docker-ce docker-ce-cli sudo systemctl start docker docker --version sudo systemctl enable docker 出现安装包问题&#xA;sudo yum install docker-ce docker-ce-cli containerd.io -y --allowerasing 更换容器镜像 https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors&#xA;cd /etc/docker&#xA;vim daemon.json&#xA;# url改成自己的加速器地址，亦可使用该地址 { &amp;#34;registry-mirrors&amp;#34;: [&amp;#34;https://k01sfudd.mirror.aliyuncs.com&amp;#34;] } systemctl daemon-reload systemctl restart docker Re: https://blog.csdn.net/jcmj123456/article/details/117742182&#xA;https://www.jianshu.com/p/6d9e725da273</description>
-    </item>
-    <item>
-      <title>Docker use Tutorial</title>
-      <link>https://vcvvvc.github.io/post/docker_tutorial/</link>
-      <pubDate>Sat, 22 Aug 2020 16:42:04 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/post/docker_tutorial/</guid>
-      <description>2021-5-30 更新 老方法不行了&#xA;Install docker apt-get install apt-transport-https ca-certificates software-properties-common curl curl -fsSL https://download.docker.com/linux/ubuntu/gpg|sudo apt-key add - sudo add-apt-repository &amp;#34;deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu \ $(lsb_release -cs) stable&amp;#34; apt-get update apt-get install docker-ce docker run hello-world # 重启 service docker restart Compose https://gitee.com/xipushi/dockercompose.git chmod +x docker-compose-Linux-x86_64 mv docker-compose-Linux-x86_64 docker-compose cp /use/local/bin docker-compose --version Dockerfile # from based nginx # run start FROM nginx # exec: RUN[&amp;#34;./go&amp;#34;, &amp;#34;dev&amp;#34;, &amp;#34;offline&amp;#34;] RUN echo &amp;#39;Nginx image&amp;#39; &amp;gt; /usr/share/nginx/html/index.</description>
     </item>
   </channel>
 </rss>

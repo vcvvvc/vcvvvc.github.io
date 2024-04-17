@@ -6,8 +6,15 @@
     <description>Recent content on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 11 Mar 2024 20:41:44 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 17 Apr 2024 16:42:04 +0800</lastBuildDate>
     <atom:link href="https://vcvvvc.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker use Tutorial</title>
+      <link>https://vcvvvc.github.io/post/docker_tutorial/</link>
+      <pubDate>Wed, 17 Apr 2024 16:42:04 +0800</pubDate>
+      <guid>https://vcvvvc.github.io/post/docker_tutorial/</guid>
+      <description>Install docker ubuntu # Add Docker&amp;#39;s official GPG key: sudo apt-get update sudo apt-get install ca-certificates curl sudo install -m 0755 -d /etc/apt/keyrings sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc sudo chmod a+r /etc/apt/keyrings/docker.asc # Add the repository to Apt sources: echo \ &amp;#34;deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \ $(. /etc/os-release &amp;amp;&amp;amp; echo &amp;#34;$VERSION_CODENAME&amp;#34;) stable&amp;#34; | \ sudo tee /etc/apt/sources.list.d/docker.list &amp;gt; /dev/null sudo apt-get update sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin sudo docker run hello-world # 重启 service docker restart https://docs.</description>
+    </item>
     <item>
       <title>Fix_hardhat_verify_timeout</title>
       <link>https://vcvvvc.github.io/post/fix_hardhat_verify_timeout/</link>
@@ -777,13 +784,6 @@
       <pubDate>Wed, 26 Aug 2020 22:47:24 +0800</pubDate>
       <guid>https://vcvvvc.github.io/post/socket/</guid>
       <description>setsockopt&#xA;获取或者设置与某个套接字关联的选 项。选项可能存在于多层协议中，它们总会出现在最上面的套接字层。当操作套接字选项时， 选项位于的层和选项的名称必须给出。为了操作套接字层的选项，应该 将层的值指定为SOL_SOCKET。为了操作其它层的选项，控制选 项的合适协议号必须给出。例如，为了表示一个选项由TCP协议解析，层应该设定为协议 号TCP。 SO_LINGER选项&#xA;struct linger { int l_onoff; int l_linger; }; l_onoff = 0, 数据保持发送完成后立即返回 l_onoff = 1, l_linger = 0, 立即放回 放弃发送, 发送rst 自身立即复位 l_onoff = 1, l_linger = 1, 阻塞到超时或数据发送完成, 保持尝试发送,超时后立即结束 SO_REUSEADDR选项&#xA;改变了通配绑定时处理源地址冲突的处理方式, 让端口释放后立即就可以被再次使用&#xA;允许启动一个监听服务器并捆绑其众所周知端口，即使以前建立的将此端口用做他们的本地端口的连接仍存在 允许在同一端口上启动同一服务器的多个实例，只要每个实例捆绑一个不同的本地IP地址即可 允许单个进程捆绑同一端口到多个套接口上，只要每个捆绑指定不同的本地IP地址即可。一般不用于tco服务器 允许完全重复的捆绑 Re:&#xA;https://www.cnblogs.com/my_life/articles/5174585.html&#xA;https://www.jianshu.com/p/141aa1c41f15&#xA;https://blog.csdn.net/u010144805/article/details/78579528&#xA;int fcntl(int fd, int cmd); int fcntl(int fd, int cmd, long arg); int fcntl(int fd, int cmd, struct flock *lock); fcntl函数有5种功能：</description>
-    </item>
-    <item>
-      <title>Docker use Tutorial</title>
-      <link>https://vcvvvc.github.io/post/docker_tutorial/</link>
-      <pubDate>Sat, 22 Aug 2020 16:42:04 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/post/docker_tutorial/</guid>
-      <description>2021-5-30 更新 老方法不行了&#xA;Install docker apt-get install apt-transport-https ca-certificates software-properties-common curl curl -fsSL https://download.docker.com/linux/ubuntu/gpg|sudo apt-key add - sudo add-apt-repository &amp;#34;deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu \ $(lsb_release -cs) stable&amp;#34; apt-get update apt-get install docker-ce docker run hello-world # 重启 service docker restart Compose https://gitee.com/xipushi/dockercompose.git chmod +x docker-compose-Linux-x86_64 mv docker-compose-Linux-x86_64 docker-compose cp /use/local/bin docker-compose --version Dockerfile # from based nginx # run start FROM nginx # exec: RUN[&amp;#34;./go&amp;#34;, &amp;#34;dev&amp;#34;, &amp;#34;offline&amp;#34;] RUN echo &amp;#39;Nginx image&amp;#39; &amp;gt; /usr/share/nginx/html/index.</description>
     </item>
     <item>
       <title>Makefile template</title>
