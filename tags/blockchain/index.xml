@@ -6,8 +6,15 @@
     <description>Recent content in BlockChain on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 11 Mar 2024 20:41:44 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 30 Apr 2024 20:34:48 +0800</lastBuildDate>
     <atom:link href="https://vcvvvc.github.io/tags/blockchain/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ethena with Ether.fi</title>
+      <link>https://vcvvvc.github.io/post/ethena_etherfi/</link>
+      <pubDate>Tue, 30 Apr 2024 20:34:48 +0800</pubDate>
+      <guid>https://vcvvvc.github.io/post/ethena_etherfi/</guid>
+      <description>https://ethena-labs.gitbook.io/ethena-labs/problem-crypto-native-money</description>
+    </item>
     <item>
       <title>Fix_hardhat_verify_timeout</title>
       <link>https://vcvvvc.github.io/post/fix_hardhat_verify_timeout/</link>

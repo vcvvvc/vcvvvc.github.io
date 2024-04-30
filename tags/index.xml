@@ -6,8 +6,22 @@
     <description>Recent content in Tags on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 30 Apr 2024 01:30:31 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 30 Apr 2024 20:34:48 +0800</lastBuildDate>
     <atom:link href="https://vcvvvc.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>BlockChain</title>
+      <link>https://vcvvvc.github.io/tags/blockchain/</link>
+      <pubDate>Tue, 30 Apr 2024 20:34:48 +0800</pubDate>
+      <guid>https://vcvvvc.github.io/tags/blockchain/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>DeFi</title>
+      <link>https://vcvvvc.github.io/tags/defi/</link>
+      <pubDate>Tue, 30 Apr 2024 20:34:48 +0800</pubDate>
+      <guid>https://vcvvvc.github.io/tags/defi/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Research</title>
       <link>https://vcvvvc.github.io/tags/research/</link>
@@ -27,13 +41,6 @@
       <link>https://vcvvvc.github.io/tags/linux/</link>
       <pubDate>Wed, 17 Apr 2024 16:42:04 +0800</pubDate>
       <guid>https://vcvvvc.github.io/tags/linux/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>BlockChain</title>
-      <link>https://vcvvvc.github.io/tags/blockchain/</link>
-      <pubDate>Mon, 11 Mar 2024 20:41:44 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/blockchain/</guid>
       <description></description>
     </item>
     <item>
@@ -90,13 +97,6 @@
       <link>https://vcvvvc.github.io/tags/rgb/</link>
       <pubDate>Thu, 28 Dec 2023 01:29:45 +0800</pubDate>
       <guid>https://vcvvvc.github.io/tags/rgb/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>DeFi</title>
-      <link>https://vcvvvc.github.io/tags/defi/</link>
-      <pubDate>Sun, 17 Sep 2023 21:56:19 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/defi/</guid>
       <description></description>
     </item>
     <item>
