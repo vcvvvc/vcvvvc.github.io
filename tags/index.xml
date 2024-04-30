@@ -6,8 +6,15 @@
     <description>Recent content in Tags on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 17 Apr 2024 16:42:04 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 30 Apr 2024 01:30:31 +0800</lastBuildDate>
     <atom:link href="https://vcvvvc.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Research</title>
+      <link>https://vcvvvc.github.io/tags/research/</link>
+      <pubDate>Tue, 30 Apr 2024 01:30:31 +0800</pubDate>
+      <guid>https://vcvvvc.github.io/tags/research/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Docker</title>
       <link>https://vcvvvc.github.io/tags/docker/</link>
