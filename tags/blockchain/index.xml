@@ -6,8 +6,15 @@
     <description>Recent content in BlockChain on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 30 Apr 2024 20:34:48 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 01 May 2024 19:52:28 +0800</lastBuildDate>
     <atom:link href="https://vcvvvc.github.io/tags/blockchain/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>零知识证明 - Zkp</title>
+      <link>https://vcvvvc.github.io/post/zkp/</link>
+      <pubDate>Wed, 01 May 2024 19:52:28 +0800</pubDate>
+      <guid>https://vcvvvc.github.io/post/zkp/</guid>
+      <description>零知识证明（英语：zero-knowledge proof）或零知识协议（zero-knowledge protocol）是一方（证明者）向另一方（检验者）证明某命题的方法，特点是过程中除“该命题为真”之事外，不泄露任何资讯。因此，可理解成“零泄密证明”。&#xA;Re:&#xA;https://ethereum.org/zh/zero-knowledge-proofs/</description>
+    </item>
     <item>
       <title>Ethena with Ether.fi</title>
       <link>https://vcvvvc.github.io/post/ethena_etherfi/</link>
