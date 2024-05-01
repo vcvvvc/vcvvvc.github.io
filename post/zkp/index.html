@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>零知识证明 - Zkp // Vc</title>
+    <title>零知识证明(zero-knowledge proof) - Zkp // Vc</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
     <meta name="generator" content="Hugo 0.123.7">
@@ -74,7 +74,7 @@
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <article class="post">
     <header class="post-header">
-      <h1 class ="post-title">零知识证明 - Zkp</h1>
+      <h1 class ="post-title">零知识证明(zero-knowledge proof) - Zkp</h1>
       <div class="post-meta">
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
@@ -104,10 +104,23 @@
       </div>
     </header>
     <div class="post-content">
-      <p>零知识证明（英语：zero-knowledge proof）或零知识协议（zero-knowledge protocol）是一方（证明者）向另一方（检验者）证明某命题的方法，特点是过程中除“该命题为真”之事外，不泄露任何资讯。因此，可理解成“零泄密证明”。</p>
+      <p><strong>零知识证明（英语：zero-knowledge proof）或零知识协议（zero-knowledge protocol）是一方（证明者）向另一方（检验者）证明某命题的方法，特点是过程中除“该命题为真”之事外，不泄露任何资讯。因此，可理解成“零泄密证明”。</strong></p>
+<p>零知识证明要具备下列三种性质：</p>
+<p>完备（complete）</p>
+<p>若所要证之事为真，则诚实（意即依协议行事）的证明者能说服诚实验证者。</p>
+<p>健全（sound）</p>
+<p>若命题为假，则作弊证明者仅得极小机会能说服诚实验证者该事为真。</p>
+<p>零知识（zero-knowledge）</p>
+<p>若命题为真，则验证者除此之外，过程中没有得悉任何其他资讯。换言之，仅知命题为真（而不知秘密本身）已足以“想像”出一个交互的情境，其中证明者的确知道该秘密。此性质能严格定义为：每个验证者皆有相应的模拟器，输入欲证事实时，无需求助于证明者，已可输出一套通讯誊本，看似诚实验证者与证明者的通讯记录。</p>
 <hr>
 <p>Re:</p>
-<p><a href="https://ethereum.org/zh/zero-knowledge-proofs/">https://ethereum.org/zh/zero-knowledge-proofs/</a></p>
+<ul>
+<li><a href="https://ethereum.org/zh/zero-knowledge-proofs/">https://ethereum.org/zh/zero-knowledge-proofs/</a></li>
+<li><a href="https://blog.chain.link/what-is-a-zero-knowledge-proof-zkp-zh/">https://blog.chain.link/what-is-a-zero-knowledge-proof-zkp-zh/</a></li>
+<li><a href="https://eprint.iacr.org/2023/1784">https://eprint.iacr.org/2023/1784</a></li>
+<li><a href="https://vitalik.eth.limo/general/2024/04/29/binius.html">https://vitalik.eth.limo/general/2024/04/29/binius.html</a></li>
+<li><a href="https://zh.wikipedia.org/zh-cn/%E9%9B%B6%E7%9F%A5%E8%AF%86%E8%AF%81%E6%98%8E">https://zh.wikipedia.org/zh-cn/%E9%9B%B6%E7%9F%A5%E8%AF%86%E8%AF%81%E6%98%8E</a></li>
+</ul>
 
     </div>
     <div class="post-footer">
