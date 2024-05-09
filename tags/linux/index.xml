@@ -6,12 +6,12 @@
     <description>Recent content in Linux on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 17 Sep 2023 16:42:04 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 01 Apr 2024 16:42:04 +0800</lastBuildDate>
     <atom:link href="https://vcvvvc.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Docker use Tutorial</title>
       <link>https://vcvvvc.github.io/post/docker_tutorial/</link>
-      <pubDate>Sun, 17 Sep 2023 16:42:04 +0800</pubDate>
+      <pubDate>Mon, 01 Apr 2024 16:42:04 +0800</pubDate>
       <guid>https://vcvvvc.github.io/post/docker_tutorial/</guid>
       <description>Install docker on Ubuntu # Add Docker&amp;#39;s official GPG key: sudo apt-get update sudo apt-get install ca-certificates curl sudo install -m 0755 -d /etc/apt/keyrings sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc sudo chmod a+r /etc/apt/keyrings/docker.asc # Add the repository to Apt sources: echo \ &amp;#34;deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \ $(. /etc/os-release &amp;amp;&amp;amp; echo &amp;#34;$VERSION_CODENAME&amp;#34;) stable&amp;#34; | \ sudo tee /etc/apt/sources.list.d/docker.list &amp;gt; /dev/null sudo apt-get update sudo apt-get install docker-ce docker-ce-cli containerd.</description>
     </item>
