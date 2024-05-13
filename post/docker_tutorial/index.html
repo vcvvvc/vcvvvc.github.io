@@ -90,7 +90,8 @@
 </svg>
           
           
-          12 mins read
+          
+          2 mins
           
         </div>
         <div>
@@ -104,7 +105,8 @@
       </div>
     </header>
     <div class="post-content">
-      <h2 id="install-docker-on-ubuntu">Install docker on Ubuntu</h2>
+      <p>2024年版本</p>
+<h2 id="install-docker-on-ubuntu">Install docker on Ubuntu</h2>
 <pre tabindex="0"><code># Add Docker&#39;s official GPG key:
 sudo apt-get update
 sudo apt-get install ca-certificates curl
@@ -130,8 +132,75 @@ service docker restart
 docker run --name mypsql -e POSTGRES_PASSWORD=my_password -d -p 5432:5432 -v /path/to/data:/var/lib/postgresql/data postgres
 docker exec -it mypsql psql -U postgres
 </code></pre><hr>
+<h2 id="docker-usage">Docker usage</h2>
+<pre tabindex="0"><code># 查找镜像
+docker search hello-world
+
+# 获取镜像
+docker pull hello-world
+
+# 镜像列表
+docker images 
+REPOSITORY    TAG       IMAGE ID       CREATED         SIZE
+hello-world   latest    d2c94e258dcb   12 months ago   13.3kB
+
+# 运行镜像
+docker run hello-world
+</code></pre><hr>
+<h2 id="docker-container">Docker container</h2>
+<pre tabindex="0"><code># 查看所有容器
+docker ps -a
+
+# 启动容器
+docker start $id
+
+# 停止容器
+docker stop $id
+
+# 重启容器
+docker restart $id
+
+# 进入容器
+1. docker attach $id
+2. docker exec -it $id /bin/bash
+
+# 删除容器
+docker rm $id
+
+# 导出容器
+docker export $id &gt; ubuntu.tar
+
+# 导入容器
+cat docker/ubuntu.tar | docker import - test/ubuntu:v1
+
+# 运行一个web
+docker pull training/webapp
+
+# 更新一个容器 
+docker run -it --name my_container ubuntu:18.04 bash
+docker run -t -i ubuntu:18.04 /bin/bash
+ - apt-get update
+ - apt-get install gcc
+
+docker commit -m=&#34;install gcc&#34; -a=&#34;vvvttest&#34; 3635723fd832 vvvttest/ubuntu:v1
+
+# 创建一个容器
+Dockerfile: 
+# syntax=docker/dockerfile:1
+FROM node:16-alpine
+WORKDIR /app
+COPY . .
+RUN yarn install --production
+CMD [&#34;node&#34;, &#34;src/index.js&#34;]
+
+
+
+docker build -t getting-started .
+docker run -dp 3000:3000 getting-started
+</code></pre><hr>
 <p><a href="https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository">https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository</a></p>
 <p><a href="https://hub.docker.com/_/postgres/">https://hub.docker.com/_/postgres/</a></p>
+<p><a href="https://www.dockerdocs.cn/get-started">https://www.dockerdocs.cn/get-started</a></p>
 
     </div>
     <div class="post-footer">
