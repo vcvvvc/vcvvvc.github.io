@@ -6,13 +6,20 @@
     <description>Recent content in Tags on Vc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 01 May 2024 19:52:28 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 06 Aug 2024 21:33:51 +0800</lastBuildDate>
     <atom:link href="https://vcvvvc.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>BlockChain</title>
       <link>https://vcvvvc.github.io/tags/blockchain/</link>
-      <pubDate>Wed, 01 May 2024 19:52:28 +0800</pubDate>
+      <pubDate>Tue, 06 Aug 2024 21:33:51 +0800</pubDate>
       <guid>https://vcvvvc.github.io/tags/blockchain/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Doubler</title>
+      <link>https://vcvvvc.github.io/tags/doubler/</link>
+      <pubDate>Tue, 06 Aug 2024 21:33:51 +0800</pubDate>
+      <guid>https://vcvvvc.github.io/tags/doubler/</guid>
       <description></description>
     </item>
     <item>
@@ -97,13 +104,6 @@
       <link>https://vcvvvc.github.io/tags/defi/</link>
       <pubDate>Sun, 17 Sep 2023 21:56:19 +0800</pubDate>
       <guid>https://vcvvvc.github.io/tags/defi/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Doubler</title>
-      <link>https://vcvvvc.github.io/tags/doubler/</link>
-      <pubDate>Sun, 17 Sep 2023 21:56:19 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/doubler/</guid>
       <description></description>
     </item>
     <item>

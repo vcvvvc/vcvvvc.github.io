@@ -2,17 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://vcvvvc.github.io/post/article_doubler/</loc>
+    <lastmod>2024-08-06T21:33:51+08:00</lastmod>
+  </url><url>
     <loc>https://vcvvvc.github.io/tags/blockchain/</loc>
-    <lastmod>2024-05-01T19:52:28+08:00</lastmod>
+    <lastmod>2024-08-06T21:33:51+08:00</lastmod>
+  </url><url>
+    <loc>https://vcvvvc.github.io/tags/doubler/</loc>
+    <lastmod>2024-08-06T21:33:51+08:00</lastmod>
   </url><url>
     <loc>https://vcvvvc.github.io/post/</loc>
-    <lastmod>2024-05-01T19:52:28+08:00</lastmod>
+    <lastmod>2024-08-06T21:33:51+08:00</lastmod>
   </url><url>
     <loc>https://vcvvvc.github.io/tags/</loc>
-    <lastmod>2024-05-01T19:52:28+08:00</lastmod>
+    <lastmod>2024-08-06T21:33:51+08:00</lastmod>
   </url><url>
     <loc>https://vcvvvc.github.io/</loc>
-    <lastmod>2024-05-01T19:52:28+08:00</lastmod>
+    <lastmod>2024-08-06T21:33:51+08:00</lastmod>
   </url><url>
     <loc>https://vcvvvc.github.io/tags/zkp/</loc>
     <lastmod>2024-05-01T19:52:28+08:00</lastmod>
@@ -72,9 +78,6 @@
     <lastmod>2023-11-24T22:53:01+08:00</lastmod>
   </url><url>
     <loc>https://vcvvvc.github.io/tags/defi/</loc>
-    <lastmod>2023-09-17T21:56:19+08:00</lastmod>
-  </url><url>
-    <loc>https://vcvvvc.github.io/tags/doubler/</loc>
     <lastmod>2023-09-17T21:56:19+08:00</lastmod>
   </url><url>
     <loc>https://vcvvvc.github.io/post/defi_doubler/</loc>
