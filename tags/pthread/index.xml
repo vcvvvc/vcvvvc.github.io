@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Pthread on Vc</title>
+    <title>Pthread on VVVV</title>
     <link>https://vcvvvc.github.io/tags/pthread/</link>
-    <description>Recent content in Pthread on Vc</description>
+    <description>Recent content in Pthread on VVVV</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sun, 27 Sep 2020 17:53:48 +0800</lastBuildDate>

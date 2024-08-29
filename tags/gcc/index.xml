@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>GCC on Vc</title>
+    <title>GCC on VVVV</title>
     <link>https://vcvvvc.github.io/tags/gcc/</link>
-    <description>Recent content in GCC on Vc</description>
+    <description>Recent content in GCC on VVVV</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Thu, 02 Dec 2021 11:08:36 +0800</lastBuildDate>
