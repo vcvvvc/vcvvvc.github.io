@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>VVVV</title>
+    <title>VW Blog</title>
     <link>https://vcvvvc.github.io/</link>
-    <description>Recent content on VVVV</description>
+    <description>Recent content on VW Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Tue, 06 Aug 2024 21:33:51 +0800</lastBuildDate>
@@ -13,7 +13,7 @@
       <link>https://vcvvvc.github.io/post/article_doubler/</link>
       <pubDate>Tue, 06 Aug 2024 21:33:51 +0800</pubDate>
       <guid>https://vcvvvc.github.io/post/article_doubler/</guid>
-      <description>总结V3主要变动 https://medium.com/@vcvckw/%E6%80%BB%E7%BB%93v3%E4%B8%BB%E8%A6%81%E5%8F%98%E5%8A%A8-3b9799d87cf6&#xA;Summarize the main changes in V3: https://medium.com/@vcvckw/summarize-the-main-changes-in-v3-8d3c461d0cd5&#xA;解析池子参数 https://medium.com/@vcvckw/%E8%AF%A6%E8%A7%A3%E5%BB%BA%E6%B1%A0%E5%8F%82%E6%95%B0-d171c6b5c071&#xA;Detailed explanation of pool parameters https://medium.com/@vcvckw/detailed-explanation-of-pool-parameters-a465d91679d2&#xA;数据分析DBR产出与TVL和层的关联，拆解DBR产出公式 https://medium.com/@vcvckw/tvl&#xA;Data analysis of the correlation between DBR output and TVL and layer, and decomposition of DBR output formula https://medium.com/@vcvckw/data-analysis-of-the-correlation-between-dbr-output-and-tvl-and-layer-and-decomposition-of-dbr-0c3a4bebb79b</description>
+      <description>教程都是双语版本发布，为新手入门、原理分析教程&#xA;总结V3主要变动 https://medium.com/@vcvckw/%E6%80%BB%E7%BB%93v3%E4%B8%BB%E8%A6%81%E5%8F%98%E5%8A%A8-3b9799d87cf6&#xA;Summarize the main changes in V3: https://medium.com/@vcvckw/summarize-the-main-changes-in-v3-8d3c461d0cd5&#xA;解析池子参数 https://medium.com/@vcvckw/%E8%AF%A6%E8%A7%A3%E5%BB%BA%E6%B1%A0%E5%8F%82%E6%95%B0-d171c6b5c071&#xA;Detailed explanation of pool parameters https://medium.com/@vcvckw/detailed-explanation-of-pool-parameters-a465d91679d2&#xA;数据分析DBR产出与TVL和层的关联，拆解DBR产出公式 https://medium.com/@vcvckw/tvl&#xA;Data analysis of the correlation between DBR output and TVL and layer, and decomposition of DBR output formula https://medium.com/@vcvckw/data-analysis-of-the-correlation-between-dbr-output-and-tvl-and-layer-and-decomposition-of-dbr-0c3a4bebb79b</description>
     </item>
     <item>
       <title>零知识证明(zero-knowledge proof) - Zkp</title>

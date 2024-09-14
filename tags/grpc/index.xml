@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Grpc on VVVV</title>
+    <title>Grpc on VW Blog</title>
     <link>https://vcvvvc.github.io/tags/grpc/</link>
-    <description>Recent content in Grpc on VVVV</description>
+    <description>Recent content in Grpc on VW Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Thu, 22 Jul 2021 00:13:51 +0800</lastBuildDate>
