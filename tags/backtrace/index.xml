@@ -4,7 +4,7 @@
     <title>Backtrace on VW Blog</title>
     <link>https://vcvvvc.github.io/tags/backtrace/</link>
     <description>Recent content in Backtrace on VW Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Wed, 02 Sep 2020 14:10:18 +0800</lastBuildDate>
     <atom:link href="https://vcvvvc.github.io/tags/backtrace/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>https://vcvvvc.github.io/post/backtrace/</link>
       <pubDate>Wed, 02 Sep 2020 14:10:18 +0800</pubDate>
       <guid>https://vcvvvc.github.io/post/backtrace/</guid>
-      <description>获取Backtrace #include &amp;lt;execinfo.h&amp;gt; /* Store up to SIZE return address of the current program state in ARRAY and return the exact number of values stored. */ int backtrace(void **array, int size); /* Return names of functions from the backtrace list in ARRAY in a newly malloc()ed memory block. */ char **backtrace_symbols(void *const *array, int size); /* This function is similar to backtrace_symbols() but it writes the result immediately to a file.</description>
+      <description>&lt;h1 id=&#34;获取backtrace&#34;&gt;获取Backtrace&lt;/h1&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;#include &amp;lt;execinfo.h&amp;gt;&#xA;&#xA;/* Store up to SIZE return address of the current program state in&#xA;   ARRAY and return the exact number of values stored.  */&#xA;int backtrace(void **array, int size);&#xA;&#xA;/* Return names of functions from the backtrace list in ARRAY in a newly&#xA;   malloc()ed memory block.  */&#xA;char **backtrace_symbols(void *const *array, int size);&#xA;&#xA;/* This function is similar to backtrace_symbols() but it writes the result&#xA;   immediately to a file.  */&#xA;void backtrace_symbols_fd(void *const *array, int size, int fd);&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;code&gt;int backtrace(void **buffer,int size)&lt;/code&gt;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

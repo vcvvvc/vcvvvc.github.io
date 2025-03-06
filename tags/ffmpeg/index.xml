@@ -4,7 +4,7 @@
     <title>FFmpeg on VW Blog</title>
     <link>https://vcvvvc.github.io/tags/ffmpeg/</link>
     <description>Recent content in FFmpeg on VW Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Mon, 27 Jul 2020 17:41:31 +0800</lastBuildDate>
     <atom:link href="https://vcvvvc.github.io/tags/ffmpeg/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>https://vcvvvc.github.io/post/ffmpeg_install/</link>
       <pubDate>Mon, 27 Jul 2020 17:41:31 +0800</pubDate>
       <guid>https://vcvvvc.github.io/post/ffmpeg_install/</guid>
-      <description>Start Download FFmpeg Install tool 1. install yasm&#xA;sudo apt-get install yasm if not installed yasm, os will output &amp;ldquo;nasm/yasm not found or too old. Use &amp;ndash;disable-x86asm for a crippled build.&amp;rdquo;&#xA;2. install SDL2&#xA;SDL2-2.0.12(stable)&#xA;tar -xvf SDL2-2.0.12.tar.gz cd SDL2-2.0.12 ./configure sudo make -j4 sudo make install Install FFmpeg 1. git clone https://git.ffmpeg.org/ffmpeg.git ffmpeg&#xA;cd ffmpeg/ ./configure sudo make -j4 sudo make install 3. Check ffmpeg -version ffplay -version </description>
+      <description>&lt;h2 id=&#34;start-download-ffmpeg&#34;&gt;Start &lt;a href=&#34;https://www.ffmpeg.org/download.html&#34;&gt;Download FFmpeg&lt;/a&gt;&lt;/h2&gt;&#xA;&lt;hr&gt;&#xA;&lt;h1 id=&#34;install-tool&#34;&gt;Install tool&lt;/h1&gt;&#xA;&lt;p&gt;&lt;strong&gt;1. install yasm&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo apt-get install yasm&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;&#xA;&lt;p&gt;if not installed yasm, os will output &amp;ldquo;nasm/yasm not found or too old. Use &amp;ndash;disable-x86asm for a crippled build.&amp;rdquo;&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;2. install SDL2&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://www.libsdl.org/release/SDL2-2.0.12.tar.gz&#34;&gt;SDL2-2.0.12(stable)&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;tar -xvf SDL2-2.0.12.tar.gz&#xA;cd SDL2-2.0.12&#xA;./configure&#xA;sudo make -j4&#xA;sudo make install&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h1 id=&#34;install-ffmpeg&#34;&gt;Install FFmpeg&lt;/h1&gt;&#xA;&lt;p&gt;&lt;strong&gt;1. git clone &lt;a href=&#34;https://git.ffmpeg.org/ffmpeg.git&#34;&gt;https://git.ffmpeg.org/ffmpeg.git&lt;/a&gt; ffmpeg&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cd ffmpeg/&#xA;./configure&#xA;sudo make -j4&#xA;sudo make install&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h1 id=&#34;3-check&#34;&gt;3. Check&lt;/h1&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;ffmpeg -version&#xA;ffplay -version&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
   </channel>
 </rss>

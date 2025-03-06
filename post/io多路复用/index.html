@@ -4,15 +4,13 @@
     <title>I/O多路复用 // VW Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.123.7">
+    <meta name="generator" content="Hugo 0.145.0">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vc" />
     
     <meta name="description" content="VW Blog | 技术记录Blog" />
     <meta name="keywords" content="VW,DeFi,Web3,Bitcoin,Ethereum,Smart contracts,加密货币,数字经济,比特币,以太坊,智能合约,去中心化金融" />
     <link rel="stylesheet" href="https://vcvvvc.github.io/css/main.min.b0a3c12a957b2b43dbdd67f3149dedb0c5c303f470b58601eee0990701353944.css" />
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9864430378509995"
-            crossorigin="anonymous"></script>
 
 
 
@@ -140,7 +138,7 @@ int FD_ISSET(int fd, fd_set *fdset); //测试某个位是否被置位
         long tv_sec;   /*秒 */
         long tv_usec;  /*微秒 */
     }
-</code></pre><h4 id="select示例代码-selectcpphttpsgithubcomvcvvvccpp_testblobmasterserversocketselect">select示例代码: <a href="https://github.com/vcvvvc/CPP_Test/blob/master/server/socket/select">select.cpp</a></h4>
+</code></pre><h4 id="select示例代码-selectcpp">select示例代码: <a href="https://github.com/vcvvvc/CPP_Test/blob/master/server/socket/select">select.cpp</a></h4>
 <hr>
 <h2 id="poll">Poll</h2>
 <pre tabindex="0"><code>#include &lt;poll.h&gt;
@@ -162,10 +160,10 @@ struct pollfd {
 <p>timeout 为poll的超时时间，单位毫秒。timeout 为-1时，poll永远阻塞，直到有事件发生。timeout为0时，poll立即返回。</p>
 </li>
 </ul>
-<h4 id="poll示例代码-pollcpphttpsgithubcomvcvvvccpp_testtreemasterserversocketpoll">poll示例代码: <a href="https://github.com/vcvvvc/CPP_Test/tree/master/server/socket/poll">poll.cpp</a></h4>
+<h4 id="poll示例代码-pollcpp">poll示例代码: <a href="https://github.com/vcvvvc/CPP_Test/tree/master/server/socket/poll">poll.cpp</a></h4>
 <hr>
 <h2 id="epoll">Epoll</h2>
-<h4 id="epoll示例代码-epollcpphttpsgithubcomvcvvvccpp_testtreemasterserverlinux_socket_highp14_epoll">epoll示例代码: <a href="https://github.com/vcvvvc/CPP_Test/tree/master/server/linux_socket_high/p14_epoll">epoll.cpp</a></h4>
+<h4 id="epoll示例代码-epollcpp">epoll示例代码: <a href="https://github.com/vcvvvc/CPP_Test/tree/master/server/linux_socket_high/p14_epoll">epoll.cpp</a></h4>
 <h3 id="1-创建一个epoll的句柄">1. 创建一个epoll的句柄</h3>
 <pre tabindex="0"><code>int epoll_create(int size);
 </code></pre><p>创建一个epoll的句柄，size用来告诉内核这个监听的数目一共有多大。</p>

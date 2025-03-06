@@ -4,7 +4,7 @@
     <title>STL on VW Blog</title>
     <link>https://vcvvvc.github.io/tags/stl/</link>
     <description>Recent content in STL on VW Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Tue, 11 Apr 2023 18:07:17 +0800</lastBuildDate>
     <atom:link href="https://vcvvvc.github.io/tags/stl/index.xml" rel="self" type="application/rss+xml" />
@@ -13,14 +13,14 @@
       <link>https://vcvvvc.github.io/post/stl%E5%AE%B9%E5%99%A8%E6%80%BB%E7%BB%93/</link>
       <pubDate>Tue, 11 Apr 2023 18:07:17 +0800</pubDate>
       <guid>https://vcvvvc.github.io/post/stl%E5%AE%B9%E5%99%A8%E6%80%BB%E7%BB%93/</guid>
-      <description>Re: https://www.cnblogs.com/zjy4869/p/15501384.html&#xA;https://www.cnblogs.com/zjy4869/p/15501448.html&#xA;https://blog.51cto.com/u_15717393/5471961&#xA;https://zinglix.xyz/2018/09/20/STL-container/</description>
+      <description>&lt;hr&gt;&#xA;&lt;h2 id=&#34;re&#34;&gt;Re:&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.cnblogs.com/zjy4869/p/15501384.html&#34;&gt;https://www.cnblogs.com/zjy4869/p/15501384.html&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.cnblogs.com/zjy4869/p/15501448.html&#34;&gt;https://www.cnblogs.com/zjy4869/p/15501448.html&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://blog.51cto.com/u_15717393/5471961&#34;&gt;https://blog.51cto.com/u_15717393/5471961&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://zinglix.xyz/2018/09/20/STL-container/&#34;&gt;https://zinglix.xyz/2018/09/20/STL-container/&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Cpp_stl</title>
       <link>https://vcvvvc.github.io/post/cpp_stl/</link>
       <pubDate>Sat, 12 Jun 2021 14:26:45 +0800</pubDate>
       <guid>https://vcvvvc.github.io/post/cpp_stl/</guid>
-      <description>空间配置器 容器类型 标准STL序列容器: vector,string、 deque和list. 标准STL关联容器: set, multiset. map和multimap. 非标准序列容器slist和rope, slist是一个单向链表, rope本质上是一“重型&amp;quot; string 非标准的关联容器hash-set, hash-multiset. hash-map和hash-multimap 标准的非STL容器,包括数组、bitset. valarray、 stack, queue和priority_queue. Vector template &amp;lt;class T, class Alloc=alloc&amp;gt; class vector{ private: //vector的嵌套型别定义 typedef T value_type; typedef value_type* pointer; typedef value_type* iterator; typedef value_type&amp;amp; reference; typedef size_t size_type; typedef ptrdiff_t difference_type; protect: // simple_alloc是SGI STL默认的空间配置器 typedef simple_alloc&amp;lt;value_type, Alloc&amp;gt; data_allocator; iterator start;&#x9;// 表示目前使用空间的头 iterator finish;&#x9;// 表示目前使用空间的尾 iterator end_of_storage;&#x9;// 表示目前可用空间的尾 }; vector提供的接口：包括得到vector的属性接口、vector的操作接口以及构造函数：</description>
+      <description>&lt;h1 id=&#34;空间配置器&#34;&gt;空间配置器&lt;/h1&gt;&#xA;&lt;hr&gt;&#xA;&lt;h1 id=&#34;容器类型&#34;&gt;容器类型&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;标准STL序列容器: vector,string、 deque和list.&lt;/li&gt;&#xA;&lt;li&gt;标准STL关联容器: set, multiset. map和multimap.&lt;/li&gt;&#xA;&lt;li&gt;非标准序列容器slist和rope, slist是一个单向链表, rope本质上是一“重型&amp;quot; string&lt;/li&gt;&#xA;&lt;li&gt;非标准的关联容器hash-set, hash-multiset. hash-map和hash-multimap&lt;/li&gt;&#xA;&lt;li&gt;标准的非STL容器,包括数组、bitset. valarray、 stack, queue和priority_queue.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h1 id=&#34;vector&#34;&gt;Vector&lt;/h1&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;template &amp;lt;class T, class Alloc=alloc&amp;gt;&#xA;class vector{&#xA;private:&#xA;    //vector的嵌套型别定义&#xA;    typedef T value_type;&#xA;    typedef value_type* pointer;&#xA;    typedef value_type* iterator;&#xA;    typedef value_type&amp;amp; reference;&#xA;    typedef size_t      size_type;&#xA;    typedef ptrdiff_t   difference_type;&#xA;protect:&#xA;    // simple_alloc是SGI STL默认的空间配置器&#xA;    typedef simple_alloc&amp;lt;value_type, Alloc&amp;gt; data_allocator;&#xA;    iterator start;&#x9;&#x9;&#x9;&#x9;// 表示目前使用空间的头&#xA;    iterator finish;&#x9;&#x9;&#x9;// 表示目前使用空间的尾&#xA;    iterator end_of_storage;&#x9;// 表示目前可用空间的尾&#xA;};&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;vector提供的接口：包括得到vector的属性接口、vector的操作接口以及构造函数：&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;构造函数：vector()、vector(size_type n、const T&amp;amp; value)、vector(size_type n)；&lt;/li&gt;&#xA;&lt;li&gt;属性函数：begin、end、size、capacity、empty、operator[]、front和back&lt;/li&gt;&#xA;&lt;li&gt;操作函数：push_back()、pop_back()、erase()、resize()、clear()。&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
   </channel>
 </rss>

@@ -4,7 +4,7 @@
     <title>Tutorial on VW Blog</title>
     <link>https://vcvvvc.github.io/tags/tutorial/</link>
     <description>Recent content in Tutorial on VW Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Fri, 27 Aug 2021 16:40:00 +0800</lastBuildDate>
     <atom:link href="https://vcvvvc.github.io/tags/tutorial/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>https://vcvvvc.github.io/post/news_wps/</link>
       <pubDate>Fri, 27 Aug 2021 16:40:00 +0800</pubDate>
       <guid>https://vcvvvc.github.io/post/news_wps/</guid>
-      <description>https://github.com/VcSpace/News-M.git 闻讯——获取主流财经新闻网站新闻信息获取, 将数据聚合、归类并写入表格中 。&#xA;News-M &amp;ndash;News Spider, Crawling news from mainstream financial news websites, categorize and write data into tables .&#xA;目的 时间与精力是有限的 为了节省查阅信息的时间成本故此创作News-M用来快捷提取有效信息, 节约时间, 放松精力。&#xA;Time and energy are limited. In order to save the time cost of consulting information, news-m is created to quickly extract effective information, save time and relax energy.&#xA;运行程序 #Run pip install -r requirements.txt python3 main.py 如果你想启用网盘功能 在命令行运行bypy info获取token, 在main.py将bd_flag改为True&#xA;If you want to enable the network disk function, run bypy info on the command line to get the token, and BD will be displayed in main.</description>
+      <description>&lt;h2&gt;&lt;a href=&#34;https://github.com/VcSpace/News-M.git&#34;&gt;https://github.com/VcSpace/News-M.git&lt;/a&gt;&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;闻讯——获取主流财经新闻网站新闻信息获取, 将数据聚合、归类并写入表格中 。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;News-M &amp;ndash;News Spider, Crawling news from mainstream financial news websites, categorize and write data into tables .&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;目的&#34;&gt;目的&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;时间与精力是有限的 为了节省查阅信息的时间成本故此创作News-M用来快捷提取有效信息, 节约时间, 放松精力。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Time and energy are limited. In order to save the time cost of consulting information, news-m is created to quickly extract effective information, save time and relax energy.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;运行程序&#34;&gt;运行程序&lt;/h2&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;#Run&#xA;pip install -r requirements.txt&#xA;python3 main.py&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;如果你想启用网盘功能 在命令行运行&lt;code&gt;bypy info&lt;/code&gt;获取token, 在main.py将&lt;code&gt;bd_flag&lt;/code&gt;改为&lt;code&gt;True&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;If you want to enable the network disk function, run &lt;code&gt;bypy info&lt;/code&gt; on the command line to get the token, and BD will be displayed in &lt;code&gt;main.py&lt;/code&gt; Change &lt;code&gt;bd_flag&lt;/code&gt; to &lt;code&gt;true&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -4,7 +4,7 @@
     <title>Hardhat on VW Blog</title>
     <link>https://vcvvvc.github.io/tags/hardhat/</link>
     <description>Recent content in Hardhat on VW Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Mon, 11 Mar 2024 20:41:44 +0800</lastBuildDate>
     <atom:link href="https://vcvvvc.github.io/tags/hardhat/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>https://vcvvvc.github.io/post/fix_hardhat_verify_timeout/</link>
       <pubDate>Mon, 11 Mar 2024 20:41:44 +0800</pubDate>
       <guid>https://vcvvvc.github.io/post/fix_hardhat_verify_timeout/</guid>
-      <description>修复hardhat发布合约代码出错的问题 hardhat-verify found one or more errors during the verification process:&#xA;Etherscan: An unexpected error occurred during the verification process. Please report this issue to the Hardhat team. Error Details: Connect Timeout Error&#xA;npm install &amp;ndash;save-dev undici&#xA;在 hardhat.config.js 中添加以下代码：&#xA;const { ProxyAgent, setGlobalDispatcher } = require(&amp;#34;undici&amp;#34;); const proxyAgent = new ProxyAgent(&amp;#34;http://127.0.0.1:7890&amp;#34;); setGlobalDispatcher(proxyAgent); Reference: https://github.com/smartcontractkit/full-blockchain-solidity-course-js/discussions/2247#discussioncomment-5496669</description>
+      <description>&lt;h2 id=&#34;修复hardhat发布合约代码出错的问题&#34;&gt;修复hardhat发布合约代码出错的问题&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;hardhat-verify found one or more errors during the verification process:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;Etherscan:&#xA;An unexpected error occurred during the verification process.&#xA;Please report this issue to the Hardhat team.&#xA;Error Details: Connect Timeout Error&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;npm install &amp;ndash;save-dev undici&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;在 hardhat.config.js 中添加以下代码：&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;const { ProxyAgent, setGlobalDispatcher } = require(&amp;#34;undici&amp;#34;);&#xA;const proxyAgent = new ProxyAgent(&amp;#34;http://127.0.0.1:7890&amp;#34;);&#xA;setGlobalDispatcher(proxyAgent);&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h2 id=&#34;reference&#34;&gt;Reference:&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/smartcontractkit/full-blockchain-solidity-course-js/discussions/2247#discussioncomment-5496669&#34;&gt;https://github.com/smartcontractkit/full-blockchain-solidity-course-js/discussions/2247#discussioncomment-5496669&lt;/a&gt;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -4,15 +4,13 @@
     <title>Linux cpp put Backtrace // VW Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.123.7">
+    <meta name="generator" content="Hugo 0.145.0">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vc" />
     
     <meta name="description" content="VW Blog | 技术记录Blog" />
     <meta name="keywords" content="VW,DeFi,Web3,Bitcoin,Ethereum,Smart contracts,加密货币,数字经济,比特币,以太坊,智能合约,去中心化金融" />
     <link rel="stylesheet" href="https://vcvvvc.github.io/css/main.min.b0a3c12a957b2b43dbdd67f3149dedb0c5c303f470b58601eee0990701353944.css" />
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9864430378509995"
-            crossorigin="anonymous"></script>
 
 
 
@@ -132,8 +130,7 @@ void backtrace_symbols_fd(void *const *array, int size, int fd);
 <p><strong>backtrace_symbols_fd与backtrace_symbols 函数具有相同的功能,不同的是它不会给调用者返回字符串数组,而是将结果写入文件描述符为fd的文件中,每个函数对应一行.它不需要调用malloc函数,因此适用于有可能调用该函数会失败的情况。</strong></p>
 <hr>
 <blockquote>
-<p><strong>使用它们的时候有一下几点需要我们注意的地方：</strong></p>
-</blockquote>
+<p><strong>使用它们的时候有一下几点需要我们注意的地方：</strong></p></blockquote>
 <ul>
 <li>
 <p>backtrace的实现依赖于栈指针（fp寄存器），在gcc编译过程中任何非零的优化等级（-On参数）或加入了栈指针优化参数-fomit-frame-pointer后多将不能正确得到程序栈信息；</p>

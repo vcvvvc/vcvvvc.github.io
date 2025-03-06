@@ -4,7 +4,7 @@
     <title>Vmware on VW Blog</title>
     <link>https://vcvvvc.github.io/tags/vmware/</link>
     <description>Recent content in Vmware on VW Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Fri, 15 Jan 2021 20:37:54 +0800</lastBuildDate>
     <atom:link href="https://vcvvvc.github.io/tags/vmware/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>https://vcvvvc.github.io/post/vmware_install_macos/</link>
       <pubDate>Fri, 15 Jan 2021 20:37:54 +0800</pubDate>
       <guid>https://vcvvvc.github.io/post/vmware_install_macos/</guid>
-      <description>unlocker git clone https://github.com/paolo-projects/auto-unlocker.git&#xA;Download cdr https://www.mfpud.com/topics/3888/&#xA;Tutorial https://www.mfpud.com/topics/612/&#xA;进入之后先选择磁盘工具 抹掉磁盘 安装即可&#xA;Other 安装VMware Tools，参照https://www.lovyou.top/post/52.html&#xA;调整MacOS屏幕分辨率参考https://blog.csdn.net/icarus666/article/details/79529766</description>
+      <description>&lt;h1 id=&#34;unlocker&#34;&gt;unlocker&lt;/h1&gt;&#xA;&lt;p&gt;&lt;strong&gt;git clone &lt;a href=&#34;https://github.com/paolo-projects/auto-unlocker.git&#34;&gt;https://github.com/paolo-projects/auto-unlocker.git&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h1 id=&#34;download-cdr&#34;&gt;Download cdr&lt;/h1&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://www.mfpud.com/topics/3888/&#34;&gt;https://www.mfpud.com/topics/3888/&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h1 id=&#34;tutorial&#34;&gt;Tutorial&lt;/h1&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://www.mfpud.com/topics/612/&#34;&gt;https://www.mfpud.com/topics/612/&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;进入之后先选择磁盘工具 抹掉磁盘 安装即可&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h1 id=&#34;other&#34;&gt;Other&lt;/h1&gt;&#xA;&lt;p&gt;&lt;strong&gt;安装VMware Tools，参照https://www.lovyou.top/post/52.html&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;调整MacOS屏幕分辨率参考https://blog.csdn.net/icarus666/article/details/79529766&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

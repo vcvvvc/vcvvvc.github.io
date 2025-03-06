@@ -4,7 +4,7 @@
     <title>Macos on VW Blog</title>
     <link>https://vcvvvc.github.io/tags/macos/</link>
     <description>Recent content in Macos on VW Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Tue, 07 Sep 2021 20:25:48 +0800</lastBuildDate>
     <atom:link href="https://vcvvvc.github.io/tags/macos/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>https://vcvvvc.github.io/post/brew_ffmpeg_install/</link>
       <pubDate>Tue, 07 Sep 2021 20:25:48 +0800</pubDate>
       <guid>https://vcvvvc.github.io/post/brew_ffmpeg_install/</guid>
-      <description>2021-09-07 发帖时间为安装时间 有些包下载较慢可以挂vpn&#xA;ffmpeg 完全安装 解决brew install ffmpeg会报错&#xA;install brew tap homebrew-ffmpeg/ffmpeg brew options homebrew-ffmpeg/ffmpeg/ffmpeg brew install ffmpeg --HEAD ffmpeg -version 安装过程如果缺库 https://formulae.brew.sh/formula/ffmpeg 到这个链接查&#xA;现在这步好像不需要了&#xA;#完全安装 brew install homebrew-ffmpeg/ffmpeg/ffmpeg --with-chromaprint --with-fdk-aac --with-game-music-emu --with-libbluray --with-libbs2b --with-libcaca --with-libgsm --with-libmodplug --with-librsvg --with-libsoxr --with-libssh --with-libvidstab --with-libvmaf --with-libxml2 --with-opencore-amr --with-openh264 --with-openjpeg --with-openssl --with-rav1e --with-rtmpdump --with-rubberband --with-speex --with-srt --with-tesseract --with-two-lame --with-webp --with-xvid --with-zeromq --with-zimg Re: http://www.manks.top/ffmpeg-install-mac.html&#xA;https://www.jianshu.com/p/85fffceddf04&#xA;https://zhuanlan.zhihu.com/p/90099862</description>
+      <description>&lt;p&gt;&lt;strong&gt;2021-09-07 发帖时间为安装时间 有些包下载较慢可以挂vpn&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;ffmpeg 完全安装 解决&lt;code&gt;brew install ffmpeg&lt;/code&gt;会报错&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;install&#34;&gt;install&lt;/h2&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;brew tap homebrew-ffmpeg/ffmpeg&#xA;brew options homebrew-ffmpeg/ffmpeg/ffmpeg&#xA;&#xA;brew install ffmpeg --HEAD&#xA;&#xA;ffmpeg -version&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;安装过程如果缺库 &lt;a href=&#34;https://formulae.brew.sh/formula/ffmpeg&#34;&gt;https://formulae.brew.sh/formula/ffmpeg&lt;/a&gt; 到这个链接查&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;&lt;strong&gt;现在这步好像不需要了&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;#完全安装&#xA;brew install homebrew-ffmpeg/ffmpeg/ffmpeg --with-chromaprint --with-fdk-aac --with-game-music-emu --with-libbluray --with-libbs2b --with-libcaca --with-libgsm --with-libmodplug  --with-librsvg --with-libsoxr --with-libssh --with-libvidstab --with-libvmaf --with-libxml2 --with-opencore-amr --with-openh264 --with-openjpeg --with-openssl --with-rav1e --with-rtmpdump --with-rubberband --with-speex --with-srt --with-tesseract --with-two-lame --with-webp --with-xvid --with-zeromq --with-zimg&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h2 id=&#34;re&#34;&gt;Re:&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://www.manks.top/ffmpeg-install-mac.html&#34;&gt;http://www.manks.top/ffmpeg-install-mac.html&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.jianshu.com/p/85fffceddf04&#34;&gt;https://www.jianshu.com/p/85fffceddf04&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/90099862&#34;&gt;https://zhuanlan.zhihu.com/p/90099862&lt;/a&gt;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

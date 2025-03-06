@@ -4,15 +4,13 @@
     <title>CPP11_thread // VW Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.123.7">
+    <meta name="generator" content="Hugo 0.145.0">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vc" />
     
     <meta name="description" content="VW Blog | 技术记录Blog" />
     <meta name="keywords" content="VW,DeFi,Web3,Bitcoin,Ethereum,Smart contracts,加密货币,数字经济,比特币,以太坊,智能合约,去中心化金融" />
     <link rel="stylesheet" href="https://vcvvvc.github.io/css/main.min.b0a3c12a957b2b43dbdd67f3149dedb0c5c303f470b58601eee0990701353944.css" />
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9864430378509995"
-            crossorigin="anonymous"></script>
 
 
 
@@ -164,8 +162,7 @@ unique_lock比lock_guard使用更加灵活，功能更加强大。
 <p><strong>在c++11中增加的线程库很方便的让我们去使用线程，但是因为做出了一些改变，我们并不能像往常一样直接使用thread.join()获取线程函数的返回值了，而我们有时候又确实要利用线程函数的返回值。</strong></p>
 <p><strong>thread库提供了future用来访问异步操作的结果，因为一个异步操作的结果往往不能立即获取，只能在未来的某个时候从某个地方获取，这个异步操作的结果是一个未来的期待值，所以被称为future .</strong></p>
 <blockquote>
-<p>future和promise的作用是在不同线程之间传递数据。</p>
-</blockquote>
+<p>future和promise的作用是在不同线程之间传递数据。</p></blockquote>
 <p><strong>假设线程1需要线程2的数据，那么组合使用方式如下:</strong></p>
 <ul>
 <li>
@@ -204,26 +201,26 @@ std::future_status wait_for( const std::chrono::duration&lt;Rep,Period&gt;&amp; 
 <p><strong>推荐标准库用稳定时钟度量时长。若实现用系统时钟代替，则等待时间可能也对时钟调整敏感。</strong></p>
 <p><strong>若调用此函数前 <code>valid()== false</code> 则行为未定义。</strong></p>
 <table>
-<thead>
-<tr>
-<th>参数</th>
-<th style="text-align:right">解释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>future_status::deferred</td>
-<td style="text-align:right">要计算结果的函数仍未启动</td>
-</tr>
-<tr>
-<td>future_status::ready</td>
-<td style="text-align:right">结果就绪</td>
-</tr>
-<tr>
-<td>future_status::timeout</td>
-<td style="text-align:right">已经过时限</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>参数</th>
+          <th style="text-align: right">解释</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>future_status::deferred</td>
+          <td style="text-align: right">要计算结果的函数仍未启动</td>
+      </tr>
+      <tr>
+          <td>future_status::ready</td>
+          <td style="text-align: right">结果就绪</td>
+      </tr>
+      <tr>
+          <td>future_status::timeout</td>
+          <td style="text-align: right">已经过时限</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>异常</strong></p>
 <ul>

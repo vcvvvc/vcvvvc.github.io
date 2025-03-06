@@ -4,10 +4,17 @@
     <title>Tags on VW Blog</title>
     <link>https://vcvvvc.github.io/tags/</link>
     <description>Recent content in Tags on VW Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 06 Aug 2024 21:33:51 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 07 Mar 2025 01:18:40 +0800</lastBuildDate>
     <atom:link href="https://vcvvvc.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Solana</title>
+      <link>https://vcvvvc.github.io/tags/solana/</link>
+      <pubDate>Fri, 07 Mar 2025 01:18:40 +0800</pubDate>
+      <guid>https://vcvvvc.github.io/tags/solana/</guid>
+      <description></description>
+    </item>
     <item>
       <title>BlockChain</title>
       <link>https://vcvvvc.github.io/tags/blockchain/</link>

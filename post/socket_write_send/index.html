@@ -4,15 +4,13 @@
     <title>Socket write_send // VW Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.123.7">
+    <meta name="generator" content="Hugo 0.145.0">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vc" />
     
     <meta name="description" content="VW Blog | 技术记录Blog" />
     <meta name="keywords" content="VW,DeFi,Web3,Bitcoin,Ethereum,Smart contracts,加密货币,数字经济,比特币,以太坊,智能合约,去中心化金融" />
     <link rel="stylesheet" href="https://vcvvvc.github.io/css/main.min.b0a3c12a957b2b43dbdd67f3149dedb0c5c303f470b58601eee0990701353944.css" />
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9864430378509995"
-            crossorigin="anonymous"></script>
 
 
 
@@ -125,30 +123,30 @@
 int send(int sockfd,void *buf,int len,int flags)
 </code></pre><p>前面的三个参数和read, write一样,第四个参数可以是0或者是以下的组合</p>
 <table>
-<thead>
-<tr>
-<th>标题</th>
-<th>内容</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>MSG_DONTROUTE</td>
-<td>不查找表</td>
-</tr>
-<tr>
-<td>MSG_OOB</td>
-<td>接受或者发送带外数据</td>
-</tr>
-<tr>
-<td>MSG_PEEK</td>
-<td>查看数据,并不从系统缓冲区移走数据</td>
-</tr>
-<tr>
-<td>MSG_WAITALL</td>
-<td>等待所有数据</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>标题</th>
+          <th>内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>MSG_DONTROUTE</td>
+          <td>不查找表</td>
+      </tr>
+      <tr>
+          <td>MSG_OOB</td>
+          <td>接受或者发送带外数据</td>
+      </tr>
+      <tr>
+          <td>MSG_PEEK</td>
+          <td>查看数据,并不从系统缓冲区移走数据</td>
+      </tr>
+      <tr>
+          <td>MSG_WAITALL</td>
+          <td>等待所有数据</td>
+      </tr>
+  </tbody>
 </table>
 <p>MSG_DONTROUTE:是 send函数使用的标志.这个标志告诉IP.目的主机在本地网络上面,没有必要查找表.这个标志一般用网络诊断和路由程序里面.
 MSG_OOB:表示可以接收和发送带外的数据.关于带外数据我们以后会解释的.</p>

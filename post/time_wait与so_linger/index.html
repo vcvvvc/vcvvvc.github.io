@@ -4,15 +4,13 @@
     <title>TIME_WAIT与SO_LINGER // VW Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.123.7">
+    <meta name="generator" content="Hugo 0.145.0">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vc" />
     
     <meta name="description" content="VW Blog | 技术记录Blog" />
     <meta name="keywords" content="VW,DeFi,Web3,Bitcoin,Ethereum,Smart contracts,加密货币,数字经济,比特币,以太坊,智能合约,去中心化金融" />
     <link rel="stylesheet" href="https://vcvvvc.github.io/css/main.min.b0a3c12a957b2b43dbdd67f3149dedb0c5c303f470b58601eee0990701353944.css" />
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9864430378509995"
-            crossorigin="anonymous"></script>
 
 
 
@@ -158,38 +156,38 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">int</span> l_linger; <span style="color:#75715e">//linger time(延迟时间)
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
 </span></span></code></pre></div><table>
-<thead>
-<tr>
-<th style="text-align:center">l_onoff</th>
-<th style="text-align:center">l_linger</th>
-<th style="text-align:center">closesocket</th>
-<th style="text-align:center">发送队列</th>
-<th style="text-align:center">底层行为</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">0</td>
-<td style="text-align:center">关闭</td>
-<td style="text-align:center">立即返回</td>
-<td style="text-align:center">保持直到发送完成</td>
-<td style="text-align:center">系统接管套接字并保证将数据发送至对端。（就是正常的close）</td>
-</tr>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">立即返回</td>
-<td style="text-align:center">立即放弃</td>
-<td style="text-align:center">直接发送RST包，自身立即复位，不用经过2MSL状态。对端收到复位错误号。</td>
-</tr>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">阻塞直到l_linger时间超时或数据发送完成。</td>
-<td style="text-align:center">在超时时间段内保持尝试发送，若超时则立即放弃。</td>
-<td style="text-align:center">设置超时时间，若超时未完成数据发送，则立即返回按linger = 0的行为关闭</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: center">l_onoff</th>
+          <th style="text-align: center">l_linger</th>
+          <th style="text-align: center">closesocket</th>
+          <th style="text-align: center">发送队列</th>
+          <th style="text-align: center">底层行为</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">0</td>
+          <td style="text-align: center">关闭</td>
+          <td style="text-align: center">立即返回</td>
+          <td style="text-align: center">保持直到发送完成</td>
+          <td style="text-align: center">系统接管套接字并保证将数据发送至对端。（就是正常的close）</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">1</td>
+          <td style="text-align: center">0</td>
+          <td style="text-align: center">立即返回</td>
+          <td style="text-align: center">立即放弃</td>
+          <td style="text-align: center">直接发送RST包，自身立即复位，不用经过2MSL状态。对端收到复位错误号。</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">1</td>
+          <td style="text-align: center">1</td>
+          <td style="text-align: center">阻塞直到l_linger时间超时或数据发送完成。</td>
+          <td style="text-align: center">在超时时间段内保持尝试发送，若超时则立即放弃。</td>
+          <td style="text-align: center">设置超时时间，若超时未完成数据发送，则立即返回按linger = 0的行为关闭</td>
+      </tr>
+  </tbody>
 </table>
 <hr>
 <h2 id="re">Re:</h2>
