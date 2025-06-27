@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Boost on VW Blog</title>
-    <link>https://vcvvvc.github.io/tags/boost/</link>
+    <link>./tags/boost/</link>
     <description>Recent content in Boost on VW Blog</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Tue, 28 Jul 2020 13:09:01 +0800</lastBuildDate>
-    <atom:link href="https://vcvvvc.github.io/tags/boost/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="./tags/boost/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linux install Boost c&#43;&#43;</title>
-      <link>https://vcvvvc.github.io/post/linux_install_boost/</link>
+      <link>./post/linux_install_boost/</link>
       <pubDate>Tue, 28 Jul 2020 13:09:01 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/post/linux_install_boost/</guid>
+      <guid>./post/linux_install_boost/</guid>
       <description>&lt;blockquote&gt;&#xA;&lt;p&gt;Boost C++ is Cpp programming language that provides support for tasks and structures&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;h1 id=&#34;download-source&#34;&gt;Download Source&lt;/h1&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;https://dl.bintray.com/boostorg/release/1.73.0/source/boost_1_73_0.tar.gz&#xA;tar zxvf boost(解压)&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h1 id=&#34;set-use-gcc&#34;&gt;Set use GCC&lt;/h1&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cd boost&#xA;./bootstrap.sh --with-libraries=all --with-toolset=gcc&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h1 id=&#34;compile--install-boost&#34;&gt;Compile &amp;amp; Install boost&lt;/h1&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;./b2 toolset=gcc&#xA;./b2 install --prefix=/usr&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h1 id=&#34;test-programming&#34;&gt;Test programming&lt;/h1&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;#include &amp;lt;boost/thread/thread.hpp&amp;gt; //boost thread&#xA;#include &amp;lt;iostream&amp;gt;&#xA;#include &amp;lt;cstdlib&amp;gt;&#xA;using namespace std;&#xA;&#xA;volatile bool isRuning = true;&#xA;&#xA;void func1()&#xA;{&#xA;    static int cnt1 = 0;&#xA;    while(isRuning)&#xA;    {&#xA;        cout &amp;lt;&amp;lt; &amp;#34;func1:&amp;#34; &amp;lt;&amp;lt; cnt1++ &amp;lt;&amp;lt; endl;&#xA;        sleep(1);&#xA;    }&#xA;}&#xA;&#xA;void func2()&#xA;{&#xA;    static int cnt2 = 0;&#xA;    while(isRuning)&#xA;    {&#xA;        cout &amp;lt;&amp;lt; &amp;#34;\tfunc2:&amp;#34; &amp;lt;&amp;lt; cnt2++ &amp;lt;&amp;lt; endl;&#xA;        sleep(2);&#xA;    }&#xA;}&#xA;&#xA;int main()&#xA;{&#xA;    boost::thread thread1(&amp;amp;func1);&#xA;    boost::thread thread2(&amp;amp;func2);&#xA;&#xA;    system(&amp;#34;read&amp;#34;);&#xA;    isRuning = false;&#xA;&#xA;    thread2.join();&#xA;    thread1.join();&#xA;    cout &amp;lt;&amp;lt; &amp;#34;exit&amp;#34; &amp;lt;&amp;lt; endl;&#xA;    return 0;&#xA;}&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;g++ main.cpp -g -o main -lboost_thread -lpthread&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
   </channel>

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Markdown on VW Blog</title>
-    <link>https://vcvvvc.github.io/tags/markdown/</link>
+    <link>./tags/markdown/</link>
     <description>Recent content in Markdown on VW Blog</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Wed, 29 Jul 2020 18:27:35 +0800</lastBuildDate>
-    <atom:link href="https://vcvvvc.github.io/tags/markdown/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="./tags/markdown/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hugo &amp; Markdown</title>
-      <link>https://vcvvvc.github.io/post/hugomarkdown/</link>
+      <link>./post/hugomarkdown/</link>
       <pubDate>Wed, 29 Jul 2020 18:27:35 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/post/hugomarkdown/</guid>
+      <guid>./post/hugomarkdown/</guid>
       <description>&lt;h1 id=&#34;0-hugo--markdown&#34;&gt;0. Hugo &amp;amp; Markdown&lt;/h1&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://gohugo.io&#34;&gt;Hugo&lt;/a&gt; &amp;amp;&amp;amp; MarkDown&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h1 id=&#34;1-markdown-template&#34;&gt;1. MarkDown template&lt;/h1&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;---&#xA;title: &amp;#34;{{ replace .Name &amp;#34;-&amp;#34; &amp;#34; &amp;#34; | title }}&amp;#34;&#xA;date: {{ .Date }}&#xA;lastmod: {{ .Date }}&#xA;draft: false&#xA;tags: [  ]&#xA;categories: [  ]&#xA;comment: true&#xA;---&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h1 id=&#34;2-hugo-command&#34;&gt;2. Hugo command&lt;/h1&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;hugo #build html havn&amp;#39;t draft=true&#xA;hugo -D #build html and dragt=true&#xA;hugo server #Start hugo server&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h1 id=&#34;3-other&#34;&gt;3. Other&lt;/h1&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://zsmhub.github.io/post/%E5%8D%9A%E5%AE%A2/hugo%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B&#34;&gt;Reference&lt;/a&gt;&lt;/p&gt;</description>
     </item>
   </channel>

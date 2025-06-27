@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Startup on VW Blog</title>
-    <link>https://vcvvvc.github.io/tags/startup/</link>
+    <link>./tags/startup/</link>
     <description>Recent content in Startup on VW Blog</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Sun, 03 Oct 2021 12:08:21 +0800</lastBuildDate>
-    <atom:link href="https://vcvvvc.github.io/tags/startup/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="./tags/startup/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ubuntu20开机自启脚本</title>
-      <link>https://vcvvvc.github.io/post/ubuntu20%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E8%84%9A%E6%9C%AC/</link>
+      <link>./post/ubuntu20%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E8%84%9A%E6%9C%AC/</link>
       <pubDate>Sun, 03 Oct 2021 12:08:21 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/post/ubuntu20%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E8%84%9A%E6%9C%AC/</guid>
+      <guid>./post/ubuntu20%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E8%84%9A%E6%9C%AC/</guid>
       <description>&lt;p&gt;&lt;em&gt;我测试了好几篇文章,终于有个成功了&lt;/em&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;localservice&#34;&gt;local.service&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;vim  /etc/systemd/system/rc-local.service&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;输入以下内容:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;[Unit] &#xA;Description=/etc/rc.local Compatibility &#xA;ConditionPathExists=/etc/rc.local &#xA;&#xA;[Service] &#xA;Type=forking &#xA;ExecStart=/etc/rc.local start &#xA;TimeoutSec=0 &#xA;StandardOutput=tty &#xA;RemainAfterExit=yes &#xA;SysVStartPriority=99 &#xA;&#xA;[Install]&#xA;WantedBy=multi-user.target&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h2 id=&#34;rclocal&#34;&gt;rc.local&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;vim  /etc/rc.local&lt;/code&gt;&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;#!/bin/sh -e &#xA;## rc.local&#xA;&#xA;sh /root/startup.sh&#xA;&#xA;exit 0&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h2 id=&#34;收尾&#34;&gt;收尾&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;授权 &lt;code&gt;chmod +x /etc/rc.local&lt;/code&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;自启动 &lt;code&gt;systemctl enable rc-local&lt;/code&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;运行 &lt;code&gt;systemctl start rc-local.service&lt;/code&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;查看状态 &lt;code&gt;systemctl status rc-local.service&lt;/code&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;&lt;strong&gt;先别重启, &lt;code&gt;ps -x&lt;/code&gt;配合&lt;code&gt;grep&lt;/code&gt;搜索关键字看看进程启动没有&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;之后保存好文件重启进行测试 再次查看是否启动&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;举个例子:&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;startup.sh&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;#!/bin/bash -e&#xA;cd /root/News-D/&#xA;nohup python3 main.py &amp;amp;&#xA;cd /root/News-D/Finance/&#xA;nohup python3 -m http.server 20777 &amp;amp;&#xA;rm nohup.a.out&#xA;exit 0&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h2 id=&#34;re&#34;&gt;Re:&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.cnblogs.com/Deskew/p/13798595.html&#34;&gt;https://www.cnblogs.com/Deskew/p/13798595.html&lt;/a&gt;&lt;/p&gt;</description>
     </item>
   </channel>

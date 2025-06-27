@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>I3wm on VW Blog</title>
-    <link>https://vcvvvc.github.io/tags/i3wm/</link>
+    <link>./tags/i3wm/</link>
     <description>Recent content in I3wm on VW Blog</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Thu, 30 Jul 2020 18:04:47 +0800</lastBuildDate>
-    <atom:link href="https://vcvvvc.github.io/tags/i3wm/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="./tags/i3wm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Arch Beautify desktop</title>
-      <link>https://vcvvvc.github.io/post/arch_desktop/</link>
+      <link>./post/arch_desktop/</link>
       <pubDate>Thu, 30 Jul 2020 18:04:47 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/post/arch_desktop/</guid>
+      <guid>./post/arch_desktop/</guid>
       <description>&lt;h2 id=&#34;1-install-xorg&#34;&gt;1. install xorg&lt;/h2&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;systemctl enable dhcpcd&#xA;pacman -S xorg-server xorg-xinit&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h2 id=&#34;install-tool&#34;&gt;install tool&lt;/h2&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;pacman -S zsh alacritty fctix fcitx-im fcitx-configtool i3 git &#xA;sh -c &amp;#34;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&amp;#34;&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h2 id=&#34;install-ttf&#34;&gt;install ttf&lt;/h2&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;pacman -S ttf-liberation&#xA;pacman -S adobe-source-han-sans-cn-fonts&#xA;pacman -S adobe-source-han-sans-tw-fonts&#xA;pacman -S adobe-source-han-sans-jp-fonts&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h2 id=&#34;add-user&#34;&gt;add user&lt;/h2&gt;&#xA;&lt;p&gt;这一步随意&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;useradd -m -g users -s /bin/zsh xxxx #添加xxxx用户，用户名你自定义&#xA;passwd xxxx #为xxxx用户设置密码&#xA;vim /etc/sudoers #编辑配置文件&#xA;在root ALL = (ALL) ALL下添加xxxx ALL = (ALL) ALL;输入:wq!强制保存退出vim&#xA;login new user&#xA;touch .zshrc&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h2 id=&#34;startx&#34;&gt;startx&lt;/h2&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cp /etc/X11/xinit/xinitrc ~/.xinitrc&#xA;vim ~/.xinitrc&#xA;exec i3&#xA;reboot&#xA;startx&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h2 id=&#34;tool&#34;&gt;tool&lt;/h2&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;pacman -S compton  &#xA;pacman -S polybar&#xA;pacman -S rofi  feh #快捷程序启动 壁纸&#xA;#feh --randomize --bg-fill ~/Pictureso/DesktopBackground &#xA;pacman -S ntfs-3g                                            #识别NTFS格式的硬盘&#xA;pacman -S adobe-source-han-serif-cn-fonts wqy-zenhei         #安装几个开源中文字体 一般装上文泉驿就能解决大多wine应用中文方块的问题&#xA;pacman -S noto-fonts-cjk noto-fonts-emoji noto-fonts-extra   #安装谷歌开源字体及表情&#xA;pacman -S firefox chromium                                   #安装常用的火狐、谷歌浏览器&#xA;pacman -S ark                                                #与dolphin同用右键解压&#xA;pacman -S p7zip unrar unarchiver lzop lrzip                  #安装ark可选依赖&#xA;#pacman -S packagekit-qt5 packagekit appstream-qt appstream   #确保Discover(软件中心）可用 需重启&#xA;pacman -S gwenview                                           #图片查看器&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h1 id=&#34;pacmain--s-rofi&#34;&gt;pacmain -S rofi&lt;/h1&gt;&#xA;&lt;p&gt;vim ~/.config/i3/config&lt;/p&gt;</description>
     </item>
   </channel>

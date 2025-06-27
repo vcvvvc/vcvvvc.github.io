@@ -2,52 +2,52 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ubuntu on VW Blog</title>
-    <link>https://vcvvvc.github.io/tags/ubuntu/</link>
+    <link>./tags/ubuntu/</link>
     <description>Recent content in Ubuntu on VW Blog</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Sat, 18 Dec 2021 17:36:22 +0800</lastBuildDate>
-    <atom:link href="https://vcvvvc.github.io/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="./tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ubuntu20_install_mysql</title>
-      <link>https://vcvvvc.github.io/post/ubuntu_install_mysql/</link>
+      <link>./post/ubuntu_install_mysql/</link>
       <pubDate>Sat, 18 Dec 2021 17:36:22 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/post/ubuntu_install_mysql/</guid>
+      <guid>./post/ubuntu_install_mysql/</guid>
       <description>&lt;h2 id=&#34;安装mysql80&#34;&gt;安装mysql8.0&lt;/h2&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;apt-get update&#xA;apt-get install mysql-server&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h2 id=&#34;设置远程访问&#34;&gt;设置远程访问&lt;/h2&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;#远程&#xA;vim /etc/mysql/mysql.conf.d/mysqld.cnf&#xA;bind-address改为0.0.0.0&#xA;&#xA;#重启&#xA;/etc/init.d/mysql restart&#xA;&#xA;#设置权限与密码&#xA;use mysql;&#xA;ALTER USER &amp;#39;root&amp;#39;@&amp;#39;localhost&amp;#39; IDENTIFIED WITH mysql_native_password BY &amp;#39;密码&amp;#39;; #使用mysql_native_password修改加密规则&#xA;ALTER USER &amp;#39;root&amp;#39;@&amp;#39;localhost&amp;#39; IDENTIFIED BY &amp;#39;密码&amp;#39; PASSWORD EXPIRE NEVER; #更新一下用户的密码&#xA;UPDATE user SET host = &amp;#39;%&amp;#39; WHERE user = &amp;#39;root&amp;#39;; #允许远程访问&#xA;&#xA;#刷新cache中配置 刷新权限&#xA;flush privileges;&#xA;quit;&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h2 id=&#34;初始化&#34;&gt;初始化&lt;/h2&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;#初始化&#xA;mysql_secure_installation&#xA;1. NO&#xA;2. 输入密码&#xA;3. 其余全部默认&#xA;&#xA;# 检查&#xA;systemctl status mysql.service&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h1 id=&#34;状态&#34;&gt;状态&lt;/h1&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;#开启&#xA;service mysql start&#xA;# 关闭&#xA;service mysql stop&#xA;# 重启&#xA;service mysql restart&#xA;# 状态&#xA;systemctl status mysql.service&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h2 id=&#34;其他&#34;&gt;其他&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;缺少mysql.h头文件&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Ubuntu20.10 install vscode</title>
-      <link>https://vcvvvc.github.io/post/ubuntu2010_install_vscode/</link>
+      <link>./post/ubuntu2010_install_vscode/</link>
       <pubDate>Thu, 02 Dec 2021 16:06:36 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/post/ubuntu2010_install_vscode/</guid>
+      <guid>./post/ubuntu2010_install_vscode/</guid>
       <description>&lt;p&gt;20.10有点下问题，得简单配置下&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;添加到bashrc-或zshrc&#34;&gt;添加到bashrc 或zshrc&lt;/h2&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cd ~&#xA;mkdir vscode&#xA;alias code=&amp;#39;code --user-data-dir $HOME/vscode&amp;#39;&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h2 id=&#34;root运行&#34;&gt;root运行&lt;/h2&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;vim /usr/bin/code&#xA;# 跟谷歌浏览器一样 添加&#xA;--no-sandbox&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     <item>
       <title>Ubuntu20 Install Nvidia drivers</title>
-      <link>https://vcvvvc.github.io/post/install_nvidia/</link>
+      <link>./post/install_nvidia/</link>
       <pubDate>Thu, 06 May 2021 07:29:52 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/post/install_nvidia/</guid>
+      <guid>./post/install_nvidia/</guid>
       <description>&lt;p&gt;&lt;strong&gt;2021-05-06更新 完善一下&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;网上教程坑特别多 这个步骤是我自己装好总结的&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;电脑dell&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;显卡1650&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;1-去残留&#34;&gt;1. 去残留&lt;/h2&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo apt-get remove --purge nvidia* &#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h2 id=&#34;2-添加规则&#34;&gt;2. 添加规则&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;vim /etc/modprobe.d/blacklist.conf&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;blacklist nouveau &#xA;options nouveau modeset=0&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h2 id=&#34;3-验证是否成功&#34;&gt;3. 验证是否成功&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;重启 重启之后输入命令&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo update-initramfs -u&#xA;lsmod | grep nouveau&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;如果没有返回信息代表成功&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;有信息的话 先检查下步骤2 再重启, 也可忽视 我这边见过一次有返回&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;4选择合适的版本&#34;&gt;4.选择合适的版本&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;1.输入命令:  &lt;code&gt;ubuntu-drivers devices&lt;/code&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;2.官网：&lt;a href=&#34;https://www.nvidia.com/en-us/geforce/drivers/&#34;&gt;Nvidia Official website&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;选择合适的版本来进行安装&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo add-apt-repository ppa:graphics-drivers/ppa&#xA;sudo apt-get update&#xA;&#xA;#选择自己的版本 例如我这边安装440&#xA;sudo apt-get install nvidia-driver-440&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h2 id=&#34;5选择驱动应用&#34;&gt;5.选择驱动应用&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;ubuntu配置点击 软件和更新 ==&amp;gt; 附件驱动 然后选择合适版本的驱动&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Open warehouse =&amp;gt; additional drivers =&amp;gt; choose you drivers .&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Ubuntu20 install opencv</title>
-      <link>https://vcvvvc.github.io/post/ubuntu20_install_opencv/</link>
+      <link>./post/ubuntu20_install_opencv/</link>
       <pubDate>Thu, 14 Jan 2021 22:02:25 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/post/ubuntu20_install_opencv/</guid>
+      <guid>./post/ubuntu20_install_opencv/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Ubuntu20.04.1LTS 2020-01-14-Successful&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h1 id=&#34;lib-install&#34;&gt;lib Install&lt;/h1&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;apt-get install -y build-essential pkg-config cmake&#xA;apt-get install -y libgtk2.0-dev libavcodec-dev libavformat-dev libjpeg-dev libswscale-dev libtiff5-dev&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h1 id=&#34;download&#34;&gt;Download&lt;/h1&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;github:&#xA;git clone https://github.com/opencv/opencv.git&#xA;&#xA;gitee:&#xA;git clone https://gitee.com/mirrors/opencv.git&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h1 id=&#34;install&#34;&gt;Install&lt;/h1&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cd opencv&#xA;&#xA;mkdir build&#xA;&#xA;cd build&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D WITH_GTK=ON -D OPENCV_GENERATE_PKGCONFIG=YES ..&#xA;&#xA;make -j4&#xA;&#xA;make install&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h1 id=&#34;set&#34;&gt;Set&lt;/h1&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;echo &amp;#34;include /usr/loacal/lib&amp;#34; &amp;gt;&amp;gt; /etc/ld.so.conf&#xA;ldconfig&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;echo &amp;#34;PKG_CONFIG_PATH=\$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig&amp;#34; &amp;gt;&amp;gt; /etc/bash.bashrc&#xA;echo &amp;#34;export PKG_CONFIG_PATH&amp;#34; &amp;gt;&amp;gt; /etc/bash.bashrc&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h1 id=&#34;show-version&#34;&gt;Show version&lt;/h1&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;pkg-config --modversion opencv4&#xA;&#xA;pkg-config --cflags opencv4&#xA;&#xA;pkg-config --libs opencv4&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     <item>
       <title>Ubuntu tim_wechat</title>
-      <link>https://vcvvvc.github.io/post/ubuntu_tim_wechat/</link>
+      <link>./post/ubuntu_tim_wechat/</link>
       <pubDate>Tue, 24 Nov 2020 16:50:16 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/post/ubuntu_tim_wechat/</guid>
+      <guid>./post/ubuntu_tim_wechat/</guid>
       <description>&lt;p&gt;字体&#xA;因为wine对HiDPI不会默认适配dpi值。解决方案:&lt;/p&gt;&#xA;&lt;p&gt;注意WINEPREFIX这个环境变量指向你的deepin wine容器目录，比如TIM在~/.deepinwine/Deepin-TIM，微信在~/.deepinwine/Deepin-WeChat&#xA;执行以下命令&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;WINEPREFIX=~/.deepinwine/Deepin-QQ deepin-wine winecfg&#xA;WINEPREFIX=~/.deepinwine/Deepin-WeChat deepin-wine winecfg&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;打开wine设置页面，在显示选项卡中调整屏幕分辨率的dpi值即可。比如想实现win 10的150% DPI只需要将96改到144即可，125%放大则对应120。手工调整下合适的DPI就可以了&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;对于中文乱码是空格的情况，安装中文字体解决&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo apt-get install fonts-droid-fallback ttf-wqy-zenhei ttf-wqy-microhei fonts-arphic-ukai fonts-arphic-uming&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     <item>
       <title>Ubuntu20 install FFmpeg</title>
-      <link>https://vcvvvc.github.io/post/ffmpeg_install/</link>
+      <link>./post/ffmpeg_install/</link>
       <pubDate>Mon, 27 Jul 2020 17:41:31 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/post/ffmpeg_install/</guid>
+      <guid>./post/ffmpeg_install/</guid>
       <description>&lt;h2 id=&#34;start-download-ffmpeg&#34;&gt;Start &lt;a href=&#34;https://www.ffmpeg.org/download.html&#34;&gt;Download FFmpeg&lt;/a&gt;&lt;/h2&gt;&#xA;&lt;hr&gt;&#xA;&lt;h1 id=&#34;install-tool&#34;&gt;Install tool&lt;/h1&gt;&#xA;&lt;p&gt;&lt;strong&gt;1. install yasm&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo apt-get install yasm&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;&#xA;&lt;p&gt;if not installed yasm, os will output &amp;ldquo;nasm/yasm not found or too old. Use &amp;ndash;disable-x86asm for a crippled build.&amp;rdquo;&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;2. install SDL2&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://www.libsdl.org/release/SDL2-2.0.12.tar.gz&#34;&gt;SDL2-2.0.12(stable)&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;tar -xvf SDL2-2.0.12.tar.gz&#xA;cd SDL2-2.0.12&#xA;./configure&#xA;sudo make -j4&#xA;sudo make install&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h1 id=&#34;install-ffmpeg&#34;&gt;Install FFmpeg&lt;/h1&gt;&#xA;&lt;p&gt;&lt;strong&gt;1. git clone &lt;a href=&#34;https://git.ffmpeg.org/ffmpeg.git&#34;&gt;https://git.ffmpeg.org/ffmpeg.git&lt;/a&gt; ffmpeg&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cd ffmpeg/&#xA;./configure&#xA;sudo make -j4&#xA;sudo make install&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h1 id=&#34;3-check&#34;&gt;3. Check&lt;/h1&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;ffmpeg -version&#xA;ffplay -version&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
   </channel>

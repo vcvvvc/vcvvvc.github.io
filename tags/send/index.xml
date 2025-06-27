@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Send on VW Blog</title>
-    <link>https://vcvvvc.github.io/tags/send/</link>
+    <link>./tags/send/</link>
     <description>Recent content in Send on VW Blog</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Sat, 21 Nov 2020 14:59:41 +0800</lastBuildDate>
-    <atom:link href="https://vcvvvc.github.io/tags/send/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="./tags/send/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Socket write_send</title>
-      <link>https://vcvvvc.github.io/post/socket_write_send/</link>
+      <link>./post/socket_write_send/</link>
       <pubDate>Sat, 21 Nov 2020 14:59:41 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/post/socket_write_send/</guid>
+      <guid>./post/socket_write_send/</guid>
       <description>&lt;p&gt;&lt;code&gt;ssize_t write(int fd, const void*buf,size_t nbytes);&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;write函数将buf中的nbytes字节内容写入文件描述符fd.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;成功时返回写的字节数.失败时返回-1. 并设置errno变量. 在网络程序中,当我们向套接字文件描述符写时有两可能.&#xA;1)write的返回值大于0,表示写了部分或者是全部的数据. 这样我们用一个while循环来不停的写入，但是循环过程中的buf参数和nbyte参数得由我们来更新。也就是说，网络写函数是不负责将全部数据写完之后在返回的。&#xA;2)返回的值小于0,此时出现了错误.我们要根据错误类型来处理.&#xA;如果错误为EINTR表示在写的时候出现了中断错误.&#xA;如果为EPIPE表示网络连接出现了问题(对方已经关闭了连接).&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;&lt;code&gt;ssize_t read(int fd,void *buf,size_t nbyte)&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;read函数是负责从fd中读取内容.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;当读成功 时,read返回实际所读的字节数,如果返回的值是0 表示已经读到文件的结束了,小于0表示出现了错误.如果错误为EINTR说明读是由中断引起 的, 如果是ECONNREST表示网络连接出了问题. 和上面一样,我们也写一个自己的读函数.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;&lt;strong&gt;recv和send函数提供了和read和write差不多的功能.不过它们提供了第四个参数来控制读写操作.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;int recv(int sockfd,void *buf,int len,int flags)&#xA;int send(int sockfd,void *buf,int len,int flags)&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;前面的三个参数和read, write一样,第四个参数可以是0或者是以下的组合&lt;/p&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;标题&lt;/th&gt;&#xA;          &lt;th&gt;内容&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;MSG_DONTROUTE&lt;/td&gt;&#xA;          &lt;td&gt;不查找表&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;MSG_OOB&lt;/td&gt;&#xA;          &lt;td&gt;接受或者发送带外数据&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;MSG_PEEK&lt;/td&gt;&#xA;          &lt;td&gt;查看数据,并不从系统缓冲区移走数据&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;MSG_WAITALL&lt;/td&gt;&#xA;          &lt;td&gt;等待所有数据&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;p&gt;MSG_DONTROUTE:是 send函数使用的标志.这个标志告诉IP.目的主机在本地网络上面,没有必要查找表.这个标志一般用网络诊断和路由程序里面.&#xA;MSG_OOB:表示可以接收和发送带外的数据.关于带外数据我们以后会解释的.&lt;/p&gt;&#xA;&lt;p&gt;MSG_PEEK:是recv函数的使用标志, 表示只是从系统缓冲区中读取内容,而不清除系统缓冲区的内容.这样下次读的时候,仍然是一样的内容.一般在有多个进程读写数据时可以使用这个标志.&lt;/p&gt;&#xA;&lt;p&gt;MSG_WAITALL 是recv函数的使用标志,表示等到所有的信息到达时才返回.使用这个标志的时候recv回一直阻塞,直到指定的条件满足,或者是发生了错误. 1)当读到了指定的字节时,函数正常返回.返回值等于len 2)当读到了文件的结尾时,函数正常返回.返回值小于len 3)当操作发生错误时,返回-1,且设置错误为相应的错误号(errno)&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;Re:&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/petershina/article/details/7946615&#34;&gt;https://blog.csdn.net/petershina/article/details/7946615&lt;/a&gt;&lt;/p&gt;</description>
     </item>
   </channel>

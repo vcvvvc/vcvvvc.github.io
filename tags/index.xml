@@ -2,647 +2,647 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on VW Blog</title>
-    <link>https://vcvvvc.github.io/tags/</link>
+    <link>./tags/</link>
     <description>Recent content in Tags on VW Blog</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Fri, 07 Mar 2025 01:18:40 +0800</lastBuildDate>
-    <atom:link href="https://vcvvvc.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="./tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Solana</title>
-      <link>https://vcvvvc.github.io/tags/solana/</link>
+      <link>./tags/solana/</link>
       <pubDate>Fri, 07 Mar 2025 01:18:40 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/solana/</guid>
+      <guid>./tags/solana/</guid>
       <description></description>
     </item>
     <item>
       <title>BlockChain</title>
-      <link>https://vcvvvc.github.io/tags/blockchain/</link>
+      <link>./tags/blockchain/</link>
       <pubDate>Tue, 06 Aug 2024 21:33:51 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/blockchain/</guid>
+      <guid>./tags/blockchain/</guid>
       <description></description>
     </item>
     <item>
       <title>Doubler</title>
-      <link>https://vcvvvc.github.io/tags/doubler/</link>
+      <link>./tags/doubler/</link>
       <pubDate>Tue, 06 Aug 2024 21:33:51 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/doubler/</guid>
+      <guid>./tags/doubler/</guid>
       <description></description>
     </item>
     <item>
       <title>Zkp</title>
-      <link>https://vcvvvc.github.io/tags/zkp/</link>
+      <link>./tags/zkp/</link>
       <pubDate>Wed, 01 May 2024 19:52:28 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/zkp/</guid>
+      <guid>./tags/zkp/</guid>
       <description></description>
     </item>
     <item>
       <title>Docker</title>
-      <link>https://vcvvvc.github.io/tags/docker/</link>
+      <link>./tags/docker/</link>
       <pubDate>Mon, 01 Apr 2024 16:42:04 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/docker/</guid>
+      <guid>./tags/docker/</guid>
       <description></description>
     </item>
     <item>
       <title>Linux</title>
-      <link>https://vcvvvc.github.io/tags/linux/</link>
+      <link>./tags/linux/</link>
       <pubDate>Mon, 01 Apr 2024 16:42:04 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/linux/</guid>
+      <guid>./tags/linux/</guid>
       <description></description>
     </item>
     <item>
       <title>Hardhat</title>
-      <link>https://vcvvvc.github.io/tags/hardhat/</link>
+      <link>./tags/hardhat/</link>
       <pubDate>Mon, 11 Mar 2024 20:41:44 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/hardhat/</guid>
+      <guid>./tags/hardhat/</guid>
       <description></description>
     </item>
     <item>
       <title>Smart Contract</title>
-      <link>https://vcvvvc.github.io/tags/smart-contract/</link>
+      <link>./tags/smart-contract/</link>
       <pubDate>Mon, 11 Mar 2024 20:41:44 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/smart-contract/</guid>
+      <guid>./tags/smart-contract/</guid>
       <description></description>
     </item>
     <item>
       <title>Ethereum</title>
-      <link>https://vcvvvc.github.io/tags/ethereum/</link>
+      <link>./tags/ethereum/</link>
       <pubDate>Sat, 10 Feb 2024 23:51:46 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/ethereum/</guid>
+      <guid>./tags/ethereum/</guid>
       <description></description>
     </item>
     <item>
       <title>Http</title>
-      <link>https://vcvvvc.github.io/tags/http/</link>
+      <link>./tags/http/</link>
       <pubDate>Sat, 10 Feb 2024 15:08:37 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/http/</guid>
+      <guid>./tags/http/</guid>
       <description></description>
     </item>
     <item>
       <title>Restful</title>
-      <link>https://vcvvvc.github.io/tags/restful/</link>
+      <link>./tags/restful/</link>
       <pubDate>Sat, 10 Feb 2024 15:08:37 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/restful/</guid>
+      <guid>./tags/restful/</guid>
       <description></description>
     </item>
     <item>
       <title>Crypto</title>
-      <link>https://vcvvvc.github.io/tags/crypto/</link>
+      <link>./tags/crypto/</link>
       <pubDate>Thu, 25 Jan 2024 19:26:12 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/crypto/</guid>
+      <guid>./tags/crypto/</guid>
       <description></description>
     </item>
     <item>
       <title>Bitcoin</title>
-      <link>https://vcvvvc.github.io/tags/bitcoin/</link>
+      <link>./tags/bitcoin/</link>
       <pubDate>Thu, 28 Dec 2023 01:29:45 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/bitcoin/</guid>
+      <guid>./tags/bitcoin/</guid>
       <description></description>
     </item>
     <item>
       <title>RGB</title>
-      <link>https://vcvvvc.github.io/tags/rgb/</link>
+      <link>./tags/rgb/</link>
       <pubDate>Thu, 28 Dec 2023 01:29:45 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/rgb/</guid>
+      <guid>./tags/rgb/</guid>
       <description></description>
     </item>
     <item>
       <title>DeFi</title>
-      <link>https://vcvvvc.github.io/tags/defi/</link>
+      <link>./tags/defi/</link>
       <pubDate>Sun, 17 Sep 2023 21:56:19 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/defi/</guid>
+      <guid>./tags/defi/</guid>
       <description></description>
     </item>
     <item>
       <title>Solidity</title>
-      <link>https://vcvvvc.github.io/tags/solidity/</link>
+      <link>./tags/solidity/</link>
       <pubDate>Tue, 22 Aug 2023 18:07:06 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/solidity/</guid>
+      <guid>./tags/solidity/</guid>
       <description></description>
     </item>
     <item>
       <title>Socket</title>
-      <link>https://vcvvvc.github.io/tags/socket/</link>
+      <link>./tags/socket/</link>
       <pubDate>Mon, 29 May 2023 21:13:27 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/socket/</guid>
+      <guid>./tags/socket/</guid>
       <description></description>
     </item>
     <item>
       <title>Epoll</title>
-      <link>https://vcvvvc.github.io/tags/epoll/</link>
+      <link>./tags/epoll/</link>
       <pubDate>Mon, 29 May 2023 20:54:49 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/epoll/</guid>
+      <guid>./tags/epoll/</guid>
       <description></description>
     </item>
     <item>
       <title>CPP</title>
-      <link>https://vcvvvc.github.io/tags/cpp/</link>
+      <link>./tags/cpp/</link>
       <pubDate>Tue, 11 Apr 2023 18:07:17 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/cpp/</guid>
+      <guid>./tags/cpp/</guid>
       <description></description>
     </item>
     <item>
       <title>STL</title>
-      <link>https://vcvvvc.github.io/tags/stl/</link>
+      <link>./tags/stl/</link>
       <pubDate>Tue, 11 Apr 2023 18:07:17 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/stl/</guid>
+      <guid>./tags/stl/</guid>
       <description></description>
     </item>
     <item>
       <title>Ai</title>
-      <link>https://vcvvvc.github.io/tags/ai/</link>
+      <link>./tags/ai/</link>
       <pubDate>Sun, 12 Mar 2023 20:59:29 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/ai/</guid>
+      <guid>./tags/ai/</guid>
       <description></description>
     </item>
     <item>
       <title>ChatGpt</title>
-      <link>https://vcvvvc.github.io/tags/chatgpt/</link>
+      <link>./tags/chatgpt/</link>
       <pubDate>Mon, 20 Feb 2023 23:57:46 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/chatgpt/</guid>
+      <guid>./tags/chatgpt/</guid>
       <description></description>
     </item>
     <item>
       <title>Stock</title>
-      <link>https://vcvvvc.github.io/tags/stock/</link>
+      <link>./tags/stock/</link>
       <pubDate>Tue, 10 Jan 2023 23:36:08 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/stock/</guid>
+      <guid>./tags/stock/</guid>
       <description></description>
     </item>
     <item>
       <title>Server</title>
-      <link>https://vcvvvc.github.io/tags/server/</link>
+      <link>./tags/server/</link>
       <pubDate>Thu, 15 Dec 2022 14:07:46 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/server/</guid>
+      <guid>./tags/server/</guid>
       <description></description>
     </item>
     <item>
       <title>XPU</title>
-      <link>https://vcvvvc.github.io/tags/xpu/</link>
+      <link>./tags/xpu/</link>
       <pubDate>Mon, 14 Nov 2022 20:16:57 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/xpu/</guid>
+      <guid>./tags/xpu/</guid>
       <description></description>
     </item>
     <item>
       <title>Block_Chain</title>
-      <link>https://vcvvvc.github.io/tags/block_chain/</link>
+      <link>./tags/block_chain/</link>
       <pubDate>Sat, 30 Apr 2022 16:20:01 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/block_chain/</guid>
+      <guid>./tags/block_chain/</guid>
       <description></description>
     </item>
     <item>
       <title>Note</title>
-      <link>https://vcvvvc.github.io/tags/note/</link>
+      <link>./tags/note/</link>
       <pubDate>Tue, 05 Apr 2022 00:48:48 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/note/</guid>
+      <guid>./tags/note/</guid>
       <description></description>
     </item>
     <item>
       <title>TCP</title>
-      <link>https://vcvvvc.github.io/tags/tcp/</link>
+      <link>./tags/tcp/</link>
       <pubDate>Wed, 23 Feb 2022 17:47:16 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/tcp/</guid>
+      <guid>./tags/tcp/</guid>
       <description></description>
     </item>
     <item>
       <title>TCP/IP</title>
-      <link>https://vcvvvc.github.io/tags/tcp/ip/</link>
+      <link>./tags/tcp/ip/</link>
       <pubDate>Wed, 23 Feb 2022 17:47:16 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/tcp/ip/</guid>
+      <guid>./tags/tcp/ip/</guid>
       <description></description>
     </item>
     <item>
       <title>Python</title>
-      <link>https://vcvvvc.github.io/tags/python/</link>
+      <link>./tags/python/</link>
       <pubDate>Sun, 30 Jan 2022 23:18:03 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/python/</guid>
+      <guid>./tags/python/</guid>
       <description></description>
     </item>
     <item>
       <title>Cloud</title>
-      <link>https://vcvvvc.github.io/tags/cloud/</link>
+      <link>./tags/cloud/</link>
       <pubDate>Fri, 31 Dec 2021 00:10:24 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/cloud/</guid>
+      <guid>./tags/cloud/</guid>
       <description></description>
     </item>
     <item>
       <title>Mysql</title>
-      <link>https://vcvvvc.github.io/tags/mysql/</link>
+      <link>./tags/mysql/</link>
       <pubDate>Sat, 18 Dec 2021 17:36:22 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/mysql/</guid>
+      <guid>./tags/mysql/</guid>
       <description></description>
     </item>
     <item>
       <title>Ubuntu</title>
-      <link>https://vcvvvc.github.io/tags/ubuntu/</link>
+      <link>./tags/ubuntu/</link>
       <pubDate>Sat, 18 Dec 2021 17:36:22 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/ubuntu/</guid>
+      <guid>./tags/ubuntu/</guid>
       <description></description>
     </item>
     <item>
       <title>GCC</title>
-      <link>https://vcvvvc.github.io/tags/gcc/</link>
+      <link>./tags/gcc/</link>
       <pubDate>Thu, 02 Dec 2021 11:08:36 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/gcc/</guid>
+      <guid>./tags/gcc/</guid>
       <description></description>
     </item>
     <item>
       <title>Metaverse</title>
-      <link>https://vcvvvc.github.io/tags/metaverse/</link>
+      <link>./tags/metaverse/</link>
       <pubDate>Fri, 22 Oct 2021 22:59:25 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/metaverse/</guid>
+      <guid>./tags/metaverse/</guid>
       <description></description>
     </item>
     <item>
       <title>易</title>
-      <link>https://vcvvvc.github.io/tags/%E6%98%93/</link>
+      <link>./tags/%E6%98%93/</link>
       <pubDate>Fri, 15 Oct 2021 22:57:45 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/%E6%98%93/</guid>
+      <guid>./tags/%E6%98%93/</guid>
       <description></description>
     </item>
     <item>
       <title>Poll</title>
-      <link>https://vcvvvc.github.io/tags/poll/</link>
+      <link>./tags/poll/</link>
       <pubDate>Sun, 10 Oct 2021 10:00:00 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/poll/</guid>
+      <guid>./tags/poll/</guid>
       <description></description>
     </item>
     <item>
       <title>Select</title>
-      <link>https://vcvvvc.github.io/tags/select/</link>
+      <link>./tags/select/</link>
       <pubDate>Sun, 10 Oct 2021 10:00:00 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/select/</guid>
+      <guid>./tags/select/</guid>
       <description></description>
     </item>
     <item>
       <title>Startup</title>
-      <link>https://vcvvvc.github.io/tags/startup/</link>
+      <link>./tags/startup/</link>
       <pubDate>Sun, 03 Oct 2021 12:08:21 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/startup/</guid>
+      <guid>./tags/startup/</guid>
       <description></description>
     </item>
     <item>
       <title>Macos</title>
-      <link>https://vcvvvc.github.io/tags/macos/</link>
+      <link>./tags/macos/</link>
       <pubDate>Tue, 07 Sep 2021 20:25:48 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/macos/</guid>
+      <guid>./tags/macos/</guid>
       <description></description>
     </item>
     <item>
       <title>News-M</title>
-      <link>https://vcvvvc.github.io/tags/news-m/</link>
+      <link>./tags/news-m/</link>
       <pubDate>Fri, 27 Aug 2021 16:40:00 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/news-m/</guid>
+      <guid>./tags/news-m/</guid>
       <description></description>
     </item>
     <item>
       <title>Tutorial</title>
-      <link>https://vcvvvc.github.io/tags/tutorial/</link>
+      <link>./tags/tutorial/</link>
       <pubDate>Fri, 27 Aug 2021 16:40:00 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/tutorial/</guid>
+      <guid>./tags/tutorial/</guid>
       <description></description>
     </item>
     <item>
       <title>Grpc</title>
-      <link>https://vcvvvc.github.io/tags/grpc/</link>
+      <link>./tags/grpc/</link>
       <pubDate>Thu, 22 Jul 2021 00:13:51 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/grpc/</guid>
+      <guid>./tags/grpc/</guid>
       <description></description>
     </item>
     <item>
       <title>Centos</title>
-      <link>https://vcvvvc.github.io/tags/centos/</link>
+      <link>./tags/centos/</link>
       <pubDate>Mon, 12 Jul 2021 13:28:17 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/centos/</guid>
+      <guid>./tags/centos/</guid>
       <description></description>
     </item>
     <item>
       <title>Redis</title>
-      <link>https://vcvvvc.github.io/tags/redis/</link>
+      <link>./tags/redis/</link>
       <pubDate>Mon, 12 Jul 2021 13:28:17 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/redis/</guid>
+      <guid>./tags/redis/</guid>
       <description></description>
     </item>
     <item>
       <title>Chrono</title>
-      <link>https://vcvvvc.github.io/tags/chrono/</link>
+      <link>./tags/chrono/</link>
       <pubDate>Tue, 01 Jun 2021 15:57:31 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/chrono/</guid>
+      <guid>./tags/chrono/</guid>
       <description></description>
     </item>
     <item>
       <title>Time</title>
-      <link>https://vcvvvc.github.io/tags/time/</link>
+      <link>./tags/time/</link>
       <pubDate>Tue, 01 Jun 2021 15:57:31 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/time/</guid>
+      <guid>./tags/time/</guid>
       <description></description>
     </item>
     <item>
       <title>数据结构</title>
-      <link>https://vcvvvc.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
+      <link>./tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
       <pubDate>Wed, 19 May 2021 22:48:49 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid>
+      <guid>./tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid>
       <description></description>
     </item>
     <item>
       <title>Kindle</title>
-      <link>https://vcvvvc.github.io/tags/kindle/</link>
+      <link>./tags/kindle/</link>
       <pubDate>Sun, 09 May 2021 23:34:49 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/kindle/</guid>
+      <guid>./tags/kindle/</guid>
       <description></description>
     </item>
     <item>
       <title>Tcpdump</title>
-      <link>https://vcvvvc.github.io/tags/tcpdump/</link>
+      <link>./tags/tcpdump/</link>
       <pubDate>Fri, 05 Mar 2021 22:03:34 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/tcpdump/</guid>
+      <guid>./tags/tcpdump/</guid>
       <description></description>
     </item>
     <item>
       <title>IP</title>
-      <link>https://vcvvvc.github.io/tags/ip/</link>
+      <link>./tags/ip/</link>
       <pubDate>Thu, 25 Feb 2021 14:28:11 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/ip/</guid>
+      <guid>./tags/ip/</guid>
       <description></description>
     </item>
     <item>
       <title>UDP</title>
-      <link>https://vcvvvc.github.io/tags/udp/</link>
+      <link>./tags/udp/</link>
       <pubDate>Thu, 25 Feb 2021 14:28:11 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/udp/</guid>
+      <guid>./tags/udp/</guid>
       <description></description>
     </item>
     <item>
       <title>Clion</title>
-      <link>https://vcvvvc.github.io/tags/clion/</link>
+      <link>./tags/clion/</link>
       <pubDate>Mon, 22 Feb 2021 22:10:27 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/clion/</guid>
+      <guid>./tags/clion/</guid>
       <description></description>
     </item>
     <item>
       <title>GDB</title>
-      <link>https://vcvvvc.github.io/tags/gdb/</link>
+      <link>./tags/gdb/</link>
       <pubDate>Wed, 17 Feb 2021 23:02:08 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/gdb/</guid>
+      <guid>./tags/gdb/</guid>
       <description></description>
     </item>
     <item>
       <title>Timer</title>
-      <link>https://vcvvvc.github.io/tags/timer/</link>
+      <link>./tags/timer/</link>
       <pubDate>Sun, 07 Feb 2021 21:45:11 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/timer/</guid>
+      <guid>./tags/timer/</guid>
       <description></description>
     </item>
     <item>
       <title>Proactor</title>
-      <link>https://vcvvvc.github.io/tags/proactor/</link>
+      <link>./tags/proactor/</link>
       <pubDate>Sun, 31 Jan 2021 22:19:30 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/proactor/</guid>
+      <guid>./tags/proactor/</guid>
       <description></description>
     </item>
     <item>
       <title>Reactor</title>
-      <link>https://vcvvvc.github.io/tags/reactor/</link>
+      <link>./tags/reactor/</link>
       <pubDate>Sun, 31 Jan 2021 22:19:30 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/reactor/</guid>
+      <guid>./tags/reactor/</guid>
       <description></description>
     </item>
     <item>
       <title>Sem</title>
-      <link>https://vcvvvc.github.io/tags/sem/</link>
+      <link>./tags/sem/</link>
       <pubDate>Sat, 23 Jan 2021 20:45:54 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/sem/</guid>
+      <guid>./tags/sem/</guid>
       <description></description>
     </item>
     <item>
       <title>Mac</title>
-      <link>https://vcvvvc.github.io/tags/mac/</link>
+      <link>./tags/mac/</link>
       <pubDate>Mon, 18 Jan 2021 17:20:58 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/mac/</guid>
+      <guid>./tags/mac/</guid>
       <description></description>
     </item>
     <item>
       <title>Dell</title>
-      <link>https://vcvvvc.github.io/tags/dell/</link>
+      <link>./tags/dell/</link>
       <pubDate>Sun, 17 Jan 2021 13:19:24 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/dell/</guid>
+      <guid>./tags/dell/</guid>
       <description></description>
     </item>
     <item>
       <title>Vmware</title>
-      <link>https://vcvvvc.github.io/tags/vmware/</link>
+      <link>./tags/vmware/</link>
       <pubDate>Fri, 15 Jan 2021 20:37:54 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/vmware/</guid>
+      <guid>./tags/vmware/</guid>
       <description></description>
     </item>
     <item>
       <title>Opencv</title>
-      <link>https://vcvvvc.github.io/tags/opencv/</link>
+      <link>./tags/opencv/</link>
       <pubDate>Thu, 14 Jan 2021 22:02:25 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/opencv/</guid>
+      <guid>./tags/opencv/</guid>
       <description></description>
     </item>
     <item>
       <title>Wine</title>
-      <link>https://vcvvvc.github.io/tags/wine/</link>
+      <link>./tags/wine/</link>
       <pubDate>Tue, 24 Nov 2020 16:50:16 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/wine/</guid>
+      <guid>./tags/wine/</guid>
       <description></description>
     </item>
     <item>
       <title>Send</title>
-      <link>https://vcvvvc.github.io/tags/send/</link>
+      <link>./tags/send/</link>
       <pubDate>Sat, 21 Nov 2020 14:59:41 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/send/</guid>
+      <guid>./tags/send/</guid>
       <description></description>
     </item>
     <item>
       <title>Thread</title>
-      <link>https://vcvvvc.github.io/tags/thread/</link>
+      <link>./tags/thread/</link>
       <pubDate>Tue, 17 Nov 2020 16:13:32 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/thread/</guid>
+      <guid>./tags/thread/</guid>
       <description></description>
     </item>
     <item>
       <title>Openpyxl</title>
-      <link>https://vcvvvc.github.io/tags/openpyxl/</link>
+      <link>./tags/openpyxl/</link>
       <pubDate>Sun, 15 Nov 2020 19:14:58 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/openpyxl/</guid>
+      <guid>./tags/openpyxl/</guid>
       <description></description>
     </item>
     <item>
       <title>Vim</title>
-      <link>https://vcvvvc.github.io/tags/vim/</link>
+      <link>./tags/vim/</link>
       <pubDate>Tue, 13 Oct 2020 18:12:48 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/vim/</guid>
+      <guid>./tags/vim/</guid>
       <description></description>
     </item>
     <item>
       <title>Const</title>
-      <link>https://vcvvvc.github.io/tags/const/</link>
+      <link>./tags/const/</link>
       <pubDate>Tue, 06 Oct 2020 15:03:40 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/const/</guid>
+      <guid>./tags/const/</guid>
       <description></description>
     </item>
     <item>
       <title>Pointer</title>
-      <link>https://vcvvvc.github.io/tags/pointer/</link>
+      <link>./tags/pointer/</link>
       <pubDate>Tue, 06 Oct 2020 15:03:40 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/pointer/</guid>
+      <guid>./tags/pointer/</guid>
       <description></description>
     </item>
     <item>
       <title>Algorithm</title>
-      <link>https://vcvvvc.github.io/tags/algorithm/</link>
+      <link>./tags/algorithm/</link>
       <pubDate>Sun, 04 Oct 2020 16:09:26 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/algorithm/</guid>
+      <guid>./tags/algorithm/</guid>
       <description></description>
     </item>
     <item>
       <title>Recursion</title>
-      <link>https://vcvvvc.github.io/tags/recursion/</link>
+      <link>./tags/recursion/</link>
       <pubDate>Sun, 04 Oct 2020 16:09:26 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/recursion/</guid>
+      <guid>./tags/recursion/</guid>
       <description></description>
     </item>
     <item>
       <title>Pthread</title>
-      <link>https://vcvvvc.github.io/tags/pthread/</link>
+      <link>./tags/pthread/</link>
       <pubDate>Sun, 27 Sep 2020 17:53:48 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/pthread/</guid>
+      <guid>./tags/pthread/</guid>
       <description></description>
     </item>
     <item>
       <title>Mongodb</title>
-      <link>https://vcvvvc.github.io/tags/mongodb/</link>
+      <link>./tags/mongodb/</link>
       <pubDate>Mon, 21 Sep 2020 13:44:35 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/mongodb/</guid>
+      <guid>./tags/mongodb/</guid>
       <description></description>
     </item>
     <item>
       <title>Volatile</title>
-      <link>https://vcvvvc.github.io/tags/volatile/</link>
+      <link>./tags/volatile/</link>
       <pubDate>Sun, 13 Sep 2020 18:12:48 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/volatile/</guid>
+      <guid>./tags/volatile/</guid>
       <description></description>
     </item>
     <item>
       <title>Sokcet</title>
-      <link>https://vcvvvc.github.io/tags/sokcet/</link>
+      <link>./tags/sokcet/</link>
       <pubDate>Sun, 13 Sep 2020 17:03:43 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/sokcet/</guid>
+      <guid>./tags/sokcet/</guid>
       <description></description>
     </item>
     <item>
       <title>Exception</title>
-      <link>https://vcvvvc.github.io/tags/exception/</link>
+      <link>./tags/exception/</link>
       <pubDate>Sun, 13 Sep 2020 15:13:08 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/exception/</guid>
+      <guid>./tags/exception/</guid>
       <description></description>
     </item>
     <item>
       <title>Backtrace</title>
-      <link>https://vcvvvc.github.io/tags/backtrace/</link>
+      <link>./tags/backtrace/</link>
       <pubDate>Wed, 02 Sep 2020 14:10:18 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/backtrace/</guid>
+      <guid>./tags/backtrace/</guid>
       <description></description>
     </item>
     <item>
       <title>Liux</title>
-      <link>https://vcvvvc.github.io/tags/liux/</link>
+      <link>./tags/liux/</link>
       <pubDate>Sun, 30 Aug 2020 19:57:05 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/liux/</guid>
+      <guid>./tags/liux/</guid>
       <description></description>
     </item>
     <item>
       <title>Move</title>
-      <link>https://vcvvvc.github.io/tags/move/</link>
+      <link>./tags/move/</link>
       <pubDate>Sun, 30 Aug 2020 19:57:05 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/move/</guid>
+      <guid>./tags/move/</guid>
       <description></description>
     </item>
     <item>
       <title>Makefile</title>
-      <link>https://vcvvvc.github.io/tags/makefile/</link>
+      <link>./tags/makefile/</link>
       <pubDate>Wed, 19 Aug 2020 10:21:09 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/makefile/</guid>
+      <guid>./tags/makefile/</guid>
       <description></description>
     </item>
     <item>
       <title>BinaryTree</title>
-      <link>https://vcvvvc.github.io/tags/binarytree/</link>
+      <link>./tags/binarytree/</link>
       <pubDate>Tue, 18 Aug 2020 14:40:25 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/binarytree/</guid>
+      <guid>./tags/binarytree/</guid>
       <description></description>
     </item>
     <item>
       <title>DataStruct</title>
-      <link>https://vcvvvc.github.io/tags/datastruct/</link>
+      <link>./tags/datastruct/</link>
       <pubDate>Tue, 18 Aug 2020 14:40:25 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/datastruct/</guid>
+      <guid>./tags/datastruct/</guid>
       <description></description>
     </item>
     <item>
       <title>Point</title>
-      <link>https://vcvvvc.github.io/tags/point/</link>
+      <link>./tags/point/</link>
       <pubDate>Mon, 17 Aug 2020 15:10:13 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/point/</guid>
+      <guid>./tags/point/</guid>
       <description></description>
     </item>
     <item>
       <title>Function</title>
-      <link>https://vcvvvc.github.io/tags/function/</link>
+      <link>./tags/function/</link>
       <pubDate>Fri, 14 Aug 2020 16:16:33 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/function/</guid>
+      <guid>./tags/function/</guid>
       <description></description>
     </item>
     <item>
       <title>Shell</title>
-      <link>https://vcvvvc.github.io/tags/shell/</link>
+      <link>./tags/shell/</link>
       <pubDate>Sat, 01 Aug 2020 21:31:50 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/shell/</guid>
+      <guid>./tags/shell/</guid>
       <description></description>
     </item>
     <item>
       <title>Arch</title>
-      <link>https://vcvvvc.github.io/tags/arch/</link>
+      <link>./tags/arch/</link>
       <pubDate>Thu, 30 Jul 2020 18:04:47 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/arch/</guid>
+      <guid>./tags/arch/</guid>
       <description></description>
     </item>
     <item>
       <title>I3wm</title>
-      <link>https://vcvvvc.github.io/tags/i3wm/</link>
+      <link>./tags/i3wm/</link>
       <pubDate>Thu, 30 Jul 2020 18:04:47 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/i3wm/</guid>
+      <guid>./tags/i3wm/</guid>
       <description></description>
     </item>
     <item>
       <title>Hugo</title>
-      <link>https://vcvvvc.github.io/tags/hugo/</link>
+      <link>./tags/hugo/</link>
       <pubDate>Wed, 29 Jul 2020 18:27:35 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/hugo/</guid>
+      <guid>./tags/hugo/</guid>
       <description></description>
     </item>
     <item>
       <title>Markdown</title>
-      <link>https://vcvvvc.github.io/tags/markdown/</link>
+      <link>./tags/markdown/</link>
       <pubDate>Wed, 29 Jul 2020 18:27:35 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/markdown/</guid>
+      <guid>./tags/markdown/</guid>
       <description></description>
     </item>
     <item>
       <title>Boost</title>
-      <link>https://vcvvvc.github.io/tags/boost/</link>
+      <link>./tags/boost/</link>
       <pubDate>Tue, 28 Jul 2020 13:09:01 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/boost/</guid>
+      <guid>./tags/boost/</guid>
       <description></description>
     </item>
     <item>
       <title>FFmpeg</title>
-      <link>https://vcvvvc.github.io/tags/ffmpeg/</link>
+      <link>./tags/ffmpeg/</link>
       <pubDate>Mon, 27 Jul 2020 17:41:31 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/tags/ffmpeg/</guid>
+      <guid>./tags/ffmpeg/</guid>
       <description></description>
     </item>
   </channel>

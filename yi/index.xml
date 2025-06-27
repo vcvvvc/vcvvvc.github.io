@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Yis on VW Blog</title>
-    <link>https://vcvvvc.github.io/yi/</link>
+    <link>./yi/</link>
     <description>Recent content in Yis on VW Blog</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate></lastBuildDate>
-    <atom:link href="https://vcvvvc.github.io/yi/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="./yi/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

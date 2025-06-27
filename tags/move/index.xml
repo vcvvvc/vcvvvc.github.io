@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Move on VW Blog</title>
-    <link>https://vcvvvc.github.io/tags/move/</link>
+    <link>./tags/move/</link>
     <description>Recent content in Move on VW Blog</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Sun, 30 Aug 2020 19:57:05 +0800</lastBuildDate>
-    <atom:link href="https://vcvvvc.github.io/tags/move/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="./tags/move/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cpp11 move</title>
-      <link>https://vcvvvc.github.io/post/move/</link>
+      <link>./post/move/</link>
       <pubDate>Sun, 30 Aug 2020 19:57:05 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/post/move/</guid>
+      <guid>./post/move/</guid>
       <description>&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;&#xA;#include &amp;lt;utility&amp;gt;&#xA;#include &amp;lt;vector&amp;gt;&#xA;#include &amp;lt;string&amp;gt;&#xA;int main()&#xA;{&#xA;    std::string str = &amp;#34;Hello&amp;#34;;&#xA;    std::vector&amp;lt;std::string&amp;gt; v;&#xA;    //调用常规的拷贝构造函数，新建字符数组，拷贝数据&#xA;    v.push_back(str);&#xA;    std::cout &amp;lt;&amp;lt; &amp;#34;After copy, str is \&amp;#34;&amp;#34; &amp;lt;&amp;lt; str &amp;lt;&amp;lt; &amp;#34;\&amp;#34;\n&amp;#34;;&#xA;    //调用移动构造函数，掏空str，掏空后，最好不要使用str&#xA;    v.push_back(std::move(str));&#xA;    std::cout &amp;lt;&amp;lt; &amp;#34;After move, str is \&amp;#34;&amp;#34; &amp;lt;&amp;lt; str &amp;lt;&amp;lt; &amp;#34;\&amp;#34;\n&amp;#34;;&#xA;    std::cout &amp;lt;&amp;lt; &amp;#34;The contents of the vector are \&amp;#34;&amp;#34; &amp;lt;&amp;lt; v[0]&#xA;                                         &amp;lt;&amp;lt; &amp;#34;\&amp;#34;, \&amp;#34;&amp;#34; &amp;lt;&amp;lt; v[1] &amp;lt;&amp;lt; &amp;#34;\&amp;#34;\n&amp;#34;;&#xA;}&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Cout:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;After copy, str is &amp;#34;Hello&amp;#34;&#xA;After move, str is &amp;#34;&amp;#34;&#xA;The contents of the vector are &amp;#34;Hello&amp;#34;, &amp;#34;Hello&amp;#34;&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h1 id=&#34;函数原型&#34;&gt;函数原型&lt;/h1&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;template &amp;lt;typename T&amp;gt;&#xA;typename remove_reference&amp;lt;T&amp;gt;::type&amp;amp;&amp;amp; move(T&amp;amp;&amp;amp; t)&#xA;{&#xA;&#x9;return static_cast&amp;lt;typename remove_reference&amp;lt;T&amp;gt;::type&amp;amp;&amp;amp;&amp;gt;(t);&#xA;}&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h1 id=&#34;原型定义中的原理实现&#34;&gt;原型定义中的原理实现:&lt;/h1&gt;&#xA;&lt;p&gt;&lt;strong&gt;公式一）X&amp;amp; &amp;amp;、X&amp;amp;&amp;amp; &amp;amp;、X&amp;amp; &amp;amp;&amp;amp;都折叠成X&amp;amp;，用于处理左值&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
   </channel>

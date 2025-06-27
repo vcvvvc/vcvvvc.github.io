@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Makefile on VW Blog</title>
-    <link>https://vcvvvc.github.io/tags/makefile/</link>
+    <link>./tags/makefile/</link>
     <description>Recent content in Makefile on VW Blog</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Wed, 19 Aug 2020 10:21:09 +0800</lastBuildDate>
-    <atom:link href="https://vcvvvc.github.io/tags/makefile/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="./tags/makefile/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Makefile template</title>
-      <link>https://vcvvvc.github.io/post/makefile_template/</link>
+      <link>./post/makefile_template/</link>
       <pubDate>Wed, 19 Aug 2020 10:21:09 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/post/makefile_template/</guid>
+      <guid>./post/makefile_template/</guid>
       <description>&lt;h1 id=&#34;v1&#34;&gt;V1&lt;/h1&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&#xA;############ 交叉编译&#xA;CROSS_COMPILE=aarch64-himix100-linux-&#xA;CC=$(CROSS_COMPILE)g++&#xA;&#xA;# 当前路径&#xA;PWD := $(shell pwd)&#xA;&#xA;#库&#xA;LIB += -lpthread -lsqlite3&#xA;&#xA;#参数&#xA;CFLAG= -D_GNU_SOURCE -D__USE_XOPEN -g&#xA;&#xA;#.cpp源文件&#xA;SRCS=$(wildcard ./src/*.cpp)&#xA;&#xA;#头文件&#xA;INC=-I$(PWD)/include&#xA;&#xA;#中间文件&#xA;OBJS=$(SRCS:.cpp=.o)&#xA;&#xA;#二进制文件&#xA;BIN=maincpp&#xA;&#xA;#start，表示开始执行&#xA;start:$(OBJS)&#xA;&#x9;$(CC) -o $(BIN) $(OBJS) $(CFLAG) $(LIB)&#xA;&#xA;.cpp.o:&#xA;&#x9;$(CC) $(INC)  -o $@ -c $&amp;lt; $(CFLAB) $(LIB)&#xA;&#xA;.PHONY : clean&#xA;clean:&#xA;&#x9;rm -f ${BIN} ./src/*.o&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h1 id=&#34;v2&#34;&gt;V2&lt;/h1&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;# Makefile&#xA;cc=gcc&#xA;&#xA;LDFLAGS=-lncurses&#xA;&#xA;SRCS := $(wildcard *.c)&#xA;TARGET := $(SRCS:%.c=%)&#xA;&#xA;$(TARGET):$(SRCS)&#xA;&#x9;$(cc) $(LDFLAGS) $(SRCS) -o $(TARGET)&#xA;&#xA;clean:&#xA;&#x9;rm $(TARGET)&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h2 id=&#34;reference&#34;&gt;Reference:&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/weixin_38184741/article/details/84450937&#34;&gt;Makefile 文件 -只有include和src文件夹&lt;/a&gt;&lt;/p&gt;</description>
     </item>
   </channel>

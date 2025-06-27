@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Redis on VW Blog</title>
-    <link>https://vcvvvc.github.io/tags/redis/</link>
+    <link>./tags/redis/</link>
     <description>Recent content in Redis on VW Blog</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Mon, 12 Jul 2021 13:28:17 +0800</lastBuildDate>
-    <atom:link href="https://vcvvvc.github.io/tags/redis/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="./tags/redis/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Centos8 install redis</title>
-      <link>https://vcvvvc.github.io/post/centos8_install_redis/</link>
+      <link>./post/centos8_install_redis/</link>
       <pubDate>Mon, 12 Jul 2021 13:28:17 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/post/centos8_install_redis/</guid>
+      <guid>./post/centos8_install_redis/</guid>
       <description>&lt;p&gt;&lt;strong&gt;安装过程(转)&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/qq_34892981/article/details/110181452&#34;&gt;https://blog.csdn.net/qq_34892981/article/details/110181452&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Centos7 Install_redis</title>
-      <link>https://vcvvvc.github.io/post/install_redis/</link>
+      <link>./post/install_redis/</link>
       <pubDate>Mon, 21 Sep 2020 13:32:22 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/post/install_redis/</guid>
+      <guid>./post/install_redis/</guid>
       <description>&lt;h1 id=&#34;升级gcc&#34;&gt;升级GCC&lt;/h1&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;yum -y install centos-release-scl&#xA;yum -y install devtoolset-9-gcc devtoolset-9-gcc-c++ devtoolset-9-binutils&#xA;scl enable devtoolset-9 bash&#xA;echo &amp;#34;source /opt/rh/devtoolset-9/enable&amp;#34; &amp;gt;&amp;gt; /etc/profile&#xA;gcc -v&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h1 id=&#34;安装redis&#34;&gt;安装redis&lt;/h1&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;wget http://download.redis.io/releases/redis-6.0.8.tar.gz&#xA;tar -xvf redis-6.0.8/tar/gz&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cd redis&#xA;make -j4&#xA;make install PREFIX=/usr/local/redis&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h1 id=&#34;配置redis&#34;&gt;配置redis&lt;/h1&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cd redis&#xA;cp redis.conf /usr/local/redis/bin/&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;vim /usr/local/redis/bin/redis.conf&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;daemonize no 改为 daemonize yes&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h1 id=&#34;开机自启&#34;&gt;开机自启&lt;/h1&gt;&#xA;&lt;p&gt;&lt;strong&gt;vim /etc/systemd/system/redis.service&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;[Unit]&#xA;Description=redis-server&#xA;After=network.target&#xA;&#xA;[Service]&#xA;Type=forking&#xA;ExecStart=/usr/local/redis/bin/redis-server /usr/local/redis/bin/redis.conf&#xA;PrivateTmp=true&#xA;&#xA;[Install]&#xA;WantedBy=multi-user.target&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;systemctl daemon-reload&#xA;ln -s /usr/local/redis/bin/redis-cli /usr/bin/redis&#xA;systemctl start redis.service&#xA;systemctl enable redis.service&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;p&gt;Re:&lt;/p&gt;</description>
     </item>
   </channel>

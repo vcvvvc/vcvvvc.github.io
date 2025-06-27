@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Dell on VW Blog</title>
-    <link>https://vcvvvc.github.io/tags/dell/</link>
+    <link>./tags/dell/</link>
     <description>Recent content in Dell on VW Blog</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Sun, 17 Jan 2021 13:19:24 +0800</lastBuildDate>
-    <atom:link href="https://vcvvvc.github.io/tags/dell/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="./tags/dell/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Dell7590 install macos</title>
-      <link>https://vcvvvc.github.io/post/dell7590_install_macos/</link>
+      <link>./post/dell7590_install_macos/</link>
       <pubDate>Sun, 17 Jan 2021 13:19:24 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/post/dell7590_install_macos/</guid>
+      <guid>./post/dell7590_install_macos/</guid>
       <description>&lt;h2 id=&#34;2021-12-13更新&#34;&gt;2021-12-13更新&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;系统为big sur 11.4&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;接近完美 可以用intel网卡连接wifi 速度还不错&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;已知麦克风、隔空投送不能用&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;镜像下载&#34;&gt;镜像下载&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;搜素：黑果小兵&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;big sur用11.4&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;重要前提&#34;&gt;重要前提&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;如果你没有网线，并且没有其他PC设备联网 你需要提前下载这些&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;https://github.com/OpenIntelWireless/itlwm/releases/ #AirportItlwm&#xA;https://5435.lanzouo.com/isRfBxjxq4f #四叶草+occ&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h2 id=&#34;start&#34;&gt;Start&lt;/h2&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;//OC&#xA;git clone https://github.com/Pinming/Dell-Inspiron-7590-Hackintosh-Opencore&#xA;&#xA;//Diskgenius&#xA;官网自行下载最新版&#xA;&#xA;//balennaEther&#xA;官网自行下载最新版&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;1. 先把Dell-Inspiron-7590-Hackintosh-Opencore重命名为OC&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;2. 打开OC文件夹 根据屏幕改名1080P的屏幕使用config-1080p.plist需改名成config.plist 如果你是4K屏 不需要修改&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;3. balennaEther烧录dmg镜像文件到U盘&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;4. 打开Diskgenius 进入U盘的ESP分区文件夹 删除Clover文件夹 然后将OC文件夹拖入&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;5. 打开U盘ESP分区中的EFI 将Diskgenius程序文件夹拖进去 备用 以免出问题&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;提前准备好安装空间建议300g 至少200g&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;6. 用Diskgenius分ESP区 建议400m&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;7. 双系统需要保存好windows efi&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;1. 重启F2 关闭Secure Boot安全启动 检查磁盘模式为ACHI 百度搜&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;2. 进入Boot Sequence &amp;lsquo;add option&amp;rsquo; 添加一个引导 选择启动文件为自己的U盘EFI(找到EFI/OC/OpenCore.efi这个文件)&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;3. 重启F12 选择刚才新建的启动项 选择Install mac big sur&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
   </channel>

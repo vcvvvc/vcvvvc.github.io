@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>XPU on VW Blog</title>
-    <link>https://vcvvvc.github.io/tags/xpu/</link>
+    <link>./tags/xpu/</link>
     <description>Recent content in XPU on VW Blog</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Mon, 14 Nov 2022 20:16:57 +0800</lastBuildDate>
-    <atom:link href="https://vcvvvc.github.io/tags/xpu/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="./tags/xpu/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CPU、GPU、DPU、TPU、NPU...</title>
-      <link>https://vcvvvc.github.io/post/%E5%A4%84%E7%90%86%E5%99%A8%E7%AE%80%E4%BB%8B/</link>
+      <link>./post/%E5%A4%84%E7%90%86%E5%99%A8%E7%AE%80%E4%BB%8B/</link>
       <pubDate>Mon, 14 Nov 2022 20:16:57 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/post/%E5%A4%84%E7%90%86%E5%99%A8%E7%AE%80%E4%BB%8B/</guid>
+      <guid>./post/%E5%A4%84%E7%90%86%E5%99%A8%E7%AE%80%E4%BB%8B/</guid>
       <description>&lt;p&gt;最近看代码有用ppu，简单查了一下，发现这么多xpu。&lt;/p&gt;&#xA;&lt;p&gt;CPU全称：Central Processing Unit, 中央处理器；&#xA;GPU全称：Graphics Processing Unit, 图像处理器；&#xA;TPU全称：Tensor Processing Unit, 张量处理器；&#xA;DPU全称：Deep learning Processing Unit, 深度学习处理器；&#xA;NPU全称：Neural network Processing Unit, 神经网络处理器;&#xA;BPU全称：Brain Processing Unit, 大脑处理器。&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;ppu内存映射&#34;&gt;PPU内存映射&lt;/h2&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/394488956&#34;&gt;https://zhuanlan.zhihu.com/p/394488956&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/qq_34254642/article/details/104193445&#34;&gt;https://blog.csdn.net/qq_34254642/article/details/104193445&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://zhidao.baidu.com/question/347338299.html&#34;&gt;https://zhidao.baidu.com/question/347338299.html&lt;/a&gt;&lt;/p&gt;</description>
     </item>
   </channel>

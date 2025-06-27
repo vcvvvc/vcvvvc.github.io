@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pthread on VW Blog</title>
-    <link>https://vcvvvc.github.io/tags/pthread/</link>
+    <link>./tags/pthread/</link>
     <description>Recent content in Pthread on VW Blog</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Sun, 27 Sep 2020 17:53:48 +0800</lastBuildDate>
-    <atom:link href="https://vcvvvc.github.io/tags/pthread/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="./tags/pthread/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linux Pthread</title>
-      <link>https://vcvvvc.github.io/post/pthread/</link>
+      <link>./post/pthread/</link>
       <pubDate>Sun, 27 Sep 2020 17:53:48 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/post/pthread/</guid>
+      <guid>./post/pthread/</guid>
       <description>&lt;p&gt;&lt;code&gt;int pthread_cond_init(pthread_cond_t *cond, pthread_condattr_t *cond_attr)&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;其中cond是一个指向结构pthread_cond_t的指针，cond_attr是一个指向结构pthread_condattr_t的指针。结构 pthread_condattr_t是条件变量的属性结构，和互斥锁一样我们可以用它来设置条件变量是进程内可用还是进程间可用，&lt;/strong&gt;&#xA;&lt;strong&gt;默认值是&lt;/strong&gt;&lt;code&gt;PTHREAD_ PROCESS_PRIVATE&lt;/code&gt;，&lt;strong&gt;即此条件变量被同一进程内的各个线程使用。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;注意初始化条件变量只有未被使用时才能重新初始化或被释放。释放一个条件变量的函数为pthread_cond_destroy（pthread_cond_t cond）。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;也可以静态的初始化条件变量&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;pthread_cond_t my_condition = PTHREAD_COND_INITIALIZER;&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;pthread_mutex_init(pthread_mutex_t * mutex, const pthread_mutexattr_t *attr);&#xA;// 初始化锁变量mutex。&#xA;// attr为锁属性，NULL值为默认属性。&#xA;&#xA;pthread_mutex_lock(pthread_mutex_t *mutex);&#xA;// 加锁（阻塞操作）&#xA;&#xA;pthread_mutex_trylock(pthread_mutex_t *mutex);&#xA;// 试图加锁（不阻塞操作）&#xA;// 当互斥锁空闲时将占有该锁；否则立即返回&#xA;// 但是与2不一样的是当锁已经在使用的时候，返回为EBUSY，而不是挂起等待。&#xA;&#xA;pthread_mutex_unlock(pthread_mutex_t *mutex);&#xA;释放锁&#xA;&#xA;pthread_mutex_destroy(pthread_mutex_t *mutex);&#xA;销毁一个不再需要的互斥量，释放系统资源。&#xA;&#xA;pthread_cond_wait() / pthread_cond_timedwait -----等待条件变量，挂起线程，区别是后者，会有timeout时间，&#xA;如果到了timeout,线程自动解除阻塞，这个时间和 time()系统调用相同意义的。以1970年时间算起。&#xA;&#xA;pthread_cond_signal ----激活等待列表中的线程，&#xA;&#xA;pthread_cond_broadcast() -------激活所有等待线程列表中最先入队的线程&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;条件变量&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;条件变量是利用线程间共享的全局变量进行同步的一种机制，主要包括两个动作：&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;1）一个线程等待&amp;quot;条件变量的条件成立&amp;quot;而挂起；&lt;/li&gt;&#xA;&lt;li&gt;2）另一个线程使&amp;quot;条件成立&amp;quot;（给出条件成立信号）。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;为了防止竞争，条件变量的使用总是和一个互斥锁结合在一起。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;注意：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;1）上面这几个函数都是原子操作，可以为理解为一条指令，不会被其他程序打断&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;2）上面这个几个函数，必须配合使用。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;3）pthread_cond_wait，先会解除当前线程的互斥锁，然后挂线线程，等待条件变量满足条件。一旦条件变量满足条件，则会给线程上锁，继续执行pthread_cond_wait&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;返回值:&lt;/p&gt;&#xA;&lt;p&gt;pthread_mutex_lock() 和 pthread_mutex_unlock() 返回0，否则返回一个错误的提示码&lt;/p&gt;&#xA;&lt;p&gt;pthread_mutex_trylock() 在成功获得了一个mutex的锁后返回0，否则返回一个错误提示码错误&lt;/p&gt;&#xA;&lt;p&gt;pthread_mutex_lock() 和 pthread_mutex_unlock()失败的时候 [EINVAL] mutex在生成的时候，它的protocol属性的值是 PTHREAD_PRIO_PROTECT，同时调用线程的优先级(priority)比该mutex的当前prority上限高&lt;/p&gt;</description>
     </item>
   </channel>
