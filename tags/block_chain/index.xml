@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Block_Chain on VW Blog</title>
-    <link>./tags/block_chain/</link>
+    <link>https://vcvvvc.github.io/tags/block_chain/</link>
     <description>Recent content in Block_Chain on VW Blog</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Sat, 30 Apr 2022 16:20:01 +0800</lastBuildDate>
-    <atom:link href="./tags/block_chain/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vcvvvc.github.io/tags/block_chain/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About_ERC</title>
-      <link>./post/about_erc/</link>
+      <link>https://vcvvvc.github.io/post/about_erc/</link>
       <pubDate>Sat, 30 Apr 2022 16:20:01 +0800</pubDate>
-      <guid>./post/about_erc/</guid>
+      <guid>https://vcvvvc.github.io/post/about_erc/</guid>
       <description>&lt;h2 id=&#34;erc&#34;&gt;ERC&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;ERC全称“Ethereum Request for Comment&amp;quot;，翻译过来即Ethereum版的意见征求稿，用以记录以太坊上应用级的各种开发标准和协议(application-level standards and conventions)。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;EIP(Ethereum Improvement Proposals以太坊升级提案)是为以太坊潜在新功能或流程提出建议的标准。 EIP 包含提议改进的技术规范，并作为社区的“真相来源”。 在 EIP 的过程中，将会讨论和制定以太坊的网络升级和应用标准。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;以太坊EIP 的标准序列包括 Core（核心改进）、Networking（网络层改进）、Interface（接口改进）、ERC（应用层意见征集）。&lt;/p&gt;&#xA;&lt;p&gt;EIP分为三种类型:&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;1. 标准轨道EIP(A Standards Track EIP)&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;2. 元EIP(A Meta EIP)&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;3. 信息EIP(An Informational EIP)&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;erc-20&#34;&gt;ERC-20&lt;/h2&gt;&#xA;&lt;p&gt;ERC-20 提供了一个同质化代币的标准，换句话说，每个代币与另一个代币（在类型和价值上）完全相同。 例如，一个 ERC-20 代币就像 ETH 一样，意味着一个代币会并永远会与其他代币一样。&lt;/p&gt;&#xA;&lt;p&gt;它用于以太坊区块链上的所有智能合约以实现代币，并提供所有基于以太坊的代币必须遵循的规则列表。&lt;/p&gt;&#xA;&lt;p&gt;六个基本的编码功能是：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;总供给&lt;/li&gt;&#xA;&lt;li&gt;余额&lt;/li&gt;&#xA;&lt;li&gt;津贴&lt;/li&gt;&#xA;&lt;li&gt;转移&lt;/li&gt;&#xA;&lt;li&gt;批准&lt;/li&gt;&#xA;&lt;li&gt;从转移&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;erc-721&#34;&gt;ERC-721&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;ERC-721 非同质化代币标准&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;非同质化代币（NFT）用于以唯一的方式标识某人或者某物。 此类型的代币可以被完美地用于出售下列物品的平台：收藏品、密钥、彩票、音乐会座位编号、体育比赛等。 这种类型的代币有着惊人的潜力，因此它需要一个适当的标准。ERC-721 就是为解决这个问题而来！&lt;/p&gt;&#xA;&lt;p&gt;所有 NFTs 都有一个 uint256 变量，名为 tokenId，所以对于任何 ERC-721 合约，这对值contract address, tokenId 必须是全局唯一的。 也就是说，dApp 可以有一个“转换器”，该转换器使用 tokenId 输入和输出一些非常有趣的事物的图像， 例如武器、技能或非常可爱的猫咪！&lt;/p&gt;</description>
     </item>
   </channel>

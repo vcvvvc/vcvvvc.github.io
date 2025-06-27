@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>数据结构 on VW Blog</title>
-    <link>./tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
+    <link>https://vcvvvc.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
     <description>Recent content in 数据结构 on VW Blog</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Wed, 19 May 2021 22:48:49 +0800</lastBuildDate>
-    <atom:link href="./tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vcvvvc.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>B_Tree</title>
-      <link>./post/b_tree/</link>
+      <link>https://vcvvvc.github.io/post/b_tree/</link>
       <pubDate>Wed, 19 May 2021 22:48:49 +0800</pubDate>
-      <guid>./post/b_tree/</guid>
+      <guid>https://vcvvvc.github.io/post/b_tree/</guid>
       <description>&lt;h3 id=&#34;主角得拿出来文字记录下&#34;&gt;主角得拿出来文字记录下。&lt;/h3&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;&lt;strong&gt;一个m阶的B树具有如下属性:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;每个节点最多有m-1个关键字（可以存有的键值对）。&lt;/li&gt;&#xA;&lt;li&gt;根节点最少可以只有1个关键字。&lt;/li&gt;&#xA;&lt;li&gt;非根节点至少有m/2个关键字。&lt;/li&gt;&#xA;&lt;li&gt;每个节点中的关键字都按照从小到大的顺序排列，每个关键字的左子树中的所有关键字都小于它，而右子树中的所有关键字都大于它。&lt;/li&gt;&#xA;&lt;li&gt;所有叶子节点都位于同一层，或者说根节点到每个叶子节点的长度都相同。&lt;/li&gt;&#xA;&lt;li&gt;每个节点都存有索引和数据，也就是对应的key和value。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;在含有n个关键字的B树上查找时，从根结点到关键字结点的 路径上涉及的结点数不超过log |m/2| ((n+1)/2)+1。&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;不错的讲解&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://www.yiibai.com/data_structure/b-tree.html&#34;&gt;https://www.yiibai.com/data_structure/b-tree.html&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://blog.nowcoder.net/n/ef07c1ad8f8346078eeab66518152bf0&#34;&gt;https://blog.nowcoder.net/n/ef07c1ad8f8346078eeab66518152bf0&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://blog.csdn.net/alzzw/article/details/97633941&#34;&gt;https://blog.csdn.net/alzzw/article/details/97633941&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;&lt;strong&gt;一棵m阶的B+树和m阶的B树的差异在于:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;有n棵子树的结点中包含有n个关键字；&lt;/li&gt;&#xA;&lt;li&gt;所有的叶子结点包含全部关键字的信息，及指向含这些关键字记录 的指针，叶子结点本身依关键字的大小自小而大顺序链接；&lt;/li&gt;&#xA;&lt;li&gt;所有分支结点可以看成是索引，结点中仅含有其子树中的最大（或 最小）关键字。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;实现&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://blog.csdn.net/liu1064782986/article/details/7982290&#34;&gt;https://blog.csdn.net/liu1064782986/article/details/7982290&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;2-3树是这样的一棵多路查找树：其中的每一个结点都具有两个孩（我们称它为2结点）或三个孩子（我们称它为3结点）。&lt;/p&gt;&#xA;&lt;p&gt;一个2结点包含一个元素和两个孩子（或没有孩子），且与二叉排序树类似，左子树包含的元素小于该元素，右子树包含的元素大于该元素。&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;这个2结点要么没有孩子，要有就有两个，不能只有一个孩子。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;&lt;strong&gt;一个3结点包含一小一大两个元素和三个孩子（或没有孩子），一个3结点要么没有孩子，要么具有3个孩子。&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
   </channel>

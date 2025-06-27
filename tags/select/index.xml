@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Select on VW Blog</title>
-    <link>./tags/select/</link>
+    <link>https://vcvvvc.github.io/tags/select/</link>
     <description>Recent content in Select on VW Blog</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Sun, 10 Oct 2021 10:00:00 +0800</lastBuildDate>
-    <atom:link href="./tags/select/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vcvvvc.github.io/tags/select/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>I/O多路复用</title>
-      <link>./post/io%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</link>
+      <link>https://vcvvvc.github.io/post/io%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</link>
       <pubDate>Sun, 10 Oct 2021 10:00:00 +0800</pubDate>
-      <guid>./post/io%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</guid>
+      <guid>https://vcvvvc.github.io/post/io%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</guid>
       <description>&lt;h2 id=&#34;io模型&#34;&gt;I/O模型&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;%5B%5Dhttps://vcvvvc.github.io/post/server_actor/&#34;&gt;https://vcvvvc.github.io/post/server_actor/&lt;/a&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;io多路复用&#34;&gt;I/O多路复用&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Select、Poll、Epoll, 多路是指？多个业务方（句柄）并发下来的 IO 。 复用是指？复用这一个后台处理程序。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;select&#34;&gt;Select&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;select()函数主要解决的是accept()函数阻塞问题，而没有解决recv()和send()函数阻塞问题&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;#include &amp;lt;sys/select.h&amp;gt;&#xA;int select(int nfds, fd_set *readset, fd_set *writeset, fd_set *exceptset,struct timeval *timeout);&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;nfds参数指定被监听的文件描述符的总数。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;readfds, writefds和exceptfds参数分别指向可读、可写和异常等事件对应的文件描述符集合。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;#include &amp;lt;sys/select.h&amp;gt;&#xA;int FD_ZERO(int fd, fd_set *fdset);   //一个 fd_set类型变量的所有位都设为 0&#xA;int FD_CLR(int fd, fd_set *fdset);  //清除某个位时可以使用&#xA;int FD_SET(int fd, fd_set *fd_set);   //设置变量的某个位置位&#xA;int FD_ISSET(int fd, fd_set *fdset); //测试某个位是否被置位&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;&#xA;&lt;li&gt;timeout参数用来设置select函数的超时时间&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;struct timeval{&#xA;        long tv_sec;   /*秒 */&#xA;        long tv_usec;  /*微秒 */&#xA;    }&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;select示例代码-selectcpp&#34;&gt;select示例代码: &lt;a href=&#34;https://github.com/vcvvvc/CPP_Test/blob/master/server/socket/select&#34;&gt;select.cpp&lt;/a&gt;&lt;/h4&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;poll&#34;&gt;Poll&lt;/h2&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;#include &amp;lt;poll.h&amp;gt;&#xA;int poll(struct pollfd *ufds, unsigned int nfds, int timeout);&#xA;&#xA;struct pollfd {&#xA; int fd;&#x9;&#x9;//文件描述符&#xA; short events;&#x9;//要求查询的事件掩码&#xA; short revents;&#x9;//返回的事件掩码&#xA;};&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;ufds是一个数组，即poll函数可以监视多个文件描述符。&lt;/p&gt;</description>
     </item>
   </channel>

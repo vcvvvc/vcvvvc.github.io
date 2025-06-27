@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Solana on VW Blog</title>
-    <link>./tags/solana/</link>
+    <link>https://vcvvvc.github.io/tags/solana/</link>
     <description>Recent content in Solana on VW Blog</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Fri, 07 Mar 2025 01:18:40 +0800</lastBuildDate>
-    <atom:link href="./tags/solana/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vcvvvc.github.io/tags/solana/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Solana开源项目参考</title>
-      <link>./post/solana_open_source_learn/</link>
+      <link>https://vcvvvc.github.io/post/solana_open_source_learn/</link>
       <pubDate>Fri, 07 Mar 2025 01:18:40 +0800</pubDate>
-      <guid>./post/solana_open_source_learn/</guid>
+      <guid>https://vcvvvc.github.io/post/solana_open_source_learn/</guid>
       <description>&lt;h2 id=&#34;项目列表&#34;&gt;项目列表&lt;/h2&gt;&#xA;&lt;p&gt;Solana 项目早期 Tag 与 Main 分支版本综合分析&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;https://github.com/blockworks-foundation/mango&#xA;https://github.com/marinade-finance/liquid-staking-program&#xA;https://github.com/orca-so/whirlpools&#xA;https://github.com/saber-hq/stable-swap&#xA;https://github.com/cykura/cykura-protocol&#xA;https://github.com/Kamino-Finance/klend&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h2 id=&#34;总结-a版本&#34;&gt;总结-A版本&lt;/h2&gt;&#xA;&lt;h2 id=&#34;-solana-项目早期-tag-与当前-main-分支版本综合分析&#34;&gt;| Solana 项目早期 Tag 与当前 Main 分支版本综合分析&lt;/h2&gt;&#xA;&lt;p&gt;本文对六个主流 Solana 项目的早期 Tag 版本与当前 Main 分支版本进行了对比分析。重点从以下三个方面展开讨论：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;实现方式&lt;/strong&gt;：代码如何实现、架构设计与关键技术选型。&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;优点&lt;/strong&gt;：各版本在设计和实现上的优势。&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;挑战&lt;/strong&gt;：存在的复杂性、不足及学习上的难点。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;下面依次介绍各项目的情况，供开发者参考学习。&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;1-mangoblockworksfoundationmango&#34;&gt;1. Mango（blockworks‐foundation/mango）&lt;/h2&gt;&#xA;&lt;h3 id=&#34;早期-tag-版本&#34;&gt;早期 Tag 版本&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;核心逻辑&lt;/strong&gt;&lt;br&gt;&#xA;实现了基本的交易撮合、杠杆交易、资金池管理和风险控制等功能，是构建高性能去中心化交易平台的雏形。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;实现方式&lt;/strong&gt;&lt;br&gt;&#xA;采用较直接的模块分层设计，各模块间的调用较为紧耦合。代码量相对较少，但为支持核心交易逻辑做了不少硬编码和简单的风险校验。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;优点&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;直观展示了交易撮合和杠杆机制的基本实现。&lt;/li&gt;&#xA;&lt;li&gt;结构较简单，便于初步了解平台整体架构和风险控制思路。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;挑战&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;模块之间缺乏足够的解耦，代码阅读时需要理清各模块间的交互。&lt;/li&gt;&#xA;&lt;li&gt;功能实现较为原始，边界情况和异常处理不完善，对后续理解更复杂系统可能带来困难。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;当前-main-分支版本&#34;&gt;当前 Main 分支版本&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;功能扩展&lt;/strong&gt;&lt;br&gt;&#xA;在早期基础上增加了更多功能，如完善的风控系统、借贷支持以及交易优化策略，整体功能更丰富。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;实现方式&lt;/strong&gt;&lt;br&gt;&#xA;采用模块化设计，代码经过重构和优化。各组件间更为独立，异常处理、状态校验等更加健全，同时注释和文档也更完善。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;优点&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;展示了一个成熟高性能交易平台的完整实现流程。&lt;/li&gt;&#xA;&lt;li&gt;更高的代码鲁棒性和可扩展性，便于理解实际生产环境下的系统架构。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;挑战&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;功能复杂度大，涉及多个子系统，学习曲线陡峭。&lt;/li&gt;&#xA;&lt;li&gt;需要投入较多精力去理解各模块间的交互和优化逻辑。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;2-marinade-的-liquid-staking-programmarinadefinanceliquidstakingprogram&#34;&gt;2. Marinade 的 Liquid Staking Program（marinade‐finance/liquid‐staking‐program）&lt;/h2&gt;&#xA;&lt;h3 id=&#34;早期-tag-版本-1&#34;&gt;早期 Tag 版本&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;核心逻辑&lt;/strong&gt;&lt;br&gt;&#xA;实现 SOL 质押、权益代币生成以及流动性解锁。整个业务逻辑单一、聚焦于解决质押后流动性受限的问题。&lt;/p&gt;</description>
     </item>
   </channel>

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Volatile on VW Blog</title>
-    <link>./tags/volatile/</link>
+    <link>https://vcvvvc.github.io/tags/volatile/</link>
     <description>Recent content in Volatile on VW Blog</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Sun, 13 Sep 2020 18:12:48 +0800</lastBuildDate>
-    <atom:link href="./tags/volatile/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vcvvvc.github.io/tags/volatile/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About function: Volatile</title>
-      <link>./post/volatile/</link>
+      <link>https://vcvvvc.github.io/post/volatile/</link>
       <pubDate>Sun, 13 Sep 2020 18:12:48 +0800</pubDate>
-      <guid>./post/volatile/</guid>
+      <guid>https://vcvvvc.github.io/post/volatile/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/33074506&#34;&gt;https://zhuanlan.zhihu.com/p/33074506&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.runoob.com/w3cnote/c-volatile-keyword.html&#34;&gt;https://www.runoob.com/w3cnote/c-volatile-keyword.html&lt;/a&gt;&lt;/p&gt;</description>
     </item>
   </channel>

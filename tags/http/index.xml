@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Http on VW Blog</title>
-    <link>./tags/http/</link>
+    <link>https://vcvvvc.github.io/tags/http/</link>
     <description>Recent content in Http on VW Blog</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Sat, 10 Feb 2024 15:08:37 +0800</lastBuildDate>
-    <atom:link href="./tags/http/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vcvvvc.github.io/tags/http/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>理解RESTful</title>
-      <link>./post/restful/</link>
+      <link>https://vcvvvc.github.io/post/restful/</link>
       <pubDate>Sat, 10 Feb 2024 15:08:37 +0800</pubDate>
-      <guid>./post/restful/</guid>
+      <guid>https://vcvvvc.github.io/post/restful/</guid>
       <description>&lt;h2 id=&#34;rest--representational-state-transfer&#34;&gt;REST &amp;ndash; REpresentational State Transfer&lt;/h2&gt;&#xA;&lt;p&gt;全称是&lt;strong&gt;Resource Representational State Transfer&lt;/strong&gt;：&lt;/p&gt;&#xA;&lt;p&gt;通俗来讲就是：资源在网络中以某种表现形式进行状态转移。&lt;/p&gt;&#xA;&lt;p&gt;分解开来：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Resource：资源，即数据（前面说过网络的核心）。比如 newsfeed，friends等；&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Representational：某种表现形式，比如用JSON，XML，JPEG等；&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;State Transfer：状态变化。通过HTTP动词实现。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;&lt;em&gt;用beego写的web server理解RESTful&lt;/em&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;reference&#34;&gt;Reference&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;怎样用通俗的语言解释REST，以及RESTful？&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.zhihu.com/question/28557115&#34;&gt;https://www.zhihu.com/question/28557115&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.zhihu.com/question/28557115/answer/48094438&#34;&gt;https://www.zhihu.com/question/28557115/answer/48094438&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.runoob.com/w3cnote/restful-architecture.html&#34;&gt;https://www.runoob.com/w3cnote/restful-architecture.html&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.ruanyifeng.com/blog/2011/09/restful.html&#34;&gt;https://www.ruanyifeng.com/blog/2011/09/restful.html&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Computer_network</title>
-      <link>./post/computer_network/</link>
+      <link>https://vcvvvc.github.io/post/computer_network/</link>
       <pubDate>Thu, 06 May 2021 10:09:44 +0800</pubDate>
-      <guid>./post/computer_network/</guid>
+      <guid>https://vcvvvc.github.io/post/computer_network/</guid>
       <description>&lt;h2 id=&#34;计算机网络&#34;&gt;计算机网络&lt;/h2&gt;&#xA;&lt;h2 id=&#34;应用层&#34;&gt;应用层&lt;/h2&gt;&#xA;&lt;h3 id=&#34;http&#34;&gt;HTTP&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;HTTP（HyperText Transfer Protocol，超文本传输协议）是一种用于分布式、协作式和超媒体信息系统的应用层协议。HTTP 是万维网的数据通信的基础。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Cookie&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;HTTP 是一种不保存状态，即无状态（stateless）协议。&lt;/li&gt;&#xA;&lt;li&gt;Cookie 会根据从服务器端发送的响应报文内的一个叫做 Set-Cookie 的 首部字段信息，通知客户端保存 Cookie。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;请求方法&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;OPTIONS&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;请求一些选项信息，允许客户端查看服务器的性能&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;GET&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;请求指定的页面信息，并返回实体主体&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;HEAD&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;类似于 get 请求，只不过返回的响应中没有具体的内容，用于获取报头&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;POST&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;向指定资源提交数据进行处理请求（例如提交表单或者上传文件）。数据被包含在请求体中。POST请求可能会导致新的资源的建立和/或已有资源的修改&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;PUT&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;从客户端向服务器传送的数据取代指定的文档的内容&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;DELETE&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;请求服务器删除指定的页面&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;TRACE&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;回显服务器收到的请求，主要用于测试或诊断&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;报文&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;报文&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;是 HTTP 通信中的基本单位，由 8 位组字节流（octet sequence， 其中 octet 为 8 个比特）组成，通过 HTTP 通信传输。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;实体&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;作为请求或响应的有效载荷数据（补充项）被传输，其内容由实 体首部和实体主体组成。&lt;/li&gt;&#xA;&lt;li&gt;HTTP 报文的主体用于传输请求或响应的实体主体。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;客户端(请求报文)&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;请求行&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;用于请求的方法，请求 URI 和 HTTP 版本&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;状态行&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;含表明响应结果的状态码，原因短语和 HTTP 版本&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;首部字段&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;表示请求和响应的各种条件和属性的各类首部&lt;/li&gt;&#xA;&lt;li&gt;通用首部&lt;/li&gt;&#xA;&lt;li&gt;请求首部&lt;/li&gt;&#xA;&lt;li&gt;响应首部&lt;/li&gt;&#xA;&lt;li&gt;实体首部&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;服务端(响应报文) 内容同上&lt;/p&gt;</description>
     </item>
   </channel>

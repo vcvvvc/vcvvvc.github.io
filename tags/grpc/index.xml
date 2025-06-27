@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Grpc on VW Blog</title>
-    <link>./tags/grpc/</link>
+    <link>https://vcvvvc.github.io/tags/grpc/</link>
     <description>Recent content in Grpc on VW Blog</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Thu, 22 Jul 2021 00:13:51 +0800</lastBuildDate>
-    <atom:link href="./tags/grpc/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vcvvvc.github.io/tags/grpc/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>grpc install</title>
-      <link>./post/grpc_install/</link>
+      <link>https://vcvvvc.github.io/post/grpc_install/</link>
       <pubDate>Thu, 22 Jul 2021 00:13:51 +0800</pubDate>
-      <guid>./post/grpc_install/</guid>
+      <guid>https://vcvvvc.github.io/post/grpc_install/</guid>
       <description>&lt;p&gt;&lt;strong&gt;macos11.4下 grpc-cpp安装&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;lib&#34;&gt;lib&lt;/h2&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;brew install autoconf automake libtool shtool gflags cmake pkg-config&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h2 id=&#34;grpc-cpp&#34;&gt;grpc-cpp&lt;/h2&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git clone https://github.com/grpc/grpc.git&#xA;git checkout -b v1.38.x&#xA;# 下载所有子模块&#xA;git submodule update --init --recursive&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h2 id=&#34;protobuf3-install&#34;&gt;protobuf3 install&lt;/h2&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git clone https://github.com/google/protobuf.git&#xA;cd protobuf&#xA;git checkout v3.9.0&#xA;sh ./autogen.sh&#xA;./configure --prefix=/usr/local/protobuf/&#xA;make&#xA;sudo make install&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;查看版本&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cd /usr/local/protobuf/bin/&#xA;./protoc --version&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;将下面指令加入.bash_profiile中之后执行&lt;code&gt;source ~/.bash_profile&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;export PATH=$PATH:/usr/local/protobuf/bin/&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h2 id=&#34;grpc-install&#34;&gt;grpc install&lt;/h2&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cd grpc&#xA;export MY_INSTALL_DIR=$HOME/.local&#xA;mkdir -p $MY_INSTALL_DIR&#xA;export PATH=&amp;#34;$MY_INSTALL_DIR/bin:$PATH&amp;#34;&#xA;mkdir -p cmake/build&#xA;pushd cmake/build&#xA;cmake -DgRPC_INSTALL=ON \&#xA;      -DgRPC_BUILD_TESTS=OFF \&#xA;      -DCMAKE_INSTALL_PREFIX=$MY_INSTALL_DIR \&#xA;      ../..&#xA;make -j2&#xA;sudo make install&#xA;popd&#xA;mkdir -p third_party/abseil-cpp/cmake/build&#xA;pushd third_party/abseil-cpp/cmake/build&#xA;cmake -DCMAKE_INSTALL_PREFIX=$MY_INSTALL_DIR \&#xA;      -DCMAKE_POSITION_INDEPENDENT_CODE=TRUE \&#xA;      ../..&#xA;make&#xA;sudo make install&#xA;popd&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h2 id=&#34;helloworld-test&#34;&gt;HelloWorld test&lt;/h2&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cd examples/cpp/helloworld&#xA;mkdir -p cmake/build&#xA;pushd cmake/build&#xA;cmake -DCMAKE_PREFIX_PATH=$MY_INSTALL_DIR ../..&#xA;make -j2&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;编译完成之后&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
   </channel>

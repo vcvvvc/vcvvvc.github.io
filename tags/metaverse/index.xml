@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Metaverse on VW Blog</title>
-    <link>./tags/metaverse/</link>
+    <link>https://vcvvvc.github.io/tags/metaverse/</link>
     <description>Recent content in Metaverse on VW Blog</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Fri, 22 Oct 2021 22:59:25 +0800</lastBuildDate>
-    <atom:link href="./tags/metaverse/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vcvvvc.github.io/tags/metaverse/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Metaverse</title>
-      <link>./post/metaverse/</link>
+      <link>https://vcvvvc.github.io/post/metaverse/</link>
       <pubDate>Fri, 22 Oct 2021 22:59:25 +0800</pubDate>
-      <guid>./post/metaverse/</guid>
-      <description>&lt;h2 id=&#34;元宇宙--metaverse&#34;&gt;元宇宙 | Metaverse&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;We are at the beginning of the next chapter for the internet.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;趋势明显，顺势而为。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;./img/Metaverse/Meta.jpg&#34; alt=&#34;Meta&#34;&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;augmented-reality&#34;&gt;Augmented reality&lt;/h2&gt;&#xA;&lt;p&gt;个人练手小项目:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;wave(波)基于arkit制作: &lt;a href=&#34;https://www.bilibili.com/video/BV1n44y147pY&#34;&gt;https://www.bilibili.com/video/BV1n44y147pY&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;unity+easyar简单用例演示: &lt;a href=&#34;https://www.bilibili.com/video/BV1wu411f7yH&#34;&gt;https://www.bilibili.com/video/BV1wu411f7yH&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;unity+easyar识别指定图片或物品播放音乐: &lt;a href=&#34;https://www.bilibili.com/video/BV1X3411C7EW&#34;&gt;https://www.bilibili.com/video/BV1X3411C7EW&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;练手项目arkit制作的小地球: &lt;a href=&#34;https://www.bilibili.com/video/BV1DR4y1J7xM&#34;&gt;https://www.bilibili.com/video/BV1DR4y1J7xM&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;练手项目arkit制作的小地球2: &lt;a href=&#34;https://www.bilibili.com/video/BV1xq4y1G76k&#34;&gt;https://www.bilibili.com/video/BV1xq4y1G76k&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;讯息&#34;&gt;讯息&lt;/h2&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;2021-10-29：Facebook将公司名称更改为“META”，公司股票代码将从12月1日起变更为“MVRS”。&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
+      <guid>https://vcvvvc.github.io/post/metaverse/</guid>
+      <description>&lt;h2 id=&#34;元宇宙--metaverse&#34;&gt;元宇宙 | Metaverse&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;We are at the beginning of the next chapter for the internet.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;趋势明显，顺势而为。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://vcvvvc.github.io/img/Metaverse/Meta.jpg&#34; alt=&#34;Meta&#34;&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;augmented-reality&#34;&gt;Augmented reality&lt;/h2&gt;&#xA;&lt;p&gt;个人练手小项目:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;wave(波)基于arkit制作: &lt;a href=&#34;https://www.bilibili.com/video/BV1n44y147pY&#34;&gt;https://www.bilibili.com/video/BV1n44y147pY&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;unity+easyar简单用例演示: &lt;a href=&#34;https://www.bilibili.com/video/BV1wu411f7yH&#34;&gt;https://www.bilibili.com/video/BV1wu411f7yH&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;unity+easyar识别指定图片或物品播放音乐: &lt;a href=&#34;https://www.bilibili.com/video/BV1X3411C7EW&#34;&gt;https://www.bilibili.com/video/BV1X3411C7EW&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;练手项目arkit制作的小地球: &lt;a href=&#34;https://www.bilibili.com/video/BV1DR4y1J7xM&#34;&gt;https://www.bilibili.com/video/BV1DR4y1J7xM&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;练手项目arkit制作的小地球2: &lt;a href=&#34;https://www.bilibili.com/video/BV1xq4y1G76k&#34;&gt;https://www.bilibili.com/video/BV1xq4y1G76k&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;讯息&#34;&gt;讯息&lt;/h2&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;2021-10-29：Facebook将公司名称更改为“META”，公司股票代码将从12月1日起变更为“MVRS”。&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
   </channel>
 </rss>

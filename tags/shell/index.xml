@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Shell on VW Blog</title>
-    <link>./tags/shell/</link>
+    <link>https://vcvvvc.github.io/tags/shell/</link>
     <description>Recent content in Shell on VW Blog</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Sat, 01 Aug 2020 21:31:50 +0800</lastBuildDate>
-    <atom:link href="./tags/shell/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vcvvvc.github.io/tags/shell/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Shell_command($!, $@...)</title>
-      <link>./post/shell_commans/</link>
+      <link>https://vcvvvc.github.io/post/shell_commans/</link>
       <pubDate>Sat, 01 Aug 2020 21:31:50 +0800</pubDate>
-      <guid>./post/shell_commans/</guid>
-      <description>&lt;h1 id=&#34;startsh-1-2-3-4&#34;&gt;./start.sh 1 2 3 4&lt;/h1&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;num: $# = 4&#xA;PID: $$ = 24133&#xA;sname: $0 = start.sh&#xA;first: $1 = 1&#xA;secont: $2 = 2&#xA;$@ = 1234 #value list&#xA;$* = 1234 #value&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;$* 1 2 3 4&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;img src=&#34;./img/shellcommand/$*.png&#34; alt=&#34;shell&#34;&gt;&lt;/p&gt;</description>
+      <guid>https://vcvvvc.github.io/post/shell_commans/</guid>
+      <description>&lt;h1 id=&#34;startsh-1-2-3-4&#34;&gt;./start.sh 1 2 3 4&lt;/h1&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;num: $# = 4&#xA;PID: $$ = 24133&#xA;sname: $0 = start.sh&#xA;first: $1 = 1&#xA;secont: $2 = 2&#xA;$@ = 1234 #value list&#xA;$* = 1234 #value&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;$* 1 2 3 4&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://vcvvvc.github.io/img/shellcommand/$*.png&#34; alt=&#34;shell&#34;&gt;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

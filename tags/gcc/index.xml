@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>GCC on VW Blog</title>
-    <link>./tags/gcc/</link>
+    <link>https://vcvvvc.github.io/tags/gcc/</link>
     <description>Recent content in GCC on VW Blog</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Thu, 02 Dec 2021 11:08:36 +0800</lastBuildDate>
-    <atom:link href="./tags/gcc/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vcvvvc.github.io/tags/gcc/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ubuntu20.4 install gcc11.2.0</title>
-      <link>./post/ubuntu20_install_gcc11/</link>
+      <link>https://vcvvvc.github.io/post/ubuntu20_install_gcc11/</link>
       <pubDate>Thu, 02 Dec 2021 11:08:36 +0800</pubDate>
-      <guid>./post/ubuntu20_install_gcc11/</guid>
+      <guid>https://vcvvvc.github.io/post/ubuntu20_install_gcc11/</guid>
       <description>&lt;h2 id=&#34;编译安装&#34;&gt;编译安装&lt;/h2&gt;&#xA;&lt;p&gt;make时间比较长。&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;#直接存sh里&#xA;wget https://mirrors.ustc.edu.cn/gnu/gcc/gcc-11.2.0/gcc-11.2.0.tar.gz&#xA;tar -zxvf gcc-11.2.0.tar.gz&#xA;cd gcc-11.2.0&#xA;./contrib/download_prerequisites&#xA;mkdir build&#xA;cd build&#xA;../configure configure -v --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --prefix=/usr/local/gcc-11.2 --enable-checking=release --enable-languages=c,c++ --disable-multilib --program-suffix=-11.2&#xA;make -j4&#xA;make install&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h2 id=&#34;设置默认gcc&#34;&gt;设置默认gcc&lt;/h2&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;ln -s /usr/local/gcc-11.2/bin/g++-11.2 /usr/bin/g++-11.2&#xA;ln -s /usr/local/gcc-11.2/bin/gcc-11.2 /usr/bin/gcc-11.2&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-11.2 100&#xA;update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-11.2 100&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;#选择版本 就一个选项的不会提供选择&#xA;update-alternatives --config gcc&#xA;update-alternatives --config g++&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;gcc -v&#xA;g++ -v&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h2 id=&#34;re&#34;&gt;Re:&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/wbvalid/article/details/119945557&#34;&gt;https://blog.csdn.net/wbvalid/article/details/119945557&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/EternallyAccompany/article/details/108865331&#34;&gt;https://blog.csdn.net/EternallyAccompany/article/details/108865331&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Variable function(fun(char *, ...)) and vsnprintf()</title>
-      <link>./post/variable_function/</link>
+      <link>https://vcvvvc.github.io/post/variable_function/</link>
       <pubDate>Tue, 28 Jul 2020 14:44:30 +0800</pubDate>
-      <guid>./post/variable_function/</guid>
+      <guid>https://vcvvvc.github.io/post/variable_function/</guid>
       <description>&lt;blockquote&gt;&#xA;&lt;p&gt;void fun(char * fmt, &amp;hellip;); &lt;br&gt;&#xA;int vsprintf(char *str, const char *format, va_list arg);&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;hr&gt;&#xA;&lt;h1 id=&#34;test-programming&#34;&gt;Test programming&lt;/h1&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;#include &amp;lt;stdio.h&amp;gt;&#xA;#include &amp;lt;stdarg.h&amp;gt;&#xA;&#xA;/*&#xA; * Re: https://github.com/antirez/kilo/kilo.c&#xA; * Re: https://www.runoob.com/cprogramming/c-function-vsprintf.html&#xA; */&#xA;&#xA;char buffer[80];&#xA;&#xA;int editorSetstatus(const char * fmt, ...)&#xA;{&#xA;    va_list ap;&#xA;    va_start(ap, fmt);&#xA;    int ret;&#xA;    ret = vsnprintf(buffer, sizeof(buffer - 1), fmt, ap);&#xA;&#xA;    va_end(ap);&#xA;&#xA;    return (ret);&#xA;}&#xA;&#xA;int main(int argc, char **argv)&#xA;{&#xA;    int len = 20;&#xA;    editorSetstatus(&amp;#34;%d&amp;#34;, len);&#xA;&#xA;    printf(&amp;#34;%s \n&amp;#34;, buffer);&#xA;&#xA;    return 0;&#xA;}&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;p&gt;&lt;strong&gt;gcc -Wall -g fun.c -o fun&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
   </channel>

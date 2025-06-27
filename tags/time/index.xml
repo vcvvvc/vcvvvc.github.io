@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Time on VW Blog</title>
-    <link>./tags/time/</link>
+    <link>https://vcvvvc.github.io/tags/time/</link>
     <description>Recent content in Time on VW Blog</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Tue, 01 Jun 2021 15:57:31 +0800</lastBuildDate>
-    <atom:link href="./tags/time/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vcvvvc.github.io/tags/time/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Chrono_use</title>
-      <link>./post/chrono_use/</link>
+      <link>https://vcvvvc.github.io/post/chrono_use/</link>
       <pubDate>Tue, 01 Jun 2021 15:57:31 +0800</pubDate>
-      <guid>./post/chrono_use/</guid>
+      <guid>https://vcvvvc.github.io/post/chrono_use/</guid>
       <description>&lt;h1 id=&#34;时间戳获取&#34;&gt;时间戳获取&lt;/h1&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;using namespace std::chrono;&#xA;    auto millisec_since_epoch = duration_cast&amp;lt;milliseconds&amp;gt;(system_clock::now().time_since_epoch()).count();&#xA;    auto msec = duration_cast&amp;lt;microseconds&amp;gt;(system_clock::now().time_since_epoch()).count();&#xA;&#xA;    auto sec_since_epoch = duration_cast&amp;lt;seconds&amp;gt;(system_clock::now().time_since_epoch()).count();&#xA;&#xA;    std::cout &amp;lt;&amp;lt; &amp;#34;seconds since epoch: &amp;#34; &amp;lt;&amp;lt; sec_since_epoch &amp;lt;&amp;lt; std::endl;&#xA;    std::cout &amp;lt;&amp;lt; &amp;#34;milliseconds since epoch: &amp;#34; &amp;lt;&amp;lt; millisec_since_epoch &amp;lt;&amp;lt; std::endl;&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;&#xA;&lt;li&gt;秒seconds since epoch: 1622534342&lt;/li&gt;&#xA;&lt;li&gt;微妙 milliseconds since epoch: 1622534342050&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h1 id=&#34;标准年月日时间获取&#34;&gt;标准年月日+时间获取&lt;/h1&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;std::time_t now = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());&#xA;char re_time[256] = {0};&#xA;std::strftime(re_time, sizeof(re_time), &amp;#34;%Y-%m-%d %X&amp;#34;, std::localtime(&amp;amp;now));&#xA;std::cout &amp;lt;&amp;lt; “注册时间 ” &amp;lt;&amp;lt; re_time &amp;lt;&amp;lt; std::endl;&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;注册时间: 2021-06-01 15:56:42&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;Re:&lt;/p&gt;</description>
     </item>
   </channel>

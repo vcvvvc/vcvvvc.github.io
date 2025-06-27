@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Docker on VW Blog</title>
-    <link>./tags/docker/</link>
+    <link>https://vcvvvc.github.io/tags/docker/</link>
     <description>Recent content in Docker on VW Blog</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Mon, 01 Apr 2024 16:42:04 +0800</lastBuildDate>
-    <atom:link href="./tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vcvvvc.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Docker use Tutorial</title>
-      <link>./post/docker_tutorial/</link>
+      <link>https://vcvvvc.github.io/post/docker_tutorial/</link>
       <pubDate>Mon, 01 Apr 2024 16:42:04 +0800</pubDate>
-      <guid>./post/docker_tutorial/</guid>
+      <guid>https://vcvvvc.github.io/post/docker_tutorial/</guid>
       <description>&lt;p&gt;2024年版本&lt;/p&gt;&#xA;&lt;h2 id=&#34;install-docker-on-ubuntu&#34;&gt;Install docker on Ubuntu&lt;/h2&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;# Add Docker&amp;#39;s official GPG key:&#xA;sudo apt-get update&#xA;sudo apt-get install ca-certificates curl&#xA;sudo install -m 0755 -d /etc/apt/keyrings&#xA;sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc&#xA;sudo chmod a+r /etc/apt/keyrings/docker.asc&#xA;&#xA;# Add the repository to Apt sources:&#xA;echo \&#xA;  &amp;#34;deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \&#xA;  $(. /etc/os-release &amp;amp;&amp;amp; echo &amp;#34;$VERSION_CODENAME&amp;#34;) stable&amp;#34; | \&#xA;  sudo tee /etc/apt/sources.list.d/docker.list &amp;gt; /dev/null&#xA;sudo apt-get update&#xA;&#xA;sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin&#xA;sudo docker run hello-world&#xA;&#xA;# 重启&#xA;service docker restart&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h2 id=&#34;install-postgresql&#34;&gt;Install PostgreSQL&lt;/h2&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;docker pull postgres&#xA;docker run --name mypsql -e POSTGRES_PASSWORD=my_password -d -p 5432:5432 -v /path/to/data:/var/lib/postgresql/data postgres&#xA;docker exec -it mypsql psql -U postgres&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h2 id=&#34;docker-usage&#34;&gt;Docker usage&lt;/h2&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;# 查找镜像&#xA;docker search hello-world&#xA;&#xA;# 获取镜像&#xA;docker pull hello-world&#xA;&#xA;# 镜像列表&#xA;docker images &#xA;REPOSITORY    TAG       IMAGE ID       CREATED         SIZE&#xA;hello-world   latest    d2c94e258dcb   12 months ago   13.3kB&#xA;&#xA;# 运行镜像&#xA;docker run hello-world&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h2 id=&#34;docker-container&#34;&gt;Docker container&lt;/h2&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;# 查看所有容器&#xA;docker ps -a&#xA;&#xA;# 启动容器&#xA;docker start $id&#xA;&#xA;# 停止容器&#xA;docker stop $id&#xA;&#xA;# 重启容器&#xA;docker restart $id&#xA;&#xA;# 进入容器&#xA;1. docker attach $id&#xA;2. docker exec -it $id /bin/bash&#xA;&#xA;# 删除容器&#xA;docker rm $id&#xA;&#xA;# 导出容器&#xA;docker export $id &amp;gt; ubuntu.tar&#xA;&#xA;# 导入容器&#xA;cat docker/ubuntu.tar | docker import - test/ubuntu:v1&#xA;&#xA;# 运行一个web&#xA;docker pull training/webapp&#xA;&#xA;# 更新一个容器 &#xA;docker run -it --name my_container ubuntu:18.04 bash&#xA;docker run -t -i ubuntu:18.04 /bin/bash&#xA; - apt-get update&#xA; - apt-get install gcc&#xA;&#xA;docker commit -m=&amp;#34;install gcc&amp;#34; -a=&amp;#34;vvvttest&amp;#34; 3635723fd832 vvvttest/ubuntu:v1&#xA;&#xA;# 创建一个容器&#xA;Dockerfile: &#xA;# syntax=docker/dockerfile:1&#xA;FROM node:16-alpine&#xA;WORKDIR /app&#xA;COPY . .&#xA;RUN yarn install --production&#xA;CMD [&amp;#34;node&amp;#34;, &amp;#34;src/index.js&amp;#34;]&#xA;&#xA;&#xA;&#xA;docker build -t getting-started .&#xA;docker run -dp 3000:3000 getting-started&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository&#34;&gt;https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Ubuntu20_install_docker</title>
-      <link>./post/ubuntu20_install_docker/</link>
+      <link>https://vcvvvc.github.io/post/ubuntu20_install_docker/</link>
       <pubDate>Fri, 01 Apr 2022 22:22:24 +0800</pubDate>
-      <guid>./post/ubuntu20_install_docker/</guid>
+      <guid>https://vcvvvc.github.io/post/ubuntu20_install_docker/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/143156163&#34;&gt;https://zhuanlan.zhihu.com/p/143156163&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Centos8 install docker</title>
-      <link>./post/centos8_install_docker/</link>
+      <link>https://vcvvvc.github.io/post/centos8_install_docker/</link>
       <pubDate>Mon, 12 Jul 2021 12:25:06 +0800</pubDate>
-      <guid>./post/centos8_install_docker/</guid>
+      <guid>https://vcvvvc.github.io/post/centos8_install_docker/</guid>
       <description>&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;yum update -y&#xA;sudo yum install -y yum-utils device-mapper-persistent-data lvm2&#xA;sudo yum-config-manager --add-repo   https://download.docker.com/linux/centos/docker-ce.repo&#xA;sudo yum install docker-ce docker-ce-cli containerd.io -y &#xA;sudo yum install docker-ce docker-ce-cli&#xA;sudo systemctl start docker&#xA;docker --version&#xA;sudo systemctl enable docker&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;出现安装包问题&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo yum install docker-ce docker-ce-cli containerd.io -y --allowerasing&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h1 id=&#34;更换容器镜像&#34;&gt;更换容器镜像&lt;/h1&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors&#34;&gt;https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;cd /etc/docker&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;vim daemon.json&lt;/code&gt;&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;# url改成自己的加速器地址，亦可使用该地址&#xA;{&#xA;  &amp;#34;registry-mirrors&amp;#34;: [&amp;#34;https://k01sfudd.mirror.aliyuncs.com&amp;#34;]&#xA;}&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;systemctl daemon-reload&#xA;systemctl restart docker&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h1 id=&#34;re&#34;&gt;Re:&lt;/h1&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/jcmj123456/article/details/117742182&#34;&gt;https://blog.csdn.net/jcmj123456/article/details/117742182&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.jianshu.com/p/6d9e725da273&#34;&gt;https://www.jianshu.com/p/6d9e725da273&lt;/a&gt;&lt;/p&gt;</description>
     </item>
   </channel>

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Restful on VW Blog</title>
-    <link>./tags/restful/</link>
+    <link>https://vcvvvc.github.io/tags/restful/</link>
     <description>Recent content in Restful on VW Blog</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Sat, 10 Feb 2024 15:08:37 +0800</lastBuildDate>
-    <atom:link href="./tags/restful/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vcvvvc.github.io/tags/restful/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>理解RESTful</title>
-      <link>./post/restful/</link>
+      <link>https://vcvvvc.github.io/post/restful/</link>
       <pubDate>Sat, 10 Feb 2024 15:08:37 +0800</pubDate>
-      <guid>./post/restful/</guid>
+      <guid>https://vcvvvc.github.io/post/restful/</guid>
       <description>&lt;h2 id=&#34;rest--representational-state-transfer&#34;&gt;REST &amp;ndash; REpresentational State Transfer&lt;/h2&gt;&#xA;&lt;p&gt;全称是&lt;strong&gt;Resource Representational State Transfer&lt;/strong&gt;：&lt;/p&gt;&#xA;&lt;p&gt;通俗来讲就是：资源在网络中以某种表现形式进行状态转移。&lt;/p&gt;&#xA;&lt;p&gt;分解开来：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Resource：资源，即数据（前面说过网络的核心）。比如 newsfeed，friends等；&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Representational：某种表现形式，比如用JSON，XML，JPEG等；&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;State Transfer：状态变化。通过HTTP动词实现。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;&lt;em&gt;用beego写的web server理解RESTful&lt;/em&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;reference&#34;&gt;Reference&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;怎样用通俗的语言解释REST，以及RESTful？&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.zhihu.com/question/28557115&#34;&gt;https://www.zhihu.com/question/28557115&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.zhihu.com/question/28557115/answer/48094438&#34;&gt;https://www.zhihu.com/question/28557115/answer/48094438&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.runoob.com/w3cnote/restful-architecture.html&#34;&gt;https://www.runoob.com/w3cnote/restful-architecture.html&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.ruanyifeng.com/blog/2011/09/restful.html&#34;&gt;https://www.ruanyifeng.com/blog/2011/09/restful.html&lt;/a&gt;&lt;/p&gt;</description>
     </item>
   </channel>

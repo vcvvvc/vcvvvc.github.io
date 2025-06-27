@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Openpyxl on VW Blog</title>
-    <link>./tags/openpyxl/</link>
+    <link>https://vcvvvc.github.io/tags/openpyxl/</link>
     <description>Recent content in Openpyxl on VW Blog</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Sun, 15 Nov 2020 19:14:58 +0800</lastBuildDate>
-    <atom:link href="./tags/openpyxl/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vcvvvc.github.io/tags/openpyxl/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Opepyxl sytle</title>
-      <link>./post/opepyxl_sytle/</link>
+      <link>https://vcvvvc.github.io/post/opepyxl_sytle/</link>
       <pubDate>Sun, 15 Nov 2020 19:14:58 +0800</pubDate>
-      <guid>./post/opepyxl_sytle/</guid>
+      <guid>https://vcvvvc.github.io/post/opepyxl_sytle/</guid>
       <description>&lt;ul&gt;&#xA;&lt;li&gt;font(字体类)：字号、字体颜色、下划线等&lt;/li&gt;&#xA;&lt;li&gt;fill(填充类)：颜色等&lt;/li&gt;&#xA;&lt;li&gt;border(边框类)：设置单元格边框&lt;/li&gt;&#xA;&lt;li&gt;alignment(位置类)：对齐方式&lt;/li&gt;&#xA;&lt;li&gt;number_format(格式类)：数据格式&lt;/li&gt;&#xA;&lt;li&gt;protection(保护类)：写保护&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; from openpyxl.styles import PatternFill, Border, Side, Alignment, Protection, Font&#xA;&amp;gt;&amp;gt;&amp;gt; font = Font(name=&amp;#39;Calibri&amp;#39;,&#xA;                 size=11,&#xA;                 bold=False,&#xA;                 italic=False,&#xA;                 vertAlign=None,&#xA;                 underline=&amp;#39;none&amp;#39;,&#xA;                 strike=False,&#xA;                 color=&amp;#39;FF000000&amp;#39;)&#xA;&amp;gt;&amp;gt;&amp;gt; fill = PatternFill(fill_type=None,&#xA;                 start_color=&amp;#39;FFFFFFFF&amp;#39;,&#xA;                 end_color=&amp;#39;FF000000&amp;#39;)&#xA;&amp;gt;&amp;gt;&amp;gt; border = Border(left=Side(border_style=None,&#xA;                           color=&amp;#39;FF000000&amp;#39;),&#xA;                 right=Side(border_style=None,&#xA;                            color=&amp;#39;FF000000&amp;#39;),&#xA;                 top=Side(border_style=None,&#xA;                          color=&amp;#39;FF000000&amp;#39;),&#xA;                 bottom=Side(border_style=None,&#xA;                             color=&amp;#39;FF000000&amp;#39;),&#xA;                 diagonal=Side(border_style=None,&#xA;                               color=&amp;#39;FF000000&amp;#39;),&#xA;                 diagonal_direction=0,&#xA;                 outline=Side(border_style=None,&#xA;                               color=&amp;#39;FF000000&amp;#39;),&#xA;                 vertical=Side(border_style=None,&#xA;                               color=&amp;#39;FF000000&amp;#39;),&#xA;                 horizontal=Side(border_style=None,&#xA;                               color=&amp;#39;FF000000&amp;#39;)&#xA;                )&#xA;&amp;gt;&amp;gt;&amp;gt; alignment=Alignment(horizontal=&amp;#39;general&amp;#39;,&#xA;                     vertical=&amp;#39;bottom&amp;#39;,&#xA;                     text_rotation=0,&#xA;                     wrap_text=False,&#xA;                     shrink_to_fit=False,&#xA;                     indent=0)&#xA;&amp;gt;&amp;gt;&amp;gt; number_format = &amp;#39;General&amp;#39;&#xA;&amp;gt;&amp;gt;&amp;gt; protection = Protection(locked=True,&#xA;                         hidden=False)&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;以上几种样式（字体、填充、边框、位置和保护）实例一旦被创建实例的属性就不可更改，只能重新创建实例。&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
   </channel>

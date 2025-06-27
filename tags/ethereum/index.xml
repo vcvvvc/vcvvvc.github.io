@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ethereum on VW Blog</title>
-    <link>./tags/ethereum/</link>
+    <link>https://vcvvvc.github.io/tags/ethereum/</link>
     <description>Recent content in Ethereum on VW Blog</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Sat, 10 Feb 2024 23:51:46 +0800</lastBuildDate>
-    <atom:link href="./tags/ethereum/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vcvvvc.github.io/tags/ethereum/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ethereum Extended Reading</title>
-      <link>./post/ethereum-extended-reading/</link>
+      <link>https://vcvvvc.github.io/post/ethereum-extended-reading/</link>
       <pubDate>Sat, 10 Feb 2024 23:51:46 +0800</pubDate>
-      <guid>./post/ethereum-extended-reading/</guid>
+      <guid>https://vcvvvc.github.io/post/ethereum-extended-reading/</guid>
       <description>&lt;p&gt;以太坊延伸阅读&lt;/p&gt;&#xA;&lt;h2 id=&#34;atoms-institutions-blockchains----原子机构区块链opens-in-a-new-tab---为什么区块链很重要&#34;&gt;Atoms, Institutions, Blockchains  - 原子、机构、区块链(opens in a new tab) - 为什么区块链很重要？&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://stark.mirror.xyz/n2UpRqwdf7yjuiPKVICPpGoUNeDhlWxGqjulrlpyYi0&#34;&gt;https://stark.mirror.xyz/n2UpRqwdf7yjuiPKVICPpGoUNeDhlWxGqjulrlpyYi0&lt;/a&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;内核opens-in-a-new-tab-以太坊的梦想---ethereal-dreamers&#34;&gt;内核(opens in a new tab) 以太坊的梦想 - Ethereal Dreamers&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.kernel.community/en/learn/module-1/dreamers/&#34;&gt;https://www.kernel.community/en/learn/module-1/dreamers/&lt;/a&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;the-ethereum-project-learning-to-dream-with-open-minds&#34;&gt;The ethereum project: learning to dream with open minds&lt;/h2&gt;&#xA;&lt;p&gt;以太坊项目：学会以开放的心态去梦想&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://blog.ethereum.org/2014/07/14/the-ethereum-project&#34;&gt;https://blog.ethereum.org/2014/07/14/the-ethereum-project&lt;/a&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;精通以太坊&#34;&gt;精通以太坊&lt;/h2&gt;</description>
     </item>
     <item>
       <title>Proxy_Solidity</title>
-      <link>./post/proxy_sol/</link>
+      <link>https://vcvvvc.github.io/post/proxy_sol/</link>
       <pubDate>Tue, 22 Aug 2023 18:07:06 +0800</pubDate>
-      <guid>./post/proxy_sol/</guid>
+      <guid>https://vcvvvc.github.io/post/proxy_sol/</guid>
       <description>&lt;p&gt;可升级智能合约&lt;/p&gt;&#xA;&lt;p&gt;Proxy 是一种智能合约的设计模式，它可以实现合约的可升级性。Proxy 合约是一个简单的合约，它只负责将收到的调用请求转发给另一个逻辑合约，而不执行任何自己的逻辑。这样，当需要升级合约时，只需要部署一个新的逻辑合约，并在 Proxy 合约中更新其地址，就可以保持 Proxy 合约的地址不变，同时使用新的逻辑。Proxy 合约通常使用 delegatecall 操作码来实现调用转发，这样可以保留 Proxy 合约的存储和上下文，而执行逻辑合约的代码。&lt;/p&gt;</description>
     </item>
   </channel>

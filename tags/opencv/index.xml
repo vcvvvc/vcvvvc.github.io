@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Opencv on VW Blog</title>
-    <link>./tags/opencv/</link>
+    <link>https://vcvvvc.github.io/tags/opencv/</link>
     <description>Recent content in Opencv on VW Blog</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Thu, 14 Jan 2021 22:02:25 +0800</lastBuildDate>
-    <atom:link href="./tags/opencv/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vcvvvc.github.io/tags/opencv/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ubuntu20 install opencv</title>
-      <link>./post/ubuntu20_install_opencv/</link>
+      <link>https://vcvvvc.github.io/post/ubuntu20_install_opencv/</link>
       <pubDate>Thu, 14 Jan 2021 22:02:25 +0800</pubDate>
-      <guid>./post/ubuntu20_install_opencv/</guid>
+      <guid>https://vcvvvc.github.io/post/ubuntu20_install_opencv/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Ubuntu20.04.1LTS 2020-01-14-Successful&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h1 id=&#34;lib-install&#34;&gt;lib Install&lt;/h1&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;apt-get install -y build-essential pkg-config cmake&#xA;apt-get install -y libgtk2.0-dev libavcodec-dev libavformat-dev libjpeg-dev libswscale-dev libtiff5-dev&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h1 id=&#34;download&#34;&gt;Download&lt;/h1&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;github:&#xA;git clone https://github.com/opencv/opencv.git&#xA;&#xA;gitee:&#xA;git clone https://gitee.com/mirrors/opencv.git&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h1 id=&#34;install&#34;&gt;Install&lt;/h1&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cd opencv&#xA;&#xA;mkdir build&#xA;&#xA;cd build&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D WITH_GTK=ON -D OPENCV_GENERATE_PKGCONFIG=YES ..&#xA;&#xA;make -j4&#xA;&#xA;make install&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h1 id=&#34;set&#34;&gt;Set&lt;/h1&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;echo &amp;#34;include /usr/loacal/lib&amp;#34; &amp;gt;&amp;gt; /etc/ld.so.conf&#xA;ldconfig&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;echo &amp;#34;PKG_CONFIG_PATH=\$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig&amp;#34; &amp;gt;&amp;gt; /etc/bash.bashrc&#xA;echo &amp;#34;export PKG_CONFIG_PATH&amp;#34; &amp;gt;&amp;gt; /etc/bash.bashrc&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h1 id=&#34;show-version&#34;&gt;Show version&lt;/h1&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;pkg-config --modversion opencv4&#xA;&#xA;pkg-config --cflags opencv4&#xA;&#xA;pkg-config --libs opencv4&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
   </channel>
