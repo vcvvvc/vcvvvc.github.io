@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Search // VW Blog</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.145.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Vc" />
+    
+    <meta name="description" content="VW Blog | 技术记录Blog" />
+    <meta name="keywords" content="VW,DeFi,Web3,Bitcoin,Ethereum,Smart contracts,加密货币,数字经济,比特币,以太坊,智能合约,去中心化金融" />
+    <link rel="stylesheet" href="https://vcvvvc.github.io/css/main.min.b0a3c12a957b2b43dbdd67f3149dedb0c5c303f470b58601eee0990701353944.css" />
+
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://vcvvvc.github.io/"><img class="app-header-avatar" src="/avatar.jpg" alt="Vc" /></a>
+      <span class="app-header-title">VW Blog</span>
+
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="/">Home</a>
+             / 
+          
+          <a class="app-header-menu-item" href="/tags/">Tags</a>
+             / 
+          
+          <a class="app-header-menu-item" href="/about/">About</a>
+      </nav>
+      <p>------</p>
+      <div class="app-header-social">
+        
+          <a href="https://github.com/vcvvvc" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>Github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+          </a>
+        
+          <a href="https://twitter.com/vcvckw" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-twitter">
+  <title>Twitter</title>
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+</svg>
+          </a>
+        
+          <a href="mailto:vcvckw@gmail.com" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-mail">
+  <title>mail</title>
+  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline>
+</svg>
+          </a>
+        
+        
+        <a href="/vcvc/index.html" target="_blank">
+          <img  border="0" src="/vcvc/arrow.png" alt="Home" width="26" height="26"></a>
+
+
+
+
+
+
+
+
+
+
+      </div>
+
+      <div class="app-header-search-form">
+        <form action="/search" method="GET">
+    <input type="search" name="q" id="search-query" placeholder="Search....">
+    <button type="submit">Search</button>
+</form>
+
+      </div>
+    </header>
+    <main class="app-container">
+      
+
+<main>
+    <div id="search-results"></div>
+    <div class="search-loading">Loading...</div>
+    <script src="/js/search.js"></script>
+
+    <script id="search-result-template" type="text/x-js-template">
+        <div id="summary-${key}">
+            <h3><a href="${link}">${title}</a></h3>
+            <p>${snippet}</p>
+            <p>
+                <small>
+                    ${ isset tags }Tags: ${tags}<br>${ end }
+                </small>
+            </p>
+        </div>
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.6.2/fuse.min.js" integrity="sha512-Nqw1tH3mpavka9cQCc5zWWEZNfIPdOYyQFjlV1NvflEtQ0/XI6ZQ+H/D3YgJdqSUJlMLAPRj/oXlaHCFbFCjoQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</main>
+
+
+    </main>
+  </body>
+</html>

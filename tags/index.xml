@@ -6,8 +6,29 @@
     <description>Recent content in Tags on VW Blog</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 07 Mar 2025 01:18:40 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 28 Jun 2025 23:43:27 +0800</lastBuildDate>
     <atom:link href="https://vcvvvc.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GPT</title>
+      <link>https://vcvvvc.github.io/tags/gpt/</link>
+      <pubDate>Sat, 28 Jun 2025 23:43:27 +0800</pubDate>
+      <guid>https://vcvvvc.github.io/tags/gpt/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>NLP</title>
+      <link>https://vcvvvc.github.io/tags/nlp/</link>
+      <pubDate>Sat, 28 Jun 2025 23:43:27 +0800</pubDate>
+      <guid>https://vcvvvc.github.io/tags/nlp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Transformer</title>
+      <link>https://vcvvvc.github.io/tags/transformer/</link>
+      <pubDate>Sat, 28 Jun 2025 23:43:27 +0800</pubDate>
+      <guid>https://vcvvvc.github.io/tags/transformer/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Solana</title>
       <link>https://vcvvvc.github.io/tags/solana/</link>

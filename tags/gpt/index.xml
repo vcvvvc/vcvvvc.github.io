@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GPT on VW Blog</title>
+    <link>https://vcvvvc.github.io/tags/gpt/</link>
+    <description>Recent content in GPT on VW Blog</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 28 Jun 2025 23:43:27 +0800</lastBuildDate>
+    <atom:link href="https://vcvvvc.github.io/tags/gpt/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Transformer_steps</title>
+      <link>https://vcvvvc.github.io/post/transformer_steps/</link>
+      <pubDate>Sat, 28 Jun 2025 23:43:27 +0800</pubDate>
+      <guid>https://vcvvvc.github.io/post/transformer_steps/</guid>
+      <description>&lt;h1 id=&#34;最终图解版transformer工作原理一步一图&#34;&gt;【最终图解版】Transformer工作原理：一步一图&lt;/h1&gt;&#xA;&lt;p&gt;&lt;strong&gt;目标：&lt;/strong&gt; 让模型理解一句话的深层含义，例如：“机器人爱吃苹果”。&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h3 id=&#34;-起点输入-input&#34;&gt;🔀 起点：输入 (Input)&lt;/h3&gt;&#xA;&lt;p&gt;模型接收到的是一串词元（Tokens）。&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;[机器人]&lt;/code&gt; &lt;code&gt;[爱]&lt;/code&gt; &lt;code&gt;[吃]&lt;/code&gt; &lt;code&gt;[苹果]&lt;/code&gt;&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;hr&gt;&#xA;&lt;h3 id=&#34;1-步骤一创建数字身份证-input-embedding--positional-encoding&#34;&gt;1️⃣ 步骤一：创建“数字身份证” (Input Embedding + Positional Encoding)&lt;/h3&gt;&#xA;&lt;p&gt;模型不认识文字，只认识数字。所以，它会执行两项操作：&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;词嵌入 (Word Embedding):&lt;/strong&gt; 将每个词元转换成一个包含其语义信息的向量（一长串数字）。&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;位置编码 (Positional Encoding):&lt;/strong&gt; 因为Transformer同时处理所有词，它本身不知道词的顺序。因此，模型会为每个词的向量&lt;strong&gt;加上&lt;/strong&gt;另一个代表其位置的“位置向量”。&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;&lt;strong&gt;图解:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;[机器人]      [爱]      [吃]      [苹果]&lt;br&gt;&#xA;|          |        |          |&lt;br&gt;&#xA;▼          ▼        ▼          ▼&lt;br&gt;&#xA;[Vec_机器人] [Vec_爱] [Vec_吃] [Vec_苹果]  (&amp;lt;- 词嵌入)&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;pre&gt;&lt;code&gt;     +        +          +  &#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;[Pos_1]    [Pos_2]  [Pos_3]    [Pos_4]   (&amp;lt;- 位置编码)&lt;br&gt;&#xA;||         ||       ||         ||&lt;br&gt;&#xA;▼          ▼        ▼          ▼&lt;br&gt;&#xA;[X_1]      [X_2]    [X_3]      [X_4]     (&amp;lt;- 最终输入向量)&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
