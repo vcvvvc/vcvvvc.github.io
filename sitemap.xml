@@ -679,11 +679,16 @@
   </url><url>
     <loc>https://vcvvvc.github.io/search/</loc>
   </url><url>
+    <loc>https://vcvvvc.github.io/timeline/</loc>
+  </url><url>
     <loc>https://vcvvvc.github.io/about/</loc>
   </url><url>
     <loc>https://vcvvvc.github.io/categories/</loc>
   </url><url>
     <loc>https://vcvvvc.github.io/post/search/</loc>
+    <priority>0.1</priority>
+  </url><url>
+    <loc>https://vcvvvc.github.io/post/timeline/</loc>
     <priority>0.1</priority>
   </url>
 </urlset>
