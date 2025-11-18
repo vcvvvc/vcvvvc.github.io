@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Fix on VW Blog</title>
+    <link>https://vcvvvc.github.io/tags/fix/</link>
+    <description>Recent content in Fix on VW Blog</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 19 Nov 2025 01:04:32 +0800</lastBuildDate>
+    <atom:link href="https://vcvvvc.github.io/tags/fix/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>鼠标连点双击修复脚本</title>
+      <link>https://vcvvvc.github.io/post/mouse_double_click_fix/</link>
+      <pubDate>Wed, 19 Nov 2025 01:04:32 +0800</pubDate>
+      <guid>https://vcvvvc.github.io/post/mouse_double_click_fix/</guid>
+      <description>&lt;p&gt;Macos Hammerspoon&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;#Hammerspoon&#xA;&#xA;local debounceTime = 0.1&#xA;local lastClickTime = 0&#xA;&#xA;local clickFilter = hs.eventtap.new({hs.eventtap.event.types.leftMouseDown}, function(e)&#xA;    local currentTime = hs.timer.secondsSinceEpoch()&#xA;    local timeDiff = currentTime - lastClickTime&#xA;    &#xA;    if timeDiff &amp;lt; debounceTime then&#xA;        -- print(string.format(&amp;#34;已拦截连点! 间隔: %.4f&amp;#34;, timeDiff))&#xA;        return true -- 拦截&#xA;    end&#xA;    &#xA;    lastClickTime = currentTime&#xA;    return false -- 放行&#xA;end)&#xA;&#xA;clickFilter:start()&#xA;-- hs.alert.show(&amp;#34;鼠标防连点已启动 (0.1s)&amp;#34;)&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h2 id=&#34;windows11-autohotkey&#34;&gt;Windows11 AutoHotkey&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;设置开机自启：按下 Win + R 键，输入 shell:startup 并回车, 拖入ahk文件的快捷方式。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;#Requires AutoHotkey v2.0&#xA;Threshold := 100 &#xA;&#xA;LastClickTime := 0&#xA;&#xA;*LButton::&#xA;{&#xA;    Global LastClickTime&#xA;    CurrentTime := A_TickCount&#xA;    TimeDiff := CurrentTime - LastClickTime&#xA;&#xA;    ; 如果间隔小于阈值，则拦截（不做任何操作）&#xA;    if (TimeDiff &amp;lt; Threshold) {&#xA;        return&#xA;    }&#xA;&#xA;    LastClickTime := CurrentTime&#xA;&#xA;    ; 发送点击事件（保留拖拽功能）&#xA;    Send &amp;#34;{Blind}{LButton Down}&amp;#34;&#xA;    KeyWait &amp;#34;LButton&amp;#34;&#xA;    Send &amp;#34;{Blind}{LButton Up}&amp;#34;&#xA;        &#xA;}&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+  </channel>
+</rss>
