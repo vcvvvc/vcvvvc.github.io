@@ -10,7 +10,7 @@
     
     <meta name="description" content="VW Blog | 技术记录Blog" />
     <meta name="keywords" content="VW, DEFI, DEPIN, BTC, SOL, SMART CONTRACT" />
-    <link rel="stylesheet" href="https://vcvvvc.github.io/css/main.min.ef515fc08a390089ce61e07e5db761ae42dc2ae0812dcc8b45ca0df752bdd1bc.css" />
+    <link rel="stylesheet" href="https://vcvvvc.github.io/css/main.min.5f89ca0651cd21a56c6887d5fea696495f287ee6fef9ee39e3ec666a0d2a3dc4.css" />
 
 
 
@@ -122,24 +122,23 @@
       <p>Macos Hammerspoon</p>
 <pre tabindex="0"><code>#Hammerspoon
 
-local debounceTime = 0.1
+local debounceTime = 0.13
 local lastClickTime = 0
 
-local clickFilter = hs.eventtap.new({hs.eventtap.event.types.leftMouseDown}, function(e)
+GlobalClickFilter = hs.eventtap.new({hs.eventtap.event.types.leftMouseDown}, function(e)
     local currentTime = hs.timer.secondsSinceEpoch()
     local timeDiff = currentTime - lastClickTime
     
     if timeDiff &lt; debounceTime then
-        -- print(string.format(&#34;已拦截连点! 间隔: %.4f&#34;, timeDiff))
-        return true -- 拦截
+        print(string.format(&#34;已拦截连点! 间隔: %.4f&#34;, timeDiff))
+        return true 
     end
     
     lastClickTime = currentTime
-    return false -- 放行
+    return false -- 放行本次点击
 end)
 
-clickFilter:start()
--- hs.alert.show(&#34;鼠标防连点已启动 (0.1s)&#34;)
+GlobalClickFilter:start()
 </code></pre><hr>
 <h2 id="windows11-autohotkey">Windows11 AutoHotkey</h2>
 <ul>
