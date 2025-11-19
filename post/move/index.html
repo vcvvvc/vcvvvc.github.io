@@ -202,7 +202,7 @@ remove_refrence&lt;decltype(std::move(i))&gt;::type  b;  //右值引用特例�
 </code></pre><hr>
 <h1 id="总结">总结：</h1>
 <p>std::move实现，首先，通过右值引用传递模板实现，利用引用折叠原理将右值经过T&amp;&amp;传递类型保持不变还是右值，而左值经过T&amp;&amp;变为普通的左值引用，以保证模板可以传递任意实参，且保持类型不变。</p>
-<p>然后我们通过static_cast&lt;&gt;进行强制类型转换返回T&amp;&amp;右值引用，而static_cast<!-- raw HTML omitted -->之所以能使用类型转换，是通过remove_refrence<!-- raw HTML omitted -->::type模板移除T&amp;&amp;，T&amp;的引用，获取具体类型T。</p>
+<p>然后我们通过static_cast&lt;&gt;进行强制类型转换返回T&amp;&amp;右值引用，而static_cast<T>之所以能使用类型转换，是通过remove_refrence<T>::type模板移除T&amp;&amp;，T&amp;的引用，获取具体类型T。</p>
 <hr>
 <h1 id="re">Re</h1>
 <p><a href="https://blog.csdn.net/p942005405/article/details/84644069">https://blog.csdn.net/p942005405/article/details/84644069</a></p>

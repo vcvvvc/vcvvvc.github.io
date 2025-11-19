@@ -199,7 +199,7 @@
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>    ...
 </span></span><span style="display:flex;"><span>};
-</span></span></code></pre></div><p>由于std::iterator-traits<!-- raw HTML omitted -->: :value-type是个嵌套从属类型名 称(value-type被嵌套于iterator-traits<!-- raw HTML omitted -->之内而IterT是个template参数) ,所以我们必须在它之前放置typename</p>
+</span></span></code></pre></div><p>由于std::iterator-traits<IterT>: :value-type是个嵌套从属类型名 称(value-type被嵌套于iterator-traits<tter>之内而IterT是个template参数) ,所以我们必须在它之前放置typename</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">template</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> IterT<span style="color:#f92672">&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> workwithiterator(IterT iter)
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">typename</span> std<span style="color:#f92672">::</span>iterator traits<span style="color:#f92672">&lt;</span>IterT<span style="color:#f92672">&gt;::</span>value type temp (<span style="color:#f92672">*</span>iter);
@@ -235,7 +235,7 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
 </span></span><span style="display:flex;"><span>    ...
 </span></span><span style="display:flex;"><span>};
-</span></span></code></pre></div><p>上面问题在于,当编译器遭遇class template LoggingMsgSender定义式时,并不知 道它继承什么样的class。当然它继承的是MsgSender<!-- raw HTML omitted -->,但其中的Company 是个template参数,不到后来(当LoggingMsgSender被具现化)无法确切知道它 是什么。而如果不知道Company是什么,就无法知道class MsgSender<!-- raw HTML omitted -->看起来像什么&ndash;更明确地说是没办法知道它是否有个sendClear函数。</p>
+</span></span></code></pre></div><p>上面问题在于,当编译器遭遇class template LoggingMsgSender定义式时,并不知 道它继承什么样的class。当然它继承的是MsgSender<Company>,但其中的Company 是个template参数,不到后来(当LoggingMsgSender被具现化)无法确切知道它 是什么。而如果不知道Company是什么,就无法知道class MsgSender<Company>看起来像什么&ndash;更明确地说是没办法知道它是否有个sendClear函数。</p>
 <p><strong>解决办法</strong></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">template</span><span style="color:#f92672">&lt;&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MsgSender</span><span style="color:#f92672">&lt;</span>Companyz<span style="color:#f92672">&gt;</span> {
@@ -302,7 +302,7 @@
 </span></span><span style="display:flex;"><span>MsgInfo msgData;
 </span></span><span style="display:flex;"><span>...
 </span></span><span style="display:flex;"><span>zMsgSender.sendClearMsg(msgData); <span style="color:#75715e">//错误
-</span></span></span></code></pre></div><p>因为在那个点上,编译器知道base class是个template特化版本Msgsender<!-- raw HTML omitted -->,而且它们知道那个 class不提供sendClear函数,而后者却是sendClearMsg尝试调用的函数。</p>
+</span></span></span></code></pre></div><p>因为在那个点上,编译器知道base class是个template特化版本Msgsender<Companyz>,而且它们知道那个 class不提供sendClear函数,而后者却是sendClearMsg尝试调用的函数。</p>
 <p><strong>本文要点</strong></p>
 <ul>
 <li>可在derived class templates内通过&quot;this-&gt;&ldquo;指涉base class templates内的成员名称,或藉由一个明白写出的&quot;base class资格修饰符”完成。</li>
@@ -394,7 +394,7 @@
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
 </span></span><span style="display:flex;"><span>    T<span style="color:#f92672">*</span> heldptr;
 </span></span><span style="display:flex;"><span>};
-</span></span></code></pre></div><p>使用成员初值列(member initialization list)来初始化SmartPtr<!-- raw HTML omitted -->之内类型为T*的成员变量,并以类型为U*的指针(由SmartEtrU&gt;持有)作为初值。这个行为只有当“存在某个隐式转换可将一个U*指针转为一个T*指针”时才能通过编译,</p>
+</span></span></code></pre></div><p>使用成员初值列(member initialization list)来初始化SmartPtr<T>之内类型为T*的成员变量,并以类型为U*的指针(由SmartEtrU&gt;持有)作为初值。这个行为只有当“存在某个隐式转换可将一个U*指针转为一个T*指针”时才能通过编译,</p>
 <p><strong>成员函数模版也支持赋值操作</strong></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">template</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">T</span><span style="color:#f92672">&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">shared_ptr</span> {
@@ -449,7 +449,7 @@
 <ul>
 <li>在template实参推导过程中从不将隐式类型转换函数纳入考虑。</li>
 </ul>
-<p>方法一: template class内的friend声明式可以指涉某个特定函数。那意味class Rational<!-- raw HTML omitted -->可以声明operator*是它的一个friend函数。令Rational<!-- raw HTML omitted --> class声明适当的operator*为其friend函数,可简化整个问题</p>
+<p>方法一: template class内的friend声明式可以指涉某个特定函数。那意味class Rational<T>可以声明operator*是它的一个friend函数。令Rational<T> class声明适当的operator*为其friend函数,可简化整个问题</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">template</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> T<span style="color:#f92672">&gt;</span> 
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Rational</span> { 
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
@@ -459,7 +459,7 @@
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">template</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> T<span style="color:#f92672">&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> Rational<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">operator</span><span style="color:#f92672">*</span> (<span style="color:#66d9ef">const</span> Rational<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;&amp;</span> lhs, <span style="color:#66d9ef">const</span> Rational<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;&amp;</span> rhs)
 </span></span><span style="display:flex;"><span>{ ... }
-</span></span></code></pre></div><p>当对象oneHalf被声 明为一个Rational<!-- raw HTML omitted -->, class Rational<!-- raw HTML omitted -->于是被具现化出来,而作为过程的 一部分, friend函数operator*(接受Rational<!-- raw HTML omitted -->参数)也就被自动声明出来。后者身为一个函数而非函数模板(function template) ,因此编译器可在调用它时使用隐式转换函数(例如Rational的non-explicit构造函数)</p>
+</span></span></code></pre></div><p>当对象oneHalf被声 明为一个Rational<int>, class Rational<int>于是被具现化出来,而作为过程的 一部分, friend函数operator*(接受Rational<int>参数)也就被自动声明出来。后者身为一个函数而非函数模板(function template) ,因此编译器可在调用它时使用隐式转换函数(例如Rational的non-explicit构造函数)</p>
 <p><strong>混合式代码通过了编译,因为编译器知道我们要调用哪个函数(就是接受一个Rationalkint&gt;以及又一个Rationalkint&gt;的那个operator * ) ,但那个函数只被声明于Rational内,并没有被定义出来。</strong></p>
 <p><strong>方法二: 将operator * 函数本体合并至其声明式内:</strong></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">template</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> T<span style="color:#f92672">&gt;</span>
@@ -626,7 +626,7 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>list<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;::</span>iterator it;
 </span></span><span style="display:flex;"><span>advance(it, <span style="color:#ae81ff">10</span>);
-</span></span></code></pre></div><p>其实上述代码是不能编译的，设想以下advance&lt;list<!-- raw HTML omitted -->::iterator, int&gt;中的这条语句：</p>
+</span></span></code></pre></div><p>其实上述代码是不能编译的，设想以下advance&lt;list<int>::iterator, int&gt;中的这条语句：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>iter <span style="color:#f92672">+=</span> d;
 </span></span></code></pre></div><p><code>list&lt;int&gt;::iterator</code>是双向迭代器，不支持+=运算。虽然上述语句不会执行，但编译器不知道这一点。 编译时这条语句仍然会抛出类型错误。</p>
 <p><strong>TMP已被证明是个“图灵完全”(Turing-complete)机器</strong></p>
