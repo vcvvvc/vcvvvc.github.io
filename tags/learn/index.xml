@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Learn on VW Blog</title>
+    <link>https://vcvvvc.github.io/tags/learn/</link>
+    <description>Recent content in Learn on VW Blog</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 15 Jan 2026 18:52:22 +0800</lastBuildDate>
+    <atom:link href="https://vcvvvc.github.io/tags/learn/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>本命心流工作法 (Flowtime Technique) &amp; 其他工作法总结</title>
+      <link>https://vcvvvc.github.io/post/flowtimetechnique/</link>
+      <pubDate>Thu, 15 Jan 2026 18:52:22 +0800</pubDate>
+      <guid>https://vcvvvc.github.io/post/flowtimetechnique/</guid>
+      <description>&lt;h2 id=&#34;一时间切片类&#34;&gt;一、时间切片类&lt;/h2&gt;&#xA;&lt;h2 id=&#34;心流工作法-flowtime-technique&#34;&gt;心流工作法 (Flowtime Technique)&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;核心痛点： 甚至连番茄钟都太短，程序员需要大块、连续的时间。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;怎么做&#34;&gt;怎么做：&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;设定一个开始时间，然后一直做，直到你感到疲惫或分心为止。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;记录，如果你专注了40分钟，就休息8分钟；专注了90分钟，就休息15分钟(按需休息)。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;核心-顺应你的心流而不是被闹钟打断&#34;&gt;核心： 顺应你的心流，而不是被闹钟打断。&lt;/h3&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;二优先级决策类&#34;&gt;二、优先级决策类&lt;/h2&gt;&#xA;&lt;h2 id=&#34;eisenhower-matrix-艾森豪威尔矩阵--四象限法则&#34;&gt;Eisenhower Matrix (艾森豪威尔矩阵 / 四象限法则)&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;核心痛点： 需求永远做不完，容易陷入“无效优化”或“过度设计”。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;怎么做-1&#34;&gt;怎么做：&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;方法： 画一个十字，把事情分四类：&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;重要且紧急： 马上做。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;重要不紧急： 排期做（学习新技术、重构代码）。这是拉开人生差距的区域。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;紧急不重要： 委托别人做或集中处理（大部分会议、邮件）。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;不重要不紧急： 别做（刷无意义的短视频）。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;核心高价值低价值--高投入低投入-考虑roi&#34;&gt;核心：高价值/低价值 ｜ 高投入/低投入， 考虑ROI。&lt;/h3&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;三-状态与精力类解决在这个时代如何深度思考的问题&#34;&gt;三、 状态与精力类（解决“在这个时代如何深度思考”的问题）&lt;/h2&gt;&#xA;&lt;h2 id=&#34;1-deep-work-深度工作&#34;&gt;1. Deep Work (深度工作)&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;痛点： 总是被弹窗、手机打断，碎片化工作，产出低。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;怎么做-2&#34;&gt;怎么做：&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;创造完全无干扰的环境（断网、关手机）。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;进行90分钟以上的高强度脑力活动。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;核心-在ai时代浅层的忙碌会被替代只有深度工作的产出才有价值&#34;&gt;核心： 在AI时代，浅层的忙碌会被替代，只有深度工作的产出才有价值。&lt;/h3&gt;&#xA;&lt;h2 id=&#34;2-弹性创作者时间-flexible-makers-schedule--动态节律&#34;&gt;2. 弹性创作者时间 (Flexible Maker&amp;rsquo;s Schedule) + 动态节律&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;核心痛点： 写代码需要连贯的思路，但团队工作总被会议和消息打断；如果完全闭关不理人，又没法配合大家的工作。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;怎么做-3&#34;&gt;怎么做：&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;见缝插针： 既然无法改变会议，就在会议的空隙里（比如站会后到午饭前），找出一两个小时的整块时间，专门用来写代码。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;明确信号： 只有在这段时间里，戴上耳机或改个状态，告诉同事“我在忙，稍后回”。其余时间，保持随叫随到，建立“我不是故意不理人，只是在专心干活”的信任感。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;量体裁衣： 别死守90分钟。如果空隙只有40分钟，就只解决一个小Bug或写一个小函数。有多少时间，就安排多大的任务，别贪多，做完就歇一会儿。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;核心-在配合团队的前提下利用时间的缝隙主动屏蔽干扰保护写代码的思路&#34;&gt;核心： 在配合团队的前提下，利用时间的缝隙，主动屏蔽干扰，保护写代码的思路。&lt;/h3&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;四大脑工作法&#34;&gt;四、大脑工作法&lt;/h2&gt;&#xA;&lt;h2 id=&#34;第二大脑-the-second-brainpara--费曼技巧&#34;&gt;第二大脑 (The Second Brain/PARA) + 费曼技巧&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;核心痛点：技术更新太快，资料多到看不完，根本记不住；更可怕的是，经常依赖复制粘贴或 AI 生成代码，以为自己懂了，一到面试或遇到复杂 Bug 却根本说不清楚原理（也就是“假懂”）。&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
