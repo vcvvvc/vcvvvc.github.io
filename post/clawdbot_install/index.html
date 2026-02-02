@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Clawdbot_install // VW Blog</title>
+    <title>Openclaw(Clawdbot)_install // VW Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
     <meta name="generator" content="Hugo 0.145.0">
@@ -90,7 +90,7 @@
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <article class="post">
     <header class="post-header">
-      <h1 class ="post-title">Clawdbot_install</h1>
+      <h1 class ="post-title">Openclaw(Clawdbot)_install</h1>
       <div class="post-meta">
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
@@ -106,7 +106,7 @@
 </svg>
           
           
-          17 mins read
+          19 mins read
           
         </div>
         <div>
@@ -115,11 +115,14 @@
   <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line>
 </svg>
               <a class="tag" href="https://vcvvvc.github.io/tags/agent/">Agent</a>
+              <a class="tag" href="https://vcvvvc.github.io/tags/clawdbot/">Clawdbot</a>
+              <a class="tag" href="https://vcvvvc.github.io/tags/openclaw/">Openclaw</a>
         </div>
       </div>
     </header>
     <div class="post-content">
-      <h2 id="nodejs-22">Node.js 22+</h2>
+      <h2 id="openclawclawdbot_install-安装教程">&ldquo;Openclaw(Clawdbot)_install 安装教程</h2>
+<h2 id="nodejs-22">Node.js 22+</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 添加 NodeSource 仓库</span>
 </span></span><span style="display:flex;"><span>curl -fsSL https://deb.nodesource.com/setup_22.x | bash -
 </span></span><span style="display:flex;"><span>
@@ -130,17 +133,24 @@
 </span></span><span style="display:flex;"><span>node -v
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># 输出 v22.x.x 就对了</span>
 </span></span></code></pre></div><h2 id="安装-clawdbot">安装 ClawdBot</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>npm install -g clawdbot@latest
-</span></span><span style="display:flex;"><span>clawdbot --version
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># npm install -g clawdbot@latest</span>
+</span></span><span style="display:flex;"><span>npm install -g openclaw@latest
+</span></span><span style="display:flex;"><span>openclaw --version
 </span></span></code></pre></div><h2 id="配置文件">配置文件</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mkdir -p ~/.clawdbot
-</span></span><span style="display:flex;"><span>vim ~/.clawdbot/clawdbot.json
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mkdir -p ~/.openclaw
+</span></span><span style="display:flex;"><span>vim ~/.openclaw/openclaw.json
 </span></span></code></pre></div><p><strong>注意providers随着模型修改, 模型需要可以工具调用的</strong></p>
 <pre tabindex="0"><code>{
   &#34;gateway&#34;: {
     &#34;mode&#34;: &#34;local&#34;,
-    &#34;bind&#34;: &#34;loopback&#34;,
-    &#34;port&#34;: 18789
+    &#34;bind&#34;: &#34;lan&#34;,
+    &#34;port&#34;: 18789,
+    &#34;auth&#34;: {
+      &#34;token&#34;: &#34;自己设置token&#34;
+    },
+    &#34;controlUi&#34;: {
+      &#34;allowInsecureAuth&#34;: true
+    }
   },
   &#34;agents&#34;: {
     &#34;defaults&#34;: {
@@ -191,10 +201,10 @@
   }
 }
 </code></pre><h2 id="启动">启动</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>clawdbot gateway --verbose
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>openclaw gateway --verbose
 </span></span></code></pre></div><h2 id="配对">配对</h2>
 <p><strong>先给bot发消息, 之后在shell执行Pairing code</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>clawdbot pairing approve telegram **Pairing code** 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>openclaw pairing approve telegram **Pairing code** 
 </span></span></code></pre></div><hr>
 <h2 id="re">Re</h2>
 <p><a href="https://linux.do/t/topic/1548984">https://linux.do/t/topic/1548984</a></p>

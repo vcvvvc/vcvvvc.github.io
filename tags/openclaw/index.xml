@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Agent on VW Blog</title>
-    <link>https://vcvvvc.github.io/tags/agent/</link>
-    <description>Recent content in Agent on VW Blog</description>
+    <title>Openclaw on VW Blog</title>
+    <link>https://vcvvvc.github.io/tags/openclaw/</link>
+    <description>Recent content in Openclaw on VW Blog</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Sun, 01 Feb 2026 16:03:01 +0800</lastBuildDate>
-    <atom:link href="https://vcvvvc.github.io/tags/agent/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vcvvvc.github.io/tags/openclaw/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Openclaw(Clawdbot)_install</title>
       <link>https://vcvvvc.github.io/post/clawdbot_install/</link>
