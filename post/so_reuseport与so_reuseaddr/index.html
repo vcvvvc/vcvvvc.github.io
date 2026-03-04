@@ -4,7 +4,7 @@
     <title>SO_REUSEPORT与SO_REUSEADDR // VW Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.145.0">
+    <meta name="generator" content="Hugo 0.157.0">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="VW" />
     
@@ -123,7 +123,7 @@
     </header>
     <div class="post-content">
       <h2 id="so_reuseport端口重用">SO_REUSEPORT端口重用</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> opt_val <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> opt_val <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
 </span></span><span style="display:flex;"><span>setsockopt(sockfd, SOL_SOCKET, SO_REUSEPORT, <span style="color:#f92672">&amp;</span>opt_val, <span style="color:#66d9ef">sizeof</span>(opt_val))
 </span></span></code></pre></div><ul>
 <li>
@@ -150,7 +150,7 @@
 </ol>
 <hr>
 <h2 id="so_reuseaddr是地址重用">SO_REUSEADDR是地址重用</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> opt_val <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> opt_val <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
 </span></span><span style="display:flex;"><span>setsockopt(sockfd, SOL_SOCKET, SO_REUSEADDR, <span style="color:#f92672">&amp;</span>opt_val, <span style="color:#66d9ef">sizeof</span>(opt_val))
 </span></span></code></pre></div><ul>
 <li>
@@ -172,7 +172,7 @@
 <hr>
 <h3 id="epoll惊群">Epoll惊群</h3>
 <p><img src="/img/epoll_use/jingqun.png" alt="jingqun"></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/types.h&gt;</span><span style="color:#75715e">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/types.h&gt;</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/socket.h&gt;</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/epoll.h&gt;</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;netdb.h&gt;</span><span style="color:#75715e">
@@ -184,7 +184,7 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;errno.h&gt;</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/wait.h&gt;</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define PROCESS_NUM 10
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">create_and_bind</span> (<span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>port)
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">create_and_bind</span> (<span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>port)
 </span></span><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> fd <span style="color:#f92672">=</span> socket(PF_INET, SOCK_STREAM, <span style="color:#ae81ff">0</span>);
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">sockaddr_in</span> serveraddr;
@@ -218,7 +218,7 @@
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#define MAXEVENTS 64
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> (<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>argv[])
 </span></span><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> sfd, s;
@@ -250,7 +250,7 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    event.data.fd <span style="color:#f92672">=</span> sfd;
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">//event.events = EPOLLIN | EPOLLET;
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    event.events <span style="color:#f92672">=</span> EPOLLIN;
+</span></span></span><span style="display:flex;"><span>    event.events <span style="color:#f92672">=</span> EPOLLIN;
 </span></span><span style="display:flex;"><span>    s <span style="color:#f92672">=</span> epoll_ctl(efd, EPOLL_CTL_ADD, sfd, <span style="color:#f92672">&amp;</span>event);
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (s <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
 </span></span><span style="display:flex;"><span>    {

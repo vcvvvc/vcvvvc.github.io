@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Dell7590 install macos // VW Blog</title>
+    <title>Dell 灵越 7590 install macos Ventura // VW Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.145.0">
+    <meta name="generator" content="Hugo 0.157.0">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="VW" />
     
@@ -90,7 +90,7 @@
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <article class="post">
     <header class="post-header">
-      <h1 class ="post-title">Dell7590 install macos</h1>
+      <h1 class ="post-title">Dell 灵越 7590 install macos Ventura</h1>
       <div class="post-meta">
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
@@ -106,7 +106,7 @@
 </svg>
           
           
-          22 mins read
+          16 mins read
           
         </div>
         <div>
@@ -116,71 +116,64 @@
 </svg>
               <a class="tag" href="https://vcvvvc.github.io/tags/dell/">Dell</a>
               <a class="tag" href="https://vcvvvc.github.io/tags/mac/">Mac</a>
+              <a class="tag" href="https://vcvvvc.github.io/tags/ventura/">Ventura</a>
+              <a class="tag" href="https://vcvvvc.github.io/tags/macos/">Macos</a>
         </div>
       </div>
     </header>
     <div class="post-content">
-      <h2 id="2021-12-13更新">2021-12-13更新</h2>
-<p><strong>系统为big sur 11.4</strong></p>
-<p><strong>接近完美 可以用intel网卡连接wifi 速度还不错</strong></p>
-<p><strong>已知麦克风、隔空投送不能用</strong></p>
-<hr>
+      <h2 id="2026-03-02更新">2026-03-02更新</h2>
+<p>现在OC已经配置好了kext，可以直接用。</p>
+<p>蓝牙/wifi/hdmi可用，麦克风不可能，此问题无解。</p>
 <h2 id="镜像下载">镜像下载</h2>
 <p><code>搜素：黑果小兵</code></p>
-<p><strong>big sur用11.4</strong></p>
 <hr>
-<h2 id="重要前提">重要前提</h2>
-<p><strong>如果你没有网线，并且没有其他PC设备联网 你需要提前下载这些</strong></p>
-<pre tabindex="0"><code>https://github.com/OpenIntelWireless/itlwm/releases/ #AirportItlwm
-https://5435.lanzouo.com/isRfBxjxq4f #四叶草+occ
-</code></pre><hr>
 <h2 id="start">Start</h2>
 <pre tabindex="0"><code>//OC
-git clone https://github.com/Pinming/Dell-Inspiron-7590-Hackintosh-Opencore
+https://github.com/vcvvvc/Dell-Inspiron-7590-Ventura-OpenCore.git
 
 //Diskgenius
 官网自行下载最新版
 
 //balennaEther
 官网自行下载最新版
-</code></pre><p><strong>1. 先把Dell-Inspiron-7590-Hackintosh-Opencore重命名为OC</strong></p>
-<p><strong>2. 打开OC文件夹 根据屏幕改名1080P的屏幕使用config-1080p.plist需改名成config.plist 如果你是4K屏 不需要修改</strong></p>
-<p><strong>3. balennaEther烧录dmg镜像文件到U盘</strong></p>
-<p><strong>4. 打开Diskgenius 进入U盘的ESP分区文件夹 删除Clover文件夹 然后将OC文件夹拖入</strong></p>
-<p><strong>5. 打开U盘ESP分区中的EFI 将Diskgenius程序文件夹拖进去 备用 以免出问题</strong></p>
+
+//OpenCore Configurator
+OpenCore Configurator v26.69.0.1 支持OC v0.9.1
+</code></pre><p><strong>1. 打开OC文件夹 对应的1080p/4k文件需要改名为config.plist</strong></p>
+<p><strong>2. balennaEther烧录dmg镜像文件到U盘</strong></p>
+<p><strong>3. 打开Diskgenius 进入U盘的ESP分区文件夹 删除Clover文件夹 然后将OC文件夹拖入</strong></p>
+<p><strong>4. 打开U盘ESP分区中的EFI 将Diskgenius程序文件夹拖进去 备用 以免出问题</strong></p>
 <p><strong>提前准备好安装空间建议300g 至少200g</strong></p>
-<p><strong>6. 用Diskgenius分ESP区 建议400m</strong></p>
-<p><strong>7. 双系统需要保存好windows efi</strong></p>
+<p><strong>5. 用Diskgenius分ESP区 建议400m</strong></p>
+<p><strong>6. 双系统 先安装好windows， 然后保存好windows efi</strong></p>
 <hr>
 <h2 id="安装">安装</h2>
-<p><strong>1. 重启F2 关闭Secure Boot安全启动 检查磁盘模式为ACHI 百度搜</strong></p>
+<p><strong>1. 重启F2 关闭Secure Boot安全启动 检查磁盘模式为ACHI 教程网络搜</strong></p>
 <p><strong>2. 进入Boot Sequence &lsquo;add option&rsquo; 添加一个引导 选择启动文件为自己的U盘EFI(找到EFI/OC/OpenCore.efi这个文件)</strong></p>
-<p><strong>3. 重启F12 选择刚才新建的启动项 选择Install mac big sur</strong></p>
-<p><strong>4. 选择磁盘工具先抹盘 选择你提前分好的空间 命名个macos就行 选择格式为APFS 抹不掉就先做成exft 再抹一次</strong></p>
-<p><strong>5. 左上角退出磁盘工具继续安装 然后自动重启 再次选mac启动项</strong>  (此时我读条完毕 一直在转圈 等了5分钟 我手动强制关机)</p>
+<p><strong>3. 重启F12 选择刚才新建的启动项 选择Install mac Ventura</strong></p>
+<p><strong>4. 选择磁盘工具先抹盘 选择你提前分好的空间 选择格式为APFS 抹不掉就先做成exft 再抹一次</strong></p>
+<p><strong>5. 左上角退出磁盘工具继续安装 然后自动重启 再次选mac启动项</strong></p>
 <p><strong>6. 重启f12 选择install mac 本步骤需要重复几次 直到进入系统设置 创建用户的步骤才算完成</strong></p>
 <ul>
 <li>Siri不启用 iCloud先不要登陆 先创建好一个本地账户</li>
 </ul>
 <p><strong>7.1 重启f12 选择winPE, 在我的电脑 EFI中找到Diskgenius 打开程序将U盘的EFI文件复制到桌面, 此时可以把win10的efi加回去</strong></p>
-<p><strong>7.2 选择磁盘的ESP-EFI将OC拖入</strong></p>
+<p><strong>7.2 选择磁盘的ESP-EFI将OC拖入 / 或者后面挂载后拖入</strong></p>
 <p><strong>8.1 Disk这个软件可以设置启动项,或者重启F2, <code>Boot Sequence add option</code> 这里我命名为<code>macos</code> 选择磁盘中EFI\OC\OpenCore.efi</strong></p>
 <p><strong>8.2 把选项置顶。开机自动进入 选择macos</strong></p>
-<hr>
-<h2 id="wifi设置">Wifi设置</h2>
-<p>下载&ndash;点击: <a href="##%E9%87%8D%E8%A6%81%E5%89%8D%E6%8F%90">前提文件</a></p>
-<p>挂载EFI</p>
-<p>将<code>AirportItlwm_xx.kext</code>加入<code>efi-oc-kexts</code>，再拖入occ内核设置</p>
-<hr>
-<h2 id="安装成功">安装成功</h2>
-<p><img src="/img/macos/mac-2.png" alt="macos"></p>
+<p><strong>8.3 文章最后网友录制的B站教程</strong></p>
 <hr>
 <h2 id="三码洗白">三码洗白</h2>
 <p><strong>电脑提前退出账号</strong></p>
 <p><strong>删除登陆的电脑设备 手机-设置-最上方进去-找到型号删除掉</strong></p>
-<p>一定要找对自己的型号 dell7590选择<code>MacPro 16.4</code></p>
+<p>一定要找对自己的型号 dell7590选择<code>MacPro 16.4</code>, 然后检查序列号，确保查询不到，如果查询到设备就重新生成一个。</p>
 <p><img src="/img/macos/w1.png" alt="w1"></p>
 <p><strong>重启登陆 正常使用功能</strong></p>
+<hr>
+<h2 id="三码洗白后">三码洗白后</h2>
+<p>1、 登陆Apple id，关闭同步
+2、关闭siri的聚焦中部分用不到的文件，不然同步过多风扇起飞</p>
 <hr>
 <h2 id="关闭sip可选">关闭SIP(可选)</h2>
 <p>增加一个<code>csr-active-config</code>填写值<code>FF0F0000</code></p>
@@ -198,50 +191,7 @@ git clone https://github.com/Pinming/Dell-Inspiron-7590-Hackintosh-Opencore
 <h2 id="参考视频">参考视频</h2>
 <p><strong>安装系统操作</strong>
 <a href="https://www.bilibili.com/video/BV1854y1X7oP">https://www.bilibili.com/video/BV1854y1X7oP</a></p>
-<p><strong>安装wifi操作</strong>
-<a href="https://www.bilibili.com/video/BV12y4y167Qv">https://www.bilibili.com/video/BV12y4y167Qv</a></p>
-<hr>
-<h2 id="oc">OC</h2>
-<pre tabindex="0"><code>2021-12-10更新至2.54.1.0-适配0.7.6-12-07正式版与0.7.7-12-10编译版
-2021-12-06更新至2.54.0.0-适配0.7.5-11-02正式版与0.7.6-12-06编译版
-2021-11-08更新至2.53.0.0-适配0.7.5-11-02正式版与0.7.6-11-08编译版
-2021-10-29更新至2.52.0.1-适配0.7.4-10-05正式版与0.7.5-10-29编译版
-2021-10-15更新至2.52.0.0-适配0.7.4-10-05正式版与0.7.5-10-13编译版
-2021-10-07更新至2.51.0.0-适配0.7.4-10-05正式版与0.7.5-10-07编译版
-2021-09-23更新至2.50.0.0-适配0.7.3-09-07正式版与0.7.4-09-23编译版
-2021-09-15更新至2.49.0.2-适配0.7.3-09-07正式版与0.7.4-09-15编译版
-2021-09-13更新至2.49.0.1-适配0.7.3-09-07正式版与0.7.4-09-13编译版
-2021-09-11更新至2.49.0.0-适配0.7.3-09-07正式版与0.7.4-09-11编译版
-2021-08-19更新至2.48.1.0-适配0.7.2-08-03正式版与0.7.3-08-19编译版
-2021-08-05更新至2.48.0.0-适配0.7.2-08-03正式版与0.7.3-08-05编译版
-2021-07-22更新至2.47.1.0-适配0.7.1-07-06正式版与0.7.2-07-22编译版
-2021-07-18更新至2.47.0.0-适配0.7.1-07-06正式版与0.7.2-07-18编译版
-2021-07-12更新至2.46.1.0-适配0.7.1-07-06正式版与0.7.2-07-12编译版
-2021-07-08更新至2.46.0.0-适配0.7.1-07-06正式版与0.7.2-07-08编译版
-2021-06-24更新至2.45.0.0-适配0.7.0-06-08正式版与0.7.1-06-24编译版
-2021-06-12更新至2.44.0.0-适配0.7.0-06-08正式版与0.7.1-06-12编译版
-2021-06-10更新至2.43.0.0-适配0.7.0-06-08正式版与0.7.1-06-10编译版
-2021-06-05更新至2.42.0.0-适配0.6.9-05-04正式版与0.7.0-06-05编译版
-2021-06-01更新至2.41.0.0-适配0.6.9-05-04正式版与0.7.0-06-01编译版
-2021-05-28更新至2.40.0.1-适配0.6.9-05-04正式版与0.7.0-05-28编译版
-2021-05-26更新至2.40.0.0-适配0.6.9-05-04正式版与0.7.0-05-26编译版
-2021-05-22更新至2.39.0.0-适配0.6.9-05-04正式版与0.7.0-05-22编译版
-2021-05-20更新至2.38.0.0-适配0.6.9-05-04正式版与0.7.0-05-20编译版
-2021-05-14更新至2.37.0.0-适配0.6.9-05-04正式版与0.7.0-05-14编译版
-2021-05-06更新至2.36.1.0-适配0.6.9-05-04正式版与0.7.0-05-06编译版
-2021-05-05更新至2.36.0.0-适配0.6.9-05-04正式版与0.7.0编译版
-2021-04-21更新至2.35.0.0-适配0.6.9-04-20
-2021-04-08更新至2.34.0.0-适配0.6.9-04-16
-2021-04-08更新至2.33.1.2-适配0.6.9-04-08
-2021-04-07更新至2.33.1.0-适配0.6.8-04-06正式版
-2021-04-05更新至2.33.0.0-适配0.6.8-04-04
-2021-04-01更新至2.32.0.0-适配0.6.8-03-31
-2021-03-19更新至2.31.0.0-适配0.6.8-03-19
-2021-03-13更新至2.30.1.0-适配0.6.8-03-13
-2021-03-11更新至2.30.0.0-适配0.6.8-03-09
-2021-02-26更新至2.28.0.0-适配0.6.7-02-25
-2021-02-03更新至2.27.0.0-适配0.6.6正式版
-</code></pre>
+
     </div>
     <div class="post-footer">
       

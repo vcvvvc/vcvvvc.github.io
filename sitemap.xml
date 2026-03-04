@@ -173,9 +173,6 @@
     <loc>https://vcvvvc.github.io/post/chrome_use_newbing/</loc>
     <lastmod>2023-03-12T20:59:29+08:00</lastmod>
   </url><url>
-    <loc>https://vcvvvc.github.io/yi/</loc>
-    <lastmod>2023-03-10T23:09:40+08:00</lastmod>
-  </url><url>
     <loc>https://vcvvvc.github.io/tags/chatgpt/</loc>
     <lastmod>2023-02-20T23:57:46+08:00</lastmod>
   </url><url>
@@ -497,6 +494,9 @@
     <loc>https://vcvvvc.github.io/post/dell7590_install_macos/</loc>
     <lastmod>2021-01-17T13:19:24+08:00</lastmod>
   </url><url>
+    <loc>https://vcvvvc.github.io/tags/ventura/</loc>
+    <lastmod>2021-01-17T13:19:24+08:00</lastmod>
+  </url><url>
     <loc>https://vcvvvc.github.io/tags/vmware/</loc>
     <lastmod>2021-01-15T20:37:54+08:00</lastmod>
   </url><url>
@@ -726,5 +726,7 @@
   </url><url>
     <loc>https://vcvvvc.github.io/post/timeline/</loc>
     <priority>0.1</priority>
+  </url><url>
+    <loc>https://vcvvvc.github.io/yi/</loc>
   </url>
 </urlset>

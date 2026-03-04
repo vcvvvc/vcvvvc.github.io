@@ -4,7 +4,7 @@
     <title>Geth_私链创建并链接钱包 // VW Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.145.0">
+    <meta name="generator" content="Hugo 0.157.0">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="VW" />
     
@@ -125,7 +125,7 @@
 <hr>
 <h2 id="2-创建私有链">2. 创建私有链</h2>
 <p>创建创世块配置文件 genesis.json</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;config&#34;</span><span style="color:#f92672">:</span> {
 </span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;chainId&#34;</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">15</span>,
 </span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;homesteadBlock&#34;</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>,
@@ -145,30 +145,30 @@
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><hr>
 <h2 id="3-初始化">3. 初始化</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>geth <span style="color:#f92672">--</span>datadir genesis<span style="color:#f92672">-</span>block init genesis.json
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>geth <span style="color:#f92672">--</span>datadir genesis<span style="color:#f92672">-</span>block init genesis.json
 </span></span></code></pre></div><p>启动节点</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#1
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>geth <span style="color:#f92672">--</span>datadir genesis<span style="color:#f92672">-</span>block <span style="color:#f92672">--</span>networkid <span style="color:#ae81ff">1108</span> console 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#1
+</span></span></span><span style="display:flex;"><span>geth <span style="color:#f92672">--</span>datadir genesis<span style="color:#f92672">-</span>block <span style="color:#f92672">--</span>networkid <span style="color:#ae81ff">1108</span> console 
 </span></span></code></pre></div><hr>
 <h2 id="注册账户">注册账户</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>personal.newAccount(<span style="color:#960050;background-color:#1e0010">&#39;</span>Your Password<span style="color:#960050;background-color:#1e0010">&#39;</span>) <span style="color:#960050;background-color:#1e0010">#创建两个</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>personal.newAccount(<span style="color:#960050;background-color:#1e0010">&#39;</span>Your Password<span style="color:#960050;background-color:#1e0010">&#39;</span>) <span style="color:#960050;background-color:#1e0010">#创建两个</span>
 </span></span></code></pre></div><p>余额查询</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>my<span style="color:#f92672">=</span>eth.accounts[<span style="color:#ae81ff">0</span>]
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>my<span style="color:#f92672">=</span>eth.accounts[<span style="color:#ae81ff">0</span>]
 </span></span><span style="display:flex;"><span>eth.getBalance(my)
 </span></span><span style="display:flex;"><span>personal.newAccount(<span style="color:#960050;background-color:#1e0010">&#39;</span>password<span style="color:#960050;background-color:#1e0010">&#39;</span>)
 </span></span><span style="display:flex;"><span>other<span style="color:#f92672">=</span>eth.accounts[<span style="color:#ae81ff">1</span>]
 </span></span><span style="display:flex;"><span>personal.unlockAccount(my)
 </span></span></code></pre></div><p>账户余额查询</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>eth.getBalance(my)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>eth.getBalance(my)
 </span></span><span style="display:flex;"><span>eth.getBalance(other)
 </span></span></code></pre></div><p>挖矿</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>miner.start(<span style="color:#ae81ff">1</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>miner.start(<span style="color:#ae81ff">1</span>)
 </span></span><span style="display:flex;"><span>miner.stop() <span style="color:#960050;background-color:#1e0010">#</span>null
 </span></span></code></pre></div><p>转移资产到另一个号</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>eth.sendTransaction({from:my, to:other, value:<span style="color:#ae81ff">10000</span>})
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>eth.sendTransaction({from:my, to:other, value:<span style="color:#ae81ff">10000</span>})
 </span></span></code></pre></div><hr>
 <h2 id="测试网络">测试网络</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>geth <span style="color:#f92672">--</span>http <span style="color:#f92672">--</span>http.api db,eth,net,web3,personal  <span style="color:#f92672">--</span>datadir genesis<span style="color:#f92672">-</span>block <span style="color:#f92672">--</span>networkid <span style="color:#ae81ff">1108</span> console <span style="color:#ae81ff">2</span><span style="color:#f92672">&gt;&gt;</span><span style="color:#ae81ff">1</span>out.log
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>geth <span style="color:#f92672">--</span>http <span style="color:#f92672">--</span>http.api db,eth,net,web3,personal  <span style="color:#f92672">--</span>datadir genesis<span style="color:#f92672">-</span>block <span style="color:#f92672">--</span>networkid <span style="color:#ae81ff">1108</span> console <span style="color:#ae81ff">2</span><span style="color:#f92672">&gt;&gt;</span><span style="color:#ae81ff">1</span>out.log
 </span></span></code></pre></div><hr>
 <h2 id="re">Re:</h2>
 <p><a href="https://blog.csdn.net/weixin_40401264/article/details/78095222">https://blog.csdn.net/weixin_40401264/article/details/78095222</a></p>

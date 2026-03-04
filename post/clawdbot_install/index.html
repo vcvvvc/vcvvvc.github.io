@@ -4,7 +4,7 @@
     <title>Openclaw(Clawdbot)_install // VW Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.145.0">
+    <meta name="generator" content="Hugo 0.157.0">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="VW" />
     
@@ -123,7 +123,7 @@
     <div class="post-content">
       <h2 id="openclawclawdbot_install-安装教程">&ldquo;Openclaw(Clawdbot)_install 安装教程</h2>
 <h2 id="nodejs-22">Node.js 22+</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 添加 NodeSource 仓库</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 添加 NodeSource 仓库</span>
 </span></span><span style="display:flex;"><span>curl -fsSL https://deb.nodesource.com/setup_22.x | bash -
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># 安装</span>
@@ -133,11 +133,11 @@
 </span></span><span style="display:flex;"><span>node -v
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># 输出 v22.x.x 就对了</span>
 </span></span></code></pre></div><h2 id="安装-clawdbot">安装 ClawdBot</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># npm install -g clawdbot@latest</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># npm install -g clawdbot@latest</span>
 </span></span><span style="display:flex;"><span>npm install -g openclaw@latest
 </span></span><span style="display:flex;"><span>openclaw --version
 </span></span></code></pre></div><h2 id="配置文件">配置文件</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mkdir -p ~/.openclaw
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mkdir -p ~/.openclaw
 </span></span><span style="display:flex;"><span>vim ~/.openclaw/openclaw.json
 </span></span></code></pre></div><p><strong>注意providers随着模型修改, 模型需要可以工具调用的</strong></p>
 <pre tabindex="0"><code>{
@@ -201,10 +201,10 @@
   }
 }
 </code></pre><h2 id="启动">启动</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>openclaw gateway --verbose
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>openclaw gateway --verbose
 </span></span></code></pre></div><h2 id="配对">配对</h2>
 <p><strong>先给bot发消息, 之后在shell执行Pairing code</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>openclaw pairing approve telegram **Pairing code** 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>openclaw pairing approve telegram **Pairing code** 
 </span></span></code></pre></div><hr>
 <h2 id="re">Re</h2>
 <p><a href="https://linux.do/t/topic/1548984">https://linux.do/t/topic/1548984</a></p>
