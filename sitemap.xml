@@ -5,13 +5,16 @@
     <loc>https://0120012.xyz/tags/agent/</loc>
     <lastmod>2026-02-01T16:03:01+08:00</lastmod>
   </url><url>
-    <loc>https://0120012.xyz/tags/clawdbot/</loc>
+    <loc>https://0120012.xyz/tags/debian/</loc>
+    <lastmod>2026-02-01T16:03:01+08:00</lastmod>
+  </url><url>
+    <loc>https://0120012.xyz/tags/linux/</loc>
     <lastmod>2026-02-01T16:03:01+08:00</lastmod>
   </url><url>
     <loc>https://0120012.xyz/tags/openclaw/</loc>
     <lastmod>2026-02-01T16:03:01+08:00</lastmod>
   </url><url>
-    <loc>https://0120012.xyz/post/clawdbot_install/</loc>
+    <loc>https://0120012.xyz/post/openclaw_install/</loc>
     <lastmod>2026-02-01T16:03:01+08:00</lastmod>
   </url><url>
     <loc>https://0120012.xyz/post/</loc>
@@ -84,9 +87,6 @@
     <lastmod>2024-04-01T16:42:04+08:00</lastmod>
   </url><url>
     <loc>https://0120012.xyz/post/docker_tutorial/</loc>
-    <lastmod>2024-04-01T16:42:04+08:00</lastmod>
-  </url><url>
-    <loc>https://0120012.xyz/tags/linux/</loc>
     <lastmod>2024-04-01T16:42:04+08:00</lastmod>
   </url><url>
     <loc>https://0120012.xyz/post/fix_hardhat_verify_timeout/</loc>

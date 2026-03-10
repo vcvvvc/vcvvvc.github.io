@@ -16,10 +16,17 @@
       <description></description>
     </item>
     <item>
-      <title>Clawdbot</title>
-      <link>https://0120012.xyz/tags/clawdbot/</link>
+      <title>Debian</title>
+      <link>https://0120012.xyz/tags/debian/</link>
       <pubDate>Sun, 01 Feb 2026 16:03:01 +0800</pubDate>
-      <guid>https://0120012.xyz/tags/clawdbot/</guid>
+      <guid>https://0120012.xyz/tags/debian/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Linux</title>
+      <link>https://0120012.xyz/tags/linux/</link>
+      <pubDate>Sun, 01 Feb 2026 16:03:01 +0800</pubDate>
+      <guid>https://0120012.xyz/tags/linux/</guid>
       <description></description>
     </item>
     <item>
@@ -79,7 +86,7 @@
       <description></description>
     </item>
     <item>
-      <title>Blockchain</title>
+      <title>BlockChain</title>
       <link>https://0120012.xyz/tags/blockchain/</link>
       <pubDate>Tue, 06 Aug 2024 21:33:51 +0800</pubDate>
       <guid>https://0120012.xyz/tags/blockchain/</guid>
@@ -118,13 +125,6 @@
       <link>https://0120012.xyz/tags/docker/</link>
       <pubDate>Mon, 01 Apr 2024 16:42:04 +0800</pubDate>
       <guid>https://0120012.xyz/tags/docker/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Linux</title>
-      <link>https://0120012.xyz/tags/linux/</link>
-      <pubDate>Mon, 01 Apr 2024 16:42:04 +0800</pubDate>
-      <guid>https://0120012.xyz/tags/linux/</guid>
       <description></description>
     </item>
     <item>
@@ -212,7 +212,7 @@
       <description></description>
     </item>
     <item>
-      <title>CPP</title>
+      <title>Cpp</title>
       <link>https://0120012.xyz/tags/cpp/</link>
       <pubDate>Tue, 11 Apr 2023 18:07:17 +0800</pubDate>
       <guid>https://0120012.xyz/tags/cpp/</guid>
@@ -359,7 +359,7 @@
       <description></description>
     </item>
     <item>
-      <title>Macos</title>
+      <title>MacOS</title>
       <link>https://0120012.xyz/tags/macos/</link>
       <pubDate>Tue, 07 Sep 2021 20:25:48 +0800</pubDate>
       <guid>https://0120012.xyz/tags/macos/</guid>
