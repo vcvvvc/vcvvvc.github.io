@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Dell on VW Blog</title>
-    <link>https://vcvvvc.github.io/tags/dell/</link>
+    <link>https://0120012.xyz/tags/dell/</link>
     <description>Recent content in Dell on VW Blog</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Sun, 17 Jan 2021 13:19:24 +0800</lastBuildDate>
-    <atom:link href="https://vcvvvc.github.io/tags/dell/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://0120012.xyz/tags/dell/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Dell 灵越 7590 install macos Ventura</title>
-      <link>https://vcvvvc.github.io/post/dell7590_install_macos/</link>
+      <link>https://0120012.xyz/post/dell7590_install_macos/</link>
       <pubDate>Sun, 17 Jan 2021 13:19:24 +0800</pubDate>
-      <guid>https://vcvvvc.github.io/post/dell7590_install_macos/</guid>
+      <guid>https://0120012.xyz/post/dell7590_install_macos/</guid>
       <description>&lt;h2 id=&#34;2026-03-02更新&#34;&gt;2026-03-02更新&lt;/h2&gt;&#xA;&lt;p&gt;现在OC已经配置好了kext，可以直接用。&lt;/p&gt;&#xA;&lt;p&gt;蓝牙/wifi/hdmi可用，麦克风不可能，此问题无解。&lt;/p&gt;&#xA;&lt;h2 id=&#34;镜像下载&#34;&gt;镜像下载&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;搜素：黑果小兵&lt;/code&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;start&#34;&gt;Start&lt;/h2&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;//OC&#xA;https://github.com/vcvvvc/Dell-Inspiron-7590-Ventura-OpenCore.git&#xA;&#xA;//Diskgenius&#xA;官网自行下载最新版&#xA;&#xA;//balennaEther&#xA;官网自行下载最新版&#xA;&#xA;//OpenCore Configurator&#xA;OpenCore Configurator v26.69.0.1 支持OC v0.9.1&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;1. 打开OC文件夹 对应的1080p/4k文件需要改名为config.plist&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;2. balennaEther烧录dmg镜像文件到U盘&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;3. 打开Diskgenius 进入U盘的ESP分区文件夹 删除Clover文件夹 然后将OC文件夹拖入&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;4. 打开U盘ESP分区中的EFI 将Diskgenius程序文件夹拖进去 备用 以免出问题&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;提前准备好安装空间建议300g 至少200g&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;5. 用Diskgenius分ESP区 建议400m&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;6. 双系统 先安装好windows， 然后保存好windows efi&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;1. 重启F2 关闭Secure Boot安全启动 检查磁盘模式为ACHI 教程网络搜&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;2. 进入Boot Sequence &amp;lsquo;add option&amp;rsquo; 添加一个引导 选择启动文件为自己的U盘EFI(找到EFI/OC/OpenCore.efi这个文件)&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;3. 重启F12 选择刚才新建的启动项 选择Install mac Ventura&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;4. 选择磁盘工具先抹盘 选择你提前分好的空间 选择格式为APFS 抹不掉就先做成exft 再抹一次&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;5. 左上角退出磁盘工具继续安装 然后自动重启 再次选mac启动项&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
   </channel>
